@@ -47,6 +47,13 @@ import (
 //				Method:            pulumi.String("DELETE"),
 //				UrlTemplate:       pulumi.String("/users/{id}/delete"),
 //				Description:       pulumi.String("This can only be done by the logged in user."),
+//				TemplateParameters: apimanagement.ApiOperationTemplateParameterArray{
+//					&apimanagement.ApiOperationTemplateParameterArgs{
+//						Name:     pulumi.String("id"),
+//						Type:     pulumi.String("number"),
+//						Required: pulumi.Bool(true),
+//					},
+//				},
 //				Responses: apimanagement.ApiOperationResponseArray{
 //					&apimanagement.ApiOperationResponseArgs{
 //						StatusCode: pulumi.Int(200),

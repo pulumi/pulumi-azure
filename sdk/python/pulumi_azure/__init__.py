@@ -6873,6 +6873,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "networkfunction/collectorPolicy",
+  "fqn": "pulumi_azure.networkfunction",
+  "classes": {
+   "azure:networkfunction/collectorPolicy:CollectorPolicy": "CollectorPolicy"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "newrelic/monitor",
   "fqn": "pulumi_azure.newrelic",
   "classes": {

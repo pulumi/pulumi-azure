@@ -22,6 +22,12 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly Outputs.AppIngressCustomDomain? CustomDomain;
         /// <summary>
+        /// The exposed port on the container for the Ingress traffic.
+        /// 
+        /// &gt; **Note:** `exposed_port` can only be specified when `transport` is set to `tcp`.
+        /// </summary>
+        public readonly int? ExposedPort;
+        /// <summary>
         /// Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
         /// </summary>
         public readonly bool? ExternalEnabled;
@@ -40,7 +46,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AppIngressTrafficWeight> TrafficWeights;
         /// <summary>
-        /// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+        /// The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
         /// </summary>
         public readonly string? Transport;
 
@@ -49,6 +55,8 @@ namespace Pulumi.Azure.ContainerApp.Outputs
             bool? allowInsecureConnections,
 
             Outputs.AppIngressCustomDomain? customDomain,
+
+            int? exposedPort,
 
             bool? externalEnabled,
 
@@ -62,6 +70,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         {
             AllowInsecureConnections = allowInsecureConnections;
             CustomDomain = customDomain;
+            ExposedPort = exposedPort;
             ExternalEnabled = externalEnabled;
             Fqdn = fqdn;
             TargetPort = targetPort;

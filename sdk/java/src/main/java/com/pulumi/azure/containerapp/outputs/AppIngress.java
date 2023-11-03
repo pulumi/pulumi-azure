@@ -27,6 +27,13 @@ public final class AppIngress {
      */
     private @Nullable AppIngressCustomDomain customDomain;
     /**
+     * @return The exposed port on the container for the Ingress traffic.
+     * 
+     * &gt; **Note:** `exposed_port` can only be specified when `transport` is set to `tcp`.
+     * 
+     */
+    private @Nullable Integer exposedPort;
+    /**
      * @return Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
      * 
      */
@@ -49,7 +56,7 @@ public final class AppIngress {
      */
     private List<AppIngressTrafficWeight> trafficWeights;
     /**
-     * @return The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+     * @return The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
      * 
      */
     private @Nullable String transport;
@@ -68,6 +75,15 @@ public final class AppIngress {
      */
     public Optional<AppIngressCustomDomain> customDomain() {
         return Optional.ofNullable(this.customDomain);
+    }
+    /**
+     * @return The exposed port on the container for the Ingress traffic.
+     * 
+     * &gt; **Note:** `exposed_port` can only be specified when `transport` is set to `tcp`.
+     * 
+     */
+    public Optional<Integer> exposedPort() {
+        return Optional.ofNullable(this.exposedPort);
     }
     /**
      * @return Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
@@ -100,7 +116,7 @@ public final class AppIngress {
         return this.trafficWeights;
     }
     /**
-     * @return The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+     * @return The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
      * 
      */
     public Optional<String> transport() {
@@ -118,6 +134,7 @@ public final class AppIngress {
     public static final class Builder {
         private @Nullable Boolean allowInsecureConnections;
         private @Nullable AppIngressCustomDomain customDomain;
+        private @Nullable Integer exposedPort;
         private @Nullable Boolean externalEnabled;
         private @Nullable String fqdn;
         private Integer targetPort;
@@ -128,6 +145,7 @@ public final class AppIngress {
     	      Objects.requireNonNull(defaults);
     	      this.allowInsecureConnections = defaults.allowInsecureConnections;
     	      this.customDomain = defaults.customDomain;
+    	      this.exposedPort = defaults.exposedPort;
     	      this.externalEnabled = defaults.externalEnabled;
     	      this.fqdn = defaults.fqdn;
     	      this.targetPort = defaults.targetPort;
@@ -143,6 +161,11 @@ public final class AppIngress {
         @CustomType.Setter
         public Builder customDomain(@Nullable AppIngressCustomDomain customDomain) {
             this.customDomain = customDomain;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder exposedPort(@Nullable Integer exposedPort) {
+            this.exposedPort = exposedPort;
             return this;
         }
         @CustomType.Setter
@@ -177,6 +200,7 @@ public final class AppIngress {
             final var _resultValue = new AppIngress();
             _resultValue.allowInsecureConnections = allowInsecureConnections;
             _resultValue.customDomain = customDomain;
+            _resultValue.exposedPort = exposedPort;
             _resultValue.externalEnabled = externalEnabled;
             _resultValue.fqdn = fqdn;
             _resultValue.targetPort = targetPort;

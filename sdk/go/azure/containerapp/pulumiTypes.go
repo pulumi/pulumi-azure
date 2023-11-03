@@ -428,6 +428,10 @@ type AppIngress struct {
 	AllowInsecureConnections *bool `pulumi:"allowInsecureConnections"`
 	// One or more `customDomain` block as detailed below.
 	CustomDomain *AppIngressCustomDomain `pulumi:"customDomain"`
+	// The exposed port on the container for the Ingress traffic.
+	//
+	// > **Note:** `exposedPort` can only be specified when `transport` is set to `tcp`.
+	ExposedPort *int `pulumi:"exposedPort"`
 	// Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
 	ExternalEnabled *bool `pulumi:"externalEnabled"`
 	// The FQDN of the ingress.
@@ -438,7 +442,7 @@ type AppIngress struct {
 	//
 	// > **Note:** `trafficWeight` can only be specified when `revisionMode` is set to `Multiple`.
 	TrafficWeights []AppIngressTrafficWeight `pulumi:"trafficWeights"`
-	// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+	// The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
 	Transport *string `pulumi:"transport"`
 }
 
@@ -458,6 +462,10 @@ type AppIngressArgs struct {
 	AllowInsecureConnections pulumi.BoolPtrInput `pulumi:"allowInsecureConnections"`
 	// One or more `customDomain` block as detailed below.
 	CustomDomain AppIngressCustomDomainPtrInput `pulumi:"customDomain"`
+	// The exposed port on the container for the Ingress traffic.
+	//
+	// > **Note:** `exposedPort` can only be specified when `transport` is set to `tcp`.
+	ExposedPort pulumi.IntPtrInput `pulumi:"exposedPort"`
 	// Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
 	ExternalEnabled pulumi.BoolPtrInput `pulumi:"externalEnabled"`
 	// The FQDN of the ingress.
@@ -468,7 +476,7 @@ type AppIngressArgs struct {
 	//
 	// > **Note:** `trafficWeight` can only be specified when `revisionMode` is set to `Multiple`.
 	TrafficWeights AppIngressTrafficWeightArrayInput `pulumi:"trafficWeights"`
-	// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+	// The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
 	Transport pulumi.StringPtrInput `pulumi:"transport"`
 }
 
@@ -577,6 +585,13 @@ func (o AppIngressOutput) CustomDomain() AppIngressCustomDomainPtrOutput {
 	return o.ApplyT(func(v AppIngress) *AppIngressCustomDomain { return v.CustomDomain }).(AppIngressCustomDomainPtrOutput)
 }
 
+// The exposed port on the container for the Ingress traffic.
+//
+// > **Note:** `exposedPort` can only be specified when `transport` is set to `tcp`.
+func (o AppIngressOutput) ExposedPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AppIngress) *int { return v.ExposedPort }).(pulumi.IntPtrOutput)
+}
+
 // Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
 func (o AppIngressOutput) ExternalEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AppIngress) *bool { return v.ExternalEnabled }).(pulumi.BoolPtrOutput)
@@ -599,7 +614,7 @@ func (o AppIngressOutput) TrafficWeights() AppIngressTrafficWeightArrayOutput {
 	return o.ApplyT(func(v AppIngress) []AppIngressTrafficWeight { return v.TrafficWeights }).(AppIngressTrafficWeightArrayOutput)
 }
 
-// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+// The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
 func (o AppIngressOutput) Transport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppIngress) *string { return v.Transport }).(pulumi.StringPtrOutput)
 }
@@ -654,6 +669,18 @@ func (o AppIngressPtrOutput) CustomDomain() AppIngressCustomDomainPtrOutput {
 	}).(AppIngressCustomDomainPtrOutput)
 }
 
+// The exposed port on the container for the Ingress traffic.
+//
+// > **Note:** `exposedPort` can only be specified when `transport` is set to `tcp`.
+func (o AppIngressPtrOutput) ExposedPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *AppIngress) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ExposedPort
+	}).(pulumi.IntPtrOutput)
+}
+
 // Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
 func (o AppIngressPtrOutput) ExternalEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AppIngress) *bool {
@@ -696,7 +723,7 @@ func (o AppIngressPtrOutput) TrafficWeights() AppIngressTrafficWeightArrayOutput
 	}).(AppIngressTrafficWeightArrayOutput)
 }
 
-// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+// The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
 func (o AppIngressPtrOutput) Transport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppIngress) *string {
 		if v == nil {
@@ -4947,6 +4974,7 @@ type GetAppIngress struct {
 	AllowInsecureConnections bool `pulumi:"allowInsecureConnections"`
 	// One or more `customDomain` block as detailed below.
 	CustomDomains []GetAppIngressCustomDomain `pulumi:"customDomains"`
+	ExposedPort   int                         `pulumi:"exposedPort"`
 	// Is this an external Ingress.
 	ExternalEnabled bool `pulumi:"externalEnabled"`
 	// The FQDN of the ingress.
@@ -4975,6 +5003,7 @@ type GetAppIngressArgs struct {
 	AllowInsecureConnections pulumi.BoolInput `pulumi:"allowInsecureConnections"`
 	// One or more `customDomain` block as detailed below.
 	CustomDomains GetAppIngressCustomDomainArrayInput `pulumi:"customDomains"`
+	ExposedPort   pulumi.IntInput                     `pulumi:"exposedPort"`
 	// Is this an external Ingress.
 	ExternalEnabled pulumi.BoolInput `pulumi:"externalEnabled"`
 	// The FQDN of the ingress.
@@ -5064,6 +5093,10 @@ func (o GetAppIngressOutput) AllowInsecureConnections() pulumi.BoolOutput {
 // One or more `customDomain` block as detailed below.
 func (o GetAppIngressOutput) CustomDomains() GetAppIngressCustomDomainArrayOutput {
 	return o.ApplyT(func(v GetAppIngress) []GetAppIngressCustomDomain { return v.CustomDomains }).(GetAppIngressCustomDomainArrayOutput)
+}
+
+func (o GetAppIngressOutput) ExposedPort() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAppIngress) int { return v.ExposedPort }).(pulumi.IntOutput)
 }
 
 // Is this an external Ingress.

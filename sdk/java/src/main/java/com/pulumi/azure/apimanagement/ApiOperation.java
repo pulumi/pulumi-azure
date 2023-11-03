@@ -32,6 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.apimanagement.inputs.GetApiArgs;
  * import com.pulumi.azure.apimanagement.ApiOperation;
  * import com.pulumi.azure.apimanagement.ApiOperationArgs;
+ * import com.pulumi.azure.apimanagement.inputs.ApiOperationTemplateParameterArgs;
  * import com.pulumi.azure.apimanagement.inputs.ApiOperationResponseArgs;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -62,6 +63,11 @@ import javax.annotation.Nullable;
  *             .method(&#34;DELETE&#34;)
  *             .urlTemplate(&#34;/users/{id}/delete&#34;)
  *             .description(&#34;This can only be done by the logged in user.&#34;)
+ *             .templateParameters(ApiOperationTemplateParameterArgs.builder()
+ *                 .name(&#34;id&#34;)
+ *                 .type(&#34;number&#34;)
+ *                 .required(true)
+ *                 .build())
  *             .responses(ApiOperationResponseArgs.builder()
  *                 .statusCode(200)
  *                 .build())
@@ -209,14 +215,14 @@ public class ApiOperation extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.responses);
     }
     /**
-     * One or more `template_parameter` blocks as defined below.
+     * One or more `template_parameter` blocks as defined below.  Required if `url_template` contains one or more parameters.
      * 
      */
     @Export(name="templateParameters", refs={List.class,ApiOperationTemplateParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ApiOperationTemplateParameter>> templateParameters;
 
     /**
-     * @return One or more `template_parameter` blocks as defined below.
+     * @return One or more `template_parameter` blocks as defined below.  Required if `url_template` contains one or more parameters.
      * 
      */
     public Output<Optional<List<ApiOperationTemplateParameter>>> templateParameters() {

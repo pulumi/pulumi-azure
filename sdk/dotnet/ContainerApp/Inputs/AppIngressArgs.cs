@@ -25,6 +25,14 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         public Input<Inputs.AppIngressCustomDomainArgs>? CustomDomain { get; set; }
 
         /// <summary>
+        /// The exposed port on the container for the Ingress traffic.
+        /// 
+        /// &gt; **Note:** `exposed_port` can only be specified when `transport` is set to `tcp`.
+        /// </summary>
+        [Input("exposedPort")]
+        public Input<int>? ExposedPort { get; set; }
+
+        /// <summary>
         /// Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
         /// </summary>
         [Input("externalEnabled")]
@@ -57,7 +65,7 @@ namespace Pulumi.Azure.ContainerApp.Inputs
         }
 
         /// <summary>
-        /// The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+        /// The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
         /// </summary>
         [Input("transport")]
         public Input<string>? Transport { get; set; }

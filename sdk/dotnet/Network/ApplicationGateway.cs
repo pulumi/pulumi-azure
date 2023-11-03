@@ -47,16 +47,6 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var backend = new Azure.Network.Subnet("backend", new()
-    ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         AddressPrefixes = new[]
-    ///         {
-    ///             "10.254.2.0/24",
-    ///         },
-    ///     });
-    /// 
     ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,

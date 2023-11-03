@@ -86,6 +86,88 @@ import * as utilities from "../utilities";
  *     keyVaultKeyIds: [exampleKey.id],
  * });
  * ```
+ * ### With User Assigned Identity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleCluster = new azure.eventhub.Cluster("exampleCluster", {
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     skuName: "Dedicated_1",
+ * });
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     sku: "Standard",
+ *     dedicatedClusterId: exampleCluster.id,
+ *     identity: {
+ *         type: "UserAssigned",
+ *         identityIds: [exampleUserAssignedIdentity.id],
+ *     },
+ * });
+ * const current = azure.core.getClientConfig({});
+ * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "standard",
+ *     purgeProtectionEnabled: true,
+ * });
+ * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("exampleAccessPolicy", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: azurerm_user_assigned_identity.test.tenant_id,
+ *     objectId: azurerm_user_assigned_identity.test.principal_id,
+ *     keyPermissions: [
+ *         "Get",
+ *         "UnwrapKey",
+ *         "WrapKey",
+ *     ],
+ * });
+ * const example2 = new azure.keyvault.AccessPolicy("example2", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: current.then(current => current.tenantId),
+ *     objectId: current.then(current => current.objectId),
+ *     keyPermissions: [
+ *         "Create",
+ *         "Delete",
+ *         "Get",
+ *         "List",
+ *         "Purge",
+ *         "Recover",
+ *         "GetRotationPolicy",
+ *     ],
+ * });
+ * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyType: "RSA",
+ *     keySize: 2048,
+ *     keyOpts: [
+ *         "decrypt",
+ *         "encrypt",
+ *         "sign",
+ *         "unwrapKey",
+ *         "verify",
+ *         "wrapKey",
+ *     ],
+ * }, {
+ *     dependsOn: [
+ *         exampleAccessPolicy,
+ *         example2,
+ *     ],
+ * });
+ * const exampleNamespaceCustomerManagedKey = new azure.eventhub.NamespaceCustomerManagedKey("exampleNamespaceCustomerManagedKey", {
+ *     eventhubNamespaceId: exampleEventHubNamespace.id,
+ *     keyVaultKeyIds: [exampleKey.id],
+ *     userAssignedIdentityId: exampleUserAssignedIdentity.id,
+ * });
+ * ```
  *
  * ## Import
  *

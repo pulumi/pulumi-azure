@@ -90,6 +90,8 @@ class KubernetesClusterArgs:
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input['KubernetesClusterConfidentialComputingArgs'] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+               
+               > **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix_private_cluster: Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created.
@@ -446,6 +448,8 @@ class KubernetesClusterArgs:
     def custom_ca_trust_certificates_base64s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+
+        > **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
         """
         return pulumi.get(self, "custom_ca_trust_certificates_base64s")
 
@@ -1142,6 +1146,8 @@ class _KubernetesClusterState:
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input['KubernetesClusterConfidentialComputingArgs'] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+               
+               > **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolArgs'] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
@@ -1508,6 +1514,8 @@ class _KubernetesClusterState:
     def custom_ca_trust_certificates_base64s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+
+        > **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
         """
         return pulumi.get(self, "custom_ca_trust_certificates_base64s")
 
@@ -2380,6 +2388,8 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+               
+               > **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
@@ -2781,6 +2791,8 @@ class KubernetesCluster(pulumi.CustomResource):
         :param pulumi.Input[bool] azure_policy_enabled: Should the Azure Policy Add-On be enabled? For more details please visit [Understand Azure Policy for Azure Kubernetes Service](https://docs.microsoft.com/en-ie/azure/governance/policy/concepts/rego-for-aks)
         :param pulumi.Input[pulumi.InputType['KubernetesClusterConfidentialComputingArgs']] confidential_computing: A `confidential_computing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_ca_trust_certificates_base64s: A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+               
+               > **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['KubernetesClusterDefaultNodePoolArgs']] default_node_pool: A `default_node_pool` block as defined below.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used for the Nodes and Volumes. More information [can be found in the documentation](https://docs.microsoft.com/azure/aks/azure-disk-customer-managed-keys). Changing this forces a new resource to be created.
         :param pulumi.Input[str] dns_prefix: DNS prefix specified when creating the managed cluster. Possible values must begin and end with a letter or number, contain only letters, numbers, and hyphens and be between 1 and 54 characters in length. Changing this forces a new resource to be created.
@@ -3045,6 +3057,8 @@ class KubernetesCluster(pulumi.CustomResource):
     def custom_ca_trust_certificates_base64s(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+
+        > **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
         """
         return pulumi.get(self, "custom_ca_trust_certificates_base64s")
 

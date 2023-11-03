@@ -99,12 +99,6 @@ import javax.annotation.Nullable;
  *             .addressPrefixes(&#34;10.254.0.0/24&#34;)
  *             .build());
  * 
- *         var backend = new Subnet(&#34;backend&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .addressPrefixes(&#34;10.254.2.0/24&#34;)
- *             .build());
- * 
  *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())

@@ -14,11 +14,11 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterHttpProxyConfig
     {
         /// <summary>
-        /// The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
+        /// The proxy address to be used when communicating over HTTP.
         /// </summary>
         public readonly string? HttpProxy;
         /// <summary>
-        /// The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
+        /// The proxy address to be used when communicating over HTTPS.
         /// </summary>
         public readonly string? HttpsProxy;
         public readonly ImmutableArray<string> NoProxies;

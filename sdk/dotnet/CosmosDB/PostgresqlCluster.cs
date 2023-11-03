@@ -52,10 +52,10 @@ namespace Pulumi.Azure.CosmosDB
     public partial class PostgresqlCluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The password of the administrator login.
+        /// The password of the administrator login. This is required when `source_resource_id` is not set.
         /// </summary>
         [Output("administratorLoginPassword")]
-        public Output<string> AdministratorLoginPassword { get; private set; } = null!;
+        public Output<string?> AdministratorLoginPassword { get; private set; } = null!;
 
         /// <summary>
         /// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
@@ -247,11 +247,11 @@ namespace Pulumi.Azure.CosmosDB
 
     public sealed class PostgresqlClusterArgs : global::Pulumi.ResourceArgs
     {
-        [Input("administratorLoginPassword", required: true)]
+        [Input("administratorLoginPassword")]
         private Input<string>? _administratorLoginPassword;
 
         /// <summary>
-        /// The password of the administrator login.
+        /// The password of the administrator login. This is required when `source_resource_id` is not set.
         /// </summary>
         public Input<string>? AdministratorLoginPassword
         {
@@ -415,7 +415,7 @@ namespace Pulumi.Azure.CosmosDB
         private Input<string>? _administratorLoginPassword;
 
         /// <summary>
-        /// The password of the administrator login.
+        /// The password of the administrator login. This is required when `source_resource_id` is not set.
         /// </summary>
         public Input<string>? AdministratorLoginPassword
         {

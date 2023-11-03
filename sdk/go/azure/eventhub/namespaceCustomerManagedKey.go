@@ -141,6 +141,137 @@ import (
 //	}
 //
 // ```
+// ### With User Assigned Identity
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCluster, err := eventhub.NewCluster(ctx, "exampleCluster", &eventhub.ClusterArgs{
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          exampleResourceGroup.Location,
+//				SkuName:           pulumi.String("Dedicated_1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
+//				Location:           exampleResourceGroup.Location,
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				Sku:                pulumi.String("Standard"),
+//				DedicatedClusterId: exampleCluster.ID(),
+//				Identity: &eventhub.EventHubNamespaceIdentityArgs{
+//					Type: pulumi.String("UserAssigned"),
+//					IdentityIds: pulumi.StringArray{
+//						exampleUserAssignedIdentity.ID(),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			current, err := core.GetClientConfig(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//				Location:               exampleResourceGroup.Location,
+//				ResourceGroupName:      exampleResourceGroup.Name,
+//				TenantId:               *pulumi.String(current.TenantId),
+//				SkuName:                pulumi.String("standard"),
+//				PurgeProtectionEnabled: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccessPolicy, err := keyvault.NewAccessPolicy(ctx, "exampleAccessPolicy", &keyvault.AccessPolicyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				TenantId:   pulumi.Any(azurerm_user_assigned_identity.Test.Tenant_id),
+//				ObjectId:   pulumi.Any(azurerm_user_assigned_identity.Test.Principal_id),
+//				KeyPermissions: pulumi.StringArray{
+//					pulumi.String("Get"),
+//					pulumi.String("UnwrapKey"),
+//					pulumi.String("WrapKey"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example2, err := keyvault.NewAccessPolicy(ctx, "example2", &keyvault.AccessPolicyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				TenantId:   *pulumi.String(current.TenantId),
+//				ObjectId:   *pulumi.String(current.ObjectId),
+//				KeyPermissions: pulumi.StringArray{
+//					pulumi.String("Create"),
+//					pulumi.String("Delete"),
+//					pulumi.String("Get"),
+//					pulumi.String("List"),
+//					pulumi.String("Purge"),
+//					pulumi.String("Recover"),
+//					pulumi.String("GetRotationPolicy"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
+//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyType:    pulumi.String("RSA"),
+//				KeySize:    pulumi.Int(2048),
+//				KeyOpts: pulumi.StringArray{
+//					pulumi.String("decrypt"),
+//					pulumi.String("encrypt"),
+//					pulumi.String("sign"),
+//					pulumi.String("unwrapKey"),
+//					pulumi.String("verify"),
+//					pulumi.String("wrapKey"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				exampleAccessPolicy,
+//				example2,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = eventhub.NewNamespaceCustomerManagedKey(ctx, "exampleNamespaceCustomerManagedKey", &eventhub.NamespaceCustomerManagedKeyArgs{
+//				EventhubNamespaceId: exampleEventHubNamespace.ID(),
+//				KeyVaultKeyIds: pulumi.StringArray{
+//					exampleKey.ID(),
+//				},
+//				UserAssignedIdentityId: exampleUserAssignedIdentity.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

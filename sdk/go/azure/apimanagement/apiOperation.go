@@ -47,6 +47,13 @@ import (
 //				Method:            pulumi.String("DELETE"),
 //				UrlTemplate:       pulumi.String("/users/{id}/delete"),
 //				Description:       pulumi.String("This can only be done by the logged in user."),
+//				TemplateParameters: apimanagement.ApiOperationTemplateParameterArray{
+//					&apimanagement.ApiOperationTemplateParameterArgs{
+//						Name:     pulumi.String("id"),
+//						Type:     pulumi.String("number"),
+//						Required: pulumi.Bool(true),
+//					},
+//				},
 //				Responses: apimanagement.ApiOperationResponseArray{
 //					&apimanagement.ApiOperationResponseArgs{
 //						StatusCode: pulumi.Int(200),
@@ -92,7 +99,7 @@ type ApiOperation struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// One or more `response` blocks as defined below.
 	Responses ApiOperationResponseArrayOutput `pulumi:"responses"`
-	// One or more `templateParameter` blocks as defined below.
+	// One or more `templateParameter` blocks as defined below.  Required if `urlTemplate` contains one or more parameters.
 	TemplateParameters ApiOperationTemplateParameterArrayOutput `pulumi:"templateParameters"`
 	// The relative URL Template identifying the target resource for this operation, which may include parameters.
 	UrlTemplate pulumi.StringOutput `pulumi:"urlTemplate"`
@@ -167,7 +174,7 @@ type apiOperationState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// One or more `response` blocks as defined below.
 	Responses []ApiOperationResponse `pulumi:"responses"`
-	// One or more `templateParameter` blocks as defined below.
+	// One or more `templateParameter` blocks as defined below.  Required if `urlTemplate` contains one or more parameters.
 	TemplateParameters []ApiOperationTemplateParameter `pulumi:"templateParameters"`
 	// The relative URL Template identifying the target resource for this operation, which may include parameters.
 	UrlTemplate *string `pulumi:"urlTemplate"`
@@ -192,7 +199,7 @@ type ApiOperationState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// One or more `response` blocks as defined below.
 	Responses ApiOperationResponseArrayInput
-	// One or more `templateParameter` blocks as defined below.
+	// One or more `templateParameter` blocks as defined below.  Required if `urlTemplate` contains one or more parameters.
 	TemplateParameters ApiOperationTemplateParameterArrayInput
 	// The relative URL Template identifying the target resource for this operation, which may include parameters.
 	UrlTemplate pulumi.StringPtrInput
@@ -221,7 +228,7 @@ type apiOperationArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// One or more `response` blocks as defined below.
 	Responses []ApiOperationResponse `pulumi:"responses"`
-	// One or more `templateParameter` blocks as defined below.
+	// One or more `templateParameter` blocks as defined below.  Required if `urlTemplate` contains one or more parameters.
 	TemplateParameters []ApiOperationTemplateParameter `pulumi:"templateParameters"`
 	// The relative URL Template identifying the target resource for this operation, which may include parameters.
 	UrlTemplate string `pulumi:"urlTemplate"`
@@ -247,7 +254,7 @@ type ApiOperationArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// One or more `response` blocks as defined below.
 	Responses ApiOperationResponseArrayInput
-	// One or more `templateParameter` blocks as defined below.
+	// One or more `templateParameter` blocks as defined below.  Required if `urlTemplate` contains one or more parameters.
 	TemplateParameters ApiOperationTemplateParameterArrayInput
 	// The relative URL Template identifying the target resource for this operation, which may include parameters.
 	UrlTemplate pulumi.StringInput
@@ -409,7 +416,7 @@ func (o ApiOperationOutput) Responses() ApiOperationResponseArrayOutput {
 	return o.ApplyT(func(v *ApiOperation) ApiOperationResponseArrayOutput { return v.Responses }).(ApiOperationResponseArrayOutput)
 }
 
-// One or more `templateParameter` blocks as defined below.
+// One or more `templateParameter` blocks as defined below.  Required if `urlTemplate` contains one or more parameters.
 func (o ApiOperationOutput) TemplateParameters() ApiOperationTemplateParameterArrayOutput {
 	return o.ApplyT(func(v *ApiOperation) ApiOperationTemplateParameterArrayOutput { return v.TemplateParameters }).(ApiOperationTemplateParameterArrayOutput)
 }

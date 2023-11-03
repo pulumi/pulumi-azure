@@ -114,6 +114,8 @@ export class KubernetesCluster extends pulumi.CustomResource {
     public readonly confidentialComputing!: pulumi.Output<outputs.containerservice.KubernetesClusterConfidentialComputing | undefined>;
     /**
      * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
+     *
+     * > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
      */
     public readonly customCaTrustCertificatesBase64s!: pulumi.Output<string[] | undefined>;
     /**
@@ -616,6 +618,8 @@ export interface KubernetesClusterState {
     confidentialComputing?: pulumi.Input<inputs.containerservice.KubernetesClusterConfidentialComputing>;
     /**
      * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
+     *
+     * > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
      */
     customCaTrustCertificatesBase64s?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -958,6 +962,8 @@ export interface KubernetesClusterArgs {
     confidentialComputing?: pulumi.Input<inputs.containerservice.KubernetesClusterConfidentialComputing>;
     /**
      * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
+     *
+     * > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
      */
     customCaTrustCertificatesBase64s?: pulumi.Input<pulumi.Input<string>[]>;
     /**

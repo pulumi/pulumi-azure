@@ -31,6 +31,11 @@ public final class ManagementPolicyRuleActionsSnapshot {
      * 
      */
     private @Nullable Integer tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
+    /**
+     * @return The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+     * 
+     */
+    private @Nullable Integer tierToColdAfterDaysSinceCreationGreaterThan;
 
     private ManagementPolicyRuleActionsSnapshot() {}
     /**
@@ -61,6 +66,13 @@ public final class ManagementPolicyRuleActionsSnapshot {
     public Optional<Integer> tierToArchiveAfterDaysSinceLastTierChangeGreaterThan() {
         return Optional.ofNullable(this.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan);
     }
+    /**
+     * @return The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+     * 
+     */
+    public Optional<Integer> tierToColdAfterDaysSinceCreationGreaterThan() {
+        return Optional.ofNullable(this.tierToColdAfterDaysSinceCreationGreaterThan);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -75,6 +87,7 @@ public final class ManagementPolicyRuleActionsSnapshot {
         private @Nullable Integer changeTierToCoolAfterDaysSinceCreation;
         private @Nullable Integer deleteAfterDaysSinceCreationGreaterThan;
         private @Nullable Integer tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
+        private @Nullable Integer tierToColdAfterDaysSinceCreationGreaterThan;
         public Builder() {}
         public Builder(ManagementPolicyRuleActionsSnapshot defaults) {
     	      Objects.requireNonNull(defaults);
@@ -82,6 +95,7 @@ public final class ManagementPolicyRuleActionsSnapshot {
     	      this.changeTierToCoolAfterDaysSinceCreation = defaults.changeTierToCoolAfterDaysSinceCreation;
     	      this.deleteAfterDaysSinceCreationGreaterThan = defaults.deleteAfterDaysSinceCreationGreaterThan;
     	      this.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan = defaults.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
+    	      this.tierToColdAfterDaysSinceCreationGreaterThan = defaults.tierToColdAfterDaysSinceCreationGreaterThan;
         }
 
         @CustomType.Setter
@@ -104,12 +118,18 @@ public final class ManagementPolicyRuleActionsSnapshot {
             this.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
             return this;
         }
+        @CustomType.Setter
+        public Builder tierToColdAfterDaysSinceCreationGreaterThan(@Nullable Integer tierToColdAfterDaysSinceCreationGreaterThan) {
+            this.tierToColdAfterDaysSinceCreationGreaterThan = tierToColdAfterDaysSinceCreationGreaterThan;
+            return this;
+        }
         public ManagementPolicyRuleActionsSnapshot build() {
             final var _resultValue = new ManagementPolicyRuleActionsSnapshot();
             _resultValue.changeTierToArchiveAfterDaysSinceCreation = changeTierToArchiveAfterDaysSinceCreation;
             _resultValue.changeTierToCoolAfterDaysSinceCreation = changeTierToCoolAfterDaysSinceCreation;
             _resultValue.deleteAfterDaysSinceCreationGreaterThan = deleteAfterDaysSinceCreationGreaterThan;
             _resultValue.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
+            _resultValue.tierToColdAfterDaysSinceCreationGreaterThan = tierToColdAfterDaysSinceCreationGreaterThan;
             return _resultValue;
         }
     }

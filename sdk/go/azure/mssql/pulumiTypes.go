@@ -510,7 +510,7 @@ func (o DatabaseLongTermRetentionPolicyPtrOutput) YearlyRetention() pulumi.Strin
 type DatabaseShortTermRetentionPolicy struct {
 	// The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
 	BackupIntervalInHours *int `pulumi:"backupIntervalInHours"`
-	// Point In Time Restore configuration. Value has to be between `7` and `35`.
+	// Point In Time Restore configuration. Value has to be between `1` and `35`.
 	RetentionDays int `pulumi:"retentionDays"`
 }
 
@@ -528,7 +528,7 @@ type DatabaseShortTermRetentionPolicyInput interface {
 type DatabaseShortTermRetentionPolicyArgs struct {
 	// The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
 	BackupIntervalInHours pulumi.IntPtrInput `pulumi:"backupIntervalInHours"`
-	// Point In Time Restore configuration. Value has to be between `7` and `35`.
+	// Point In Time Restore configuration. Value has to be between `1` and `35`.
 	RetentionDays pulumi.IntInput `pulumi:"retentionDays"`
 }
 
@@ -632,7 +632,7 @@ func (o DatabaseShortTermRetentionPolicyOutput) BackupIntervalInHours() pulumi.I
 	return o.ApplyT(func(v DatabaseShortTermRetentionPolicy) *int { return v.BackupIntervalInHours }).(pulumi.IntPtrOutput)
 }
 
-// Point In Time Restore configuration. Value has to be between `7` and `35`.
+// Point In Time Restore configuration. Value has to be between `1` and `35`.
 func (o DatabaseShortTermRetentionPolicyOutput) RetentionDays() pulumi.IntOutput {
 	return o.ApplyT(func(v DatabaseShortTermRetentionPolicy) int { return v.RetentionDays }).(pulumi.IntOutput)
 }
@@ -677,7 +677,7 @@ func (o DatabaseShortTermRetentionPolicyPtrOutput) BackupIntervalInHours() pulum
 	}).(pulumi.IntPtrOutput)
 }
 
-// Point In Time Restore configuration. Value has to be between `7` and `35`.
+// Point In Time Restore configuration. Value has to be between `1` and `35`.
 func (o DatabaseShortTermRetentionPolicyPtrOutput) RetentionDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DatabaseShortTermRetentionPolicy) *int {
 		if v == nil {

@@ -75,6 +75,21 @@ public final class ManagementPolicyRuleActionsSnapshotArgs extends com.pulumi.re
         return Optional.ofNullable(this.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan);
     }
 
+    /**
+     * The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+     * 
+     */
+    @Import(name="tierToColdAfterDaysSinceCreationGreaterThan")
+    private @Nullable Output<Integer> tierToColdAfterDaysSinceCreationGreaterThan;
+
+    /**
+     * @return The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+     * 
+     */
+    public Optional<Output<Integer>> tierToColdAfterDaysSinceCreationGreaterThan() {
+        return Optional.ofNullable(this.tierToColdAfterDaysSinceCreationGreaterThan);
+    }
+
     private ManagementPolicyRuleActionsSnapshotArgs() {}
 
     private ManagementPolicyRuleActionsSnapshotArgs(ManagementPolicyRuleActionsSnapshotArgs $) {
@@ -82,6 +97,7 @@ public final class ManagementPolicyRuleActionsSnapshotArgs extends com.pulumi.re
         this.changeTierToCoolAfterDaysSinceCreation = $.changeTierToCoolAfterDaysSinceCreation;
         this.deleteAfterDaysSinceCreationGreaterThan = $.deleteAfterDaysSinceCreationGreaterThan;
         this.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan = $.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
+        this.tierToColdAfterDaysSinceCreationGreaterThan = $.tierToColdAfterDaysSinceCreationGreaterThan;
     }
 
     public static Builder builder() {
@@ -184,6 +200,27 @@ public final class ManagementPolicyRuleActionsSnapshotArgs extends com.pulumi.re
          */
         public Builder tierToArchiveAfterDaysSinceLastTierChangeGreaterThan(Integer tierToArchiveAfterDaysSinceLastTierChangeGreaterThan) {
             return tierToArchiveAfterDaysSinceLastTierChangeGreaterThan(Output.of(tierToArchiveAfterDaysSinceLastTierChangeGreaterThan));
+        }
+
+        /**
+         * @param tierToColdAfterDaysSinceCreationGreaterThan The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tierToColdAfterDaysSinceCreationGreaterThan(@Nullable Output<Integer> tierToColdAfterDaysSinceCreationGreaterThan) {
+            $.tierToColdAfterDaysSinceCreationGreaterThan = tierToColdAfterDaysSinceCreationGreaterThan;
+            return this;
+        }
+
+        /**
+         * @param tierToColdAfterDaysSinceCreationGreaterThan The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tierToColdAfterDaysSinceCreationGreaterThan(Integer tierToColdAfterDaysSinceCreationGreaterThan) {
+            return tierToColdAfterDaysSinceCreationGreaterThan(Output.of(tierToColdAfterDaysSinceCreationGreaterThan));
         }
 
         public ManagementPolicyRuleActionsSnapshotArgs build() {

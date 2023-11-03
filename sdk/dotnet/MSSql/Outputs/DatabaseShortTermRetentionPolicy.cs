@@ -18,7 +18,7 @@ namespace Pulumi.Azure.MSSql.Outputs
         /// </summary>
         public readonly int? BackupIntervalInHours;
         /// <summary>
-        /// Point In Time Restore configuration. Value has to be between `7` and `35`.
+        /// Point In Time Restore configuration. Value has to be between `1` and `35`.
         /// </summary>
         public readonly int RetentionDays;
 

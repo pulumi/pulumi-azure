@@ -1157,10 +1157,6 @@ class ApplicationGateway(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.254.0.0/24"])
-        backend = azure.network.Subnet("backend",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.254.2.0/24"])
         example_public_ip = azure.network.PublicIp("examplePublicIp",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
@@ -1289,10 +1285,6 @@ class ApplicationGateway(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.254.0.0/24"])
-        backend = azure.network.Subnet("backend",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=example_virtual_network.name,
-            address_prefixes=["10.254.2.0/24"])
         example_public_ip = azure.network.PublicIp("examplePublicIp",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,

@@ -15294,6 +15294,32 @@
                     }
                 }
             },
+            "azurerm_network_function_collector_policy": {
+                "current": "azure:networkfunction/collectorPolicy:CollectorPolicy",
+                "majorVersion": 5,
+                "fields": {
+                    "ipfx_emission": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "destination_types": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
+                    },
+                    "ipfx_ingestion": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "source_resource_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azurerm_network_interface": {
                 "current": "azure:network/networkInterface:NetworkInterface",
                 "majorVersion": 5,
@@ -30166,6 +30192,7 @@
             "azure:network/vpnServerConfigurationPolicyGroup:VpnServerConfigurationPolicyGroup": "azurerm_vpn_server_configuration_policy_group",
             "azure:network/vpnSite:VpnSite": "azurerm_vpn_site",
             "azure:networkfunction/azureTrafficCollector:AzureTrafficCollector": "azurerm_network_function_azure_traffic_collector",
+            "azure:networkfunction/collectorPolicy:CollectorPolicy": "azurerm_network_function_collector_policy",
             "azure:newrelic/monitor:Monitor": "azurerm_new_relic_monitor",
             "azure:newrelic/tagRule:TagRule": "azurerm_new_relic_tag_rule",
             "azure:nginx/certificate:Certificate": "azurerm_nginx_certificate",
@@ -40387,6 +40414,7 @@
             "azure:containerapp/AppIngress:AppIngress": {
                 "allowInsecureConnections": "allow_insecure_connections",
                 "customDomain": "custom_domain",
+                "exposedPort": "exposed_port",
                 "externalEnabled": "external_enabled",
                 "targetPort": "target_port",
                 "trafficWeights": "traffic_weight"
@@ -40559,6 +40587,7 @@
             "azure:containerapp/getAppIngress:getAppIngress": {
                 "allowInsecureConnections": "allow_insecure_connections",
                 "customDomains": "custom_domain",
+                "exposedPort": "exposed_port",
                 "externalEnabled": "external_enabled",
                 "targetPort": "target_port",
                 "trafficWeights": "traffic_weight"
@@ -52364,10 +52393,21 @@
                 "resourceGroupName": "resource_group_name",
                 "virtualWanId": "virtual_wan_id"
             },
+            "azure:networkfunction/CollectorPolicyIpfxEmission:CollectorPolicyIpfxEmission": {
+                "destinationTypes": "destination_types"
+            },
+            "azure:networkfunction/CollectorPolicyIpfxIngestion:CollectorPolicyIpfxIngestion": {
+                "sourceResourceIds": "source_resource_ids"
+            },
             "azure:networkfunction/azureTrafficCollector:AzureTrafficCollector": {
                 "collectorPolicyIds": "collector_policy_ids",
                 "resourceGroupName": "resource_group_name",
                 "virtualHubIds": "virtual_hub_id"
+            },
+            "azure:networkfunction/collectorPolicy:CollectorPolicy": {
+                "ipfxEmission": "ipfx_emission",
+                "ipfxIngestion": "ipfx_ingestion",
+                "trafficCollectorId": "traffic_collector_id"
             },
             "azure:newrelic/MonitorPlan:MonitorPlan": {
                 "billingCycle": "billing_cycle",
@@ -55147,6 +55187,9 @@
                 "tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan": "tier_to_archive_after_days_since_last_access_time_greater_than",
                 "tierToArchiveAfterDaysSinceLastTierChangeGreaterThan": "tier_to_archive_after_days_since_last_tier_change_greater_than",
                 "tierToArchiveAfterDaysSinceModificationGreaterThan": "tier_to_archive_after_days_since_modification_greater_than",
+                "tierToColdAfterDaysSinceCreationGreaterThan": "tier_to_cold_after_days_since_creation_greater_than",
+                "tierToColdAfterDaysSinceLastAccessTimeGreaterThan": "tier_to_cold_after_days_since_last_access_time_greater_than",
+                "tierToColdAfterDaysSinceModificationGreaterThan": "tier_to_cold_after_days_since_modification_greater_than",
                 "tierToCoolAfterDaysSinceCreationGreaterThan": "tier_to_cool_after_days_since_creation_greater_than",
                 "tierToCoolAfterDaysSinceLastAccessTimeGreaterThan": "tier_to_cool_after_days_since_last_access_time_greater_than",
                 "tierToCoolAfterDaysSinceModificationGreaterThan": "tier_to_cool_after_days_since_modification_greater_than"
@@ -55155,13 +55198,15 @@
                 "changeTierToArchiveAfterDaysSinceCreation": "change_tier_to_archive_after_days_since_creation",
                 "changeTierToCoolAfterDaysSinceCreation": "change_tier_to_cool_after_days_since_creation",
                 "deleteAfterDaysSinceCreationGreaterThan": "delete_after_days_since_creation_greater_than",
-                "tierToArchiveAfterDaysSinceLastTierChangeGreaterThan": "tier_to_archive_after_days_since_last_tier_change_greater_than"
+                "tierToArchiveAfterDaysSinceLastTierChangeGreaterThan": "tier_to_archive_after_days_since_last_tier_change_greater_than",
+                "tierToColdAfterDaysSinceCreationGreaterThan": "tier_to_cold_after_days_since_creation_greater_than"
             },
             "azure:storage/ManagementPolicyRuleActionsVersion:ManagementPolicyRuleActionsVersion": {
                 "changeTierToArchiveAfterDaysSinceCreation": "change_tier_to_archive_after_days_since_creation",
                 "changeTierToCoolAfterDaysSinceCreation": "change_tier_to_cool_after_days_since_creation",
                 "deleteAfterDaysSinceCreation": "delete_after_days_since_creation",
-                "tierToArchiveAfterDaysSinceLastTierChangeGreaterThan": "tier_to_archive_after_days_since_last_tier_change_greater_than"
+                "tierToArchiveAfterDaysSinceLastTierChangeGreaterThan": "tier_to_archive_after_days_since_last_tier_change_greater_than",
+                "tierToColdAfterDaysSinceCreationGreaterThan": "tier_to_cold_after_days_since_creation_greater_than"
             },
             "azure:storage/ManagementPolicyRuleFilters:ManagementPolicyRuleFilters": {
                 "blobTypes": "blob_types",
@@ -55410,6 +55455,9 @@
                 "tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan": "tier_to_archive_after_days_since_last_access_time_greater_than",
                 "tierToArchiveAfterDaysSinceLastTierChangeGreaterThan": "tier_to_archive_after_days_since_last_tier_change_greater_than",
                 "tierToArchiveAfterDaysSinceModificationGreaterThan": "tier_to_archive_after_days_since_modification_greater_than",
+                "tierToColdAfterDaysSinceCreationGreaterThan": "tier_to_cold_after_days_since_creation_greater_than",
+                "tierToColdAfterDaysSinceLastAccessTimeGreaterThan": "tier_to_cold_after_days_since_last_access_time_greater_than",
+                "tierToColdAfterDaysSinceModificationGreaterThan": "tier_to_cold_after_days_since_modification_greater_than",
                 "tierToCoolAfterDaysSinceCreationGreaterThan": "tier_to_cool_after_days_since_creation_greater_than",
                 "tierToCoolAfterDaysSinceLastAccessTimeGreaterThan": "tier_to_cool_after_days_since_last_access_time_greater_than",
                 "tierToCoolAfterDaysSinceModificationGreaterThan": "tier_to_cool_after_days_since_modification_greater_than"
@@ -55418,13 +55466,15 @@
                 "changeTierToArchiveAfterDaysSinceCreation": "change_tier_to_archive_after_days_since_creation",
                 "changeTierToCoolAfterDaysSinceCreation": "change_tier_to_cool_after_days_since_creation",
                 "deleteAfterDaysSinceCreationGreaterThan": "delete_after_days_since_creation_greater_than",
-                "tierToArchiveAfterDaysSinceLastTierChangeGreaterThan": "tier_to_archive_after_days_since_last_tier_change_greater_than"
+                "tierToArchiveAfterDaysSinceLastTierChangeGreaterThan": "tier_to_archive_after_days_since_last_tier_change_greater_than",
+                "tierToColdAfterDaysSinceCreationGreaterThan": "tier_to_cold_after_days_since_creation_greater_than"
             },
             "azure:storage/getPolicyRuleActionVersion:getPolicyRuleActionVersion": {
                 "changeTierToArchiveAfterDaysSinceCreation": "change_tier_to_archive_after_days_since_creation",
                 "changeTierToCoolAfterDaysSinceCreation": "change_tier_to_cool_after_days_since_creation",
                 "deleteAfterDaysSinceCreation": "delete_after_days_since_creation",
-                "tierToArchiveAfterDaysSinceLastTierChangeGreaterThan": "tier_to_archive_after_days_since_last_tier_change_greater_than"
+                "tierToArchiveAfterDaysSinceLastTierChangeGreaterThan": "tier_to_archive_after_days_since_last_tier_change_greater_than",
+                "tierToColdAfterDaysSinceCreationGreaterThan": "tier_to_cold_after_days_since_creation_greater_than"
             },
             "azure:storage/getPolicyRuleFilter:getPolicyRuleFilter": {
                 "blobTypes": "blob_types",

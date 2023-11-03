@@ -20,14 +20,14 @@ public final class PostgresqlClusterState extends com.pulumi.resources.ResourceA
     public static final PostgresqlClusterState Empty = new PostgresqlClusterState();
 
     /**
-     * The password of the administrator login.
+     * The password of the administrator login. This is required when `source_resource_id` is not set.
      * 
      */
     @Import(name="administratorLoginPassword")
     private @Nullable Output<String> administratorLoginPassword;
 
     /**
-     * @return The password of the administrator login.
+     * @return The password of the administrator login. This is required when `source_resource_id` is not set.
      * 
      */
     public Optional<Output<String>> administratorLoginPassword() {
@@ -431,7 +431,7 @@ public final class PostgresqlClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param administratorLoginPassword The password of the administrator login.
+         * @param administratorLoginPassword The password of the administrator login. This is required when `source_resource_id` is not set.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class PostgresqlClusterState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param administratorLoginPassword The password of the administrator login.
+         * @param administratorLoginPassword The password of the administrator login. This is required when `source_resource_id` is not set.
          * 
          * @return builder
          * 

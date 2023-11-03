@@ -58,16 +58,6 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewSubnet(ctx, "backend", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
-//				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				AddressPrefixes: pulumi.StringArray{
-//					pulumi.String("10.254.2.0/24"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,

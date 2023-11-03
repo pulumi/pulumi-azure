@@ -4774,8 +4774,8 @@ class KubernetesClusterHttpProxyConfigArgs:
                  no_proxies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  trusted_ca: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] http_proxy: The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
-        :param pulumi.Input[str] https_proxy: The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] http_proxy: The proxy address to be used when communicating over HTTP.
+        :param pulumi.Input[str] https_proxy: The proxy address to be used when communicating over HTTPS.
         :param pulumi.Input[str] trusted_ca: The base64 encoded alternative CA certificate content in PEM format.
         """
         if http_proxy is not None:
@@ -4791,7 +4791,7 @@ class KubernetesClusterHttpProxyConfigArgs:
     @pulumi.getter(name="httpProxy")
     def http_proxy(self) -> Optional[pulumi.Input[str]]:
         """
-        The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
+        The proxy address to be used when communicating over HTTP.
         """
         return pulumi.get(self, "http_proxy")
 
@@ -4803,7 +4803,7 @@ class KubernetesClusterHttpProxyConfigArgs:
     @pulumi.getter(name="httpsProxy")
     def https_proxy(self) -> Optional[pulumi.Input[str]]:
         """
-        The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
+        The proxy address to be used when communicating over HTTPS.
         """
         return pulumi.get(self, "https_proxy")
 

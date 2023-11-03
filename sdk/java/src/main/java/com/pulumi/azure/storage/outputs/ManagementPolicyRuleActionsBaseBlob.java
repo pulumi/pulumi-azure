@@ -61,6 +61,23 @@ public final class ManagementPolicyRuleActionsBaseBlob {
      */
     private @Nullable Integer tierToArchiveAfterDaysSinceModificationGreaterThan;
     /**
+     * @return The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+     * 
+     * &gt; **Note:** The `tier_to_cool_after_days_since_modification_greater_than`, `tier_to_cool_after_days_since_last_access_time_greater_than` and `tier_to_cool_after_days_since_creation_greater_than` can not be set at the same time.
+     * 
+     */
+    private @Nullable Integer tierToColdAfterDaysSinceCreationGreaterThan;
+    /**
+     * @return The age in days after last access time to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+     * 
+     */
+    private @Nullable Integer tierToColdAfterDaysSinceLastAccessTimeGreaterThan;
+    /**
+     * @return The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
+     * 
+     */
+    private @Nullable Integer tierToColdAfterDaysSinceModificationGreaterThan;
+    /**
      * @return The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      * &gt; **Note:** The `tier_to_cool_after_days_since_modification_greater_than`, `tier_to_cool_after_days_since_last_access_time_greater_than` and `tier_to_cool_after_days_since_creation_greater_than` can not be set at the same time.
@@ -144,6 +161,29 @@ public final class ManagementPolicyRuleActionsBaseBlob {
         return Optional.ofNullable(this.tierToArchiveAfterDaysSinceModificationGreaterThan);
     }
     /**
+     * @return The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+     * 
+     * &gt; **Note:** The `tier_to_cool_after_days_since_modification_greater_than`, `tier_to_cool_after_days_since_last_access_time_greater_than` and `tier_to_cool_after_days_since_creation_greater_than` can not be set at the same time.
+     * 
+     */
+    public Optional<Integer> tierToColdAfterDaysSinceCreationGreaterThan() {
+        return Optional.ofNullable(this.tierToColdAfterDaysSinceCreationGreaterThan);
+    }
+    /**
+     * @return The age in days after last access time to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+     * 
+     */
+    public Optional<Integer> tierToColdAfterDaysSinceLastAccessTimeGreaterThan() {
+        return Optional.ofNullable(this.tierToColdAfterDaysSinceLastAccessTimeGreaterThan);
+    }
+    /**
+     * @return The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
+     * 
+     */
+    public Optional<Integer> tierToColdAfterDaysSinceModificationGreaterThan() {
+        return Optional.ofNullable(this.tierToColdAfterDaysSinceModificationGreaterThan);
+    }
+    /**
      * @return The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
      * 
      * &gt; **Note:** The `tier_to_cool_after_days_since_modification_greater_than`, `tier_to_cool_after_days_since_last_access_time_greater_than` and `tier_to_cool_after_days_since_creation_greater_than` can not be set at the same time.
@@ -184,6 +224,9 @@ public final class ManagementPolicyRuleActionsBaseBlob {
         private @Nullable Integer tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
         private @Nullable Integer tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
         private @Nullable Integer tierToArchiveAfterDaysSinceModificationGreaterThan;
+        private @Nullable Integer tierToColdAfterDaysSinceCreationGreaterThan;
+        private @Nullable Integer tierToColdAfterDaysSinceLastAccessTimeGreaterThan;
+        private @Nullable Integer tierToColdAfterDaysSinceModificationGreaterThan;
         private @Nullable Integer tierToCoolAfterDaysSinceCreationGreaterThan;
         private @Nullable Integer tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
         private @Nullable Integer tierToCoolAfterDaysSinceModificationGreaterThan;
@@ -198,6 +241,9 @@ public final class ManagementPolicyRuleActionsBaseBlob {
     	      this.tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan = defaults.tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
     	      this.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan = defaults.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
     	      this.tierToArchiveAfterDaysSinceModificationGreaterThan = defaults.tierToArchiveAfterDaysSinceModificationGreaterThan;
+    	      this.tierToColdAfterDaysSinceCreationGreaterThan = defaults.tierToColdAfterDaysSinceCreationGreaterThan;
+    	      this.tierToColdAfterDaysSinceLastAccessTimeGreaterThan = defaults.tierToColdAfterDaysSinceLastAccessTimeGreaterThan;
+    	      this.tierToColdAfterDaysSinceModificationGreaterThan = defaults.tierToColdAfterDaysSinceModificationGreaterThan;
     	      this.tierToCoolAfterDaysSinceCreationGreaterThan = defaults.tierToCoolAfterDaysSinceCreationGreaterThan;
     	      this.tierToCoolAfterDaysSinceLastAccessTimeGreaterThan = defaults.tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
     	      this.tierToCoolAfterDaysSinceModificationGreaterThan = defaults.tierToCoolAfterDaysSinceModificationGreaterThan;
@@ -244,6 +290,21 @@ public final class ManagementPolicyRuleActionsBaseBlob {
             return this;
         }
         @CustomType.Setter
+        public Builder tierToColdAfterDaysSinceCreationGreaterThan(@Nullable Integer tierToColdAfterDaysSinceCreationGreaterThan) {
+            this.tierToColdAfterDaysSinceCreationGreaterThan = tierToColdAfterDaysSinceCreationGreaterThan;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tierToColdAfterDaysSinceLastAccessTimeGreaterThan(@Nullable Integer tierToColdAfterDaysSinceLastAccessTimeGreaterThan) {
+            this.tierToColdAfterDaysSinceLastAccessTimeGreaterThan = tierToColdAfterDaysSinceLastAccessTimeGreaterThan;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tierToColdAfterDaysSinceModificationGreaterThan(@Nullable Integer tierToColdAfterDaysSinceModificationGreaterThan) {
+            this.tierToColdAfterDaysSinceModificationGreaterThan = tierToColdAfterDaysSinceModificationGreaterThan;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tierToCoolAfterDaysSinceCreationGreaterThan(@Nullable Integer tierToCoolAfterDaysSinceCreationGreaterThan) {
             this.tierToCoolAfterDaysSinceCreationGreaterThan = tierToCoolAfterDaysSinceCreationGreaterThan;
             return this;
@@ -268,6 +329,9 @@ public final class ManagementPolicyRuleActionsBaseBlob {
             _resultValue.tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan = tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
             _resultValue.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
             _resultValue.tierToArchiveAfterDaysSinceModificationGreaterThan = tierToArchiveAfterDaysSinceModificationGreaterThan;
+            _resultValue.tierToColdAfterDaysSinceCreationGreaterThan = tierToColdAfterDaysSinceCreationGreaterThan;
+            _resultValue.tierToColdAfterDaysSinceLastAccessTimeGreaterThan = tierToColdAfterDaysSinceLastAccessTimeGreaterThan;
+            _resultValue.tierToColdAfterDaysSinceModificationGreaterThan = tierToColdAfterDaysSinceModificationGreaterThan;
             _resultValue.tierToCoolAfterDaysSinceCreationGreaterThan = tierToCoolAfterDaysSinceCreationGreaterThan;
             _resultValue.tierToCoolAfterDaysSinceLastAccessTimeGreaterThan = tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
             _resultValue.tierToCoolAfterDaysSinceModificationGreaterThan = tierToCoolAfterDaysSinceModificationGreaterThan;

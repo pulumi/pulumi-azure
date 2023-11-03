@@ -24,6 +24,7 @@ public final class GetAppIngress {
      * 
      */
     private List<GetAppIngressCustomDomain> customDomains;
+    private Integer exposedPort;
     /**
      * @return Is this an external Ingress.
      * 
@@ -64,6 +65,9 @@ public final class GetAppIngress {
      */
     public List<GetAppIngressCustomDomain> customDomains() {
         return this.customDomains;
+    }
+    public Integer exposedPort() {
+        return this.exposedPort;
     }
     /**
      * @return Is this an external Ingress.
@@ -112,6 +116,7 @@ public final class GetAppIngress {
     public static final class Builder {
         private Boolean allowInsecureConnections;
         private List<GetAppIngressCustomDomain> customDomains;
+        private Integer exposedPort;
         private Boolean externalEnabled;
         private String fqdn;
         private Integer targetPort;
@@ -122,6 +127,7 @@ public final class GetAppIngress {
     	      Objects.requireNonNull(defaults);
     	      this.allowInsecureConnections = defaults.allowInsecureConnections;
     	      this.customDomains = defaults.customDomains;
+    	      this.exposedPort = defaults.exposedPort;
     	      this.externalEnabled = defaults.externalEnabled;
     	      this.fqdn = defaults.fqdn;
     	      this.targetPort = defaults.targetPort;
@@ -141,6 +147,11 @@ public final class GetAppIngress {
         }
         public Builder customDomains(GetAppIngressCustomDomain... customDomains) {
             return customDomains(List.of(customDomains));
+        }
+        @CustomType.Setter
+        public Builder exposedPort(Integer exposedPort) {
+            this.exposedPort = Objects.requireNonNull(exposedPort);
+            return this;
         }
         @CustomType.Setter
         public Builder externalEnabled(Boolean externalEnabled) {
@@ -174,6 +185,7 @@ public final class GetAppIngress {
             final var _resultValue = new GetAppIngress();
             _resultValue.allowInsecureConnections = allowInsecureConnections;
             _resultValue.customDomains = customDomains;
+            _resultValue.exposedPort = exposedPort;
             _resultValue.externalEnabled = externalEnabled;
             _resultValue.fqdn = fqdn;
             _resultValue.targetPort = targetPort;

@@ -31,14 +31,14 @@ public final class DatabaseShortTermRetentionPolicyArgs extends com.pulumi.resou
     }
 
     /**
-     * Point In Time Restore configuration. Value has to be between `7` and `35`.
+     * Point In Time Restore configuration. Value has to be between `1` and `35`.
      * 
      */
     @Import(name="retentionDays", required=true)
     private Output<Integer> retentionDays;
 
     /**
-     * @return Point In Time Restore configuration. Value has to be between `7` and `35`.
+     * @return Point In Time Restore configuration. Value has to be between `1` and `35`.
      * 
      */
     public Output<Integer> retentionDays() {
@@ -92,7 +92,7 @@ public final class DatabaseShortTermRetentionPolicyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param retentionDays Point In Time Restore configuration. Value has to be between `7` and `35`.
+         * @param retentionDays Point In Time Restore configuration. Value has to be between `1` and `35`.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class DatabaseShortTermRetentionPolicyArgs extends com.pulumi.resou
         }
 
         /**
-         * @param retentionDays Point In Time Restore configuration. Value has to be between `7` and `35`.
+         * @param retentionDays Point In Time Restore configuration. Value has to be between `1` and `35`.
          * 
          * @return builder
          * 

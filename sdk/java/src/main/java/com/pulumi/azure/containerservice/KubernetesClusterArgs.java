@@ -184,12 +184,16 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     /**
      * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
      * 
+     * &gt; **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
+     * 
      */
     @Import(name="customCaTrustCertificatesBase64s")
     private @Nullable Output<List<String>> customCaTrustCertificatesBase64s;
 
     /**
      * @return A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+     * 
+     * &gt; **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
      * 
      */
     public Optional<Output<List<String>>> customCaTrustCertificatesBase64s() {
@@ -1391,6 +1395,8 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param customCaTrustCertificatesBase64s A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
          * 
+         * &gt; **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
+         * 
          * @return builder
          * 
          */
@@ -1402,6 +1408,8 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param customCaTrustCertificatesBase64s A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
          * 
+         * &gt; **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
+         * 
          * @return builder
          * 
          */
@@ -1411,6 +1419,8 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param customCaTrustCertificatesBase64s A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+         * 
+         * &gt; **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
          * 
          * @return builder
          * 

@@ -139,7 +139,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### With User Assigned Identity
- * 
  * ```java
  * package generated_program;
  * 
@@ -258,7 +257,7 @@ import javax.annotation.Nullable;
  *         var exampleNamespaceCustomerManagedKey = new NamespaceCustomerManagedKey(&#34;exampleNamespaceCustomerManagedKey&#34;, NamespaceCustomerManagedKeyArgs.builder()        
  *             .eventhubNamespaceId(exampleEventHubNamespace.id())
  *             .keyVaultKeyIds(exampleKey.id())
- *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .userAssignedIdentityId(exampleUserAssignedIdentity.id())
  *             .build());
  * 
  *     }

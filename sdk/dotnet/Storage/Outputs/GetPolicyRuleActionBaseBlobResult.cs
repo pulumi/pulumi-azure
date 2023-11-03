@@ -46,6 +46,18 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly int TierToArchiveAfterDaysSinceModificationGreaterThan;
         /// <summary>
+        /// Optional The age in days after creation to cold storage. Supports blob currently at Hot tier.
+        /// </summary>
+        public readonly int TierToColdAfterDaysSinceCreationGreaterThan;
+        /// <summary>
+        /// The age in days after last access time to tier blobs to cold storage. Supports blob currently at Hot tier.
+        /// </summary>
+        public readonly int TierToColdAfterDaysSinceLastAccessTimeGreaterThan;
+        /// <summary>
+        /// The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier.
+        /// </summary>
+        public readonly int TierToColdAfterDaysSinceModificationGreaterThan;
+        /// <summary>
         /// Optional The age in days after creation to cool storage. Supports blob currently at Hot tier.
         /// </summary>
         public readonly int TierToCoolAfterDaysSinceCreationGreaterThan;
@@ -76,6 +88,12 @@ namespace Pulumi.Azure.Storage.Outputs
 
             int tierToArchiveAfterDaysSinceModificationGreaterThan,
 
+            int tierToColdAfterDaysSinceCreationGreaterThan,
+
+            int tierToColdAfterDaysSinceLastAccessTimeGreaterThan,
+
+            int tierToColdAfterDaysSinceModificationGreaterThan,
+
             int tierToCoolAfterDaysSinceCreationGreaterThan,
 
             int tierToCoolAfterDaysSinceLastAccessTimeGreaterThan,
@@ -90,6 +108,9 @@ namespace Pulumi.Azure.Storage.Outputs
             TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan = tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
             TierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
             TierToArchiveAfterDaysSinceModificationGreaterThan = tierToArchiveAfterDaysSinceModificationGreaterThan;
+            TierToColdAfterDaysSinceCreationGreaterThan = tierToColdAfterDaysSinceCreationGreaterThan;
+            TierToColdAfterDaysSinceLastAccessTimeGreaterThan = tierToColdAfterDaysSinceLastAccessTimeGreaterThan;
+            TierToColdAfterDaysSinceModificationGreaterThan = tierToColdAfterDaysSinceModificationGreaterThan;
             TierToCoolAfterDaysSinceCreationGreaterThan = tierToCoolAfterDaysSinceCreationGreaterThan;
             TierToCoolAfterDaysSinceLastAccessTimeGreaterThan = tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
             TierToCoolAfterDaysSinceModificationGreaterThan = tierToCoolAfterDaysSinceModificationGreaterThan;

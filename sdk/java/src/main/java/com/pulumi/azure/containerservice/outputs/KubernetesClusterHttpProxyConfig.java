@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class KubernetesClusterHttpProxyConfig {
     /**
-     * @return The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
+     * @return The proxy address to be used when communicating over HTTP.
      * 
      */
     private @Nullable String httpProxy;
     /**
-     * @return The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
+     * @return The proxy address to be used when communicating over HTTPS.
      * 
      */
     private @Nullable String httpsProxy;
@@ -31,14 +31,14 @@ public final class KubernetesClusterHttpProxyConfig {
 
     private KubernetesClusterHttpProxyConfig() {}
     /**
-     * @return The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
+     * @return The proxy address to be used when communicating over HTTP.
      * 
      */
     public Optional<String> httpProxy() {
         return Optional.ofNullable(this.httpProxy);
     }
     /**
-     * @return The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
+     * @return The proxy address to be used when communicating over HTTPS.
      * 
      */
     public Optional<String> httpsProxy() {
