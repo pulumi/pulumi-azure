@@ -21,6 +21,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// One or more `custom_domain` block as detailed below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetAppIngressCustomDomainResult> CustomDomains;
+        public readonly int ExposedPort;
         /// <summary>
         /// Is this an external Ingress.
         /// </summary>
@@ -48,6 +49,8 @@ namespace Pulumi.Azure.ContainerApp.Outputs
 
             ImmutableArray<Outputs.GetAppIngressCustomDomainResult> customDomains,
 
+            int exposedPort,
+
             bool externalEnabled,
 
             string fqdn,
@@ -60,6 +63,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         {
             AllowInsecureConnections = allowInsecureConnections;
             CustomDomains = customDomains;
+            ExposedPort = exposedPort;
             ExternalEnabled = externalEnabled;
             Fqdn = fqdn;
             TargetPort = targetPort;

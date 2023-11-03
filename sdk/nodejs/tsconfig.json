@@ -1186,6 +1186,7 @@
         "network/vpnServerConfigurationPolicyGroup.ts",
         "network/vpnSite.ts",
         "networkfunction/azureTrafficCollector.ts",
+        "networkfunction/collectorPolicy.ts",
         "networkfunction/index.ts",
         "newrelic/index.ts",
         "newrelic/monitor.ts",

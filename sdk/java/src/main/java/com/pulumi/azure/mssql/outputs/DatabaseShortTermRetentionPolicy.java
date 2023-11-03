@@ -17,7 +17,7 @@ public final class DatabaseShortTermRetentionPolicy {
      */
     private @Nullable Integer backupIntervalInHours;
     /**
-     * @return Point In Time Restore configuration. Value has to be between `7` and `35`.
+     * @return Point In Time Restore configuration. Value has to be between `1` and `35`.
      * 
      */
     private Integer retentionDays;
@@ -31,7 +31,7 @@ public final class DatabaseShortTermRetentionPolicy {
         return Optional.ofNullable(this.backupIntervalInHours);
     }
     /**
-     * @return Point In Time Restore configuration. Value has to be between `7` and `35`.
+     * @return Point In Time Restore configuration. Value has to be between `1` and `35`.
      * 
      */
     public Integer retentionDays() {

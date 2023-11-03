@@ -28,6 +28,11 @@ import * as utilities from "../utilities";
  *     method: "DELETE",
  *     urlTemplate: "/users/{id}/delete",
  *     description: "This can only be done by the logged in user.",
+ *     templateParameters: [{
+ *         name: "id",
+ *         type: "number",
+ *         required: true,
+ *     }],
  *     responses: [{
  *         statusCode: 200,
  *     }],

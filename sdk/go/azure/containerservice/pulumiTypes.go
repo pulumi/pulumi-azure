@@ -10202,9 +10202,9 @@ func (o KubernetesClusterExtensionPlanPtrOutput) Version() pulumi.StringPtrOutpu
 }
 
 type KubernetesClusterHttpProxyConfig struct {
-	// The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
+	// The proxy address to be used when communicating over HTTP.
 	HttpProxy *string `pulumi:"httpProxy"`
-	// The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
+	// The proxy address to be used when communicating over HTTPS.
 	HttpsProxy *string  `pulumi:"httpsProxy"`
 	NoProxies  []string `pulumi:"noProxies"`
 	// The base64 encoded alternative CA certificate content in PEM format.
@@ -10223,9 +10223,9 @@ type KubernetesClusterHttpProxyConfigInput interface {
 }
 
 type KubernetesClusterHttpProxyConfigArgs struct {
-	// The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
+	// The proxy address to be used when communicating over HTTP.
 	HttpProxy pulumi.StringPtrInput `pulumi:"httpProxy"`
-	// The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
+	// The proxy address to be used when communicating over HTTPS.
 	HttpsProxy pulumi.StringPtrInput   `pulumi:"httpsProxy"`
 	NoProxies  pulumi.StringArrayInput `pulumi:"noProxies"`
 	// The base64 encoded alternative CA certificate content in PEM format.
@@ -10327,12 +10327,12 @@ func (o KubernetesClusterHttpProxyConfigOutput) ToOutput(ctx context.Context) pu
 	}
 }
 
-// The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
+// The proxy address to be used when communicating over HTTP.
 func (o KubernetesClusterHttpProxyConfigOutput) HttpProxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterHttpProxyConfig) *string { return v.HttpProxy }).(pulumi.StringPtrOutput)
 }
 
-// The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
+// The proxy address to be used when communicating over HTTPS.
 func (o KubernetesClusterHttpProxyConfigOutput) HttpsProxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterHttpProxyConfig) *string { return v.HttpsProxy }).(pulumi.StringPtrOutput)
 }
@@ -10376,7 +10376,7 @@ func (o KubernetesClusterHttpProxyConfigPtrOutput) Elem() KubernetesClusterHttpP
 	}).(KubernetesClusterHttpProxyConfigOutput)
 }
 
-// The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
+// The proxy address to be used when communicating over HTTP.
 func (o KubernetesClusterHttpProxyConfigPtrOutput) HttpProxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterHttpProxyConfig) *string {
 		if v == nil {
@@ -10386,7 +10386,7 @@ func (o KubernetesClusterHttpProxyConfigPtrOutput) HttpProxy() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
+// The proxy address to be used when communicating over HTTPS.
 func (o KubernetesClusterHttpProxyConfigPtrOutput) HttpsProxy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterHttpProxyConfig) *string {
 		if v == nil {

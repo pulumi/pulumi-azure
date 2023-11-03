@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:networkfunction/azureTrafficCollector:AzureTrafficCollector":
 		r = &AzureTrafficCollector{}
+	case "azure:networkfunction/collectorPolicy:CollectorPolicy":
+		r = &CollectorPolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"networkfunction/azureTrafficCollector",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"networkfunction/collectorPolicy",
 		&module{version},
 	)
 }

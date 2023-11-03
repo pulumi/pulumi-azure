@@ -16,11 +16,11 @@ __all__ = ['PostgresqlClusterArgs', 'PostgresqlCluster']
 @pulumi.input_type
 class PostgresqlClusterArgs:
     def __init__(__self__, *,
-                 administrator_login_password: pulumi.Input[str],
                  coordinator_storage_quota_in_mb: pulumi.Input[int],
                  coordinator_vcore_count: pulumi.Input[int],
                  node_count: pulumi.Input[int],
                  resource_group_name: pulumi.Input[str],
+                 administrator_login_password: Optional[pulumi.Input[str]] = None,
                  citus_version: Optional[pulumi.Input[str]] = None,
                  coordinator_public_ip_access_enabled: Optional[pulumi.Input[bool]] = None,
                  coordinator_server_edition: Optional[pulumi.Input[str]] = None,
@@ -41,13 +41,13 @@ class PostgresqlClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PostgresqlCluster resource.
-        :param pulumi.Input[str] administrator_login_password: The password of the administrator login.
         :param pulumi.Input[int] coordinator_storage_quota_in_mb: The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`.
                
                > **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute)
         :param pulumi.Input[int] coordinator_vcore_count: The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`.
         :param pulumi.Input[int] node_count: The worker node count of the Azure Cosmos DB for PostgreSQL Cluster. Possible value is between `0` and `20` except `1`.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Azure Cosmos DB for PostgreSQL Cluster should exist. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] administrator_login_password: The password of the administrator login. This is required when `source_resource_id` is not set.
         :param pulumi.Input[str] citus_version: The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
         :param pulumi.Input[bool] coordinator_public_ip_access_enabled: Is public access enabled on coordinator? Defaults to `true`.
         :param pulumi.Input[str] coordinator_server_edition: The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
@@ -67,11 +67,12 @@ class PostgresqlClusterArgs:
         :param pulumi.Input[str] sql_version: The major PostgreSQL version on the Azure Cosmos DB for PostgreSQL cluster. Possible values are `11`, `12`, `13`, `14`, `15` and `16`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Cosmos DB for PostgreSQL Cluster.
         """
-        pulumi.set(__self__, "administrator_login_password", administrator_login_password)
         pulumi.set(__self__, "coordinator_storage_quota_in_mb", coordinator_storage_quota_in_mb)
         pulumi.set(__self__, "coordinator_vcore_count", coordinator_vcore_count)
         pulumi.set(__self__, "node_count", node_count)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if administrator_login_password is not None:
+            pulumi.set(__self__, "administrator_login_password", administrator_login_password)
         if citus_version is not None:
             pulumi.set(__self__, "citus_version", citus_version)
         if coordinator_public_ip_access_enabled is not None:
@@ -108,18 +109,6 @@ class PostgresqlClusterArgs:
             pulumi.set(__self__, "sql_version", sql_version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> pulumi.Input[str]:
-        """
-        The password of the administrator login.
-        """
-        return pulumi.get(self, "administrator_login_password")
-
-    @administrator_login_password.setter
-    def administrator_login_password(self, value: pulumi.Input[str]):
-        pulumi.set(self, "administrator_login_password", value)
 
     @property
     @pulumi.getter(name="coordinatorStorageQuotaInMb")
@@ -170,6 +159,18 @@ class PostgresqlClusterArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="administratorLoginPassword")
+    def administrator_login_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password of the administrator login. This is required when `source_resource_id` is not set.
+        """
+        return pulumi.get(self, "administrator_login_password")
+
+    @administrator_login_password.setter
+    def administrator_login_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "administrator_login_password", value)
 
     @property
     @pulumi.getter(name="citusVersion")
@@ -417,7 +418,7 @@ class _PostgresqlClusterState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering PostgresqlCluster resources.
-        :param pulumi.Input[str] administrator_login_password: The password of the administrator login.
+        :param pulumi.Input[str] administrator_login_password: The password of the administrator login. This is required when `source_resource_id` is not set.
         :param pulumi.Input[str] citus_version: The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
         :param pulumi.Input[bool] coordinator_public_ip_access_enabled: Is public access enabled on coordinator? Defaults to `true`.
         :param pulumi.Input[str] coordinator_server_edition: The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
@@ -497,7 +498,7 @@ class _PostgresqlClusterState:
     @pulumi.getter(name="administratorLoginPassword")
     def administrator_login_password(self) -> Optional[pulumi.Input[str]]:
         """
-        The password of the administrator login.
+        The password of the administrator login. This is required when `source_resource_id` is not set.
         """
         return pulumi.get(self, "administrator_login_password")
 
@@ -842,7 +843,7 @@ class PostgresqlCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] administrator_login_password: The password of the administrator login.
+        :param pulumi.Input[str] administrator_login_password: The password of the administrator login. This is required when `source_resource_id` is not set.
         :param pulumi.Input[str] citus_version: The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
         :param pulumi.Input[bool] coordinator_public_ip_access_enabled: Is public access enabled on coordinator? Defaults to `true`.
         :param pulumi.Input[str] coordinator_server_edition: The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
@@ -948,8 +949,6 @@ class PostgresqlCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PostgresqlClusterArgs.__new__(PostgresqlClusterArgs)
 
-            if administrator_login_password is None and not opts.urn:
-                raise TypeError("Missing required property 'administrator_login_password'")
             __props__.__dict__["administrator_login_password"] = None if administrator_login_password is None else pulumi.Output.secret(administrator_login_password)
             __props__.__dict__["citus_version"] = citus_version
             __props__.__dict__["coordinator_public_ip_access_enabled"] = coordinator_public_ip_access_enabled
@@ -1025,7 +1024,7 @@ class PostgresqlCluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] administrator_login_password: The password of the administrator login.
+        :param pulumi.Input[str] administrator_login_password: The password of the administrator login. This is required when `source_resource_id` is not set.
         :param pulumi.Input[str] citus_version: The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
         :param pulumi.Input[bool] coordinator_public_ip_access_enabled: Is public access enabled on coordinator? Defaults to `true`.
         :param pulumi.Input[str] coordinator_server_edition: The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`.
@@ -1084,9 +1083,9 @@ class PostgresqlCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="administratorLoginPassword")
-    def administrator_login_password(self) -> pulumi.Output[str]:
+    def administrator_login_password(self) -> pulumi.Output[Optional[str]]:
         """
-        The password of the administrator login.
+        The password of the administrator login. This is required when `source_resource_id` is not set.
         """
         return pulumi.get(self, "administrator_login_password")
 

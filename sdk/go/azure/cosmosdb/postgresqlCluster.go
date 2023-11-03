@@ -65,8 +65,8 @@ import (
 type PostgresqlCluster struct {
 	pulumi.CustomResourceState
 
-	// The password of the administrator login.
-	AdministratorLoginPassword pulumi.StringOutput `pulumi:"administratorLoginPassword"`
+	// The password of the administrator login. This is required when `sourceResourceId` is not set.
+	AdministratorLoginPassword pulumi.StringPtrOutput `pulumi:"administratorLoginPassword"`
 	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
 	CitusVersion pulumi.StringOutput `pulumi:"citusVersion"`
 	// Is public access enabled on coordinator? Defaults to `true`.
@@ -124,9 +124,6 @@ func NewPostgresqlCluster(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.AdministratorLoginPassword == nil {
-		return nil, errors.New("invalid value for required argument 'AdministratorLoginPassword'")
-	}
 	if args.CoordinatorStorageQuotaInMb == nil {
 		return nil, errors.New("invalid value for required argument 'CoordinatorStorageQuotaInMb'")
 	}
@@ -140,7 +137,7 @@ func NewPostgresqlCluster(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	if args.AdministratorLoginPassword != nil {
-		args.AdministratorLoginPassword = pulumi.ToSecret(args.AdministratorLoginPassword).(pulumi.StringInput)
+		args.AdministratorLoginPassword = pulumi.ToSecret(args.AdministratorLoginPassword).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"administratorLoginPassword",
@@ -169,7 +166,7 @@ func GetPostgresqlCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PostgresqlCluster resources.
 type postgresqlClusterState struct {
-	// The password of the administrator login.
+	// The password of the administrator login. This is required when `sourceResourceId` is not set.
 	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
 	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
 	CitusVersion *string `pulumi:"citusVersion"`
@@ -222,7 +219,7 @@ type postgresqlClusterState struct {
 }
 
 type PostgresqlClusterState struct {
-	// The password of the administrator login.
+	// The password of the administrator login. This is required when `sourceResourceId` is not set.
 	AdministratorLoginPassword pulumi.StringPtrInput
 	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
 	CitusVersion pulumi.StringPtrInput
@@ -279,8 +276,8 @@ func (PostgresqlClusterState) ElementType() reflect.Type {
 }
 
 type postgresqlClusterArgs struct {
-	// The password of the administrator login.
-	AdministratorLoginPassword string `pulumi:"administratorLoginPassword"`
+	// The password of the administrator login. This is required when `sourceResourceId` is not set.
+	AdministratorLoginPassword *string `pulumi:"administratorLoginPassword"`
 	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
 	CitusVersion *string `pulumi:"citusVersion"`
 	// Is public access enabled on coordinator? Defaults to `true`.
@@ -331,8 +328,8 @@ type postgresqlClusterArgs struct {
 
 // The set of arguments for constructing a PostgresqlCluster resource.
 type PostgresqlClusterArgs struct {
-	// The password of the administrator login.
-	AdministratorLoginPassword pulumi.StringInput
+	// The password of the administrator login. This is required when `sourceResourceId` is not set.
+	AdministratorLoginPassword pulumi.StringPtrInput
 	// The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
 	CitusVersion pulumi.StringPtrInput
 	// Is public access enabled on coordinator? Defaults to `true`.
@@ -492,9 +489,9 @@ func (o PostgresqlClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*P
 	}
 }
 
-// The password of the administrator login.
-func (o PostgresqlClusterOutput) AdministratorLoginPassword() pulumi.StringOutput {
-	return o.ApplyT(func(v *PostgresqlCluster) pulumi.StringOutput { return v.AdministratorLoginPassword }).(pulumi.StringOutput)
+// The password of the administrator login. This is required when `sourceResourceId` is not set.
+func (o PostgresqlClusterOutput) AdministratorLoginPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PostgresqlCluster) pulumi.StringPtrOutput { return v.AdministratorLoginPassword }).(pulumi.StringPtrOutput)
 }
 
 // The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.

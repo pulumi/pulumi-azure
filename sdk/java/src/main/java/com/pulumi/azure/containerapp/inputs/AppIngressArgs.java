@@ -51,6 +51,25 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The exposed port on the container for the Ingress traffic.
+     * 
+     * &gt; **Note:** `exposed_port` can only be specified when `transport` is set to `tcp`.
+     * 
+     */
+    @Import(name="exposedPort")
+    private @Nullable Output<Integer> exposedPort;
+
+    /**
+     * @return The exposed port on the container for the Ingress traffic.
+     * 
+     * &gt; **Note:** `exposed_port` can only be specified when `transport` is set to `tcp`.
+     * 
+     */
+    public Optional<Output<Integer>> exposedPort() {
+        return Optional.ofNullable(this.exposedPort);
+    }
+
+    /**
      * Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
      * 
      */
@@ -115,14 +134,14 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+     * The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
      * 
      */
     @Import(name="transport")
     private @Nullable Output<String> transport;
 
     /**
-     * @return The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+     * @return The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
      * 
      */
     public Optional<Output<String>> transport() {
@@ -134,6 +153,7 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
     private AppIngressArgs(AppIngressArgs $) {
         this.allowInsecureConnections = $.allowInsecureConnections;
         this.customDomain = $.customDomain;
+        this.exposedPort = $.exposedPort;
         this.externalEnabled = $.externalEnabled;
         this.fqdn = $.fqdn;
         this.targetPort = $.targetPort;
@@ -199,6 +219,31 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder customDomain(AppIngressCustomDomainArgs customDomain) {
             return customDomain(Output.of(customDomain));
+        }
+
+        /**
+         * @param exposedPort The exposed port on the container for the Ingress traffic.
+         * 
+         * &gt; **Note:** `exposed_port` can only be specified when `transport` is set to `tcp`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exposedPort(@Nullable Output<Integer> exposedPort) {
+            $.exposedPort = exposedPort;
+            return this;
+        }
+
+        /**
+         * @param exposedPort The exposed port on the container for the Ingress traffic.
+         * 
+         * &gt; **Note:** `exposed_port` can only be specified when `transport` is set to `tcp`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder exposedPort(Integer exposedPort) {
+            return exposedPort(Output.of(exposedPort));
         }
 
         /**
@@ -302,7 +347,7 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param transport The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+         * @param transport The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
          * 
          * @return builder
          * 
@@ -313,7 +358,7 @@ public final class AppIngressArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param transport The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+         * @param transport The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
          * 
          * @return builder
          * 

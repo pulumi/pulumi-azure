@@ -51,6 +51,21 @@ public final class GetPolicyRuleActionBaseBlob {
      */
     private Integer tierToArchiveAfterDaysSinceModificationGreaterThan;
     /**
+     * @return Optional The age in days after creation to cold storage. Supports blob currently at Hot tier.
+     * 
+     */
+    private Integer tierToColdAfterDaysSinceCreationGreaterThan;
+    /**
+     * @return The age in days after last access time to tier blobs to cold storage. Supports blob currently at Hot tier.
+     * 
+     */
+    private Integer tierToColdAfterDaysSinceLastAccessTimeGreaterThan;
+    /**
+     * @return The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier.
+     * 
+     */
+    private Integer tierToColdAfterDaysSinceModificationGreaterThan;
+    /**
      * @return Optional The age in days after creation to cool storage. Supports blob currently at Hot tier.
      * 
      */
@@ -124,6 +139,27 @@ public final class GetPolicyRuleActionBaseBlob {
         return this.tierToArchiveAfterDaysSinceModificationGreaterThan;
     }
     /**
+     * @return Optional The age in days after creation to cold storage. Supports blob currently at Hot tier.
+     * 
+     */
+    public Integer tierToColdAfterDaysSinceCreationGreaterThan() {
+        return this.tierToColdAfterDaysSinceCreationGreaterThan;
+    }
+    /**
+     * @return The age in days after last access time to tier blobs to cold storage. Supports blob currently at Hot tier.
+     * 
+     */
+    public Integer tierToColdAfterDaysSinceLastAccessTimeGreaterThan() {
+        return this.tierToColdAfterDaysSinceLastAccessTimeGreaterThan;
+    }
+    /**
+     * @return The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier.
+     * 
+     */
+    public Integer tierToColdAfterDaysSinceModificationGreaterThan() {
+        return this.tierToColdAfterDaysSinceModificationGreaterThan;
+    }
+    /**
      * @return Optional The age in days after creation to cool storage. Supports blob currently at Hot tier.
      * 
      */
@@ -162,6 +198,9 @@ public final class GetPolicyRuleActionBaseBlob {
         private Integer tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
         private Integer tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
         private Integer tierToArchiveAfterDaysSinceModificationGreaterThan;
+        private Integer tierToColdAfterDaysSinceCreationGreaterThan;
+        private Integer tierToColdAfterDaysSinceLastAccessTimeGreaterThan;
+        private Integer tierToColdAfterDaysSinceModificationGreaterThan;
         private Integer tierToCoolAfterDaysSinceCreationGreaterThan;
         private Integer tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
         private Integer tierToCoolAfterDaysSinceModificationGreaterThan;
@@ -176,6 +215,9 @@ public final class GetPolicyRuleActionBaseBlob {
     	      this.tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan = defaults.tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
     	      this.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan = defaults.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
     	      this.tierToArchiveAfterDaysSinceModificationGreaterThan = defaults.tierToArchiveAfterDaysSinceModificationGreaterThan;
+    	      this.tierToColdAfterDaysSinceCreationGreaterThan = defaults.tierToColdAfterDaysSinceCreationGreaterThan;
+    	      this.tierToColdAfterDaysSinceLastAccessTimeGreaterThan = defaults.tierToColdAfterDaysSinceLastAccessTimeGreaterThan;
+    	      this.tierToColdAfterDaysSinceModificationGreaterThan = defaults.tierToColdAfterDaysSinceModificationGreaterThan;
     	      this.tierToCoolAfterDaysSinceCreationGreaterThan = defaults.tierToCoolAfterDaysSinceCreationGreaterThan;
     	      this.tierToCoolAfterDaysSinceLastAccessTimeGreaterThan = defaults.tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
     	      this.tierToCoolAfterDaysSinceModificationGreaterThan = defaults.tierToCoolAfterDaysSinceModificationGreaterThan;
@@ -222,6 +264,21 @@ public final class GetPolicyRuleActionBaseBlob {
             return this;
         }
         @CustomType.Setter
+        public Builder tierToColdAfterDaysSinceCreationGreaterThan(Integer tierToColdAfterDaysSinceCreationGreaterThan) {
+            this.tierToColdAfterDaysSinceCreationGreaterThan = Objects.requireNonNull(tierToColdAfterDaysSinceCreationGreaterThan);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tierToColdAfterDaysSinceLastAccessTimeGreaterThan(Integer tierToColdAfterDaysSinceLastAccessTimeGreaterThan) {
+            this.tierToColdAfterDaysSinceLastAccessTimeGreaterThan = Objects.requireNonNull(tierToColdAfterDaysSinceLastAccessTimeGreaterThan);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder tierToColdAfterDaysSinceModificationGreaterThan(Integer tierToColdAfterDaysSinceModificationGreaterThan) {
+            this.tierToColdAfterDaysSinceModificationGreaterThan = Objects.requireNonNull(tierToColdAfterDaysSinceModificationGreaterThan);
+            return this;
+        }
+        @CustomType.Setter
         public Builder tierToCoolAfterDaysSinceCreationGreaterThan(Integer tierToCoolAfterDaysSinceCreationGreaterThan) {
             this.tierToCoolAfterDaysSinceCreationGreaterThan = Objects.requireNonNull(tierToCoolAfterDaysSinceCreationGreaterThan);
             return this;
@@ -246,6 +303,9 @@ public final class GetPolicyRuleActionBaseBlob {
             _resultValue.tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan = tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
             _resultValue.tierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
             _resultValue.tierToArchiveAfterDaysSinceModificationGreaterThan = tierToArchiveAfterDaysSinceModificationGreaterThan;
+            _resultValue.tierToColdAfterDaysSinceCreationGreaterThan = tierToColdAfterDaysSinceCreationGreaterThan;
+            _resultValue.tierToColdAfterDaysSinceLastAccessTimeGreaterThan = tierToColdAfterDaysSinceLastAccessTimeGreaterThan;
+            _resultValue.tierToColdAfterDaysSinceModificationGreaterThan = tierToColdAfterDaysSinceModificationGreaterThan;
             _resultValue.tierToCoolAfterDaysSinceCreationGreaterThan = tierToCoolAfterDaysSinceCreationGreaterThan;
             _resultValue.tierToCoolAfterDaysSinceLastAccessTimeGreaterThan = tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
             _resultValue.tierToCoolAfterDaysSinceModificationGreaterThan = tierToCoolAfterDaysSinceModificationGreaterThan;

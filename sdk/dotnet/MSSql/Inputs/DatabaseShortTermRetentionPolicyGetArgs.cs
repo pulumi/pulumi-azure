@@ -19,7 +19,7 @@ namespace Pulumi.Azure.MSSql.Inputs
         public Input<int>? BackupIntervalInHours { get; set; }
 
         /// <summary>
-        /// Point In Time Restore configuration. Value has to be between `7` and `35`.
+        /// Point In Time Restore configuration. Value has to be between `1` and `35`.
         /// </summary>
         [Input("retentionDays", required: true)]
         public Input<int> RetentionDays { get; set; } = null!;

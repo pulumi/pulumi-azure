@@ -29,6 +29,10 @@ namespace Pulumi.Azure.Storage.Outputs
         /// The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
         /// </summary>
         public readonly int? TierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
+        /// <summary>
+        /// The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+        /// </summary>
+        public readonly int? TierToColdAfterDaysSinceCreationGreaterThan;
 
         [OutputConstructor]
         private ManagementPolicyRuleActionsSnapshot(
@@ -38,12 +42,15 @@ namespace Pulumi.Azure.Storage.Outputs
 
             int? deleteAfterDaysSinceCreationGreaterThan,
 
-            int? tierToArchiveAfterDaysSinceLastTierChangeGreaterThan)
+            int? tierToArchiveAfterDaysSinceLastTierChangeGreaterThan,
+
+            int? tierToColdAfterDaysSinceCreationGreaterThan)
         {
             ChangeTierToArchiveAfterDaysSinceCreation = changeTierToArchiveAfterDaysSinceCreation;
             ChangeTierToCoolAfterDaysSinceCreation = changeTierToCoolAfterDaysSinceCreation;
             DeleteAfterDaysSinceCreationGreaterThan = deleteAfterDaysSinceCreationGreaterThan;
             TierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
+            TierToColdAfterDaysSinceCreationGreaterThan = tierToColdAfterDaysSinceCreationGreaterThan;
         }
     }
 }

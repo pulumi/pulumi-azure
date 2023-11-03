@@ -10,6 +10,11 @@ export type AzureTrafficCollector = import("./azureTrafficCollector").AzureTraff
 export const AzureTrafficCollector: typeof import("./azureTrafficCollector").AzureTrafficCollector = null as any;
 utilities.lazyLoad(exports, ["AzureTrafficCollector"], () => require("./azureTrafficCollector"));
 
+export { CollectorPolicyArgs, CollectorPolicyState } from "./collectorPolicy";
+export type CollectorPolicy = import("./collectorPolicy").CollectorPolicy;
+export const CollectorPolicy: typeof import("./collectorPolicy").CollectorPolicy = null as any;
+utilities.lazyLoad(exports, ["CollectorPolicy"], () => require("./collectorPolicy"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +22,12 @@ const _module = {
         switch (type) {
             case "azure:networkfunction/azureTrafficCollector:AzureTrafficCollector":
                 return new AzureTrafficCollector(name, <any>undefined, { urn })
+            case "azure:networkfunction/collectorPolicy:CollectorPolicy":
+                return new CollectorPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("azure", "networkfunction/azureTrafficCollector", _module)
+pulumi.runtime.registerResourceModule("azure", "networkfunction/collectorPolicy", _module)

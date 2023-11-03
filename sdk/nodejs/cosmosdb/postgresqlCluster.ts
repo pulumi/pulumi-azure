@@ -63,9 +63,9 @@ export class PostgresqlCluster extends pulumi.CustomResource {
     }
 
     /**
-     * The password of the administrator login.
+     * The password of the administrator login. This is required when `sourceResourceId` is not set.
      */
-    public readonly administratorLoginPassword!: pulumi.Output<string>;
+    public readonly administratorLoginPassword!: pulumi.Output<string | undefined>;
     /**
      * The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
      */
@@ -200,9 +200,6 @@ export class PostgresqlCluster extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as PostgresqlClusterArgs | undefined;
-            if ((!args || args.administratorLoginPassword === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'administratorLoginPassword'");
-            }
             if ((!args || args.coordinatorStorageQuotaInMb === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'coordinatorStorageQuotaInMb'");
             }
@@ -252,7 +249,7 @@ export class PostgresqlCluster extends pulumi.CustomResource {
  */
 export interface PostgresqlClusterState {
     /**
-     * The password of the administrator login.
+     * The password of the administrator login. This is required when `sourceResourceId` is not set.
      */
     administratorLoginPassword?: pulumi.Input<string>;
     /**
@@ -356,9 +353,9 @@ export interface PostgresqlClusterState {
  */
 export interface PostgresqlClusterArgs {
     /**
-     * The password of the administrator login.
+     * The password of the administrator login. This is required when `sourceResourceId` is not set.
      */
-    administratorLoginPassword: pulumi.Input<string>;
+    administratorLoginPassword?: pulumi.Input<string>;
     /**
      * The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
      */

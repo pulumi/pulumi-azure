@@ -102,6 +102,8 @@ type KubernetesCluster struct {
 	// A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
 	ConfidentialComputing KubernetesClusterConfidentialComputingPtrOutput `pulumi:"confidentialComputing"`
 	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
+	//
+	// > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
 	CustomCaTrustCertificatesBase64s pulumi.StringArrayOutput `pulumi:"customCaTrustCertificatesBase64s"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolOutput `pulumi:"defaultNodePool"`
@@ -382,6 +384,8 @@ type kubernetesClusterState struct {
 	// A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
 	ConfidentialComputing *KubernetesClusterConfidentialComputing `pulumi:"confidentialComputing"`
 	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
+	//
+	// > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
 	CustomCaTrustCertificatesBase64s []string `pulumi:"customCaTrustCertificatesBase64s"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool *KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
@@ -620,6 +624,8 @@ type KubernetesClusterState struct {
 	// A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
 	ConfidentialComputing KubernetesClusterConfidentialComputingPtrInput
 	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
+	//
+	// > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
 	CustomCaTrustCertificatesBase64s pulumi.StringArrayInput
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolPtrInput
@@ -862,6 +868,8 @@ type kubernetesClusterArgs struct {
 	// A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
 	ConfidentialComputing *KubernetesClusterConfidentialComputing `pulumi:"confidentialComputing"`
 	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
+	//
+	// > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
 	CustomCaTrustCertificatesBase64s []string `pulumi:"customCaTrustCertificatesBase64s"`
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePool `pulumi:"defaultNodePool"`
@@ -1081,6 +1089,8 @@ type KubernetesClusterArgs struct {
 	// A `confidentialComputing` block as defined below. For more details please [the documentation](https://learn.microsoft.com/en-us/azure/confidential-computing/confidential-nodes-aks-overview)
 	ConfidentialComputing KubernetesClusterConfidentialComputingPtrInput
 	// A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
+	//
+	// > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
 	CustomCaTrustCertificatesBase64s pulumi.StringArrayInput
 	// A `defaultNodePool` block as defined below.
 	DefaultNodePool KubernetesClusterDefaultNodePoolInput
@@ -1439,6 +1449,8 @@ func (o KubernetesClusterOutput) ConfidentialComputing() KubernetesClusterConfid
 }
 
 // A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `customCaTrustEnabled` feature enabled.
+//
+// > **Note:** Removing `customCaTrustCertificatesBase64` after it has been set forces a new resource to be created.
 func (o KubernetesClusterOutput) CustomCaTrustCertificatesBase64s() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.StringArrayOutput { return v.CustomCaTrustCertificatesBase64s }).(pulumi.StringArrayOutput)
 }

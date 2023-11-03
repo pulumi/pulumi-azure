@@ -28011,6 +28011,12 @@ export namespace containerapp {
          */
         customDomain?: outputs.containerapp.AppIngressCustomDomain;
         /**
+         * The exposed port on the container for the Ingress traffic.
+         *
+         * > **Note:** `exposedPort` can only be specified when `transport` is set to `tcp`.
+         */
+        exposedPort?: number;
+        /**
          * Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
          */
         externalEnabled?: boolean;
@@ -28029,7 +28035,7 @@ export namespace containerapp {
          */
         trafficWeights: outputs.containerapp.AppIngressTrafficWeight[];
         /**
-         * The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+         * The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
          */
         transport?: string;
     }
@@ -28572,6 +28578,7 @@ export namespace containerapp {
          * One or more `customDomain` block as detailed below.
          */
         customDomains: outputs.containerapp.GetAppIngressCustomDomain[];
+        exposedPort: number;
         /**
          * Is this an external Ingress.
          */
@@ -30712,11 +30719,11 @@ export namespace containerservice {
 
     export interface KubernetesClusterHttpProxyConfig {
         /**
-         * The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
+         * The proxy address to be used when communicating over HTTP.
          */
         httpProxy?: string;
         /**
-         * The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
+         * The proxy address to be used when communicating over HTTPS.
          */
         httpsProxy?: string;
         noProxies?: string[];
@@ -51017,7 +51024,7 @@ export namespace mssql {
          */
         backupIntervalInHours?: number;
         /**
-         * Point In Time Restore configuration. Value has to be between `7` and `35`.
+         * Point In Time Restore configuration. Value has to be between `1` and `35`.
          */
         retentionDays: number;
     }
@@ -57333,6 +57340,23 @@ export namespace network {
 
 }
 
+export namespace networkfunction {
+    export interface CollectorPolicyIpfxEmission {
+        /**
+         * A list of emission destination types. The only possible value is `AzureMonitor`. Changing this forces a new Network Function Collector Policy to be created.
+         */
+        destinationTypes: string;
+    }
+
+    export interface CollectorPolicyIpfxIngestion {
+        /**
+         * A list of ingestion source resource IDs. Changing this forces a new Network Function Collector Policy to be created.
+         */
+        sourceResourceIds: string[];
+    }
+
+}
+
 export namespace newrelic {
     export interface MonitorPlan {
         /**
@@ -62527,6 +62551,18 @@ export namespace storage {
          */
         tierToArchiveAfterDaysSinceModificationGreaterThan: number;
         /**
+         * Optional The age in days after creation to cold storage. Supports blob currently at Hot tier.
+         */
+        tierToColdAfterDaysSinceCreationGreaterThan: number;
+        /**
+         * The age in days after last access time to tier blobs to cold storage. Supports blob currently at Hot tier.
+         */
+        tierToColdAfterDaysSinceLastAccessTimeGreaterThan: number;
+        /**
+         * The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier.
+         */
+        tierToColdAfterDaysSinceModificationGreaterThan: number;
+        /**
          * Optional The age in days after creation to cool storage. Supports blob currently at Hot tier.
          */
         tierToCoolAfterDaysSinceCreationGreaterThan: number;
@@ -62557,6 +62593,10 @@ export namespace storage {
          * The age in days after last tier change to the blobs to skip to be archived.
          */
         tierToArchiveAfterDaysSinceLastTierChangeGreaterThan: number;
+        /**
+         * Optional The age in days after creation to cold storage. Supports blob currently at Hot tier.
+         */
+        tierToColdAfterDaysSinceCreationGreaterThan: number;
     }
 
     export interface GetPolicyRuleActionVersion {
@@ -62576,6 +62616,10 @@ export namespace storage {
          * The age in days after last tier change to the blobs to skip to be archived.
          */
         tierToArchiveAfterDaysSinceLastTierChangeGreaterThan: number;
+        /**
+         * Optional The age in days after creation to cold storage. Supports blob currently at Hot tier.
+         */
+        tierToColdAfterDaysSinceCreationGreaterThan: number;
     }
 
     export interface GetPolicyRuleFilter {
@@ -62759,6 +62803,20 @@ export namespace storage {
          */
         tierToArchiveAfterDaysSinceModificationGreaterThan?: number;
         /**
+         * The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+         *
+         * > **Note:** The `tierToCoolAfterDaysSinceModificationGreaterThan`, `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan` and `tierToCoolAfterDaysSinceCreationGreaterThan` can not be set at the same time.
+         */
+        tierToColdAfterDaysSinceCreationGreaterThan?: number;
+        /**
+         * The age in days after last access time to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+         */
+        tierToColdAfterDaysSinceLastAccessTimeGreaterThan?: number;
+        /**
+         * The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
+         */
+        tierToColdAfterDaysSinceModificationGreaterThan?: number;
+        /**
          * The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
          *
          * > **Note:** The `tierToCoolAfterDaysSinceModificationGreaterThan`, `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan` and `tierToCoolAfterDaysSinceCreationGreaterThan` can not be set at the same time.
@@ -62791,6 +62849,10 @@ export namespace storage {
          * The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
          */
         tierToArchiveAfterDaysSinceLastTierChangeGreaterThan?: number;
+        /**
+         * The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+         */
+        tierToColdAfterDaysSinceCreationGreaterThan?: number;
     }
 
     export interface ManagementPolicyRuleActionsVersion {
@@ -62810,6 +62872,10 @@ export namespace storage {
          * The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
          */
         tierToArchiveAfterDaysSinceLastTierChangeGreaterThan?: number;
+        /**
+         * The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+         */
+        tierToColdAfterDaysSinceCreationGreaterThan?: number;
     }
 
     export interface ManagementPolicyRuleFilters {

@@ -210,6 +210,8 @@ class AppIngress(dict):
             suggest = "allow_insecure_connections"
         elif key == "customDomain":
             suggest = "custom_domain"
+        elif key == "exposedPort":
+            suggest = "exposed_port"
         elif key == "externalEnabled":
             suggest = "external_enabled"
 
@@ -229,6 +231,7 @@ class AppIngress(dict):
                  traffic_weights: Sequence['outputs.AppIngressTrafficWeight'],
                  allow_insecure_connections: Optional[bool] = None,
                  custom_domain: Optional['outputs.AppIngressCustomDomain'] = None,
+                 exposed_port: Optional[int] = None,
                  external_enabled: Optional[bool] = None,
                  fqdn: Optional[str] = None,
                  transport: Optional[str] = None):
@@ -239,9 +242,12 @@ class AppIngress(dict):
                > **Note:** `traffic_weight` can only be specified when `revision_mode` is set to `Multiple`.
         :param bool allow_insecure_connections: Should this ingress allow insecure connections?
         :param 'AppIngressCustomDomainArgs' custom_domain: One or more `custom_domain` block as detailed below.
+        :param int exposed_port: The exposed port on the container for the Ingress traffic.
+               
+               > **Note:** `exposed_port` can only be specified when `transport` is set to `tcp`.
         :param bool external_enabled: Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
         :param str fqdn: The FQDN of the ingress.
-        :param str transport: The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+        :param str transport: The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
         """
         pulumi.set(__self__, "target_port", target_port)
         pulumi.set(__self__, "traffic_weights", traffic_weights)
@@ -249,6 +255,8 @@ class AppIngress(dict):
             pulumi.set(__self__, "allow_insecure_connections", allow_insecure_connections)
         if custom_domain is not None:
             pulumi.set(__self__, "custom_domain", custom_domain)
+        if exposed_port is not None:
+            pulumi.set(__self__, "exposed_port", exposed_port)
         if external_enabled is not None:
             pulumi.set(__self__, "external_enabled", external_enabled)
         if fqdn is not None:
@@ -291,6 +299,16 @@ class AppIngress(dict):
         return pulumi.get(self, "custom_domain")
 
     @property
+    @pulumi.getter(name="exposedPort")
+    def exposed_port(self) -> Optional[int]:
+        """
+        The exposed port on the container for the Ingress traffic.
+
+        > **Note:** `exposed_port` can only be specified when `transport` is set to `tcp`.
+        """
+        return pulumi.get(self, "exposed_port")
+
+    @property
     @pulumi.getter(name="externalEnabled")
     def external_enabled(self) -> Optional[bool]:
         """
@@ -310,7 +328,7 @@ class AppIngress(dict):
     @pulumi.getter
     def transport(self) -> Optional[str]:
         """
-        The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+        The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
         """
         return pulumi.get(self, "transport")
 
@@ -2168,6 +2186,7 @@ class GetAppIngressResult(dict):
     def __init__(__self__, *,
                  allow_insecure_connections: bool,
                  custom_domains: Sequence['outputs.GetAppIngressCustomDomainResult'],
+                 exposed_port: int,
                  external_enabled: bool,
                  fqdn: str,
                  target_port: int,
@@ -2184,6 +2203,7 @@ class GetAppIngressResult(dict):
         """
         pulumi.set(__self__, "allow_insecure_connections", allow_insecure_connections)
         pulumi.set(__self__, "custom_domains", custom_domains)
+        pulumi.set(__self__, "exposed_port", exposed_port)
         pulumi.set(__self__, "external_enabled", external_enabled)
         pulumi.set(__self__, "fqdn", fqdn)
         pulumi.set(__self__, "target_port", target_port)
@@ -2205,6 +2225,11 @@ class GetAppIngressResult(dict):
         One or more `custom_domain` block as detailed below.
         """
         return pulumi.get(self, "custom_domains")
+
+    @property
+    @pulumi.getter(name="exposedPort")
+    def exposed_port(self) -> int:
+        return pulumi.get(self, "exposed_port")
 
     @property
     @pulumi.getter(name="externalEnabled")

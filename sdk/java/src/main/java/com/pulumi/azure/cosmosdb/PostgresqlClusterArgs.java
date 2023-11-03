@@ -20,18 +20,18 @@ public final class PostgresqlClusterArgs extends com.pulumi.resources.ResourceAr
     public static final PostgresqlClusterArgs Empty = new PostgresqlClusterArgs();
 
     /**
-     * The password of the administrator login.
+     * The password of the administrator login. This is required when `source_resource_id` is not set.
      * 
      */
-    @Import(name="administratorLoginPassword", required=true)
-    private Output<String> administratorLoginPassword;
+    @Import(name="administratorLoginPassword")
+    private @Nullable Output<String> administratorLoginPassword;
 
     /**
-     * @return The password of the administrator login.
+     * @return The password of the administrator login. This is required when `source_resource_id` is not set.
      * 
      */
-    public Output<String> administratorLoginPassword() {
-        return this.administratorLoginPassword;
+    public Optional<Output<String>> administratorLoginPassword() {
+        return Optional.ofNullable(this.administratorLoginPassword);
     }
 
     /**
@@ -415,18 +415,18 @@ public final class PostgresqlClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param administratorLoginPassword The password of the administrator login.
+         * @param administratorLoginPassword The password of the administrator login. This is required when `source_resource_id` is not set.
          * 
          * @return builder
          * 
          */
-        public Builder administratorLoginPassword(Output<String> administratorLoginPassword) {
+        public Builder administratorLoginPassword(@Nullable Output<String> administratorLoginPassword) {
             $.administratorLoginPassword = administratorLoginPassword;
             return this;
         }
 
         /**
-         * @param administratorLoginPassword The password of the administrator login.
+         * @param administratorLoginPassword The password of the administrator login. This is required when `source_resource_id` is not set.
          * 
          * @return builder
          * 
@@ -902,7 +902,6 @@ public final class PostgresqlClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         public PostgresqlClusterArgs build() {
-            $.administratorLoginPassword = Objects.requireNonNull($.administratorLoginPassword, "expected parameter 'administratorLoginPassword' to be non-null");
             $.coordinatorStorageQuotaInMb = Objects.requireNonNull($.coordinatorStorageQuotaInMb, "expected parameter 'coordinatorStorageQuotaInMb' to be non-null");
             $.coordinatorVcoreCount = Objects.requireNonNull($.coordinatorVcoreCount, "expected parameter 'coordinatorVcoreCount' to be non-null");
             $.nodeCount = Objects.requireNonNull($.nodeCount, "expected parameter 'nodeCount' to be non-null");

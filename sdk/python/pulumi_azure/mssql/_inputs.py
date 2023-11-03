@@ -235,7 +235,7 @@ class DatabaseShortTermRetentionPolicyArgs:
                  retention_days: pulumi.Input[int],
                  backup_interval_in_hours: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[int] retention_days: Point In Time Restore configuration. Value has to be between `7` and `35`.
+        :param pulumi.Input[int] retention_days: Point In Time Restore configuration. Value has to be between `1` and `35`.
         :param pulumi.Input[int] backup_interval_in_hours: The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
         """
         pulumi.set(__self__, "retention_days", retention_days)
@@ -246,7 +246,7 @@ class DatabaseShortTermRetentionPolicyArgs:
     @pulumi.getter(name="retentionDays")
     def retention_days(self) -> pulumi.Input[int]:
         """
-        Point In Time Restore configuration. Value has to be between `7` and `35`.
+        Point In Time Restore configuration. Value has to be between `1` and `35`.
         """
         return pulumi.get(self, "retention_days")
 

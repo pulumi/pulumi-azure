@@ -21074,6 +21074,12 @@ export namespace containerapp {
          */
         customDomain?: pulumi.Input<inputs.containerapp.AppIngressCustomDomain>;
         /**
+         * The exposed port on the container for the Ingress traffic.
+         *
+         * > **Note:** `exposedPort` can only be specified when `transport` is set to `tcp`.
+         */
+        exposedPort?: pulumi.Input<number>;
+        /**
          * Are connections to this Ingress from outside the Container App Environment enabled? Defaults to `false`.
          */
         externalEnabled?: pulumi.Input<boolean>;
@@ -21092,7 +21098,7 @@ export namespace containerapp {
          */
         trafficWeights: pulumi.Input<pulumi.Input<inputs.containerapp.AppIngressTrafficWeight>[]>;
         /**
-         * The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
+         * The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
          */
         transport?: pulumi.Input<string>;
     }
@@ -22866,11 +22872,11 @@ export namespace containerservice {
 
     export interface KubernetesClusterHttpProxyConfig {
         /**
-         * The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
+         * The proxy address to be used when communicating over HTTP.
          */
         httpProxy?: pulumi.Input<string>;
         /**
-         * The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
+         * The proxy address to be used when communicating over HTTPS.
          */
         httpsProxy?: pulumi.Input<string>;
         noProxies?: pulumi.Input<pulumi.Input<string>[]>;
@@ -40630,7 +40636,7 @@ export namespace mssql {
          */
         backupIntervalInHours?: pulumi.Input<number>;
         /**
-         * Point In Time Restore configuration. Value has to be between `7` and `35`.
+         * Point In Time Restore configuration. Value has to be between `1` and `35`.
          */
         retentionDays: pulumi.Input<number>;
     }
@@ -44972,6 +44978,22 @@ export namespace network {
          * Is optimize endpoint enabled? The `Optimize` endpoint is required for connectivity to every O365 service and represents the O365 scenario that is the most sensitive to network performance, latency, and availability. Defaults to `false`.
          */
         optimizeEndpointEnabled?: pulumi.Input<boolean>;
+    }
+}
+
+export namespace networkfunction {
+    export interface CollectorPolicyIpfxEmission {
+        /**
+         * A list of emission destination types. The only possible value is `AzureMonitor`. Changing this forces a new Network Function Collector Policy to be created.
+         */
+        destinationTypes: pulumi.Input<string>;
+    }
+
+    export interface CollectorPolicyIpfxIngestion {
+        /**
+         * A list of ingestion source resource IDs. Changing this forces a new Network Function Collector Policy to be created.
+         */
+        sourceResourceIds: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
 
@@ -49645,6 +49667,20 @@ export namespace storage {
          */
         tierToArchiveAfterDaysSinceModificationGreaterThan?: pulumi.Input<number>;
         /**
+         * The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+         *
+         * > **Note:** The `tierToCoolAfterDaysSinceModificationGreaterThan`, `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan` and `tierToCoolAfterDaysSinceCreationGreaterThan` can not be set at the same time.
+         */
+        tierToColdAfterDaysSinceCreationGreaterThan?: pulumi.Input<number>;
+        /**
+         * The age in days after last access time to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+         */
+        tierToColdAfterDaysSinceLastAccessTimeGreaterThan?: pulumi.Input<number>;
+        /**
+         * The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
+         */
+        tierToColdAfterDaysSinceModificationGreaterThan?: pulumi.Input<number>;
+        /**
          * The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
          *
          * > **Note:** The `tierToCoolAfterDaysSinceModificationGreaterThan`, `tierToCoolAfterDaysSinceLastAccessTimeGreaterThan` and `tierToCoolAfterDaysSinceCreationGreaterThan` can not be set at the same time.
@@ -49677,6 +49713,10 @@ export namespace storage {
          * The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
          */
         tierToArchiveAfterDaysSinceLastTierChangeGreaterThan?: pulumi.Input<number>;
+        /**
+         * The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+         */
+        tierToColdAfterDaysSinceCreationGreaterThan?: pulumi.Input<number>;
     }
 
     export interface ManagementPolicyRuleActionsVersion {
@@ -49696,6 +49736,10 @@ export namespace storage {
          * The age in days after last tier change to the blobs to skip to be archved. Must be between 0 and 99999. Defaults to `-1`.
          */
         tierToArchiveAfterDaysSinceLastTierChangeGreaterThan?: pulumi.Input<number>;
+        /**
+         * The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+         */
+        tierToColdAfterDaysSinceCreationGreaterThan?: pulumi.Input<number>;
     }
 
     export interface ManagementPolicyRuleFilters {

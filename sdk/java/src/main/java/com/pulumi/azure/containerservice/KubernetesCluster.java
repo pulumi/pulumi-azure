@@ -238,12 +238,16 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
     /**
      * A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
      * 
+     * &gt; **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
+     * 
      */
     @Export(name="customCaTrustCertificatesBase64s", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> customCaTrustCertificatesBase64s;
 
     /**
      * @return A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the `custom_ca_trust_enabled` feature enabled.
+     * 
+     * &gt; **Note:** Removing `custom_ca_trust_certificates_base64` after it has been set forces a new resource to be created.
      * 
      */
     public Output<Optional<List<String>>> customCaTrustCertificatesBase64s() {

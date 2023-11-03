@@ -40,6 +40,15 @@ namespace Pulumi.Azure.ApiManagement
     ///         Method = "DELETE",
     ///         UrlTemplate = "/users/{id}/delete",
     ///         Description = "This can only be done by the logged in user.",
+    ///         TemplateParameters = new[]
+    ///         {
+    ///             new Azure.ApiManagement.Inputs.ApiOperationTemplateParameterArgs
+    ///             {
+    ///                 Name = "id",
+    ///                 Type = "number",
+    ///                 Required = true,
+    ///             },
+    ///         },
     ///         Responses = new[]
     ///         {
     ///             new Azure.ApiManagement.Inputs.ApiOperationResponseArgs

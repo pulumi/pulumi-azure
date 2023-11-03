@@ -17,14 +17,14 @@ public final class KubernetesClusterHttpProxyConfigArgs extends com.pulumi.resou
     public static final KubernetesClusterHttpProxyConfigArgs Empty = new KubernetesClusterHttpProxyConfigArgs();
 
     /**
-     * The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
+     * The proxy address to be used when communicating over HTTP.
      * 
      */
     @Import(name="httpProxy")
     private @Nullable Output<String> httpProxy;
 
     /**
-     * @return The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
+     * @return The proxy address to be used when communicating over HTTP.
      * 
      */
     public Optional<Output<String>> httpProxy() {
@@ -32,14 +32,14 @@ public final class KubernetesClusterHttpProxyConfigArgs extends com.pulumi.resou
     }
 
     /**
-     * The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
+     * The proxy address to be used when communicating over HTTPS.
      * 
      */
     @Import(name="httpsProxy")
     private @Nullable Output<String> httpsProxy;
 
     /**
-     * @return The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
+     * @return The proxy address to be used when communicating over HTTPS.
      * 
      */
     public Optional<Output<String>> httpsProxy() {
@@ -96,7 +96,7 @@ public final class KubernetesClusterHttpProxyConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param httpProxy The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
+         * @param httpProxy The proxy address to be used when communicating over HTTP.
          * 
          * @return builder
          * 
@@ -107,7 +107,7 @@ public final class KubernetesClusterHttpProxyConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param httpProxy The proxy address to be used when communicating over HTTP. Changing this forces a new resource to be created.
+         * @param httpProxy The proxy address to be used when communicating over HTTP.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class KubernetesClusterHttpProxyConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param httpsProxy The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
+         * @param httpsProxy The proxy address to be used when communicating over HTTPS.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class KubernetesClusterHttpProxyConfigArgs extends com.pulumi.resou
         }
 
         /**
-         * @param httpsProxy The proxy address to be used when communicating over HTTPS. Changing this forces a new resource to be created.
+         * @param httpsProxy The proxy address to be used when communicating over HTTPS.
          * 
          * @return builder
          * 

@@ -36,6 +36,12 @@ namespace Pulumi.Azure.Storage.Inputs
         [Input("tierToArchiveAfterDaysSinceLastTierChangeGreaterThan")]
         public Input<int>? TierToArchiveAfterDaysSinceLastTierChangeGreaterThan { get; set; }
 
+        /// <summary>
+        /// The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+        /// </summary>
+        [Input("tierToColdAfterDaysSinceCreationGreaterThan")]
+        public Input<int>? TierToColdAfterDaysSinceCreationGreaterThan { get; set; }
+
         public ManagementPolicyRuleActionsSnapshotGetArgs()
         {
         }

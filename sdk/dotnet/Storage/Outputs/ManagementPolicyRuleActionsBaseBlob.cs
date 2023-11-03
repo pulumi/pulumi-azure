@@ -54,6 +54,20 @@ namespace Pulumi.Azure.Storage.Outputs
         /// </summary>
         public readonly int? TierToArchiveAfterDaysSinceModificationGreaterThan;
         /// <summary>
+        /// The age in days after creation to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+        /// 
+        /// &gt; **Note:** The `tier_to_cool_after_days_since_modification_greater_than`, `tier_to_cool_after_days_since_last_access_time_greater_than` and `tier_to_cool_after_days_since_creation_greater_than` can not be set at the same time.
+        /// </summary>
+        public readonly int? TierToColdAfterDaysSinceCreationGreaterThan;
+        /// <summary>
+        /// The age in days after last access time to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
+        /// </summary>
+        public readonly int? TierToColdAfterDaysSinceLastAccessTimeGreaterThan;
+        /// <summary>
+        /// The age in days after last modification to tier blobs to cold storage. Supports blob currently at Hot tier. Must be between 0 and 99999. Defaults to `-1`.
+        /// </summary>
+        public readonly int? TierToColdAfterDaysSinceModificationGreaterThan;
+        /// <summary>
         /// The age in days after creation to cool storage. Supports blob currently at Hot tier. Must be between `0` and `99999`. Defaults to `-1`.
         /// 
         /// &gt; **Note:** The `tier_to_cool_after_days_since_modification_greater_than`, `tier_to_cool_after_days_since_last_access_time_greater_than` and `tier_to_cool_after_days_since_creation_greater_than` can not be set at the same time.
@@ -86,6 +100,12 @@ namespace Pulumi.Azure.Storage.Outputs
 
             int? tierToArchiveAfterDaysSinceModificationGreaterThan,
 
+            int? tierToColdAfterDaysSinceCreationGreaterThan,
+
+            int? tierToColdAfterDaysSinceLastAccessTimeGreaterThan,
+
+            int? tierToColdAfterDaysSinceModificationGreaterThan,
+
             int? tierToCoolAfterDaysSinceCreationGreaterThan,
 
             int? tierToCoolAfterDaysSinceLastAccessTimeGreaterThan,
@@ -100,6 +120,9 @@ namespace Pulumi.Azure.Storage.Outputs
             TierToArchiveAfterDaysSinceLastAccessTimeGreaterThan = tierToArchiveAfterDaysSinceLastAccessTimeGreaterThan;
             TierToArchiveAfterDaysSinceLastTierChangeGreaterThan = tierToArchiveAfterDaysSinceLastTierChangeGreaterThan;
             TierToArchiveAfterDaysSinceModificationGreaterThan = tierToArchiveAfterDaysSinceModificationGreaterThan;
+            TierToColdAfterDaysSinceCreationGreaterThan = tierToColdAfterDaysSinceCreationGreaterThan;
+            TierToColdAfterDaysSinceLastAccessTimeGreaterThan = tierToColdAfterDaysSinceLastAccessTimeGreaterThan;
+            TierToColdAfterDaysSinceModificationGreaterThan = tierToColdAfterDaysSinceModificationGreaterThan;
             TierToCoolAfterDaysSinceCreationGreaterThan = tierToCoolAfterDaysSinceCreationGreaterThan;
             TierToCoolAfterDaysSinceLastAccessTimeGreaterThan = tierToCoolAfterDaysSinceLastAccessTimeGreaterThan;
             TierToCoolAfterDaysSinceModificationGreaterThan = tierToCoolAfterDaysSinceModificationGreaterThan;

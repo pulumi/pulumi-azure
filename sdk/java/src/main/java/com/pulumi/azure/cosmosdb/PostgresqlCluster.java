@@ -75,18 +75,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:cosmosdb/postgresqlCluster:PostgresqlCluster")
 public class PostgresqlCluster extends com.pulumi.resources.CustomResource {
     /**
-     * The password of the administrator login.
+     * The password of the administrator login. This is required when `source_resource_id` is not set.
      * 
      */
     @Export(name="administratorLoginPassword", refs={String.class}, tree="[0]")
-    private Output<String> administratorLoginPassword;
+    private Output</* @Nullable */ String> administratorLoginPassword;
 
     /**
-     * @return The password of the administrator login.
+     * @return The password of the administrator login. This is required when `source_resource_id` is not set.
      * 
      */
-    public Output<String> administratorLoginPassword() {
-        return this.administratorLoginPassword;
+    public Output<Optional<String>> administratorLoginPassword() {
+        return Codegen.optional(this.administratorLoginPassword);
     }
     /**
      * The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`.
