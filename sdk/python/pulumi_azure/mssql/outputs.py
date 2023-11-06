@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -97,14 +97,63 @@ class DatabaseImport(dict):
         :param str storage_uri: Specifies the blob URI of the .bacpac file.
         :param str storage_account_id: The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storage_uri parameter.
         """
-        pulumi.set(__self__, "administrator_login", administrator_login)
-        pulumi.set(__self__, "administrator_login_password", administrator_login_password)
-        pulumi.set(__self__, "authentication_type", authentication_type)
-        pulumi.set(__self__, "storage_key", storage_key)
-        pulumi.set(__self__, "storage_key_type", storage_key_type)
-        pulumi.set(__self__, "storage_uri", storage_uri)
+        DatabaseImport._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrator_login=administrator_login,
+            administrator_login_password=administrator_login_password,
+            authentication_type=authentication_type,
+            storage_key=storage_key,
+            storage_key_type=storage_key_type,
+            storage_uri=storage_uri,
+            storage_account_id=storage_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrator_login: Optional[str] = None,
+             administrator_login_password: Optional[str] = None,
+             authentication_type: Optional[str] = None,
+             storage_key: Optional[str] = None,
+             storage_key_type: Optional[str] = None,
+             storage_uri: Optional[str] = None,
+             storage_account_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if administrator_login is None and 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if administrator_login is None:
+            raise TypeError("Missing 'administrator_login' argument")
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if administrator_login_password is None:
+            raise TypeError("Missing 'administrator_login_password' argument")
+        if authentication_type is None and 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if authentication_type is None:
+            raise TypeError("Missing 'authentication_type' argument")
+        if storage_key is None and 'storageKey' in kwargs:
+            storage_key = kwargs['storageKey']
+        if storage_key is None:
+            raise TypeError("Missing 'storage_key' argument")
+        if storage_key_type is None and 'storageKeyType' in kwargs:
+            storage_key_type = kwargs['storageKeyType']
+        if storage_key_type is None:
+            raise TypeError("Missing 'storage_key_type' argument")
+        if storage_uri is None and 'storageUri' in kwargs:
+            storage_uri = kwargs['storageUri']
+        if storage_uri is None:
+            raise TypeError("Missing 'storage_uri' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
+        _setter("administrator_login", administrator_login)
+        _setter("administrator_login_password", administrator_login_password)
+        _setter("authentication_type", authentication_type)
+        _setter("storage_key", storage_key)
+        _setter("storage_key_type", storage_key_type)
+        _setter("storage_uri", storage_uri)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
 
     @property
     @pulumi.getter(name="administratorLogin")
@@ -199,14 +248,39 @@ class DatabaseLongTermRetentionPolicy(dict):
         :param str weekly_retention: The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
         :param str yearly_retention: The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
         """
+        DatabaseLongTermRetentionPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            monthly_retention=monthly_retention,
+            week_of_year=week_of_year,
+            weekly_retention=weekly_retention,
+            yearly_retention=yearly_retention,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             monthly_retention: Optional[str] = None,
+             week_of_year: Optional[int] = None,
+             weekly_retention: Optional[str] = None,
+             yearly_retention: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if monthly_retention is None and 'monthlyRetention' in kwargs:
+            monthly_retention = kwargs['monthlyRetention']
+        if week_of_year is None and 'weekOfYear' in kwargs:
+            week_of_year = kwargs['weekOfYear']
+        if weekly_retention is None and 'weeklyRetention' in kwargs:
+            weekly_retention = kwargs['weeklyRetention']
+        if yearly_retention is None and 'yearlyRetention' in kwargs:
+            yearly_retention = kwargs['yearlyRetention']
+
         if monthly_retention is not None:
-            pulumi.set(__self__, "monthly_retention", monthly_retention)
+            _setter("monthly_retention", monthly_retention)
         if week_of_year is not None:
-            pulumi.set(__self__, "week_of_year", week_of_year)
+            _setter("week_of_year", week_of_year)
         if weekly_retention is not None:
-            pulumi.set(__self__, "weekly_retention", weekly_retention)
+            _setter("weekly_retention", weekly_retention)
         if yearly_retention is not None:
-            pulumi.set(__self__, "yearly_retention", yearly_retention)
+            _setter("yearly_retention", yearly_retention)
 
     @property
     @pulumi.getter(name="monthlyRetention")
@@ -269,9 +343,28 @@ class DatabaseShortTermRetentionPolicy(dict):
         :param int retention_days: Point In Time Restore configuration. Value has to be between `1` and `35`.
         :param int backup_interval_in_hours: The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be `12` or `24`. Defaults to `12` hours.
         """
-        pulumi.set(__self__, "retention_days", retention_days)
+        DatabaseShortTermRetentionPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            retention_days=retention_days,
+            backup_interval_in_hours=backup_interval_in_hours,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             retention_days: Optional[int] = None,
+             backup_interval_in_hours: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if retention_days is None and 'retentionDays' in kwargs:
+            retention_days = kwargs['retentionDays']
+        if retention_days is None:
+            raise TypeError("Missing 'retention_days' argument")
+        if backup_interval_in_hours is None and 'backupIntervalInHours' in kwargs:
+            backup_interval_in_hours = kwargs['backupIntervalInHours']
+
+        _setter("retention_days", retention_days)
         if backup_interval_in_hours is not None:
-            pulumi.set(__self__, "backup_interval_in_hours", backup_interval_in_hours)
+            _setter("backup_interval_in_hours", backup_interval_in_hours)
 
     @property
     @pulumi.getter(name="retentionDays")
@@ -336,20 +429,55 @@ class DatabaseThreatDetectionPolicy(dict):
         :param str storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
         :param str storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
+        DatabaseThreatDetectionPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disabled_alerts=disabled_alerts,
+            email_account_admins=email_account_admins,
+            email_addresses=email_addresses,
+            retention_days=retention_days,
+            state=state,
+            storage_account_access_key=storage_account_access_key,
+            storage_endpoint=storage_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disabled_alerts: Optional[Sequence[str]] = None,
+             email_account_admins: Optional[str] = None,
+             email_addresses: Optional[Sequence[str]] = None,
+             retention_days: Optional[int] = None,
+             state: Optional[str] = None,
+             storage_account_access_key: Optional[str] = None,
+             storage_endpoint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if disabled_alerts is None and 'disabledAlerts' in kwargs:
+            disabled_alerts = kwargs['disabledAlerts']
+        if email_account_admins is None and 'emailAccountAdmins' in kwargs:
+            email_account_admins = kwargs['emailAccountAdmins']
+        if email_addresses is None and 'emailAddresses' in kwargs:
+            email_addresses = kwargs['emailAddresses']
+        if retention_days is None and 'retentionDays' in kwargs:
+            retention_days = kwargs['retentionDays']
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
+            storage_endpoint = kwargs['storageEndpoint']
+
         if disabled_alerts is not None:
-            pulumi.set(__self__, "disabled_alerts", disabled_alerts)
+            _setter("disabled_alerts", disabled_alerts)
         if email_account_admins is not None:
-            pulumi.set(__self__, "email_account_admins", email_account_admins)
+            _setter("email_account_admins", email_account_admins)
         if email_addresses is not None:
-            pulumi.set(__self__, "email_addresses", email_addresses)
+            _setter("email_addresses", email_addresses)
         if retention_days is not None:
-            pulumi.set(__self__, "retention_days", retention_days)
+            _setter("retention_days", retention_days)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+            _setter("storage_account_access_key", storage_account_access_key)
         if storage_endpoint is not None:
-            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+            _setter("storage_endpoint", storage_endpoint)
 
     @property
     @pulumi.getter(name="disabledAlerts")
@@ -415,7 +543,20 @@ class DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult(dict):
         """
         :param Sequence[str] results: A list representing a result of the baseline.
         """
-        pulumi.set(__self__, "results", results)
+        DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            results=results,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             results: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if results is None:
+            raise TypeError("Missing 'results' argument")
+
+        _setter("results", results)
 
     @property
     @pulumi.getter
@@ -454,8 +595,29 @@ class ElasticPoolPerDatabaseSettings(dict):
         :param float max_capacity: The maximum capacity any one database can consume.
         :param float min_capacity: The minimum capacity all databases are guaranteed.
         """
-        pulumi.set(__self__, "max_capacity", max_capacity)
-        pulumi.set(__self__, "min_capacity", min_capacity)
+        ElasticPoolPerDatabaseSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            max_capacity=max_capacity,
+            min_capacity=min_capacity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             max_capacity: Optional[float] = None,
+             min_capacity: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if max_capacity is None and 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if max_capacity is None:
+            raise TypeError("Missing 'max_capacity' argument")
+        if min_capacity is None and 'minCapacity' in kwargs:
+            min_capacity = kwargs['minCapacity']
+        if min_capacity is None:
+            raise TypeError("Missing 'min_capacity' argument")
+
+        _setter("max_capacity", max_capacity)
+        _setter("min_capacity", min_capacity)
 
     @property
     @pulumi.getter(name="maxCapacity")
@@ -487,11 +649,34 @@ class ElasticPoolSku(dict):
         :param str tier: The tier of the particular SKU. Possible values are `GeneralPurpose`, `BusinessCritical`, `Basic`, `Standard`, `Premium`, or `HyperScale`. For more information see the documentation for your Elasticpool configuration: [vCore-based](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools) or [DTU-based](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools).
         :param str family: The `family` of hardware `Gen4`, `Gen5`, `Fsv2` or `DC`.
         """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        ElasticPoolSku._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            name=name,
+            tier=tier,
+            family=family,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[int] = None,
+             name: Optional[str] = None,
+             tier: Optional[str] = None,
+             family: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if capacity is None:
+            raise TypeError("Missing 'capacity' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if tier is None:
+            raise TypeError("Missing 'tier' argument")
+
+        _setter("capacity", capacity)
+        _setter("name", name)
+        _setter("tier", tier)
         if family is not None:
-            pulumi.set(__self__, "family", family)
+            _setter("family", family)
 
     @property
     @pulumi.getter
@@ -537,11 +722,28 @@ class FailoverGroupPartnerServer(dict):
         :param str location: The location of the partner server.
         :param str role: The replication role of the partner server. Possible values include `Primary` or `Secondary`.
         """
-        pulumi.set(__self__, "id", id)
+        FailoverGroupPartnerServer._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            location=location,
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             location: Optional[str] = None,
+             role: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter
@@ -594,9 +796,26 @@ class FailoverGroupReadWriteEndpointFailoverPolicy(dict):
         :param str mode: The failover policy of the read-write endpoint for the failover group. Possible values are `Automatic` or `Manual`.
         :param int grace_minutes: The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when `mode` is `Automatic`.
         """
-        pulumi.set(__self__, "mode", mode)
+        FailoverGroupReadWriteEndpointFailoverPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            grace_minutes=grace_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: Optional[str] = None,
+             grace_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if grace_minutes is None and 'graceMinutes' in kwargs:
+            grace_minutes = kwargs['graceMinutes']
+
+        _setter("mode", mode)
         if grace_minutes is not None:
-            pulumi.set(__self__, "grace_minutes", grace_minutes)
+            _setter("grace_minutes", grace_minutes)
 
     @property
     @pulumi.getter
@@ -651,14 +870,39 @@ class ManagedDatabaseLongTermRetentionPolicy(dict):
         :param str weekly_retention: The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`.
         :param str yearly_retention: The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`.
         """
+        ManagedDatabaseLongTermRetentionPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            monthly_retention=monthly_retention,
+            week_of_year=week_of_year,
+            weekly_retention=weekly_retention,
+            yearly_retention=yearly_retention,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             monthly_retention: Optional[str] = None,
+             week_of_year: Optional[int] = None,
+             weekly_retention: Optional[str] = None,
+             yearly_retention: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if monthly_retention is None and 'monthlyRetention' in kwargs:
+            monthly_retention = kwargs['monthlyRetention']
+        if week_of_year is None and 'weekOfYear' in kwargs:
+            week_of_year = kwargs['weekOfYear']
+        if weekly_retention is None and 'weeklyRetention' in kwargs:
+            weekly_retention = kwargs['weeklyRetention']
+        if yearly_retention is None and 'yearlyRetention' in kwargs:
+            yearly_retention = kwargs['yearlyRetention']
+
         if monthly_retention is not None:
-            pulumi.set(__self__, "monthly_retention", monthly_retention)
+            _setter("monthly_retention", monthly_retention)
         if week_of_year is not None:
-            pulumi.set(__self__, "week_of_year", week_of_year)
+            _setter("week_of_year", week_of_year)
         if weekly_retention is not None:
-            pulumi.set(__self__, "weekly_retention", weekly_retention)
+            _setter("weekly_retention", weekly_retention)
         if yearly_retention is not None:
-            pulumi.set(__self__, "yearly_retention", yearly_retention)
+            _setter("yearly_retention", yearly_retention)
 
     @property
     @pulumi.getter(name="monthlyRetention")
@@ -702,10 +946,23 @@ class ManagedInstanceFailoverGroupPartnerRegion(dict):
         :param str location: The Azure Region where the Managed Instance Failover Group should exist. Changing this forces a new resource to be created.
         :param str role: The partner replication role of the Managed Instance Failover Group.
         """
+        ManagedInstanceFailoverGroupPartnerRegion._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[str] = None,
+             role: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter
@@ -750,9 +1007,26 @@ class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy(dict):
         :param str mode: The failover mode. Possible values are `Automatic` or `Manual`.
         :param int grace_minutes: Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
         """
-        pulumi.set(__self__, "mode", mode)
+        ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            grace_minutes=grace_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: Optional[str] = None,
+             grace_minutes: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if grace_minutes is None and 'graceMinutes' in kwargs:
+            grace_minutes = kwargs['graceMinutes']
+
+        _setter("mode", mode)
         if grace_minutes is not None:
-            pulumi.set(__self__, "grace_minutes", grace_minutes)
+            _setter("grace_minutes", grace_minutes)
 
     @property
     @pulumi.getter
@@ -807,13 +1081,38 @@ class ManagedInstanceIdentity(dict):
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         """
-        pulumi.set(__self__, "type", type)
+        ManagedInstanceIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -878,12 +1177,29 @@ class ManagedInstanceVulnerabilityAssessmentRecurringScans(dict):
         :param Sequence[str] emails: Specifies an array of e-mail addresses to which the scan notification is sent.
         :param bool enabled: Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
         """
+        ManagedInstanceVulnerabilityAssessmentRecurringScans._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_subscription_admins=email_subscription_admins,
+            emails=emails,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_subscription_admins: Optional[bool] = None,
+             emails: Optional[Sequence[str]] = None,
+             enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if email_subscription_admins is None and 'emailSubscriptionAdmins' in kwargs:
+            email_subscription_admins = kwargs['emailSubscriptionAdmins']
+
         if email_subscription_admins is not None:
-            pulumi.set(__self__, "email_subscription_admins", email_subscription_admins)
+            _setter("email_subscription_admins", email_subscription_admins)
         if emails is not None:
-            pulumi.set(__self__, "emails", emails)
+            _setter("emails", emails)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter(name="emailSubscriptionAdmins")
@@ -946,12 +1262,41 @@ class ServerAzureadAdministrator(dict):
         :param bool azuread_authentication_only: Specifies whether only AD Users and administrators (e.g. `azuread_administrator.0.login_username`) can be used to login, or also local database users (e.g. `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted.
         :param str tenant_id: The tenant id of the Azure AD Administrator of this SQL Server.
         """
-        pulumi.set(__self__, "login_username", login_username)
-        pulumi.set(__self__, "object_id", object_id)
+        ServerAzureadAdministrator._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            login_username=login_username,
+            object_id=object_id,
+            azuread_authentication_only=azuread_authentication_only,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             login_username: Optional[str] = None,
+             object_id: Optional[str] = None,
+             azuread_authentication_only: Optional[bool] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if login_username is None and 'loginUsername' in kwargs:
+            login_username = kwargs['loginUsername']
+        if login_username is None:
+            raise TypeError("Missing 'login_username' argument")
+        if object_id is None and 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if azuread_authentication_only is None and 'azureadAuthenticationOnly' in kwargs:
+            azuread_authentication_only = kwargs['azureadAuthenticationOnly']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("login_username", login_username)
+        _setter("object_id", object_id)
         if azuread_authentication_only is not None:
-            pulumi.set(__self__, "azuread_authentication_only", azuread_authentication_only)
+            _setter("azuread_authentication_only", azuread_authentication_only)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="loginUsername")
@@ -1024,13 +1369,38 @@ class ServerIdentity(dict):
         :param str principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Server.
         :param str tenant_id: The tenant id of the Azure AD Administrator of this SQL Server.
         """
-        pulumi.set(__self__, "type", type)
+        ServerIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -1097,12 +1467,29 @@ class ServerVulnerabilityAssessmentRecurringScans(dict):
         :param Sequence[str] emails: Specifies an array of email addresses to which the scan notification is sent.
         :param bool enabled: Boolean flag which specifies if recurring scans is enabled or disabled. Defaults to `false`.
         """
+        ServerVulnerabilityAssessmentRecurringScans._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email_subscription_admins=email_subscription_admins,
+            emails=emails,
+            enabled=enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email_subscription_admins: Optional[bool] = None,
+             emails: Optional[Sequence[str]] = None,
+             enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if email_subscription_admins is None and 'emailSubscriptionAdmins' in kwargs:
+            email_subscription_admins = kwargs['emailSubscriptionAdmins']
+
         if email_subscription_admins is not None:
-            pulumi.set(__self__, "email_subscription_admins", email_subscription_admins)
+            _setter("email_subscription_admins", email_subscription_admins)
         if emails is not None:
-            pulumi.set(__self__, "emails", emails)
+            _setter("emails", emails)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
 
     @property
     @pulumi.getter(name="emailSubscriptionAdmins")
@@ -1157,12 +1544,29 @@ class VirtualMachineAssessment(dict):
         :param bool run_immediately: Should Assessment be run immediately? Defaults to `false`.
         :param 'VirtualMachineAssessmentScheduleArgs' schedule: An `schedule` block as defined below.
         """
+        VirtualMachineAssessment._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            run_immediately=run_immediately,
+            schedule=schedule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             run_immediately: Optional[bool] = None,
+             schedule: Optional['outputs.VirtualMachineAssessmentSchedule'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if run_immediately is None and 'runImmediately' in kwargs:
+            run_immediately = kwargs['runImmediately']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if run_immediately is not None:
-            pulumi.set(__self__, "run_immediately", run_immediately)
+            _setter("run_immediately", run_immediately)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
 
     @property
     @pulumi.getter
@@ -1227,12 +1631,41 @@ class VirtualMachineAssessmentSchedule(dict):
                > **NOTE:** Either one of `weekly_interval` or `monthly_occurrence` must be specified.
         :param int weekly_interval: How many weeks between assessment runs. Valid values are between `1` and `6`.
         """
-        pulumi.set(__self__, "day_of_week", day_of_week)
-        pulumi.set(__self__, "start_time", start_time)
+        VirtualMachineAssessmentSchedule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_week=day_of_week,
+            start_time=start_time,
+            monthly_occurrence=monthly_occurrence,
+            weekly_interval=weekly_interval,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_week: Optional[str] = None,
+             start_time: Optional[str] = None,
+             monthly_occurrence: Optional[int] = None,
+             weekly_interval: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if day_of_week is None and 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if day_of_week is None:
+            raise TypeError("Missing 'day_of_week' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+        if monthly_occurrence is None and 'monthlyOccurrence' in kwargs:
+            monthly_occurrence = kwargs['monthlyOccurrence']
+        if weekly_interval is None and 'weeklyInterval' in kwargs:
+            weekly_interval = kwargs['weeklyInterval']
+
+        _setter("day_of_week", day_of_week)
+        _setter("start_time", start_time)
         if monthly_occurrence is not None:
-            pulumi.set(__self__, "monthly_occurrence", monthly_occurrence)
+            _setter("monthly_occurrence", monthly_occurrence)
         if weekly_interval is not None:
-            pulumi.set(__self__, "weekly_interval", weekly_interval)
+            _setter("weekly_interval", weekly_interval)
 
     @property
     @pulumi.getter(name="dayOfWeek")
@@ -1317,17 +1750,60 @@ class VirtualMachineAutoBackup(dict):
         :param 'VirtualMachineAutoBackupManualScheduleArgs' manual_schedule: A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
         :param bool system_databases_backup_enabled: Include or exclude system databases from auto backup.
         """
-        pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
-        pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
-        pulumi.set(__self__, "storage_blob_endpoint", storage_blob_endpoint)
+        VirtualMachineAutoBackup._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            retention_period_in_days=retention_period_in_days,
+            storage_account_access_key=storage_account_access_key,
+            storage_blob_endpoint=storage_blob_endpoint,
+            encryption_enabled=encryption_enabled,
+            encryption_password=encryption_password,
+            manual_schedule=manual_schedule,
+            system_databases_backup_enabled=system_databases_backup_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             retention_period_in_days: Optional[int] = None,
+             storage_account_access_key: Optional[str] = None,
+             storage_blob_endpoint: Optional[str] = None,
+             encryption_enabled: Optional[bool] = None,
+             encryption_password: Optional[str] = None,
+             manual_schedule: Optional['outputs.VirtualMachineAutoBackupManualSchedule'] = None,
+             system_databases_backup_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if retention_period_in_days is None and 'retentionPeriodInDays' in kwargs:
+            retention_period_in_days = kwargs['retentionPeriodInDays']
+        if retention_period_in_days is None:
+            raise TypeError("Missing 'retention_period_in_days' argument")
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if storage_account_access_key is None:
+            raise TypeError("Missing 'storage_account_access_key' argument")
+        if storage_blob_endpoint is None and 'storageBlobEndpoint' in kwargs:
+            storage_blob_endpoint = kwargs['storageBlobEndpoint']
+        if storage_blob_endpoint is None:
+            raise TypeError("Missing 'storage_blob_endpoint' argument")
+        if encryption_enabled is None and 'encryptionEnabled' in kwargs:
+            encryption_enabled = kwargs['encryptionEnabled']
+        if encryption_password is None and 'encryptionPassword' in kwargs:
+            encryption_password = kwargs['encryptionPassword']
+        if manual_schedule is None and 'manualSchedule' in kwargs:
+            manual_schedule = kwargs['manualSchedule']
+        if system_databases_backup_enabled is None and 'systemDatabasesBackupEnabled' in kwargs:
+            system_databases_backup_enabled = kwargs['systemDatabasesBackupEnabled']
+
+        _setter("retention_period_in_days", retention_period_in_days)
+        _setter("storage_account_access_key", storage_account_access_key)
+        _setter("storage_blob_endpoint", storage_blob_endpoint)
         if encryption_enabled is not None:
-            pulumi.set(__self__, "encryption_enabled", encryption_enabled)
+            _setter("encryption_enabled", encryption_enabled)
         if encryption_password is not None:
-            pulumi.set(__self__, "encryption_password", encryption_password)
+            _setter("encryption_password", encryption_password)
         if manual_schedule is not None:
-            pulumi.set(__self__, "manual_schedule", manual_schedule)
+            _setter("manual_schedule", manual_schedule)
         if system_databases_backup_enabled is not None:
-            pulumi.set(__self__, "system_databases_backup_enabled", system_databases_backup_enabled)
+            _setter("system_databases_backup_enabled", system_databases_backup_enabled)
 
     @property
     @pulumi.getter(name="retentionPeriodInDays")
@@ -1428,12 +1904,49 @@ class VirtualMachineAutoBackupManualSchedule(dict):
                
                > **NOTE:** `days_of_week` can only be specified when `manual_schedule` is set to `Weekly`
         """
-        pulumi.set(__self__, "full_backup_frequency", full_backup_frequency)
-        pulumi.set(__self__, "full_backup_start_hour", full_backup_start_hour)
-        pulumi.set(__self__, "full_backup_window_in_hours", full_backup_window_in_hours)
-        pulumi.set(__self__, "log_backup_frequency_in_minutes", log_backup_frequency_in_minutes)
+        VirtualMachineAutoBackupManualSchedule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            full_backup_frequency=full_backup_frequency,
+            full_backup_start_hour=full_backup_start_hour,
+            full_backup_window_in_hours=full_backup_window_in_hours,
+            log_backup_frequency_in_minutes=log_backup_frequency_in_minutes,
+            days_of_weeks=days_of_weeks,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             full_backup_frequency: Optional[str] = None,
+             full_backup_start_hour: Optional[int] = None,
+             full_backup_window_in_hours: Optional[int] = None,
+             log_backup_frequency_in_minutes: Optional[int] = None,
+             days_of_weeks: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if full_backup_frequency is None and 'fullBackupFrequency' in kwargs:
+            full_backup_frequency = kwargs['fullBackupFrequency']
+        if full_backup_frequency is None:
+            raise TypeError("Missing 'full_backup_frequency' argument")
+        if full_backup_start_hour is None and 'fullBackupStartHour' in kwargs:
+            full_backup_start_hour = kwargs['fullBackupStartHour']
+        if full_backup_start_hour is None:
+            raise TypeError("Missing 'full_backup_start_hour' argument")
+        if full_backup_window_in_hours is None and 'fullBackupWindowInHours' in kwargs:
+            full_backup_window_in_hours = kwargs['fullBackupWindowInHours']
+        if full_backup_window_in_hours is None:
+            raise TypeError("Missing 'full_backup_window_in_hours' argument")
+        if log_backup_frequency_in_minutes is None and 'logBackupFrequencyInMinutes' in kwargs:
+            log_backup_frequency_in_minutes = kwargs['logBackupFrequencyInMinutes']
+        if log_backup_frequency_in_minutes is None:
+            raise TypeError("Missing 'log_backup_frequency_in_minutes' argument")
+        if days_of_weeks is None and 'daysOfWeeks' in kwargs:
+            days_of_weeks = kwargs['daysOfWeeks']
+
+        _setter("full_backup_frequency", full_backup_frequency)
+        _setter("full_backup_start_hour", full_backup_start_hour)
+        _setter("full_backup_window_in_hours", full_backup_window_in_hours)
+        _setter("log_backup_frequency_in_minutes", log_backup_frequency_in_minutes)
         if days_of_weeks is not None:
-            pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+            _setter("days_of_weeks", days_of_weeks)
 
     @property
     @pulumi.getter(name="fullBackupFrequency")
@@ -1510,9 +2023,36 @@ class VirtualMachineAutoPatching(dict):
         :param int maintenance_window_duration_in_minutes: The size of the Maintenance Window in minutes.
         :param int maintenance_window_starting_hour: The Hour, in the Virtual Machine Time-Zone when the patching maintenance window should begin.
         """
-        pulumi.set(__self__, "day_of_week", day_of_week)
-        pulumi.set(__self__, "maintenance_window_duration_in_minutes", maintenance_window_duration_in_minutes)
-        pulumi.set(__self__, "maintenance_window_starting_hour", maintenance_window_starting_hour)
+        VirtualMachineAutoPatching._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_week=day_of_week,
+            maintenance_window_duration_in_minutes=maintenance_window_duration_in_minutes,
+            maintenance_window_starting_hour=maintenance_window_starting_hour,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_week: Optional[str] = None,
+             maintenance_window_duration_in_minutes: Optional[int] = None,
+             maintenance_window_starting_hour: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if day_of_week is None and 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if day_of_week is None:
+            raise TypeError("Missing 'day_of_week' argument")
+        if maintenance_window_duration_in_minutes is None and 'maintenanceWindowDurationInMinutes' in kwargs:
+            maintenance_window_duration_in_minutes = kwargs['maintenanceWindowDurationInMinutes']
+        if maintenance_window_duration_in_minutes is None:
+            raise TypeError("Missing 'maintenance_window_duration_in_minutes' argument")
+        if maintenance_window_starting_hour is None and 'maintenanceWindowStartingHour' in kwargs:
+            maintenance_window_starting_hour = kwargs['maintenanceWindowStartingHour']
+        if maintenance_window_starting_hour is None:
+            raise TypeError("Missing 'maintenance_window_starting_hour' argument")
+
+        _setter("day_of_week", day_of_week)
+        _setter("maintenance_window_duration_in_minutes", maintenance_window_duration_in_minutes)
+        _setter("maintenance_window_starting_hour", maintenance_window_starting_hour)
 
     @property
     @pulumi.getter(name="dayOfWeek")
@@ -1581,11 +2121,50 @@ class VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration(dict):
                
                > **NOTE:** `sql_virtual_machine_ids` should match with the SQL Virtual Machines specified in `replica`.
         """
-        pulumi.set(__self__, "load_balancer_id", load_balancer_id)
-        pulumi.set(__self__, "private_ip_address", private_ip_address)
-        pulumi.set(__self__, "probe_port", probe_port)
-        pulumi.set(__self__, "sql_virtual_machine_ids", sql_virtual_machine_ids)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            load_balancer_id=load_balancer_id,
+            private_ip_address=private_ip_address,
+            probe_port=probe_port,
+            sql_virtual_machine_ids=sql_virtual_machine_ids,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             load_balancer_id: Optional[str] = None,
+             private_ip_address: Optional[str] = None,
+             probe_port: Optional[int] = None,
+             sql_virtual_machine_ids: Optional[Sequence[str]] = None,
+             subnet_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if load_balancer_id is None and 'loadBalancerId' in kwargs:
+            load_balancer_id = kwargs['loadBalancerId']
+        if load_balancer_id is None:
+            raise TypeError("Missing 'load_balancer_id' argument")
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if private_ip_address is None:
+            raise TypeError("Missing 'private_ip_address' argument")
+        if probe_port is None and 'probePort' in kwargs:
+            probe_port = kwargs['probePort']
+        if probe_port is None:
+            raise TypeError("Missing 'probe_port' argument")
+        if sql_virtual_machine_ids is None and 'sqlVirtualMachineIds' in kwargs:
+            sql_virtual_machine_ids = kwargs['sqlVirtualMachineIds']
+        if sql_virtual_machine_ids is None:
+            raise TypeError("Missing 'sql_virtual_machine_ids' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+
+        _setter("load_balancer_id", load_balancer_id)
+        _setter("private_ip_address", private_ip_address)
+        _setter("probe_port", probe_port)
+        _setter("sql_virtual_machine_ids", sql_virtual_machine_ids)
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="loadBalancerId")
@@ -1664,9 +2243,36 @@ class VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration(dict):
                
                > **NOTE:** `sql_virtual_machine_id` should match with the SQL Virtual Machines specified in `replica`.
         """
-        pulumi.set(__self__, "private_ip_address", private_ip_address)
-        pulumi.set(__self__, "sql_virtual_machine_id", sql_virtual_machine_id)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_ip_address=private_ip_address,
+            sql_virtual_machine_id=sql_virtual_machine_id,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_ip_address: Optional[str] = None,
+             sql_virtual_machine_id: Optional[str] = None,
+             subnet_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if private_ip_address is None:
+            raise TypeError("Missing 'private_ip_address' argument")
+        if sql_virtual_machine_id is None and 'sqlVirtualMachineId' in kwargs:
+            sql_virtual_machine_id = kwargs['sqlVirtualMachineId']
+        if sql_virtual_machine_id is None:
+            raise TypeError("Missing 'sql_virtual_machine_id' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+
+        _setter("private_ip_address", private_ip_address)
+        _setter("sql_virtual_machine_id", sql_virtual_machine_id)
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="privateIpAddress")
@@ -1731,11 +2337,46 @@ class VirtualMachineAvailabilityGroupListenerReplica(dict):
         :param str role: The replica role for the availability group. Possible values are `Primary` and `Secondary`. Changing this forces a new resource to be created.
         :param str sql_virtual_machine_id: The ID of the SQL Virtual Machine. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "commit", commit)
-        pulumi.set(__self__, "failover_mode", failover_mode)
-        pulumi.set(__self__, "readable_secondary", readable_secondary)
-        pulumi.set(__self__, "role", role)
-        pulumi.set(__self__, "sql_virtual_machine_id", sql_virtual_machine_id)
+        VirtualMachineAvailabilityGroupListenerReplica._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commit=commit,
+            failover_mode=failover_mode,
+            readable_secondary=readable_secondary,
+            role=role,
+            sql_virtual_machine_id=sql_virtual_machine_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commit: Optional[str] = None,
+             failover_mode: Optional[str] = None,
+             readable_secondary: Optional[str] = None,
+             role: Optional[str] = None,
+             sql_virtual_machine_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if commit is None:
+            raise TypeError("Missing 'commit' argument")
+        if failover_mode is None and 'failoverMode' in kwargs:
+            failover_mode = kwargs['failoverMode']
+        if failover_mode is None:
+            raise TypeError("Missing 'failover_mode' argument")
+        if readable_secondary is None and 'readableSecondary' in kwargs:
+            readable_secondary = kwargs['readableSecondary']
+        if readable_secondary is None:
+            raise TypeError("Missing 'readable_secondary' argument")
+        if role is None:
+            raise TypeError("Missing 'role' argument")
+        if sql_virtual_machine_id is None and 'sqlVirtualMachineId' in kwargs:
+            sql_virtual_machine_id = kwargs['sqlVirtualMachineId']
+        if sql_virtual_machine_id is None:
+            raise TypeError("Missing 'sql_virtual_machine_id' argument")
+
+        _setter("commit", commit)
+        _setter("failover_mode", failover_mode)
+        _setter("readable_secondary", readable_secondary)
+        _setter("role", role)
+        _setter("sql_virtual_machine_id", sql_virtual_machine_id)
 
     @property
     @pulumi.getter
@@ -1828,20 +2469,63 @@ class VirtualMachineGroupWsfcDomainProfile(dict):
         :param str storage_account_primary_key: The primary key of the Storage Account.
         :param str storage_account_url: The SAS URL to the Storage Container of the witness storage account. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "cluster_subnet_type", cluster_subnet_type)
-        pulumi.set(__self__, "fqdn", fqdn)
+        VirtualMachineGroupWsfcDomainProfile._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_subnet_type=cluster_subnet_type,
+            fqdn=fqdn,
+            cluster_bootstrap_account_name=cluster_bootstrap_account_name,
+            cluster_operator_account_name=cluster_operator_account_name,
+            organizational_unit_path=organizational_unit_path,
+            sql_service_account_name=sql_service_account_name,
+            storage_account_primary_key=storage_account_primary_key,
+            storage_account_url=storage_account_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_subnet_type: Optional[str] = None,
+             fqdn: Optional[str] = None,
+             cluster_bootstrap_account_name: Optional[str] = None,
+             cluster_operator_account_name: Optional[str] = None,
+             organizational_unit_path: Optional[str] = None,
+             sql_service_account_name: Optional[str] = None,
+             storage_account_primary_key: Optional[str] = None,
+             storage_account_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cluster_subnet_type is None and 'clusterSubnetType' in kwargs:
+            cluster_subnet_type = kwargs['clusterSubnetType']
+        if cluster_subnet_type is None:
+            raise TypeError("Missing 'cluster_subnet_type' argument")
+        if fqdn is None:
+            raise TypeError("Missing 'fqdn' argument")
+        if cluster_bootstrap_account_name is None and 'clusterBootstrapAccountName' in kwargs:
+            cluster_bootstrap_account_name = kwargs['clusterBootstrapAccountName']
+        if cluster_operator_account_name is None and 'clusterOperatorAccountName' in kwargs:
+            cluster_operator_account_name = kwargs['clusterOperatorAccountName']
+        if organizational_unit_path is None and 'organizationalUnitPath' in kwargs:
+            organizational_unit_path = kwargs['organizationalUnitPath']
+        if sql_service_account_name is None and 'sqlServiceAccountName' in kwargs:
+            sql_service_account_name = kwargs['sqlServiceAccountName']
+        if storage_account_primary_key is None and 'storageAccountPrimaryKey' in kwargs:
+            storage_account_primary_key = kwargs['storageAccountPrimaryKey']
+        if storage_account_url is None and 'storageAccountUrl' in kwargs:
+            storage_account_url = kwargs['storageAccountUrl']
+
+        _setter("cluster_subnet_type", cluster_subnet_type)
+        _setter("fqdn", fqdn)
         if cluster_bootstrap_account_name is not None:
-            pulumi.set(__self__, "cluster_bootstrap_account_name", cluster_bootstrap_account_name)
+            _setter("cluster_bootstrap_account_name", cluster_bootstrap_account_name)
         if cluster_operator_account_name is not None:
-            pulumi.set(__self__, "cluster_operator_account_name", cluster_operator_account_name)
+            _setter("cluster_operator_account_name", cluster_operator_account_name)
         if organizational_unit_path is not None:
-            pulumi.set(__self__, "organizational_unit_path", organizational_unit_path)
+            _setter("organizational_unit_path", organizational_unit_path)
         if sql_service_account_name is not None:
-            pulumi.set(__self__, "sql_service_account_name", sql_service_account_name)
+            _setter("sql_service_account_name", sql_service_account_name)
         if storage_account_primary_key is not None:
-            pulumi.set(__self__, "storage_account_primary_key", storage_account_primary_key)
+            _setter("storage_account_primary_key", storage_account_primary_key)
         if storage_account_url is not None:
-            pulumi.set(__self__, "storage_account_url", storage_account_url)
+            _setter("storage_account_url", storage_account_url)
 
     @property
     @pulumi.getter(name="clusterSubnetType")
@@ -1942,10 +2626,41 @@ class VirtualMachineKeyVaultCredential(dict):
         :param str service_principal_name: The service principal name to access key vault. Changing this forces a new resource to be created.
         :param str service_principal_secret: The service principal name secret to access key vault. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "key_vault_url", key_vault_url)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "service_principal_name", service_principal_name)
-        pulumi.set(__self__, "service_principal_secret", service_principal_secret)
+        VirtualMachineKeyVaultCredential._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_url=key_vault_url,
+            name=name,
+            service_principal_name=service_principal_name,
+            service_principal_secret=service_principal_secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_url: Optional[str] = None,
+             name: Optional[str] = None,
+             service_principal_name: Optional[str] = None,
+             service_principal_secret: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if key_vault_url is None and 'keyVaultUrl' in kwargs:
+            key_vault_url = kwargs['keyVaultUrl']
+        if key_vault_url is None:
+            raise TypeError("Missing 'key_vault_url' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if service_principal_name is None and 'servicePrincipalName' in kwargs:
+            service_principal_name = kwargs['servicePrincipalName']
+        if service_principal_name is None:
+            raise TypeError("Missing 'service_principal_name' argument")
+        if service_principal_secret is None and 'servicePrincipalSecret' in kwargs:
+            service_principal_secret = kwargs['servicePrincipalSecret']
+        if service_principal_secret is None:
+            raise TypeError("Missing 'service_principal_secret' argument")
+
+        _setter("key_vault_url", key_vault_url)
+        _setter("name", name)
+        _setter("service_principal_name", service_principal_name)
+        _setter("service_principal_secret", service_principal_secret)
 
     @property
     @pulumi.getter(name="keyVaultUrl")
@@ -2028,20 +2743,55 @@ class VirtualMachineSqlInstance(dict):
                
                > **NOTE:** `max_server_memory_mb` must be greater than or equal to `min_server_memory_mb`
         """
+        VirtualMachineSqlInstance._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            adhoc_workloads_optimization_enabled=adhoc_workloads_optimization_enabled,
+            collation=collation,
+            instant_file_initialization_enabled=instant_file_initialization_enabled,
+            lock_pages_in_memory_enabled=lock_pages_in_memory_enabled,
+            max_dop=max_dop,
+            max_server_memory_mb=max_server_memory_mb,
+            min_server_memory_mb=min_server_memory_mb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             adhoc_workloads_optimization_enabled: Optional[bool] = None,
+             collation: Optional[str] = None,
+             instant_file_initialization_enabled: Optional[bool] = None,
+             lock_pages_in_memory_enabled: Optional[bool] = None,
+             max_dop: Optional[int] = None,
+             max_server_memory_mb: Optional[int] = None,
+             min_server_memory_mb: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if adhoc_workloads_optimization_enabled is None and 'adhocWorkloadsOptimizationEnabled' in kwargs:
+            adhoc_workloads_optimization_enabled = kwargs['adhocWorkloadsOptimizationEnabled']
+        if instant_file_initialization_enabled is None and 'instantFileInitializationEnabled' in kwargs:
+            instant_file_initialization_enabled = kwargs['instantFileInitializationEnabled']
+        if lock_pages_in_memory_enabled is None and 'lockPagesInMemoryEnabled' in kwargs:
+            lock_pages_in_memory_enabled = kwargs['lockPagesInMemoryEnabled']
+        if max_dop is None and 'maxDop' in kwargs:
+            max_dop = kwargs['maxDop']
+        if max_server_memory_mb is None and 'maxServerMemoryMb' in kwargs:
+            max_server_memory_mb = kwargs['maxServerMemoryMb']
+        if min_server_memory_mb is None and 'minServerMemoryMb' in kwargs:
+            min_server_memory_mb = kwargs['minServerMemoryMb']
+
         if adhoc_workloads_optimization_enabled is not None:
-            pulumi.set(__self__, "adhoc_workloads_optimization_enabled", adhoc_workloads_optimization_enabled)
+            _setter("adhoc_workloads_optimization_enabled", adhoc_workloads_optimization_enabled)
         if collation is not None:
-            pulumi.set(__self__, "collation", collation)
+            _setter("collation", collation)
         if instant_file_initialization_enabled is not None:
-            pulumi.set(__self__, "instant_file_initialization_enabled", instant_file_initialization_enabled)
+            _setter("instant_file_initialization_enabled", instant_file_initialization_enabled)
         if lock_pages_in_memory_enabled is not None:
-            pulumi.set(__self__, "lock_pages_in_memory_enabled", lock_pages_in_memory_enabled)
+            _setter("lock_pages_in_memory_enabled", lock_pages_in_memory_enabled)
         if max_dop is not None:
-            pulumi.set(__self__, "max_dop", max_dop)
+            _setter("max_dop", max_dop)
         if max_server_memory_mb is not None:
-            pulumi.set(__self__, "max_server_memory_mb", max_server_memory_mb)
+            _setter("max_server_memory_mb", max_server_memory_mb)
         if min_server_memory_mb is not None:
-            pulumi.set(__self__, "min_server_memory_mb", min_server_memory_mb)
+            _setter("min_server_memory_mb", min_server_memory_mb)
 
     @property
     @pulumi.getter(name="adhocWorkloadsOptimizationEnabled")
@@ -2146,16 +2896,53 @@ class VirtualMachineStorageConfiguration(dict):
         :param bool system_db_on_data_disk_enabled: Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
         :param 'VirtualMachineStorageConfigurationTempDbSettingsArgs' temp_db_settings: An `temp_db_settings` as defined below.
         """
-        pulumi.set(__self__, "disk_type", disk_type)
-        pulumi.set(__self__, "storage_workload_type", storage_workload_type)
+        VirtualMachineStorageConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_type=disk_type,
+            storage_workload_type=storage_workload_type,
+            data_settings=data_settings,
+            log_settings=log_settings,
+            system_db_on_data_disk_enabled=system_db_on_data_disk_enabled,
+            temp_db_settings=temp_db_settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_type: Optional[str] = None,
+             storage_workload_type: Optional[str] = None,
+             data_settings: Optional['outputs.VirtualMachineStorageConfigurationDataSettings'] = None,
+             log_settings: Optional['outputs.VirtualMachineStorageConfigurationLogSettings'] = None,
+             system_db_on_data_disk_enabled: Optional[bool] = None,
+             temp_db_settings: Optional['outputs.VirtualMachineStorageConfigurationTempDbSettings'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if disk_type is None and 'diskType' in kwargs:
+            disk_type = kwargs['diskType']
+        if disk_type is None:
+            raise TypeError("Missing 'disk_type' argument")
+        if storage_workload_type is None and 'storageWorkloadType' in kwargs:
+            storage_workload_type = kwargs['storageWorkloadType']
+        if storage_workload_type is None:
+            raise TypeError("Missing 'storage_workload_type' argument")
+        if data_settings is None and 'dataSettings' in kwargs:
+            data_settings = kwargs['dataSettings']
+        if log_settings is None and 'logSettings' in kwargs:
+            log_settings = kwargs['logSettings']
+        if system_db_on_data_disk_enabled is None and 'systemDbOnDataDiskEnabled' in kwargs:
+            system_db_on_data_disk_enabled = kwargs['systemDbOnDataDiskEnabled']
+        if temp_db_settings is None and 'tempDbSettings' in kwargs:
+            temp_db_settings = kwargs['tempDbSettings']
+
+        _setter("disk_type", disk_type)
+        _setter("storage_workload_type", storage_workload_type)
         if data_settings is not None:
-            pulumi.set(__self__, "data_settings", data_settings)
+            _setter("data_settings", data_settings)
         if log_settings is not None:
-            pulumi.set(__self__, "log_settings", log_settings)
+            _setter("log_settings", log_settings)
         if system_db_on_data_disk_enabled is not None:
-            pulumi.set(__self__, "system_db_on_data_disk_enabled", system_db_on_data_disk_enabled)
+            _setter("system_db_on_data_disk_enabled", system_db_on_data_disk_enabled)
         if temp_db_settings is not None:
-            pulumi.set(__self__, "temp_db_settings", temp_db_settings)
+            _setter("temp_db_settings", temp_db_settings)
 
     @property
     @pulumi.getter(name="diskType")
@@ -2232,8 +3019,27 @@ class VirtualMachineStorageConfigurationDataSettings(dict):
         :param str default_file_path: The SQL Server default path
         :param Sequence[int] luns: A list of Logical Unit Numbers for the disks.
         """
-        pulumi.set(__self__, "default_file_path", default_file_path)
-        pulumi.set(__self__, "luns", luns)
+        VirtualMachineStorageConfigurationDataSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_file_path=default_file_path,
+            luns=luns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_file_path: Optional[str] = None,
+             luns: Optional[Sequence[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if default_file_path is None and 'defaultFilePath' in kwargs:
+            default_file_path = kwargs['defaultFilePath']
+        if default_file_path is None:
+            raise TypeError("Missing 'default_file_path' argument")
+        if luns is None:
+            raise TypeError("Missing 'luns' argument")
+
+        _setter("default_file_path", default_file_path)
+        _setter("luns", luns)
 
     @property
     @pulumi.getter(name="defaultFilePath")
@@ -2278,8 +3084,27 @@ class VirtualMachineStorageConfigurationLogSettings(dict):
         :param str default_file_path: The SQL Server default path
         :param Sequence[int] luns: A list of Logical Unit Numbers for the disks.
         """
-        pulumi.set(__self__, "default_file_path", default_file_path)
-        pulumi.set(__self__, "luns", luns)
+        VirtualMachineStorageConfigurationLogSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_file_path=default_file_path,
+            luns=luns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_file_path: Optional[str] = None,
+             luns: Optional[Sequence[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if default_file_path is None and 'defaultFilePath' in kwargs:
+            default_file_path = kwargs['defaultFilePath']
+        if default_file_path is None:
+            raise TypeError("Missing 'default_file_path' argument")
+        if luns is None:
+            raise TypeError("Missing 'luns' argument")
+
+        _setter("default_file_path", default_file_path)
+        _setter("luns", luns)
 
     @property
     @pulumi.getter(name="defaultFilePath")
@@ -2344,18 +3169,57 @@ class VirtualMachineStorageConfigurationTempDbSettings(dict):
         :param int log_file_growth_mb: The SQL Server default file size - This value defaults to `512`
         :param int log_file_size_mb: The SQL Server default file size - This value defaults to `256`
         """
-        pulumi.set(__self__, "default_file_path", default_file_path)
-        pulumi.set(__self__, "luns", luns)
+        VirtualMachineStorageConfigurationTempDbSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_file_path=default_file_path,
+            luns=luns,
+            data_file_count=data_file_count,
+            data_file_growth_in_mb=data_file_growth_in_mb,
+            data_file_size_mb=data_file_size_mb,
+            log_file_growth_mb=log_file_growth_mb,
+            log_file_size_mb=log_file_size_mb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_file_path: Optional[str] = None,
+             luns: Optional[Sequence[int]] = None,
+             data_file_count: Optional[int] = None,
+             data_file_growth_in_mb: Optional[int] = None,
+             data_file_size_mb: Optional[int] = None,
+             log_file_growth_mb: Optional[int] = None,
+             log_file_size_mb: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if default_file_path is None and 'defaultFilePath' in kwargs:
+            default_file_path = kwargs['defaultFilePath']
+        if default_file_path is None:
+            raise TypeError("Missing 'default_file_path' argument")
+        if luns is None:
+            raise TypeError("Missing 'luns' argument")
+        if data_file_count is None and 'dataFileCount' in kwargs:
+            data_file_count = kwargs['dataFileCount']
+        if data_file_growth_in_mb is None and 'dataFileGrowthInMb' in kwargs:
+            data_file_growth_in_mb = kwargs['dataFileGrowthInMb']
+        if data_file_size_mb is None and 'dataFileSizeMb' in kwargs:
+            data_file_size_mb = kwargs['dataFileSizeMb']
+        if log_file_growth_mb is None and 'logFileGrowthMb' in kwargs:
+            log_file_growth_mb = kwargs['logFileGrowthMb']
+        if log_file_size_mb is None and 'logFileSizeMb' in kwargs:
+            log_file_size_mb = kwargs['logFileSizeMb']
+
+        _setter("default_file_path", default_file_path)
+        _setter("luns", luns)
         if data_file_count is not None:
-            pulumi.set(__self__, "data_file_count", data_file_count)
+            _setter("data_file_count", data_file_count)
         if data_file_growth_in_mb is not None:
-            pulumi.set(__self__, "data_file_growth_in_mb", data_file_growth_in_mb)
+            _setter("data_file_growth_in_mb", data_file_growth_in_mb)
         if data_file_size_mb is not None:
-            pulumi.set(__self__, "data_file_size_mb", data_file_size_mb)
+            _setter("data_file_size_mb", data_file_size_mb)
         if log_file_growth_mb is not None:
-            pulumi.set(__self__, "log_file_growth_mb", log_file_growth_mb)
+            _setter("log_file_growth_mb", log_file_growth_mb)
         if log_file_size_mb is not None:
-            pulumi.set(__self__, "log_file_size_mb", log_file_size_mb)
+            _setter("log_file_size_mb", log_file_size_mb)
 
     @property
     @pulumi.getter(name="defaultFilePath")
@@ -2446,9 +3310,36 @@ class VirtualMachineWsfcDomainCredential(dict):
         :param str cluster_operator_account_password: The account password used for operating cluster.
         :param str sql_service_account_password: The account password under which SQL service will run on all participating SQL virtual machines in the cluster.
         """
-        pulumi.set(__self__, "cluster_bootstrap_account_password", cluster_bootstrap_account_password)
-        pulumi.set(__self__, "cluster_operator_account_password", cluster_operator_account_password)
-        pulumi.set(__self__, "sql_service_account_password", sql_service_account_password)
+        VirtualMachineWsfcDomainCredential._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_bootstrap_account_password=cluster_bootstrap_account_password,
+            cluster_operator_account_password=cluster_operator_account_password,
+            sql_service_account_password=sql_service_account_password,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_bootstrap_account_password: Optional[str] = None,
+             cluster_operator_account_password: Optional[str] = None,
+             sql_service_account_password: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cluster_bootstrap_account_password is None and 'clusterBootstrapAccountPassword' in kwargs:
+            cluster_bootstrap_account_password = kwargs['clusterBootstrapAccountPassword']
+        if cluster_bootstrap_account_password is None:
+            raise TypeError("Missing 'cluster_bootstrap_account_password' argument")
+        if cluster_operator_account_password is None and 'clusterOperatorAccountPassword' in kwargs:
+            cluster_operator_account_password = kwargs['clusterOperatorAccountPassword']
+        if cluster_operator_account_password is None:
+            raise TypeError("Missing 'cluster_operator_account_password' argument")
+        if sql_service_account_password is None and 'sqlServiceAccountPassword' in kwargs:
+            sql_service_account_password = kwargs['sqlServiceAccountPassword']
+        if sql_service_account_password is None:
+            raise TypeError("Missing 'sql_service_account_password' argument")
+
+        _setter("cluster_bootstrap_account_password", cluster_bootstrap_account_password)
+        _setter("cluster_operator_account_password", cluster_operator_account_password)
+        _setter("sql_service_account_password", sql_service_account_password)
 
     @property
     @pulumi.getter(name="clusterBootstrapAccountPassword")
@@ -2488,10 +3379,35 @@ class GetElasticPoolSkusResult(dict):
         :param str name: The name of the elastic pool.
         :param str tier: The tier of the particular SKU.
         """
-        pulumi.set(__self__, "capacity", capacity)
-        pulumi.set(__self__, "family", family)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        GetElasticPoolSkusResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            family=family,
+            name=name,
+            tier=tier,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[int] = None,
+             family: Optional[str] = None,
+             name: Optional[str] = None,
+             tier: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if capacity is None:
+            raise TypeError("Missing 'capacity' argument")
+        if family is None:
+            raise TypeError("Missing 'family' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if tier is None:
+            raise TypeError("Missing 'tier' argument")
+
+        _setter("capacity", capacity)
+        _setter("family", family)
+        _setter("name", name)
+        _setter("tier", tier)
 
     @property
     @pulumi.getter
@@ -2539,10 +3455,41 @@ class GetManagedInstanceIdentityResult(dict):
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         :param str type: The identity type of the SQL Managed Instance.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        GetManagedInstanceIdentityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if identity_ids is None and 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("identity_ids", identity_ids)
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -2590,10 +3537,41 @@ class GetServerIdentityResult(dict):
         :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Microsoft SQL Server.
         :param str type: The type of Managed Service Identity that is configured on this Microsoft SQL Server.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        GetServerIdentityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if identity_ids is None and 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("identity_ids", identity_ids)
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="identityIds")

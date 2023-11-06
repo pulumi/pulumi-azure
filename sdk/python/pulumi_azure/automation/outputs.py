@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -78,11 +78,34 @@ class AccountEncryption(dict):
         :param str key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
         :param str user_assigned_identity_id: The User Assigned Managed Identity ID to be used for accessing the Customer Managed Key for encryption.
         """
-        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        AccountEncryption._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_key_id=key_vault_key_id,
+            key_source=key_source,
+            user_assigned_identity_id=user_assigned_identity_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_key_id: Optional[str] = None,
+             key_source: Optional[str] = None,
+             user_assigned_identity_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if key_vault_key_id is None:
+            raise TypeError("Missing 'key_vault_key_id' argument")
+        if key_source is None and 'keySource' in kwargs:
+            key_source = kwargs['keySource']
+        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
+        _setter("key_vault_key_id", key_vault_key_id)
         if key_source is not None:
-            pulumi.set(__self__, "key_source", key_source)
+            _setter("key_source", key_source)
         if user_assigned_identity_id is not None:
-            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+            _setter("user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="keyVaultKeyId")
@@ -145,13 +168,38 @@ class AccountIdentity(dict):
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        pulumi.set(__self__, "type", type)
+        AccountIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -197,10 +245,23 @@ class AccountPrivateEndpointConnection(dict):
         :param str id: The ID of the Automation Account.
         :param str name: Specifies the name of the Automation Account. Changing this forces a new resource to be created.
         """
+        AccountPrivateEndpointConnection._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -251,12 +312,37 @@ class ConnectionTypeField(dict):
         :param bool is_encrypted: Whether to set the isEncrypted flag of the connection field definition.
         :param bool is_optional: Whether to set the isOptional flag of the connection field definition.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        ConnectionTypeField._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            is_encrypted=is_encrypted,
+            is_optional=is_optional,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             type: Optional[str] = None,
+             is_encrypted: Optional[bool] = None,
+             is_optional: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if is_encrypted is None and 'isEncrypted' in kwargs:
+            is_encrypted = kwargs['isEncrypted']
+        if is_optional is None and 'isOptional' in kwargs:
+            is_optional = kwargs['isOptional']
+
+        _setter("name", name)
+        _setter("type", type)
         if is_encrypted is not None:
-            pulumi.set(__self__, "is_encrypted", is_encrypted)
+            _setter("is_encrypted", is_encrypted)
         if is_optional is not None:
-            pulumi.set(__self__, "is_optional", is_optional)
+            _setter("is_optional", is_optional)
 
     @property
     @pulumi.getter
@@ -300,9 +386,24 @@ class ModuleModuleLink(dict):
         :param str uri: The URI of the module content (zip or nupkg).
         :param 'ModuleModuleLinkHashArgs' hash: A `hash` block as defined below.
         """
-        pulumi.set(__self__, "uri", uri)
+        ModuleModuleLink._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            uri=uri,
+            hash=hash,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             uri: Optional[str] = None,
+             hash: Optional['outputs.ModuleModuleLinkHash'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
+
+        _setter("uri", uri)
         if hash is not None:
-            pulumi.set(__self__, "hash", hash)
+            _setter("hash", hash)
 
     @property
     @pulumi.getter
@@ -330,8 +431,25 @@ class ModuleModuleLinkHash(dict):
         :param str algorithm: Specifies the algorithm used for the hash content.
         :param str value: The hash value of the content.
         """
-        pulumi.set(__self__, "algorithm", algorithm)
-        pulumi.set(__self__, "value", value)
+        ModuleModuleLinkHash._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            algorithm=algorithm,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             algorithm: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if algorithm is None:
+            raise TypeError("Missing 'algorithm' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("algorithm", algorithm)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -390,18 +508,49 @@ class RunBookDraft(dict):
         :param Sequence[str] output_types: Specifies the output types of the runbook.
         :param Sequence['RunBookDraftParameterArgs'] parameters: A list of `parameters` block as defined below.
         """
+        RunBookDraft._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_link=content_link,
+            creation_time=creation_time,
+            edit_mode_enabled=edit_mode_enabled,
+            last_modified_time=last_modified_time,
+            output_types=output_types,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_link: Optional['outputs.RunBookDraftContentLink'] = None,
+             creation_time: Optional[str] = None,
+             edit_mode_enabled: Optional[bool] = None,
+             last_modified_time: Optional[str] = None,
+             output_types: Optional[Sequence[str]] = None,
+             parameters: Optional[Sequence['outputs.RunBookDraftParameter']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if content_link is None and 'contentLink' in kwargs:
+            content_link = kwargs['contentLink']
+        if creation_time is None and 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+        if edit_mode_enabled is None and 'editModeEnabled' in kwargs:
+            edit_mode_enabled = kwargs['editModeEnabled']
+        if last_modified_time is None and 'lastModifiedTime' in kwargs:
+            last_modified_time = kwargs['lastModifiedTime']
+        if output_types is None and 'outputTypes' in kwargs:
+            output_types = kwargs['outputTypes']
+
         if content_link is not None:
-            pulumi.set(__self__, "content_link", content_link)
+            _setter("content_link", content_link)
         if creation_time is not None:
-            pulumi.set(__self__, "creation_time", creation_time)
+            _setter("creation_time", creation_time)
         if edit_mode_enabled is not None:
-            pulumi.set(__self__, "edit_mode_enabled", edit_mode_enabled)
+            _setter("edit_mode_enabled", edit_mode_enabled)
         if last_modified_time is not None:
-            pulumi.set(__self__, "last_modified_time", last_modified_time)
+            _setter("last_modified_time", last_modified_time)
         if output_types is not None:
-            pulumi.set(__self__, "output_types", output_types)
+            _setter("output_types", output_types)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="contentLink")
@@ -457,11 +606,28 @@ class RunBookDraftContentLink(dict):
         :param 'RunBookDraftContentLinkHashArgs' hash: A `hash` block as defined below.
         :param str version: Specifies the version of the content
         """
-        pulumi.set(__self__, "uri", uri)
+        RunBookDraftContentLink._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            uri=uri,
+            hash=hash,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             uri: Optional[str] = None,
+             hash: Optional['outputs.RunBookDraftContentLinkHash'] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
+
+        _setter("uri", uri)
         if hash is not None:
-            pulumi.set(__self__, "hash", hash)
+            _setter("hash", hash)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -497,8 +663,25 @@ class RunBookDraftContentLinkHash(dict):
         :param str algorithm: Specifies the hash algorithm used to hash the content.
         :param str value: Specifies the expected hash value of the content.
         """
-        pulumi.set(__self__, "algorithm", algorithm)
-        pulumi.set(__self__, "value", value)
+        RunBookDraftContentLinkHash._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            algorithm=algorithm,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             algorithm: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if algorithm is None:
+            raise TypeError("Missing 'algorithm' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("algorithm", algorithm)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -549,14 +732,39 @@ class RunBookDraftParameter(dict):
         :param bool mandatory: Whether this parameter is mandatory.
         :param int position: Specifies the position of the parameter.
         """
-        pulumi.set(__self__, "key", key)
-        pulumi.set(__self__, "type", type)
+        RunBookDraftParameter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key=key,
+            type=type,
+            default_value=default_value,
+            mandatory=mandatory,
+            position=position,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key: Optional[str] = None,
+             type: Optional[str] = None,
+             default_value: Optional[str] = None,
+             mandatory: Optional[bool] = None,
+             position: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if default_value is None and 'defaultValue' in kwargs:
+            default_value = kwargs['defaultValue']
+
+        _setter("key", key)
+        _setter("type", type)
         if default_value is not None:
-            pulumi.set(__self__, "default_value", default_value)
+            _setter("default_value", default_value)
         if mandatory is not None:
-            pulumi.set(__self__, "mandatory", mandatory)
+            _setter("mandatory", mandatory)
         if position is not None:
-            pulumi.set(__self__, "position", position)
+            _setter("position", position)
 
     @property
     @pulumi.getter
@@ -630,13 +838,38 @@ class RunBookJobSchedule(dict):
         """
         :param Mapping[str, str] parameters: A list of `parameters` block as defined below.
         """
-        pulumi.set(__self__, "schedule_name", schedule_name)
+        RunBookJobSchedule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            schedule_name=schedule_name,
+            job_schedule_id=job_schedule_id,
+            parameters=parameters,
+            run_on=run_on,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             schedule_name: Optional[str] = None,
+             job_schedule_id: Optional[str] = None,
+             parameters: Optional[Mapping[str, str]] = None,
+             run_on: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if schedule_name is None and 'scheduleName' in kwargs:
+            schedule_name = kwargs['scheduleName']
+        if schedule_name is None:
+            raise TypeError("Missing 'schedule_name' argument")
+        if job_schedule_id is None and 'jobScheduleId' in kwargs:
+            job_schedule_id = kwargs['jobScheduleId']
+        if run_on is None and 'runOn' in kwargs:
+            run_on = kwargs['runOn']
+
+        _setter("schedule_name", schedule_name)
         if job_schedule_id is not None:
-            pulumi.set(__self__, "job_schedule_id", job_schedule_id)
+            _setter("job_schedule_id", job_schedule_id)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if run_on is not None:
-            pulumi.set(__self__, "run_on", run_on)
+            _setter("run_on", run_on)
 
     @property
     @pulumi.getter(name="scheduleName")
@@ -673,11 +906,28 @@ class RunBookPublishContentLink(dict):
         :param 'RunBookPublishContentLinkHashArgs' hash: A `hash` block as defined below.
         :param str version: Specifies the version of the content
         """
-        pulumi.set(__self__, "uri", uri)
+        RunBookPublishContentLink._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            uri=uri,
+            hash=hash,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             uri: Optional[str] = None,
+             hash: Optional['outputs.RunBookPublishContentLinkHash'] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
+
+        _setter("uri", uri)
         if hash is not None:
-            pulumi.set(__self__, "hash", hash)
+            _setter("hash", hash)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -713,8 +963,25 @@ class RunBookPublishContentLinkHash(dict):
         :param str algorithm: Specifies the hash algorithm used to hash the content.
         :param str value: Specifies the expected hash value of the content.
         """
-        pulumi.set(__self__, "algorithm", algorithm)
-        pulumi.set(__self__, "value", value)
+        RunBookPublishContentLinkHash._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            algorithm=algorithm,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             algorithm: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if algorithm is None:
+            raise TypeError("Missing 'algorithm' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("algorithm", algorithm)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -742,8 +1009,25 @@ class ScheduleMonthlyOccurrence(dict):
         :param str day: Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
         :param int occurrence: Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
         """
-        pulumi.set(__self__, "day", day)
-        pulumi.set(__self__, "occurrence", occurrence)
+        ScheduleMonthlyOccurrence._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day=day,
+            occurrence=occurrence,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day: Optional[str] = None,
+             occurrence: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if day is None:
+            raise TypeError("Missing 'day' argument")
+        if occurrence is None:
+            raise TypeError("Missing 'occurrence' argument")
+
+        _setter("day", day)
+        _setter("occurrence", occurrence)
 
     @property
     @pulumi.getter
@@ -799,16 +1083,43 @@ class SoftwareUpdateConfigurationLinux(dict):
         :param Sequence[str] included_packages: Specifies a list of packages to included from the Software Update Configuration.
         :param str reboot: Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
         """
+        SoftwareUpdateConfigurationLinux._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classification_included=classification_included,
+            classifications_includeds=classifications_includeds,
+            excluded_packages=excluded_packages,
+            included_packages=included_packages,
+            reboot=reboot,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classification_included: Optional[str] = None,
+             classifications_includeds: Optional[Sequence[str]] = None,
+             excluded_packages: Optional[Sequence[str]] = None,
+             included_packages: Optional[Sequence[str]] = None,
+             reboot: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if classification_included is None and 'classificationIncluded' in kwargs:
+            classification_included = kwargs['classificationIncluded']
+        if classifications_includeds is None and 'classificationsIncludeds' in kwargs:
+            classifications_includeds = kwargs['classificationsIncludeds']
+        if excluded_packages is None and 'excludedPackages' in kwargs:
+            excluded_packages = kwargs['excludedPackages']
+        if included_packages is None and 'includedPackages' in kwargs:
+            included_packages = kwargs['includedPackages']
+
         if classification_included is not None:
-            pulumi.set(__self__, "classification_included", classification_included)
+            _setter("classification_included", classification_included)
         if classifications_includeds is not None:
-            pulumi.set(__self__, "classifications_includeds", classifications_includeds)
+            _setter("classifications_includeds", classifications_includeds)
         if excluded_packages is not None:
-            pulumi.set(__self__, "excluded_packages", excluded_packages)
+            _setter("excluded_packages", excluded_packages)
         if included_packages is not None:
-            pulumi.set(__self__, "included_packages", included_packages)
+            _setter("included_packages", included_packages)
         if reboot is not None:
-            pulumi.set(__self__, "reboot", reboot)
+            _setter("reboot", reboot)
 
     @property
     @pulumi.getter(name="classificationIncluded")
@@ -857,10 +1168,23 @@ class SoftwareUpdateConfigurationPostTask(dict):
         :param Mapping[str, str] parameters: Specifies a map of parameters for the task.
         :param str source: The name of the runbook for the post task.
         """
+        SoftwareUpdateConfigurationPostTask._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parameters=parameters,
+            source=source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parameters: Optional[Mapping[str, str]] = None,
+             source: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
 
     @property
     @pulumi.getter
@@ -888,10 +1212,23 @@ class SoftwareUpdateConfigurationPreTask(dict):
         :param Mapping[str, str] parameters: Specifies a map of parameters for the task.
         :param str source: The name of the runbook for the pre task.
         """
+        SoftwareUpdateConfigurationPreTask._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            parameters=parameters,
+            source=source,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             parameters: Optional[Mapping[str, str]] = None,
+             source: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if source is not None:
-            pulumi.set(__self__, "source", source)
+            _setter("source", source)
 
     @property
     @pulumi.getter
@@ -982,37 +1319,106 @@ class SoftwareUpdateConfigurationSchedule(dict):
         :param str start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
         :param str time_zone: The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
         """
-        pulumi.set(__self__, "frequency", frequency)
+        SoftwareUpdateConfigurationSchedule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            frequency=frequency,
+            advanced_month_days=advanced_month_days,
+            advanced_week_days=advanced_week_days,
+            creation_time=creation_time,
+            description=description,
+            expiry_time=expiry_time,
+            expiry_time_offset_minutes=expiry_time_offset_minutes,
+            interval=interval,
+            is_enabled=is_enabled,
+            last_modified_time=last_modified_time,
+            monthly_occurrences=monthly_occurrences,
+            next_run=next_run,
+            next_run_offset_minutes=next_run_offset_minutes,
+            start_time=start_time,
+            start_time_offset_minutes=start_time_offset_minutes,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             frequency: Optional[str] = None,
+             advanced_month_days: Optional[Sequence[int]] = None,
+             advanced_week_days: Optional[Sequence[str]] = None,
+             creation_time: Optional[str] = None,
+             description: Optional[str] = None,
+             expiry_time: Optional[str] = None,
+             expiry_time_offset_minutes: Optional[float] = None,
+             interval: Optional[int] = None,
+             is_enabled: Optional[bool] = None,
+             last_modified_time: Optional[str] = None,
+             monthly_occurrences: Optional[Sequence['outputs.SoftwareUpdateConfigurationScheduleMonthlyOccurrence']] = None,
+             next_run: Optional[str] = None,
+             next_run_offset_minutes: Optional[float] = None,
+             start_time: Optional[str] = None,
+             start_time_offset_minutes: Optional[float] = None,
+             time_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if frequency is None:
+            raise TypeError("Missing 'frequency' argument")
+        if advanced_month_days is None and 'advancedMonthDays' in kwargs:
+            advanced_month_days = kwargs['advancedMonthDays']
+        if advanced_week_days is None and 'advancedWeekDays' in kwargs:
+            advanced_week_days = kwargs['advancedWeekDays']
+        if creation_time is None and 'creationTime' in kwargs:
+            creation_time = kwargs['creationTime']
+        if expiry_time is None and 'expiryTime' in kwargs:
+            expiry_time = kwargs['expiryTime']
+        if expiry_time_offset_minutes is None and 'expiryTimeOffsetMinutes' in kwargs:
+            expiry_time_offset_minutes = kwargs['expiryTimeOffsetMinutes']
+        if is_enabled is None and 'isEnabled' in kwargs:
+            is_enabled = kwargs['isEnabled']
+        if last_modified_time is None and 'lastModifiedTime' in kwargs:
+            last_modified_time = kwargs['lastModifiedTime']
+        if monthly_occurrences is None and 'monthlyOccurrences' in kwargs:
+            monthly_occurrences = kwargs['monthlyOccurrences']
+        if next_run is None and 'nextRun' in kwargs:
+            next_run = kwargs['nextRun']
+        if next_run_offset_minutes is None and 'nextRunOffsetMinutes' in kwargs:
+            next_run_offset_minutes = kwargs['nextRunOffsetMinutes']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time_offset_minutes is None and 'startTimeOffsetMinutes' in kwargs:
+            start_time_offset_minutes = kwargs['startTimeOffsetMinutes']
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("frequency", frequency)
         if advanced_month_days is not None:
-            pulumi.set(__self__, "advanced_month_days", advanced_month_days)
+            _setter("advanced_month_days", advanced_month_days)
         if advanced_week_days is not None:
-            pulumi.set(__self__, "advanced_week_days", advanced_week_days)
+            _setter("advanced_week_days", advanced_week_days)
         if creation_time is not None:
-            pulumi.set(__self__, "creation_time", creation_time)
+            _setter("creation_time", creation_time)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if expiry_time is not None:
-            pulumi.set(__self__, "expiry_time", expiry_time)
+            _setter("expiry_time", expiry_time)
         if expiry_time_offset_minutes is not None:
-            pulumi.set(__self__, "expiry_time_offset_minutes", expiry_time_offset_minutes)
+            _setter("expiry_time_offset_minutes", expiry_time_offset_minutes)
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
         if is_enabled is not None:
-            pulumi.set(__self__, "is_enabled", is_enabled)
+            _setter("is_enabled", is_enabled)
         if last_modified_time is not None:
-            pulumi.set(__self__, "last_modified_time", last_modified_time)
+            _setter("last_modified_time", last_modified_time)
         if monthly_occurrences is not None:
-            pulumi.set(__self__, "monthly_occurrences", monthly_occurrences)
+            _setter("monthly_occurrences", monthly_occurrences)
         if next_run is not None:
-            pulumi.set(__self__, "next_run", next_run)
+            _setter("next_run", next_run)
         if next_run_offset_minutes is not None:
-            pulumi.set(__self__, "next_run_offset_minutes", next_run_offset_minutes)
+            _setter("next_run_offset_minutes", next_run_offset_minutes)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if start_time_offset_minutes is not None:
-            pulumi.set(__self__, "start_time_offset_minutes", start_time_offset_minutes)
+            _setter("start_time_offset_minutes", start_time_offset_minutes)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -1134,8 +1540,25 @@ class SoftwareUpdateConfigurationScheduleMonthlyOccurrence(dict):
         :param str day: Day of the occurrence. Must be one of `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`.
         :param int occurrence: Occurrence of the week within the month. Must be between `1` and `5`. `-1` for last week within the month.
         """
-        pulumi.set(__self__, "day", day)
-        pulumi.set(__self__, "occurrence", occurrence)
+        SoftwareUpdateConfigurationScheduleMonthlyOccurrence._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day=day,
+            occurrence=occurrence,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day: Optional[str] = None,
+             occurrence: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if day is None:
+            raise TypeError("Missing 'day' argument")
+        if occurrence is None:
+            raise TypeError("Missing 'occurrence' argument")
+
+        _setter("day", day)
+        _setter("occurrence", occurrence)
 
     @property
     @pulumi.getter
@@ -1182,10 +1605,27 @@ class SoftwareUpdateConfigurationTarget(dict):
         :param Sequence['SoftwareUpdateConfigurationTargetAzureQueryArgs'] azure_queries: One or more `azure_query` blocks as defined above.
         :param Sequence['SoftwareUpdateConfigurationTargetNonAzureQueryArgs'] non_azure_queries: One or more `non_azure_query` blocks as defined above.
         """
+        SoftwareUpdateConfigurationTarget._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_queries=azure_queries,
+            non_azure_queries=non_azure_queries,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_queries: Optional[Sequence['outputs.SoftwareUpdateConfigurationTargetAzureQuery']] = None,
+             non_azure_queries: Optional[Sequence['outputs.SoftwareUpdateConfigurationTargetNonAzureQuery']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if azure_queries is None and 'azureQueries' in kwargs:
+            azure_queries = kwargs['azureQueries']
+        if non_azure_queries is None and 'nonAzureQueries' in kwargs:
+            non_azure_queries = kwargs['nonAzureQueries']
+
         if azure_queries is not None:
-            pulumi.set(__self__, "azure_queries", azure_queries)
+            _setter("azure_queries", azure_queries)
         if non_azure_queries is not None:
-            pulumi.set(__self__, "non_azure_queries", non_azure_queries)
+            _setter("non_azure_queries", non_azure_queries)
 
     @property
     @pulumi.getter(name="azureQueries")
@@ -1234,14 +1674,33 @@ class SoftwareUpdateConfigurationTargetAzureQuery(dict):
         :param str tag_filter: Specifies how the specified tags to filter VMs. Possible values are `Any` and `All`.
         :param Sequence['SoftwareUpdateConfigurationTargetAzureQueryTagArgs'] tags: A mapping of tags used for query filter as defined below.
         """
+        SoftwareUpdateConfigurationTargetAzureQuery._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            locations=locations,
+            scopes=scopes,
+            tag_filter=tag_filter,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             locations: Optional[Sequence[str]] = None,
+             scopes: Optional[Sequence[str]] = None,
+             tag_filter: Optional[str] = None,
+             tags: Optional[Sequence['outputs.SoftwareUpdateConfigurationTargetAzureQueryTag']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if tag_filter is None and 'tagFilter' in kwargs:
+            tag_filter = kwargs['tagFilter']
+
         if locations is not None:
-            pulumi.set(__self__, "locations", locations)
+            _setter("locations", locations)
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
         if tag_filter is not None:
-            pulumi.set(__self__, "tag_filter", tag_filter)
+            _setter("tag_filter", tag_filter)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -1285,8 +1744,25 @@ class SoftwareUpdateConfigurationTargetAzureQueryTag(dict):
         :param str tag: Specifies the name of the tag to filter.
         :param Sequence[str] values: Specifies a list of values for this tag key.
         """
-        pulumi.set(__self__, "tag", tag)
-        pulumi.set(__self__, "values", values)
+        SoftwareUpdateConfigurationTargetAzureQueryTag._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            tag=tag,
+            values=values,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             tag: Optional[str] = None,
+             values: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if tag is None:
+            raise TypeError("Missing 'tag' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+
+        _setter("tag", tag)
+        _setter("values", values)
 
     @property
     @pulumi.getter
@@ -1333,10 +1809,27 @@ class SoftwareUpdateConfigurationTargetNonAzureQuery(dict):
         :param str function_alias: Specifies the Log Analytics save search name.
         :param str workspace_id: The workspace id for Log Analytics in which the saved search in.
         """
+        SoftwareUpdateConfigurationTargetNonAzureQuery._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            function_alias=function_alias,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             function_alias: Optional[str] = None,
+             workspace_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if function_alias is None and 'functionAlias' in kwargs:
+            function_alias = kwargs['functionAlias']
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if function_alias is not None:
-            pulumi.set(__self__, "function_alias", function_alias)
+            _setter("function_alias", function_alias)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="functionAlias")
@@ -1392,16 +1885,43 @@ class SoftwareUpdateConfigurationWindows(dict):
         :param Sequence[str] included_knowledge_base_numbers: Specifies a list of knowledge base numbers included.
         :param str reboot: Specifies the reboot settings after software update, possible values are `IfRequired`, `Never`, `RebootOnly` and `Always`. Defaults to `IfRequired`.
         """
+        SoftwareUpdateConfigurationWindows._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            classification_included=classification_included,
+            classifications_includeds=classifications_includeds,
+            excluded_knowledge_base_numbers=excluded_knowledge_base_numbers,
+            included_knowledge_base_numbers=included_knowledge_base_numbers,
+            reboot=reboot,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             classification_included: Optional[str] = None,
+             classifications_includeds: Optional[Sequence[str]] = None,
+             excluded_knowledge_base_numbers: Optional[Sequence[str]] = None,
+             included_knowledge_base_numbers: Optional[Sequence[str]] = None,
+             reboot: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if classification_included is None and 'classificationIncluded' in kwargs:
+            classification_included = kwargs['classificationIncluded']
+        if classifications_includeds is None and 'classificationsIncludeds' in kwargs:
+            classifications_includeds = kwargs['classificationsIncludeds']
+        if excluded_knowledge_base_numbers is None and 'excludedKnowledgeBaseNumbers' in kwargs:
+            excluded_knowledge_base_numbers = kwargs['excludedKnowledgeBaseNumbers']
+        if included_knowledge_base_numbers is None and 'includedKnowledgeBaseNumbers' in kwargs:
+            included_knowledge_base_numbers = kwargs['includedKnowledgeBaseNumbers']
+
         if classification_included is not None:
-            pulumi.set(__self__, "classification_included", classification_included)
+            _setter("classification_included", classification_included)
         if classifications_includeds is not None:
-            pulumi.set(__self__, "classifications_includeds", classifications_includeds)
+            _setter("classifications_includeds", classifications_includeds)
         if excluded_knowledge_base_numbers is not None:
-            pulumi.set(__self__, "excluded_knowledge_base_numbers", excluded_knowledge_base_numbers)
+            _setter("excluded_knowledge_base_numbers", excluded_knowledge_base_numbers)
         if included_knowledge_base_numbers is not None:
-            pulumi.set(__self__, "included_knowledge_base_numbers", included_knowledge_base_numbers)
+            _setter("included_knowledge_base_numbers", included_knowledge_base_numbers)
         if reboot is not None:
-            pulumi.set(__self__, "reboot", reboot)
+            _setter("reboot", reboot)
 
     @property
     @pulumi.getter(name="classificationIncluded")
@@ -1474,10 +1994,33 @@ class SourceControlSecurity(dict):
         :param str token_type: Specify the token type, possible values are `PersonalAccessToken` and `Oauth`.
         :param str refresh_token: The refresh token of specified rpeo.
         """
-        pulumi.set(__self__, "token", token)
-        pulumi.set(__self__, "token_type", token_type)
+        SourceControlSecurity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            token=token,
+            token_type=token_type,
+            refresh_token=refresh_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             token: Optional[str] = None,
+             token_type: Optional[str] = None,
+             refresh_token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+        if token_type is None and 'tokenType' in kwargs:
+            token_type = kwargs['tokenType']
+        if token_type is None:
+            raise TypeError("Missing 'token_type' argument")
+        if refresh_token is None and 'refreshToken' in kwargs:
+            refresh_token = kwargs['refreshToken']
+
+        _setter("token", token)
+        _setter("token_type", token_type)
         if refresh_token is not None:
-            pulumi.set(__self__, "refresh_token", refresh_token)
+            _setter("refresh_token", refresh_token)
 
     @property
     @pulumi.getter
@@ -1517,10 +2060,41 @@ class GetAccountIdentityResult(dict):
         :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Automation Account.
         :param str type: The type of Managed Service Identity that is configured on this Automation Account.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        GetAccountIdentityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if identity_ids is None and 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("identity_ids", identity_ids)
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -1564,8 +2138,25 @@ class GetAccountPrivateEndpointConnectionResult(dict):
         :param str id: The ID of the Automation Account
         :param str name: The name of the Automation Account.
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
+        GetAccountPrivateEndpointConnectionResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("id", id)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -1598,11 +2189,40 @@ class GetVariablesBoolResult(dict):
         :param str name: The name of the Automation Variable.
         :param bool value: The value of the Automation Variable.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "encrypted", encrypted)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetVariablesBoolResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            encrypted=encrypted,
+            id=id,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             encrypted: Optional[bool] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if encrypted is None:
+            raise TypeError("Missing 'encrypted' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("description", description)
+        _setter("encrypted", encrypted)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1656,11 +2276,40 @@ class GetVariablesDatetimeResult(dict):
         :param str name: The name of the Automation Variable.
         :param str value: The value of the Automation Variable.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "encrypted", encrypted)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetVariablesDatetimeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            encrypted=encrypted,
+            id=id,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             encrypted: Optional[bool] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if encrypted is None:
+            raise TypeError("Missing 'encrypted' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("description", description)
+        _setter("encrypted", encrypted)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1714,11 +2363,40 @@ class GetVariablesEncryptedResult(dict):
         :param str name: The name of the Automation Variable.
         :param str value: The value of the Automation Variable.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "encrypted", encrypted)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetVariablesEncryptedResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            encrypted=encrypted,
+            id=id,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             encrypted: Optional[bool] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if encrypted is None:
+            raise TypeError("Missing 'encrypted' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("description", description)
+        _setter("encrypted", encrypted)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1772,11 +2450,40 @@ class GetVariablesIntResult(dict):
         :param str name: The name of the Automation Variable.
         :param int value: The value of the Automation Variable.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "encrypted", encrypted)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetVariablesIntResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            encrypted=encrypted,
+            id=id,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             encrypted: Optional[bool] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if encrypted is None:
+            raise TypeError("Missing 'encrypted' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("description", description)
+        _setter("encrypted", encrypted)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1830,11 +2537,40 @@ class GetVariablesNullResult(dict):
         :param str name: The name of the Automation Variable.
         :param str value: The value of the Automation Variable.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "encrypted", encrypted)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetVariablesNullResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            encrypted=encrypted,
+            id=id,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             encrypted: Optional[bool] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if encrypted is None:
+            raise TypeError("Missing 'encrypted' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("description", description)
+        _setter("encrypted", encrypted)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1888,11 +2624,40 @@ class GetVariablesObjectResult(dict):
         :param str name: The name of the Automation Variable.
         :param str value: The value of the Automation Variable.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "encrypted", encrypted)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetVariablesObjectResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            encrypted=encrypted,
+            id=id,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             encrypted: Optional[bool] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if encrypted is None:
+            raise TypeError("Missing 'encrypted' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("description", description)
+        _setter("encrypted", encrypted)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1946,11 +2711,40 @@ class GetVariablesStringResult(dict):
         :param str name: The name of the Automation Variable.
         :param str value: The value of the Automation Variable.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "encrypted", encrypted)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetVariablesStringResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            encrypted=encrypted,
+            id=id,
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             encrypted: Optional[bool] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if encrypted is None:
+            raise TypeError("Missing 'encrypted' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("description", description)
+        _setter("encrypted", encrypted)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter

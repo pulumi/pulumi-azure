@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -51,10 +51,35 @@ class NamespaceCustomerManagedKey(dict):
         :param str key_vault_key_id: The ID of the Key Vault Key which should be used to Encrypt the data in this ServiceBus Namespace.
         :param bool infrastructure_encryption_enabled: Used to specify whether enable Infrastructure Encryption (Double Encryption). Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "identity_id", identity_id)
-        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+        NamespaceCustomerManagedKey._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_id=identity_id,
+            key_vault_key_id=key_vault_key_id,
+            infrastructure_encryption_enabled=infrastructure_encryption_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_id: Optional[str] = None,
+             key_vault_key_id: Optional[str] = None,
+             infrastructure_encryption_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if identity_id is None and 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+        if identity_id is None:
+            raise TypeError("Missing 'identity_id' argument")
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if key_vault_key_id is None:
+            raise TypeError("Missing 'key_vault_key_id' argument")
+        if infrastructure_encryption_enabled is None and 'infrastructureEncryptionEnabled' in kwargs:
+            infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
+
+        _setter("identity_id", identity_id)
+        _setter("key_vault_key_id", key_vault_key_id)
         if infrastructure_encryption_enabled is not None:
-            pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
+            _setter("infrastructure_encryption_enabled", infrastructure_encryption_enabled)
 
     @property
     @pulumi.getter(name="identityId")
@@ -117,13 +142,38 @@ class NamespaceIdentity(dict):
         :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this ServiceBus Namespace.
         """
-        pulumi.set(__self__, "type", type)
+        NamespaceIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -200,16 +250,45 @@ class NamespaceNetworkRuleSet(dict):
         :param bool public_network_access_enabled: Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
         :param bool trusted_services_allowed: Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
         """
+        NamespaceNetworkRuleSet._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_action=default_action,
+            ip_rules=ip_rules,
+            network_rules=network_rules,
+            public_network_access_enabled=public_network_access_enabled,
+            trusted_services_allowed=trusted_services_allowed,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_action: Optional[str] = None,
+             ip_rules: Optional[Sequence[str]] = None,
+             network_rules: Optional[Sequence['outputs.NamespaceNetworkRuleSetNetworkRule']] = None,
+             public_network_access_enabled: Optional[bool] = None,
+             trusted_services_allowed: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if default_action is None and 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if ip_rules is None and 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if network_rules is None and 'networkRules' in kwargs:
+            network_rules = kwargs['networkRules']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if trusted_services_allowed is None and 'trustedServicesAllowed' in kwargs:
+            trusted_services_allowed = kwargs['trustedServicesAllowed']
+
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
         if network_rules is not None:
-            pulumi.set(__self__, "network_rules", network_rules)
+            _setter("network_rules", network_rules)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if trusted_services_allowed is not None:
-            pulumi.set(__self__, "trusted_services_allowed", trusted_services_allowed)
+            _setter("trusted_services_allowed", trusted_services_allowed)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -280,9 +359,28 @@ class NamespaceNetworkRuleSetNetworkRule(dict):
         :param str subnet_id: The Subnet ID which should be able to access this ServiceBus Namespace.
         :param bool ignore_missing_vnet_service_endpoint: Should the ServiceBus Namespace Network Rule Set ignore missing Virtual Network Service Endpoint option in the Subnet? Defaults to `false`.
         """
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        NamespaceNetworkRuleSetNetworkRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_id=subnet_id,
+            ignore_missing_vnet_service_endpoint=ignore_missing_vnet_service_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_id: Optional[str] = None,
+             ignore_missing_vnet_service_endpoint: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if ignore_missing_vnet_service_endpoint is None and 'ignoreMissingVnetServiceEndpoint' in kwargs:
+            ignore_missing_vnet_service_endpoint = kwargs['ignoreMissingVnetServiceEndpoint']
+
+        _setter("subnet_id", subnet_id)
         if ignore_missing_vnet_service_endpoint is not None:
-            pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
+            _setter("ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -335,12 +433,33 @@ class SubscriptionClientScopedSubscription(dict):
         :param bool is_client_scoped_subscription_durable: Whether the client scoped subscription is durable. This property can only be controlled from the application side.
         :param bool is_client_scoped_subscription_shareable: Whether the client scoped subscription is shareable. Defaults to `true` Changing this forces a new resource to be created.
         """
+        SubscriptionClientScopedSubscription._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            is_client_scoped_subscription_durable=is_client_scoped_subscription_durable,
+            is_client_scoped_subscription_shareable=is_client_scoped_subscription_shareable,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             is_client_scoped_subscription_durable: Optional[bool] = None,
+             is_client_scoped_subscription_shareable: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if is_client_scoped_subscription_durable is None and 'isClientScopedSubscriptionDurable' in kwargs:
+            is_client_scoped_subscription_durable = kwargs['isClientScopedSubscriptionDurable']
+        if is_client_scoped_subscription_shareable is None and 'isClientScopedSubscriptionShareable' in kwargs:
+            is_client_scoped_subscription_shareable = kwargs['isClientScopedSubscriptionShareable']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if is_client_scoped_subscription_durable is not None:
-            pulumi.set(__self__, "is_client_scoped_subscription_durable", is_client_scoped_subscription_durable)
+            _setter("is_client_scoped_subscription_durable", is_client_scoped_subscription_durable)
         if is_client_scoped_subscription_shareable is not None:
-            pulumi.set(__self__, "is_client_scoped_subscription_shareable", is_client_scoped_subscription_shareable)
+            _setter("is_client_scoped_subscription_shareable", is_client_scoped_subscription_shareable)
 
     @property
     @pulumi.getter(name="clientId")
@@ -421,24 +540,63 @@ class SubscriptionRuleCorrelationFilter(dict):
         :param str session_id: Session identifier.
         :param str to: Address to send to.
         """
+        SubscriptionRuleCorrelationFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_type=content_type,
+            correlation_id=correlation_id,
+            label=label,
+            message_id=message_id,
+            properties=properties,
+            reply_to=reply_to,
+            reply_to_session_id=reply_to_session_id,
+            session_id=session_id,
+            to=to,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_type: Optional[str] = None,
+             correlation_id: Optional[str] = None,
+             label: Optional[str] = None,
+             message_id: Optional[str] = None,
+             properties: Optional[Mapping[str, str]] = None,
+             reply_to: Optional[str] = None,
+             reply_to_session_id: Optional[str] = None,
+             session_id: Optional[str] = None,
+             to: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if correlation_id is None and 'correlationId' in kwargs:
+            correlation_id = kwargs['correlationId']
+        if message_id is None and 'messageId' in kwargs:
+            message_id = kwargs['messageId']
+        if reply_to is None and 'replyTo' in kwargs:
+            reply_to = kwargs['replyTo']
+        if reply_to_session_id is None and 'replyToSessionId' in kwargs:
+            reply_to_session_id = kwargs['replyToSessionId']
+        if session_id is None and 'sessionId' in kwargs:
+            session_id = kwargs['sessionId']
+
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if correlation_id is not None:
-            pulumi.set(__self__, "correlation_id", correlation_id)
+            _setter("correlation_id", correlation_id)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if message_id is not None:
-            pulumi.set(__self__, "message_id", message_id)
+            _setter("message_id", message_id)
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if reply_to is not None:
-            pulumi.set(__self__, "reply_to", reply_to)
+            _setter("reply_to", reply_to)
         if reply_to_session_id is not None:
-            pulumi.set(__self__, "reply_to_session_id", reply_to_session_id)
+            _setter("reply_to_session_id", reply_to_session_id)
         if session_id is not None:
-            pulumi.set(__self__, "session_id", session_id)
+            _setter("session_id", session_id)
         if to is not None:
-            pulumi.set(__self__, "to", to)
+            _setter("to", to)
 
     @property
     @pulumi.getter(name="contentType")

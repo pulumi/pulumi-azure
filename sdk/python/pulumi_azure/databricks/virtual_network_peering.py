@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VirtualNetworkPeeringArgs', 'VirtualNetworkPeering']
@@ -39,20 +39,71 @@ class VirtualNetworkPeeringArgs:
                
                > **NOTE:** If the `use_remote_gateways` is set to `true`, and `allow_gateway_transit` on the remote peering is also `true`, the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to `true`. `use_remote_gateways` cannot be set if the virtual network already has a gateway.
         """
-        pulumi.set(__self__, "remote_address_space_prefixes", remote_address_space_prefixes)
-        pulumi.set(__self__, "remote_virtual_network_id", remote_virtual_network_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        VirtualNetworkPeeringArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            remote_address_space_prefixes=remote_address_space_prefixes,
+            remote_virtual_network_id=remote_virtual_network_id,
+            resource_group_name=resource_group_name,
+            workspace_id=workspace_id,
+            allow_forwarded_traffic=allow_forwarded_traffic,
+            allow_gateway_transit=allow_gateway_transit,
+            allow_virtual_network_access=allow_virtual_network_access,
+            name=name,
+            use_remote_gateways=use_remote_gateways,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             remote_address_space_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             allow_forwarded_traffic: Optional[pulumi.Input[bool]] = None,
+             allow_gateway_transit: Optional[pulumi.Input[bool]] = None,
+             allow_virtual_network_access: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             use_remote_gateways: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if remote_address_space_prefixes is None and 'remoteAddressSpacePrefixes' in kwargs:
+            remote_address_space_prefixes = kwargs['remoteAddressSpacePrefixes']
+        if remote_address_space_prefixes is None:
+            raise TypeError("Missing 'remote_address_space_prefixes' argument")
+        if remote_virtual_network_id is None and 'remoteVirtualNetworkId' in kwargs:
+            remote_virtual_network_id = kwargs['remoteVirtualNetworkId']
+        if remote_virtual_network_id is None:
+            raise TypeError("Missing 'remote_virtual_network_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if allow_forwarded_traffic is None and 'allowForwardedTraffic' in kwargs:
+            allow_forwarded_traffic = kwargs['allowForwardedTraffic']
+        if allow_gateway_transit is None and 'allowGatewayTransit' in kwargs:
+            allow_gateway_transit = kwargs['allowGatewayTransit']
+        if allow_virtual_network_access is None and 'allowVirtualNetworkAccess' in kwargs:
+            allow_virtual_network_access = kwargs['allowVirtualNetworkAccess']
+        if use_remote_gateways is None and 'useRemoteGateways' in kwargs:
+            use_remote_gateways = kwargs['useRemoteGateways']
+
+        _setter("remote_address_space_prefixes", remote_address_space_prefixes)
+        _setter("remote_virtual_network_id", remote_virtual_network_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_id", workspace_id)
         if allow_forwarded_traffic is not None:
-            pulumi.set(__self__, "allow_forwarded_traffic", allow_forwarded_traffic)
+            _setter("allow_forwarded_traffic", allow_forwarded_traffic)
         if allow_gateway_transit is not None:
-            pulumi.set(__self__, "allow_gateway_transit", allow_gateway_transit)
+            _setter("allow_gateway_transit", allow_gateway_transit)
         if allow_virtual_network_access is not None:
-            pulumi.set(__self__, "allow_virtual_network_access", allow_virtual_network_access)
+            _setter("allow_virtual_network_access", allow_virtual_network_access)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if use_remote_gateways is not None:
-            pulumi.set(__self__, "use_remote_gateways", use_remote_gateways)
+            _setter("use_remote_gateways", use_remote_gateways)
 
     @property
     @pulumi.getter(name="remoteAddressSpacePrefixes")
@@ -201,28 +252,79 @@ class _VirtualNetworkPeeringState:
                > **NOTE:** The `virtual_network_id` field is the value you must supply to the `network.VirtualNetworkPeering` resources `remote_virtual_network_id` field to successfully peer the Databricks Virtual Network with the remote virtual network.
         :param pulumi.Input[str] workspace_id: The ID of the Databricks Workspace that this Databricks Virtual Network Peering is bound. Changing this forces a new resource to be created.
         """
+        _VirtualNetworkPeeringState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_space_prefixes=address_space_prefixes,
+            allow_forwarded_traffic=allow_forwarded_traffic,
+            allow_gateway_transit=allow_gateway_transit,
+            allow_virtual_network_access=allow_virtual_network_access,
+            name=name,
+            remote_address_space_prefixes=remote_address_space_prefixes,
+            remote_virtual_network_id=remote_virtual_network_id,
+            resource_group_name=resource_group_name,
+            use_remote_gateways=use_remote_gateways,
+            virtual_network_id=virtual_network_id,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_space_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allow_forwarded_traffic: Optional[pulumi.Input[bool]] = None,
+             allow_gateway_transit: Optional[pulumi.Input[bool]] = None,
+             allow_virtual_network_access: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             remote_address_space_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             use_remote_gateways: Optional[pulumi.Input[bool]] = None,
+             virtual_network_id: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if address_space_prefixes is None and 'addressSpacePrefixes' in kwargs:
+            address_space_prefixes = kwargs['addressSpacePrefixes']
+        if allow_forwarded_traffic is None and 'allowForwardedTraffic' in kwargs:
+            allow_forwarded_traffic = kwargs['allowForwardedTraffic']
+        if allow_gateway_transit is None and 'allowGatewayTransit' in kwargs:
+            allow_gateway_transit = kwargs['allowGatewayTransit']
+        if allow_virtual_network_access is None and 'allowVirtualNetworkAccess' in kwargs:
+            allow_virtual_network_access = kwargs['allowVirtualNetworkAccess']
+        if remote_address_space_prefixes is None and 'remoteAddressSpacePrefixes' in kwargs:
+            remote_address_space_prefixes = kwargs['remoteAddressSpacePrefixes']
+        if remote_virtual_network_id is None and 'remoteVirtualNetworkId' in kwargs:
+            remote_virtual_network_id = kwargs['remoteVirtualNetworkId']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if use_remote_gateways is None and 'useRemoteGateways' in kwargs:
+            use_remote_gateways = kwargs['useRemoteGateways']
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if address_space_prefixes is not None:
-            pulumi.set(__self__, "address_space_prefixes", address_space_prefixes)
+            _setter("address_space_prefixes", address_space_prefixes)
         if allow_forwarded_traffic is not None:
-            pulumi.set(__self__, "allow_forwarded_traffic", allow_forwarded_traffic)
+            _setter("allow_forwarded_traffic", allow_forwarded_traffic)
         if allow_gateway_transit is not None:
-            pulumi.set(__self__, "allow_gateway_transit", allow_gateway_transit)
+            _setter("allow_gateway_transit", allow_gateway_transit)
         if allow_virtual_network_access is not None:
-            pulumi.set(__self__, "allow_virtual_network_access", allow_virtual_network_access)
+            _setter("allow_virtual_network_access", allow_virtual_network_access)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if remote_address_space_prefixes is not None:
-            pulumi.set(__self__, "remote_address_space_prefixes", remote_address_space_prefixes)
+            _setter("remote_address_space_prefixes", remote_address_space_prefixes)
         if remote_virtual_network_id is not None:
-            pulumi.set(__self__, "remote_virtual_network_id", remote_virtual_network_id)
+            _setter("remote_virtual_network_id", remote_virtual_network_id)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if use_remote_gateways is not None:
-            pulumi.set(__self__, "use_remote_gateways", use_remote_gateways)
+            _setter("use_remote_gateways", use_remote_gateways)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="addressSpacePrefixes")
@@ -488,6 +590,10 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualNetworkPeeringArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

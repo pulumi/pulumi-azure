@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -51,34 +51,95 @@ class EventHubNamespaceArgs:
                
                > **Note:** For eventhub premium namespace, `zone_redundant` is computed by api based on the availability zone feature in each region. User's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        EventHubNamespaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            auto_inflate_enabled=auto_inflate_enabled,
+            capacity=capacity,
+            dedicated_cluster_id=dedicated_cluster_id,
+            identity=identity,
+            local_authentication_enabled=local_authentication_enabled,
+            location=location,
+            maximum_throughput_units=maximum_throughput_units,
+            minimum_tls_version=minimum_tls_version,
+            name=name,
+            network_rulesets=network_rulesets,
+            public_network_access_enabled=public_network_access_enabled,
+            tags=tags,
+            zone_redundant=zone_redundant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             auto_inflate_enabled: Optional[pulumi.Input[bool]] = None,
+             capacity: Optional[pulumi.Input[int]] = None,
+             dedicated_cluster_id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['EventHubNamespaceIdentityArgs']] = None,
+             local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maximum_throughput_units: Optional[pulumi.Input[int]] = None,
+             minimum_tls_version: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_rulesets: Optional[pulumi.Input['EventHubNamespaceNetworkRulesetsArgs']] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zone_redundant: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if auto_inflate_enabled is None and 'autoInflateEnabled' in kwargs:
+            auto_inflate_enabled = kwargs['autoInflateEnabled']
+        if dedicated_cluster_id is None and 'dedicatedClusterId' in kwargs:
+            dedicated_cluster_id = kwargs['dedicatedClusterId']
+        if local_authentication_enabled is None and 'localAuthenticationEnabled' in kwargs:
+            local_authentication_enabled = kwargs['localAuthenticationEnabled']
+        if maximum_throughput_units is None and 'maximumThroughputUnits' in kwargs:
+            maximum_throughput_units = kwargs['maximumThroughputUnits']
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if network_rulesets is None and 'networkRulesets' in kwargs:
+            network_rulesets = kwargs['networkRulesets']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if auto_inflate_enabled is not None:
-            pulumi.set(__self__, "auto_inflate_enabled", auto_inflate_enabled)
+            _setter("auto_inflate_enabled", auto_inflate_enabled)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if dedicated_cluster_id is not None:
-            pulumi.set(__self__, "dedicated_cluster_id", dedicated_cluster_id)
+            _setter("dedicated_cluster_id", dedicated_cluster_id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if local_authentication_enabled is not None:
-            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
+            _setter("local_authentication_enabled", local_authentication_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maximum_throughput_units is not None:
-            pulumi.set(__self__, "maximum_throughput_units", maximum_throughput_units)
+            _setter("maximum_throughput_units", maximum_throughput_units)
         if minimum_tls_version is not None:
-            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+            _setter("minimum_tls_version", minimum_tls_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_rulesets is not None:
-            pulumi.set(__self__, "network_rulesets", network_rulesets)
+            _setter("network_rulesets", network_rulesets)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
+            _setter("zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -313,48 +374,129 @@ class _EventHubNamespaceState:
                
                > **Note:** For eventhub premium namespace, `zone_redundant` is computed by api based on the availability zone feature in each region. User's input will be overridden. Please explicitly sets the property to `true` when creating the premium namespace in a region that supports availability zone since the default value is `false` in 3.0 provider.
         """
+        _EventHubNamespaceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_inflate_enabled=auto_inflate_enabled,
+            capacity=capacity,
+            dedicated_cluster_id=dedicated_cluster_id,
+            default_primary_connection_string=default_primary_connection_string,
+            default_primary_connection_string_alias=default_primary_connection_string_alias,
+            default_primary_key=default_primary_key,
+            default_secondary_connection_string=default_secondary_connection_string,
+            default_secondary_connection_string_alias=default_secondary_connection_string_alias,
+            default_secondary_key=default_secondary_key,
+            identity=identity,
+            local_authentication_enabled=local_authentication_enabled,
+            location=location,
+            maximum_throughput_units=maximum_throughput_units,
+            minimum_tls_version=minimum_tls_version,
+            name=name,
+            network_rulesets=network_rulesets,
+            public_network_access_enabled=public_network_access_enabled,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            tags=tags,
+            zone_redundant=zone_redundant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_inflate_enabled: Optional[pulumi.Input[bool]] = None,
+             capacity: Optional[pulumi.Input[int]] = None,
+             dedicated_cluster_id: Optional[pulumi.Input[str]] = None,
+             default_primary_connection_string: Optional[pulumi.Input[str]] = None,
+             default_primary_connection_string_alias: Optional[pulumi.Input[str]] = None,
+             default_primary_key: Optional[pulumi.Input[str]] = None,
+             default_secondary_connection_string: Optional[pulumi.Input[str]] = None,
+             default_secondary_connection_string_alias: Optional[pulumi.Input[str]] = None,
+             default_secondary_key: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['EventHubNamespaceIdentityArgs']] = None,
+             local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maximum_throughput_units: Optional[pulumi.Input[int]] = None,
+             minimum_tls_version: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_rulesets: Optional[pulumi.Input['EventHubNamespaceNetworkRulesetsArgs']] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zone_redundant: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if auto_inflate_enabled is None and 'autoInflateEnabled' in kwargs:
+            auto_inflate_enabled = kwargs['autoInflateEnabled']
+        if dedicated_cluster_id is None and 'dedicatedClusterId' in kwargs:
+            dedicated_cluster_id = kwargs['dedicatedClusterId']
+        if default_primary_connection_string is None and 'defaultPrimaryConnectionString' in kwargs:
+            default_primary_connection_string = kwargs['defaultPrimaryConnectionString']
+        if default_primary_connection_string_alias is None and 'defaultPrimaryConnectionStringAlias' in kwargs:
+            default_primary_connection_string_alias = kwargs['defaultPrimaryConnectionStringAlias']
+        if default_primary_key is None and 'defaultPrimaryKey' in kwargs:
+            default_primary_key = kwargs['defaultPrimaryKey']
+        if default_secondary_connection_string is None and 'defaultSecondaryConnectionString' in kwargs:
+            default_secondary_connection_string = kwargs['defaultSecondaryConnectionString']
+        if default_secondary_connection_string_alias is None and 'defaultSecondaryConnectionStringAlias' in kwargs:
+            default_secondary_connection_string_alias = kwargs['defaultSecondaryConnectionStringAlias']
+        if default_secondary_key is None and 'defaultSecondaryKey' in kwargs:
+            default_secondary_key = kwargs['defaultSecondaryKey']
+        if local_authentication_enabled is None and 'localAuthenticationEnabled' in kwargs:
+            local_authentication_enabled = kwargs['localAuthenticationEnabled']
+        if maximum_throughput_units is None and 'maximumThroughputUnits' in kwargs:
+            maximum_throughput_units = kwargs['maximumThroughputUnits']
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if network_rulesets is None and 'networkRulesets' in kwargs:
+            network_rulesets = kwargs['networkRulesets']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
         if auto_inflate_enabled is not None:
-            pulumi.set(__self__, "auto_inflate_enabled", auto_inflate_enabled)
+            _setter("auto_inflate_enabled", auto_inflate_enabled)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if dedicated_cluster_id is not None:
-            pulumi.set(__self__, "dedicated_cluster_id", dedicated_cluster_id)
+            _setter("dedicated_cluster_id", dedicated_cluster_id)
         if default_primary_connection_string is not None:
-            pulumi.set(__self__, "default_primary_connection_string", default_primary_connection_string)
+            _setter("default_primary_connection_string", default_primary_connection_string)
         if default_primary_connection_string_alias is not None:
-            pulumi.set(__self__, "default_primary_connection_string_alias", default_primary_connection_string_alias)
+            _setter("default_primary_connection_string_alias", default_primary_connection_string_alias)
         if default_primary_key is not None:
-            pulumi.set(__self__, "default_primary_key", default_primary_key)
+            _setter("default_primary_key", default_primary_key)
         if default_secondary_connection_string is not None:
-            pulumi.set(__self__, "default_secondary_connection_string", default_secondary_connection_string)
+            _setter("default_secondary_connection_string", default_secondary_connection_string)
         if default_secondary_connection_string_alias is not None:
-            pulumi.set(__self__, "default_secondary_connection_string_alias", default_secondary_connection_string_alias)
+            _setter("default_secondary_connection_string_alias", default_secondary_connection_string_alias)
         if default_secondary_key is not None:
-            pulumi.set(__self__, "default_secondary_key", default_secondary_key)
+            _setter("default_secondary_key", default_secondary_key)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if local_authentication_enabled is not None:
-            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
+            _setter("local_authentication_enabled", local_authentication_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maximum_throughput_units is not None:
-            pulumi.set(__self__, "maximum_throughput_units", maximum_throughput_units)
+            _setter("maximum_throughput_units", maximum_throughput_units)
         if minimum_tls_version is not None:
-            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+            _setter("minimum_tls_version", minimum_tls_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_rulesets is not None:
-            pulumi.set(__self__, "network_rulesets", network_rulesets)
+            _setter("network_rulesets", network_rulesets)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
+            _setter("zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="autoInflateEnabled")
@@ -724,6 +866,10 @@ class EventHubNamespace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventHubNamespaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -756,12 +902,22 @@ class EventHubNamespace(pulumi.CustomResource):
             __props__.__dict__["auto_inflate_enabled"] = auto_inflate_enabled
             __props__.__dict__["capacity"] = capacity
             __props__.__dict__["dedicated_cluster_id"] = dedicated_cluster_id
+            if identity is not None and not isinstance(identity, EventHubNamespaceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                EventHubNamespaceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["maximum_throughput_units"] = maximum_throughput_units
             __props__.__dict__["minimum_tls_version"] = minimum_tls_version
             __props__.__dict__["name"] = name
+            if network_rulesets is not None and not isinstance(network_rulesets, EventHubNamespaceNetworkRulesetsArgs):
+                network_rulesets = network_rulesets or {}
+                def _setter(key, value):
+                    network_rulesets[key] = value
+                EventHubNamespaceNetworkRulesetsArgs._configure(_setter, **network_rulesets)
             __props__.__dict__["network_rulesets"] = network_rulesets
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:

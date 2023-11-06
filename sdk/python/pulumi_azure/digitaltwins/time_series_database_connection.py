@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TimeSeriesDatabaseConnectionArgs', 'TimeSeriesDatabaseConnection']
@@ -37,19 +37,80 @@ class TimeSeriesDatabaseConnectionArgs:
         :param pulumi.Input[str] kusto_table_name: Name of the Kusto Table. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "digital_twins_id", digital_twins_id)
-        pulumi.set(__self__, "eventhub_name", eventhub_name)
-        pulumi.set(__self__, "eventhub_namespace_endpoint_uri", eventhub_namespace_endpoint_uri)
-        pulumi.set(__self__, "eventhub_namespace_id", eventhub_namespace_id)
-        pulumi.set(__self__, "kusto_cluster_id", kusto_cluster_id)
-        pulumi.set(__self__, "kusto_cluster_uri", kusto_cluster_uri)
-        pulumi.set(__self__, "kusto_database_name", kusto_database_name)
+        TimeSeriesDatabaseConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            digital_twins_id=digital_twins_id,
+            eventhub_name=eventhub_name,
+            eventhub_namespace_endpoint_uri=eventhub_namespace_endpoint_uri,
+            eventhub_namespace_id=eventhub_namespace_id,
+            kusto_cluster_id=kusto_cluster_id,
+            kusto_cluster_uri=kusto_cluster_uri,
+            kusto_database_name=kusto_database_name,
+            eventhub_consumer_group_name=eventhub_consumer_group_name,
+            kusto_table_name=kusto_table_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             digital_twins_id: Optional[pulumi.Input[str]] = None,
+             eventhub_name: Optional[pulumi.Input[str]] = None,
+             eventhub_namespace_endpoint_uri: Optional[pulumi.Input[str]] = None,
+             eventhub_namespace_id: Optional[pulumi.Input[str]] = None,
+             kusto_cluster_id: Optional[pulumi.Input[str]] = None,
+             kusto_cluster_uri: Optional[pulumi.Input[str]] = None,
+             kusto_database_name: Optional[pulumi.Input[str]] = None,
+             eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
+             kusto_table_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if digital_twins_id is None and 'digitalTwinsId' in kwargs:
+            digital_twins_id = kwargs['digitalTwinsId']
+        if digital_twins_id is None:
+            raise TypeError("Missing 'digital_twins_id' argument")
+        if eventhub_name is None and 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if eventhub_name is None:
+            raise TypeError("Missing 'eventhub_name' argument")
+        if eventhub_namespace_endpoint_uri is None and 'eventhubNamespaceEndpointUri' in kwargs:
+            eventhub_namespace_endpoint_uri = kwargs['eventhubNamespaceEndpointUri']
+        if eventhub_namespace_endpoint_uri is None:
+            raise TypeError("Missing 'eventhub_namespace_endpoint_uri' argument")
+        if eventhub_namespace_id is None and 'eventhubNamespaceId' in kwargs:
+            eventhub_namespace_id = kwargs['eventhubNamespaceId']
+        if eventhub_namespace_id is None:
+            raise TypeError("Missing 'eventhub_namespace_id' argument")
+        if kusto_cluster_id is None and 'kustoClusterId' in kwargs:
+            kusto_cluster_id = kwargs['kustoClusterId']
+        if kusto_cluster_id is None:
+            raise TypeError("Missing 'kusto_cluster_id' argument")
+        if kusto_cluster_uri is None and 'kustoClusterUri' in kwargs:
+            kusto_cluster_uri = kwargs['kustoClusterUri']
+        if kusto_cluster_uri is None:
+            raise TypeError("Missing 'kusto_cluster_uri' argument")
+        if kusto_database_name is None and 'kustoDatabaseName' in kwargs:
+            kusto_database_name = kwargs['kustoDatabaseName']
+        if kusto_database_name is None:
+            raise TypeError("Missing 'kusto_database_name' argument")
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
+            eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
+        if kusto_table_name is None and 'kustoTableName' in kwargs:
+            kusto_table_name = kwargs['kustoTableName']
+
+        _setter("digital_twins_id", digital_twins_id)
+        _setter("eventhub_name", eventhub_name)
+        _setter("eventhub_namespace_endpoint_uri", eventhub_namespace_endpoint_uri)
+        _setter("eventhub_namespace_id", eventhub_namespace_id)
+        _setter("kusto_cluster_id", kusto_cluster_id)
+        _setter("kusto_cluster_uri", kusto_cluster_uri)
+        _setter("kusto_database_name", kusto_database_name)
         if eventhub_consumer_group_name is not None:
-            pulumi.set(__self__, "eventhub_consumer_group_name", eventhub_consumer_group_name)
+            _setter("eventhub_consumer_group_name", eventhub_consumer_group_name)
         if kusto_table_name is not None:
-            pulumi.set(__self__, "kusto_table_name", kusto_table_name)
+            _setter("kusto_table_name", kusto_table_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="digitalTwinsId")
@@ -198,26 +259,73 @@ class _TimeSeriesDatabaseConnectionState:
         :param pulumi.Input[str] kusto_table_name: Name of the Kusto Table. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Digital Twins Time Series Database Connection. Changing this forces a new resource to be created.
         """
+        _TimeSeriesDatabaseConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            digital_twins_id=digital_twins_id,
+            eventhub_consumer_group_name=eventhub_consumer_group_name,
+            eventhub_name=eventhub_name,
+            eventhub_namespace_endpoint_uri=eventhub_namespace_endpoint_uri,
+            eventhub_namespace_id=eventhub_namespace_id,
+            kusto_cluster_id=kusto_cluster_id,
+            kusto_cluster_uri=kusto_cluster_uri,
+            kusto_database_name=kusto_database_name,
+            kusto_table_name=kusto_table_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             digital_twins_id: Optional[pulumi.Input[str]] = None,
+             eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
+             eventhub_name: Optional[pulumi.Input[str]] = None,
+             eventhub_namespace_endpoint_uri: Optional[pulumi.Input[str]] = None,
+             eventhub_namespace_id: Optional[pulumi.Input[str]] = None,
+             kusto_cluster_id: Optional[pulumi.Input[str]] = None,
+             kusto_cluster_uri: Optional[pulumi.Input[str]] = None,
+             kusto_database_name: Optional[pulumi.Input[str]] = None,
+             kusto_table_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if digital_twins_id is None and 'digitalTwinsId' in kwargs:
+            digital_twins_id = kwargs['digitalTwinsId']
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
+            eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
+        if eventhub_name is None and 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if eventhub_namespace_endpoint_uri is None and 'eventhubNamespaceEndpointUri' in kwargs:
+            eventhub_namespace_endpoint_uri = kwargs['eventhubNamespaceEndpointUri']
+        if eventhub_namespace_id is None and 'eventhubNamespaceId' in kwargs:
+            eventhub_namespace_id = kwargs['eventhubNamespaceId']
+        if kusto_cluster_id is None and 'kustoClusterId' in kwargs:
+            kusto_cluster_id = kwargs['kustoClusterId']
+        if kusto_cluster_uri is None and 'kustoClusterUri' in kwargs:
+            kusto_cluster_uri = kwargs['kustoClusterUri']
+        if kusto_database_name is None and 'kustoDatabaseName' in kwargs:
+            kusto_database_name = kwargs['kustoDatabaseName']
+        if kusto_table_name is None and 'kustoTableName' in kwargs:
+            kusto_table_name = kwargs['kustoTableName']
+
         if digital_twins_id is not None:
-            pulumi.set(__self__, "digital_twins_id", digital_twins_id)
+            _setter("digital_twins_id", digital_twins_id)
         if eventhub_consumer_group_name is not None:
-            pulumi.set(__self__, "eventhub_consumer_group_name", eventhub_consumer_group_name)
+            _setter("eventhub_consumer_group_name", eventhub_consumer_group_name)
         if eventhub_name is not None:
-            pulumi.set(__self__, "eventhub_name", eventhub_name)
+            _setter("eventhub_name", eventhub_name)
         if eventhub_namespace_endpoint_uri is not None:
-            pulumi.set(__self__, "eventhub_namespace_endpoint_uri", eventhub_namespace_endpoint_uri)
+            _setter("eventhub_namespace_endpoint_uri", eventhub_namespace_endpoint_uri)
         if eventhub_namespace_id is not None:
-            pulumi.set(__self__, "eventhub_namespace_id", eventhub_namespace_id)
+            _setter("eventhub_namespace_id", eventhub_namespace_id)
         if kusto_cluster_id is not None:
-            pulumi.set(__self__, "kusto_cluster_id", kusto_cluster_id)
+            _setter("kusto_cluster_id", kusto_cluster_id)
         if kusto_cluster_uri is not None:
-            pulumi.set(__self__, "kusto_cluster_uri", kusto_cluster_uri)
+            _setter("kusto_cluster_uri", kusto_cluster_uri)
         if kusto_database_name is not None:
-            pulumi.set(__self__, "kusto_database_name", kusto_database_name)
+            _setter("kusto_database_name", kusto_database_name)
         if kusto_table_name is not None:
-            pulumi.set(__self__, "kusto_table_name", kusto_table_name)
+            _setter("kusto_table_name", kusto_table_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="digitalTwinsId")
@@ -547,6 +655,10 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TimeSeriesDatabaseConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

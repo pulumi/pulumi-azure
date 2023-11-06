@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RouteServerBgpConnectionArgs', 'RouteServerBgpConnection']
@@ -25,11 +25,40 @@ class RouteServerBgpConnectionArgs:
         :param pulumi.Input[str] route_server_id: The ID of the Route Server within which this Bgp connection should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Route Server Bgp Connection. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "peer_asn", peer_asn)
-        pulumi.set(__self__, "peer_ip", peer_ip)
-        pulumi.set(__self__, "route_server_id", route_server_id)
+        RouteServerBgpConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            peer_asn=peer_asn,
+            peer_ip=peer_ip,
+            route_server_id=route_server_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             peer_asn: Optional[pulumi.Input[int]] = None,
+             peer_ip: Optional[pulumi.Input[str]] = None,
+             route_server_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if peer_asn is None and 'peerAsn' in kwargs:
+            peer_asn = kwargs['peerAsn']
+        if peer_asn is None:
+            raise TypeError("Missing 'peer_asn' argument")
+        if peer_ip is None and 'peerIp' in kwargs:
+            peer_ip = kwargs['peerIp']
+        if peer_ip is None:
+            raise TypeError("Missing 'peer_ip' argument")
+        if route_server_id is None and 'routeServerId' in kwargs:
+            route_server_id = kwargs['routeServerId']
+        if route_server_id is None:
+            raise TypeError("Missing 'route_server_id' argument")
+
+        _setter("peer_asn", peer_asn)
+        _setter("peer_ip", peer_ip)
+        _setter("route_server_id", route_server_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="peerAsn")
@@ -94,14 +123,37 @@ class _RouteServerBgpConnectionState:
         :param pulumi.Input[str] peer_ip: The peer ip address for the Route Server Bgp Connection. Changing this forces a new resource to be created.
         :param pulumi.Input[str] route_server_id: The ID of the Route Server within which this Bgp connection should be created. Changing this forces a new resource to be created.
         """
+        _RouteServerBgpConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            peer_asn=peer_asn,
+            peer_ip=peer_ip,
+            route_server_id=route_server_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             peer_asn: Optional[pulumi.Input[int]] = None,
+             peer_ip: Optional[pulumi.Input[str]] = None,
+             route_server_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if peer_asn is None and 'peerAsn' in kwargs:
+            peer_asn = kwargs['peerAsn']
+        if peer_ip is None and 'peerIp' in kwargs:
+            peer_ip = kwargs['peerIp']
+        if route_server_id is None and 'routeServerId' in kwargs:
+            route_server_id = kwargs['routeServerId']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if peer_asn is not None:
-            pulumi.set(__self__, "peer_asn", peer_asn)
+            _setter("peer_asn", peer_asn)
         if peer_ip is not None:
-            pulumi.set(__self__, "peer_ip", peer_ip)
+            _setter("peer_ip", peer_ip)
         if route_server_id is not None:
-            pulumi.set(__self__, "route_server_id", route_server_id)
+            _setter("route_server_id", route_server_id)
 
     @property
     @pulumi.getter
@@ -279,6 +331,10 @@ class RouteServerBgpConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RouteServerBgpConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ReplicaSetArgs', 'ReplicaSet']
@@ -23,10 +23,33 @@ class ReplicaSetArgs:
         :param pulumi.Input[str] subnet_id: The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
         :param pulumi.Input[str] location: The Azure location where this Replica Set should exist. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "domain_service_id", domain_service_id)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        ReplicaSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_service_id=domain_service_id,
+            subnet_id=subnet_id,
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_service_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if domain_service_id is None and 'domainServiceId' in kwargs:
+            domain_service_id = kwargs['domainServiceId']
+        if domain_service_id is None:
+            raise TypeError("Missing 'domain_service_id' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+
+        _setter("domain_service_id", domain_service_id)
+        _setter("subnet_id", subnet_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter(name="domainServiceId")
@@ -83,18 +106,49 @@ class _ReplicaSetState:
         :param pulumi.Input[str] service_status: The current service status for the replica set.
         :param pulumi.Input[str] subnet_id: The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created.
         """
+        _ReplicaSetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_controller_ip_addresses=domain_controller_ip_addresses,
+            domain_service_id=domain_service_id,
+            external_access_ip_address=external_access_ip_address,
+            location=location,
+            service_status=service_status,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_controller_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             domain_service_id: Optional[pulumi.Input[str]] = None,
+             external_access_ip_address: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             service_status: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if domain_controller_ip_addresses is None and 'domainControllerIpAddresses' in kwargs:
+            domain_controller_ip_addresses = kwargs['domainControllerIpAddresses']
+        if domain_service_id is None and 'domainServiceId' in kwargs:
+            domain_service_id = kwargs['domainServiceId']
+        if external_access_ip_address is None and 'externalAccessIpAddress' in kwargs:
+            external_access_ip_address = kwargs['externalAccessIpAddress']
+        if service_status is None and 'serviceStatus' in kwargs:
+            service_status = kwargs['serviceStatus']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if domain_controller_ip_addresses is not None:
-            pulumi.set(__self__, "domain_controller_ip_addresses", domain_controller_ip_addresses)
+            _setter("domain_controller_ip_addresses", domain_controller_ip_addresses)
         if domain_service_id is not None:
-            pulumi.set(__self__, "domain_service_id", domain_service_id)
+            _setter("domain_service_id", domain_service_id)
         if external_access_ip_address is not None:
-            pulumi.set(__self__, "external_access_ip_address", external_access_ip_address)
+            _setter("external_access_ip_address", external_access_ip_address)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if service_status is not None:
-            pulumi.set(__self__, "service_status", service_status)
+            _setter("service_status", service_status)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="domainControllerIpAddresses")
@@ -626,6 +680,10 @@ class ReplicaSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReplicaSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

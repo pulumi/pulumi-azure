@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,50 @@ class ManagedInstanceFailoverGroupArgs:
         :param pulumi.Input[str] name: The name which should be used for this Managed Instance Failover Group. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] readonly_endpoint_failover_policy_enabled: Failover policy for the read-only endpoint. Defaults to `true`.
         """
-        pulumi.set(__self__, "managed_instance_id", managed_instance_id)
-        pulumi.set(__self__, "partner_managed_instance_id", partner_managed_instance_id)
-        pulumi.set(__self__, "read_write_endpoint_failover_policy", read_write_endpoint_failover_policy)
+        ManagedInstanceFailoverGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_instance_id=managed_instance_id,
+            partner_managed_instance_id=partner_managed_instance_id,
+            read_write_endpoint_failover_policy=read_write_endpoint_failover_policy,
+            location=location,
+            name=name,
+            readonly_endpoint_failover_policy_enabled=readonly_endpoint_failover_policy_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_instance_id: Optional[pulumi.Input[str]] = None,
+             partner_managed_instance_id: Optional[pulumi.Input[str]] = None,
+             read_write_endpoint_failover_policy: Optional[pulumi.Input['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             readonly_endpoint_failover_policy_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if managed_instance_id is None and 'managedInstanceId' in kwargs:
+            managed_instance_id = kwargs['managedInstanceId']
+        if managed_instance_id is None:
+            raise TypeError("Missing 'managed_instance_id' argument")
+        if partner_managed_instance_id is None and 'partnerManagedInstanceId' in kwargs:
+            partner_managed_instance_id = kwargs['partnerManagedInstanceId']
+        if partner_managed_instance_id is None:
+            raise TypeError("Missing 'partner_managed_instance_id' argument")
+        if read_write_endpoint_failover_policy is None and 'readWriteEndpointFailoverPolicy' in kwargs:
+            read_write_endpoint_failover_policy = kwargs['readWriteEndpointFailoverPolicy']
+        if read_write_endpoint_failover_policy is None:
+            raise TypeError("Missing 'read_write_endpoint_failover_policy' argument")
+        if readonly_endpoint_failover_policy_enabled is None and 'readonlyEndpointFailoverPolicyEnabled' in kwargs:
+            readonly_endpoint_failover_policy_enabled = kwargs['readonlyEndpointFailoverPolicyEnabled']
+
+        _setter("managed_instance_id", managed_instance_id)
+        _setter("partner_managed_instance_id", partner_managed_instance_id)
+        _setter("read_write_endpoint_failover_policy", read_write_endpoint_failover_policy)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if readonly_endpoint_failover_policy_enabled is not None:
-            pulumi.set(__self__, "readonly_endpoint_failover_policy_enabled", readonly_endpoint_failover_policy_enabled)
+            _setter("readonly_endpoint_failover_policy_enabled", readonly_endpoint_failover_policy_enabled)
 
     @property
     @pulumi.getter(name="managedInstanceId")
@@ -136,22 +171,57 @@ class _ManagedInstanceFailoverGroupState:
         :param pulumi.Input[bool] readonly_endpoint_failover_policy_enabled: Failover policy for the read-only endpoint. Defaults to `true`.
         :param pulumi.Input[str] role: The partner replication role of the Managed Instance Failover Group.
         """
+        _ManagedInstanceFailoverGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            managed_instance_id=managed_instance_id,
+            name=name,
+            partner_managed_instance_id=partner_managed_instance_id,
+            partner_regions=partner_regions,
+            read_write_endpoint_failover_policy=read_write_endpoint_failover_policy,
+            readonly_endpoint_failover_policy_enabled=readonly_endpoint_failover_policy_enabled,
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             managed_instance_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             partner_managed_instance_id: Optional[pulumi.Input[str]] = None,
+             partner_regions: Optional[pulumi.Input[Sequence[pulumi.Input['ManagedInstanceFailoverGroupPartnerRegionArgs']]]] = None,
+             read_write_endpoint_failover_policy: Optional[pulumi.Input['ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs']] = None,
+             readonly_endpoint_failover_policy_enabled: Optional[pulumi.Input[bool]] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if managed_instance_id is None and 'managedInstanceId' in kwargs:
+            managed_instance_id = kwargs['managedInstanceId']
+        if partner_managed_instance_id is None and 'partnerManagedInstanceId' in kwargs:
+            partner_managed_instance_id = kwargs['partnerManagedInstanceId']
+        if partner_regions is None and 'partnerRegions' in kwargs:
+            partner_regions = kwargs['partnerRegions']
+        if read_write_endpoint_failover_policy is None and 'readWriteEndpointFailoverPolicy' in kwargs:
+            read_write_endpoint_failover_policy = kwargs['readWriteEndpointFailoverPolicy']
+        if readonly_endpoint_failover_policy_enabled is None and 'readonlyEndpointFailoverPolicyEnabled' in kwargs:
+            readonly_endpoint_failover_policy_enabled = kwargs['readonlyEndpointFailoverPolicyEnabled']
+
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_instance_id is not None:
-            pulumi.set(__self__, "managed_instance_id", managed_instance_id)
+            _setter("managed_instance_id", managed_instance_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if partner_managed_instance_id is not None:
-            pulumi.set(__self__, "partner_managed_instance_id", partner_managed_instance_id)
+            _setter("partner_managed_instance_id", partner_managed_instance_id)
         if partner_regions is not None:
-            pulumi.set(__self__, "partner_regions", partner_regions)
+            _setter("partner_regions", partner_regions)
         if read_write_endpoint_failover_policy is not None:
-            pulumi.set(__self__, "read_write_endpoint_failover_policy", read_write_endpoint_failover_policy)
+            _setter("read_write_endpoint_failover_policy", read_write_endpoint_failover_policy)
         if readonly_endpoint_failover_policy_enabled is not None:
-            pulumi.set(__self__, "readonly_endpoint_failover_policy_enabled", readonly_endpoint_failover_policy_enabled)
+            _setter("readonly_endpoint_failover_policy_enabled", readonly_endpoint_failover_policy_enabled)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter
@@ -305,6 +375,10 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedInstanceFailoverGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -333,6 +407,11 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             if partner_managed_instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'partner_managed_instance_id'")
             __props__.__dict__["partner_managed_instance_id"] = partner_managed_instance_id
+            if read_write_endpoint_failover_policy is not None and not isinstance(read_write_endpoint_failover_policy, ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs):
+                read_write_endpoint_failover_policy = read_write_endpoint_failover_policy or {}
+                def _setter(key, value):
+                    read_write_endpoint_failover_policy[key] = value
+                ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs._configure(_setter, **read_write_endpoint_failover_policy)
             if read_write_endpoint_failover_policy is None and not opts.urn:
                 raise TypeError("Missing required property 'read_write_endpoint_failover_policy'")
             __props__.__dict__["read_write_endpoint_failover_policy"] = read_write_endpoint_failover_policy

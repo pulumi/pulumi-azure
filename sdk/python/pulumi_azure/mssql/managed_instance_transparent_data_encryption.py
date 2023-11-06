@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ManagedInstanceTransparentDataEncryptionArgs', 'ManagedInstanceTransparentDataEncryption']
@@ -27,11 +27,34 @@ class ManagedInstanceTransparentDataEncryptionArgs:
                
                > **NOTE:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         """
-        pulumi.set(__self__, "managed_instance_id", managed_instance_id)
+        ManagedInstanceTransparentDataEncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_instance_id=managed_instance_id,
+            auto_rotation_enabled=auto_rotation_enabled,
+            key_vault_key_id=key_vault_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_instance_id: Optional[pulumi.Input[str]] = None,
+             auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
+             key_vault_key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if managed_instance_id is None and 'managedInstanceId' in kwargs:
+            managed_instance_id = kwargs['managedInstanceId']
+        if managed_instance_id is None:
+            raise TypeError("Missing 'managed_instance_id' argument")
+        if auto_rotation_enabled is None and 'autoRotationEnabled' in kwargs:
+            auto_rotation_enabled = kwargs['autoRotationEnabled']
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+
+        _setter("managed_instance_id", managed_instance_id)
         if auto_rotation_enabled is not None:
-            pulumi.set(__self__, "auto_rotation_enabled", auto_rotation_enabled)
+            _setter("auto_rotation_enabled", auto_rotation_enabled)
         if key_vault_key_id is not None:
-            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+            _setter("key_vault_key_id", key_vault_key_id)
 
     @property
     @pulumi.getter(name="managedInstanceId")
@@ -90,12 +113,33 @@ class _ManagedInstanceTransparentDataEncryptionState:
                > **NOTE:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         :param pulumi.Input[str] managed_instance_id: Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
         """
+        _ManagedInstanceTransparentDataEncryptionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_rotation_enabled=auto_rotation_enabled,
+            key_vault_key_id=key_vault_key_id,
+            managed_instance_id=managed_instance_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_rotation_enabled: Optional[pulumi.Input[bool]] = None,
+             key_vault_key_id: Optional[pulumi.Input[str]] = None,
+             managed_instance_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if auto_rotation_enabled is None and 'autoRotationEnabled' in kwargs:
+            auto_rotation_enabled = kwargs['autoRotationEnabled']
+        if key_vault_key_id is None and 'keyVaultKeyId' in kwargs:
+            key_vault_key_id = kwargs['keyVaultKeyId']
+        if managed_instance_id is None and 'managedInstanceId' in kwargs:
+            managed_instance_id = kwargs['managedInstanceId']
+
         if auto_rotation_enabled is not None:
-            pulumi.set(__self__, "auto_rotation_enabled", auto_rotation_enabled)
+            _setter("auto_rotation_enabled", auto_rotation_enabled)
         if key_vault_key_id is not None:
-            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
+            _setter("key_vault_key_id", key_vault_key_id)
         if managed_instance_id is not None:
-            pulumi.set(__self__, "managed_instance_id", managed_instance_id)
+            _setter("managed_instance_id", managed_instance_id)
 
     @property
     @pulumi.getter(name="autoRotationEnabled")
@@ -463,6 +507,10 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedInstanceTransparentDataEncryptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,25 +45,76 @@ class FrontdoorFirewallPolicyArgs:
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Front Door Firewall Policy.
         """
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku_name", sku_name)
+        FrontdoorFirewallPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            custom_block_response_body=custom_block_response_body,
+            custom_block_response_status_code=custom_block_response_status_code,
+            custom_rules=custom_rules,
+            enabled=enabled,
+            managed_rules=managed_rules,
+            name=name,
+            redirect_url=redirect_url,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             custom_block_response_body: Optional[pulumi.Input[str]] = None,
+             custom_block_response_status_code: Optional[pulumi.Input[int]] = None,
+             custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             redirect_url: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if custom_block_response_body is None and 'customBlockResponseBody' in kwargs:
+            custom_block_response_body = kwargs['customBlockResponseBody']
+        if custom_block_response_status_code is None and 'customBlockResponseStatusCode' in kwargs:
+            custom_block_response_status_code = kwargs['customBlockResponseStatusCode']
+        if custom_rules is None and 'customRules' in kwargs:
+            custom_rules = kwargs['customRules']
+        if managed_rules is None and 'managedRules' in kwargs:
+            managed_rules = kwargs['managedRules']
+        if redirect_url is None and 'redirectUrl' in kwargs:
+            redirect_url = kwargs['redirectUrl']
+
+        _setter("mode", mode)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku_name", sku_name)
         if custom_block_response_body is not None:
-            pulumi.set(__self__, "custom_block_response_body", custom_block_response_body)
+            _setter("custom_block_response_body", custom_block_response_body)
         if custom_block_response_status_code is not None:
-            pulumi.set(__self__, "custom_block_response_status_code", custom_block_response_status_code)
+            _setter("custom_block_response_status_code", custom_block_response_status_code)
         if custom_rules is not None:
-            pulumi.set(__self__, "custom_rules", custom_rules)
+            _setter("custom_rules", custom_rules)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if managed_rules is not None:
-            pulumi.set(__self__, "managed_rules", managed_rules)
+            _setter("managed_rules", managed_rules)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if redirect_url is not None:
-            pulumi.set(__self__, "redirect_url", redirect_url)
+            _setter("redirect_url", redirect_url)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -236,30 +287,79 @@ class _FrontdoorFirewallPolicyState:
                > **NOTE:** The `Standard_AzureFrontDoor` Front Door Firewall Policy sku may contain `custom` rules only. The `Premium_AzureFrontDoor` Front Door Firewall Policy skus may contain both `custom` and `managed` rules.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Front Door Firewall Policy.
         """
+        _FrontdoorFirewallPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_block_response_body=custom_block_response_body,
+            custom_block_response_status_code=custom_block_response_status_code,
+            custom_rules=custom_rules,
+            enabled=enabled,
+            frontend_endpoint_ids=frontend_endpoint_ids,
+            managed_rules=managed_rules,
+            mode=mode,
+            name=name,
+            redirect_url=redirect_url,
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_block_response_body: Optional[pulumi.Input[str]] = None,
+             custom_block_response_status_code: Optional[pulumi.Input[int]] = None,
+             custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             frontend_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleArgs']]]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             redirect_url: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if custom_block_response_body is None and 'customBlockResponseBody' in kwargs:
+            custom_block_response_body = kwargs['customBlockResponseBody']
+        if custom_block_response_status_code is None and 'customBlockResponseStatusCode' in kwargs:
+            custom_block_response_status_code = kwargs['customBlockResponseStatusCode']
+        if custom_rules is None and 'customRules' in kwargs:
+            custom_rules = kwargs['customRules']
+        if frontend_endpoint_ids is None and 'frontendEndpointIds' in kwargs:
+            frontend_endpoint_ids = kwargs['frontendEndpointIds']
+        if managed_rules is None and 'managedRules' in kwargs:
+            managed_rules = kwargs['managedRules']
+        if redirect_url is None and 'redirectUrl' in kwargs:
+            redirect_url = kwargs['redirectUrl']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         if custom_block_response_body is not None:
-            pulumi.set(__self__, "custom_block_response_body", custom_block_response_body)
+            _setter("custom_block_response_body", custom_block_response_body)
         if custom_block_response_status_code is not None:
-            pulumi.set(__self__, "custom_block_response_status_code", custom_block_response_status_code)
+            _setter("custom_block_response_status_code", custom_block_response_status_code)
         if custom_rules is not None:
-            pulumi.set(__self__, "custom_rules", custom_rules)
+            _setter("custom_rules", custom_rules)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if frontend_endpoint_ids is not None:
-            pulumi.set(__self__, "frontend_endpoint_ids", frontend_endpoint_ids)
+            _setter("frontend_endpoint_ids", frontend_endpoint_ids)
         if managed_rules is not None:
-            pulumi.set(__self__, "managed_rules", managed_rules)
+            _setter("managed_rules", managed_rules)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if redirect_url is not None:
-            pulumi.set(__self__, "redirect_url", redirect_url)
+            _setter("redirect_url", redirect_url)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="customBlockResponseBody")
@@ -705,6 +805,10 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FrontdoorFirewallPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

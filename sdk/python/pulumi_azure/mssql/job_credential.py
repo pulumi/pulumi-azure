@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['JobCredentialArgs', 'JobCredential']
@@ -25,11 +25,36 @@ class JobCredentialArgs:
         :param pulumi.Input[str] username: The username part of the credential.
         :param pulumi.Input[str] name: The name which should be used for this Elastic Job Credential. Changing this forces a new Elastic Job Credential to be created.
         """
-        pulumi.set(__self__, "job_agent_id", job_agent_id)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        JobCredentialArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_agent_id=job_agent_id,
+            password=password,
+            username=username,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_agent_id: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if job_agent_id is None and 'jobAgentId' in kwargs:
+            job_agent_id = kwargs['jobAgentId']
+        if job_agent_id is None:
+            raise TypeError("Missing 'job_agent_id' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("job_agent_id", job_agent_id)
+        _setter("password", password)
+        _setter("username", username)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="jobAgentId")
@@ -94,14 +119,33 @@ class _JobCredentialState:
         :param pulumi.Input[str] password: The password part of the credential.
         :param pulumi.Input[str] username: The username part of the credential.
         """
+        _JobCredentialState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            job_agent_id=job_agent_id,
+            name=name,
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             job_agent_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if job_agent_id is None and 'jobAgentId' in kwargs:
+            job_agent_id = kwargs['jobAgentId']
+
         if job_agent_id is not None:
-            pulumi.set(__self__, "job_agent_id", job_agent_id)
+            _setter("job_agent_id", job_agent_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="jobAgentId")
@@ -259,6 +303,10 @@ class JobCredential(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            JobCredentialArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

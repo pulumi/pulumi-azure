@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,16 +39,57 @@ class EventHubArgs:
         :param pulumi.Input[str] name: Specifies the name of the EventHub resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
         """
-        pulumi.set(__self__, "message_retention", message_retention)
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "partition_count", partition_count)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        EventHubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            message_retention=message_retention,
+            namespace_name=namespace_name,
+            partition_count=partition_count,
+            resource_group_name=resource_group_name,
+            capture_description=capture_description,
+            name=name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             message_retention: Optional[pulumi.Input[int]] = None,
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             partition_count: Optional[pulumi.Input[int]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             capture_description: Optional[pulumi.Input['EventHubCaptureDescriptionArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if message_retention is None and 'messageRetention' in kwargs:
+            message_retention = kwargs['messageRetention']
+        if message_retention is None:
+            raise TypeError("Missing 'message_retention' argument")
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if partition_count is None and 'partitionCount' in kwargs:
+            partition_count = kwargs['partitionCount']
+        if partition_count is None:
+            raise TypeError("Missing 'partition_count' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if capture_description is None and 'captureDescription' in kwargs:
+            capture_description = kwargs['captureDescription']
+
+        _setter("message_retention", message_retention)
+        _setter("namespace_name", namespace_name)
+        _setter("partition_count", partition_count)
+        _setter("resource_group_name", resource_group_name)
         if capture_description is not None:
-            pulumi.set(__self__, "capture_description", capture_description)
+            _setter("capture_description", capture_description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="messageRetention")
@@ -169,22 +210,59 @@ class _EventHubState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] status: Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
         """
+        _EventHubState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capture_description=capture_description,
+            message_retention=message_retention,
+            name=name,
+            namespace_name=namespace_name,
+            partition_count=partition_count,
+            partition_ids=partition_ids,
+            resource_group_name=resource_group_name,
+            status=status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capture_description: Optional[pulumi.Input['EventHubCaptureDescriptionArgs']] = None,
+             message_retention: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             partition_count: Optional[pulumi.Input[int]] = None,
+             partition_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if capture_description is None and 'captureDescription' in kwargs:
+            capture_description = kwargs['captureDescription']
+        if message_retention is None and 'messageRetention' in kwargs:
+            message_retention = kwargs['messageRetention']
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if partition_count is None and 'partitionCount' in kwargs:
+            partition_count = kwargs['partitionCount']
+        if partition_ids is None and 'partitionIds' in kwargs:
+            partition_ids = kwargs['partitionIds']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if capture_description is not None:
-            pulumi.set(__self__, "capture_description", capture_description)
+            _setter("capture_description", capture_description)
         if message_retention is not None:
-            pulumi.set(__self__, "message_retention", message_retention)
+            _setter("message_retention", message_retention)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
+            _setter("namespace_name", namespace_name)
         if partition_count is not None:
-            pulumi.set(__self__, "partition_count", partition_count)
+            _setter("partition_count", partition_count)
         if partition_ids is not None:
-            pulumi.set(__self__, "partition_ids", partition_ids)
+            _setter("partition_ids", partition_ids)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
 
     @property
     @pulumi.getter(name="captureDescription")
@@ -400,6 +478,10 @@ class EventHub(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventHubArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -421,6 +503,11 @@ class EventHub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventHubArgs.__new__(EventHubArgs)
 
+            if capture_description is not None and not isinstance(capture_description, EventHubCaptureDescriptionArgs):
+                capture_description = capture_description or {}
+                def _setter(key, value):
+                    capture_description[key] = value
+                EventHubCaptureDescriptionArgs._configure(_setter, **capture_description)
             __props__.__dict__["capture_description"] = capture_description
             if message_retention is None and not opts.urn:
                 raise TypeError("Missing required property 'message_retention'")

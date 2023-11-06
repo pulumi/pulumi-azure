@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,14 +31,53 @@ class BackupPolicyPostgresqlArgs:
         :param pulumi.Input[str] name: The name which should be used for this Backup Policy PostgreSQL. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[Sequence[pulumi.Input['BackupPolicyPostgresqlRetentionRuleArgs']]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
         """
-        pulumi.set(__self__, "backup_repeating_time_intervals", backup_repeating_time_intervals)
-        pulumi.set(__self__, "default_retention_duration", default_retention_duration)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "vault_name", vault_name)
+        BackupPolicyPostgresqlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_repeating_time_intervals=backup_repeating_time_intervals,
+            default_retention_duration=default_retention_duration,
+            resource_group_name=resource_group_name,
+            vault_name=vault_name,
+            name=name,
+            retention_rules=retention_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             default_retention_duration: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             vault_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyPostgresqlRetentionRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if backup_repeating_time_intervals is None and 'backupRepeatingTimeIntervals' in kwargs:
+            backup_repeating_time_intervals = kwargs['backupRepeatingTimeIntervals']
+        if backup_repeating_time_intervals is None:
+            raise TypeError("Missing 'backup_repeating_time_intervals' argument")
+        if default_retention_duration is None and 'defaultRetentionDuration' in kwargs:
+            default_retention_duration = kwargs['defaultRetentionDuration']
+        if default_retention_duration is None:
+            raise TypeError("Missing 'default_retention_duration' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if vault_name is None and 'vaultName' in kwargs:
+            vault_name = kwargs['vaultName']
+        if vault_name is None:
+            raise TypeError("Missing 'vault_name' argument")
+        if retention_rules is None and 'retentionRules' in kwargs:
+            retention_rules = kwargs['retentionRules']
+
+        _setter("backup_repeating_time_intervals", backup_repeating_time_intervals)
+        _setter("default_retention_duration", default_retention_duration)
+        _setter("resource_group_name", resource_group_name)
+        _setter("vault_name", vault_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if retention_rules is not None:
-            pulumi.set(__self__, "retention_rules", retention_rules)
+            _setter("retention_rules", retention_rules)
 
     @property
     @pulumi.getter(name="backupRepeatingTimeIntervals")
@@ -131,18 +170,49 @@ class _BackupPolicyPostgresqlState:
         :param pulumi.Input[Sequence[pulumi.Input['BackupPolicyPostgresqlRetentionRuleArgs']]] retention_rules: One or more `retention_rule` blocks as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
         :param pulumi.Input[str] vault_name: The name of the Backup Vault where the Backup Policy PostgreSQL should exist. Changing this forces a new Backup Policy PostgreSQL to be created.
         """
+        _BackupPolicyPostgresqlState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_repeating_time_intervals=backup_repeating_time_intervals,
+            default_retention_duration=default_retention_duration,
+            name=name,
+            resource_group_name=resource_group_name,
+            retention_rules=retention_rules,
+            vault_name=vault_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_repeating_time_intervals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             default_retention_duration: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             retention_rules: Optional[pulumi.Input[Sequence[pulumi.Input['BackupPolicyPostgresqlRetentionRuleArgs']]]] = None,
+             vault_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if backup_repeating_time_intervals is None and 'backupRepeatingTimeIntervals' in kwargs:
+            backup_repeating_time_intervals = kwargs['backupRepeatingTimeIntervals']
+        if default_retention_duration is None and 'defaultRetentionDuration' in kwargs:
+            default_retention_duration = kwargs['defaultRetentionDuration']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if retention_rules is None and 'retentionRules' in kwargs:
+            retention_rules = kwargs['retentionRules']
+        if vault_name is None and 'vaultName' in kwargs:
+            vault_name = kwargs['vaultName']
+
         if backup_repeating_time_intervals is not None:
-            pulumi.set(__self__, "backup_repeating_time_intervals", backup_repeating_time_intervals)
+            _setter("backup_repeating_time_intervals", backup_repeating_time_intervals)
         if default_retention_duration is not None:
-            pulumi.set(__self__, "default_retention_duration", default_retention_duration)
+            _setter("default_retention_duration", default_retention_duration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if retention_rules is not None:
-            pulumi.set(__self__, "retention_rules", retention_rules)
+            _setter("retention_rules", retention_rules)
         if vault_name is not None:
-            pulumi.set(__self__, "vault_name", vault_name)
+            _setter("vault_name", vault_name)
 
     @property
     @pulumi.getter(name="backupRepeatingTimeIntervals")
@@ -378,6 +448,10 @@ class BackupPolicyPostgresql(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BackupPolicyPostgresqlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

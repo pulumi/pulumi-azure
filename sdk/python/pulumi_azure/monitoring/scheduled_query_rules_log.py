@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,21 +37,60 @@ class ScheduledQueryRulesLogArgs:
         :param pulumi.Input[str] name: The name of the scheduled query rule. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "criteria", criteria)
-        pulumi.set(__self__, "data_source_id", data_source_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ScheduledQueryRulesLogArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            criteria=criteria,
+            data_source_id=data_source_id,
+            resource_group_name=resource_group_name,
+            authorized_resource_ids=authorized_resource_ids,
+            description=description,
+            enabled=enabled,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             criteria: Optional[pulumi.Input['ScheduledQueryRulesLogCriteriaArgs']] = None,
+             data_source_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if criteria is None:
+            raise TypeError("Missing 'criteria' argument")
+        if data_source_id is None and 'dataSourceId' in kwargs:
+            data_source_id = kwargs['dataSourceId']
+        if data_source_id is None:
+            raise TypeError("Missing 'data_source_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if authorized_resource_ids is None and 'authorizedResourceIds' in kwargs:
+            authorized_resource_ids = kwargs['authorizedResourceIds']
+
+        _setter("criteria", criteria)
+        _setter("data_source_id", data_source_id)
+        _setter("resource_group_name", resource_group_name)
         if authorized_resource_ids is not None:
-            pulumi.set(__self__, "authorized_resource_ids", authorized_resource_ids)
+            _setter("authorized_resource_ids", authorized_resource_ids)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -186,24 +225,57 @@ class _ScheduledQueryRulesLogState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        _ScheduledQueryRulesLogState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorized_resource_ids=authorized_resource_ids,
+            criteria=criteria,
+            data_source_id=data_source_id,
+            description=description,
+            enabled=enabled,
+            location=location,
+            name=name,
+            resource_group_name=resource_group_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             criteria: Optional[pulumi.Input['ScheduledQueryRulesLogCriteriaArgs']] = None,
+             data_source_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if authorized_resource_ids is None and 'authorizedResourceIds' in kwargs:
+            authorized_resource_ids = kwargs['authorizedResourceIds']
+        if data_source_id is None and 'dataSourceId' in kwargs:
+            data_source_id = kwargs['dataSourceId']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if authorized_resource_ids is not None:
-            pulumi.set(__self__, "authorized_resource_ids", authorized_resource_ids)
+            _setter("authorized_resource_ids", authorized_resource_ids)
         if criteria is not None:
-            pulumi.set(__self__, "criteria", criteria)
+            _setter("criteria", criteria)
         if data_source_id is not None:
-            pulumi.set(__self__, "data_source_id", data_source_id)
+            _setter("data_source_id", data_source_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="authorizedResourceIds")
@@ -491,6 +563,10 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScheduledQueryRulesLogArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -515,6 +591,11 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
             __props__ = ScheduledQueryRulesLogArgs.__new__(ScheduledQueryRulesLogArgs)
 
             __props__.__dict__["authorized_resource_ids"] = authorized_resource_ids
+            if criteria is not None and not isinstance(criteria, ScheduledQueryRulesLogCriteriaArgs):
+                criteria = criteria or {}
+                def _setter(key, value):
+                    criteria[key] = value
+                ScheduledQueryRulesLogCriteriaArgs._configure(_setter, **criteria)
             if criteria is None and not opts.urn:
                 raise TypeError("Missing required property 'criteria'")
             __props__.__dict__["criteria"] = criteria

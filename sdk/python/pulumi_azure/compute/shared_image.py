@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -73,52 +73,153 @@ class SharedImageArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Shared Image.
         :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "gallery_name", gallery_name)
-        pulumi.set(__self__, "identifier", identifier)
-        pulumi.set(__self__, "os_type", os_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SharedImageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gallery_name=gallery_name,
+            identifier=identifier,
+            os_type=os_type,
+            resource_group_name=resource_group_name,
+            accelerated_network_support_enabled=accelerated_network_support_enabled,
+            architecture=architecture,
+            confidential_vm_enabled=confidential_vm_enabled,
+            confidential_vm_supported=confidential_vm_supported,
+            description=description,
+            disk_types_not_alloweds=disk_types_not_alloweds,
+            end_of_life_date=end_of_life_date,
+            eula=eula,
+            hyper_v_generation=hyper_v_generation,
+            location=location,
+            max_recommended_memory_in_gb=max_recommended_memory_in_gb,
+            max_recommended_vcpu_count=max_recommended_vcpu_count,
+            min_recommended_memory_in_gb=min_recommended_memory_in_gb,
+            min_recommended_vcpu_count=min_recommended_vcpu_count,
+            name=name,
+            privacy_statement_uri=privacy_statement_uri,
+            purchase_plan=purchase_plan,
+            release_note_uri=release_note_uri,
+            specialized=specialized,
+            tags=tags,
+            trusted_launch_enabled=trusted_launch_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gallery_name: Optional[pulumi.Input[str]] = None,
+             identifier: Optional[pulumi.Input['SharedImageIdentifierArgs']] = None,
+             os_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
+             architecture: Optional[pulumi.Input[str]] = None,
+             confidential_vm_enabled: Optional[pulumi.Input[bool]] = None,
+             confidential_vm_supported: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             end_of_life_date: Optional[pulumi.Input[str]] = None,
+             eula: Optional[pulumi.Input[str]] = None,
+             hyper_v_generation: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             max_recommended_memory_in_gb: Optional[pulumi.Input[int]] = None,
+             max_recommended_vcpu_count: Optional[pulumi.Input[int]] = None,
+             min_recommended_memory_in_gb: Optional[pulumi.Input[int]] = None,
+             min_recommended_vcpu_count: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             privacy_statement_uri: Optional[pulumi.Input[str]] = None,
+             purchase_plan: Optional[pulumi.Input['SharedImagePurchasePlanArgs']] = None,
+             release_note_uri: Optional[pulumi.Input[str]] = None,
+             specialized: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if gallery_name is None and 'galleryName' in kwargs:
+            gallery_name = kwargs['galleryName']
+        if gallery_name is None:
+            raise TypeError("Missing 'gallery_name' argument")
+        if identifier is None:
+            raise TypeError("Missing 'identifier' argument")
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if os_type is None:
+            raise TypeError("Missing 'os_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if accelerated_network_support_enabled is None and 'acceleratedNetworkSupportEnabled' in kwargs:
+            accelerated_network_support_enabled = kwargs['acceleratedNetworkSupportEnabled']
+        if confidential_vm_enabled is None and 'confidentialVmEnabled' in kwargs:
+            confidential_vm_enabled = kwargs['confidentialVmEnabled']
+        if confidential_vm_supported is None and 'confidentialVmSupported' in kwargs:
+            confidential_vm_supported = kwargs['confidentialVmSupported']
+        if disk_types_not_alloweds is None and 'diskTypesNotAlloweds' in kwargs:
+            disk_types_not_alloweds = kwargs['diskTypesNotAlloweds']
+        if end_of_life_date is None and 'endOfLifeDate' in kwargs:
+            end_of_life_date = kwargs['endOfLifeDate']
+        if hyper_v_generation is None and 'hyperVGeneration' in kwargs:
+            hyper_v_generation = kwargs['hyperVGeneration']
+        if max_recommended_memory_in_gb is None and 'maxRecommendedMemoryInGb' in kwargs:
+            max_recommended_memory_in_gb = kwargs['maxRecommendedMemoryInGb']
+        if max_recommended_vcpu_count is None and 'maxRecommendedVcpuCount' in kwargs:
+            max_recommended_vcpu_count = kwargs['maxRecommendedVcpuCount']
+        if min_recommended_memory_in_gb is None and 'minRecommendedMemoryInGb' in kwargs:
+            min_recommended_memory_in_gb = kwargs['minRecommendedMemoryInGb']
+        if min_recommended_vcpu_count is None and 'minRecommendedVcpuCount' in kwargs:
+            min_recommended_vcpu_count = kwargs['minRecommendedVcpuCount']
+        if privacy_statement_uri is None and 'privacyStatementUri' in kwargs:
+            privacy_statement_uri = kwargs['privacyStatementUri']
+        if purchase_plan is None and 'purchasePlan' in kwargs:
+            purchase_plan = kwargs['purchasePlan']
+        if release_note_uri is None and 'releaseNoteUri' in kwargs:
+            release_note_uri = kwargs['releaseNoteUri']
+        if trusted_launch_enabled is None and 'trustedLaunchEnabled' in kwargs:
+            trusted_launch_enabled = kwargs['trustedLaunchEnabled']
+
+        _setter("gallery_name", gallery_name)
+        _setter("identifier", identifier)
+        _setter("os_type", os_type)
+        _setter("resource_group_name", resource_group_name)
         if accelerated_network_support_enabled is not None:
-            pulumi.set(__self__, "accelerated_network_support_enabled", accelerated_network_support_enabled)
+            _setter("accelerated_network_support_enabled", accelerated_network_support_enabled)
         if architecture is not None:
-            pulumi.set(__self__, "architecture", architecture)
+            _setter("architecture", architecture)
         if confidential_vm_enabled is not None:
-            pulumi.set(__self__, "confidential_vm_enabled", confidential_vm_enabled)
+            _setter("confidential_vm_enabled", confidential_vm_enabled)
         if confidential_vm_supported is not None:
-            pulumi.set(__self__, "confidential_vm_supported", confidential_vm_supported)
+            _setter("confidential_vm_supported", confidential_vm_supported)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disk_types_not_alloweds is not None:
-            pulumi.set(__self__, "disk_types_not_alloweds", disk_types_not_alloweds)
+            _setter("disk_types_not_alloweds", disk_types_not_alloweds)
         if end_of_life_date is not None:
-            pulumi.set(__self__, "end_of_life_date", end_of_life_date)
+            _setter("end_of_life_date", end_of_life_date)
         if eula is not None:
-            pulumi.set(__self__, "eula", eula)
+            _setter("eula", eula)
         if hyper_v_generation is not None:
-            pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
+            _setter("hyper_v_generation", hyper_v_generation)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if max_recommended_memory_in_gb is not None:
-            pulumi.set(__self__, "max_recommended_memory_in_gb", max_recommended_memory_in_gb)
+            _setter("max_recommended_memory_in_gb", max_recommended_memory_in_gb)
         if max_recommended_vcpu_count is not None:
-            pulumi.set(__self__, "max_recommended_vcpu_count", max_recommended_vcpu_count)
+            _setter("max_recommended_vcpu_count", max_recommended_vcpu_count)
         if min_recommended_memory_in_gb is not None:
-            pulumi.set(__self__, "min_recommended_memory_in_gb", min_recommended_memory_in_gb)
+            _setter("min_recommended_memory_in_gb", min_recommended_memory_in_gb)
         if min_recommended_vcpu_count is not None:
-            pulumi.set(__self__, "min_recommended_vcpu_count", min_recommended_vcpu_count)
+            _setter("min_recommended_vcpu_count", min_recommended_vcpu_count)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if privacy_statement_uri is not None:
-            pulumi.set(__self__, "privacy_statement_uri", privacy_statement_uri)
+            _setter("privacy_statement_uri", privacy_statement_uri)
         if purchase_plan is not None:
-            pulumi.set(__self__, "purchase_plan", purchase_plan)
+            _setter("purchase_plan", purchase_plan)
         if release_note_uri is not None:
-            pulumi.set(__self__, "release_note_uri", release_note_uri)
+            _setter("release_note_uri", release_note_uri)
         if specialized is not None:
-            pulumi.set(__self__, "specialized", specialized)
+            _setter("specialized", specialized)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if trusted_launch_enabled is not None:
-            pulumi.set(__self__, "trusted_launch_enabled", trusted_launch_enabled)
+            _setter("trusted_launch_enabled", trusted_launch_enabled)
 
     @property
     @pulumi.getter(name="galleryName")
@@ -485,56 +586,149 @@ class _SharedImageState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Shared Image.
         :param pulumi.Input[bool] trusted_launch_enabled: Specifies if Trusted Launch has to be enabled for the Virtual Machine created from the Shared Image. Changing this forces a new resource to be created.
         """
+        _SharedImageState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accelerated_network_support_enabled=accelerated_network_support_enabled,
+            architecture=architecture,
+            confidential_vm_enabled=confidential_vm_enabled,
+            confidential_vm_supported=confidential_vm_supported,
+            description=description,
+            disk_types_not_alloweds=disk_types_not_alloweds,
+            end_of_life_date=end_of_life_date,
+            eula=eula,
+            gallery_name=gallery_name,
+            hyper_v_generation=hyper_v_generation,
+            identifier=identifier,
+            location=location,
+            max_recommended_memory_in_gb=max_recommended_memory_in_gb,
+            max_recommended_vcpu_count=max_recommended_vcpu_count,
+            min_recommended_memory_in_gb=min_recommended_memory_in_gb,
+            min_recommended_vcpu_count=min_recommended_vcpu_count,
+            name=name,
+            os_type=os_type,
+            privacy_statement_uri=privacy_statement_uri,
+            purchase_plan=purchase_plan,
+            release_note_uri=release_note_uri,
+            resource_group_name=resource_group_name,
+            specialized=specialized,
+            tags=tags,
+            trusted_launch_enabled=trusted_launch_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accelerated_network_support_enabled: Optional[pulumi.Input[bool]] = None,
+             architecture: Optional[pulumi.Input[str]] = None,
+             confidential_vm_enabled: Optional[pulumi.Input[bool]] = None,
+             confidential_vm_supported: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             disk_types_not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             end_of_life_date: Optional[pulumi.Input[str]] = None,
+             eula: Optional[pulumi.Input[str]] = None,
+             gallery_name: Optional[pulumi.Input[str]] = None,
+             hyper_v_generation: Optional[pulumi.Input[str]] = None,
+             identifier: Optional[pulumi.Input['SharedImageIdentifierArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             max_recommended_memory_in_gb: Optional[pulumi.Input[int]] = None,
+             max_recommended_vcpu_count: Optional[pulumi.Input[int]] = None,
+             min_recommended_memory_in_gb: Optional[pulumi.Input[int]] = None,
+             min_recommended_vcpu_count: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             os_type: Optional[pulumi.Input[str]] = None,
+             privacy_statement_uri: Optional[pulumi.Input[str]] = None,
+             purchase_plan: Optional[pulumi.Input['SharedImagePurchasePlanArgs']] = None,
+             release_note_uri: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             specialized: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             trusted_launch_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if accelerated_network_support_enabled is None and 'acceleratedNetworkSupportEnabled' in kwargs:
+            accelerated_network_support_enabled = kwargs['acceleratedNetworkSupportEnabled']
+        if confidential_vm_enabled is None and 'confidentialVmEnabled' in kwargs:
+            confidential_vm_enabled = kwargs['confidentialVmEnabled']
+        if confidential_vm_supported is None and 'confidentialVmSupported' in kwargs:
+            confidential_vm_supported = kwargs['confidentialVmSupported']
+        if disk_types_not_alloweds is None and 'diskTypesNotAlloweds' in kwargs:
+            disk_types_not_alloweds = kwargs['diskTypesNotAlloweds']
+        if end_of_life_date is None and 'endOfLifeDate' in kwargs:
+            end_of_life_date = kwargs['endOfLifeDate']
+        if gallery_name is None and 'galleryName' in kwargs:
+            gallery_name = kwargs['galleryName']
+        if hyper_v_generation is None and 'hyperVGeneration' in kwargs:
+            hyper_v_generation = kwargs['hyperVGeneration']
+        if max_recommended_memory_in_gb is None and 'maxRecommendedMemoryInGb' in kwargs:
+            max_recommended_memory_in_gb = kwargs['maxRecommendedMemoryInGb']
+        if max_recommended_vcpu_count is None and 'maxRecommendedVcpuCount' in kwargs:
+            max_recommended_vcpu_count = kwargs['maxRecommendedVcpuCount']
+        if min_recommended_memory_in_gb is None and 'minRecommendedMemoryInGb' in kwargs:
+            min_recommended_memory_in_gb = kwargs['minRecommendedMemoryInGb']
+        if min_recommended_vcpu_count is None and 'minRecommendedVcpuCount' in kwargs:
+            min_recommended_vcpu_count = kwargs['minRecommendedVcpuCount']
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if privacy_statement_uri is None and 'privacyStatementUri' in kwargs:
+            privacy_statement_uri = kwargs['privacyStatementUri']
+        if purchase_plan is None and 'purchasePlan' in kwargs:
+            purchase_plan = kwargs['purchasePlan']
+        if release_note_uri is None and 'releaseNoteUri' in kwargs:
+            release_note_uri = kwargs['releaseNoteUri']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if trusted_launch_enabled is None and 'trustedLaunchEnabled' in kwargs:
+            trusted_launch_enabled = kwargs['trustedLaunchEnabled']
+
         if accelerated_network_support_enabled is not None:
-            pulumi.set(__self__, "accelerated_network_support_enabled", accelerated_network_support_enabled)
+            _setter("accelerated_network_support_enabled", accelerated_network_support_enabled)
         if architecture is not None:
-            pulumi.set(__self__, "architecture", architecture)
+            _setter("architecture", architecture)
         if confidential_vm_enabled is not None:
-            pulumi.set(__self__, "confidential_vm_enabled", confidential_vm_enabled)
+            _setter("confidential_vm_enabled", confidential_vm_enabled)
         if confidential_vm_supported is not None:
-            pulumi.set(__self__, "confidential_vm_supported", confidential_vm_supported)
+            _setter("confidential_vm_supported", confidential_vm_supported)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if disk_types_not_alloweds is not None:
-            pulumi.set(__self__, "disk_types_not_alloweds", disk_types_not_alloweds)
+            _setter("disk_types_not_alloweds", disk_types_not_alloweds)
         if end_of_life_date is not None:
-            pulumi.set(__self__, "end_of_life_date", end_of_life_date)
+            _setter("end_of_life_date", end_of_life_date)
         if eula is not None:
-            pulumi.set(__self__, "eula", eula)
+            _setter("eula", eula)
         if gallery_name is not None:
-            pulumi.set(__self__, "gallery_name", gallery_name)
+            _setter("gallery_name", gallery_name)
         if hyper_v_generation is not None:
-            pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
+            _setter("hyper_v_generation", hyper_v_generation)
         if identifier is not None:
-            pulumi.set(__self__, "identifier", identifier)
+            _setter("identifier", identifier)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if max_recommended_memory_in_gb is not None:
-            pulumi.set(__self__, "max_recommended_memory_in_gb", max_recommended_memory_in_gb)
+            _setter("max_recommended_memory_in_gb", max_recommended_memory_in_gb)
         if max_recommended_vcpu_count is not None:
-            pulumi.set(__self__, "max_recommended_vcpu_count", max_recommended_vcpu_count)
+            _setter("max_recommended_vcpu_count", max_recommended_vcpu_count)
         if min_recommended_memory_in_gb is not None:
-            pulumi.set(__self__, "min_recommended_memory_in_gb", min_recommended_memory_in_gb)
+            _setter("min_recommended_memory_in_gb", min_recommended_memory_in_gb)
         if min_recommended_vcpu_count is not None:
-            pulumi.set(__self__, "min_recommended_vcpu_count", min_recommended_vcpu_count)
+            _setter("min_recommended_vcpu_count", min_recommended_vcpu_count)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if privacy_statement_uri is not None:
-            pulumi.set(__self__, "privacy_statement_uri", privacy_statement_uri)
+            _setter("privacy_statement_uri", privacy_statement_uri)
         if purchase_plan is not None:
-            pulumi.set(__self__, "purchase_plan", purchase_plan)
+            _setter("purchase_plan", purchase_plan)
         if release_note_uri is not None:
-            pulumi.set(__self__, "release_note_uri", release_note_uri)
+            _setter("release_note_uri", release_note_uri)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if specialized is not None:
-            pulumi.set(__self__, "specialized", specialized)
+            _setter("specialized", specialized)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if trusted_launch_enabled is not None:
-            pulumi.set(__self__, "trusted_launch_enabled", trusted_launch_enabled)
+            _setter("trusted_launch_enabled", trusted_launch_enabled)
 
     @property
     @pulumi.getter(name="acceleratedNetworkSupportEnabled")
@@ -996,6 +1190,10 @@ class SharedImage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SharedImageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1047,6 +1245,11 @@ class SharedImage(pulumi.CustomResource):
                 raise TypeError("Missing required property 'gallery_name'")
             __props__.__dict__["gallery_name"] = gallery_name
             __props__.__dict__["hyper_v_generation"] = hyper_v_generation
+            if identifier is not None and not isinstance(identifier, SharedImageIdentifierArgs):
+                identifier = identifier or {}
+                def _setter(key, value):
+                    identifier[key] = value
+                SharedImageIdentifierArgs._configure(_setter, **identifier)
             if identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'identifier'")
             __props__.__dict__["identifier"] = identifier
@@ -1060,6 +1263,11 @@ class SharedImage(pulumi.CustomResource):
                 raise TypeError("Missing required property 'os_type'")
             __props__.__dict__["os_type"] = os_type
             __props__.__dict__["privacy_statement_uri"] = privacy_statement_uri
+            if purchase_plan is not None and not isinstance(purchase_plan, SharedImagePurchasePlanArgs):
+                purchase_plan = purchase_plan or {}
+                def _setter(key, value):
+                    purchase_plan[key] = value
+                SharedImagePurchasePlanArgs._configure(_setter, **purchase_plan)
             __props__.__dict__["purchase_plan"] = purchase_plan
             __props__.__dict__["release_note_uri"] = release_note_uri
             if resource_group_name is None and not opts.urn:

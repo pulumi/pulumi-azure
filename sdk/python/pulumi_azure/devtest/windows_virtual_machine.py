@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -55,29 +55,106 @@ class WindowsVirtualMachineArgs:
         :param pulumi.Input[str] notes: Any notes about the Virtual Machine.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "gallery_image_reference", gallery_image_reference)
-        pulumi.set(__self__, "lab_name", lab_name)
-        pulumi.set(__self__, "lab_subnet_name", lab_subnet_name)
-        pulumi.set(__self__, "lab_virtual_network_id", lab_virtual_network_id)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "storage_type", storage_type)
-        pulumi.set(__self__, "username", username)
+        WindowsVirtualMachineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gallery_image_reference=gallery_image_reference,
+            lab_name=lab_name,
+            lab_subnet_name=lab_subnet_name,
+            lab_virtual_network_id=lab_virtual_network_id,
+            password=password,
+            resource_group_name=resource_group_name,
+            size=size,
+            storage_type=storage_type,
+            username=username,
+            allow_claim=allow_claim,
+            disallow_public_ip_address=disallow_public_ip_address,
+            inbound_nat_rules=inbound_nat_rules,
+            location=location,
+            name=name,
+            notes=notes,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gallery_image_reference: Optional[pulumi.Input['WindowsVirtualMachineGalleryImageReferenceArgs']] = None,
+             lab_name: Optional[pulumi.Input[str]] = None,
+             lab_subnet_name: Optional[pulumi.Input[str]] = None,
+             lab_virtual_network_id: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             storage_type: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             allow_claim: Optional[pulumi.Input[bool]] = None,
+             disallow_public_ip_address: Optional[pulumi.Input[bool]] = None,
+             inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineInboundNatRuleArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if gallery_image_reference is None and 'galleryImageReference' in kwargs:
+            gallery_image_reference = kwargs['galleryImageReference']
+        if gallery_image_reference is None:
+            raise TypeError("Missing 'gallery_image_reference' argument")
+        if lab_name is None and 'labName' in kwargs:
+            lab_name = kwargs['labName']
+        if lab_name is None:
+            raise TypeError("Missing 'lab_name' argument")
+        if lab_subnet_name is None and 'labSubnetName' in kwargs:
+            lab_subnet_name = kwargs['labSubnetName']
+        if lab_subnet_name is None:
+            raise TypeError("Missing 'lab_subnet_name' argument")
+        if lab_virtual_network_id is None and 'labVirtualNetworkId' in kwargs:
+            lab_virtual_network_id = kwargs['labVirtualNetworkId']
+        if lab_virtual_network_id is None:
+            raise TypeError("Missing 'lab_virtual_network_id' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if storage_type is None and 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if storage_type is None:
+            raise TypeError("Missing 'storage_type' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if allow_claim is None and 'allowClaim' in kwargs:
+            allow_claim = kwargs['allowClaim']
+        if disallow_public_ip_address is None and 'disallowPublicIpAddress' in kwargs:
+            disallow_public_ip_address = kwargs['disallowPublicIpAddress']
+        if inbound_nat_rules is None and 'inboundNatRules' in kwargs:
+            inbound_nat_rules = kwargs['inboundNatRules']
+
+        _setter("gallery_image_reference", gallery_image_reference)
+        _setter("lab_name", lab_name)
+        _setter("lab_subnet_name", lab_subnet_name)
+        _setter("lab_virtual_network_id", lab_virtual_network_id)
+        _setter("password", password)
+        _setter("resource_group_name", resource_group_name)
+        _setter("size", size)
+        _setter("storage_type", storage_type)
+        _setter("username", username)
         if allow_claim is not None:
-            pulumi.set(__self__, "allow_claim", allow_claim)
+            _setter("allow_claim", allow_claim)
         if disallow_public_ip_address is not None:
-            pulumi.set(__self__, "disallow_public_ip_address", disallow_public_ip_address)
+            _setter("disallow_public_ip_address", disallow_public_ip_address)
         if inbound_nat_rules is not None:
-            pulumi.set(__self__, "inbound_nat_rules", inbound_nat_rules)
+            _setter("inbound_nat_rules", inbound_nat_rules)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="galleryImageReference")
@@ -322,42 +399,107 @@ class _WindowsVirtualMachineState:
         :param pulumi.Input[str] unique_identifier: The unique immutable identifier of the Virtual Machine.
         :param pulumi.Input[str] username: The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
         """
+        _WindowsVirtualMachineState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_claim=allow_claim,
+            disallow_public_ip_address=disallow_public_ip_address,
+            fqdn=fqdn,
+            gallery_image_reference=gallery_image_reference,
+            inbound_nat_rules=inbound_nat_rules,
+            lab_name=lab_name,
+            lab_subnet_name=lab_subnet_name,
+            lab_virtual_network_id=lab_virtual_network_id,
+            location=location,
+            name=name,
+            notes=notes,
+            password=password,
+            resource_group_name=resource_group_name,
+            size=size,
+            storage_type=storage_type,
+            tags=tags,
+            unique_identifier=unique_identifier,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_claim: Optional[pulumi.Input[bool]] = None,
+             disallow_public_ip_address: Optional[pulumi.Input[bool]] = None,
+             fqdn: Optional[pulumi.Input[str]] = None,
+             gallery_image_reference: Optional[pulumi.Input['WindowsVirtualMachineGalleryImageReferenceArgs']] = None,
+             inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineInboundNatRuleArgs']]]] = None,
+             lab_name: Optional[pulumi.Input[str]] = None,
+             lab_subnet_name: Optional[pulumi.Input[str]] = None,
+             lab_virtual_network_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             storage_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             unique_identifier: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allow_claim is None and 'allowClaim' in kwargs:
+            allow_claim = kwargs['allowClaim']
+        if disallow_public_ip_address is None and 'disallowPublicIpAddress' in kwargs:
+            disallow_public_ip_address = kwargs['disallowPublicIpAddress']
+        if gallery_image_reference is None and 'galleryImageReference' in kwargs:
+            gallery_image_reference = kwargs['galleryImageReference']
+        if inbound_nat_rules is None and 'inboundNatRules' in kwargs:
+            inbound_nat_rules = kwargs['inboundNatRules']
+        if lab_name is None and 'labName' in kwargs:
+            lab_name = kwargs['labName']
+        if lab_subnet_name is None and 'labSubnetName' in kwargs:
+            lab_subnet_name = kwargs['labSubnetName']
+        if lab_virtual_network_id is None and 'labVirtualNetworkId' in kwargs:
+            lab_virtual_network_id = kwargs['labVirtualNetworkId']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if storage_type is None and 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if unique_identifier is None and 'uniqueIdentifier' in kwargs:
+            unique_identifier = kwargs['uniqueIdentifier']
+
         if allow_claim is not None:
-            pulumi.set(__self__, "allow_claim", allow_claim)
+            _setter("allow_claim", allow_claim)
         if disallow_public_ip_address is not None:
-            pulumi.set(__self__, "disallow_public_ip_address", disallow_public_ip_address)
+            _setter("disallow_public_ip_address", disallow_public_ip_address)
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if gallery_image_reference is not None:
-            pulumi.set(__self__, "gallery_image_reference", gallery_image_reference)
+            _setter("gallery_image_reference", gallery_image_reference)
         if inbound_nat_rules is not None:
-            pulumi.set(__self__, "inbound_nat_rules", inbound_nat_rules)
+            _setter("inbound_nat_rules", inbound_nat_rules)
         if lab_name is not None:
-            pulumi.set(__self__, "lab_name", lab_name)
+            _setter("lab_name", lab_name)
         if lab_subnet_name is not None:
-            pulumi.set(__self__, "lab_subnet_name", lab_subnet_name)
+            _setter("lab_subnet_name", lab_subnet_name)
         if lab_virtual_network_id is not None:
-            pulumi.set(__self__, "lab_virtual_network_id", lab_virtual_network_id)
+            _setter("lab_virtual_network_id", lab_virtual_network_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if storage_type is not None:
-            pulumi.set(__self__, "storage_type", storage_type)
+            _setter("storage_type", storage_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if unique_identifier is not None:
-            pulumi.set(__self__, "unique_identifier", unique_identifier)
+            _setter("unique_identifier", unique_identifier)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="allowClaim")
@@ -741,6 +883,10 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WindowsVirtualMachineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -773,6 +919,11 @@ class WindowsVirtualMachine(pulumi.CustomResource):
 
             __props__.__dict__["allow_claim"] = allow_claim
             __props__.__dict__["disallow_public_ip_address"] = disallow_public_ip_address
+            if gallery_image_reference is not None and not isinstance(gallery_image_reference, WindowsVirtualMachineGalleryImageReferenceArgs):
+                gallery_image_reference = gallery_image_reference or {}
+                def _setter(key, value):
+                    gallery_image_reference[key] = value
+                WindowsVirtualMachineGalleryImageReferenceArgs._configure(_setter, **gallery_image_reference)
             if gallery_image_reference is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_image_reference'")
             __props__.__dict__["gallery_image_reference"] = gallery_image_reference

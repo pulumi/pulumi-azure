@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AssessmentPolicyArgs', 'AssessmentPolicy']
@@ -33,20 +33,57 @@ class AssessmentPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threats: A list of the threat impacts for the Security Center Assessment. Possible values are `AccountBreach`, `DataExfiltration`, `DataSpillage`, `DenialOfService`, `ElevationOfPrivilege`, `MaliciousInsider`, `MissingCoverage` and `ThreatResistance`.
         :param pulumi.Input[str] user_impact: The user impact of the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "display_name", display_name)
+        AssessmentPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            display_name=display_name,
+            categories=categories,
+            implementation_effort=implementation_effort,
+            remediation_description=remediation_description,
+            severity=severity,
+            threats=threats,
+            user_impact=user_impact,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             implementation_effort: Optional[pulumi.Input[str]] = None,
+             remediation_description: Optional[pulumi.Input[str]] = None,
+             severity: Optional[pulumi.Input[str]] = None,
+             threats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_impact: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if implementation_effort is None and 'implementationEffort' in kwargs:
+            implementation_effort = kwargs['implementationEffort']
+        if remediation_description is None and 'remediationDescription' in kwargs:
+            remediation_description = kwargs['remediationDescription']
+        if user_impact is None and 'userImpact' in kwargs:
+            user_impact = kwargs['userImpact']
+
+        _setter("description", description)
+        _setter("display_name", display_name)
         if categories is not None:
-            pulumi.set(__self__, "categories", categories)
+            _setter("categories", categories)
         if implementation_effort is not None:
-            pulumi.set(__self__, "implementation_effort", implementation_effort)
+            _setter("implementation_effort", implementation_effort)
         if remediation_description is not None:
-            pulumi.set(__self__, "remediation_description", remediation_description)
+            _setter("remediation_description", remediation_description)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if threats is not None:
-            pulumi.set(__self__, "threats", threats)
+            _setter("threats", threats)
         if user_impact is not None:
-            pulumi.set(__self__, "user_impact", user_impact)
+            _setter("user_impact", user_impact)
 
     @property
     @pulumi.getter
@@ -169,24 +206,59 @@ class _AssessmentPolicyState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] threats: A list of the threat impacts for the Security Center Assessment. Possible values are `AccountBreach`, `DataExfiltration`, `DataSpillage`, `DenialOfService`, `ElevationOfPrivilege`, `MaliciousInsider`, `MissingCoverage` and `ThreatResistance`.
         :param pulumi.Input[str] user_impact: The user impact of the Security Center Assessment. Possible values are `Low`, `Moderate` and `High`.
         """
+        _AssessmentPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            categories=categories,
+            description=description,
+            display_name=display_name,
+            implementation_effort=implementation_effort,
+            name=name,
+            remediation_description=remediation_description,
+            severity=severity,
+            threats=threats,
+            user_impact=user_impact,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             categories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             implementation_effort: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             remediation_description: Optional[pulumi.Input[str]] = None,
+             severity: Optional[pulumi.Input[str]] = None,
+             threats: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_impact: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if implementation_effort is None and 'implementationEffort' in kwargs:
+            implementation_effort = kwargs['implementationEffort']
+        if remediation_description is None and 'remediationDescription' in kwargs:
+            remediation_description = kwargs['remediationDescription']
+        if user_impact is None and 'userImpact' in kwargs:
+            user_impact = kwargs['userImpact']
+
         if categories is not None:
-            pulumi.set(__self__, "categories", categories)
+            _setter("categories", categories)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if implementation_effort is not None:
-            pulumi.set(__self__, "implementation_effort", implementation_effort)
+            _setter("implementation_effort", implementation_effort)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if remediation_description is not None:
-            pulumi.set(__self__, "remediation_description", remediation_description)
+            _setter("remediation_description", remediation_description)
         if severity is not None:
-            pulumi.set(__self__, "severity", severity)
+            _setter("severity", severity)
         if threats is not None:
-            pulumi.set(__self__, "threats", threats)
+            _setter("threats", threats)
         if user_impact is not None:
-            pulumi.set(__self__, "user_impact", user_impact)
+            _setter("user_impact", user_impact)
 
     @property
     @pulumi.getter
@@ -384,6 +456,10 @@ class AssessmentPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AssessmentPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

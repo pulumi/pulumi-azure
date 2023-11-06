@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,43 @@ class VirtualHubConnectionArgs:
         :param pulumi.Input[str] name: The Name which should be used for this Connection, which must be unique within the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input['VirtualHubConnectionRoutingArgs'] routing: A `routing` block as defined below.
         """
-        pulumi.set(__self__, "remote_virtual_network_id", remote_virtual_network_id)
-        pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
+        VirtualHubConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            remote_virtual_network_id=remote_virtual_network_id,
+            virtual_hub_id=virtual_hub_id,
+            internet_security_enabled=internet_security_enabled,
+            name=name,
+            routing=routing,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
+             internet_security_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             routing: Optional[pulumi.Input['VirtualHubConnectionRoutingArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if remote_virtual_network_id is None and 'remoteVirtualNetworkId' in kwargs:
+            remote_virtual_network_id = kwargs['remoteVirtualNetworkId']
+        if remote_virtual_network_id is None:
+            raise TypeError("Missing 'remote_virtual_network_id' argument")
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+        if virtual_hub_id is None:
+            raise TypeError("Missing 'virtual_hub_id' argument")
+        if internet_security_enabled is None and 'internetSecurityEnabled' in kwargs:
+            internet_security_enabled = kwargs['internetSecurityEnabled']
+
+        _setter("remote_virtual_network_id", remote_virtual_network_id)
+        _setter("virtual_hub_id", virtual_hub_id)
         if internet_security_enabled is not None:
-            pulumi.set(__self__, "internet_security_enabled", internet_security_enabled)
+            _setter("internet_security_enabled", internet_security_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if routing is not None:
-            pulumi.set(__self__, "routing", routing)
+            _setter("routing", routing)
 
     @property
     @pulumi.getter(name="remoteVirtualNetworkId")
@@ -115,16 +144,41 @@ class _VirtualHubConnectionState:
         :param pulumi.Input['VirtualHubConnectionRoutingArgs'] routing: A `routing` block as defined below.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this connection should be created. Changing this forces a new resource to be created.
         """
+        _VirtualHubConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            internet_security_enabled=internet_security_enabled,
+            name=name,
+            remote_virtual_network_id=remote_virtual_network_id,
+            routing=routing,
+            virtual_hub_id=virtual_hub_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             internet_security_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             remote_virtual_network_id: Optional[pulumi.Input[str]] = None,
+             routing: Optional[pulumi.Input['VirtualHubConnectionRoutingArgs']] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if internet_security_enabled is None and 'internetSecurityEnabled' in kwargs:
+            internet_security_enabled = kwargs['internetSecurityEnabled']
+        if remote_virtual_network_id is None and 'remoteVirtualNetworkId' in kwargs:
+            remote_virtual_network_id = kwargs['remoteVirtualNetworkId']
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+
         if internet_security_enabled is not None:
-            pulumi.set(__self__, "internet_security_enabled", internet_security_enabled)
+            _setter("internet_security_enabled", internet_security_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if remote_virtual_network_id is not None:
-            pulumi.set(__self__, "remote_virtual_network_id", remote_virtual_network_id)
+            _setter("remote_virtual_network_id", remote_virtual_network_id)
         if routing is not None:
-            pulumi.set(__self__, "routing", routing)
+            _setter("routing", routing)
         if virtual_hub_id is not None:
-            pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
+            _setter("virtual_hub_id", virtual_hub_id)
 
     @property
     @pulumi.getter(name="internetSecurityEnabled")
@@ -292,6 +346,10 @@ class VirtualHubConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualHubConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -316,6 +374,11 @@ class VirtualHubConnection(pulumi.CustomResource):
             if remote_virtual_network_id is None and not opts.urn:
                 raise TypeError("Missing required property 'remote_virtual_network_id'")
             __props__.__dict__["remote_virtual_network_id"] = remote_virtual_network_id
+            if routing is not None and not isinstance(routing, VirtualHubConnectionRoutingArgs):
+                routing = routing or {}
+                def _setter(key, value):
+                    routing[key] = value
+                VirtualHubConnectionRoutingArgs._configure(_setter, **routing)
             __props__.__dict__["routing"] = routing
             if virtual_hub_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_hub_id'")

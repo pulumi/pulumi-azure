@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,19 +37,72 @@ class NetworkSimArgs:
         :param pulumi.Input[str] sim_policy_id: The ID of SIM policy used by this SIM.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArgs']]] static_ip_configurations: A `static_ip_configuration` block as defined below.
         """
-        pulumi.set(__self__, "authentication_key", authentication_key)
-        pulumi.set(__self__, "integrated_circuit_card_identifier", integrated_circuit_card_identifier)
-        pulumi.set(__self__, "international_mobile_subscriber_identity", international_mobile_subscriber_identity)
-        pulumi.set(__self__, "mobile_network_sim_group_id", mobile_network_sim_group_id)
-        pulumi.set(__self__, "operator_key_code", operator_key_code)
+        NetworkSimArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_key=authentication_key,
+            integrated_circuit_card_identifier=integrated_circuit_card_identifier,
+            international_mobile_subscriber_identity=international_mobile_subscriber_identity,
+            mobile_network_sim_group_id=mobile_network_sim_group_id,
+            operator_key_code=operator_key_code,
+            device_type=device_type,
+            name=name,
+            sim_policy_id=sim_policy_id,
+            static_ip_configurations=static_ip_configurations,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_key: Optional[pulumi.Input[str]] = None,
+             integrated_circuit_card_identifier: Optional[pulumi.Input[str]] = None,
+             international_mobile_subscriber_identity: Optional[pulumi.Input[str]] = None,
+             mobile_network_sim_group_id: Optional[pulumi.Input[str]] = None,
+             operator_key_code: Optional[pulumi.Input[str]] = None,
+             device_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             sim_policy_id: Optional[pulumi.Input[str]] = None,
+             static_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if authentication_key is None and 'authenticationKey' in kwargs:
+            authentication_key = kwargs['authenticationKey']
+        if authentication_key is None:
+            raise TypeError("Missing 'authentication_key' argument")
+        if integrated_circuit_card_identifier is None and 'integratedCircuitCardIdentifier' in kwargs:
+            integrated_circuit_card_identifier = kwargs['integratedCircuitCardIdentifier']
+        if integrated_circuit_card_identifier is None:
+            raise TypeError("Missing 'integrated_circuit_card_identifier' argument")
+        if international_mobile_subscriber_identity is None and 'internationalMobileSubscriberIdentity' in kwargs:
+            international_mobile_subscriber_identity = kwargs['internationalMobileSubscriberIdentity']
+        if international_mobile_subscriber_identity is None:
+            raise TypeError("Missing 'international_mobile_subscriber_identity' argument")
+        if mobile_network_sim_group_id is None and 'mobileNetworkSimGroupId' in kwargs:
+            mobile_network_sim_group_id = kwargs['mobileNetworkSimGroupId']
+        if mobile_network_sim_group_id is None:
+            raise TypeError("Missing 'mobile_network_sim_group_id' argument")
+        if operator_key_code is None and 'operatorKeyCode' in kwargs:
+            operator_key_code = kwargs['operatorKeyCode']
+        if operator_key_code is None:
+            raise TypeError("Missing 'operator_key_code' argument")
+        if device_type is None and 'deviceType' in kwargs:
+            device_type = kwargs['deviceType']
+        if sim_policy_id is None and 'simPolicyId' in kwargs:
+            sim_policy_id = kwargs['simPolicyId']
+        if static_ip_configurations is None and 'staticIpConfigurations' in kwargs:
+            static_ip_configurations = kwargs['staticIpConfigurations']
+
+        _setter("authentication_key", authentication_key)
+        _setter("integrated_circuit_card_identifier", integrated_circuit_card_identifier)
+        _setter("international_mobile_subscriber_identity", international_mobile_subscriber_identity)
+        _setter("mobile_network_sim_group_id", mobile_network_sim_group_id)
+        _setter("operator_key_code", operator_key_code)
         if device_type is not None:
-            pulumi.set(__self__, "device_type", device_type)
+            _setter("device_type", device_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sim_policy_id is not None:
-            pulumi.set(__self__, "sim_policy_id", sim_policy_id)
+            _setter("sim_policy_id", sim_policy_id)
         if static_ip_configurations is not None:
-            pulumi.set(__self__, "static_ip_configurations", static_ip_configurations)
+            _setter("static_ip_configurations", static_ip_configurations)
 
     @property
     @pulumi.getter(name="authenticationKey")
@@ -190,30 +243,85 @@ class _NetworkSimState:
         :param pulumi.Input[str] vendor_key_fingerprint: The public key fingerprint of the SIM vendor who provided this SIM, if any.
         :param pulumi.Input[str] vendor_name: The name of the SIM vendor who provided this SIM, if any.
         """
+        _NetworkSimState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_key=authentication_key,
+            device_type=device_type,
+            integrated_circuit_card_identifier=integrated_circuit_card_identifier,
+            international_mobile_subscriber_identity=international_mobile_subscriber_identity,
+            mobile_network_sim_group_id=mobile_network_sim_group_id,
+            name=name,
+            operator_key_code=operator_key_code,
+            sim_policy_id=sim_policy_id,
+            sim_state=sim_state,
+            static_ip_configurations=static_ip_configurations,
+            vendor_key_fingerprint=vendor_key_fingerprint,
+            vendor_name=vendor_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_key: Optional[pulumi.Input[str]] = None,
+             device_type: Optional[pulumi.Input[str]] = None,
+             integrated_circuit_card_identifier: Optional[pulumi.Input[str]] = None,
+             international_mobile_subscriber_identity: Optional[pulumi.Input[str]] = None,
+             mobile_network_sim_group_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             operator_key_code: Optional[pulumi.Input[str]] = None,
+             sim_policy_id: Optional[pulumi.Input[str]] = None,
+             sim_state: Optional[pulumi.Input[str]] = None,
+             static_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimStaticIpConfigurationArgs']]]] = None,
+             vendor_key_fingerprint: Optional[pulumi.Input[str]] = None,
+             vendor_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if authentication_key is None and 'authenticationKey' in kwargs:
+            authentication_key = kwargs['authenticationKey']
+        if device_type is None and 'deviceType' in kwargs:
+            device_type = kwargs['deviceType']
+        if integrated_circuit_card_identifier is None and 'integratedCircuitCardIdentifier' in kwargs:
+            integrated_circuit_card_identifier = kwargs['integratedCircuitCardIdentifier']
+        if international_mobile_subscriber_identity is None and 'internationalMobileSubscriberIdentity' in kwargs:
+            international_mobile_subscriber_identity = kwargs['internationalMobileSubscriberIdentity']
+        if mobile_network_sim_group_id is None and 'mobileNetworkSimGroupId' in kwargs:
+            mobile_network_sim_group_id = kwargs['mobileNetworkSimGroupId']
+        if operator_key_code is None and 'operatorKeyCode' in kwargs:
+            operator_key_code = kwargs['operatorKeyCode']
+        if sim_policy_id is None and 'simPolicyId' in kwargs:
+            sim_policy_id = kwargs['simPolicyId']
+        if sim_state is None and 'simState' in kwargs:
+            sim_state = kwargs['simState']
+        if static_ip_configurations is None and 'staticIpConfigurations' in kwargs:
+            static_ip_configurations = kwargs['staticIpConfigurations']
+        if vendor_key_fingerprint is None and 'vendorKeyFingerprint' in kwargs:
+            vendor_key_fingerprint = kwargs['vendorKeyFingerprint']
+        if vendor_name is None and 'vendorName' in kwargs:
+            vendor_name = kwargs['vendorName']
+
         if authentication_key is not None:
-            pulumi.set(__self__, "authentication_key", authentication_key)
+            _setter("authentication_key", authentication_key)
         if device_type is not None:
-            pulumi.set(__self__, "device_type", device_type)
+            _setter("device_type", device_type)
         if integrated_circuit_card_identifier is not None:
-            pulumi.set(__self__, "integrated_circuit_card_identifier", integrated_circuit_card_identifier)
+            _setter("integrated_circuit_card_identifier", integrated_circuit_card_identifier)
         if international_mobile_subscriber_identity is not None:
-            pulumi.set(__self__, "international_mobile_subscriber_identity", international_mobile_subscriber_identity)
+            _setter("international_mobile_subscriber_identity", international_mobile_subscriber_identity)
         if mobile_network_sim_group_id is not None:
-            pulumi.set(__self__, "mobile_network_sim_group_id", mobile_network_sim_group_id)
+            _setter("mobile_network_sim_group_id", mobile_network_sim_group_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if operator_key_code is not None:
-            pulumi.set(__self__, "operator_key_code", operator_key_code)
+            _setter("operator_key_code", operator_key_code)
         if sim_policy_id is not None:
-            pulumi.set(__self__, "sim_policy_id", sim_policy_id)
+            _setter("sim_policy_id", sim_policy_id)
         if sim_state is not None:
-            pulumi.set(__self__, "sim_state", sim_state)
+            _setter("sim_state", sim_state)
         if static_ip_configurations is not None:
-            pulumi.set(__self__, "static_ip_configurations", static_ip_configurations)
+            _setter("static_ip_configurations", static_ip_configurations)
         if vendor_key_fingerprint is not None:
-            pulumi.set(__self__, "vendor_key_fingerprint", vendor_key_fingerprint)
+            _setter("vendor_key_fingerprint", vendor_key_fingerprint)
         if vendor_name is not None:
-            pulumi.set(__self__, "vendor_name", vendor_name)
+            _setter("vendor_name", vendor_name)
 
     @property
     @pulumi.getter(name="authenticationKey")
@@ -515,6 +623,10 @@ class NetworkSim(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkSimArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

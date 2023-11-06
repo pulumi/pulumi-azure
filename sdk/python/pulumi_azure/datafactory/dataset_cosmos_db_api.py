@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,24 +41,67 @@ class DatasetCosmosDBApiArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
         """
-        pulumi.set(__self__, "data_factory_id", data_factory_id)
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        DatasetCosmosDBApiArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_factory_id=data_factory_id,
+            linked_service_name=linked_service_name,
+            additional_properties=additional_properties,
+            annotations=annotations,
+            collection_name=collection_name,
+            description=description,
+            folder=folder,
+            name=name,
+            parameters=parameters,
+            schema_columns=schema_columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             linked_service_name: Optional[pulumi.Input[str]] = None,
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             collection_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             folder: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if linked_service_name is None:
+            raise TypeError("Missing 'linked_service_name' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if collection_name is None and 'collectionName' in kwargs:
+            collection_name = kwargs['collectionName']
+        if schema_columns is None and 'schemaColumns' in kwargs:
+            schema_columns = kwargs['schemaColumns']
+
+        _setter("data_factory_id", data_factory_id)
+        _setter("linked_service_name", linked_service_name)
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if collection_name is not None:
-            pulumi.set(__self__, "collection_name", collection_name)
+            _setter("collection_name", collection_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if folder is not None:
-            pulumi.set(__self__, "folder", folder)
+            _setter("folder", folder)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if schema_columns is not None:
-            pulumi.set(__self__, "schema_columns", schema_columns)
+            _setter("schema_columns", schema_columns)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -211,26 +254,65 @@ class _DatasetCosmosDBApiState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
         """
+        _DatasetCosmosDBApiState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_properties=additional_properties,
+            annotations=annotations,
+            collection_name=collection_name,
+            data_factory_id=data_factory_id,
+            description=description,
+            folder=folder,
+            linked_service_name=linked_service_name,
+            name=name,
+            parameters=parameters,
+            schema_columns=schema_columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             collection_name: Optional[pulumi.Input[str]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             folder: Optional[pulumi.Input[str]] = None,
+             linked_service_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetCosmosDBApiSchemaColumnArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if additional_properties is None and 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if collection_name is None and 'collectionName' in kwargs:
+            collection_name = kwargs['collectionName']
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if schema_columns is None and 'schemaColumns' in kwargs:
+            schema_columns = kwargs['schemaColumns']
+
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if collection_name is not None:
-            pulumi.set(__self__, "collection_name", collection_name)
+            _setter("collection_name", collection_name)
         if data_factory_id is not None:
-            pulumi.set(__self__, "data_factory_id", data_factory_id)
+            _setter("data_factory_id", data_factory_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if folder is not None:
-            pulumi.set(__self__, "folder", folder)
+            _setter("folder", folder)
         if linked_service_name is not None:
-            pulumi.set(__self__, "linked_service_name", linked_service_name)
+            _setter("linked_service_name", linked_service_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if schema_columns is not None:
-            pulumi.set(__self__, "schema_columns", schema_columns)
+            _setter("schema_columns", schema_columns)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -468,6 +550,10 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatasetCosmosDBApiArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

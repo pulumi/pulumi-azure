@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,33 +47,84 @@ class TriggerScheduleArgs:
         :param pulumi.Input[str] start_time: The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
         :param pulumi.Input[str] time_zone: The timezone of the start/end time.
         """
-        pulumi.set(__self__, "data_factory_id", data_factory_id)
+        TriggerScheduleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_factory_id=data_factory_id,
+            activated=activated,
+            annotations=annotations,
+            description=description,
+            end_time=end_time,
+            frequency=frequency,
+            interval=interval,
+            name=name,
+            pipeline_name=pipeline_name,
+            pipeline_parameters=pipeline_parameters,
+            pipelines=pipelines,
+            schedule=schedule,
+            start_time=start_time,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             activated: Optional[pulumi.Input[bool]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             frequency: Optional[pulumi.Input[str]] = None,
+             interval: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             pipeline_name: Optional[pulumi.Input[str]] = None,
+             pipeline_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerSchedulePipelineArgs']]]] = None,
+             schedule: Optional[pulumi.Input['TriggerScheduleScheduleArgs']] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if pipeline_name is None and 'pipelineName' in kwargs:
+            pipeline_name = kwargs['pipelineName']
+        if pipeline_parameters is None and 'pipelineParameters' in kwargs:
+            pipeline_parameters = kwargs['pipelineParameters']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("data_factory_id", data_factory_id)
         if activated is not None:
-            pulumi.set(__self__, "activated", activated)
+            _setter("activated", activated)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
+            _setter("frequency", frequency)
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if pipeline_name is not None:
-            pulumi.set(__self__, "pipeline_name", pipeline_name)
+            _setter("pipeline_name", pipeline_name)
         if pipeline_parameters is not None:
-            pulumi.set(__self__, "pipeline_parameters", pipeline_parameters)
+            _setter("pipeline_parameters", pipeline_parameters)
         if pipelines is not None:
-            pulumi.set(__self__, "pipelines", pipelines)
+            _setter("pipelines", pipelines)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -278,34 +329,83 @@ class _TriggerScheduleState:
         :param pulumi.Input[str] start_time: The time the Schedule Trigger will start. This defaults to the current time. The time will be represented in UTC.
         :param pulumi.Input[str] time_zone: The timezone of the start/end time.
         """
+        _TriggerScheduleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            activated=activated,
+            annotations=annotations,
+            data_factory_id=data_factory_id,
+            description=description,
+            end_time=end_time,
+            frequency=frequency,
+            interval=interval,
+            name=name,
+            pipeline_name=pipeline_name,
+            pipeline_parameters=pipeline_parameters,
+            pipelines=pipelines,
+            schedule=schedule,
+            start_time=start_time,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             activated: Optional[pulumi.Input[bool]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             frequency: Optional[pulumi.Input[str]] = None,
+             interval: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             pipeline_name: Optional[pulumi.Input[str]] = None,
+             pipeline_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerSchedulePipelineArgs']]]] = None,
+             schedule: Optional[pulumi.Input['TriggerScheduleScheduleArgs']] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if pipeline_name is None and 'pipelineName' in kwargs:
+            pipeline_name = kwargs['pipelineName']
+        if pipeline_parameters is None and 'pipelineParameters' in kwargs:
+            pipeline_parameters = kwargs['pipelineParameters']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if activated is not None:
-            pulumi.set(__self__, "activated", activated)
+            _setter("activated", activated)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if data_factory_id is not None:
-            pulumi.set(__self__, "data_factory_id", data_factory_id)
+            _setter("data_factory_id", data_factory_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
+            _setter("frequency", frequency)
         if interval is not None:
-            pulumi.set(__self__, "interval", interval)
+            _setter("interval", interval)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if pipeline_name is not None:
-            pulumi.set(__self__, "pipeline_name", pipeline_name)
+            _setter("pipeline_name", pipeline_name)
         if pipeline_parameters is not None:
-            pulumi.set(__self__, "pipeline_parameters", pipeline_parameters)
+            _setter("pipeline_parameters", pipeline_parameters)
         if pipelines is not None:
-            pulumi.set(__self__, "pipelines", pipelines)
+            _setter("pipelines", pipelines)
         if schedule is not None:
-            pulumi.set(__self__, "schedule", schedule)
+            _setter("schedule", schedule)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -587,6 +687,10 @@ class TriggerSchedule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TriggerScheduleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -628,6 +732,11 @@ class TriggerSchedule(pulumi.CustomResource):
             __props__.__dict__["pipeline_name"] = pipeline_name
             __props__.__dict__["pipeline_parameters"] = pipeline_parameters
             __props__.__dict__["pipelines"] = pipelines
+            if schedule is not None and not isinstance(schedule, TriggerScheduleScheduleArgs):
+                schedule = schedule or {}
+                def _setter(key, value):
+                    schedule[key] = value
+                TriggerScheduleScheduleArgs._configure(_setter, **schedule)
             __props__.__dict__["schedule"] = schedule
             __props__.__dict__["start_time"] = start_time
             __props__.__dict__["time_zone"] = time_zone

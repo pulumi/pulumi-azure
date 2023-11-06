@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,23 +39,68 @@ class ScalingPlanArgs:
         :param pulumi.Input[str] name: The name which should be used for this Virtual Desktop Scaling Plan . Changing this forces a new Virtual Desktop Scaling Plan to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Virtual Desktop Scaling Plan .
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "schedules", schedules)
-        pulumi.set(__self__, "time_zone", time_zone)
+        ScalingPlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            schedules=schedules,
+            time_zone=time_zone,
+            description=description,
+            exclusion_tag=exclusion_tag,
+            friendly_name=friendly_name,
+            host_pools=host_pools,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScheduleArgs']]]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             exclusion_tag: Optional[pulumi.Input[str]] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             host_pools: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanHostPoolArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if schedules is None:
+            raise TypeError("Missing 'schedules' argument")
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+        if time_zone is None:
+            raise TypeError("Missing 'time_zone' argument")
+        if exclusion_tag is None and 'exclusionTag' in kwargs:
+            exclusion_tag = kwargs['exclusionTag']
+        if friendly_name is None and 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if host_pools is None and 'hostPools' in kwargs:
+            host_pools = kwargs['hostPools']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("schedules", schedules)
+        _setter("time_zone", time_zone)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if exclusion_tag is not None:
-            pulumi.set(__self__, "exclusion_tag", exclusion_tag)
+            _setter("exclusion_tag", exclusion_tag)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if host_pools is not None:
-            pulumi.set(__self__, "host_pools", host_pools)
+            _setter("host_pools", host_pools)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -204,26 +249,65 @@ class _ScalingPlanState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Virtual Desktop Scaling Plan .
         :param pulumi.Input[str] time_zone: Specifies the Time Zone which should be used by the Scaling Plan for time based events, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         """
+        _ScalingPlanState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            exclusion_tag=exclusion_tag,
+            friendly_name=friendly_name,
+            host_pools=host_pools,
+            location=location,
+            name=name,
+            resource_group_name=resource_group_name,
+            schedules=schedules,
+            tags=tags,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             exclusion_tag: Optional[pulumi.Input[str]] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             host_pools: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanHostPoolArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             schedules: Optional[pulumi.Input[Sequence[pulumi.Input['ScalingPlanScheduleArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if exclusion_tag is None and 'exclusionTag' in kwargs:
+            exclusion_tag = kwargs['exclusionTag']
+        if friendly_name is None and 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if host_pools is None and 'hostPools' in kwargs:
+            host_pools = kwargs['hostPools']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if exclusion_tag is not None:
-            pulumi.set(__self__, "exclusion_tag", exclusion_tag)
+            _setter("exclusion_tag", exclusion_tag)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if host_pools is not None:
-            pulumi.set(__self__, "host_pools", host_pools)
+            _setter("host_pools", host_pools)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if schedules is not None:
-            pulumi.set(__self__, "schedules", schedules)
+            _setter("schedules", schedules)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter
@@ -593,6 +677,10 @@ class ScalingPlan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScalingPlanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

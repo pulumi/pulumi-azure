@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,22 +37,65 @@ class VpnGatewayArgs:
         :param pulumi.Input[int] scale_unit: The Scale Unit for this VPN Gateway. Defaults to `1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the VPN Gateway.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
+        VpnGatewayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            virtual_hub_id=virtual_hub_id,
+            bgp_route_translation_for_nat_enabled=bgp_route_translation_for_nat_enabled,
+            bgp_settings=bgp_settings,
+            location=location,
+            name=name,
+            routing_preference=routing_preference,
+            scale_unit=scale_unit,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
+             bgp_route_translation_for_nat_enabled: Optional[pulumi.Input[bool]] = None,
+             bgp_settings: Optional[pulumi.Input['VpnGatewayBgpSettingsArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             routing_preference: Optional[pulumi.Input[str]] = None,
+             scale_unit: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+        if virtual_hub_id is None:
+            raise TypeError("Missing 'virtual_hub_id' argument")
+        if bgp_route_translation_for_nat_enabled is None and 'bgpRouteTranslationForNatEnabled' in kwargs:
+            bgp_route_translation_for_nat_enabled = kwargs['bgpRouteTranslationForNatEnabled']
+        if bgp_settings is None and 'bgpSettings' in kwargs:
+            bgp_settings = kwargs['bgpSettings']
+        if routing_preference is None and 'routingPreference' in kwargs:
+            routing_preference = kwargs['routingPreference']
+        if scale_unit is None and 'scaleUnit' in kwargs:
+            scale_unit = kwargs['scaleUnit']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("virtual_hub_id", virtual_hub_id)
         if bgp_route_translation_for_nat_enabled is not None:
-            pulumi.set(__self__, "bgp_route_translation_for_nat_enabled", bgp_route_translation_for_nat_enabled)
+            _setter("bgp_route_translation_for_nat_enabled", bgp_route_translation_for_nat_enabled)
         if bgp_settings is not None:
-            pulumi.set(__self__, "bgp_settings", bgp_settings)
+            _setter("bgp_settings", bgp_settings)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if routing_preference is not None:
-            pulumi.set(__self__, "routing_preference", routing_preference)
+            _setter("routing_preference", routing_preference)
         if scale_unit is not None:
-            pulumi.set(__self__, "scale_unit", scale_unit)
+            _setter("scale_unit", scale_unit)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -187,24 +230,63 @@ class _VpnGatewayState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the VPN Gateway.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this VPN Gateway should be created. Changing this forces a new resource to be created.
         """
+        _VpnGatewayState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bgp_route_translation_for_nat_enabled=bgp_route_translation_for_nat_enabled,
+            bgp_settings=bgp_settings,
+            location=location,
+            name=name,
+            resource_group_name=resource_group_name,
+            routing_preference=routing_preference,
+            scale_unit=scale_unit,
+            tags=tags,
+            virtual_hub_id=virtual_hub_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bgp_route_translation_for_nat_enabled: Optional[pulumi.Input[bool]] = None,
+             bgp_settings: Optional[pulumi.Input['VpnGatewayBgpSettingsArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             routing_preference: Optional[pulumi.Input[str]] = None,
+             scale_unit: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if bgp_route_translation_for_nat_enabled is None and 'bgpRouteTranslationForNatEnabled' in kwargs:
+            bgp_route_translation_for_nat_enabled = kwargs['bgpRouteTranslationForNatEnabled']
+        if bgp_settings is None and 'bgpSettings' in kwargs:
+            bgp_settings = kwargs['bgpSettings']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if routing_preference is None and 'routingPreference' in kwargs:
+            routing_preference = kwargs['routingPreference']
+        if scale_unit is None and 'scaleUnit' in kwargs:
+            scale_unit = kwargs['scaleUnit']
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+
         if bgp_route_translation_for_nat_enabled is not None:
-            pulumi.set(__self__, "bgp_route_translation_for_nat_enabled", bgp_route_translation_for_nat_enabled)
+            _setter("bgp_route_translation_for_nat_enabled", bgp_route_translation_for_nat_enabled)
         if bgp_settings is not None:
-            pulumi.set(__self__, "bgp_settings", bgp_settings)
+            _setter("bgp_settings", bgp_settings)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if routing_preference is not None:
-            pulumi.set(__self__, "routing_preference", routing_preference)
+            _setter("routing_preference", routing_preference)
         if scale_unit is not None:
-            pulumi.set(__self__, "scale_unit", scale_unit)
+            _setter("scale_unit", scale_unit)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_hub_id is not None:
-            pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
+            _setter("virtual_hub_id", virtual_hub_id)
 
     @property
     @pulumi.getter(name="bgpRouteTranslationForNatEnabled")
@@ -430,6 +512,10 @@ class VpnGateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpnGatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -454,6 +540,11 @@ class VpnGateway(pulumi.CustomResource):
             __props__ = VpnGatewayArgs.__new__(VpnGatewayArgs)
 
             __props__.__dict__["bgp_route_translation_for_nat_enabled"] = bgp_route_translation_for_nat_enabled
+            if bgp_settings is not None and not isinstance(bgp_settings, VpnGatewayBgpSettingsArgs):
+                bgp_settings = bgp_settings or {}
+                def _setter(key, value):
+                    bgp_settings[key] = value
+                VpnGatewayBgpSettingsArgs._configure(_setter, **bgp_settings)
             __props__.__dict__["bgp_settings"] = bgp_settings
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,27 +41,86 @@ class NetworkAttachedDataNetworkArgs:
         :param pulumi.Input[str] user_plane_access_ipv4_subnet: The IPv4 subnet for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] user_plane_access_name: Specifies the logical name for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         """
-        pulumi.set(__self__, "dns_addresses", dns_addresses)
-        pulumi.set(__self__, "mobile_network_data_network_name", mobile_network_data_network_name)
-        pulumi.set(__self__, "mobile_network_packet_core_data_plane_id", mobile_network_packet_core_data_plane_id)
+        NetworkAttachedDataNetworkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_addresses=dns_addresses,
+            mobile_network_data_network_name=mobile_network_data_network_name,
+            mobile_network_packet_core_data_plane_id=mobile_network_packet_core_data_plane_id,
+            location=location,
+            network_address_port_translation=network_address_port_translation,
+            tags=tags,
+            user_equipment_address_pool_prefixes=user_equipment_address_pool_prefixes,
+            user_equipment_static_address_pool_prefixes=user_equipment_static_address_pool_prefixes,
+            user_plane_access_ipv4_address=user_plane_access_ipv4_address,
+            user_plane_access_ipv4_gateway=user_plane_access_ipv4_gateway,
+            user_plane_access_ipv4_subnet=user_plane_access_ipv4_subnet,
+            user_plane_access_name=user_plane_access_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             mobile_network_data_network_name: Optional[pulumi.Input[str]] = None,
+             mobile_network_packet_core_data_plane_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             network_address_port_translation: Optional[pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_equipment_address_pool_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_equipment_static_address_pool_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_plane_access_ipv4_address: Optional[pulumi.Input[str]] = None,
+             user_plane_access_ipv4_gateway: Optional[pulumi.Input[str]] = None,
+             user_plane_access_ipv4_subnet: Optional[pulumi.Input[str]] = None,
+             user_plane_access_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if dns_addresses is None and 'dnsAddresses' in kwargs:
+            dns_addresses = kwargs['dnsAddresses']
+        if dns_addresses is None:
+            raise TypeError("Missing 'dns_addresses' argument")
+        if mobile_network_data_network_name is None and 'mobileNetworkDataNetworkName' in kwargs:
+            mobile_network_data_network_name = kwargs['mobileNetworkDataNetworkName']
+        if mobile_network_data_network_name is None:
+            raise TypeError("Missing 'mobile_network_data_network_name' argument")
+        if mobile_network_packet_core_data_plane_id is None and 'mobileNetworkPacketCoreDataPlaneId' in kwargs:
+            mobile_network_packet_core_data_plane_id = kwargs['mobileNetworkPacketCoreDataPlaneId']
+        if mobile_network_packet_core_data_plane_id is None:
+            raise TypeError("Missing 'mobile_network_packet_core_data_plane_id' argument")
+        if network_address_port_translation is None and 'networkAddressPortTranslation' in kwargs:
+            network_address_port_translation = kwargs['networkAddressPortTranslation']
+        if user_equipment_address_pool_prefixes is None and 'userEquipmentAddressPoolPrefixes' in kwargs:
+            user_equipment_address_pool_prefixes = kwargs['userEquipmentAddressPoolPrefixes']
+        if user_equipment_static_address_pool_prefixes is None and 'userEquipmentStaticAddressPoolPrefixes' in kwargs:
+            user_equipment_static_address_pool_prefixes = kwargs['userEquipmentStaticAddressPoolPrefixes']
+        if user_plane_access_ipv4_address is None and 'userPlaneAccessIpv4Address' in kwargs:
+            user_plane_access_ipv4_address = kwargs['userPlaneAccessIpv4Address']
+        if user_plane_access_ipv4_gateway is None and 'userPlaneAccessIpv4Gateway' in kwargs:
+            user_plane_access_ipv4_gateway = kwargs['userPlaneAccessIpv4Gateway']
+        if user_plane_access_ipv4_subnet is None and 'userPlaneAccessIpv4Subnet' in kwargs:
+            user_plane_access_ipv4_subnet = kwargs['userPlaneAccessIpv4Subnet']
+        if user_plane_access_name is None and 'userPlaneAccessName' in kwargs:
+            user_plane_access_name = kwargs['userPlaneAccessName']
+
+        _setter("dns_addresses", dns_addresses)
+        _setter("mobile_network_data_network_name", mobile_network_data_network_name)
+        _setter("mobile_network_packet_core_data_plane_id", mobile_network_packet_core_data_plane_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if network_address_port_translation is not None:
-            pulumi.set(__self__, "network_address_port_translation", network_address_port_translation)
+            _setter("network_address_port_translation", network_address_port_translation)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_equipment_address_pool_prefixes is not None:
-            pulumi.set(__self__, "user_equipment_address_pool_prefixes", user_equipment_address_pool_prefixes)
+            _setter("user_equipment_address_pool_prefixes", user_equipment_address_pool_prefixes)
         if user_equipment_static_address_pool_prefixes is not None:
-            pulumi.set(__self__, "user_equipment_static_address_pool_prefixes", user_equipment_static_address_pool_prefixes)
+            _setter("user_equipment_static_address_pool_prefixes", user_equipment_static_address_pool_prefixes)
         if user_plane_access_ipv4_address is not None:
-            pulumi.set(__self__, "user_plane_access_ipv4_address", user_plane_access_ipv4_address)
+            _setter("user_plane_access_ipv4_address", user_plane_access_ipv4_address)
         if user_plane_access_ipv4_gateway is not None:
-            pulumi.set(__self__, "user_plane_access_ipv4_gateway", user_plane_access_ipv4_gateway)
+            _setter("user_plane_access_ipv4_gateway", user_plane_access_ipv4_gateway)
         if user_plane_access_ipv4_subnet is not None:
-            pulumi.set(__self__, "user_plane_access_ipv4_subnet", user_plane_access_ipv4_subnet)
+            _setter("user_plane_access_ipv4_subnet", user_plane_access_ipv4_subnet)
         if user_plane_access_name is not None:
-            pulumi.set(__self__, "user_plane_access_name", user_plane_access_name)
+            _setter("user_plane_access_name", user_plane_access_name)
 
     @property
     @pulumi.getter(name="dnsAddresses")
@@ -230,30 +289,83 @@ class _NetworkAttachedDataNetworkState:
         :param pulumi.Input[str] user_plane_access_ipv4_subnet: The IPv4 subnet for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         :param pulumi.Input[str] user_plane_access_name: Specifies the logical name for the user data plane interface. This should match one of the interfaces configured on your Azure Stack Edge device.
         """
+        _NetworkAttachedDataNetworkState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_addresses=dns_addresses,
+            location=location,
+            mobile_network_data_network_name=mobile_network_data_network_name,
+            mobile_network_packet_core_data_plane_id=mobile_network_packet_core_data_plane_id,
+            network_address_port_translation=network_address_port_translation,
+            tags=tags,
+            user_equipment_address_pool_prefixes=user_equipment_address_pool_prefixes,
+            user_equipment_static_address_pool_prefixes=user_equipment_static_address_pool_prefixes,
+            user_plane_access_ipv4_address=user_plane_access_ipv4_address,
+            user_plane_access_ipv4_gateway=user_plane_access_ipv4_gateway,
+            user_plane_access_ipv4_subnet=user_plane_access_ipv4_subnet,
+            user_plane_access_name=user_plane_access_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mobile_network_data_network_name: Optional[pulumi.Input[str]] = None,
+             mobile_network_packet_core_data_plane_id: Optional[pulumi.Input[str]] = None,
+             network_address_port_translation: Optional[pulumi.Input['NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_equipment_address_pool_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_equipment_static_address_pool_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_plane_access_ipv4_address: Optional[pulumi.Input[str]] = None,
+             user_plane_access_ipv4_gateway: Optional[pulumi.Input[str]] = None,
+             user_plane_access_ipv4_subnet: Optional[pulumi.Input[str]] = None,
+             user_plane_access_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if dns_addresses is None and 'dnsAddresses' in kwargs:
+            dns_addresses = kwargs['dnsAddresses']
+        if mobile_network_data_network_name is None and 'mobileNetworkDataNetworkName' in kwargs:
+            mobile_network_data_network_name = kwargs['mobileNetworkDataNetworkName']
+        if mobile_network_packet_core_data_plane_id is None and 'mobileNetworkPacketCoreDataPlaneId' in kwargs:
+            mobile_network_packet_core_data_plane_id = kwargs['mobileNetworkPacketCoreDataPlaneId']
+        if network_address_port_translation is None and 'networkAddressPortTranslation' in kwargs:
+            network_address_port_translation = kwargs['networkAddressPortTranslation']
+        if user_equipment_address_pool_prefixes is None and 'userEquipmentAddressPoolPrefixes' in kwargs:
+            user_equipment_address_pool_prefixes = kwargs['userEquipmentAddressPoolPrefixes']
+        if user_equipment_static_address_pool_prefixes is None and 'userEquipmentStaticAddressPoolPrefixes' in kwargs:
+            user_equipment_static_address_pool_prefixes = kwargs['userEquipmentStaticAddressPoolPrefixes']
+        if user_plane_access_ipv4_address is None and 'userPlaneAccessIpv4Address' in kwargs:
+            user_plane_access_ipv4_address = kwargs['userPlaneAccessIpv4Address']
+        if user_plane_access_ipv4_gateway is None and 'userPlaneAccessIpv4Gateway' in kwargs:
+            user_plane_access_ipv4_gateway = kwargs['userPlaneAccessIpv4Gateway']
+        if user_plane_access_ipv4_subnet is None and 'userPlaneAccessIpv4Subnet' in kwargs:
+            user_plane_access_ipv4_subnet = kwargs['userPlaneAccessIpv4Subnet']
+        if user_plane_access_name is None and 'userPlaneAccessName' in kwargs:
+            user_plane_access_name = kwargs['userPlaneAccessName']
+
         if dns_addresses is not None:
-            pulumi.set(__self__, "dns_addresses", dns_addresses)
+            _setter("dns_addresses", dns_addresses)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mobile_network_data_network_name is not None:
-            pulumi.set(__self__, "mobile_network_data_network_name", mobile_network_data_network_name)
+            _setter("mobile_network_data_network_name", mobile_network_data_network_name)
         if mobile_network_packet_core_data_plane_id is not None:
-            pulumi.set(__self__, "mobile_network_packet_core_data_plane_id", mobile_network_packet_core_data_plane_id)
+            _setter("mobile_network_packet_core_data_plane_id", mobile_network_packet_core_data_plane_id)
         if network_address_port_translation is not None:
-            pulumi.set(__self__, "network_address_port_translation", network_address_port_translation)
+            _setter("network_address_port_translation", network_address_port_translation)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_equipment_address_pool_prefixes is not None:
-            pulumi.set(__self__, "user_equipment_address_pool_prefixes", user_equipment_address_pool_prefixes)
+            _setter("user_equipment_address_pool_prefixes", user_equipment_address_pool_prefixes)
         if user_equipment_static_address_pool_prefixes is not None:
-            pulumi.set(__self__, "user_equipment_static_address_pool_prefixes", user_equipment_static_address_pool_prefixes)
+            _setter("user_equipment_static_address_pool_prefixes", user_equipment_static_address_pool_prefixes)
         if user_plane_access_ipv4_address is not None:
-            pulumi.set(__self__, "user_plane_access_ipv4_address", user_plane_access_ipv4_address)
+            _setter("user_plane_access_ipv4_address", user_plane_access_ipv4_address)
         if user_plane_access_ipv4_gateway is not None:
-            pulumi.set(__self__, "user_plane_access_ipv4_gateway", user_plane_access_ipv4_gateway)
+            _setter("user_plane_access_ipv4_gateway", user_plane_access_ipv4_gateway)
         if user_plane_access_ipv4_subnet is not None:
-            pulumi.set(__self__, "user_plane_access_ipv4_subnet", user_plane_access_ipv4_subnet)
+            _setter("user_plane_access_ipv4_subnet", user_plane_access_ipv4_subnet)
         if user_plane_access_name is not None:
-            pulumi.set(__self__, "user_plane_access_name", user_plane_access_name)
+            _setter("user_plane_access_name", user_plane_access_name)
 
     @property
     @pulumi.getter(name="dnsAddresses")
@@ -463,6 +575,10 @@ class NetworkAttachedDataNetwork(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkAttachedDataNetworkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -499,6 +615,11 @@ class NetworkAttachedDataNetwork(pulumi.CustomResource):
             if mobile_network_packet_core_data_plane_id is None and not opts.urn:
                 raise TypeError("Missing required property 'mobile_network_packet_core_data_plane_id'")
             __props__.__dict__["mobile_network_packet_core_data_plane_id"] = mobile_network_packet_core_data_plane_id
+            if network_address_port_translation is not None and not isinstance(network_address_port_translation, NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs):
+                network_address_port_translation = network_address_port_translation or {}
+                def _setter(key, value):
+                    network_address_port_translation[key] = value
+                NetworkAttachedDataNetworkNetworkAddressPortTranslationArgs._configure(_setter, **network_address_port_translation)
             __props__.__dict__["network_address_port_translation"] = network_address_port_translation
             __props__.__dict__["tags"] = tags
             __props__.__dict__["user_equipment_address_pool_prefixes"] = user_equipment_address_pool_prefixes

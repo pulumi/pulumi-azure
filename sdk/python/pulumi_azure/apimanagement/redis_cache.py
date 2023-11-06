@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RedisCacheArgs', 'RedisCache']
@@ -29,16 +29,49 @@ class RedisCacheArgs:
         :param pulumi.Input[str] name: The name which should be used for this API Management Redis Cache. Changing this forces a new API Management Redis Cache to be created.
         :param pulumi.Input[str] redis_cache_id: The resource ID of the Cache for Redis.
         """
-        pulumi.set(__self__, "api_management_id", api_management_id)
-        pulumi.set(__self__, "connection_string", connection_string)
+        RedisCacheArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_id=api_management_id,
+            connection_string=connection_string,
+            cache_location=cache_location,
+            description=description,
+            name=name,
+            redis_cache_id=redis_cache_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_id: Optional[pulumi.Input[str]] = None,
+             connection_string: Optional[pulumi.Input[str]] = None,
+             cache_location: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             redis_cache_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_management_id is None and 'apiManagementId' in kwargs:
+            api_management_id = kwargs['apiManagementId']
+        if api_management_id is None:
+            raise TypeError("Missing 'api_management_id' argument")
+        if connection_string is None and 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+        if cache_location is None and 'cacheLocation' in kwargs:
+            cache_location = kwargs['cacheLocation']
+        if redis_cache_id is None and 'redisCacheId' in kwargs:
+            redis_cache_id = kwargs['redisCacheId']
+
+        _setter("api_management_id", api_management_id)
+        _setter("connection_string", connection_string)
         if cache_location is not None:
-            pulumi.set(__self__, "cache_location", cache_location)
+            _setter("cache_location", cache_location)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if redis_cache_id is not None:
-            pulumi.set(__self__, "redis_cache_id", redis_cache_id)
+            _setter("redis_cache_id", redis_cache_id)
 
     @property
     @pulumi.getter(name="apiManagementId")
@@ -131,18 +164,47 @@ class _RedisCacheState:
         :param pulumi.Input[str] name: The name which should be used for this API Management Redis Cache. Changing this forces a new API Management Redis Cache to be created.
         :param pulumi.Input[str] redis_cache_id: The resource ID of the Cache for Redis.
         """
+        _RedisCacheState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_id=api_management_id,
+            cache_location=cache_location,
+            connection_string=connection_string,
+            description=description,
+            name=name,
+            redis_cache_id=redis_cache_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_id: Optional[pulumi.Input[str]] = None,
+             cache_location: Optional[pulumi.Input[str]] = None,
+             connection_string: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             redis_cache_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_management_id is None and 'apiManagementId' in kwargs:
+            api_management_id = kwargs['apiManagementId']
+        if cache_location is None and 'cacheLocation' in kwargs:
+            cache_location = kwargs['cacheLocation']
+        if connection_string is None and 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if redis_cache_id is None and 'redisCacheId' in kwargs:
+            redis_cache_id = kwargs['redisCacheId']
+
         if api_management_id is not None:
-            pulumi.set(__self__, "api_management_id", api_management_id)
+            _setter("api_management_id", api_management_id)
         if cache_location is not None:
-            pulumi.set(__self__, "cache_location", cache_location)
+            _setter("cache_location", cache_location)
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if redis_cache_id is not None:
-            pulumi.set(__self__, "redis_cache_id", redis_cache_id)
+            _setter("redis_cache_id", redis_cache_id)
 
     @property
     @pulumi.getter(name="apiManagementId")
@@ -336,6 +398,10 @@ class RedisCache(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RedisCacheArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

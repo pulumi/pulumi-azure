@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TimeSeriesInsightsAccessPolicyArgs', 'TimeSeriesInsightsAccessPolicy']
@@ -27,13 +27,42 @@ class TimeSeriesInsightsAccessPolicyArgs:
         :param pulumi.Input[str] description: The description of the Azure IoT Time Series Insights Access Policy.
         :param pulumi.Input[str] name: Specifies the name of the Azure IoT Time Series Insights Access Policy. Changing this forces a new resource to be created. Must be globally unique.
         """
-        pulumi.set(__self__, "principal_object_id", principal_object_id)
-        pulumi.set(__self__, "roles", roles)
-        pulumi.set(__self__, "time_series_insights_environment_id", time_series_insights_environment_id)
+        TimeSeriesInsightsAccessPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_object_id=principal_object_id,
+            roles=roles,
+            time_series_insights_environment_id=time_series_insights_environment_id,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_object_id: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             time_series_insights_environment_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if principal_object_id is None and 'principalObjectId' in kwargs:
+            principal_object_id = kwargs['principalObjectId']
+        if principal_object_id is None:
+            raise TypeError("Missing 'principal_object_id' argument")
+        if roles is None:
+            raise TypeError("Missing 'roles' argument")
+        if time_series_insights_environment_id is None and 'timeSeriesInsightsEnvironmentId' in kwargs:
+            time_series_insights_environment_id = kwargs['timeSeriesInsightsEnvironmentId']
+        if time_series_insights_environment_id is None:
+            raise TypeError("Missing 'time_series_insights_environment_id' argument")
+
+        _setter("principal_object_id", principal_object_id)
+        _setter("roles", roles)
+        _setter("time_series_insights_environment_id", time_series_insights_environment_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="principalObjectId")
@@ -112,16 +141,39 @@ class _TimeSeriesInsightsAccessPolicyState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] roles: A list of roles to apply to the Access Policy. Valid values include `Contributor` and `Reader`.
         :param pulumi.Input[str] time_series_insights_environment_id: The resource ID of the Azure IoT Time Series Insights Environment in which to create the Azure IoT Time Series Insights Reference Data Set. Changing this forces a new resource to be created.
         """
+        _TimeSeriesInsightsAccessPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            name=name,
+            principal_object_id=principal_object_id,
+            roles=roles,
+            time_series_insights_environment_id=time_series_insights_environment_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             principal_object_id: Optional[pulumi.Input[str]] = None,
+             roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             time_series_insights_environment_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if principal_object_id is None and 'principalObjectId' in kwargs:
+            principal_object_id = kwargs['principalObjectId']
+        if time_series_insights_environment_id is None and 'timeSeriesInsightsEnvironmentId' in kwargs:
+            time_series_insights_environment_id = kwargs['timeSeriesInsightsEnvironmentId']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if principal_object_id is not None:
-            pulumi.set(__self__, "principal_object_id", principal_object_id)
+            _setter("principal_object_id", principal_object_id)
         if roles is not None:
-            pulumi.set(__self__, "roles", roles)
+            _setter("roles", roles)
         if time_series_insights_environment_id is not None:
-            pulumi.set(__self__, "time_series_insights_environment_id", time_series_insights_environment_id)
+            _setter("time_series_insights_environment_id", time_series_insights_environment_id)
 
     @property
     @pulumi.getter
@@ -277,6 +329,10 @@ class TimeSeriesInsightsAccessPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TimeSeriesInsightsAccessPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -46,9 +46,36 @@ class LedgerAzureadBasedServicePrincipal(dict):
         :param str principal_id: Specifies the Principal ID of the AzureAD Service Principal.
         :param str tenant_id: Specifies the Tenant ID for this AzureAD Service Principal.
         """
-        pulumi.set(__self__, "ledger_role_name", ledger_role_name)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        LedgerAzureadBasedServicePrincipal._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ledger_role_name=ledger_role_name,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ledger_role_name: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ledger_role_name is None and 'ledgerRoleName' in kwargs:
+            ledger_role_name = kwargs['ledgerRoleName']
+        if ledger_role_name is None:
+            raise TypeError("Missing 'ledger_role_name' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+
+        _setter("ledger_role_name", ledger_role_name)
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="ledgerRoleName")
@@ -103,8 +130,29 @@ class LedgerCertificateBasedSecurityPrincipal(dict):
         :param str ledger_role_name: Specifies the Ledger Role to grant this Certificate Security Principal. Possible values are `Administrator`, `Contributor` and `Reader`.
         :param str pem_public_key: The public key, in PEM format, of the certificate used by this identity to authenticate with the Confidential Ledger.
         """
-        pulumi.set(__self__, "ledger_role_name", ledger_role_name)
-        pulumi.set(__self__, "pem_public_key", pem_public_key)
+        LedgerCertificateBasedSecurityPrincipal._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ledger_role_name=ledger_role_name,
+            pem_public_key=pem_public_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ledger_role_name: Optional[str] = None,
+             pem_public_key: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ledger_role_name is None and 'ledgerRoleName' in kwargs:
+            ledger_role_name = kwargs['ledgerRoleName']
+        if ledger_role_name is None:
+            raise TypeError("Missing 'ledger_role_name' argument")
+        if pem_public_key is None and 'pemPublicKey' in kwargs:
+            pem_public_key = kwargs['pemPublicKey']
+        if pem_public_key is None:
+            raise TypeError("Missing 'pem_public_key' argument")
+
+        _setter("ledger_role_name", ledger_role_name)
+        _setter("pem_public_key", pem_public_key)
 
     @property
     @pulumi.getter(name="ledgerRoleName")

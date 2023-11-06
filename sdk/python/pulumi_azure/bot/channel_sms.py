@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ChannelSmsArgs', 'ChannelSms']
@@ -29,13 +29,54 @@ class ChannelSmsArgs:
         :param pulumi.Input[str] sms_channel_auth_token: The authorization token for the SMS Channel.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "bot_name", bot_name)
-        pulumi.set(__self__, "phone_number", phone_number)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sms_channel_account_security_id", sms_channel_account_security_id)
-        pulumi.set(__self__, "sms_channel_auth_token", sms_channel_auth_token)
+        ChannelSmsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bot_name=bot_name,
+            phone_number=phone_number,
+            resource_group_name=resource_group_name,
+            sms_channel_account_security_id=sms_channel_account_security_id,
+            sms_channel_auth_token=sms_channel_auth_token,
+            location=location,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bot_name: Optional[pulumi.Input[str]] = None,
+             phone_number: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sms_channel_account_security_id: Optional[pulumi.Input[str]] = None,
+             sms_channel_auth_token: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if bot_name is None and 'botName' in kwargs:
+            bot_name = kwargs['botName']
+        if bot_name is None:
+            raise TypeError("Missing 'bot_name' argument")
+        if phone_number is None and 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+        if phone_number is None:
+            raise TypeError("Missing 'phone_number' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sms_channel_account_security_id is None and 'smsChannelAccountSecurityId' in kwargs:
+            sms_channel_account_security_id = kwargs['smsChannelAccountSecurityId']
+        if sms_channel_account_security_id is None:
+            raise TypeError("Missing 'sms_channel_account_security_id' argument")
+        if sms_channel_auth_token is None and 'smsChannelAuthToken' in kwargs:
+            sms_channel_auth_token = kwargs['smsChannelAuthToken']
+        if sms_channel_auth_token is None:
+            raise TypeError("Missing 'sms_channel_auth_token' argument")
+
+        _setter("bot_name", bot_name)
+        _setter("phone_number", phone_number)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sms_channel_account_security_id", sms_channel_account_security_id)
+        _setter("sms_channel_auth_token", sms_channel_auth_token)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
 
     @property
     @pulumi.getter(name="botName")
@@ -128,18 +169,49 @@ class _ChannelSmsState:
         :param pulumi.Input[str] sms_channel_account_security_id: The account security identifier (SID) for the SMS Channel.
         :param pulumi.Input[str] sms_channel_auth_token: The authorization token for the SMS Channel.
         """
+        _ChannelSmsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bot_name=bot_name,
+            location=location,
+            phone_number=phone_number,
+            resource_group_name=resource_group_name,
+            sms_channel_account_security_id=sms_channel_account_security_id,
+            sms_channel_auth_token=sms_channel_auth_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bot_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             phone_number: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sms_channel_account_security_id: Optional[pulumi.Input[str]] = None,
+             sms_channel_auth_token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if bot_name is None and 'botName' in kwargs:
+            bot_name = kwargs['botName']
+        if phone_number is None and 'phoneNumber' in kwargs:
+            phone_number = kwargs['phoneNumber']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if sms_channel_account_security_id is None and 'smsChannelAccountSecurityId' in kwargs:
+            sms_channel_account_security_id = kwargs['smsChannelAccountSecurityId']
+        if sms_channel_auth_token is None and 'smsChannelAuthToken' in kwargs:
+            sms_channel_auth_token = kwargs['smsChannelAuthToken']
+
         if bot_name is not None:
-            pulumi.set(__self__, "bot_name", bot_name)
+            _setter("bot_name", bot_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if phone_number is not None:
-            pulumi.set(__self__, "phone_number", phone_number)
+            _setter("phone_number", phone_number)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sms_channel_account_security_id is not None:
-            pulumi.set(__self__, "sms_channel_account_security_id", sms_channel_account_security_id)
+            _setter("sms_channel_account_security_id", sms_channel_account_security_id)
         if sms_channel_auth_token is not None:
-            pulumi.set(__self__, "sms_channel_auth_token", sms_channel_auth_token)
+            _setter("sms_channel_auth_token", sms_channel_auth_token)
 
     @property
     @pulumi.getter(name="botName")
@@ -321,6 +393,10 @@ class ChannelSms(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ChannelSmsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

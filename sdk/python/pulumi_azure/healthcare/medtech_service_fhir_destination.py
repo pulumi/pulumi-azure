@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MedtechServiceFhirDestinationArgs', 'MedtechServiceFhirDestination']
@@ -29,14 +29,51 @@ class MedtechServiceFhirDestinationArgs:
         :param pulumi.Input[str] location: Specifies the Azure Region where the Healthcare Med Tech Service Fhir Destination should be created. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare Med Tech Service Fhir Destination. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
         """
-        pulumi.set(__self__, "destination_fhir_mapping_json", destination_fhir_mapping_json)
-        pulumi.set(__self__, "destination_fhir_service_id", destination_fhir_service_id)
-        pulumi.set(__self__, "destination_identity_resolution_type", destination_identity_resolution_type)
-        pulumi.set(__self__, "medtech_service_id", medtech_service_id)
+        MedtechServiceFhirDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_fhir_mapping_json=destination_fhir_mapping_json,
+            destination_fhir_service_id=destination_fhir_service_id,
+            destination_identity_resolution_type=destination_identity_resolution_type,
+            medtech_service_id=medtech_service_id,
+            location=location,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_fhir_mapping_json: Optional[pulumi.Input[str]] = None,
+             destination_fhir_service_id: Optional[pulumi.Input[str]] = None,
+             destination_identity_resolution_type: Optional[pulumi.Input[str]] = None,
+             medtech_service_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if destination_fhir_mapping_json is None and 'destinationFhirMappingJson' in kwargs:
+            destination_fhir_mapping_json = kwargs['destinationFhirMappingJson']
+        if destination_fhir_mapping_json is None:
+            raise TypeError("Missing 'destination_fhir_mapping_json' argument")
+        if destination_fhir_service_id is None and 'destinationFhirServiceId' in kwargs:
+            destination_fhir_service_id = kwargs['destinationFhirServiceId']
+        if destination_fhir_service_id is None:
+            raise TypeError("Missing 'destination_fhir_service_id' argument")
+        if destination_identity_resolution_type is None and 'destinationIdentityResolutionType' in kwargs:
+            destination_identity_resolution_type = kwargs['destinationIdentityResolutionType']
+        if destination_identity_resolution_type is None:
+            raise TypeError("Missing 'destination_identity_resolution_type' argument")
+        if medtech_service_id is None and 'medtechServiceId' in kwargs:
+            medtech_service_id = kwargs['medtechServiceId']
+        if medtech_service_id is None:
+            raise TypeError("Missing 'medtech_service_id' argument")
+
+        _setter("destination_fhir_mapping_json", destination_fhir_mapping_json)
+        _setter("destination_fhir_service_id", destination_fhir_service_id)
+        _setter("destination_identity_resolution_type", destination_identity_resolution_type)
+        _setter("medtech_service_id", medtech_service_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="destinationFhirMappingJson")
@@ -129,18 +166,47 @@ class _MedtechServiceFhirDestinationState:
         :param pulumi.Input[str] medtech_service_id: Specifies the name of the Healthcare Med Tech Service where the Healthcare Med Tech Service Fhir Destination should exist. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
         :param pulumi.Input[str] name: Specifies the name of the Healthcare Med Tech Service Fhir Destination. Changing this forces a new Healthcare Med Tech Service Fhir Destination to be created.
         """
+        _MedtechServiceFhirDestinationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_fhir_mapping_json=destination_fhir_mapping_json,
+            destination_fhir_service_id=destination_fhir_service_id,
+            destination_identity_resolution_type=destination_identity_resolution_type,
+            location=location,
+            medtech_service_id=medtech_service_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_fhir_mapping_json: Optional[pulumi.Input[str]] = None,
+             destination_fhir_service_id: Optional[pulumi.Input[str]] = None,
+             destination_identity_resolution_type: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             medtech_service_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if destination_fhir_mapping_json is None and 'destinationFhirMappingJson' in kwargs:
+            destination_fhir_mapping_json = kwargs['destinationFhirMappingJson']
+        if destination_fhir_service_id is None and 'destinationFhirServiceId' in kwargs:
+            destination_fhir_service_id = kwargs['destinationFhirServiceId']
+        if destination_identity_resolution_type is None and 'destinationIdentityResolutionType' in kwargs:
+            destination_identity_resolution_type = kwargs['destinationIdentityResolutionType']
+        if medtech_service_id is None and 'medtechServiceId' in kwargs:
+            medtech_service_id = kwargs['medtechServiceId']
+
         if destination_fhir_mapping_json is not None:
-            pulumi.set(__self__, "destination_fhir_mapping_json", destination_fhir_mapping_json)
+            _setter("destination_fhir_mapping_json", destination_fhir_mapping_json)
         if destination_fhir_service_id is not None:
-            pulumi.set(__self__, "destination_fhir_service_id", destination_fhir_service_id)
+            _setter("destination_fhir_service_id", destination_fhir_service_id)
         if destination_identity_resolution_type is not None:
-            pulumi.set(__self__, "destination_identity_resolution_type", destination_identity_resolution_type)
+            _setter("destination_identity_resolution_type", destination_identity_resolution_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if medtech_service_id is not None:
-            pulumi.set(__self__, "medtech_service_id", medtech_service_id)
+            _setter("medtech_service_id", medtech_service_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="destinationFhirMappingJson")
@@ -414,6 +480,10 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MedtechServiceFhirDestinationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

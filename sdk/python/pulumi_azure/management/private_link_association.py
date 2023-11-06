@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PrivateLinkAssociationArgs', 'PrivateLinkAssociation']
@@ -37,11 +37,40 @@ class PrivateLinkAssociationArgs:
                    public_network_access_enabled=True)
                ```
         """
-        pulumi.set(__self__, "management_group_id", management_group_id)
-        pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
-        pulumi.set(__self__, "resource_management_private_link_id", resource_management_private_link_id)
+        PrivateLinkAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            management_group_id=management_group_id,
+            public_network_access_enabled=public_network_access_enabled,
+            resource_management_private_link_id=resource_management_private_link_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             management_group_id: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_management_private_link_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if management_group_id is None and 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if management_group_id is None:
+            raise TypeError("Missing 'management_group_id' argument")
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if public_network_access_enabled is None:
+            raise TypeError("Missing 'public_network_access_enabled' argument")
+        if resource_management_private_link_id is None and 'resourceManagementPrivateLinkId' in kwargs:
+            resource_management_private_link_id = kwargs['resourceManagementPrivateLinkId']
+        if resource_management_private_link_id is None:
+            raise TypeError("Missing 'resource_management_private_link_id' argument")
+
+        _setter("management_group_id", management_group_id)
+        _setter("public_network_access_enabled", public_network_access_enabled)
+        _setter("resource_management_private_link_id", resource_management_private_link_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="managementGroupId")
@@ -132,16 +161,43 @@ class _PrivateLinkAssociationState:
         :param pulumi.Input[str] resource_management_private_link_id: The Resource ID of Resource Management Private Link. Changing this forces a new Private Link Association to be created.
         :param pulumi.Input[str] tenant_id: The Tenant ID.
         """
+        _PrivateLinkAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            management_group_id=management_group_id,
+            name=name,
+            public_network_access_enabled=public_network_access_enabled,
+            resource_management_private_link_id=resource_management_private_link_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             management_group_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_management_private_link_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if management_group_id is None and 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if resource_management_private_link_id is None and 'resourceManagementPrivateLinkId' in kwargs:
+            resource_management_private_link_id = kwargs['resourceManagementPrivateLinkId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if management_group_id is not None:
-            pulumi.set(__self__, "management_group_id", management_group_id)
+            _setter("management_group_id", management_group_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if resource_management_private_link_id is not None:
-            pulumi.set(__self__, "resource_management_private_link_id", resource_management_private_link_id)
+            _setter("resource_management_private_link_id", resource_management_private_link_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="managementGroupId")
@@ -323,6 +379,10 @@ class PrivateLinkAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrivateLinkAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

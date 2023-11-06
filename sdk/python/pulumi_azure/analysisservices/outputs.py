@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -43,9 +43,34 @@ class ServerIpv4FirewallRule(dict):
         :param str range_end: End of the firewall rule range as IPv4 address.
         :param str range_start: Start of the firewall rule range as IPv4 address.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "range_end", range_end)
-        pulumi.set(__self__, "range_start", range_start)
+        ServerIpv4FirewallRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            range_end=range_end,
+            range_start=range_start,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             range_end: Optional[str] = None,
+             range_start: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if range_end is None and 'rangeEnd' in kwargs:
+            range_end = kwargs['rangeEnd']
+        if range_end is None:
+            raise TypeError("Missing 'range_end' argument")
+        if range_start is None and 'rangeStart' in kwargs:
+            range_start = kwargs['rangeStart']
+        if range_start is None:
+            raise TypeError("Missing 'range_start' argument")
+
+        _setter("name", name)
+        _setter("range_end", range_end)
+        _setter("range_start", range_start)
 
     @property
     @pulumi.getter

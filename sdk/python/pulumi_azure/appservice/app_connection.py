@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,17 +35,56 @@ class AppConnectionArgs:
         :param pulumi.Input['AppConnectionSecretStoreArgs'] secret_store: An option to store secret value in secure place. An `secret_store` block as defined below.
         :param pulumi.Input[str] vnet_solution: The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
         """
-        pulumi.set(__self__, "authentication", authentication)
-        pulumi.set(__self__, "function_app_id", function_app_id)
-        pulumi.set(__self__, "target_resource_id", target_resource_id)
+        AppConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication=authentication,
+            function_app_id=function_app_id,
+            target_resource_id=target_resource_id,
+            client_type=client_type,
+            name=name,
+            secret_store=secret_store,
+            vnet_solution=vnet_solution,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication: Optional[pulumi.Input['AppConnectionAuthenticationArgs']] = None,
+             function_app_id: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             client_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             secret_store: Optional[pulumi.Input['AppConnectionSecretStoreArgs']] = None,
+             vnet_solution: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if authentication is None:
+            raise TypeError("Missing 'authentication' argument")
+        if function_app_id is None and 'functionAppId' in kwargs:
+            function_app_id = kwargs['functionAppId']
+        if function_app_id is None:
+            raise TypeError("Missing 'function_app_id' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if client_type is None and 'clientType' in kwargs:
+            client_type = kwargs['clientType']
+        if secret_store is None and 'secretStore' in kwargs:
+            secret_store = kwargs['secretStore']
+        if vnet_solution is None and 'vnetSolution' in kwargs:
+            vnet_solution = kwargs['vnetSolution']
+
+        _setter("authentication", authentication)
+        _setter("function_app_id", function_app_id)
+        _setter("target_resource_id", target_resource_id)
         if client_type is not None:
-            pulumi.set(__self__, "client_type", client_type)
+            _setter("client_type", client_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if secret_store is not None:
-            pulumi.set(__self__, "secret_store", secret_store)
+            _setter("secret_store", secret_store)
         if vnet_solution is not None:
-            pulumi.set(__self__, "vnet_solution", vnet_solution)
+            _setter("vnet_solution", vnet_solution)
 
     @property
     @pulumi.getter
@@ -156,20 +195,53 @@ class _AppConnectionState:
         :param pulumi.Input[str] target_resource_id: The ID of the target resource. Changing this forces a new resource to be created. Possible target resources are `Postgres`, `PostgresFlexible`, `Mysql`, `Sql`, `Redis`, `RedisEnterprise`, `CosmosCassandra`, `CosmosGremlin`, `CosmosMongo`, `CosmosSql`, `CosmosTable`, `StorageBlob`, `StorageQueue`, `StorageFile`, `StorageTable`, `AppConfig`, `EventHub`, `ServiceBus`, `SignalR`, `WebPubSub`, `ConfluentKafka`. The integration guide can be found [here](https://learn.microsoft.com/en-us/azure/service-connector/how-to-integrate-postgres).
         :param pulumi.Input[str] vnet_solution: The type of the VNet solution. Possible values are `serviceEndpoint`, `privateLink`.
         """
+        _AppConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication=authentication,
+            client_type=client_type,
+            function_app_id=function_app_id,
+            name=name,
+            secret_store=secret_store,
+            target_resource_id=target_resource_id,
+            vnet_solution=vnet_solution,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication: Optional[pulumi.Input['AppConnectionAuthenticationArgs']] = None,
+             client_type: Optional[pulumi.Input[str]] = None,
+             function_app_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             secret_store: Optional[pulumi.Input['AppConnectionSecretStoreArgs']] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             vnet_solution: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if client_type is None and 'clientType' in kwargs:
+            client_type = kwargs['clientType']
+        if function_app_id is None and 'functionAppId' in kwargs:
+            function_app_id = kwargs['functionAppId']
+        if secret_store is None and 'secretStore' in kwargs:
+            secret_store = kwargs['secretStore']
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if vnet_solution is None and 'vnetSolution' in kwargs:
+            vnet_solution = kwargs['vnetSolution']
+
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if client_type is not None:
-            pulumi.set(__self__, "client_type", client_type)
+            _setter("client_type", client_type)
         if function_app_id is not None:
-            pulumi.set(__self__, "function_app_id", function_app_id)
+            _setter("function_app_id", function_app_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if secret_store is not None:
-            pulumi.set(__self__, "secret_store", secret_store)
+            _setter("secret_store", secret_store)
         if target_resource_id is not None:
-            pulumi.set(__self__, "target_resource_id", target_resource_id)
+            _setter("target_resource_id", target_resource_id)
         if vnet_solution is not None:
-            pulumi.set(__self__, "vnet_solution", vnet_solution)
+            _setter("vnet_solution", vnet_solution)
 
     @property
     @pulumi.getter
@@ -429,6 +501,10 @@ class AppConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AppConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -450,6 +526,11 @@ class AppConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AppConnectionArgs.__new__(AppConnectionArgs)
 
+            if authentication is not None and not isinstance(authentication, AppConnectionAuthenticationArgs):
+                authentication = authentication or {}
+                def _setter(key, value):
+                    authentication[key] = value
+                AppConnectionAuthenticationArgs._configure(_setter, **authentication)
             if authentication is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication'")
             __props__.__dict__["authentication"] = authentication
@@ -458,6 +539,11 @@ class AppConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'function_app_id'")
             __props__.__dict__["function_app_id"] = function_app_id
             __props__.__dict__["name"] = name
+            if secret_store is not None and not isinstance(secret_store, AppConnectionSecretStoreArgs):
+                secret_store = secret_store or {}
+                def _setter(key, value):
+                    secret_store[key] = value
+                AppConnectionSecretStoreArgs._configure(_setter, **secret_store)
             __props__.__dict__["secret_store"] = secret_store
             if target_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_resource_id'")

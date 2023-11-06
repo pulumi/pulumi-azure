@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,31 +45,84 @@ class ConfigurationArgs:
         :param pulumi.Input[bool] status_change_alert_enabled: Whether the status change alert is enabled. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            antimalware=antimalware,
+            automation_account_enabled=automation_account_enabled,
+            azure_security_baseline=azure_security_baseline,
+            backup=backup,
+            boot_diagnostics_enabled=boot_diagnostics_enabled,
+            defender_for_cloud_enabled=defender_for_cloud_enabled,
+            guest_configuration_enabled=guest_configuration_enabled,
+            location=location,
+            log_analytics_enabled=log_analytics_enabled,
+            name=name,
+            status_change_alert_enabled=status_change_alert_enabled,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             antimalware: Optional[pulumi.Input['ConfigurationAntimalwareArgs']] = None,
+             automation_account_enabled: Optional[pulumi.Input[bool]] = None,
+             azure_security_baseline: Optional[pulumi.Input['ConfigurationAzureSecurityBaselineArgs']] = None,
+             backup: Optional[pulumi.Input['ConfigurationBackupArgs']] = None,
+             boot_diagnostics_enabled: Optional[pulumi.Input[bool]] = None,
+             defender_for_cloud_enabled: Optional[pulumi.Input[bool]] = None,
+             guest_configuration_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             log_analytics_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             status_change_alert_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if automation_account_enabled is None and 'automationAccountEnabled' in kwargs:
+            automation_account_enabled = kwargs['automationAccountEnabled']
+        if azure_security_baseline is None and 'azureSecurityBaseline' in kwargs:
+            azure_security_baseline = kwargs['azureSecurityBaseline']
+        if boot_diagnostics_enabled is None and 'bootDiagnosticsEnabled' in kwargs:
+            boot_diagnostics_enabled = kwargs['bootDiagnosticsEnabled']
+        if defender_for_cloud_enabled is None and 'defenderForCloudEnabled' in kwargs:
+            defender_for_cloud_enabled = kwargs['defenderForCloudEnabled']
+        if guest_configuration_enabled is None and 'guestConfigurationEnabled' in kwargs:
+            guest_configuration_enabled = kwargs['guestConfigurationEnabled']
+        if log_analytics_enabled is None and 'logAnalyticsEnabled' in kwargs:
+            log_analytics_enabled = kwargs['logAnalyticsEnabled']
+        if status_change_alert_enabled is None and 'statusChangeAlertEnabled' in kwargs:
+            status_change_alert_enabled = kwargs['statusChangeAlertEnabled']
+
+        _setter("resource_group_name", resource_group_name)
         if antimalware is not None:
-            pulumi.set(__self__, "antimalware", antimalware)
+            _setter("antimalware", antimalware)
         if automation_account_enabled is not None:
-            pulumi.set(__self__, "automation_account_enabled", automation_account_enabled)
+            _setter("automation_account_enabled", automation_account_enabled)
         if azure_security_baseline is not None:
-            pulumi.set(__self__, "azure_security_baseline", azure_security_baseline)
+            _setter("azure_security_baseline", azure_security_baseline)
         if backup is not None:
-            pulumi.set(__self__, "backup", backup)
+            _setter("backup", backup)
         if boot_diagnostics_enabled is not None:
-            pulumi.set(__self__, "boot_diagnostics_enabled", boot_diagnostics_enabled)
+            _setter("boot_diagnostics_enabled", boot_diagnostics_enabled)
         if defender_for_cloud_enabled is not None:
-            pulumi.set(__self__, "defender_for_cloud_enabled", defender_for_cloud_enabled)
+            _setter("defender_for_cloud_enabled", defender_for_cloud_enabled)
         if guest_configuration_enabled is not None:
-            pulumi.set(__self__, "guest_configuration_enabled", guest_configuration_enabled)
+            _setter("guest_configuration_enabled", guest_configuration_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if log_analytics_enabled is not None:
-            pulumi.set(__self__, "log_analytics_enabled", log_analytics_enabled)
+            _setter("log_analytics_enabled", log_analytics_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if status_change_alert_enabled is not None:
-            pulumi.set(__self__, "status_change_alert_enabled", status_change_alert_enabled)
+            _setter("status_change_alert_enabled", status_change_alert_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -260,32 +313,83 @@ class _ConfigurationState:
         :param pulumi.Input[bool] status_change_alert_enabled: Whether the status change alert is enabled. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        _ConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            antimalware=antimalware,
+            automation_account_enabled=automation_account_enabled,
+            azure_security_baseline=azure_security_baseline,
+            backup=backup,
+            boot_diagnostics_enabled=boot_diagnostics_enabled,
+            defender_for_cloud_enabled=defender_for_cloud_enabled,
+            guest_configuration_enabled=guest_configuration_enabled,
+            location=location,
+            log_analytics_enabled=log_analytics_enabled,
+            name=name,
+            resource_group_name=resource_group_name,
+            status_change_alert_enabled=status_change_alert_enabled,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             antimalware: Optional[pulumi.Input['ConfigurationAntimalwareArgs']] = None,
+             automation_account_enabled: Optional[pulumi.Input[bool]] = None,
+             azure_security_baseline: Optional[pulumi.Input['ConfigurationAzureSecurityBaselineArgs']] = None,
+             backup: Optional[pulumi.Input['ConfigurationBackupArgs']] = None,
+             boot_diagnostics_enabled: Optional[pulumi.Input[bool]] = None,
+             defender_for_cloud_enabled: Optional[pulumi.Input[bool]] = None,
+             guest_configuration_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             log_analytics_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             status_change_alert_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if automation_account_enabled is None and 'automationAccountEnabled' in kwargs:
+            automation_account_enabled = kwargs['automationAccountEnabled']
+        if azure_security_baseline is None and 'azureSecurityBaseline' in kwargs:
+            azure_security_baseline = kwargs['azureSecurityBaseline']
+        if boot_diagnostics_enabled is None and 'bootDiagnosticsEnabled' in kwargs:
+            boot_diagnostics_enabled = kwargs['bootDiagnosticsEnabled']
+        if defender_for_cloud_enabled is None and 'defenderForCloudEnabled' in kwargs:
+            defender_for_cloud_enabled = kwargs['defenderForCloudEnabled']
+        if guest_configuration_enabled is None and 'guestConfigurationEnabled' in kwargs:
+            guest_configuration_enabled = kwargs['guestConfigurationEnabled']
+        if log_analytics_enabled is None and 'logAnalyticsEnabled' in kwargs:
+            log_analytics_enabled = kwargs['logAnalyticsEnabled']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if status_change_alert_enabled is None and 'statusChangeAlertEnabled' in kwargs:
+            status_change_alert_enabled = kwargs['statusChangeAlertEnabled']
+
         if antimalware is not None:
-            pulumi.set(__self__, "antimalware", antimalware)
+            _setter("antimalware", antimalware)
         if automation_account_enabled is not None:
-            pulumi.set(__self__, "automation_account_enabled", automation_account_enabled)
+            _setter("automation_account_enabled", automation_account_enabled)
         if azure_security_baseline is not None:
-            pulumi.set(__self__, "azure_security_baseline", azure_security_baseline)
+            _setter("azure_security_baseline", azure_security_baseline)
         if backup is not None:
-            pulumi.set(__self__, "backup", backup)
+            _setter("backup", backup)
         if boot_diagnostics_enabled is not None:
-            pulumi.set(__self__, "boot_diagnostics_enabled", boot_diagnostics_enabled)
+            _setter("boot_diagnostics_enabled", boot_diagnostics_enabled)
         if defender_for_cloud_enabled is not None:
-            pulumi.set(__self__, "defender_for_cloud_enabled", defender_for_cloud_enabled)
+            _setter("defender_for_cloud_enabled", defender_for_cloud_enabled)
         if guest_configuration_enabled is not None:
-            pulumi.set(__self__, "guest_configuration_enabled", guest_configuration_enabled)
+            _setter("guest_configuration_enabled", guest_configuration_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if log_analytics_enabled is not None:
-            pulumi.set(__self__, "log_analytics_enabled", log_analytics_enabled)
+            _setter("log_analytics_enabled", log_analytics_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if status_change_alert_enabled is not None:
-            pulumi.set(__self__, "status_change_alert_enabled", status_change_alert_enabled)
+            _setter("status_change_alert_enabled", status_change_alert_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -651,6 +755,10 @@ class Configuration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -678,9 +786,24 @@ class Configuration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigurationArgs.__new__(ConfigurationArgs)
 
+            if antimalware is not None and not isinstance(antimalware, ConfigurationAntimalwareArgs):
+                antimalware = antimalware or {}
+                def _setter(key, value):
+                    antimalware[key] = value
+                ConfigurationAntimalwareArgs._configure(_setter, **antimalware)
             __props__.__dict__["antimalware"] = antimalware
             __props__.__dict__["automation_account_enabled"] = automation_account_enabled
+            if azure_security_baseline is not None and not isinstance(azure_security_baseline, ConfigurationAzureSecurityBaselineArgs):
+                azure_security_baseline = azure_security_baseline or {}
+                def _setter(key, value):
+                    azure_security_baseline[key] = value
+                ConfigurationAzureSecurityBaselineArgs._configure(_setter, **azure_security_baseline)
             __props__.__dict__["azure_security_baseline"] = azure_security_baseline
+            if backup is not None and not isinstance(backup, ConfigurationBackupArgs):
+                backup = backup or {}
+                def _setter(key, value):
+                    backup[key] = value
+                ConfigurationBackupArgs._configure(_setter, **backup)
             __props__.__dict__["backup"] = backup
             __props__.__dict__["boot_diagnostics_enabled"] = boot_diagnostics_enabled
             __props__.__dict__["defender_for_cloud_enabled"] = defender_for_cloud_enabled

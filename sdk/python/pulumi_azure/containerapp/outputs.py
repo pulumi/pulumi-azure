@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -99,11 +99,34 @@ class AppDapr(dict):
         :param int app_port: The port which the application is listening on. This is the same as the `ingress` port.
         :param str app_protocol: The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
         """
-        pulumi.set(__self__, "app_id", app_id)
+        AppDapr._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            app_port=app_port,
+            app_protocol=app_protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[str] = None,
+             app_port: Optional[int] = None,
+             app_protocol: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_port is None and 'appPort' in kwargs:
+            app_port = kwargs['appPort']
+        if app_protocol is None and 'appProtocol' in kwargs:
+            app_protocol = kwargs['appProtocol']
+
+        _setter("app_id", app_id)
         if app_port is not None:
-            pulumi.set(__self__, "app_port", app_port)
+            _setter("app_port", app_port)
         if app_protocol is not None:
-            pulumi.set(__self__, "app_protocol", app_protocol)
+            _setter("app_protocol", app_protocol)
 
     @property
     @pulumi.getter(name="appId")
@@ -162,13 +185,38 @@ class AppIdentity(dict):
         :param str type: The type of managed identity to assign. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
         :param Sequence[str] identity_ids: A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
-        pulumi.set(__self__, "type", type)
+        AppIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -249,20 +297,61 @@ class AppIngress(dict):
         :param str fqdn: The FQDN of the ingress.
         :param str transport: The transport method for the Ingress. Possible values include `auto`, `http`, `http2` and `tcp`. Defaults to `auto`
         """
-        pulumi.set(__self__, "target_port", target_port)
-        pulumi.set(__self__, "traffic_weights", traffic_weights)
+        AppIngress._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            target_port=target_port,
+            traffic_weights=traffic_weights,
+            allow_insecure_connections=allow_insecure_connections,
+            custom_domain=custom_domain,
+            exposed_port=exposed_port,
+            external_enabled=external_enabled,
+            fqdn=fqdn,
+            transport=transport,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             target_port: Optional[int] = None,
+             traffic_weights: Optional[Sequence['outputs.AppIngressTrafficWeight']] = None,
+             allow_insecure_connections: Optional[bool] = None,
+             custom_domain: Optional['outputs.AppIngressCustomDomain'] = None,
+             exposed_port: Optional[int] = None,
+             external_enabled: Optional[bool] = None,
+             fqdn: Optional[str] = None,
+             transport: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if target_port is None and 'targetPort' in kwargs:
+            target_port = kwargs['targetPort']
+        if target_port is None:
+            raise TypeError("Missing 'target_port' argument")
+        if traffic_weights is None and 'trafficWeights' in kwargs:
+            traffic_weights = kwargs['trafficWeights']
+        if traffic_weights is None:
+            raise TypeError("Missing 'traffic_weights' argument")
+        if allow_insecure_connections is None and 'allowInsecureConnections' in kwargs:
+            allow_insecure_connections = kwargs['allowInsecureConnections']
+        if custom_domain is None and 'customDomain' in kwargs:
+            custom_domain = kwargs['customDomain']
+        if exposed_port is None and 'exposedPort' in kwargs:
+            exposed_port = kwargs['exposedPort']
+        if external_enabled is None and 'externalEnabled' in kwargs:
+            external_enabled = kwargs['externalEnabled']
+
+        _setter("target_port", target_port)
+        _setter("traffic_weights", traffic_weights)
         if allow_insecure_connections is not None:
-            pulumi.set(__self__, "allow_insecure_connections", allow_insecure_connections)
+            _setter("allow_insecure_connections", allow_insecure_connections)
         if custom_domain is not None:
-            pulumi.set(__self__, "custom_domain", custom_domain)
+            _setter("custom_domain", custom_domain)
         if exposed_port is not None:
-            pulumi.set(__self__, "exposed_port", exposed_port)
+            _setter("exposed_port", exposed_port)
         if external_enabled is not None:
-            pulumi.set(__self__, "external_enabled", external_enabled)
+            _setter("external_enabled", external_enabled)
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if transport is not None:
-            pulumi.set(__self__, "transport", transport)
+            _setter("transport", transport)
 
     @property
     @pulumi.getter(name="targetPort")
@@ -363,10 +452,33 @@ class AppIngressCustomDomain(dict):
         :param str name: The hostname of the Certificate. Must be the CN or a named SAN in the certificate.
         :param str certificate_binding_type: The Binding type. Possible values include `Disabled` and `SniEnabled`. Defaults to `Disabled`.
         """
-        pulumi.set(__self__, "certificate_id", certificate_id)
-        pulumi.set(__self__, "name", name)
+        AppIngressCustomDomain._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_id=certificate_id,
+            name=name,
+            certificate_binding_type=certificate_binding_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_id: Optional[str] = None,
+             name: Optional[str] = None,
+             certificate_binding_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if certificate_id is None and 'certificateId' in kwargs:
+            certificate_id = kwargs['certificateId']
+        if certificate_id is None:
+            raise TypeError("Missing 'certificate_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if certificate_binding_type is None and 'certificateBindingType' in kwargs:
+            certificate_binding_type = kwargs['certificateBindingType']
+
+        _setter("certificate_id", certificate_id)
+        _setter("name", name)
         if certificate_binding_type is not None:
-            pulumi.set(__self__, "certificate_binding_type", certificate_binding_type)
+            _setter("certificate_binding_type", certificate_binding_type)
 
     @property
     @pulumi.getter(name="certificateId")
@@ -427,13 +539,36 @@ class AppIngressTrafficWeight(dict):
         :param bool latest_revision: This traffic Weight relates to the latest stable Container Revision.
         :param str revision_suffix: The suffix string to which this `traffic_weight` applies.
         """
-        pulumi.set(__self__, "percentage", percentage)
+        AppIngressTrafficWeight._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            percentage=percentage,
+            label=label,
+            latest_revision=latest_revision,
+            revision_suffix=revision_suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             percentage: Optional[int] = None,
+             label: Optional[str] = None,
+             latest_revision: Optional[bool] = None,
+             revision_suffix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if percentage is None:
+            raise TypeError("Missing 'percentage' argument")
+        if latest_revision is None and 'latestRevision' in kwargs:
+            latest_revision = kwargs['latestRevision']
+        if revision_suffix is None and 'revisionSuffix' in kwargs:
+            revision_suffix = kwargs['revisionSuffix']
+
+        _setter("percentage", percentage)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if latest_revision is not None:
-            pulumi.set(__self__, "latest_revision", latest_revision)
+            _setter("latest_revision", latest_revision)
         if revision_suffix is not None:
-            pulumi.set(__self__, "revision_suffix", revision_suffix)
+            _setter("revision_suffix", revision_suffix)
 
     @property
     @pulumi.getter
@@ -502,13 +637,34 @@ class AppRegistry(dict):
         :param str password_secret_name: The name of the Secret Reference containing the password value for this user on the Container Registry, `username` must also be supplied.
         :param str username: The username to use for this Container Registry, `password_secret_name` must also be supplied..
         """
-        pulumi.set(__self__, "server", server)
+        AppRegistry._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            server=server,
+            identity=identity,
+            password_secret_name=password_secret_name,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             server: Optional[str] = None,
+             identity: Optional[str] = None,
+             password_secret_name: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if password_secret_name is None and 'passwordSecretName' in kwargs:
+            password_secret_name = kwargs['passwordSecretName']
+
+        _setter("server", server)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if password_secret_name is not None:
-            pulumi.set(__self__, "password_secret_name", password_secret_name)
+            _setter("password_secret_name", password_secret_name)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -556,8 +712,25 @@ class AppSecret(dict):
                
                !> **Note:** Secrets cannot be removed from the service once added, attempting to do so will result in an error. Their values may be zeroed, i.e. set to `""`, but the named secret must persist. This is due to a technical limitation on the service which causes the service to become unmanageable. See [this issue](https://github.com/microsoft/azure-container-apps/issues/395) for more details.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        AppSecret._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -630,23 +803,66 @@ class AppTemplate(dict):
         :param Sequence['AppTemplateTcpScaleRuleArgs'] tcp_scale_rules: One or more `tcp_scale_rule` blocks as defined below.
         :param Sequence['AppTemplateVolumeArgs'] volumes: A `volume` block as detailed below.
         """
-        pulumi.set(__self__, "containers", containers)
+        AppTemplate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            containers=containers,
+            azure_queue_scale_rules=azure_queue_scale_rules,
+            custom_scale_rules=custom_scale_rules,
+            http_scale_rules=http_scale_rules,
+            max_replicas=max_replicas,
+            min_replicas=min_replicas,
+            revision_suffix=revision_suffix,
+            tcp_scale_rules=tcp_scale_rules,
+            volumes=volumes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             containers: Optional[Sequence['outputs.AppTemplateContainer']] = None,
+             azure_queue_scale_rules: Optional[Sequence['outputs.AppTemplateAzureQueueScaleRule']] = None,
+             custom_scale_rules: Optional[Sequence['outputs.AppTemplateCustomScaleRule']] = None,
+             http_scale_rules: Optional[Sequence['outputs.AppTemplateHttpScaleRule']] = None,
+             max_replicas: Optional[int] = None,
+             min_replicas: Optional[int] = None,
+             revision_suffix: Optional[str] = None,
+             tcp_scale_rules: Optional[Sequence['outputs.AppTemplateTcpScaleRule']] = None,
+             volumes: Optional[Sequence['outputs.AppTemplateVolume']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if containers is None:
+            raise TypeError("Missing 'containers' argument")
+        if azure_queue_scale_rules is None and 'azureQueueScaleRules' in kwargs:
+            azure_queue_scale_rules = kwargs['azureQueueScaleRules']
+        if custom_scale_rules is None and 'customScaleRules' in kwargs:
+            custom_scale_rules = kwargs['customScaleRules']
+        if http_scale_rules is None and 'httpScaleRules' in kwargs:
+            http_scale_rules = kwargs['httpScaleRules']
+        if max_replicas is None and 'maxReplicas' in kwargs:
+            max_replicas = kwargs['maxReplicas']
+        if min_replicas is None and 'minReplicas' in kwargs:
+            min_replicas = kwargs['minReplicas']
+        if revision_suffix is None and 'revisionSuffix' in kwargs:
+            revision_suffix = kwargs['revisionSuffix']
+        if tcp_scale_rules is None and 'tcpScaleRules' in kwargs:
+            tcp_scale_rules = kwargs['tcpScaleRules']
+
+        _setter("containers", containers)
         if azure_queue_scale_rules is not None:
-            pulumi.set(__self__, "azure_queue_scale_rules", azure_queue_scale_rules)
+            _setter("azure_queue_scale_rules", azure_queue_scale_rules)
         if custom_scale_rules is not None:
-            pulumi.set(__self__, "custom_scale_rules", custom_scale_rules)
+            _setter("custom_scale_rules", custom_scale_rules)
         if http_scale_rules is not None:
-            pulumi.set(__self__, "http_scale_rules", http_scale_rules)
+            _setter("http_scale_rules", http_scale_rules)
         if max_replicas is not None:
-            pulumi.set(__self__, "max_replicas", max_replicas)
+            _setter("max_replicas", max_replicas)
         if min_replicas is not None:
-            pulumi.set(__self__, "min_replicas", min_replicas)
+            _setter("min_replicas", min_replicas)
         if revision_suffix is not None:
-            pulumi.set(__self__, "revision_suffix", revision_suffix)
+            _setter("revision_suffix", revision_suffix)
         if tcp_scale_rules is not None:
-            pulumi.set(__self__, "tcp_scale_rules", tcp_scale_rules)
+            _setter("tcp_scale_rules", tcp_scale_rules)
         if volumes is not None:
-            pulumi.set(__self__, "volumes", volumes)
+            _setter("volumes", volumes)
 
     @property
     @pulumi.getter
@@ -753,10 +969,39 @@ class AppTemplateAzureQueueScaleRule(dict):
         :param int queue_length: The value of the length of the queue to trigger scaling actions.
         :param str queue_name: The name of the Azure Queue
         """
-        pulumi.set(__self__, "authentications", authentications)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "queue_length", queue_length)
-        pulumi.set(__self__, "queue_name", queue_name)
+        AppTemplateAzureQueueScaleRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentications=authentications,
+            name=name,
+            queue_length=queue_length,
+            queue_name=queue_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentications: Optional[Sequence['outputs.AppTemplateAzureQueueScaleRuleAuthentication']] = None,
+             name: Optional[str] = None,
+             queue_length: Optional[int] = None,
+             queue_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if authentications is None:
+            raise TypeError("Missing 'authentications' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if queue_length is None and 'queueLength' in kwargs:
+            queue_length = kwargs['queueLength']
+        if queue_length is None:
+            raise TypeError("Missing 'queue_length' argument")
+        if queue_name is None and 'queueName' in kwargs:
+            queue_name = kwargs['queueName']
+        if queue_name is None:
+            raise TypeError("Missing 'queue_name' argument")
+
+        _setter("authentications", authentications)
+        _setter("name", name)
+        _setter("queue_length", queue_length)
+        _setter("queue_name", queue_name)
 
     @property
     @pulumi.getter
@@ -819,8 +1064,29 @@ class AppTemplateAzureQueueScaleRuleAuthentication(dict):
         :param str secret_name: The name of the Container App Secret to use for this Scale Rule Authentication.
         :param str trigger_parameter: The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
-        pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+        AppTemplateAzureQueueScaleRuleAuthentication._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+            trigger_parameter=trigger_parameter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: Optional[str] = None,
+             trigger_parameter: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if secret_name is None and 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
+        if trigger_parameter is None and 'triggerParameter' in kwargs:
+            trigger_parameter = kwargs['triggerParameter']
+        if trigger_parameter is None:
+            raise TypeError("Missing 'trigger_parameter' argument")
+
+        _setter("secret_name", secret_name)
+        _setter("trigger_parameter", trigger_parameter)
 
     @property
     @pulumi.getter(name="secretName")
@@ -899,26 +1165,77 @@ class AppTemplateContainer(dict):
         :param Sequence['AppTemplateContainerStartupProbeArgs'] startup_probes: A `startup_probe` block as detailed below.
         :param Sequence['AppTemplateContainerVolumeMountArgs'] volume_mounts: A `volume_mounts` block as detailed below.
         """
-        pulumi.set(__self__, "cpu", cpu)
-        pulumi.set(__self__, "image", image)
-        pulumi.set(__self__, "memory", memory)
-        pulumi.set(__self__, "name", name)
+        AppTemplateContainer._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu=cpu,
+            image=image,
+            memory=memory,
+            name=name,
+            args=args,
+            commands=commands,
+            envs=envs,
+            ephemeral_storage=ephemeral_storage,
+            liveness_probes=liveness_probes,
+            readiness_probes=readiness_probes,
+            startup_probes=startup_probes,
+            volume_mounts=volume_mounts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu: Optional[float] = None,
+             image: Optional[str] = None,
+             memory: Optional[str] = None,
+             name: Optional[str] = None,
+             args: Optional[Sequence[str]] = None,
+             commands: Optional[Sequence[str]] = None,
+             envs: Optional[Sequence['outputs.AppTemplateContainerEnv']] = None,
+             ephemeral_storage: Optional[str] = None,
+             liveness_probes: Optional[Sequence['outputs.AppTemplateContainerLivenessProbe']] = None,
+             readiness_probes: Optional[Sequence['outputs.AppTemplateContainerReadinessProbe']] = None,
+             startup_probes: Optional[Sequence['outputs.AppTemplateContainerStartupProbe']] = None,
+             volume_mounts: Optional[Sequence['outputs.AppTemplateContainerVolumeMount']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cpu is None:
+            raise TypeError("Missing 'cpu' argument")
+        if image is None:
+            raise TypeError("Missing 'image' argument")
+        if memory is None:
+            raise TypeError("Missing 'memory' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if ephemeral_storage is None and 'ephemeralStorage' in kwargs:
+            ephemeral_storage = kwargs['ephemeralStorage']
+        if liveness_probes is None and 'livenessProbes' in kwargs:
+            liveness_probes = kwargs['livenessProbes']
+        if readiness_probes is None and 'readinessProbes' in kwargs:
+            readiness_probes = kwargs['readinessProbes']
+        if startup_probes is None and 'startupProbes' in kwargs:
+            startup_probes = kwargs['startupProbes']
+        if volume_mounts is None and 'volumeMounts' in kwargs:
+            volume_mounts = kwargs['volumeMounts']
+
+        _setter("cpu", cpu)
+        _setter("image", image)
+        _setter("memory", memory)
+        _setter("name", name)
         if args is not None:
-            pulumi.set(__self__, "args", args)
+            _setter("args", args)
         if commands is not None:
-            pulumi.set(__self__, "commands", commands)
+            _setter("commands", commands)
         if envs is not None:
-            pulumi.set(__self__, "envs", envs)
+            _setter("envs", envs)
         if ephemeral_storage is not None:
-            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
+            _setter("ephemeral_storage", ephemeral_storage)
         if liveness_probes is not None:
-            pulumi.set(__self__, "liveness_probes", liveness_probes)
+            _setter("liveness_probes", liveness_probes)
         if readiness_probes is not None:
-            pulumi.set(__self__, "readiness_probes", readiness_probes)
+            _setter("readiness_probes", readiness_probes)
         if startup_probes is not None:
-            pulumi.set(__self__, "startup_probes", startup_probes)
+            _setter("startup_probes", startup_probes)
         if volume_mounts is not None:
-            pulumi.set(__self__, "volume_mounts", volume_mounts)
+            _setter("volume_mounts", volume_mounts)
 
     @property
     @pulumi.getter
@@ -1053,11 +1370,30 @@ class AppTemplateContainerEnv(dict):
                
                > **NOTE:** This value is ignored if `secret_name` is used
         """
-        pulumi.set(__self__, "name", name)
+        AppTemplateContainerEnv._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            secret_name=secret_name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             secret_name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if secret_name is None and 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
+        _setter("name", name)
         if secret_name is not None:
-            pulumi.set(__self__, "secret_name", secret_name)
+            _setter("secret_name", secret_name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1134,24 +1470,65 @@ class AppTemplateContainerLivenessProbe(dict):
         :param int termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
         :param int timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "transport", transport)
+        AppTemplateContainerLivenessProbe._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            transport=transport,
+            failure_count_threshold=failure_count_threshold,
+            headers=headers,
+            host=host,
+            initial_delay=initial_delay,
+            interval_seconds=interval_seconds,
+            path=path,
+            termination_grace_period_seconds=termination_grace_period_seconds,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[int] = None,
+             transport: Optional[str] = None,
+             failure_count_threshold: Optional[int] = None,
+             headers: Optional[Sequence['outputs.AppTemplateContainerLivenessProbeHeader']] = None,
+             host: Optional[str] = None,
+             initial_delay: Optional[int] = None,
+             interval_seconds: Optional[int] = None,
+             path: Optional[str] = None,
+             termination_grace_period_seconds: Optional[int] = None,
+             timeout: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if transport is None:
+            raise TypeError("Missing 'transport' argument")
+        if failure_count_threshold is None and 'failureCountThreshold' in kwargs:
+            failure_count_threshold = kwargs['failureCountThreshold']
+        if initial_delay is None and 'initialDelay' in kwargs:
+            initial_delay = kwargs['initialDelay']
+        if interval_seconds is None and 'intervalSeconds' in kwargs:
+            interval_seconds = kwargs['intervalSeconds']
+        if termination_grace_period_seconds is None and 'terminationGracePeriodSeconds' in kwargs:
+            termination_grace_period_seconds = kwargs['terminationGracePeriodSeconds']
+
+        _setter("port", port)
+        _setter("transport", transport)
         if failure_count_threshold is not None:
-            pulumi.set(__self__, "failure_count_threshold", failure_count_threshold)
+            _setter("failure_count_threshold", failure_count_threshold)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if initial_delay is not None:
-            pulumi.set(__self__, "initial_delay", initial_delay)
+            _setter("initial_delay", initial_delay)
         if interval_seconds is not None:
-            pulumi.set(__self__, "interval_seconds", interval_seconds)
+            _setter("interval_seconds", interval_seconds)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if termination_grace_period_seconds is not None:
-            pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
+            _setter("termination_grace_period_seconds", termination_grace_period_seconds)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter
@@ -1243,8 +1620,25 @@ class AppTemplateContainerLivenessProbeHeader(dict):
         :param str name: The HTTP Header Name.
         :param str value: The HTTP Header value.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        AppTemplateContainerLivenessProbeHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1307,22 +1701,59 @@ class AppTemplateContainerReadinessProbe(dict):
         :param int success_count_threshold: The number of consecutive successful responses required to consider this probe as successful. Possible values are between `1` and `10`. Defaults to `3`.
         :param int timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "transport", transport)
+        AppTemplateContainerReadinessProbe._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            transport=transport,
+            failure_count_threshold=failure_count_threshold,
+            headers=headers,
+            host=host,
+            interval_seconds=interval_seconds,
+            path=path,
+            success_count_threshold=success_count_threshold,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[int] = None,
+             transport: Optional[str] = None,
+             failure_count_threshold: Optional[int] = None,
+             headers: Optional[Sequence['outputs.AppTemplateContainerReadinessProbeHeader']] = None,
+             host: Optional[str] = None,
+             interval_seconds: Optional[int] = None,
+             path: Optional[str] = None,
+             success_count_threshold: Optional[int] = None,
+             timeout: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if transport is None:
+            raise TypeError("Missing 'transport' argument")
+        if failure_count_threshold is None and 'failureCountThreshold' in kwargs:
+            failure_count_threshold = kwargs['failureCountThreshold']
+        if interval_seconds is None and 'intervalSeconds' in kwargs:
+            interval_seconds = kwargs['intervalSeconds']
+        if success_count_threshold is None and 'successCountThreshold' in kwargs:
+            success_count_threshold = kwargs['successCountThreshold']
+
+        _setter("port", port)
+        _setter("transport", transport)
         if failure_count_threshold is not None:
-            pulumi.set(__self__, "failure_count_threshold", failure_count_threshold)
+            _setter("failure_count_threshold", failure_count_threshold)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if interval_seconds is not None:
-            pulumi.set(__self__, "interval_seconds", interval_seconds)
+            _setter("interval_seconds", interval_seconds)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if success_count_threshold is not None:
-            pulumi.set(__self__, "success_count_threshold", success_count_threshold)
+            _setter("success_count_threshold", success_count_threshold)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter
@@ -1406,8 +1837,25 @@ class AppTemplateContainerReadinessProbeHeader(dict):
         :param str name: The HTTP Header Name.
         :param str value: The HTTP Header value.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        AppTemplateContainerReadinessProbeHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1470,22 +1918,59 @@ class AppTemplateContainerStartupProbe(dict):
         :param int termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
         :param int timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "transport", transport)
+        AppTemplateContainerStartupProbe._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            transport=transport,
+            failure_count_threshold=failure_count_threshold,
+            headers=headers,
+            host=host,
+            interval_seconds=interval_seconds,
+            path=path,
+            termination_grace_period_seconds=termination_grace_period_seconds,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[int] = None,
+             transport: Optional[str] = None,
+             failure_count_threshold: Optional[int] = None,
+             headers: Optional[Sequence['outputs.AppTemplateContainerStartupProbeHeader']] = None,
+             host: Optional[str] = None,
+             interval_seconds: Optional[int] = None,
+             path: Optional[str] = None,
+             termination_grace_period_seconds: Optional[int] = None,
+             timeout: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if transport is None:
+            raise TypeError("Missing 'transport' argument")
+        if failure_count_threshold is None and 'failureCountThreshold' in kwargs:
+            failure_count_threshold = kwargs['failureCountThreshold']
+        if interval_seconds is None and 'intervalSeconds' in kwargs:
+            interval_seconds = kwargs['intervalSeconds']
+        if termination_grace_period_seconds is None and 'terminationGracePeriodSeconds' in kwargs:
+            termination_grace_period_seconds = kwargs['terminationGracePeriodSeconds']
+
+        _setter("port", port)
+        _setter("transport", transport)
         if failure_count_threshold is not None:
-            pulumi.set(__self__, "failure_count_threshold", failure_count_threshold)
+            _setter("failure_count_threshold", failure_count_threshold)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if interval_seconds is not None:
-            pulumi.set(__self__, "interval_seconds", interval_seconds)
+            _setter("interval_seconds", interval_seconds)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if termination_grace_period_seconds is not None:
-            pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
+            _setter("termination_grace_period_seconds", termination_grace_period_seconds)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter
@@ -1569,8 +2054,25 @@ class AppTemplateContainerStartupProbeHeader(dict):
         :param str name: The HTTP Header Name.
         :param str value: The HTTP Header value.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        AppTemplateContainerStartupProbeHeader._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -1598,8 +2100,25 @@ class AppTemplateContainerVolumeMount(dict):
         :param str name: The name of the Volume to be mounted in the container.
         :param str path: The path in the container at which to mount this volume.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "path", path)
+        AppTemplateContainerVolumeMount._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+
+        _setter("name", name)
+        _setter("path", path)
 
     @property
     @pulumi.getter
@@ -1648,11 +2167,36 @@ class AppTemplateCustomScaleRule(dict):
         :param str name: The name of the Scaling Rule
         :param Sequence['AppTemplateCustomScaleRuleAuthenticationArgs'] authentications: Zero or more `authentication` blocks as defined below.
         """
-        pulumi.set(__self__, "custom_rule_type", custom_rule_type)
-        pulumi.set(__self__, "metadata", metadata)
-        pulumi.set(__self__, "name", name)
+        AppTemplateCustomScaleRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_rule_type=custom_rule_type,
+            metadata=metadata,
+            name=name,
+            authentications=authentications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_rule_type: Optional[str] = None,
+             metadata: Optional[Mapping[str, str]] = None,
+             name: Optional[str] = None,
+             authentications: Optional[Sequence['outputs.AppTemplateCustomScaleRuleAuthentication']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if custom_rule_type is None and 'customRuleType' in kwargs:
+            custom_rule_type = kwargs['customRuleType']
+        if custom_rule_type is None:
+            raise TypeError("Missing 'custom_rule_type' argument")
+        if metadata is None:
+            raise TypeError("Missing 'metadata' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("custom_rule_type", custom_rule_type)
+        _setter("metadata", metadata)
+        _setter("name", name)
         if authentications is not None:
-            pulumi.set(__self__, "authentications", authentications)
+            _setter("authentications", authentications)
 
     @property
     @pulumi.getter(name="customRuleType")
@@ -1715,8 +2259,29 @@ class AppTemplateCustomScaleRuleAuthentication(dict):
         :param str secret_name: The name of the Container App Secret to use for this Scale Rule Authentication.
         :param str trigger_parameter: The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
-        pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+        AppTemplateCustomScaleRuleAuthentication._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+            trigger_parameter=trigger_parameter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: Optional[str] = None,
+             trigger_parameter: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if secret_name is None and 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
+        if trigger_parameter is None and 'triggerParameter' in kwargs:
+            trigger_parameter = kwargs['triggerParameter']
+        if trigger_parameter is None:
+            raise TypeError("Missing 'trigger_parameter' argument")
+
+        _setter("secret_name", secret_name)
+        _setter("trigger_parameter", trigger_parameter)
 
     @property
     @pulumi.getter(name="secretName")
@@ -1763,10 +2328,31 @@ class AppTemplateHttpScaleRule(dict):
         :param str name: The name of the Scaling Rule
         :param Sequence['AppTemplateHttpScaleRuleAuthenticationArgs'] authentications: Zero or more `authentication` blocks as defined below.
         """
-        pulumi.set(__self__, "concurrent_requests", concurrent_requests)
-        pulumi.set(__self__, "name", name)
+        AppTemplateHttpScaleRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            concurrent_requests=concurrent_requests,
+            name=name,
+            authentications=authentications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             concurrent_requests: Optional[str] = None,
+             name: Optional[str] = None,
+             authentications: Optional[Sequence['outputs.AppTemplateHttpScaleRuleAuthentication']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if concurrent_requests is None and 'concurrentRequests' in kwargs:
+            concurrent_requests = kwargs['concurrentRequests']
+        if concurrent_requests is None:
+            raise TypeError("Missing 'concurrent_requests' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("concurrent_requests", concurrent_requests)
+        _setter("name", name)
         if authentications is not None:
-            pulumi.set(__self__, "authentications", authentications)
+            _setter("authentications", authentications)
 
     @property
     @pulumi.getter(name="concurrentRequests")
@@ -1821,9 +2407,28 @@ class AppTemplateHttpScaleRuleAuthentication(dict):
         :param str secret_name: The name of the Container App Secret to use for this Scale Rule Authentication.
         :param str trigger_parameter: The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
+        AppTemplateHttpScaleRuleAuthentication._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+            trigger_parameter=trigger_parameter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: Optional[str] = None,
+             trigger_parameter: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if secret_name is None and 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
+        if trigger_parameter is None and 'triggerParameter' in kwargs:
+            trigger_parameter = kwargs['triggerParameter']
+
+        _setter("secret_name", secret_name)
         if trigger_parameter is not None:
-            pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+            _setter("trigger_parameter", trigger_parameter)
 
     @property
     @pulumi.getter(name="secretName")
@@ -1870,10 +2475,31 @@ class AppTemplateTcpScaleRule(dict):
         :param str name: The name of the Scaling Rule
         :param Sequence['AppTemplateTcpScaleRuleAuthenticationArgs'] authentications: Zero or more `authentication` blocks as defined below.
         """
-        pulumi.set(__self__, "concurrent_requests", concurrent_requests)
-        pulumi.set(__self__, "name", name)
+        AppTemplateTcpScaleRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            concurrent_requests=concurrent_requests,
+            name=name,
+            authentications=authentications,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             concurrent_requests: Optional[str] = None,
+             name: Optional[str] = None,
+             authentications: Optional[Sequence['outputs.AppTemplateTcpScaleRuleAuthentication']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if concurrent_requests is None and 'concurrentRequests' in kwargs:
+            concurrent_requests = kwargs['concurrentRequests']
+        if concurrent_requests is None:
+            raise TypeError("Missing 'concurrent_requests' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("concurrent_requests", concurrent_requests)
+        _setter("name", name)
         if authentications is not None:
-            pulumi.set(__self__, "authentications", authentications)
+            _setter("authentications", authentications)
 
     @property
     @pulumi.getter(name="concurrentRequests")
@@ -1928,9 +2554,28 @@ class AppTemplateTcpScaleRuleAuthentication(dict):
         :param str secret_name: The name of the Container App Secret to use for this Scale Rule Authentication.
         :param str trigger_parameter: The Trigger Parameter name to use the supply the value retrieved from the `secret_name`.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
+        AppTemplateTcpScaleRuleAuthentication._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+            trigger_parameter=trigger_parameter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: Optional[str] = None,
+             trigger_parameter: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if secret_name is None and 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
+        if trigger_parameter is None and 'triggerParameter' in kwargs:
+            trigger_parameter = kwargs['triggerParameter']
+
+        _setter("secret_name", secret_name)
         if trigger_parameter is not None:
-            pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+            _setter("trigger_parameter", trigger_parameter)
 
     @property
     @pulumi.getter(name="secretName")
@@ -1979,11 +2624,32 @@ class AppTemplateVolume(dict):
         :param str storage_name: The name of the `AzureFile` storage.
         :param str storage_type: The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
         """
-        pulumi.set(__self__, "name", name)
+        AppTemplateVolume._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            storage_name=storage_name,
+            storage_type=storage_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             storage_name: Optional[str] = None,
+             storage_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if storage_name is None and 'storageName' in kwargs:
+            storage_name = kwargs['storageName']
+        if storage_type is None and 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+
+        _setter("name", name)
         if storage_name is not None:
-            pulumi.set(__self__, "storage_name", storage_name)
+            _setter("storage_name", storage_name)
         if storage_type is not None:
-            pulumi.set(__self__, "storage_type", storage_type)
+            _setter("storage_type", storage_type)
 
     @property
     @pulumi.getter
@@ -2038,11 +2704,30 @@ class EnvironmentDaprComponentMetadata(dict):
         :param str secret_name: The name of a secret specified in the `secrets` block that contains the value for this metadata configuration item.
         :param str value: The value for this metadata configuration item.
         """
-        pulumi.set(__self__, "name", name)
+        EnvironmentDaprComponentMetadata._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            secret_name=secret_name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             secret_name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if secret_name is None and 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+
+        _setter("name", name)
         if secret_name is not None:
-            pulumi.set(__self__, "secret_name", secret_name)
+            _setter("secret_name", secret_name)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2078,8 +2763,25 @@ class EnvironmentDaprComponentSecret(dict):
         :param str name: The Secret name.
         :param str value: The value for this secret.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        EnvironmentDaprComponentSecret._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2109,9 +2811,36 @@ class GetAppDaprResult(dict):
         :param int app_port: The port which the application is listening on. This is the same as the `ingress` port.
         :param str app_protocol: The protocol for the app. Possible values include `http` and `grpc`. Defaults to `http`.
         """
-        pulumi.set(__self__, "app_id", app_id)
-        pulumi.set(__self__, "app_port", app_port)
-        pulumi.set(__self__, "app_protocol", app_protocol)
+        GetAppDaprResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_id=app_id,
+            app_port=app_port,
+            app_protocol=app_protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_id: Optional[str] = None,
+             app_port: Optional[int] = None,
+             app_protocol: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_id is None and 'appId' in kwargs:
+            app_id = kwargs['appId']
+        if app_id is None:
+            raise TypeError("Missing 'app_id' argument")
+        if app_port is None and 'appPort' in kwargs:
+            app_port = kwargs['appPort']
+        if app_port is None:
+            raise TypeError("Missing 'app_port' argument")
+        if app_protocol is None and 'appProtocol' in kwargs:
+            app_protocol = kwargs['appProtocol']
+        if app_protocol is None:
+            raise TypeError("Missing 'app_protocol' argument")
+
+        _setter("app_id", app_id)
+        _setter("app_port", app_port)
+        _setter("app_protocol", app_protocol)
 
     @property
     @pulumi.getter(name="appId")
@@ -2149,10 +2878,41 @@ class GetAppIdentityResult(dict):
         :param Sequence[str] identity_ids: A list of one or more Resource IDs for User Assigned Managed identities to assign. Required when `type` is set to `UserAssigned`.
         :param str type: The type of managed identity to assign. Possible values are `UserAssigned` and `SystemAssigned`
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        GetAppIdentityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if identity_ids is None and 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("identity_ids", identity_ids)
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -2201,14 +2961,67 @@ class GetAppIngressResult(dict):
         :param Sequence['GetAppIngressTrafficWeightArgs'] traffic_weights: A `traffic_weight` block as detailed below.
         :param str transport: The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
         """
-        pulumi.set(__self__, "allow_insecure_connections", allow_insecure_connections)
-        pulumi.set(__self__, "custom_domains", custom_domains)
-        pulumi.set(__self__, "exposed_port", exposed_port)
-        pulumi.set(__self__, "external_enabled", external_enabled)
-        pulumi.set(__self__, "fqdn", fqdn)
-        pulumi.set(__self__, "target_port", target_port)
-        pulumi.set(__self__, "traffic_weights", traffic_weights)
-        pulumi.set(__self__, "transport", transport)
+        GetAppIngressResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_insecure_connections=allow_insecure_connections,
+            custom_domains=custom_domains,
+            exposed_port=exposed_port,
+            external_enabled=external_enabled,
+            fqdn=fqdn,
+            target_port=target_port,
+            traffic_weights=traffic_weights,
+            transport=transport,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_insecure_connections: Optional[bool] = None,
+             custom_domains: Optional[Sequence['outputs.GetAppIngressCustomDomainResult']] = None,
+             exposed_port: Optional[int] = None,
+             external_enabled: Optional[bool] = None,
+             fqdn: Optional[str] = None,
+             target_port: Optional[int] = None,
+             traffic_weights: Optional[Sequence['outputs.GetAppIngressTrafficWeightResult']] = None,
+             transport: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allow_insecure_connections is None and 'allowInsecureConnections' in kwargs:
+            allow_insecure_connections = kwargs['allowInsecureConnections']
+        if allow_insecure_connections is None:
+            raise TypeError("Missing 'allow_insecure_connections' argument")
+        if custom_domains is None and 'customDomains' in kwargs:
+            custom_domains = kwargs['customDomains']
+        if custom_domains is None:
+            raise TypeError("Missing 'custom_domains' argument")
+        if exposed_port is None and 'exposedPort' in kwargs:
+            exposed_port = kwargs['exposedPort']
+        if exposed_port is None:
+            raise TypeError("Missing 'exposed_port' argument")
+        if external_enabled is None and 'externalEnabled' in kwargs:
+            external_enabled = kwargs['externalEnabled']
+        if external_enabled is None:
+            raise TypeError("Missing 'external_enabled' argument")
+        if fqdn is None:
+            raise TypeError("Missing 'fqdn' argument")
+        if target_port is None and 'targetPort' in kwargs:
+            target_port = kwargs['targetPort']
+        if target_port is None:
+            raise TypeError("Missing 'target_port' argument")
+        if traffic_weights is None and 'trafficWeights' in kwargs:
+            traffic_weights = kwargs['trafficWeights']
+        if traffic_weights is None:
+            raise TypeError("Missing 'traffic_weights' argument")
+        if transport is None:
+            raise TypeError("Missing 'transport' argument")
+
+        _setter("allow_insecure_connections", allow_insecure_connections)
+        _setter("custom_domains", custom_domains)
+        _setter("exposed_port", exposed_port)
+        _setter("external_enabled", external_enabled)
+        _setter("fqdn", fqdn)
+        _setter("target_port", target_port)
+        _setter("traffic_weights", traffic_weights)
+        _setter("transport", transport)
 
     @property
     @pulumi.getter(name="allowInsecureConnections")
@@ -2283,9 +3096,34 @@ class GetAppIngressCustomDomainResult(dict):
         :param str certificate_id: The ID of the Container App Environment Certificate.
         :param str name: The name of the Container App.
         """
-        pulumi.set(__self__, "certificate_binding_type", certificate_binding_type)
-        pulumi.set(__self__, "certificate_id", certificate_id)
-        pulumi.set(__self__, "name", name)
+        GetAppIngressCustomDomainResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_binding_type=certificate_binding_type,
+            certificate_id=certificate_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_binding_type: Optional[str] = None,
+             certificate_id: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if certificate_binding_type is None and 'certificateBindingType' in kwargs:
+            certificate_binding_type = kwargs['certificateBindingType']
+        if certificate_binding_type is None:
+            raise TypeError("Missing 'certificate_binding_type' argument")
+        if certificate_id is None and 'certificateId' in kwargs:
+            certificate_id = kwargs['certificateId']
+        if certificate_id is None:
+            raise TypeError("Missing 'certificate_id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("certificate_binding_type", certificate_binding_type)
+        _setter("certificate_id", certificate_id)
+        _setter("name", name)
 
     @property
     @pulumi.getter(name="certificateBindingType")
@@ -2325,10 +3163,39 @@ class GetAppIngressTrafficWeightResult(dict):
         :param int percentage: The percentage of traffic which should be sent this revision.
         :param str revision_suffix: The suffix string to which this `traffic_weight` applies.
         """
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "latest_revision", latest_revision)
-        pulumi.set(__self__, "percentage", percentage)
-        pulumi.set(__self__, "revision_suffix", revision_suffix)
+        GetAppIngressTrafficWeightResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label=label,
+            latest_revision=latest_revision,
+            percentage=percentage,
+            revision_suffix=revision_suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label: Optional[str] = None,
+             latest_revision: Optional[bool] = None,
+             percentage: Optional[int] = None,
+             revision_suffix: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+        if latest_revision is None and 'latestRevision' in kwargs:
+            latest_revision = kwargs['latestRevision']
+        if latest_revision is None:
+            raise TypeError("Missing 'latest_revision' argument")
+        if percentage is None:
+            raise TypeError("Missing 'percentage' argument")
+        if revision_suffix is None and 'revisionSuffix' in kwargs:
+            revision_suffix = kwargs['revisionSuffix']
+        if revision_suffix is None:
+            raise TypeError("Missing 'revision_suffix' argument")
+
+        _setter("label", label)
+        _setter("latest_revision", latest_revision)
+        _setter("percentage", percentage)
+        _setter("revision_suffix", revision_suffix)
 
     @property
     @pulumi.getter
@@ -2376,10 +3243,37 @@ class GetAppRegistryResult(dict):
         :param str server: The hostname for the Container Registry.
         :param str username: The username to use for this Container Registry, `password_secret_name` must also be supplied..
         """
-        pulumi.set(__self__, "identity", identity)
-        pulumi.set(__self__, "password_secret_name", password_secret_name)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
+        GetAppRegistryResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity=identity,
+            password_secret_name=password_secret_name,
+            server=server,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity: Optional[str] = None,
+             password_secret_name: Optional[str] = None,
+             server: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if identity is None:
+            raise TypeError("Missing 'identity' argument")
+        if password_secret_name is None and 'passwordSecretName' in kwargs:
+            password_secret_name = kwargs['passwordSecretName']
+        if password_secret_name is None:
+            raise TypeError("Missing 'password_secret_name' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("identity", identity)
+        _setter("password_secret_name", password_secret_name)
+        _setter("server", server)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -2423,8 +3317,25 @@ class GetAppSecretResult(dict):
         :param str name: The name of the Container App.
         :param str value: The HTTP Header value.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetAppSecretResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2462,16 +3373,73 @@ class GetAppTemplateResult(dict):
         :param str revision_suffix: The suffix string to which this `traffic_weight` applies.
         :param Sequence['GetAppTemplateVolumeArgs'] volumes: A `volume` block as detailed below.
         """
-        pulumi.set(__self__, "azure_queue_scale_rules", azure_queue_scale_rules)
-        pulumi.set(__self__, "containers", containers)
-        pulumi.set(__self__, "http_scale_rules", http_scale_rules)
-        pulumi.set(__self__, "max_replicas", max_replicas)
-        pulumi.set(__self__, "min_replicas", min_replicas)
-        pulumi.set(__self__, "revision_suffix", revision_suffix)
-        pulumi.set(__self__, "tcp_scale_rules", tcp_scale_rules)
-        pulumi.set(__self__, "volumes", volumes)
+        GetAppTemplateResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_queue_scale_rules=azure_queue_scale_rules,
+            containers=containers,
+            http_scale_rules=http_scale_rules,
+            max_replicas=max_replicas,
+            min_replicas=min_replicas,
+            revision_suffix=revision_suffix,
+            tcp_scale_rules=tcp_scale_rules,
+            volumes=volumes,
+            custom_scale_rules=custom_scale_rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_queue_scale_rules: Optional[Sequence['outputs.GetAppTemplateAzureQueueScaleRuleResult']] = None,
+             containers: Optional[Sequence['outputs.GetAppTemplateContainerResult']] = None,
+             http_scale_rules: Optional[Sequence['outputs.GetAppTemplateHttpScaleRuleResult']] = None,
+             max_replicas: Optional[int] = None,
+             min_replicas: Optional[int] = None,
+             revision_suffix: Optional[str] = None,
+             tcp_scale_rules: Optional[Sequence['outputs.GetAppTemplateTcpScaleRuleResult']] = None,
+             volumes: Optional[Sequence['outputs.GetAppTemplateVolumeResult']] = None,
+             custom_scale_rules: Optional[Sequence['outputs.GetAppTemplateCustomScaleRuleResult']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if azure_queue_scale_rules is None and 'azureQueueScaleRules' in kwargs:
+            azure_queue_scale_rules = kwargs['azureQueueScaleRules']
+        if azure_queue_scale_rules is None:
+            raise TypeError("Missing 'azure_queue_scale_rules' argument")
+        if containers is None:
+            raise TypeError("Missing 'containers' argument")
+        if http_scale_rules is None and 'httpScaleRules' in kwargs:
+            http_scale_rules = kwargs['httpScaleRules']
+        if http_scale_rules is None:
+            raise TypeError("Missing 'http_scale_rules' argument")
+        if max_replicas is None and 'maxReplicas' in kwargs:
+            max_replicas = kwargs['maxReplicas']
+        if max_replicas is None:
+            raise TypeError("Missing 'max_replicas' argument")
+        if min_replicas is None and 'minReplicas' in kwargs:
+            min_replicas = kwargs['minReplicas']
+        if min_replicas is None:
+            raise TypeError("Missing 'min_replicas' argument")
+        if revision_suffix is None and 'revisionSuffix' in kwargs:
+            revision_suffix = kwargs['revisionSuffix']
+        if revision_suffix is None:
+            raise TypeError("Missing 'revision_suffix' argument")
+        if tcp_scale_rules is None and 'tcpScaleRules' in kwargs:
+            tcp_scale_rules = kwargs['tcpScaleRules']
+        if tcp_scale_rules is None:
+            raise TypeError("Missing 'tcp_scale_rules' argument")
+        if volumes is None:
+            raise TypeError("Missing 'volumes' argument")
+        if custom_scale_rules is None and 'customScaleRules' in kwargs:
+            custom_scale_rules = kwargs['customScaleRules']
+
+        _setter("azure_queue_scale_rules", azure_queue_scale_rules)
+        _setter("containers", containers)
+        _setter("http_scale_rules", http_scale_rules)
+        _setter("max_replicas", max_replicas)
+        _setter("min_replicas", min_replicas)
+        _setter("revision_suffix", revision_suffix)
+        _setter("tcp_scale_rules", tcp_scale_rules)
+        _setter("volumes", volumes)
         if custom_scale_rules is not None:
-            pulumi.set(__self__, "custom_scale_rules", custom_scale_rules)
+            _setter("custom_scale_rules", custom_scale_rules)
 
     @property
     @pulumi.getter(name="azureQueueScaleRules")
@@ -2544,10 +3512,39 @@ class GetAppTemplateAzureQueueScaleRuleResult(dict):
         """
         :param str name: The name of the Container App.
         """
-        pulumi.set(__self__, "authentications", authentications)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "queue_length", queue_length)
-        pulumi.set(__self__, "queue_name", queue_name)
+        GetAppTemplateAzureQueueScaleRuleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentications=authentications,
+            name=name,
+            queue_length=queue_length,
+            queue_name=queue_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentications: Optional[Sequence['outputs.GetAppTemplateAzureQueueScaleRuleAuthenticationResult']] = None,
+             name: Optional[str] = None,
+             queue_length: Optional[int] = None,
+             queue_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if authentications is None:
+            raise TypeError("Missing 'authentications' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if queue_length is None and 'queueLength' in kwargs:
+            queue_length = kwargs['queueLength']
+        if queue_length is None:
+            raise TypeError("Missing 'queue_length' argument")
+        if queue_name is None and 'queueName' in kwargs:
+            queue_name = kwargs['queueName']
+        if queue_name is None:
+            raise TypeError("Missing 'queue_name' argument")
+
+        _setter("authentications", authentications)
+        _setter("name", name)
+        _setter("queue_length", queue_length)
+        _setter("queue_name", queue_name)
 
     @property
     @pulumi.getter
@@ -2581,8 +3578,29 @@ class GetAppTemplateAzureQueueScaleRuleAuthenticationResult(dict):
         """
         :param str secret_name: The name of the secret that contains the value for this environment variable.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
-        pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+        GetAppTemplateAzureQueueScaleRuleAuthenticationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+            trigger_parameter=trigger_parameter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: Optional[str] = None,
+             trigger_parameter: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if secret_name is None and 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
+        if trigger_parameter is None and 'triggerParameter' in kwargs:
+            trigger_parameter = kwargs['triggerParameter']
+        if trigger_parameter is None:
+            raise TypeError("Missing 'trigger_parameter' argument")
+
+        _setter("secret_name", secret_name)
+        _setter("trigger_parameter", trigger_parameter)
 
     @property
     @pulumi.getter(name="secretName")
@@ -2627,18 +3645,85 @@ class GetAppTemplateContainerResult(dict):
         :param Sequence['GetAppTemplateContainerStartupProbeArgs'] startup_probes: A `startup_probe` block as detailed below.
         :param Sequence['GetAppTemplateContainerVolumeMountArgs'] volume_mounts: A `volume_mounts` block as detailed below.
         """
-        pulumi.set(__self__, "args", args)
-        pulumi.set(__self__, "commands", commands)
-        pulumi.set(__self__, "cpu", cpu)
-        pulumi.set(__self__, "envs", envs)
-        pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
-        pulumi.set(__self__, "image", image)
-        pulumi.set(__self__, "liveness_probes", liveness_probes)
-        pulumi.set(__self__, "memory", memory)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "readiness_probes", readiness_probes)
-        pulumi.set(__self__, "startup_probes", startup_probes)
-        pulumi.set(__self__, "volume_mounts", volume_mounts)
+        GetAppTemplateContainerResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            args=args,
+            commands=commands,
+            cpu=cpu,
+            envs=envs,
+            ephemeral_storage=ephemeral_storage,
+            image=image,
+            liveness_probes=liveness_probes,
+            memory=memory,
+            name=name,
+            readiness_probes=readiness_probes,
+            startup_probes=startup_probes,
+            volume_mounts=volume_mounts,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             args: Optional[Sequence[str]] = None,
+             commands: Optional[Sequence[str]] = None,
+             cpu: Optional[float] = None,
+             envs: Optional[Sequence['outputs.GetAppTemplateContainerEnvResult']] = None,
+             ephemeral_storage: Optional[str] = None,
+             image: Optional[str] = None,
+             liveness_probes: Optional[Sequence['outputs.GetAppTemplateContainerLivenessProbeResult']] = None,
+             memory: Optional[str] = None,
+             name: Optional[str] = None,
+             readiness_probes: Optional[Sequence['outputs.GetAppTemplateContainerReadinessProbeResult']] = None,
+             startup_probes: Optional[Sequence['outputs.GetAppTemplateContainerStartupProbeResult']] = None,
+             volume_mounts: Optional[Sequence['outputs.GetAppTemplateContainerVolumeMountResult']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if args is None:
+            raise TypeError("Missing 'args' argument")
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if cpu is None:
+            raise TypeError("Missing 'cpu' argument")
+        if envs is None:
+            raise TypeError("Missing 'envs' argument")
+        if ephemeral_storage is None and 'ephemeralStorage' in kwargs:
+            ephemeral_storage = kwargs['ephemeralStorage']
+        if ephemeral_storage is None:
+            raise TypeError("Missing 'ephemeral_storage' argument")
+        if image is None:
+            raise TypeError("Missing 'image' argument")
+        if liveness_probes is None and 'livenessProbes' in kwargs:
+            liveness_probes = kwargs['livenessProbes']
+        if liveness_probes is None:
+            raise TypeError("Missing 'liveness_probes' argument")
+        if memory is None:
+            raise TypeError("Missing 'memory' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if readiness_probes is None and 'readinessProbes' in kwargs:
+            readiness_probes = kwargs['readinessProbes']
+        if readiness_probes is None:
+            raise TypeError("Missing 'readiness_probes' argument")
+        if startup_probes is None and 'startupProbes' in kwargs:
+            startup_probes = kwargs['startupProbes']
+        if startup_probes is None:
+            raise TypeError("Missing 'startup_probes' argument")
+        if volume_mounts is None and 'volumeMounts' in kwargs:
+            volume_mounts = kwargs['volumeMounts']
+        if volume_mounts is None:
+            raise TypeError("Missing 'volume_mounts' argument")
+
+        _setter("args", args)
+        _setter("commands", commands)
+        _setter("cpu", cpu)
+        _setter("envs", envs)
+        _setter("ephemeral_storage", ephemeral_storage)
+        _setter("image", image)
+        _setter("liveness_probes", liveness_probes)
+        _setter("memory", memory)
+        _setter("name", name)
+        _setter("readiness_probes", readiness_probes)
+        _setter("startup_probes", startup_probes)
+        _setter("volume_mounts", volume_mounts)
 
     @property
     @pulumi.getter
@@ -2748,9 +3833,32 @@ class GetAppTemplateContainerEnvResult(dict):
         :param str secret_name: The name of the secret that contains the value for this environment variable.
         :param str value: The HTTP Header value.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "secret_name", secret_name)
-        pulumi.set(__self__, "value", value)
+        GetAppTemplateContainerEnvResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            secret_name=secret_name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             secret_name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if secret_name is None and 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("secret_name", secret_name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2802,16 +3910,73 @@ class GetAppTemplateContainerLivenessProbeResult(dict):
         :param int timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
         :param str transport: The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
         """
-        pulumi.set(__self__, "failure_count_threshold", failure_count_threshold)
-        pulumi.set(__self__, "headers", headers)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "initial_delay", initial_delay)
-        pulumi.set(__self__, "interval_seconds", interval_seconds)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
-        pulumi.set(__self__, "timeout", timeout)
-        pulumi.set(__self__, "transport", transport)
+        GetAppTemplateContainerLivenessProbeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failure_count_threshold=failure_count_threshold,
+            headers=headers,
+            host=host,
+            initial_delay=initial_delay,
+            interval_seconds=interval_seconds,
+            path=path,
+            port=port,
+            termination_grace_period_seconds=termination_grace_period_seconds,
+            timeout=timeout,
+            transport=transport,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failure_count_threshold: Optional[int] = None,
+             headers: Optional[Sequence['outputs.GetAppTemplateContainerLivenessProbeHeaderResult']] = None,
+             host: Optional[str] = None,
+             initial_delay: Optional[int] = None,
+             interval_seconds: Optional[int] = None,
+             path: Optional[str] = None,
+             port: Optional[int] = None,
+             termination_grace_period_seconds: Optional[int] = None,
+             timeout: Optional[int] = None,
+             transport: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if failure_count_threshold is None and 'failureCountThreshold' in kwargs:
+            failure_count_threshold = kwargs['failureCountThreshold']
+        if failure_count_threshold is None:
+            raise TypeError("Missing 'failure_count_threshold' argument")
+        if headers is None:
+            raise TypeError("Missing 'headers' argument")
+        if host is None:
+            raise TypeError("Missing 'host' argument")
+        if initial_delay is None and 'initialDelay' in kwargs:
+            initial_delay = kwargs['initialDelay']
+        if initial_delay is None:
+            raise TypeError("Missing 'initial_delay' argument")
+        if interval_seconds is None and 'intervalSeconds' in kwargs:
+            interval_seconds = kwargs['intervalSeconds']
+        if interval_seconds is None:
+            raise TypeError("Missing 'interval_seconds' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if termination_grace_period_seconds is None and 'terminationGracePeriodSeconds' in kwargs:
+            termination_grace_period_seconds = kwargs['terminationGracePeriodSeconds']
+        if termination_grace_period_seconds is None:
+            raise TypeError("Missing 'termination_grace_period_seconds' argument")
+        if timeout is None:
+            raise TypeError("Missing 'timeout' argument")
+        if transport is None:
+            raise TypeError("Missing 'transport' argument")
+
+        _setter("failure_count_threshold", failure_count_threshold)
+        _setter("headers", headers)
+        _setter("host", host)
+        _setter("initial_delay", initial_delay)
+        _setter("interval_seconds", interval_seconds)
+        _setter("path", path)
+        _setter("port", port)
+        _setter("termination_grace_period_seconds", termination_grace_period_seconds)
+        _setter("timeout", timeout)
+        _setter("transport", transport)
 
     @property
     @pulumi.getter(name="failureCountThreshold")
@@ -2903,8 +4068,25 @@ class GetAppTemplateContainerLivenessProbeHeaderResult(dict):
         :param str name: The name of the Container App.
         :param str value: The HTTP Header value.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetAppTemplateContainerLivenessProbeHeaderResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2946,15 +4128,66 @@ class GetAppTemplateContainerReadinessProbeResult(dict):
         :param int timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
         :param str transport: The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
         """
-        pulumi.set(__self__, "failure_count_threshold", failure_count_threshold)
-        pulumi.set(__self__, "headers", headers)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "interval_seconds", interval_seconds)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "success_count_threshold", success_count_threshold)
-        pulumi.set(__self__, "timeout", timeout)
-        pulumi.set(__self__, "transport", transport)
+        GetAppTemplateContainerReadinessProbeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failure_count_threshold=failure_count_threshold,
+            headers=headers,
+            host=host,
+            interval_seconds=interval_seconds,
+            path=path,
+            port=port,
+            success_count_threshold=success_count_threshold,
+            timeout=timeout,
+            transport=transport,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failure_count_threshold: Optional[int] = None,
+             headers: Optional[Sequence['outputs.GetAppTemplateContainerReadinessProbeHeaderResult']] = None,
+             host: Optional[str] = None,
+             interval_seconds: Optional[int] = None,
+             path: Optional[str] = None,
+             port: Optional[int] = None,
+             success_count_threshold: Optional[int] = None,
+             timeout: Optional[int] = None,
+             transport: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if failure_count_threshold is None and 'failureCountThreshold' in kwargs:
+            failure_count_threshold = kwargs['failureCountThreshold']
+        if failure_count_threshold is None:
+            raise TypeError("Missing 'failure_count_threshold' argument")
+        if headers is None:
+            raise TypeError("Missing 'headers' argument")
+        if host is None:
+            raise TypeError("Missing 'host' argument")
+        if interval_seconds is None and 'intervalSeconds' in kwargs:
+            interval_seconds = kwargs['intervalSeconds']
+        if interval_seconds is None:
+            raise TypeError("Missing 'interval_seconds' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if success_count_threshold is None and 'successCountThreshold' in kwargs:
+            success_count_threshold = kwargs['successCountThreshold']
+        if success_count_threshold is None:
+            raise TypeError("Missing 'success_count_threshold' argument")
+        if timeout is None:
+            raise TypeError("Missing 'timeout' argument")
+        if transport is None:
+            raise TypeError("Missing 'transport' argument")
+
+        _setter("failure_count_threshold", failure_count_threshold)
+        _setter("headers", headers)
+        _setter("host", host)
+        _setter("interval_seconds", interval_seconds)
+        _setter("path", path)
+        _setter("port", port)
+        _setter("success_count_threshold", success_count_threshold)
+        _setter("timeout", timeout)
+        _setter("transport", transport)
 
     @property
     @pulumi.getter(name="failureCountThreshold")
@@ -3038,8 +4271,25 @@ class GetAppTemplateContainerReadinessProbeHeaderResult(dict):
         :param str name: The name of the Container App.
         :param str value: The HTTP Header value.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetAppTemplateContainerReadinessProbeHeaderResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3081,15 +4331,66 @@ class GetAppTemplateContainerStartupProbeResult(dict):
         :param int timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
         :param str transport: The transport method for the Ingress. Possible values include `auto`, `http`, and `http2`. Defaults to `auto`
         """
-        pulumi.set(__self__, "failure_count_threshold", failure_count_threshold)
-        pulumi.set(__self__, "headers", headers)
-        pulumi.set(__self__, "host", host)
-        pulumi.set(__self__, "interval_seconds", interval_seconds)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
-        pulumi.set(__self__, "timeout", timeout)
-        pulumi.set(__self__, "transport", transport)
+        GetAppTemplateContainerStartupProbeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            failure_count_threshold=failure_count_threshold,
+            headers=headers,
+            host=host,
+            interval_seconds=interval_seconds,
+            path=path,
+            port=port,
+            termination_grace_period_seconds=termination_grace_period_seconds,
+            timeout=timeout,
+            transport=transport,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             failure_count_threshold: Optional[int] = None,
+             headers: Optional[Sequence['outputs.GetAppTemplateContainerStartupProbeHeaderResult']] = None,
+             host: Optional[str] = None,
+             interval_seconds: Optional[int] = None,
+             path: Optional[str] = None,
+             port: Optional[int] = None,
+             termination_grace_period_seconds: Optional[int] = None,
+             timeout: Optional[int] = None,
+             transport: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if failure_count_threshold is None and 'failureCountThreshold' in kwargs:
+            failure_count_threshold = kwargs['failureCountThreshold']
+        if failure_count_threshold is None:
+            raise TypeError("Missing 'failure_count_threshold' argument")
+        if headers is None:
+            raise TypeError("Missing 'headers' argument")
+        if host is None:
+            raise TypeError("Missing 'host' argument")
+        if interval_seconds is None and 'intervalSeconds' in kwargs:
+            interval_seconds = kwargs['intervalSeconds']
+        if interval_seconds is None:
+            raise TypeError("Missing 'interval_seconds' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if termination_grace_period_seconds is None and 'terminationGracePeriodSeconds' in kwargs:
+            termination_grace_period_seconds = kwargs['terminationGracePeriodSeconds']
+        if termination_grace_period_seconds is None:
+            raise TypeError("Missing 'termination_grace_period_seconds' argument")
+        if timeout is None:
+            raise TypeError("Missing 'timeout' argument")
+        if transport is None:
+            raise TypeError("Missing 'transport' argument")
+
+        _setter("failure_count_threshold", failure_count_threshold)
+        _setter("headers", headers)
+        _setter("host", host)
+        _setter("interval_seconds", interval_seconds)
+        _setter("path", path)
+        _setter("port", port)
+        _setter("termination_grace_period_seconds", termination_grace_period_seconds)
+        _setter("timeout", timeout)
+        _setter("transport", transport)
 
     @property
     @pulumi.getter(name="failureCountThreshold")
@@ -3173,8 +4474,25 @@ class GetAppTemplateContainerStartupProbeHeaderResult(dict):
         :param str name: The name of the Container App.
         :param str value: The HTTP Header value.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        GetAppTemplateContainerStartupProbeHeaderResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3202,8 +4520,25 @@ class GetAppTemplateContainerVolumeMountResult(dict):
         :param str name: The name of the Container App.
         :param str path: The path in the container at which to mount this volume.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "path", path)
+        GetAppTemplateContainerVolumeMountResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            path=path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+
+        _setter("name", name)
+        _setter("path", path)
 
     @property
     @pulumi.getter
@@ -3232,10 +4567,37 @@ class GetAppTemplateCustomScaleRuleResult(dict):
         """
         :param str name: The name of the Container App.
         """
-        pulumi.set(__self__, "authentications", authentications)
-        pulumi.set(__self__, "custom_rule_type", custom_rule_type)
-        pulumi.set(__self__, "metadata", metadata)
-        pulumi.set(__self__, "name", name)
+        GetAppTemplateCustomScaleRuleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentications=authentications,
+            custom_rule_type=custom_rule_type,
+            metadata=metadata,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentications: Optional[Sequence['outputs.GetAppTemplateCustomScaleRuleAuthenticationResult']] = None,
+             custom_rule_type: Optional[str] = None,
+             metadata: Optional[Mapping[str, str]] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if authentications is None:
+            raise TypeError("Missing 'authentications' argument")
+        if custom_rule_type is None and 'customRuleType' in kwargs:
+            custom_rule_type = kwargs['customRuleType']
+        if custom_rule_type is None:
+            raise TypeError("Missing 'custom_rule_type' argument")
+        if metadata is None:
+            raise TypeError("Missing 'metadata' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("authentications", authentications)
+        _setter("custom_rule_type", custom_rule_type)
+        _setter("metadata", metadata)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -3269,8 +4631,29 @@ class GetAppTemplateCustomScaleRuleAuthenticationResult(dict):
         """
         :param str secret_name: The name of the secret that contains the value for this environment variable.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
-        pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+        GetAppTemplateCustomScaleRuleAuthenticationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+            trigger_parameter=trigger_parameter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: Optional[str] = None,
+             trigger_parameter: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if secret_name is None and 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
+        if trigger_parameter is None and 'triggerParameter' in kwargs:
+            trigger_parameter = kwargs['triggerParameter']
+        if trigger_parameter is None:
+            raise TypeError("Missing 'trigger_parameter' argument")
+
+        _setter("secret_name", secret_name)
+        _setter("trigger_parameter", trigger_parameter)
 
     @property
     @pulumi.getter(name="secretName")
@@ -3295,9 +4678,32 @@ class GetAppTemplateHttpScaleRuleResult(dict):
         """
         :param str name: The name of the Container App.
         """
-        pulumi.set(__self__, "authentications", authentications)
-        pulumi.set(__self__, "concurrent_requests", concurrent_requests)
-        pulumi.set(__self__, "name", name)
+        GetAppTemplateHttpScaleRuleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentications=authentications,
+            concurrent_requests=concurrent_requests,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentications: Optional[Sequence['outputs.GetAppTemplateHttpScaleRuleAuthenticationResult']] = None,
+             concurrent_requests: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if authentications is None:
+            raise TypeError("Missing 'authentications' argument")
+        if concurrent_requests is None and 'concurrentRequests' in kwargs:
+            concurrent_requests = kwargs['concurrentRequests']
+        if concurrent_requests is None:
+            raise TypeError("Missing 'concurrent_requests' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("authentications", authentications)
+        _setter("concurrent_requests", concurrent_requests)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -3326,8 +4732,29 @@ class GetAppTemplateHttpScaleRuleAuthenticationResult(dict):
         """
         :param str secret_name: The name of the secret that contains the value for this environment variable.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
-        pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+        GetAppTemplateHttpScaleRuleAuthenticationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+            trigger_parameter=trigger_parameter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: Optional[str] = None,
+             trigger_parameter: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if secret_name is None and 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
+        if trigger_parameter is None and 'triggerParameter' in kwargs:
+            trigger_parameter = kwargs['triggerParameter']
+        if trigger_parameter is None:
+            raise TypeError("Missing 'trigger_parameter' argument")
+
+        _setter("secret_name", secret_name)
+        _setter("trigger_parameter", trigger_parameter)
 
     @property
     @pulumi.getter(name="secretName")
@@ -3352,9 +4779,32 @@ class GetAppTemplateTcpScaleRuleResult(dict):
         """
         :param str name: The name of the Container App.
         """
-        pulumi.set(__self__, "authentications", authentications)
-        pulumi.set(__self__, "concurrent_requests", concurrent_requests)
-        pulumi.set(__self__, "name", name)
+        GetAppTemplateTcpScaleRuleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentications=authentications,
+            concurrent_requests=concurrent_requests,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentications: Optional[Sequence['outputs.GetAppTemplateTcpScaleRuleAuthenticationResult']] = None,
+             concurrent_requests: Optional[str] = None,
+             name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if authentications is None:
+            raise TypeError("Missing 'authentications' argument")
+        if concurrent_requests is None and 'concurrentRequests' in kwargs:
+            concurrent_requests = kwargs['concurrentRequests']
+        if concurrent_requests is None:
+            raise TypeError("Missing 'concurrent_requests' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("authentications", authentications)
+        _setter("concurrent_requests", concurrent_requests)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -3383,8 +4833,29 @@ class GetAppTemplateTcpScaleRuleAuthenticationResult(dict):
         """
         :param str secret_name: The name of the secret that contains the value for this environment variable.
         """
-        pulumi.set(__self__, "secret_name", secret_name)
-        pulumi.set(__self__, "trigger_parameter", trigger_parameter)
+        GetAppTemplateTcpScaleRuleAuthenticationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            secret_name=secret_name,
+            trigger_parameter=trigger_parameter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             secret_name: Optional[str] = None,
+             trigger_parameter: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if secret_name is None and 'secretName' in kwargs:
+            secret_name = kwargs['secretName']
+        if secret_name is None:
+            raise TypeError("Missing 'secret_name' argument")
+        if trigger_parameter is None and 'triggerParameter' in kwargs:
+            trigger_parameter = kwargs['triggerParameter']
+        if trigger_parameter is None:
+            raise TypeError("Missing 'trigger_parameter' argument")
+
+        _setter("secret_name", secret_name)
+        _setter("trigger_parameter", trigger_parameter)
 
     @property
     @pulumi.getter(name="secretName")
@@ -3411,9 +4882,34 @@ class GetAppTemplateVolumeResult(dict):
         :param str storage_name: The name of the `AzureFile` storage.
         :param str storage_type: The type of storage volume. Possible values include `AzureFile` and `EmptyDir`. Defaults to `EmptyDir`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "storage_name", storage_name)
-        pulumi.set(__self__, "storage_type", storage_type)
+        GetAppTemplateVolumeResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            storage_name=storage_name,
+            storage_type=storage_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             storage_name: Optional[str] = None,
+             storage_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if storage_name is None and 'storageName' in kwargs:
+            storage_name = kwargs['storageName']
+        if storage_name is None:
+            raise TypeError("Missing 'storage_name' argument")
+        if storage_type is None and 'storageType' in kwargs:
+            storage_type = kwargs['storageType']
+        if storage_type is None:
+            raise TypeError("Missing 'storage_type' argument")
+
+        _setter("name", name)
+        _setter("storage_name", storage_name)
+        _setter("storage_type", storage_type)
 
     @property
     @pulumi.getter

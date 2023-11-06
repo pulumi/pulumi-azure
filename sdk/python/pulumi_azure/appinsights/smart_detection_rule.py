@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SmartDetectionRuleArgs', 'SmartDetectionRule']
@@ -29,15 +29,42 @@ class SmartDetectionRuleArgs:
         :param pulumi.Input[str] name: Specifies the name of the Application Insights Smart Detection Rule. Valid values include `Slow page load time`, `Slow server response time`, `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`, `Potential memory leak detected`, `Potential security issue detected` and `Abnormal rise in daily data volume`, `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`, `Potential memory leak detected`, `Potential security issue detected`, `Abnormal rise in daily data volume`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] send_emails_to_subscription_owners: Do emails get sent to subscription owners? Defaults to `true`.
         """
-        pulumi.set(__self__, "application_insights_id", application_insights_id)
+        SmartDetectionRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_insights_id=application_insights_id,
+            additional_email_recipients=additional_email_recipients,
+            enabled=enabled,
+            name=name,
+            send_emails_to_subscription_owners=send_emails_to_subscription_owners,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_insights_id: Optional[pulumi.Input[str]] = None,
+             additional_email_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             send_emails_to_subscription_owners: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
+            application_insights_id = kwargs['applicationInsightsId']
+        if application_insights_id is None:
+            raise TypeError("Missing 'application_insights_id' argument")
+        if additional_email_recipients is None and 'additionalEmailRecipients' in kwargs:
+            additional_email_recipients = kwargs['additionalEmailRecipients']
+        if send_emails_to_subscription_owners is None and 'sendEmailsToSubscriptionOwners' in kwargs:
+            send_emails_to_subscription_owners = kwargs['sendEmailsToSubscriptionOwners']
+
+        _setter("application_insights_id", application_insights_id)
         if additional_email_recipients is not None:
-            pulumi.set(__self__, "additional_email_recipients", additional_email_recipients)
+            _setter("additional_email_recipients", additional_email_recipients)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if send_emails_to_subscription_owners is not None:
-            pulumi.set(__self__, "send_emails_to_subscription_owners", send_emails_to_subscription_owners)
+            _setter("send_emails_to_subscription_owners", send_emails_to_subscription_owners)
 
     @property
     @pulumi.getter(name="applicationInsightsId")
@@ -120,16 +147,41 @@ class _SmartDetectionRuleState:
         :param pulumi.Input[str] name: Specifies the name of the Application Insights Smart Detection Rule. Valid values include `Slow page load time`, `Slow server response time`, `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`, `Potential memory leak detected`, `Potential security issue detected` and `Abnormal rise in daily data volume`, `Long dependency duration`, `Degradation in server response time`, `Degradation in dependency duration`, `Degradation in trace severity ratio`, `Abnormal rise in exception volume`, `Potential memory leak detected`, `Potential security issue detected`, `Abnormal rise in daily data volume`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] send_emails_to_subscription_owners: Do emails get sent to subscription owners? Defaults to `true`.
         """
+        _SmartDetectionRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_email_recipients=additional_email_recipients,
+            application_insights_id=application_insights_id,
+            enabled=enabled,
+            name=name,
+            send_emails_to_subscription_owners=send_emails_to_subscription_owners,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_email_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             application_insights_id: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             send_emails_to_subscription_owners: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if additional_email_recipients is None and 'additionalEmailRecipients' in kwargs:
+            additional_email_recipients = kwargs['additionalEmailRecipients']
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
+            application_insights_id = kwargs['applicationInsightsId']
+        if send_emails_to_subscription_owners is None and 'sendEmailsToSubscriptionOwners' in kwargs:
+            send_emails_to_subscription_owners = kwargs['sendEmailsToSubscriptionOwners']
+
         if additional_email_recipients is not None:
-            pulumi.set(__self__, "additional_email_recipients", additional_email_recipients)
+            _setter("additional_email_recipients", additional_email_recipients)
         if application_insights_id is not None:
-            pulumi.set(__self__, "application_insights_id", application_insights_id)
+            _setter("application_insights_id", application_insights_id)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if send_emails_to_subscription_owners is not None:
-            pulumi.set(__self__, "send_emails_to_subscription_owners", send_emails_to_subscription_owners)
+            _setter("send_emails_to_subscription_owners", send_emails_to_subscription_owners)
 
     @property
     @pulumi.getter(name="additionalEmailRecipients")
@@ -285,6 +337,10 @@ class SmartDetectionRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SmartDetectionRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

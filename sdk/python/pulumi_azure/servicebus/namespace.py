@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -46,30 +46,83 @@ class NamespaceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        NamespaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            capacity=capacity,
+            customer_managed_key=customer_managed_key,
+            identity=identity,
+            local_auth_enabled=local_auth_enabled,
+            location=location,
+            minimum_tls_version=minimum_tls_version,
+            name=name,
+            network_rule_set=network_rule_set,
+            public_network_access_enabled=public_network_access_enabled,
+            tags=tags,
+            zone_redundant=zone_redundant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             capacity: Optional[pulumi.Input[int]] = None,
+             customer_managed_key: Optional[pulumi.Input['NamespaceCustomerManagedKeyArgs']] = None,
+             identity: Optional[pulumi.Input['NamespaceIdentityArgs']] = None,
+             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             minimum_tls_version: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_rule_set: Optional[pulumi.Input['NamespaceNetworkRuleSetArgs']] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zone_redundant: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
+            customer_managed_key = kwargs['customerManagedKey']
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if network_rule_set is None and 'networkRuleSet' in kwargs:
+            network_rule_set = kwargs['networkRuleSet']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if customer_managed_key is not None:
-            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
+            _setter("customer_managed_key", customer_managed_key)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if local_auth_enabled is not None:
-            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
+            _setter("local_auth_enabled", local_auth_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if minimum_tls_version is not None:
-            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+            _setter("minimum_tls_version", minimum_tls_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_rule_set is not None:
-            pulumi.set(__self__, "network_rule_set", network_rule_set)
+            _setter("network_rule_set", network_rule_set)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
+            _setter("zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -272,42 +325,109 @@ class _NamespaceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] zone_redundant: Whether or not this resource is zone redundant. `sku` needs to be `Premium`. Changing this forces a new resource to be created.
         """
+        _NamespaceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity=capacity,
+            customer_managed_key=customer_managed_key,
+            default_primary_connection_string=default_primary_connection_string,
+            default_primary_key=default_primary_key,
+            default_secondary_connection_string=default_secondary_connection_string,
+            default_secondary_key=default_secondary_key,
+            endpoint=endpoint,
+            identity=identity,
+            local_auth_enabled=local_auth_enabled,
+            location=location,
+            minimum_tls_version=minimum_tls_version,
+            name=name,
+            network_rule_set=network_rule_set,
+            public_network_access_enabled=public_network_access_enabled,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            tags=tags,
+            zone_redundant=zone_redundant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity: Optional[pulumi.Input[int]] = None,
+             customer_managed_key: Optional[pulumi.Input['NamespaceCustomerManagedKeyArgs']] = None,
+             default_primary_connection_string: Optional[pulumi.Input[str]] = None,
+             default_primary_key: Optional[pulumi.Input[str]] = None,
+             default_secondary_connection_string: Optional[pulumi.Input[str]] = None,
+             default_secondary_key: Optional[pulumi.Input[str]] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['NamespaceIdentityArgs']] = None,
+             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             minimum_tls_version: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_rule_set: Optional[pulumi.Input['NamespaceNetworkRuleSetArgs']] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zone_redundant: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
+            customer_managed_key = kwargs['customerManagedKey']
+        if default_primary_connection_string is None and 'defaultPrimaryConnectionString' in kwargs:
+            default_primary_connection_string = kwargs['defaultPrimaryConnectionString']
+        if default_primary_key is None and 'defaultPrimaryKey' in kwargs:
+            default_primary_key = kwargs['defaultPrimaryKey']
+        if default_secondary_connection_string is None and 'defaultSecondaryConnectionString' in kwargs:
+            default_secondary_connection_string = kwargs['defaultSecondaryConnectionString']
+        if default_secondary_key is None and 'defaultSecondaryKey' in kwargs:
+            default_secondary_key = kwargs['defaultSecondaryKey']
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if network_rule_set is None and 'networkRuleSet' in kwargs:
+            network_rule_set = kwargs['networkRuleSet']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if customer_managed_key is not None:
-            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
+            _setter("customer_managed_key", customer_managed_key)
         if default_primary_connection_string is not None:
-            pulumi.set(__self__, "default_primary_connection_string", default_primary_connection_string)
+            _setter("default_primary_connection_string", default_primary_connection_string)
         if default_primary_key is not None:
-            pulumi.set(__self__, "default_primary_key", default_primary_key)
+            _setter("default_primary_key", default_primary_key)
         if default_secondary_connection_string is not None:
-            pulumi.set(__self__, "default_secondary_connection_string", default_secondary_connection_string)
+            _setter("default_secondary_connection_string", default_secondary_connection_string)
         if default_secondary_key is not None:
-            pulumi.set(__self__, "default_secondary_key", default_secondary_key)
+            _setter("default_secondary_key", default_secondary_key)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if local_auth_enabled is not None:
-            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
+            _setter("local_auth_enabled", local_auth_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if minimum_tls_version is not None:
-            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+            _setter("minimum_tls_version", minimum_tls_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_rule_set is not None:
-            pulumi.set(__self__, "network_rule_set", network_rule_set)
+            _setter("network_rule_set", network_rule_set)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
+            _setter("zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter
@@ -633,6 +753,10 @@ class Namespace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NamespaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -661,12 +785,27 @@ class Namespace(pulumi.CustomResource):
             __props__ = NamespaceArgs.__new__(NamespaceArgs)
 
             __props__.__dict__["capacity"] = capacity
+            if customer_managed_key is not None and not isinstance(customer_managed_key, NamespaceCustomerManagedKeyArgs):
+                customer_managed_key = customer_managed_key or {}
+                def _setter(key, value):
+                    customer_managed_key[key] = value
+                NamespaceCustomerManagedKeyArgs._configure(_setter, **customer_managed_key)
             __props__.__dict__["customer_managed_key"] = customer_managed_key
+            if identity is not None and not isinstance(identity, NamespaceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                NamespaceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["local_auth_enabled"] = local_auth_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_tls_version"] = minimum_tls_version
             __props__.__dict__["name"] = name
+            if network_rule_set is not None and not isinstance(network_rule_set, NamespaceNetworkRuleSetArgs):
+                network_rule_set = network_rule_set or {}
+                def _setter(key, value):
+                    network_rule_set[key] = value
+                NamespaceNetworkRuleSetArgs._configure(_setter, **network_rule_set)
             __props__.__dict__["network_rule_set"] = network_rule_set
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             if resource_group_name is None and not opts.urn:

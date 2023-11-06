@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,16 +35,55 @@ class SqlRoleDefinitionArgs:
         :param pulumi.Input[str] role_definition_id: The GUID as the name of the Cosmos DB SQL Role Definition - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the Cosmos DB SQL Role Definition. Possible values are `BuiltInRole` and `CustomRole`. Defaults to `CustomRole`. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "assignable_scopes", assignable_scopes)
-        pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SqlRoleDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            assignable_scopes=assignable_scopes,
+            permissions=permissions,
+            resource_group_name=resource_group_name,
+            name=name,
+            role_definition_id=role_definition_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             assignable_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['SqlRoleDefinitionPermissionArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             role_definition_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if assignable_scopes is None and 'assignableScopes' in kwargs:
+            assignable_scopes = kwargs['assignableScopes']
+        if assignable_scopes is None:
+            raise TypeError("Missing 'assignable_scopes' argument")
+        if permissions is None:
+            raise TypeError("Missing 'permissions' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+
+        _setter("account_name", account_name)
+        _setter("assignable_scopes", assignable_scopes)
+        _setter("permissions", permissions)
+        _setter("resource_group_name", resource_group_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if role_definition_id is not None:
-            pulumi.set(__self__, "role_definition_id", role_definition_id)
+            _setter("role_definition_id", role_definition_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="accountName")
@@ -155,20 +194,51 @@ class _SqlRoleDefinitionState:
         :param pulumi.Input[str] role_definition_id: The GUID as the name of the Cosmos DB SQL Role Definition - one will be generated if not specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the Cosmos DB SQL Role Definition. Possible values are `BuiltInRole` and `CustomRole`. Defaults to `CustomRole`. Changing this forces a new resource to be created.
         """
+        _SqlRoleDefinitionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_name=account_name,
+            assignable_scopes=assignable_scopes,
+            name=name,
+            permissions=permissions,
+            resource_group_name=resource_group_name,
+            role_definition_id=role_definition_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_name: Optional[pulumi.Input[str]] = None,
+             assignable_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[Sequence[pulumi.Input['SqlRoleDefinitionPermissionArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             role_definition_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if assignable_scopes is None and 'assignableScopes' in kwargs:
+            assignable_scopes = kwargs['assignableScopes']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if role_definition_id is None and 'roleDefinitionId' in kwargs:
+            role_definition_id = kwargs['roleDefinitionId']
+
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if assignable_scopes is not None:
-            pulumi.set(__self__, "assignable_scopes", assignable_scopes)
+            _setter("assignable_scopes", assignable_scopes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if role_definition_id is not None:
-            pulumi.set(__self__, "role_definition_id", role_definition_id)
+            _setter("role_definition_id", role_definition_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="accountName")
@@ -380,6 +450,10 @@ class SqlRoleDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SqlRoleDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

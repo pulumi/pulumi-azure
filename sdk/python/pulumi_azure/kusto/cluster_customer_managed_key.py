@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ClusterCustomerManagedKeyArgs', 'ClusterCustomerManagedKey']
@@ -27,13 +27,48 @@ class ClusterCustomerManagedKeyArgs:
         :param pulumi.Input[str] key_version: The version of Key Vault Key.
         :param pulumi.Input[str] user_identity: The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
         """
-        pulumi.set(__self__, "cluster_id", cluster_id)
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        ClusterCustomerManagedKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_id=cluster_id,
+            key_name=key_name,
+            key_vault_id=key_vault_id,
+            key_version=key_version,
+            user_identity=user_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_id: Optional[pulumi.Input[str]] = None,
+             key_name: Optional[pulumi.Input[str]] = None,
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             key_version: Optional[pulumi.Input[str]] = None,
+             user_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cluster_id is None and 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+        if cluster_id is None:
+            raise TypeError("Missing 'cluster_id' argument")
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if key_name is None:
+            raise TypeError("Missing 'key_name' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if key_version is None and 'keyVersion' in kwargs:
+            key_version = kwargs['keyVersion']
+        if user_identity is None and 'userIdentity' in kwargs:
+            user_identity = kwargs['userIdentity']
+
+        _setter("cluster_id", cluster_id)
+        _setter("key_name", key_name)
+        _setter("key_vault_id", key_vault_id)
         if key_version is not None:
-            pulumi.set(__self__, "key_version", key_version)
+            _setter("key_version", key_version)
         if user_identity is not None:
-            pulumi.set(__self__, "user_identity", user_identity)
+            _setter("user_identity", user_identity)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -112,16 +147,45 @@ class _ClusterCustomerManagedKeyState:
         :param pulumi.Input[str] key_version: The version of Key Vault Key.
         :param pulumi.Input[str] user_identity: The user assigned identity that has access to the Key Vault Key. If not specified, system assigned identity will be used.
         """
+        _ClusterCustomerManagedKeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_id=cluster_id,
+            key_name=key_name,
+            key_vault_id=key_vault_id,
+            key_version=key_version,
+            user_identity=user_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_id: Optional[pulumi.Input[str]] = None,
+             key_name: Optional[pulumi.Input[str]] = None,
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             key_version: Optional[pulumi.Input[str]] = None,
+             user_identity: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cluster_id is None and 'clusterId' in kwargs:
+            cluster_id = kwargs['clusterId']
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if key_vault_id is None and 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if key_version is None and 'keyVersion' in kwargs:
+            key_version = kwargs['keyVersion']
+        if user_identity is None and 'userIdentity' in kwargs:
+            user_identity = kwargs['userIdentity']
+
         if cluster_id is not None:
-            pulumi.set(__self__, "cluster_id", cluster_id)
+            _setter("cluster_id", cluster_id)
         if key_name is not None:
-            pulumi.set(__self__, "key_name", key_name)
+            _setter("key_name", key_name)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if key_version is not None:
-            pulumi.set(__self__, "key_version", key_version)
+            _setter("key_version", key_version)
         if user_identity is not None:
-            pulumi.set(__self__, "user_identity", user_identity)
+            _setter("user_identity", user_identity)
 
     @property
     @pulumi.getter(name="clusterId")
@@ -377,6 +441,10 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterCustomerManagedKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

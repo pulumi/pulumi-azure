@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LocalRulestackCertificateArgs', 'LocalRulestackCertificate']
@@ -31,17 +31,48 @@ class LocalRulestackCertificateArgs:
                
                > **Note:** One and only one of `self_signed` or `key_vault_certificate_id` must be specified.
         """
-        pulumi.set(__self__, "rulestack_id", rulestack_id)
+        LocalRulestackCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            rulestack_id=rulestack_id,
+            audit_comment=audit_comment,
+            description=description,
+            key_vault_certificate_id=key_vault_certificate_id,
+            name=name,
+            self_signed=self_signed,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             rulestack_id: Optional[pulumi.Input[str]] = None,
+             audit_comment: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             key_vault_certificate_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             self_signed: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if rulestack_id is None and 'rulestackId' in kwargs:
+            rulestack_id = kwargs['rulestackId']
+        if rulestack_id is None:
+            raise TypeError("Missing 'rulestack_id' argument")
+        if audit_comment is None and 'auditComment' in kwargs:
+            audit_comment = kwargs['auditComment']
+        if key_vault_certificate_id is None and 'keyVaultCertificateId' in kwargs:
+            key_vault_certificate_id = kwargs['keyVaultCertificateId']
+        if self_signed is None and 'selfSigned' in kwargs:
+            self_signed = kwargs['selfSigned']
+
+        _setter("rulestack_id", rulestack_id)
         if audit_comment is not None:
-            pulumi.set(__self__, "audit_comment", audit_comment)
+            _setter("audit_comment", audit_comment)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if key_vault_certificate_id is not None:
-            pulumi.set(__self__, "key_vault_certificate_id", key_vault_certificate_id)
+            _setter("key_vault_certificate_id", key_vault_certificate_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if self_signed is not None:
-            pulumi.set(__self__, "self_signed", self_signed)
+            _setter("self_signed", self_signed)
 
     @property
     @pulumi.getter(name="rulestackId")
@@ -138,18 +169,47 @@ class _LocalRulestackCertificateState:
                
                > **Note:** One and only one of `self_signed` or `key_vault_certificate_id` must be specified.
         """
+        _LocalRulestackCertificateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            audit_comment=audit_comment,
+            description=description,
+            key_vault_certificate_id=key_vault_certificate_id,
+            name=name,
+            rulestack_id=rulestack_id,
+            self_signed=self_signed,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             audit_comment: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             key_vault_certificate_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rulestack_id: Optional[pulumi.Input[str]] = None,
+             self_signed: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if audit_comment is None and 'auditComment' in kwargs:
+            audit_comment = kwargs['auditComment']
+        if key_vault_certificate_id is None and 'keyVaultCertificateId' in kwargs:
+            key_vault_certificate_id = kwargs['keyVaultCertificateId']
+        if rulestack_id is None and 'rulestackId' in kwargs:
+            rulestack_id = kwargs['rulestackId']
+        if self_signed is None and 'selfSigned' in kwargs:
+            self_signed = kwargs['selfSigned']
+
         if audit_comment is not None:
-            pulumi.set(__self__, "audit_comment", audit_comment)
+            _setter("audit_comment", audit_comment)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if key_vault_certificate_id is not None:
-            pulumi.set(__self__, "key_vault_certificate_id", key_vault_certificate_id)
+            _setter("key_vault_certificate_id", key_vault_certificate_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rulestack_id is not None:
-            pulumi.set(__self__, "rulestack_id", rulestack_id)
+            _setter("rulestack_id", rulestack_id)
         if self_signed is not None:
-            pulumi.set(__self__, "self_signed", self_signed)
+            _setter("self_signed", self_signed)
 
     @property
     @pulumi.getter(name="auditComment")
@@ -317,6 +377,10 @@ class LocalRulestackCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LocalRulestackCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -36,13 +36,44 @@ class LinkServiceNatIpConfigurationArgs:
         :param pulumi.Input[str] private_ip_address: Specifies a Private Static IP Address for this IP Configuration.
         :param pulumi.Input[str] private_ip_address_version: The version of the IP Protocol which should be used. At this time the only supported value is `IPv4`. Defaults to `IPv4`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "primary", primary)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        LinkServiceNatIpConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            primary=primary,
+            subnet_id=subnet_id,
+            private_ip_address=private_ip_address,
+            private_ip_address_version=private_ip_address_version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             primary: Optional[pulumi.Input[bool]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             private_ip_address: Optional[pulumi.Input[str]] = None,
+             private_ip_address_version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if primary is None:
+            raise TypeError("Missing 'primary' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if private_ip_address_version is None and 'privateIpAddressVersion' in kwargs:
+            private_ip_address_version = kwargs['privateIpAddressVersion']
+
+        _setter("name", name)
+        _setter("primary", primary)
+        _setter("subnet_id", subnet_id)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if private_ip_address_version is not None:
-            pulumi.set(__self__, "private_ip_address_version", private_ip_address_version)
+            _setter("private_ip_address_version", private_ip_address_version)
 
     @property
     @pulumi.getter
@@ -116,8 +147,25 @@ class MxRecordRecordArgs:
         :param pulumi.Input[str] exchange: The FQDN of the exchange to MX record points to.
         :param pulumi.Input[int] preference: The preference of the MX record.
         """
-        pulumi.set(__self__, "exchange", exchange)
-        pulumi.set(__self__, "preference", preference)
+        MxRecordRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            exchange=exchange,
+            preference=preference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             exchange: Optional[pulumi.Input[str]] = None,
+             preference: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if exchange is None:
+            raise TypeError("Missing 'exchange' argument")
+        if preference is None:
+            raise TypeError("Missing 'preference' argument")
+
+        _setter("exchange", exchange)
+        _setter("preference", preference)
 
     @property
     @pulumi.getter
@@ -153,9 +201,26 @@ class ResolverForwardingRuleTargetDnsServerArgs:
         :param pulumi.Input[str] ip_address: DNS server IP address.
         :param pulumi.Input[int] port: DNS server port.
         """
-        pulumi.set(__self__, "ip_address", ip_address)
+        ResolverForwardingRuleTargetDnsServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_address=ip_address,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_address: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if ip_address is None:
+            raise TypeError("Missing 'ip_address' argument")
+
+        _setter("ip_address", ip_address)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -193,11 +258,34 @@ class ResolverInboundEndpointIpConfigurationArgs:
         :param pulumi.Input[str] private_ip_address: Private IP address of the IP configuration.
         :param pulumi.Input[str] private_ip_allocation_method: Private IP address allocation method. Allowed value is `Dynamic`. Defaults to `Dynamic`.
         """
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        ResolverInboundEndpointIpConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_id=subnet_id,
+            private_ip_address=private_ip_address,
+            private_ip_allocation_method=private_ip_allocation_method,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             private_ip_address: Optional[pulumi.Input[str]] = None,
+             private_ip_allocation_method: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if private_ip_allocation_method is None and 'privateIpAllocationMethod' in kwargs:
+            private_ip_allocation_method = kwargs['privateIpAllocationMethod']
+
+        _setter("subnet_id", subnet_id)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if private_ip_allocation_method is not None:
-            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+            _setter("private_ip_allocation_method", private_ip_allocation_method)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -249,10 +337,35 @@ class SRVRecordRecordArgs:
         :param pulumi.Input[str] target: The FQDN of the service.
         :param pulumi.Input[int] weight: The Weight of the SRV record.
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "target", target)
-        pulumi.set(__self__, "weight", weight)
+        SRVRecordRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            priority=priority,
+            target=target,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[pulumi.Input[int]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             target: Optional[pulumi.Input[str]] = None,
+             weight: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if target is None:
+            raise TypeError("Missing 'target' argument")
+        if weight is None:
+            raise TypeError("Missing 'weight' argument")
+
+        _setter("port", port)
+        _setter("priority", priority)
+        _setter("target", target)
+        _setter("weight", weight)
 
     @property
     @pulumi.getter
@@ -310,7 +423,20 @@ class TxtRecordRecordArgs:
         """
         :param pulumi.Input[str] value: The value of the TXT record. Max length: 1024 characters
         """
-        pulumi.set(__self__, "value", value)
+        TxtRecordRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("value", value)
 
     @property
     @pulumi.getter
@@ -350,25 +476,68 @@ class ZoneSoaRecordArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Record Set.
         :param pulumi.Input[int] ttl: The Time To Live of the SOA Record in seconds. Defaults to `3600`.
         """
-        pulumi.set(__self__, "email", email)
+        ZoneSoaRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            email=email,
+            expire_time=expire_time,
+            fqdn=fqdn,
+            host_name=host_name,
+            minimum_ttl=minimum_ttl,
+            refresh_time=refresh_time,
+            retry_time=retry_time,
+            serial_number=serial_number,
+            tags=tags,
+            ttl=ttl,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             email: Optional[pulumi.Input[str]] = None,
+             expire_time: Optional[pulumi.Input[int]] = None,
+             fqdn: Optional[pulumi.Input[str]] = None,
+             host_name: Optional[pulumi.Input[str]] = None,
+             minimum_ttl: Optional[pulumi.Input[int]] = None,
+             refresh_time: Optional[pulumi.Input[int]] = None,
+             retry_time: Optional[pulumi.Input[int]] = None,
+             serial_number: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             ttl: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if expire_time is None and 'expireTime' in kwargs:
+            expire_time = kwargs['expireTime']
+        if host_name is None and 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if minimum_ttl is None and 'minimumTtl' in kwargs:
+            minimum_ttl = kwargs['minimumTtl']
+        if refresh_time is None and 'refreshTime' in kwargs:
+            refresh_time = kwargs['refreshTime']
+        if retry_time is None and 'retryTime' in kwargs:
+            retry_time = kwargs['retryTime']
+        if serial_number is None and 'serialNumber' in kwargs:
+            serial_number = kwargs['serialNumber']
+
+        _setter("email", email)
         if expire_time is not None:
-            pulumi.set(__self__, "expire_time", expire_time)
+            _setter("expire_time", expire_time)
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if host_name is not None:
-            pulumi.set(__self__, "host_name", host_name)
+            _setter("host_name", host_name)
         if minimum_ttl is not None:
-            pulumi.set(__self__, "minimum_ttl", minimum_ttl)
+            _setter("minimum_ttl", minimum_ttl)
         if refresh_time is not None:
-            pulumi.set(__self__, "refresh_time", refresh_time)
+            _setter("refresh_time", refresh_time)
         if retry_time is not None:
-            pulumi.set(__self__, "retry_time", retry_time)
+            _setter("retry_time", retry_time)
         if serial_number is not None:
-            pulumi.set(__self__, "serial_number", serial_number)
+            _setter("serial_number", serial_number)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -34,15 +34,44 @@ class HubArgs:
                > **NOTE:**  The managed identity of Web PubSub service must be enabled and the identity must have the "Azure Event Hubs Data sender" role to access the Event Hub.
         :param pulumi.Input[str] name: The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "web_pubsub_id", web_pubsub_id)
+        HubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            web_pubsub_id=web_pubsub_id,
+            anonymous_connections_enabled=anonymous_connections_enabled,
+            event_handlers=event_handlers,
+            event_listeners=event_listeners,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             web_pubsub_id: Optional[pulumi.Input[str]] = None,
+             anonymous_connections_enabled: Optional[pulumi.Input[bool]] = None,
+             event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]] = None,
+             event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if web_pubsub_id is None and 'webPubsubId' in kwargs:
+            web_pubsub_id = kwargs['webPubsubId']
+        if web_pubsub_id is None:
+            raise TypeError("Missing 'web_pubsub_id' argument")
+        if anonymous_connections_enabled is None and 'anonymousConnectionsEnabled' in kwargs:
+            anonymous_connections_enabled = kwargs['anonymousConnectionsEnabled']
+        if event_handlers is None and 'eventHandlers' in kwargs:
+            event_handlers = kwargs['eventHandlers']
+        if event_listeners is None and 'eventListeners' in kwargs:
+            event_listeners = kwargs['eventListeners']
+
+        _setter("web_pubsub_id", web_pubsub_id)
         if anonymous_connections_enabled is not None:
-            pulumi.set(__self__, "anonymous_connections_enabled", anonymous_connections_enabled)
+            _setter("anonymous_connections_enabled", anonymous_connections_enabled)
         if event_handlers is not None:
-            pulumi.set(__self__, "event_handlers", event_handlers)
+            _setter("event_handlers", event_handlers)
         if event_listeners is not None:
-            pulumi.set(__self__, "event_listeners", event_listeners)
+            _setter("event_listeners", event_listeners)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="webPubsubId")
@@ -131,16 +160,43 @@ class _HubState:
         :param pulumi.Input[str] name: The name of the Web Pubsub hub service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] web_pubsub_id: Specifies the id of the Web Pubsub. Changing this forces a new resource to be created.
         """
+        _HubState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            anonymous_connections_enabled=anonymous_connections_enabled,
+            event_handlers=event_handlers,
+            event_listeners=event_listeners,
+            name=name,
+            web_pubsub_id=web_pubsub_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             anonymous_connections_enabled: Optional[pulumi.Input[bool]] = None,
+             event_handlers: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventHandlerArgs']]]] = None,
+             event_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['HubEventListenerArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             web_pubsub_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if anonymous_connections_enabled is None and 'anonymousConnectionsEnabled' in kwargs:
+            anonymous_connections_enabled = kwargs['anonymousConnectionsEnabled']
+        if event_handlers is None and 'eventHandlers' in kwargs:
+            event_handlers = kwargs['eventHandlers']
+        if event_listeners is None and 'eventListeners' in kwargs:
+            event_listeners = kwargs['eventListeners']
+        if web_pubsub_id is None and 'webPubsubId' in kwargs:
+            web_pubsub_id = kwargs['webPubsubId']
+
         if anonymous_connections_enabled is not None:
-            pulumi.set(__self__, "anonymous_connections_enabled", anonymous_connections_enabled)
+            _setter("anonymous_connections_enabled", anonymous_connections_enabled)
         if event_handlers is not None:
-            pulumi.set(__self__, "event_handlers", event_handlers)
+            _setter("event_handlers", event_handlers)
         if event_listeners is not None:
-            pulumi.set(__self__, "event_listeners", event_listeners)
+            _setter("event_listeners", event_listeners)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if web_pubsub_id is not None:
-            pulumi.set(__self__, "web_pubsub_id", web_pubsub_id)
+            _setter("web_pubsub_id", web_pubsub_id)
 
     @property
     @pulumi.getter(name="anonymousConnectionsEnabled")
@@ -394,6 +450,10 @@ class Hub(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HubArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

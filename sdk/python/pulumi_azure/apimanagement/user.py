@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['UserArgs', 'User']
@@ -39,20 +39,71 @@ class UserArgs:
                
                > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
         """
-        pulumi.set(__self__, "api_management_name", api_management_name)
-        pulumi.set(__self__, "email", email)
-        pulumi.set(__self__, "first_name", first_name)
-        pulumi.set(__self__, "last_name", last_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "user_id", user_id)
+        UserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_name=api_management_name,
+            email=email,
+            first_name=first_name,
+            last_name=last_name,
+            resource_group_name=resource_group_name,
+            user_id=user_id,
+            confirmation=confirmation,
+            note=note,
+            password=password,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             first_name: Optional[pulumi.Input[str]] = None,
+             last_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             confirmation: Optional[pulumi.Input[str]] = None,
+             note: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_management_name is None and 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if email is None:
+            raise TypeError("Missing 'email' argument")
+        if first_name is None and 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if first_name is None:
+            raise TypeError("Missing 'first_name' argument")
+        if last_name is None and 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if last_name is None:
+            raise TypeError("Missing 'last_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+        if user_id is None:
+            raise TypeError("Missing 'user_id' argument")
+
+        _setter("api_management_name", api_management_name)
+        _setter("email", email)
+        _setter("first_name", first_name)
+        _setter("last_name", last_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("user_id", user_id)
         if confirmation is not None:
-            pulumi.set(__self__, "confirmation", confirmation)
+            _setter("confirmation", confirmation)
         if note is not None:
-            pulumi.set(__self__, "note", note)
+            _setter("note", note)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -205,26 +256,65 @@ class _UserState:
                > **NOTE:** the State can be changed from Pending > Active/Blocked but not from Active/Blocked > Pending.
         :param pulumi.Input[str] user_id: The Identifier for this User, which must be unique within the API Management Service. Changing this forces a new resource to be created.
         """
+        _UserState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_name=api_management_name,
+            confirmation=confirmation,
+            email=email,
+            first_name=first_name,
+            last_name=last_name,
+            note=note,
+            password=password,
+            resource_group_name=resource_group_name,
+            state=state,
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             confirmation: Optional[pulumi.Input[str]] = None,
+             email: Optional[pulumi.Input[str]] = None,
+             first_name: Optional[pulumi.Input[str]] = None,
+             last_name: Optional[pulumi.Input[str]] = None,
+             note: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_management_name is None and 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if first_name is None and 'firstName' in kwargs:
+            first_name = kwargs['firstName']
+        if last_name is None and 'lastName' in kwargs:
+            last_name = kwargs['lastName']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if api_management_name is not None:
-            pulumi.set(__self__, "api_management_name", api_management_name)
+            _setter("api_management_name", api_management_name)
         if confirmation is not None:
-            pulumi.set(__self__, "confirmation", confirmation)
+            _setter("confirmation", confirmation)
         if email is not None:
-            pulumi.set(__self__, "email", email)
+            _setter("email", email)
         if first_name is not None:
-            pulumi.set(__self__, "first_name", first_name)
+            _setter("first_name", first_name)
         if last_name is not None:
-            pulumi.set(__self__, "last_name", last_name)
+            _setter("last_name", last_name)
         if note is not None:
-            pulumi.set(__self__, "note", note)
+            _setter("note", note)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -464,6 +554,10 @@ class User(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

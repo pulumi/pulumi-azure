@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkManagerAdminRuleCollectionArgs', 'NetworkManagerAdminRuleCollection']
@@ -25,12 +25,37 @@ class NetworkManagerAdminRuleCollectionArgs:
         :param pulumi.Input[str] description: A description of the Network Manager Admin Rule Collection.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Manager Admin Rule Collection. Changing this forces a new Network Manager Admin Rule Collection to be created.
         """
-        pulumi.set(__self__, "network_group_ids", network_group_ids)
-        pulumi.set(__self__, "security_admin_configuration_id", security_admin_configuration_id)
+        NetworkManagerAdminRuleCollectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_group_ids=network_group_ids,
+            security_admin_configuration_id=security_admin_configuration_id,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             security_admin_configuration_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if network_group_ids is None and 'networkGroupIds' in kwargs:
+            network_group_ids = kwargs['networkGroupIds']
+        if network_group_ids is None:
+            raise TypeError("Missing 'network_group_ids' argument")
+        if security_admin_configuration_id is None and 'securityAdminConfigurationId' in kwargs:
+            security_admin_configuration_id = kwargs['securityAdminConfigurationId']
+        if security_admin_configuration_id is None:
+            raise TypeError("Missing 'security_admin_configuration_id' argument")
+
+        _setter("network_group_ids", network_group_ids)
+        _setter("security_admin_configuration_id", security_admin_configuration_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="networkGroupIds")
@@ -95,14 +120,35 @@ class _NetworkManagerAdminRuleCollectionState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_group_ids: A list of Network Group ID which this Network Manager Admin Rule Collection applies to.
         :param pulumi.Input[str] security_admin_configuration_id: Specifies the ID of the Network Manager Security Admin Configuration. Changing this forces a new Network Manager Admin Rule Collection to be created.
         """
+        _NetworkManagerAdminRuleCollectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            name=name,
+            network_group_ids=network_group_ids,
+            security_admin_configuration_id=security_admin_configuration_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             security_admin_configuration_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if network_group_ids is None and 'networkGroupIds' in kwargs:
+            network_group_ids = kwargs['networkGroupIds']
+        if security_admin_configuration_id is None and 'securityAdminConfigurationId' in kwargs:
+            security_admin_configuration_id = kwargs['securityAdminConfigurationId']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_group_ids is not None:
-            pulumi.set(__self__, "network_group_ids", network_group_ids)
+            _setter("network_group_ids", network_group_ids)
         if security_admin_configuration_id is not None:
-            pulumi.set(__self__, "security_admin_configuration_id", security_admin_configuration_id)
+            _setter("security_admin_configuration_id", security_admin_configuration_id)
 
     @property
     @pulumi.getter
@@ -260,6 +306,10 @@ class NetworkManagerAdminRuleCollection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkManagerAdminRuleCollectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

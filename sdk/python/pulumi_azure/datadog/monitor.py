@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,20 +37,63 @@ class MonitorArgs:
         :param pulumi.Input[str] name: The name of the user that will be associated with the Datadog Monitor. Changing this forces a new Datadog Monitor to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Datadog Monitor.
         """
-        pulumi.set(__self__, "datadog_organization", datadog_organization)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku_name", sku_name)
-        pulumi.set(__self__, "user", user)
+        MonitorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datadog_organization=datadog_organization,
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            user=user,
+            identity=identity,
+            location=location,
+            monitoring_enabled=monitoring_enabled,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datadog_organization: Optional[pulumi.Input['MonitorDatadogOrganizationArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input['MonitorUserArgs']] = None,
+             identity: Optional[pulumi.Input['MonitorIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if datadog_organization is None and 'datadogOrganization' in kwargs:
+            datadog_organization = kwargs['datadogOrganization']
+        if datadog_organization is None:
+            raise TypeError("Missing 'datadog_organization' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+        if monitoring_enabled is None and 'monitoringEnabled' in kwargs:
+            monitoring_enabled = kwargs['monitoringEnabled']
+
+        _setter("datadog_organization", datadog_organization)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku_name", sku_name)
+        _setter("user", user)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if monitoring_enabled is not None:
-            pulumi.set(__self__, "monitoring_enabled", monitoring_enabled)
+            _setter("monitoring_enabled", monitoring_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="datadogOrganization")
@@ -187,26 +230,65 @@ class _MonitorState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Datadog Monitor.
         :param pulumi.Input['MonitorUserArgs'] user: A `user` block as defined below.
         """
+        _MonitorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            datadog_organization=datadog_organization,
+            identity=identity,
+            location=location,
+            marketplace_subscription_status=marketplace_subscription_status,
+            monitoring_enabled=monitoring_enabled,
+            name=name,
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            tags=tags,
+            user=user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             datadog_organization: Optional[pulumi.Input['MonitorDatadogOrganizationArgs']] = None,
+             identity: Optional[pulumi.Input['MonitorIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             marketplace_subscription_status: Optional[pulumi.Input[str]] = None,
+             monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user: Optional[pulumi.Input['MonitorUserArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if datadog_organization is None and 'datadogOrganization' in kwargs:
+            datadog_organization = kwargs['datadogOrganization']
+        if marketplace_subscription_status is None and 'marketplaceSubscriptionStatus' in kwargs:
+            marketplace_subscription_status = kwargs['marketplaceSubscriptionStatus']
+        if monitoring_enabled is None and 'monitoringEnabled' in kwargs:
+            monitoring_enabled = kwargs['monitoringEnabled']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         if datadog_organization is not None:
-            pulumi.set(__self__, "datadog_organization", datadog_organization)
+            _setter("datadog_organization", datadog_organization)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if marketplace_subscription_status is not None:
-            pulumi.set(__self__, "marketplace_subscription_status", marketplace_subscription_status)
+            _setter("marketplace_subscription_status", marketplace_subscription_status)
         if monitoring_enabled is not None:
-            pulumi.set(__self__, "monitoring_enabled", monitoring_enabled)
+            _setter("monitoring_enabled", monitoring_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user is not None:
-            pulumi.set(__self__, "user", user)
+            _setter("user", user)
 
     @property
     @pulumi.getter(name="datadogOrganization")
@@ -478,6 +560,10 @@ class Monitor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MonitorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -501,9 +587,19 @@ class Monitor(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MonitorArgs.__new__(MonitorArgs)
 
+            if datadog_organization is not None and not isinstance(datadog_organization, MonitorDatadogOrganizationArgs):
+                datadog_organization = datadog_organization or {}
+                def _setter(key, value):
+                    datadog_organization[key] = value
+                MonitorDatadogOrganizationArgs._configure(_setter, **datadog_organization)
             if datadog_organization is None and not opts.urn:
                 raise TypeError("Missing required property 'datadog_organization'")
             __props__.__dict__["datadog_organization"] = datadog_organization
+            if identity is not None and not isinstance(identity, MonitorIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                MonitorIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["monitoring_enabled"] = monitoring_enabled
@@ -515,6 +611,11 @@ class Monitor(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku_name'")
             __props__.__dict__["sku_name"] = sku_name
             __props__.__dict__["tags"] = tags
+            if user is not None and not isinstance(user, MonitorUserArgs):
+                user = user or {}
+                def _setter(key, value):
+                    user[key] = value
+                MonitorUserArgs._configure(_setter, **user)
             if user is None and not opts.urn:
                 raise TypeError("Missing required property 'user'")
             __props__.__dict__["user"] = user

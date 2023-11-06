@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ManagedPrivateEndpointArgs', 'ManagedPrivateEndpoint']
@@ -29,11 +29,40 @@ class ManagedPrivateEndpointArgs:
         :param pulumi.Input[str] target_resource_id: The ID of the Private Link Enabled Remote Resource which this Synapse Private Endpoint should be connected to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "subresource_name", subresource_name)
-        pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
-        pulumi.set(__self__, "target_resource_id", target_resource_id)
+        ManagedPrivateEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subresource_name=subresource_name,
+            synapse_workspace_id=synapse_workspace_id,
+            target_resource_id=target_resource_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subresource_name: Optional[pulumi.Input[str]] = None,
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if subresource_name is None and 'subresourceName' in kwargs:
+            subresource_name = kwargs['subresourceName']
+        if subresource_name is None:
+            raise TypeError("Missing 'subresource_name' argument")
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+        if synapse_workspace_id is None:
+            raise TypeError("Missing 'synapse_workspace_id' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+
+        _setter("subresource_name", subresource_name)
+        _setter("synapse_workspace_id", synapse_workspace_id)
+        _setter("target_resource_id", target_resource_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="subresourceName")
@@ -106,14 +135,37 @@ class _ManagedPrivateEndpointState:
                > **NOTE:** A Synapse firewall rule including local IP is needed for managing current resource.
         :param pulumi.Input[str] target_resource_id: The ID of the Private Link Enabled Remote Resource which this Synapse Private Endpoint should be connected to. Changing this forces a new resource to be created.
         """
+        _ManagedPrivateEndpointState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            subresource_name=subresource_name,
+            synapse_workspace_id=synapse_workspace_id,
+            target_resource_id=target_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             subresource_name: Optional[pulumi.Input[str]] = None,
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if subresource_name is None and 'subresourceName' in kwargs:
+            subresource_name = kwargs['subresourceName']
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if subresource_name is not None:
-            pulumi.set(__self__, "subresource_name", subresource_name)
+            _setter("subresource_name", subresource_name)
         if synapse_workspace_id is not None:
-            pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
+            _setter("synapse_workspace_id", synapse_workspace_id)
         if target_resource_id is not None:
-            pulumi.set(__self__, "target_resource_id", target_resource_id)
+            _setter("target_resource_id", target_resource_id)
 
     @property
     @pulumi.getter
@@ -311,6 +363,10 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedPrivateEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

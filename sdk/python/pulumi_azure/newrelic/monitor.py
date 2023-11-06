@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,25 +41,76 @@ class MonitorArgs:
         :param pulumi.Input[str] organization_id: Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] user_id: Specifies the user id. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
-        pulumi.set(__self__, "plan", plan)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "user", user)
+        MonitorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            plan=plan,
+            resource_group_name=resource_group_name,
+            user=user,
+            account_creation_source=account_creation_source,
+            account_id=account_id,
+            ingestion_key=ingestion_key,
+            location=location,
+            name=name,
+            org_creation_source=org_creation_source,
+            organization_id=organization_id,
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             plan: Optional[pulumi.Input['MonitorPlanArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input['MonitorUserArgs']] = None,
+             account_creation_source: Optional[pulumi.Input[str]] = None,
+             account_id: Optional[pulumi.Input[str]] = None,
+             ingestion_key: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             org_creation_source: Optional[pulumi.Input[str]] = None,
+             organization_id: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if plan is None:
+            raise TypeError("Missing 'plan' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+        if account_creation_source is None and 'accountCreationSource' in kwargs:
+            account_creation_source = kwargs['accountCreationSource']
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if ingestion_key is None and 'ingestionKey' in kwargs:
+            ingestion_key = kwargs['ingestionKey']
+        if org_creation_source is None and 'orgCreationSource' in kwargs:
+            org_creation_source = kwargs['orgCreationSource']
+        if organization_id is None and 'organizationId' in kwargs:
+            organization_id = kwargs['organizationId']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
+        _setter("plan", plan)
+        _setter("resource_group_name", resource_group_name)
+        _setter("user", user)
         if account_creation_source is not None:
-            pulumi.set(__self__, "account_creation_source", account_creation_source)
+            _setter("account_creation_source", account_creation_source)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if ingestion_key is not None:
-            pulumi.set(__self__, "ingestion_key", ingestion_key)
+            _setter("ingestion_key", ingestion_key)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if org_creation_source is not None:
-            pulumi.set(__self__, "org_creation_source", org_creation_source)
+            _setter("org_creation_source", org_creation_source)
         if organization_id is not None:
-            pulumi.set(__self__, "organization_id", organization_id)
+            _setter("organization_id", organization_id)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
 
     @property
     @pulumi.getter
@@ -222,28 +273,73 @@ class _MonitorState:
         :param pulumi.Input['MonitorUserArgs'] user: A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] user_id: Specifies the user id. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
+        _MonitorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_creation_source=account_creation_source,
+            account_id=account_id,
+            ingestion_key=ingestion_key,
+            location=location,
+            name=name,
+            org_creation_source=org_creation_source,
+            organization_id=organization_id,
+            plan=plan,
+            resource_group_name=resource_group_name,
+            user=user,
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_creation_source: Optional[pulumi.Input[str]] = None,
+             account_id: Optional[pulumi.Input[str]] = None,
+             ingestion_key: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             org_creation_source: Optional[pulumi.Input[str]] = None,
+             organization_id: Optional[pulumi.Input[str]] = None,
+             plan: Optional[pulumi.Input['MonitorPlanArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input['MonitorUserArgs']] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_creation_source is None and 'accountCreationSource' in kwargs:
+            account_creation_source = kwargs['accountCreationSource']
+        if account_id is None and 'accountId' in kwargs:
+            account_id = kwargs['accountId']
+        if ingestion_key is None and 'ingestionKey' in kwargs:
+            ingestion_key = kwargs['ingestionKey']
+        if org_creation_source is None and 'orgCreationSource' in kwargs:
+            org_creation_source = kwargs['orgCreationSource']
+        if organization_id is None and 'organizationId' in kwargs:
+            organization_id = kwargs['organizationId']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if account_creation_source is not None:
-            pulumi.set(__self__, "account_creation_source", account_creation_source)
+            _setter("account_creation_source", account_creation_source)
         if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
+            _setter("account_id", account_id)
         if ingestion_key is not None:
-            pulumi.set(__self__, "ingestion_key", ingestion_key)
+            _setter("ingestion_key", ingestion_key)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if org_creation_source is not None:
-            pulumi.set(__self__, "org_creation_source", org_creation_source)
+            _setter("org_creation_source", org_creation_source)
         if organization_id is not None:
-            pulumi.set(__self__, "organization_id", organization_id)
+            _setter("organization_id", organization_id)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if user is not None:
-            pulumi.set(__self__, "user", user)
+            _setter("user", user)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
 
     @property
     @pulumi.getter(name="accountCreationSource")
@@ -489,6 +585,10 @@ class Monitor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MonitorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -521,12 +621,22 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["org_creation_source"] = org_creation_source
             __props__.__dict__["organization_id"] = organization_id
+            if plan is not None and not isinstance(plan, MonitorPlanArgs):
+                plan = plan or {}
+                def _setter(key, value):
+                    plan[key] = value
+                MonitorPlanArgs._configure(_setter, **plan)
             if plan is None and not opts.urn:
                 raise TypeError("Missing required property 'plan'")
             __props__.__dict__["plan"] = plan
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if user is not None and not isinstance(user, MonitorUserArgs):
+                user = user or {}
+                def _setter(key, value):
+                    user[key] = value
+                MonitorUserArgs._configure(_setter, **user)
             if user is None and not opts.urn:
                 raise TypeError("Missing required property 'user'")
             __props__.__dict__["user"] = user

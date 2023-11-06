@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AuthorizationRuleArgs', 'AuthorizationRule']
@@ -33,17 +33,52 @@ class AuthorizationRuleArgs:
         :param pulumi.Input[str] name: The name to use for this Authorization Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] send: Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "notification_hub_name", notification_hub_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AuthorizationRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            notification_hub_name=notification_hub_name,
+            resource_group_name=resource_group_name,
+            listen=listen,
+            manage=manage,
+            name=name,
+            send=send,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             notification_hub_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             listen: Optional[pulumi.Input[bool]] = None,
+             manage: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             send: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if notification_hub_name is None and 'notificationHubName' in kwargs:
+            notification_hub_name = kwargs['notificationHubName']
+        if notification_hub_name is None:
+            raise TypeError("Missing 'notification_hub_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+
+        _setter("namespace_name", namespace_name)
+        _setter("notification_hub_name", notification_hub_name)
+        _setter("resource_group_name", resource_group_name)
         if listen is not None:
-            pulumi.set(__self__, "listen", listen)
+            _setter("listen", listen)
         if manage is not None:
-            pulumi.set(__self__, "manage", manage)
+            _setter("manage", manage)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if send is not None:
-            pulumi.set(__self__, "send", send)
+            _setter("send", send)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -158,24 +193,61 @@ class _AuthorizationRuleState:
         :param pulumi.Input[str] secondary_access_key: The Secondary Access Key associated with this Authorization Rule.
         :param pulumi.Input[bool] send: Does this Authorization Rule have Send access to the Notification Hub? Defaults to `false`.
         """
+        _AuthorizationRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            listen=listen,
+            manage=manage,
+            name=name,
+            namespace_name=namespace_name,
+            notification_hub_name=notification_hub_name,
+            primary_access_key=primary_access_key,
+            resource_group_name=resource_group_name,
+            secondary_access_key=secondary_access_key,
+            send=send,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             listen: Optional[pulumi.Input[bool]] = None,
+             manage: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             notification_hub_name: Optional[pulumi.Input[str]] = None,
+             primary_access_key: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             secondary_access_key: Optional[pulumi.Input[str]] = None,
+             send: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if notification_hub_name is None and 'notificationHubName' in kwargs:
+            notification_hub_name = kwargs['notificationHubName']
+        if primary_access_key is None and 'primaryAccessKey' in kwargs:
+            primary_access_key = kwargs['primaryAccessKey']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if secondary_access_key is None and 'secondaryAccessKey' in kwargs:
+            secondary_access_key = kwargs['secondaryAccessKey']
+
         if listen is not None:
-            pulumi.set(__self__, "listen", listen)
+            _setter("listen", listen)
         if manage is not None:
-            pulumi.set(__self__, "manage", manage)
+            _setter("manage", manage)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
+            _setter("namespace_name", namespace_name)
         if notification_hub_name is not None:
-            pulumi.set(__self__, "notification_hub_name", notification_hub_name)
+            _setter("notification_hub_name", notification_hub_name)
         if primary_access_key is not None:
-            pulumi.set(__self__, "primary_access_key", primary_access_key)
+            _setter("primary_access_key", primary_access_key)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if secondary_access_key is not None:
-            pulumi.set(__self__, "secondary_access_key", secondary_access_key)
+            _setter("secondary_access_key", secondary_access_key)
         if send is not None:
-            pulumi.set(__self__, "send", send)
+            _setter("send", send)
 
     @property
     @pulumi.getter
@@ -401,6 +473,10 @@ class AuthorizationRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AuthorizationRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

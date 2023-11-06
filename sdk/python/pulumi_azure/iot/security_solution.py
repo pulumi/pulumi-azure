@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -49,33 +49,100 @@ class SecuritySolutionArgs:
         :param pulumi.Input['SecuritySolutionRecommendationsEnabledArgs'] recommendations_enabled: A `recommendations_enabled` block of options to enable or disable as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "iothub_ids", iothub_ids)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SecuritySolutionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            iothub_ids=iothub_ids,
+            resource_group_name=resource_group_name,
+            additional_workspaces=additional_workspaces,
+            disabled_data_sources=disabled_data_sources,
+            enabled=enabled,
+            events_to_exports=events_to_exports,
+            location=location,
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            log_unmasked_ips_enabled=log_unmasked_ips_enabled,
+            name=name,
+            query_for_resources=query_for_resources,
+            query_subscription_ids=query_subscription_ids,
+            recommendations_enabled=recommendations_enabled,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[pulumi.Input[str]] = None,
+             iothub_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]]] = None,
+             disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             events_to_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             log_unmasked_ips_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             query_for_resources: Optional[pulumi.Input[str]] = None,
+             query_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             recommendations_enabled: Optional[pulumi.Input['SecuritySolutionRecommendationsEnabledArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if iothub_ids is None and 'iothubIds' in kwargs:
+            iothub_ids = kwargs['iothubIds']
+        if iothub_ids is None:
+            raise TypeError("Missing 'iothub_ids' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if additional_workspaces is None and 'additionalWorkspaces' in kwargs:
+            additional_workspaces = kwargs['additionalWorkspaces']
+        if disabled_data_sources is None and 'disabledDataSources' in kwargs:
+            disabled_data_sources = kwargs['disabledDataSources']
+        if events_to_exports is None and 'eventsToExports' in kwargs:
+            events_to_exports = kwargs['eventsToExports']
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if log_unmasked_ips_enabled is None and 'logUnmaskedIpsEnabled' in kwargs:
+            log_unmasked_ips_enabled = kwargs['logUnmaskedIpsEnabled']
+        if query_for_resources is None and 'queryForResources' in kwargs:
+            query_for_resources = kwargs['queryForResources']
+        if query_subscription_ids is None and 'querySubscriptionIds' in kwargs:
+            query_subscription_ids = kwargs['querySubscriptionIds']
+        if recommendations_enabled is None and 'recommendationsEnabled' in kwargs:
+            recommendations_enabled = kwargs['recommendationsEnabled']
+
+        _setter("display_name", display_name)
+        _setter("iothub_ids", iothub_ids)
+        _setter("resource_group_name", resource_group_name)
         if additional_workspaces is not None:
-            pulumi.set(__self__, "additional_workspaces", additional_workspaces)
+            _setter("additional_workspaces", additional_workspaces)
         if disabled_data_sources is not None:
-            pulumi.set(__self__, "disabled_data_sources", disabled_data_sources)
+            _setter("disabled_data_sources", disabled_data_sources)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if events_to_exports is not None:
-            pulumi.set(__self__, "events_to_exports", events_to_exports)
+            _setter("events_to_exports", events_to_exports)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if log_analytics_workspace_id is not None:
-            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+            _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if log_unmasked_ips_enabled is not None:
-            pulumi.set(__self__, "log_unmasked_ips_enabled", log_unmasked_ips_enabled)
+            _setter("log_unmasked_ips_enabled", log_unmasked_ips_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if query_for_resources is not None:
-            pulumi.set(__self__, "query_for_resources", query_for_resources)
+            _setter("query_for_resources", query_for_resources)
         if query_subscription_ids is not None:
-            pulumi.set(__self__, "query_subscription_ids", query_subscription_ids)
+            _setter("query_subscription_ids", query_subscription_ids)
         if recommendations_enabled is not None:
-            pulumi.set(__self__, "recommendations_enabled", recommendations_enabled)
+            _setter("recommendations_enabled", recommendations_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="displayName")
@@ -294,36 +361,97 @@ class _SecuritySolutionState:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        _SecuritySolutionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_workspaces=additional_workspaces,
+            disabled_data_sources=disabled_data_sources,
+            display_name=display_name,
+            enabled=enabled,
+            events_to_exports=events_to_exports,
+            iothub_ids=iothub_ids,
+            location=location,
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            log_unmasked_ips_enabled=log_unmasked_ips_enabled,
+            name=name,
+            query_for_resources=query_for_resources,
+            query_subscription_ids=query_subscription_ids,
+            recommendations_enabled=recommendations_enabled,
+            resource_group_name=resource_group_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_workspaces: Optional[pulumi.Input[Sequence[pulumi.Input['SecuritySolutionAdditionalWorkspaceArgs']]]] = None,
+             disabled_data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             events_to_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             iothub_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             log_unmasked_ips_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             query_for_resources: Optional[pulumi.Input[str]] = None,
+             query_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             recommendations_enabled: Optional[pulumi.Input['SecuritySolutionRecommendationsEnabledArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if additional_workspaces is None and 'additionalWorkspaces' in kwargs:
+            additional_workspaces = kwargs['additionalWorkspaces']
+        if disabled_data_sources is None and 'disabledDataSources' in kwargs:
+            disabled_data_sources = kwargs['disabledDataSources']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if events_to_exports is None and 'eventsToExports' in kwargs:
+            events_to_exports = kwargs['eventsToExports']
+        if iothub_ids is None and 'iothubIds' in kwargs:
+            iothub_ids = kwargs['iothubIds']
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if log_unmasked_ips_enabled is None and 'logUnmaskedIpsEnabled' in kwargs:
+            log_unmasked_ips_enabled = kwargs['logUnmaskedIpsEnabled']
+        if query_for_resources is None and 'queryForResources' in kwargs:
+            query_for_resources = kwargs['queryForResources']
+        if query_subscription_ids is None and 'querySubscriptionIds' in kwargs:
+            query_subscription_ids = kwargs['querySubscriptionIds']
+        if recommendations_enabled is None and 'recommendationsEnabled' in kwargs:
+            recommendations_enabled = kwargs['recommendationsEnabled']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if additional_workspaces is not None:
-            pulumi.set(__self__, "additional_workspaces", additional_workspaces)
+            _setter("additional_workspaces", additional_workspaces)
         if disabled_data_sources is not None:
-            pulumi.set(__self__, "disabled_data_sources", disabled_data_sources)
+            _setter("disabled_data_sources", disabled_data_sources)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if events_to_exports is not None:
-            pulumi.set(__self__, "events_to_exports", events_to_exports)
+            _setter("events_to_exports", events_to_exports)
         if iothub_ids is not None:
-            pulumi.set(__self__, "iothub_ids", iothub_ids)
+            _setter("iothub_ids", iothub_ids)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if log_analytics_workspace_id is not None:
-            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+            _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if log_unmasked_ips_enabled is not None:
-            pulumi.set(__self__, "log_unmasked_ips_enabled", log_unmasked_ips_enabled)
+            _setter("log_unmasked_ips_enabled", log_unmasked_ips_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if query_for_resources is not None:
-            pulumi.set(__self__, "query_for_resources", query_for_resources)
+            _setter("query_for_resources", query_for_resources)
         if query_subscription_ids is not None:
-            pulumi.set(__self__, "query_subscription_ids", query_subscription_ids)
+            _setter("query_subscription_ids", query_subscription_ids)
         if recommendations_enabled is not None:
-            pulumi.set(__self__, "recommendations_enabled", recommendations_enabled)
+            _setter("recommendations_enabled", recommendations_enabled)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="additionalWorkspaces")
@@ -625,6 +753,10 @@ class SecuritySolution(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecuritySolutionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -670,6 +802,11 @@ class SecuritySolution(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["query_for_resources"] = query_for_resources
             __props__.__dict__["query_subscription_ids"] = query_subscription_ids
+            if recommendations_enabled is not None and not isinstance(recommendations_enabled, SecuritySolutionRecommendationsEnabledArgs):
+                recommendations_enabled = recommendations_enabled or {}
+                def _setter(key, value):
+                    recommendations_enabled[key] = value
+                SecuritySolutionRecommendationsEnabledArgs._configure(_setter, **recommendations_enabled)
             __props__.__dict__["recommendations_enabled"] = recommendations_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

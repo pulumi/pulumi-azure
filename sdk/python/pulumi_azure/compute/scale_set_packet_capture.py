@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,21 +37,68 @@ class ScaleSetPacketCaptureArgs:
         :param pulumi.Input[int] maximum_capture_duration_in_seconds: The maximum duration of the capture session in seconds. Defaults to `18000` (5 hours). Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name to use for this Network Packet Capture. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "network_watcher_id", network_watcher_id)
-        pulumi.set(__self__, "storage_location", storage_location)
-        pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
+        ScaleSetPacketCaptureArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_watcher_id=network_watcher_id,
+            storage_location=storage_location,
+            virtual_machine_scale_set_id=virtual_machine_scale_set_id,
+            filters=filters,
+            machine_scope=machine_scope,
+            maximum_bytes_per_packet=maximum_bytes_per_packet,
+            maximum_bytes_per_session=maximum_bytes_per_session,
+            maximum_capture_duration_in_seconds=maximum_capture_duration_in_seconds,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_watcher_id: Optional[pulumi.Input[str]] = None,
+             storage_location: Optional[pulumi.Input['ScaleSetPacketCaptureStorageLocationArgs']] = None,
+             virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetPacketCaptureFilterArgs']]]] = None,
+             machine_scope: Optional[pulumi.Input['ScaleSetPacketCaptureMachineScopeArgs']] = None,
+             maximum_bytes_per_packet: Optional[pulumi.Input[int]] = None,
+             maximum_bytes_per_session: Optional[pulumi.Input[int]] = None,
+             maximum_capture_duration_in_seconds: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if network_watcher_id is None and 'networkWatcherId' in kwargs:
+            network_watcher_id = kwargs['networkWatcherId']
+        if network_watcher_id is None:
+            raise TypeError("Missing 'network_watcher_id' argument")
+        if storage_location is None and 'storageLocation' in kwargs:
+            storage_location = kwargs['storageLocation']
+        if storage_location is None:
+            raise TypeError("Missing 'storage_location' argument")
+        if virtual_machine_scale_set_id is None and 'virtualMachineScaleSetId' in kwargs:
+            virtual_machine_scale_set_id = kwargs['virtualMachineScaleSetId']
+        if virtual_machine_scale_set_id is None:
+            raise TypeError("Missing 'virtual_machine_scale_set_id' argument")
+        if machine_scope is None and 'machineScope' in kwargs:
+            machine_scope = kwargs['machineScope']
+        if maximum_bytes_per_packet is None and 'maximumBytesPerPacket' in kwargs:
+            maximum_bytes_per_packet = kwargs['maximumBytesPerPacket']
+        if maximum_bytes_per_session is None and 'maximumBytesPerSession' in kwargs:
+            maximum_bytes_per_session = kwargs['maximumBytesPerSession']
+        if maximum_capture_duration_in_seconds is None and 'maximumCaptureDurationInSeconds' in kwargs:
+            maximum_capture_duration_in_seconds = kwargs['maximumCaptureDurationInSeconds']
+
+        _setter("network_watcher_id", network_watcher_id)
+        _setter("storage_location", storage_location)
+        _setter("virtual_machine_scale_set_id", virtual_machine_scale_set_id)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if machine_scope is not None:
-            pulumi.set(__self__, "machine_scope", machine_scope)
+            _setter("machine_scope", machine_scope)
         if maximum_bytes_per_packet is not None:
-            pulumi.set(__self__, "maximum_bytes_per_packet", maximum_bytes_per_packet)
+            _setter("maximum_bytes_per_packet", maximum_bytes_per_packet)
         if maximum_bytes_per_session is not None:
-            pulumi.set(__self__, "maximum_bytes_per_session", maximum_bytes_per_session)
+            _setter("maximum_bytes_per_session", maximum_bytes_per_session)
         if maximum_capture_duration_in_seconds is not None:
-            pulumi.set(__self__, "maximum_capture_duration_in_seconds", maximum_capture_duration_in_seconds)
+            _setter("maximum_capture_duration_in_seconds", maximum_capture_duration_in_seconds)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="networkWatcherId")
@@ -186,24 +233,65 @@ class _ScaleSetPacketCaptureState:
         :param pulumi.Input['ScaleSetPacketCaptureStorageLocationArgs'] storage_location: A `storage_location` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_machine_scale_set_id: The resource ID of the Virtual Machine Scale Set to capture packets from. Changing this forces a new resource to be created.
         """
+        _ScaleSetPacketCaptureState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filters=filters,
+            machine_scope=machine_scope,
+            maximum_bytes_per_packet=maximum_bytes_per_packet,
+            maximum_bytes_per_session=maximum_bytes_per_session,
+            maximum_capture_duration_in_seconds=maximum_capture_duration_in_seconds,
+            name=name,
+            network_watcher_id=network_watcher_id,
+            storage_location=storage_location,
+            virtual_machine_scale_set_id=virtual_machine_scale_set_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filters: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetPacketCaptureFilterArgs']]]] = None,
+             machine_scope: Optional[pulumi.Input['ScaleSetPacketCaptureMachineScopeArgs']] = None,
+             maximum_bytes_per_packet: Optional[pulumi.Input[int]] = None,
+             maximum_bytes_per_session: Optional[pulumi.Input[int]] = None,
+             maximum_capture_duration_in_seconds: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_watcher_id: Optional[pulumi.Input[str]] = None,
+             storage_location: Optional[pulumi.Input['ScaleSetPacketCaptureStorageLocationArgs']] = None,
+             virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if machine_scope is None and 'machineScope' in kwargs:
+            machine_scope = kwargs['machineScope']
+        if maximum_bytes_per_packet is None and 'maximumBytesPerPacket' in kwargs:
+            maximum_bytes_per_packet = kwargs['maximumBytesPerPacket']
+        if maximum_bytes_per_session is None and 'maximumBytesPerSession' in kwargs:
+            maximum_bytes_per_session = kwargs['maximumBytesPerSession']
+        if maximum_capture_duration_in_seconds is None and 'maximumCaptureDurationInSeconds' in kwargs:
+            maximum_capture_duration_in_seconds = kwargs['maximumCaptureDurationInSeconds']
+        if network_watcher_id is None and 'networkWatcherId' in kwargs:
+            network_watcher_id = kwargs['networkWatcherId']
+        if storage_location is None and 'storageLocation' in kwargs:
+            storage_location = kwargs['storageLocation']
+        if virtual_machine_scale_set_id is None and 'virtualMachineScaleSetId' in kwargs:
+            virtual_machine_scale_set_id = kwargs['virtualMachineScaleSetId']
+
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if machine_scope is not None:
-            pulumi.set(__self__, "machine_scope", machine_scope)
+            _setter("machine_scope", machine_scope)
         if maximum_bytes_per_packet is not None:
-            pulumi.set(__self__, "maximum_bytes_per_packet", maximum_bytes_per_packet)
+            _setter("maximum_bytes_per_packet", maximum_bytes_per_packet)
         if maximum_bytes_per_session is not None:
-            pulumi.set(__self__, "maximum_bytes_per_session", maximum_bytes_per_session)
+            _setter("maximum_bytes_per_session", maximum_bytes_per_session)
         if maximum_capture_duration_in_seconds is not None:
-            pulumi.set(__self__, "maximum_capture_duration_in_seconds", maximum_capture_duration_in_seconds)
+            _setter("maximum_capture_duration_in_seconds", maximum_capture_duration_in_seconds)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_watcher_id is not None:
-            pulumi.set(__self__, "network_watcher_id", network_watcher_id)
+            _setter("network_watcher_id", network_watcher_id)
         if storage_location is not None:
-            pulumi.set(__self__, "storage_location", storage_location)
+            _setter("storage_location", storage_location)
         if virtual_machine_scale_set_id is not None:
-            pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
+            _setter("virtual_machine_scale_set_id", virtual_machine_scale_set_id)
 
     @property
     @pulumi.getter
@@ -517,6 +605,10 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScaleSetPacketCaptureArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -541,6 +633,11 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
             __props__ = ScaleSetPacketCaptureArgs.__new__(ScaleSetPacketCaptureArgs)
 
             __props__.__dict__["filters"] = filters
+            if machine_scope is not None and not isinstance(machine_scope, ScaleSetPacketCaptureMachineScopeArgs):
+                machine_scope = machine_scope or {}
+                def _setter(key, value):
+                    machine_scope[key] = value
+                ScaleSetPacketCaptureMachineScopeArgs._configure(_setter, **machine_scope)
             __props__.__dict__["machine_scope"] = machine_scope
             __props__.__dict__["maximum_bytes_per_packet"] = maximum_bytes_per_packet
             __props__.__dict__["maximum_bytes_per_session"] = maximum_bytes_per_session
@@ -549,6 +646,11 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
             if network_watcher_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_watcher_id'")
             __props__.__dict__["network_watcher_id"] = network_watcher_id
+            if storage_location is not None and not isinstance(storage_location, ScaleSetPacketCaptureStorageLocationArgs):
+                storage_location = storage_location or {}
+                def _setter(key, value):
+                    storage_location[key] = value
+                ScaleSetPacketCaptureStorageLocationArgs._configure(_setter, **storage_location)
             if storage_location is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_location'")
             __props__.__dict__["storage_location"] = storage_location

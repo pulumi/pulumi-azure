@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RegistryTokenArgs', 'RegistryToken']
@@ -27,13 +27,44 @@ class RegistryTokenArgs:
         :param pulumi.Input[bool] enabled: Should the Container Registry token be enabled? Defaults to `true`.
         :param pulumi.Input[str] name: Specifies the name of the token. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "container_registry_name", container_registry_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scope_map_id", scope_map_id)
+        RegistryTokenArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_registry_name=container_registry_name,
+            resource_group_name=resource_group_name,
+            scope_map_id=scope_map_id,
+            enabled=enabled,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_registry_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scope_map_id: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if container_registry_name is None and 'containerRegistryName' in kwargs:
+            container_registry_name = kwargs['containerRegistryName']
+        if container_registry_name is None:
+            raise TypeError("Missing 'container_registry_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scope_map_id is None and 'scopeMapId' in kwargs:
+            scope_map_id = kwargs['scopeMapId']
+        if scope_map_id is None:
+            raise TypeError("Missing 'scope_map_id' argument")
+
+        _setter("container_registry_name", container_registry_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("scope_map_id", scope_map_id)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="containerRegistryName")
@@ -112,16 +143,41 @@ class _RegistryTokenState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Container Registry token. Changing this forces a new resource to be created.
         :param pulumi.Input[str] scope_map_id: The ID of the Container Registry Scope Map associated with the token.
         """
+        _RegistryTokenState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_registry_name=container_registry_name,
+            enabled=enabled,
+            name=name,
+            resource_group_name=resource_group_name,
+            scope_map_id=scope_map_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_registry_name: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scope_map_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if container_registry_name is None and 'containerRegistryName' in kwargs:
+            container_registry_name = kwargs['containerRegistryName']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if scope_map_id is None and 'scopeMapId' in kwargs:
+            scope_map_id = kwargs['scopeMapId']
+
         if container_registry_name is not None:
-            pulumi.set(__self__, "container_registry_name", container_registry_name)
+            _setter("container_registry_name", container_registry_name)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if scope_map_id is not None:
-            pulumi.set(__self__, "scope_map_id", scope_map_id)
+            _setter("scope_map_id", scope_map_id)
 
     @property
     @pulumi.getter(name="containerRegistryName")
@@ -303,6 +359,10 @@ class RegistryToken(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegistryTokenArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

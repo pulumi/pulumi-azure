@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OutputMssqlArgs', 'OutputMssql']
@@ -39,23 +39,74 @@ class OutputMssqlArgs:
         :param pulumi.Input[str] password: Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`.
         :param pulumi.Input[str] user: Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
-        pulumi.set(__self__, "table", table)
+        OutputMssqlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            resource_group_name=resource_group_name,
+            server=server,
+            stream_analytics_job_name=stream_analytics_job_name,
+            table=table,
+            authentication_mode=authentication_mode,
+            max_batch_count=max_batch_count,
+            max_writer_count=max_writer_count,
+            name=name,
+            password=password,
+            user=user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+             table: Optional[pulumi.Input[str]] = None,
+             authentication_mode: Optional[pulumi.Input[str]] = None,
+             max_batch_count: Optional[pulumi.Input[float]] = None,
+             max_writer_count: Optional[pulumi.Input[float]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+        if stream_analytics_job_name is None:
+            raise TypeError("Missing 'stream_analytics_job_name' argument")
+        if table is None:
+            raise TypeError("Missing 'table' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if max_batch_count is None and 'maxBatchCount' in kwargs:
+            max_batch_count = kwargs['maxBatchCount']
+        if max_writer_count is None and 'maxWriterCount' in kwargs:
+            max_writer_count = kwargs['maxWriterCount']
+
+        _setter("database", database)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server", server)
+        _setter("stream_analytics_job_name", stream_analytics_job_name)
+        _setter("table", table)
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if max_batch_count is not None:
-            pulumi.set(__self__, "max_batch_count", max_batch_count)
+            _setter("max_batch_count", max_batch_count)
         if max_writer_count is not None:
-            pulumi.set(__self__, "max_writer_count", max_writer_count)
+            _setter("max_writer_count", max_writer_count)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user is not None:
-            pulumi.set(__self__, "user", user)
+            _setter("user", user)
 
     @property
     @pulumi.getter
@@ -218,28 +269,69 @@ class _OutputMssqlState:
         :param pulumi.Input[str] table: Table in the database that the output points to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user: Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`.
         """
+        _OutputMssqlState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_mode=authentication_mode,
+            database=database,
+            max_batch_count=max_batch_count,
+            max_writer_count=max_writer_count,
+            name=name,
+            password=password,
+            resource_group_name=resource_group_name,
+            server=server,
+            stream_analytics_job_name=stream_analytics_job_name,
+            table=table,
+            user=user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_mode: Optional[pulumi.Input[str]] = None,
+             database: Optional[pulumi.Input[str]] = None,
+             max_batch_count: Optional[pulumi.Input[float]] = None,
+             max_writer_count: Optional[pulumi.Input[float]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+             table: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if authentication_mode is None and 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if max_batch_count is None and 'maxBatchCount' in kwargs:
+            max_batch_count = kwargs['maxBatchCount']
+        if max_writer_count is None and 'maxWriterCount' in kwargs:
+            max_writer_count = kwargs['maxWriterCount']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if max_batch_count is not None:
-            pulumi.set(__self__, "max_batch_count", max_batch_count)
+            _setter("max_batch_count", max_batch_count)
         if max_writer_count is not None:
-            pulumi.set(__self__, "max_writer_count", max_writer_count)
+            _setter("max_writer_count", max_writer_count)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if server is not None:
-            pulumi.set(__self__, "server", server)
+            _setter("server", server)
         if stream_analytics_job_name is not None:
-            pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
+            _setter("stream_analytics_job_name", stream_analytics_job_name)
         if table is not None:
-            pulumi.set(__self__, "table", table)
+            _setter("table", table)
         if user is not None:
-            pulumi.set(__self__, "user", user)
+            _setter("user", user)
 
     @property
     @pulumi.getter(name="authenticationMode")
@@ -509,6 +601,10 @@ class OutputMssql(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OutputMssqlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

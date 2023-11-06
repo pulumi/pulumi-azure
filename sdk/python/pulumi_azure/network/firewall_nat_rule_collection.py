@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,13 +31,48 @@ class FirewallNatRuleCollectionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FirewallNatRuleCollectionRuleArgs']]] rules: One or more `rule` blocks as defined below.
         :param pulumi.Input[str] name: Specifies the name of the NAT Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "action", action)
-        pulumi.set(__self__, "azure_firewall_name", azure_firewall_name)
-        pulumi.set(__self__, "priority", priority)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "rules", rules)
+        FirewallNatRuleCollectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            azure_firewall_name=azure_firewall_name,
+            priority=priority,
+            resource_group_name=resource_group_name,
+            rules=rules,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             azure_firewall_name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallNatRuleCollectionRuleArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if action is None:
+            raise TypeError("Missing 'action' argument")
+        if azure_firewall_name is None and 'azureFirewallName' in kwargs:
+            azure_firewall_name = kwargs['azureFirewallName']
+        if azure_firewall_name is None:
+            raise TypeError("Missing 'azure_firewall_name' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if rules is None:
+            raise TypeError("Missing 'rules' argument")
+
+        _setter("action", action)
+        _setter("azure_firewall_name", azure_firewall_name)
+        _setter("priority", priority)
+        _setter("resource_group_name", resource_group_name)
+        _setter("rules", rules)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -130,18 +165,43 @@ class _FirewallNatRuleCollectionState:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallNatRuleCollectionRuleArgs']]] rules: One or more `rule` blocks as defined below.
         """
+        _FirewallNatRuleCollectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            action=action,
+            azure_firewall_name=azure_firewall_name,
+            name=name,
+            priority=priority,
+            resource_group_name=resource_group_name,
+            rules=rules,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             action: Optional[pulumi.Input[str]] = None,
+             azure_firewall_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallNatRuleCollectionRuleArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if azure_firewall_name is None and 'azureFirewallName' in kwargs:
+            azure_firewall_name = kwargs['azureFirewallName']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if action is not None:
-            pulumi.set(__self__, "action", action)
+            _setter("action", action)
         if azure_firewall_name is not None:
-            pulumi.set(__self__, "azure_firewall_name", azure_firewall_name)
+            _setter("azure_firewall_name", azure_firewall_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if rules is not None:
-            pulumi.set(__self__, "rules", rules)
+            _setter("rules", rules)
 
     @property
     @pulumi.getter
@@ -373,6 +433,10 @@ class FirewallNatRuleCollection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FirewallNatRuleCollectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

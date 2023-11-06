@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,21 +35,56 @@ class StaticSiteArgs:
         :param pulumi.Input[str] sku_tier: Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        StaticSiteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            app_settings=app_settings,
+            identity=identity,
+            location=location,
+            name=name,
+            sku_size=sku_size,
+            sku_tier=sku_tier,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             identity: Optional[pulumi.Input['StaticSiteIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             sku_size: Optional[pulumi.Input[str]] = None,
+             sku_tier: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if app_settings is None and 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if sku_size is None and 'skuSize' in kwargs:
+            sku_size = kwargs['skuSize']
+        if sku_tier is None and 'skuTier' in kwargs:
+            sku_tier = kwargs['skuTier']
+
+        _setter("resource_group_name", resource_group_name)
         if app_settings is not None:
-            pulumi.set(__self__, "app_settings", app_settings)
+            _setter("app_settings", app_settings)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sku_size is not None:
-            pulumi.set(__self__, "sku_size", sku_size)
+            _setter("sku_size", sku_size)
         if sku_tier is not None:
-            pulumi.set(__self__, "sku_tier", sku_tier)
+            _setter("sku_tier", sku_tier)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -174,26 +209,67 @@ class _StaticSiteState:
         :param pulumi.Input[str] sku_tier: Specifies the SKU tier of the Static Web App. Possible values are `Free` or `Standard`. Defaults to `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        _StaticSiteState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+            app_settings=app_settings,
+            default_host_name=default_host_name,
+            identity=identity,
+            location=location,
+            name=name,
+            resource_group_name=resource_group_name,
+            sku_size=sku_size,
+            sku_tier=sku_tier,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: Optional[pulumi.Input[str]] = None,
+             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             default_host_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['StaticSiteIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_size: Optional[pulumi.Input[str]] = None,
+             sku_tier: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if app_settings is None and 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if default_host_name is None and 'defaultHostName' in kwargs:
+            default_host_name = kwargs['defaultHostName']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if sku_size is None and 'skuSize' in kwargs:
+            sku_size = kwargs['skuSize']
+        if sku_tier is None and 'skuTier' in kwargs:
+            sku_tier = kwargs['skuTier']
+
         if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
+            _setter("api_key", api_key)
         if app_settings is not None:
-            pulumi.set(__self__, "app_settings", app_settings)
+            _setter("app_settings", app_settings)
         if default_host_name is not None:
-            pulumi.set(__self__, "default_host_name", default_host_name)
+            _setter("default_host_name", default_host_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sku_size is not None:
-            pulumi.set(__self__, "sku_size", sku_size)
+            _setter("sku_size", sku_size)
         if sku_tier is not None:
-            pulumi.set(__self__, "sku_tier", sku_tier)
+            _setter("sku_tier", sku_tier)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -405,6 +481,10 @@ class StaticSite(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StaticSiteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -428,6 +508,11 @@ class StaticSite(pulumi.CustomResource):
             __props__ = StaticSiteArgs.__new__(StaticSiteArgs)
 
             __props__.__dict__["app_settings"] = app_settings
+            if identity is not None and not isinstance(identity, StaticSiteIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                StaticSiteIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

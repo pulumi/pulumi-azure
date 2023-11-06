@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IdentityProviderAadb2cArgs', 'IdentityProviderAadb2c']
@@ -39,19 +39,88 @@ class IdentityProviderAadb2cArgs:
         :param pulumi.Input[str] password_reset_policy: Password reset Policy Name.
         :param pulumi.Input[str] profile_editing_policy: Profile editing Policy Name.
         """
-        pulumi.set(__self__, "allowed_tenant", allowed_tenant)
-        pulumi.set(__self__, "api_management_name", api_management_name)
-        pulumi.set(__self__, "authority", authority)
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "client_secret", client_secret)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "signin_policy", signin_policy)
-        pulumi.set(__self__, "signin_tenant", signin_tenant)
-        pulumi.set(__self__, "signup_policy", signup_policy)
+        IdentityProviderAadb2cArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_tenant=allowed_tenant,
+            api_management_name=api_management_name,
+            authority=authority,
+            client_id=client_id,
+            client_secret=client_secret,
+            resource_group_name=resource_group_name,
+            signin_policy=signin_policy,
+            signin_tenant=signin_tenant,
+            signup_policy=signup_policy,
+            password_reset_policy=password_reset_policy,
+            profile_editing_policy=profile_editing_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_tenant: Optional[pulumi.Input[str]] = None,
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             authority: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             signin_policy: Optional[pulumi.Input[str]] = None,
+             signin_tenant: Optional[pulumi.Input[str]] = None,
+             signup_policy: Optional[pulumi.Input[str]] = None,
+             password_reset_policy: Optional[pulumi.Input[str]] = None,
+             profile_editing_policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allowed_tenant is None and 'allowedTenant' in kwargs:
+            allowed_tenant = kwargs['allowedTenant']
+        if allowed_tenant is None:
+            raise TypeError("Missing 'allowed_tenant' argument")
+        if api_management_name is None and 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if authority is None:
+            raise TypeError("Missing 'authority' argument")
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_id is None:
+            raise TypeError("Missing 'client_id' argument")
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if client_secret is None:
+            raise TypeError("Missing 'client_secret' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if signin_policy is None and 'signinPolicy' in kwargs:
+            signin_policy = kwargs['signinPolicy']
+        if signin_policy is None:
+            raise TypeError("Missing 'signin_policy' argument")
+        if signin_tenant is None and 'signinTenant' in kwargs:
+            signin_tenant = kwargs['signinTenant']
+        if signin_tenant is None:
+            raise TypeError("Missing 'signin_tenant' argument")
+        if signup_policy is None and 'signupPolicy' in kwargs:
+            signup_policy = kwargs['signupPolicy']
+        if signup_policy is None:
+            raise TypeError("Missing 'signup_policy' argument")
+        if password_reset_policy is None and 'passwordResetPolicy' in kwargs:
+            password_reset_policy = kwargs['passwordResetPolicy']
+        if profile_editing_policy is None and 'profileEditingPolicy' in kwargs:
+            profile_editing_policy = kwargs['profileEditingPolicy']
+
+        _setter("allowed_tenant", allowed_tenant)
+        _setter("api_management_name", api_management_name)
+        _setter("authority", authority)
+        _setter("client_id", client_id)
+        _setter("client_secret", client_secret)
+        _setter("resource_group_name", resource_group_name)
+        _setter("signin_policy", signin_policy)
+        _setter("signin_tenant", signin_tenant)
+        _setter("signup_policy", signup_policy)
         if password_reset_policy is not None:
-            pulumi.set(__self__, "password_reset_policy", password_reset_policy)
+            _setter("password_reset_policy", password_reset_policy)
         if profile_editing_policy is not None:
-            pulumi.set(__self__, "profile_editing_policy", profile_editing_policy)
+            _setter("profile_editing_policy", profile_editing_policy)
 
     @property
     @pulumi.getter(name="allowedTenant")
@@ -214,28 +283,79 @@ class _IdentityProviderAadb2cState:
         :param pulumi.Input[str] signin_tenant: The tenant to use instead of Common when logging into Active Directory, usually your B2C tenant domain.
         :param pulumi.Input[str] signup_policy: Signup Policy Name.
         """
+        _IdentityProviderAadb2cState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_tenant=allowed_tenant,
+            api_management_name=api_management_name,
+            authority=authority,
+            client_id=client_id,
+            client_secret=client_secret,
+            password_reset_policy=password_reset_policy,
+            profile_editing_policy=profile_editing_policy,
+            resource_group_name=resource_group_name,
+            signin_policy=signin_policy,
+            signin_tenant=signin_tenant,
+            signup_policy=signup_policy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_tenant: Optional[pulumi.Input[str]] = None,
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             authority: Optional[pulumi.Input[str]] = None,
+             client_id: Optional[pulumi.Input[str]] = None,
+             client_secret: Optional[pulumi.Input[str]] = None,
+             password_reset_policy: Optional[pulumi.Input[str]] = None,
+             profile_editing_policy: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             signin_policy: Optional[pulumi.Input[str]] = None,
+             signin_tenant: Optional[pulumi.Input[str]] = None,
+             signup_policy: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allowed_tenant is None and 'allowedTenant' in kwargs:
+            allowed_tenant = kwargs['allowedTenant']
+        if api_management_name is None and 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if password_reset_policy is None and 'passwordResetPolicy' in kwargs:
+            password_reset_policy = kwargs['passwordResetPolicy']
+        if profile_editing_policy is None and 'profileEditingPolicy' in kwargs:
+            profile_editing_policy = kwargs['profileEditingPolicy']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if signin_policy is None and 'signinPolicy' in kwargs:
+            signin_policy = kwargs['signinPolicy']
+        if signin_tenant is None and 'signinTenant' in kwargs:
+            signin_tenant = kwargs['signinTenant']
+        if signup_policy is None and 'signupPolicy' in kwargs:
+            signup_policy = kwargs['signupPolicy']
+
         if allowed_tenant is not None:
-            pulumi.set(__self__, "allowed_tenant", allowed_tenant)
+            _setter("allowed_tenant", allowed_tenant)
         if api_management_name is not None:
-            pulumi.set(__self__, "api_management_name", api_management_name)
+            _setter("api_management_name", api_management_name)
         if authority is not None:
-            pulumi.set(__self__, "authority", authority)
+            _setter("authority", authority)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if password_reset_policy is not None:
-            pulumi.set(__self__, "password_reset_policy", password_reset_policy)
+            _setter("password_reset_policy", password_reset_policy)
         if profile_editing_policy is not None:
-            pulumi.set(__self__, "profile_editing_policy", profile_editing_policy)
+            _setter("profile_editing_policy", profile_editing_policy)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if signin_policy is not None:
-            pulumi.set(__self__, "signin_policy", signin_policy)
+            _setter("signin_policy", signin_policy)
         if signin_tenant is not None:
-            pulumi.set(__self__, "signin_tenant", signin_tenant)
+            _setter("signin_tenant", signin_tenant)
         if signup_policy is not None:
-            pulumi.set(__self__, "signup_policy", signup_policy)
+            _setter("signup_policy", signup_policy)
 
     @property
     @pulumi.getter(name="allowedTenant")
@@ -501,6 +621,10 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IdentityProviderAadb2cArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

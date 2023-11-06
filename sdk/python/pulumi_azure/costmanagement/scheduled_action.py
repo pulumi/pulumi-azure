@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ScheduledActionArgs', 'ScheduledAction']
@@ -45,26 +45,101 @@ class ScheduledActionArgs:
         :param pulumi.Input[str] name: The name which should be used for this Azure Cost Management Scheduled Action. Changing this forces a new Azure Cost Management Scheduled Action to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks_of_months: Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "email_address_sender", email_address_sender)
-        pulumi.set(__self__, "email_addresses", email_addresses)
-        pulumi.set(__self__, "email_subject", email_subject)
-        pulumi.set(__self__, "end_date", end_date)
-        pulumi.set(__self__, "frequency", frequency)
-        pulumi.set(__self__, "start_date", start_date)
-        pulumi.set(__self__, "view_id", view_id)
+        ScheduledActionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            email_address_sender=email_address_sender,
+            email_addresses=email_addresses,
+            email_subject=email_subject,
+            end_date=end_date,
+            frequency=frequency,
+            start_date=start_date,
+            view_id=view_id,
+            day_of_month=day_of_month,
+            days_of_weeks=days_of_weeks,
+            hour_of_day=hour_of_day,
+            message=message,
+            name=name,
+            weeks_of_months=weeks_of_months,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[pulumi.Input[str]] = None,
+             email_address_sender: Optional[pulumi.Input[str]] = None,
+             email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             email_subject: Optional[pulumi.Input[str]] = None,
+             end_date: Optional[pulumi.Input[str]] = None,
+             frequency: Optional[pulumi.Input[str]] = None,
+             start_date: Optional[pulumi.Input[str]] = None,
+             view_id: Optional[pulumi.Input[str]] = None,
+             day_of_month: Optional[pulumi.Input[int]] = None,
+             days_of_weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             hour_of_day: Optional[pulumi.Input[int]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             weeks_of_months: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if email_address_sender is None and 'emailAddressSender' in kwargs:
+            email_address_sender = kwargs['emailAddressSender']
+        if email_address_sender is None:
+            raise TypeError("Missing 'email_address_sender' argument")
+        if email_addresses is None and 'emailAddresses' in kwargs:
+            email_addresses = kwargs['emailAddresses']
+        if email_addresses is None:
+            raise TypeError("Missing 'email_addresses' argument")
+        if email_subject is None and 'emailSubject' in kwargs:
+            email_subject = kwargs['emailSubject']
+        if email_subject is None:
+            raise TypeError("Missing 'email_subject' argument")
+        if end_date is None and 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if end_date is None:
+            raise TypeError("Missing 'end_date' argument")
+        if frequency is None:
+            raise TypeError("Missing 'frequency' argument")
+        if start_date is None and 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+        if start_date is None:
+            raise TypeError("Missing 'start_date' argument")
+        if view_id is None and 'viewId' in kwargs:
+            view_id = kwargs['viewId']
+        if view_id is None:
+            raise TypeError("Missing 'view_id' argument")
+        if day_of_month is None and 'dayOfMonth' in kwargs:
+            day_of_month = kwargs['dayOfMonth']
+        if days_of_weeks is None and 'daysOfWeeks' in kwargs:
+            days_of_weeks = kwargs['daysOfWeeks']
+        if hour_of_day is None and 'hourOfDay' in kwargs:
+            hour_of_day = kwargs['hourOfDay']
+        if weeks_of_months is None and 'weeksOfMonths' in kwargs:
+            weeks_of_months = kwargs['weeksOfMonths']
+
+        _setter("display_name", display_name)
+        _setter("email_address_sender", email_address_sender)
+        _setter("email_addresses", email_addresses)
+        _setter("email_subject", email_subject)
+        _setter("end_date", end_date)
+        _setter("frequency", frequency)
+        _setter("start_date", start_date)
+        _setter("view_id", view_id)
         if day_of_month is not None:
-            pulumi.set(__self__, "day_of_month", day_of_month)
+            _setter("day_of_month", day_of_month)
         if days_of_weeks is not None:
-            pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+            _setter("days_of_weeks", days_of_weeks)
         if hour_of_day is not None:
-            pulumi.set(__self__, "hour_of_day", hour_of_day)
+            _setter("hour_of_day", hour_of_day)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if weeks_of_months is not None:
-            pulumi.set(__self__, "weeks_of_months", weeks_of_months)
+            _setter("weeks_of_months", weeks_of_months)
 
     @property
     @pulumi.getter(name="displayName")
@@ -269,34 +344,93 @@ class _ScheduledActionState:
         :param pulumi.Input[str] view_id: The ID of the Cost Management View that is used by the Scheduled Action.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks_of_months: Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`.
         """
+        _ScheduledActionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_month=day_of_month,
+            days_of_weeks=days_of_weeks,
+            display_name=display_name,
+            email_address_sender=email_address_sender,
+            email_addresses=email_addresses,
+            email_subject=email_subject,
+            end_date=end_date,
+            frequency=frequency,
+            hour_of_day=hour_of_day,
+            message=message,
+            name=name,
+            start_date=start_date,
+            view_id=view_id,
+            weeks_of_months=weeks_of_months,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_month: Optional[pulumi.Input[int]] = None,
+             days_of_weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             email_address_sender: Optional[pulumi.Input[str]] = None,
+             email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             email_subject: Optional[pulumi.Input[str]] = None,
+             end_date: Optional[pulumi.Input[str]] = None,
+             frequency: Optional[pulumi.Input[str]] = None,
+             hour_of_day: Optional[pulumi.Input[int]] = None,
+             message: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             start_date: Optional[pulumi.Input[str]] = None,
+             view_id: Optional[pulumi.Input[str]] = None,
+             weeks_of_months: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if day_of_month is None and 'dayOfMonth' in kwargs:
+            day_of_month = kwargs['dayOfMonth']
+        if days_of_weeks is None and 'daysOfWeeks' in kwargs:
+            days_of_weeks = kwargs['daysOfWeeks']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if email_address_sender is None and 'emailAddressSender' in kwargs:
+            email_address_sender = kwargs['emailAddressSender']
+        if email_addresses is None and 'emailAddresses' in kwargs:
+            email_addresses = kwargs['emailAddresses']
+        if email_subject is None and 'emailSubject' in kwargs:
+            email_subject = kwargs['emailSubject']
+        if end_date is None and 'endDate' in kwargs:
+            end_date = kwargs['endDate']
+        if hour_of_day is None and 'hourOfDay' in kwargs:
+            hour_of_day = kwargs['hourOfDay']
+        if start_date is None and 'startDate' in kwargs:
+            start_date = kwargs['startDate']
+        if view_id is None and 'viewId' in kwargs:
+            view_id = kwargs['viewId']
+        if weeks_of_months is None and 'weeksOfMonths' in kwargs:
+            weeks_of_months = kwargs['weeksOfMonths']
+
         if day_of_month is not None:
-            pulumi.set(__self__, "day_of_month", day_of_month)
+            _setter("day_of_month", day_of_month)
         if days_of_weeks is not None:
-            pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+            _setter("days_of_weeks", days_of_weeks)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if email_address_sender is not None:
-            pulumi.set(__self__, "email_address_sender", email_address_sender)
+            _setter("email_address_sender", email_address_sender)
         if email_addresses is not None:
-            pulumi.set(__self__, "email_addresses", email_addresses)
+            _setter("email_addresses", email_addresses)
         if email_subject is not None:
-            pulumi.set(__self__, "email_subject", email_subject)
+            _setter("email_subject", email_subject)
         if end_date is not None:
-            pulumi.set(__self__, "end_date", end_date)
+            _setter("end_date", end_date)
         if frequency is not None:
-            pulumi.set(__self__, "frequency", frequency)
+            _setter("frequency", frequency)
         if hour_of_day is not None:
-            pulumi.set(__self__, "hour_of_day", hour_of_day)
+            _setter("hour_of_day", hour_of_day)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if start_date is not None:
-            pulumi.set(__self__, "start_date", start_date)
+            _setter("start_date", start_date)
         if view_id is not None:
-            pulumi.set(__self__, "view_id", view_id)
+            _setter("view_id", view_id)
         if weeks_of_months is not None:
-            pulumi.set(__self__, "weeks_of_months", weeks_of_months)
+            _setter("weeks_of_months", weeks_of_months)
 
     @property
     @pulumi.getter(name="dayOfMonth")
@@ -578,6 +712,10 @@ class ScheduledAction(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScheduledActionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

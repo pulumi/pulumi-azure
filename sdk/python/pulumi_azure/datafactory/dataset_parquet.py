@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -51,32 +51,91 @@ class DatasetParquetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
         """
-        pulumi.set(__self__, "data_factory_id", data_factory_id)
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        DatasetParquetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_factory_id=data_factory_id,
+            linked_service_name=linked_service_name,
+            additional_properties=additional_properties,
+            annotations=annotations,
+            azure_blob_fs_location=azure_blob_fs_location,
+            azure_blob_storage_location=azure_blob_storage_location,
+            compression_codec=compression_codec,
+            compression_level=compression_level,
+            description=description,
+            folder=folder,
+            http_server_location=http_server_location,
+            name=name,
+            parameters=parameters,
+            schema_columns=schema_columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             linked_service_name: Optional[pulumi.Input[str]] = None,
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             azure_blob_fs_location: Optional[pulumi.Input['DatasetParquetAzureBlobFsLocationArgs']] = None,
+             azure_blob_storage_location: Optional[pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs']] = None,
+             compression_codec: Optional[pulumi.Input[str]] = None,
+             compression_level: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             folder: Optional[pulumi.Input[str]] = None,
+             http_server_location: Optional[pulumi.Input['DatasetParquetHttpServerLocationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if linked_service_name is None:
+            raise TypeError("Missing 'linked_service_name' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if azure_blob_fs_location is None and 'azureBlobFsLocation' in kwargs:
+            azure_blob_fs_location = kwargs['azureBlobFsLocation']
+        if azure_blob_storage_location is None and 'azureBlobStorageLocation' in kwargs:
+            azure_blob_storage_location = kwargs['azureBlobStorageLocation']
+        if compression_codec is None and 'compressionCodec' in kwargs:
+            compression_codec = kwargs['compressionCodec']
+        if compression_level is None and 'compressionLevel' in kwargs:
+            compression_level = kwargs['compressionLevel']
+        if http_server_location is None and 'httpServerLocation' in kwargs:
+            http_server_location = kwargs['httpServerLocation']
+        if schema_columns is None and 'schemaColumns' in kwargs:
+            schema_columns = kwargs['schemaColumns']
+
+        _setter("data_factory_id", data_factory_id)
+        _setter("linked_service_name", linked_service_name)
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if azure_blob_fs_location is not None:
-            pulumi.set(__self__, "azure_blob_fs_location", azure_blob_fs_location)
+            _setter("azure_blob_fs_location", azure_blob_fs_location)
         if azure_blob_storage_location is not None:
-            pulumi.set(__self__, "azure_blob_storage_location", azure_blob_storage_location)
+            _setter("azure_blob_storage_location", azure_blob_storage_location)
         if compression_codec is not None:
-            pulumi.set(__self__, "compression_codec", compression_codec)
+            _setter("compression_codec", compression_codec)
         if compression_level is not None:
-            pulumi.set(__self__, "compression_level", compression_level)
+            _setter("compression_level", compression_level)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if folder is not None:
-            pulumi.set(__self__, "folder", folder)
+            _setter("folder", folder)
         if http_server_location is not None:
-            pulumi.set(__self__, "http_server_location", http_server_location)
+            _setter("http_server_location", http_server_location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if schema_columns is not None:
-            pulumi.set(__self__, "schema_columns", schema_columns)
+            _setter("schema_columns", schema_columns)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -289,34 +348,89 @@ class _DatasetParquetState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
         """
+        _DatasetParquetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_properties=additional_properties,
+            annotations=annotations,
+            azure_blob_fs_location=azure_blob_fs_location,
+            azure_blob_storage_location=azure_blob_storage_location,
+            compression_codec=compression_codec,
+            compression_level=compression_level,
+            data_factory_id=data_factory_id,
+            description=description,
+            folder=folder,
+            http_server_location=http_server_location,
+            linked_service_name=linked_service_name,
+            name=name,
+            parameters=parameters,
+            schema_columns=schema_columns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             azure_blob_fs_location: Optional[pulumi.Input['DatasetParquetAzureBlobFsLocationArgs']] = None,
+             azure_blob_storage_location: Optional[pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs']] = None,
+             compression_codec: Optional[pulumi.Input[str]] = None,
+             compression_level: Optional[pulumi.Input[str]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             folder: Optional[pulumi.Input[str]] = None,
+             http_server_location: Optional[pulumi.Input['DatasetParquetHttpServerLocationArgs']] = None,
+             linked_service_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if additional_properties is None and 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if azure_blob_fs_location is None and 'azureBlobFsLocation' in kwargs:
+            azure_blob_fs_location = kwargs['azureBlobFsLocation']
+        if azure_blob_storage_location is None and 'azureBlobStorageLocation' in kwargs:
+            azure_blob_storage_location = kwargs['azureBlobStorageLocation']
+        if compression_codec is None and 'compressionCodec' in kwargs:
+            compression_codec = kwargs['compressionCodec']
+        if compression_level is None and 'compressionLevel' in kwargs:
+            compression_level = kwargs['compressionLevel']
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if http_server_location is None and 'httpServerLocation' in kwargs:
+            http_server_location = kwargs['httpServerLocation']
+        if linked_service_name is None and 'linkedServiceName' in kwargs:
+            linked_service_name = kwargs['linkedServiceName']
+        if schema_columns is None and 'schemaColumns' in kwargs:
+            schema_columns = kwargs['schemaColumns']
+
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if azure_blob_fs_location is not None:
-            pulumi.set(__self__, "azure_blob_fs_location", azure_blob_fs_location)
+            _setter("azure_blob_fs_location", azure_blob_fs_location)
         if azure_blob_storage_location is not None:
-            pulumi.set(__self__, "azure_blob_storage_location", azure_blob_storage_location)
+            _setter("azure_blob_storage_location", azure_blob_storage_location)
         if compression_codec is not None:
-            pulumi.set(__self__, "compression_codec", compression_codec)
+            _setter("compression_codec", compression_codec)
         if compression_level is not None:
-            pulumi.set(__self__, "compression_level", compression_level)
+            _setter("compression_level", compression_level)
         if data_factory_id is not None:
-            pulumi.set(__self__, "data_factory_id", data_factory_id)
+            _setter("data_factory_id", data_factory_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if folder is not None:
-            pulumi.set(__self__, "folder", folder)
+            _setter("folder", folder)
         if http_server_location is not None:
-            pulumi.set(__self__, "http_server_location", http_server_location)
+            _setter("http_server_location", http_server_location)
         if linked_service_name is not None:
-            pulumi.set(__self__, "linked_service_name", linked_service_name)
+            _setter("linked_service_name", linked_service_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if schema_columns is not None:
-            pulumi.set(__self__, "schema_columns", schema_columns)
+            _setter("schema_columns", schema_columns)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -618,6 +732,10 @@ class DatasetParquet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatasetParquetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -648,7 +766,17 @@ class DatasetParquet(pulumi.CustomResource):
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
+            if azure_blob_fs_location is not None and not isinstance(azure_blob_fs_location, DatasetParquetAzureBlobFsLocationArgs):
+                azure_blob_fs_location = azure_blob_fs_location or {}
+                def _setter(key, value):
+                    azure_blob_fs_location[key] = value
+                DatasetParquetAzureBlobFsLocationArgs._configure(_setter, **azure_blob_fs_location)
             __props__.__dict__["azure_blob_fs_location"] = azure_blob_fs_location
+            if azure_blob_storage_location is not None and not isinstance(azure_blob_storage_location, DatasetParquetAzureBlobStorageLocationArgs):
+                azure_blob_storage_location = azure_blob_storage_location or {}
+                def _setter(key, value):
+                    azure_blob_storage_location[key] = value
+                DatasetParquetAzureBlobStorageLocationArgs._configure(_setter, **azure_blob_storage_location)
             __props__.__dict__["azure_blob_storage_location"] = azure_blob_storage_location
             __props__.__dict__["compression_codec"] = compression_codec
             __props__.__dict__["compression_level"] = compression_level
@@ -657,6 +785,11 @@ class DatasetParquet(pulumi.CustomResource):
             __props__.__dict__["data_factory_id"] = data_factory_id
             __props__.__dict__["description"] = description
             __props__.__dict__["folder"] = folder
+            if http_server_location is not None and not isinstance(http_server_location, DatasetParquetHttpServerLocationArgs):
+                http_server_location = http_server_location or {}
+                def _setter(key, value):
+                    http_server_location[key] = value
+                DatasetParquetHttpServerLocationArgs._configure(_setter, **http_server_location)
             __props__.__dict__["http_server_location"] = http_server_location
             if linked_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_service_name'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FirewallRuleArgs', 'FirewallRule']
@@ -29,11 +29,40 @@ class FirewallRuleArgs:
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace on which to create the Firewall Rule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The Name of the firewall rule. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "end_ip_address", end_ip_address)
-        pulumi.set(__self__, "start_ip_address", start_ip_address)
-        pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
+        FirewallRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_ip_address=end_ip_address,
+            start_ip_address=start_ip_address,
+            synapse_workspace_id=synapse_workspace_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_ip_address: Optional[pulumi.Input[str]] = None,
+             start_ip_address: Optional[pulumi.Input[str]] = None,
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if end_ip_address is None and 'endIpAddress' in kwargs:
+            end_ip_address = kwargs['endIpAddress']
+        if end_ip_address is None:
+            raise TypeError("Missing 'end_ip_address' argument")
+        if start_ip_address is None and 'startIpAddress' in kwargs:
+            start_ip_address = kwargs['startIpAddress']
+        if start_ip_address is None:
+            raise TypeError("Missing 'start_ip_address' argument")
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+        if synapse_workspace_id is None:
+            raise TypeError("Missing 'synapse_workspace_id' argument")
+
+        _setter("end_ip_address", end_ip_address)
+        _setter("start_ip_address", start_ip_address)
+        _setter("synapse_workspace_id", synapse_workspace_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="endIpAddress")
@@ -106,14 +135,37 @@ class _FirewallRuleState:
         :param pulumi.Input[str] start_ip_address: The starting IP address to allow through the firewall for this rule.
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace on which to create the Firewall Rule. Changing this forces a new resource to be created.
         """
+        _FirewallRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_ip_address=end_ip_address,
+            name=name,
+            start_ip_address=start_ip_address,
+            synapse_workspace_id=synapse_workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_ip_address: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             start_ip_address: Optional[pulumi.Input[str]] = None,
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if end_ip_address is None and 'endIpAddress' in kwargs:
+            end_ip_address = kwargs['endIpAddress']
+        if start_ip_address is None and 'startIpAddress' in kwargs:
+            start_ip_address = kwargs['startIpAddress']
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+
         if end_ip_address is not None:
-            pulumi.set(__self__, "end_ip_address", end_ip_address)
+            _setter("end_ip_address", end_ip_address)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if start_ip_address is not None:
-            pulumi.set(__self__, "start_ip_address", start_ip_address)
+            _setter("start_ip_address", start_ip_address)
         if synapse_workspace_id is not None:
-            pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
+            _setter("synapse_workspace_id", synapse_workspace_id)
 
     @property
     @pulumi.getter(name="endIpAddress")
@@ -287,6 +339,10 @@ class FirewallRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FirewallRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LiveEventOutputArgs', 'LiveEventOutput']
@@ -34,21 +34,68 @@ class LiveEventOutputArgs:
         :param pulumi.Input[str] name: The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
         :param pulumi.Input[int] output_snap_time_in_seconds: The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
         """
-        pulumi.set(__self__, "archive_window_duration", archive_window_duration)
-        pulumi.set(__self__, "asset_name", asset_name)
-        pulumi.set(__self__, "live_event_id", live_event_id)
+        LiveEventOutputArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            archive_window_duration=archive_window_duration,
+            asset_name=asset_name,
+            live_event_id=live_event_id,
+            description=description,
+            hls_fragments_per_ts_segment=hls_fragments_per_ts_segment,
+            manifest_name=manifest_name,
+            name=name,
+            output_snap_time_in_seconds=output_snap_time_in_seconds,
+            rewind_window_duration=rewind_window_duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             archive_window_duration: Optional[pulumi.Input[str]] = None,
+             asset_name: Optional[pulumi.Input[str]] = None,
+             live_event_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             hls_fragments_per_ts_segment: Optional[pulumi.Input[int]] = None,
+             manifest_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             output_snap_time_in_seconds: Optional[pulumi.Input[int]] = None,
+             rewind_window_duration: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if archive_window_duration is None and 'archiveWindowDuration' in kwargs:
+            archive_window_duration = kwargs['archiveWindowDuration']
+        if archive_window_duration is None:
+            raise TypeError("Missing 'archive_window_duration' argument")
+        if asset_name is None and 'assetName' in kwargs:
+            asset_name = kwargs['assetName']
+        if asset_name is None:
+            raise TypeError("Missing 'asset_name' argument")
+        if live_event_id is None and 'liveEventId' in kwargs:
+            live_event_id = kwargs['liveEventId']
+        if live_event_id is None:
+            raise TypeError("Missing 'live_event_id' argument")
+        if hls_fragments_per_ts_segment is None and 'hlsFragmentsPerTsSegment' in kwargs:
+            hls_fragments_per_ts_segment = kwargs['hlsFragmentsPerTsSegment']
+        if manifest_name is None and 'manifestName' in kwargs:
+            manifest_name = kwargs['manifestName']
+        if output_snap_time_in_seconds is None and 'outputSnapTimeInSeconds' in kwargs:
+            output_snap_time_in_seconds = kwargs['outputSnapTimeInSeconds']
+        if rewind_window_duration is None and 'rewindWindowDuration' in kwargs:
+            rewind_window_duration = kwargs['rewindWindowDuration']
+
+        _setter("archive_window_duration", archive_window_duration)
+        _setter("asset_name", asset_name)
+        _setter("live_event_id", live_event_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if hls_fragments_per_ts_segment is not None:
-            pulumi.set(__self__, "hls_fragments_per_ts_segment", hls_fragments_per_ts_segment)
+            _setter("hls_fragments_per_ts_segment", hls_fragments_per_ts_segment)
         if manifest_name is not None:
-            pulumi.set(__self__, "manifest_name", manifest_name)
+            _setter("manifest_name", manifest_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if output_snap_time_in_seconds is not None:
-            pulumi.set(__self__, "output_snap_time_in_seconds", output_snap_time_in_seconds)
+            _setter("output_snap_time_in_seconds", output_snap_time_in_seconds)
         if rewind_window_duration is not None:
-            pulumi.set(__self__, "rewind_window_duration", rewind_window_duration)
+            _setter("rewind_window_duration", rewind_window_duration)
 
     @property
     @pulumi.getter(name="archiveWindowDuration")
@@ -179,24 +226,65 @@ class _LiveEventOutputState:
         :param pulumi.Input[str] name: The name which should be used for this Live Event Output. Changing this forces a new Live Output to be created.
         :param pulumi.Input[int] output_snap_time_in_seconds: The initial timestamp that the live output will start at, any content before this value will not be archived. Changing this forces a new Live Output to be created.
         """
+        _LiveEventOutputState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            archive_window_duration=archive_window_duration,
+            asset_name=asset_name,
+            description=description,
+            hls_fragments_per_ts_segment=hls_fragments_per_ts_segment,
+            live_event_id=live_event_id,
+            manifest_name=manifest_name,
+            name=name,
+            output_snap_time_in_seconds=output_snap_time_in_seconds,
+            rewind_window_duration=rewind_window_duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             archive_window_duration: Optional[pulumi.Input[str]] = None,
+             asset_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             hls_fragments_per_ts_segment: Optional[pulumi.Input[int]] = None,
+             live_event_id: Optional[pulumi.Input[str]] = None,
+             manifest_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             output_snap_time_in_seconds: Optional[pulumi.Input[int]] = None,
+             rewind_window_duration: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if archive_window_duration is None and 'archiveWindowDuration' in kwargs:
+            archive_window_duration = kwargs['archiveWindowDuration']
+        if asset_name is None and 'assetName' in kwargs:
+            asset_name = kwargs['assetName']
+        if hls_fragments_per_ts_segment is None and 'hlsFragmentsPerTsSegment' in kwargs:
+            hls_fragments_per_ts_segment = kwargs['hlsFragmentsPerTsSegment']
+        if live_event_id is None and 'liveEventId' in kwargs:
+            live_event_id = kwargs['liveEventId']
+        if manifest_name is None and 'manifestName' in kwargs:
+            manifest_name = kwargs['manifestName']
+        if output_snap_time_in_seconds is None and 'outputSnapTimeInSeconds' in kwargs:
+            output_snap_time_in_seconds = kwargs['outputSnapTimeInSeconds']
+        if rewind_window_duration is None and 'rewindWindowDuration' in kwargs:
+            rewind_window_duration = kwargs['rewindWindowDuration']
+
         if archive_window_duration is not None:
-            pulumi.set(__self__, "archive_window_duration", archive_window_duration)
+            _setter("archive_window_duration", archive_window_duration)
         if asset_name is not None:
-            pulumi.set(__self__, "asset_name", asset_name)
+            _setter("asset_name", asset_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if hls_fragments_per_ts_segment is not None:
-            pulumi.set(__self__, "hls_fragments_per_ts_segment", hls_fragments_per_ts_segment)
+            _setter("hls_fragments_per_ts_segment", hls_fragments_per_ts_segment)
         if live_event_id is not None:
-            pulumi.set(__self__, "live_event_id", live_event_id)
+            _setter("live_event_id", live_event_id)
         if manifest_name is not None:
-            pulumi.set(__self__, "manifest_name", manifest_name)
+            _setter("manifest_name", manifest_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if output_snap_time_in_seconds is not None:
-            pulumi.set(__self__, "output_snap_time_in_seconds", output_snap_time_in_seconds)
+            _setter("output_snap_time_in_seconds", output_snap_time_in_seconds)
         if rewind_window_duration is not None:
-            pulumi.set(__self__, "rewind_window_duration", rewind_window_duration)
+            _setter("rewind_window_duration", rewind_window_duration)
 
     @property
     @pulumi.getter(name="archiveWindowDuration")
@@ -462,6 +550,10 @@ class LiveEventOutput(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LiveEventOutputArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

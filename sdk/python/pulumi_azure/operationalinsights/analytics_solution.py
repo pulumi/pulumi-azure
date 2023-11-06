@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,15 +33,56 @@ class AnalyticsSolutionArgs:
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "plan", plan)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "solution_name", solution_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
-        pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+        AnalyticsSolutionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            plan=plan,
+            resource_group_name=resource_group_name,
+            solution_name=solution_name,
+            workspace_name=workspace_name,
+            workspace_resource_id=workspace_resource_id,
+            location=location,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             plan: Optional[pulumi.Input['AnalyticsSolutionPlanArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             solution_name: Optional[pulumi.Input[str]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             workspace_resource_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if plan is None:
+            raise TypeError("Missing 'plan' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if solution_name is None and 'solutionName' in kwargs:
+            solution_name = kwargs['solutionName']
+        if solution_name is None:
+            raise TypeError("Missing 'solution_name' argument")
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_name is None:
+            raise TypeError("Missing 'workspace_name' argument")
+        if workspace_resource_id is None and 'workspaceResourceId' in kwargs:
+            workspace_resource_id = kwargs['workspaceResourceId']
+        if workspace_resource_id is None:
+            raise TypeError("Missing 'workspace_resource_id' argument")
+
+        _setter("plan", plan)
+        _setter("resource_group_name", resource_group_name)
+        _setter("solution_name", solution_name)
+        _setter("workspace_name", workspace_name)
+        _setter("workspace_resource_id", workspace_resource_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -148,20 +189,51 @@ class _AnalyticsSolutionState:
         :param pulumi.Input[str] workspace_name: The full name of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workspace_resource_id: The full resource ID of the Log Analytics workspace with which the solution will be linked. Changing this forces a new resource to be created.
         """
+        _AnalyticsSolutionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            plan=plan,
+            resource_group_name=resource_group_name,
+            solution_name=solution_name,
+            tags=tags,
+            workspace_name=workspace_name,
+            workspace_resource_id=workspace_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             plan: Optional[pulumi.Input['AnalyticsSolutionPlanArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             solution_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workspace_name: Optional[pulumi.Input[str]] = None,
+             workspace_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if solution_name is None and 'solutionName' in kwargs:
+            solution_name = kwargs['solutionName']
+        if workspace_name is None and 'workspaceName' in kwargs:
+            workspace_name = kwargs['workspaceName']
+        if workspace_resource_id is None and 'workspaceResourceId' in kwargs:
+            workspace_resource_id = kwargs['workspaceResourceId']
+
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if solution_name is not None:
-            pulumi.set(__self__, "solution_name", solution_name)
+            _setter("solution_name", solution_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workspace_name is not None:
-            pulumi.set(__self__, "workspace_name", workspace_name)
+            _setter("workspace_name", workspace_name)
         if workspace_resource_id is not None:
-            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+            _setter("workspace_resource_id", workspace_resource_id)
 
     @property
     @pulumi.getter
@@ -367,6 +439,10 @@ class AnalyticsSolution(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AnalyticsSolutionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -389,6 +465,11 @@ class AnalyticsSolution(pulumi.CustomResource):
             __props__ = AnalyticsSolutionArgs.__new__(AnalyticsSolutionArgs)
 
             __props__.__dict__["location"] = location
+            if plan is not None and not isinstance(plan, AnalyticsSolutionPlanArgs):
+                plan = plan or {}
+                def _setter(key, value):
+                    plan[key] = value
+                AnalyticsSolutionPlanArgs._configure(_setter, **plan)
             if plan is None and not opts.urn:
                 raise TypeError("Missing required property 'plan'")
             __props__.__dict__["plan"] = plan

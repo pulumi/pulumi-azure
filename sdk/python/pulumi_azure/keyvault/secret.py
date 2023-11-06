@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SecretArgs', 'Secret']
@@ -33,18 +33,53 @@ class SecretArgs:
         :param pulumi.Input[str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "key_vault_id", key_vault_id)
-        pulumi.set(__self__, "value", value)
+        SecretArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_id=key_vault_id,
+            value=value,
+            content_type=content_type,
+            expiration_date=expiration_date,
+            name=name,
+            not_before_date=not_before_date,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             expiration_date: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             not_before_date: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if key_vault_id is None and 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if expiration_date is None and 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if not_before_date is None and 'notBeforeDate' in kwargs:
+            not_before_date = kwargs['notBeforeDate']
+
+        _setter("key_vault_id", key_vault_id)
+        _setter("value", value)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if expiration_date is not None:
-            pulumi.set(__self__, "expiration_date", expiration_date)
+            _setter("expiration_date", expiration_date)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if not_before_date is not None:
-            pulumi.set(__self__, "not_before_date", not_before_date)
+            _setter("not_before_date", not_before_date)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="keyVaultId")
@@ -163,28 +198,73 @@ class _SecretState:
         :param pulumi.Input[str] version: The current version of the Key Vault Secret.
         :param pulumi.Input[str] versionless_id: The Base ID of the Key Vault Secret.
         """
+        _SecretState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_type=content_type,
+            expiration_date=expiration_date,
+            key_vault_id=key_vault_id,
+            name=name,
+            not_before_date=not_before_date,
+            resource_id=resource_id,
+            resource_versionless_id=resource_versionless_id,
+            tags=tags,
+            value=value,
+            version=version,
+            versionless_id=versionless_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_type: Optional[pulumi.Input[str]] = None,
+             expiration_date: Optional[pulumi.Input[str]] = None,
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             not_before_date: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             resource_versionless_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             versionless_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if expiration_date is None and 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if key_vault_id is None and 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if not_before_date is None and 'notBeforeDate' in kwargs:
+            not_before_date = kwargs['notBeforeDate']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_versionless_id is None and 'resourceVersionlessId' in kwargs:
+            resource_versionless_id = kwargs['resourceVersionlessId']
+        if versionless_id is None and 'versionlessId' in kwargs:
+            versionless_id = kwargs['versionlessId']
+
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if expiration_date is not None:
-            pulumi.set(__self__, "expiration_date", expiration_date)
+            _setter("expiration_date", expiration_date)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if not_before_date is not None:
-            pulumi.set(__self__, "not_before_date", not_before_date)
+            _setter("not_before_date", not_before_date)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if resource_versionless_id is not None:
-            pulumi.set(__self__, "resource_versionless_id", resource_versionless_id)
+            _setter("resource_versionless_id", resource_versionless_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
         if versionless_id is not None:
-            pulumi.set(__self__, "versionless_id", versionless_id)
+            _setter("versionless_id", versionless_id)
 
     @property
     @pulumi.getter(name="contentType")
@@ -468,6 +548,10 @@ class Secret(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecretArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

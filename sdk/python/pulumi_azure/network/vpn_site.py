@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,24 +41,69 @@ class VpnSiteArgs:
         :param pulumi.Input['VpnSiteO365PolicyArgs'] o365_policy: An `o365_policy` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the VPN Site.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_wan_id", virtual_wan_id)
+        VpnSiteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            virtual_wan_id=virtual_wan_id,
+            address_cidrs=address_cidrs,
+            device_model=device_model,
+            device_vendor=device_vendor,
+            links=links,
+            location=location,
+            name=name,
+            o365_policy=o365_policy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             virtual_wan_id: Optional[pulumi.Input[str]] = None,
+             address_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             device_model: Optional[pulumi.Input[str]] = None,
+             device_vendor: Optional[pulumi.Input[str]] = None,
+             links: Optional[pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             o365_policy: Optional[pulumi.Input['VpnSiteO365PolicyArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if virtual_wan_id is None and 'virtualWanId' in kwargs:
+            virtual_wan_id = kwargs['virtualWanId']
+        if virtual_wan_id is None:
+            raise TypeError("Missing 'virtual_wan_id' argument")
+        if address_cidrs is None and 'addressCidrs' in kwargs:
+            address_cidrs = kwargs['addressCidrs']
+        if device_model is None and 'deviceModel' in kwargs:
+            device_model = kwargs['deviceModel']
+        if device_vendor is None and 'deviceVendor' in kwargs:
+            device_vendor = kwargs['deviceVendor']
+        if o365_policy is None and 'o365Policy' in kwargs:
+            o365_policy = kwargs['o365Policy']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("virtual_wan_id", virtual_wan_id)
         if address_cidrs is not None:
-            pulumi.set(__self__, "address_cidrs", address_cidrs)
+            _setter("address_cidrs", address_cidrs)
         if device_model is not None:
-            pulumi.set(__self__, "device_model", device_model)
+            _setter("device_model", device_model)
         if device_vendor is not None:
-            pulumi.set(__self__, "device_vendor", device_vendor)
+            _setter("device_vendor", device_vendor)
         if links is not None:
-            pulumi.set(__self__, "links", links)
+            _setter("links", links)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if o365_policy is not None:
-            pulumi.set(__self__, "o365_policy", o365_policy)
+            _setter("o365_policy", o365_policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -211,26 +256,67 @@ class _VpnSiteState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the VPN Site.
         :param pulumi.Input[str] virtual_wan_id: The ID of the Virtual Wan where this VPN site resides in. Changing this forces a new VPN Site to be created.
         """
+        _VpnSiteState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_cidrs=address_cidrs,
+            device_model=device_model,
+            device_vendor=device_vendor,
+            links=links,
+            location=location,
+            name=name,
+            o365_policy=o365_policy,
+            resource_group_name=resource_group_name,
+            tags=tags,
+            virtual_wan_id=virtual_wan_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             device_model: Optional[pulumi.Input[str]] = None,
+             device_vendor: Optional[pulumi.Input[str]] = None,
+             links: Optional[pulumi.Input[Sequence[pulumi.Input['VpnSiteLinkArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             o365_policy: Optional[pulumi.Input['VpnSiteO365PolicyArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_wan_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if address_cidrs is None and 'addressCidrs' in kwargs:
+            address_cidrs = kwargs['addressCidrs']
+        if device_model is None and 'deviceModel' in kwargs:
+            device_model = kwargs['deviceModel']
+        if device_vendor is None and 'deviceVendor' in kwargs:
+            device_vendor = kwargs['deviceVendor']
+        if o365_policy is None and 'o365Policy' in kwargs:
+            o365_policy = kwargs['o365Policy']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if virtual_wan_id is None and 'virtualWanId' in kwargs:
+            virtual_wan_id = kwargs['virtualWanId']
+
         if address_cidrs is not None:
-            pulumi.set(__self__, "address_cidrs", address_cidrs)
+            _setter("address_cidrs", address_cidrs)
         if device_model is not None:
-            pulumi.set(__self__, "device_model", device_model)
+            _setter("device_model", device_model)
         if device_vendor is not None:
-            pulumi.set(__self__, "device_vendor", device_vendor)
+            _setter("device_vendor", device_vendor)
         if links is not None:
-            pulumi.set(__self__, "links", links)
+            _setter("links", links)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if o365_policy is not None:
-            pulumi.set(__self__, "o365_policy", o365_policy)
+            _setter("o365_policy", o365_policy)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_wan_id is not None:
-            pulumi.set(__self__, "virtual_wan_id", virtual_wan_id)
+            _setter("virtual_wan_id", virtual_wan_id)
 
     @property
     @pulumi.getter(name="addressCidrs")
@@ -466,6 +552,10 @@ class VpnSite(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpnSiteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -496,6 +586,11 @@ class VpnSite(pulumi.CustomResource):
             __props__.__dict__["links"] = links
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            if o365_policy is not None and not isinstance(o365_policy, VpnSiteO365PolicyArgs):
+                o365_policy = o365_policy or {}
+                def _setter(key, value):
+                    o365_policy[key] = value
+                VpnSiteO365PolicyArgs._configure(_setter, **o365_policy)
             __props__.__dict__["o365_policy"] = o365_policy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

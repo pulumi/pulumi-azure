@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,25 +41,68 @@ class CertificateOrderArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: (Optional) A mapping of tags to assign to the resource.
         :param pulumi.Input[int] validity_in_years: Duration in years (must be between `1` and `3`). Defaults to `1`.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        CertificateOrderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            auto_renew=auto_renew,
+            csr=csr,
+            distinguished_name=distinguished_name,
+            key_size=key_size,
+            location=location,
+            name=name,
+            product_type=product_type,
+            tags=tags,
+            validity_in_years=validity_in_years,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             auto_renew: Optional[pulumi.Input[bool]] = None,
+             csr: Optional[pulumi.Input[str]] = None,
+             distinguished_name: Optional[pulumi.Input[str]] = None,
+             key_size: Optional[pulumi.Input[int]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             product_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             validity_in_years: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if auto_renew is None and 'autoRenew' in kwargs:
+            auto_renew = kwargs['autoRenew']
+        if distinguished_name is None and 'distinguishedName' in kwargs:
+            distinguished_name = kwargs['distinguishedName']
+        if key_size is None and 'keySize' in kwargs:
+            key_size = kwargs['keySize']
+        if product_type is None and 'productType' in kwargs:
+            product_type = kwargs['productType']
+        if validity_in_years is None and 'validityInYears' in kwargs:
+            validity_in_years = kwargs['validityInYears']
+
+        _setter("resource_group_name", resource_group_name)
         if auto_renew is not None:
-            pulumi.set(__self__, "auto_renew", auto_renew)
+            _setter("auto_renew", auto_renew)
         if csr is not None:
-            pulumi.set(__self__, "csr", csr)
+            _setter("csr", csr)
         if distinguished_name is not None:
-            pulumi.set(__self__, "distinguished_name", distinguished_name)
+            _setter("distinguished_name", distinguished_name)
         if key_size is not None:
-            pulumi.set(__self__, "key_size", key_size)
+            _setter("key_size", key_size)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if product_type is not None:
-            pulumi.set(__self__, "product_type", product_type)
+            _setter("product_type", product_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if validity_in_years is not None:
-            pulumi.set(__self__, "validity_in_years", validity_in_years)
+            _setter("validity_in_years", validity_in_years)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -230,44 +273,117 @@ class _CertificateOrderState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: (Optional) A mapping of tags to assign to the resource.
         :param pulumi.Input[int] validity_in_years: Duration in years (must be between `1` and `3`). Defaults to `1`.
         """
+        _CertificateOrderState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_service_certificate_not_renewable_reasons=app_service_certificate_not_renewable_reasons,
+            auto_renew=auto_renew,
+            certificates=certificates,
+            csr=csr,
+            distinguished_name=distinguished_name,
+            domain_verification_token=domain_verification_token,
+            expiration_time=expiration_time,
+            intermediate_thumbprint=intermediate_thumbprint,
+            is_private_key_external=is_private_key_external,
+            key_size=key_size,
+            location=location,
+            name=name,
+            product_type=product_type,
+            resource_group_name=resource_group_name,
+            root_thumbprint=root_thumbprint,
+            signed_certificate_thumbprint=signed_certificate_thumbprint,
+            status=status,
+            tags=tags,
+            validity_in_years=validity_in_years,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_service_certificate_not_renewable_reasons: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             auto_renew: Optional[pulumi.Input[bool]] = None,
+             certificates: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateOrderCertificateArgs']]]] = None,
+             csr: Optional[pulumi.Input[str]] = None,
+             distinguished_name: Optional[pulumi.Input[str]] = None,
+             domain_verification_token: Optional[pulumi.Input[str]] = None,
+             expiration_time: Optional[pulumi.Input[str]] = None,
+             intermediate_thumbprint: Optional[pulumi.Input[str]] = None,
+             is_private_key_external: Optional[pulumi.Input[bool]] = None,
+             key_size: Optional[pulumi.Input[int]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             product_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             root_thumbprint: Optional[pulumi.Input[str]] = None,
+             signed_certificate_thumbprint: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             validity_in_years: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_service_certificate_not_renewable_reasons is None and 'appServiceCertificateNotRenewableReasons' in kwargs:
+            app_service_certificate_not_renewable_reasons = kwargs['appServiceCertificateNotRenewableReasons']
+        if auto_renew is None and 'autoRenew' in kwargs:
+            auto_renew = kwargs['autoRenew']
+        if distinguished_name is None and 'distinguishedName' in kwargs:
+            distinguished_name = kwargs['distinguishedName']
+        if domain_verification_token is None and 'domainVerificationToken' in kwargs:
+            domain_verification_token = kwargs['domainVerificationToken']
+        if expiration_time is None and 'expirationTime' in kwargs:
+            expiration_time = kwargs['expirationTime']
+        if intermediate_thumbprint is None and 'intermediateThumbprint' in kwargs:
+            intermediate_thumbprint = kwargs['intermediateThumbprint']
+        if is_private_key_external is None and 'isPrivateKeyExternal' in kwargs:
+            is_private_key_external = kwargs['isPrivateKeyExternal']
+        if key_size is None and 'keySize' in kwargs:
+            key_size = kwargs['keySize']
+        if product_type is None and 'productType' in kwargs:
+            product_type = kwargs['productType']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if root_thumbprint is None and 'rootThumbprint' in kwargs:
+            root_thumbprint = kwargs['rootThumbprint']
+        if signed_certificate_thumbprint is None and 'signedCertificateThumbprint' in kwargs:
+            signed_certificate_thumbprint = kwargs['signedCertificateThumbprint']
+        if validity_in_years is None and 'validityInYears' in kwargs:
+            validity_in_years = kwargs['validityInYears']
+
         if app_service_certificate_not_renewable_reasons is not None:
-            pulumi.set(__self__, "app_service_certificate_not_renewable_reasons", app_service_certificate_not_renewable_reasons)
+            _setter("app_service_certificate_not_renewable_reasons", app_service_certificate_not_renewable_reasons)
         if auto_renew is not None:
-            pulumi.set(__self__, "auto_renew", auto_renew)
+            _setter("auto_renew", auto_renew)
         if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
+            _setter("certificates", certificates)
         if csr is not None:
-            pulumi.set(__self__, "csr", csr)
+            _setter("csr", csr)
         if distinguished_name is not None:
-            pulumi.set(__self__, "distinguished_name", distinguished_name)
+            _setter("distinguished_name", distinguished_name)
         if domain_verification_token is not None:
-            pulumi.set(__self__, "domain_verification_token", domain_verification_token)
+            _setter("domain_verification_token", domain_verification_token)
         if expiration_time is not None:
-            pulumi.set(__self__, "expiration_time", expiration_time)
+            _setter("expiration_time", expiration_time)
         if intermediate_thumbprint is not None:
-            pulumi.set(__self__, "intermediate_thumbprint", intermediate_thumbprint)
+            _setter("intermediate_thumbprint", intermediate_thumbprint)
         if is_private_key_external is not None:
-            pulumi.set(__self__, "is_private_key_external", is_private_key_external)
+            _setter("is_private_key_external", is_private_key_external)
         if key_size is not None:
-            pulumi.set(__self__, "key_size", key_size)
+            _setter("key_size", key_size)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if product_type is not None:
-            pulumi.set(__self__, "product_type", product_type)
+            _setter("product_type", product_type)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if root_thumbprint is not None:
-            pulumi.set(__self__, "root_thumbprint", root_thumbprint)
+            _setter("root_thumbprint", root_thumbprint)
         if signed_certificate_thumbprint is not None:
-            pulumi.set(__self__, "signed_certificate_thumbprint", signed_certificate_thumbprint)
+            _setter("signed_certificate_thumbprint", signed_certificate_thumbprint)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if validity_in_years is not None:
-            pulumi.set(__self__, "validity_in_years", validity_in_years)
+            _setter("validity_in_years", validity_in_years)
 
     @property
     @pulumi.getter(name="appServiceCertificateNotRenewableReasons")
@@ -597,6 +713,10 @@ class CertificateOrder(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CertificateOrderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

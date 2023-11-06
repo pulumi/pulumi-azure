@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,19 +33,58 @@ class TagRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TagRuleMetricTagFilterArgs']]] metric_tag_filters: A `metric_tag_filter` block as defined below.
         :param pulumi.Input[bool] subscription_log_enabled: Whether subscription logs should be sent for the Monitor resource. Defaults to `false`.
         """
-        pulumi.set(__self__, "monitor_id", monitor_id)
+        TagRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            monitor_id=monitor_id,
+            activity_log_enabled=activity_log_enabled,
+            azure_active_directory_log_enabled=azure_active_directory_log_enabled,
+            log_tag_filters=log_tag_filters,
+            metric_enabled=metric_enabled,
+            metric_tag_filters=metric_tag_filters,
+            subscription_log_enabled=subscription_log_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             monitor_id: Optional[pulumi.Input[str]] = None,
+             activity_log_enabled: Optional[pulumi.Input[bool]] = None,
+             azure_active_directory_log_enabled: Optional[pulumi.Input[bool]] = None,
+             log_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['TagRuleLogTagFilterArgs']]]] = None,
+             metric_enabled: Optional[pulumi.Input[bool]] = None,
+             metric_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['TagRuleMetricTagFilterArgs']]]] = None,
+             subscription_log_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if monitor_id is None and 'monitorId' in kwargs:
+            monitor_id = kwargs['monitorId']
+        if monitor_id is None:
+            raise TypeError("Missing 'monitor_id' argument")
+        if activity_log_enabled is None and 'activityLogEnabled' in kwargs:
+            activity_log_enabled = kwargs['activityLogEnabled']
+        if azure_active_directory_log_enabled is None and 'azureActiveDirectoryLogEnabled' in kwargs:
+            azure_active_directory_log_enabled = kwargs['azureActiveDirectoryLogEnabled']
+        if log_tag_filters is None and 'logTagFilters' in kwargs:
+            log_tag_filters = kwargs['logTagFilters']
+        if metric_enabled is None and 'metricEnabled' in kwargs:
+            metric_enabled = kwargs['metricEnabled']
+        if metric_tag_filters is None and 'metricTagFilters' in kwargs:
+            metric_tag_filters = kwargs['metricTagFilters']
+        if subscription_log_enabled is None and 'subscriptionLogEnabled' in kwargs:
+            subscription_log_enabled = kwargs['subscriptionLogEnabled']
+
+        _setter("monitor_id", monitor_id)
         if activity_log_enabled is not None:
-            pulumi.set(__self__, "activity_log_enabled", activity_log_enabled)
+            _setter("activity_log_enabled", activity_log_enabled)
         if azure_active_directory_log_enabled is not None:
-            pulumi.set(__self__, "azure_active_directory_log_enabled", azure_active_directory_log_enabled)
+            _setter("azure_active_directory_log_enabled", azure_active_directory_log_enabled)
         if log_tag_filters is not None:
-            pulumi.set(__self__, "log_tag_filters", log_tag_filters)
+            _setter("log_tag_filters", log_tag_filters)
         if metric_enabled is not None:
-            pulumi.set(__self__, "metric_enabled", metric_enabled)
+            _setter("metric_enabled", metric_enabled)
         if metric_tag_filters is not None:
-            pulumi.set(__self__, "metric_tag_filters", metric_tag_filters)
+            _setter("metric_tag_filters", metric_tag_filters)
         if subscription_log_enabled is not None:
-            pulumi.set(__self__, "subscription_log_enabled", subscription_log_enabled)
+            _setter("subscription_log_enabled", subscription_log_enabled)
 
     @property
     @pulumi.getter(name="monitorId")
@@ -152,20 +191,57 @@ class _TagRuleState:
         :param pulumi.Input[str] monitor_id: Specifies the ID of the New Relic Monitor this Tag Rule should be created within. Changing this forces a new Azure Native New Relic Tag Rule to be created.
         :param pulumi.Input[bool] subscription_log_enabled: Whether subscription logs should be sent for the Monitor resource. Defaults to `false`.
         """
+        _TagRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            activity_log_enabled=activity_log_enabled,
+            azure_active_directory_log_enabled=azure_active_directory_log_enabled,
+            log_tag_filters=log_tag_filters,
+            metric_enabled=metric_enabled,
+            metric_tag_filters=metric_tag_filters,
+            monitor_id=monitor_id,
+            subscription_log_enabled=subscription_log_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             activity_log_enabled: Optional[pulumi.Input[bool]] = None,
+             azure_active_directory_log_enabled: Optional[pulumi.Input[bool]] = None,
+             log_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['TagRuleLogTagFilterArgs']]]] = None,
+             metric_enabled: Optional[pulumi.Input[bool]] = None,
+             metric_tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['TagRuleMetricTagFilterArgs']]]] = None,
+             monitor_id: Optional[pulumi.Input[str]] = None,
+             subscription_log_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if activity_log_enabled is None and 'activityLogEnabled' in kwargs:
+            activity_log_enabled = kwargs['activityLogEnabled']
+        if azure_active_directory_log_enabled is None and 'azureActiveDirectoryLogEnabled' in kwargs:
+            azure_active_directory_log_enabled = kwargs['azureActiveDirectoryLogEnabled']
+        if log_tag_filters is None and 'logTagFilters' in kwargs:
+            log_tag_filters = kwargs['logTagFilters']
+        if metric_enabled is None and 'metricEnabled' in kwargs:
+            metric_enabled = kwargs['metricEnabled']
+        if metric_tag_filters is None and 'metricTagFilters' in kwargs:
+            metric_tag_filters = kwargs['metricTagFilters']
+        if monitor_id is None and 'monitorId' in kwargs:
+            monitor_id = kwargs['monitorId']
+        if subscription_log_enabled is None and 'subscriptionLogEnabled' in kwargs:
+            subscription_log_enabled = kwargs['subscriptionLogEnabled']
+
         if activity_log_enabled is not None:
-            pulumi.set(__self__, "activity_log_enabled", activity_log_enabled)
+            _setter("activity_log_enabled", activity_log_enabled)
         if azure_active_directory_log_enabled is not None:
-            pulumi.set(__self__, "azure_active_directory_log_enabled", azure_active_directory_log_enabled)
+            _setter("azure_active_directory_log_enabled", azure_active_directory_log_enabled)
         if log_tag_filters is not None:
-            pulumi.set(__self__, "log_tag_filters", log_tag_filters)
+            _setter("log_tag_filters", log_tag_filters)
         if metric_enabled is not None:
-            pulumi.set(__self__, "metric_enabled", metric_enabled)
+            _setter("metric_enabled", metric_enabled)
         if metric_tag_filters is not None:
-            pulumi.set(__self__, "metric_tag_filters", metric_tag_filters)
+            _setter("metric_tag_filters", metric_tag_filters)
         if monitor_id is not None:
-            pulumi.set(__self__, "monitor_id", monitor_id)
+            _setter("monitor_id", monitor_id)
         if subscription_log_enabled is not None:
-            pulumi.set(__self__, "subscription_log_enabled", subscription_log_enabled)
+            _setter("subscription_log_enabled", subscription_log_enabled)
 
     @property
     @pulumi.getter(name="activityLogEnabled")
@@ -387,6 +463,10 @@ class TagRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TagRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

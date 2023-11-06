@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SubnetNetworkSecurityGroupAssociationArgs', 'SubnetNetworkSecurityGroupAssociation']
@@ -21,8 +21,29 @@ class SubnetNetworkSecurityGroupAssociationArgs:
         :param pulumi.Input[str] network_security_group_id: The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "network_security_group_id", network_security_group_id)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        SubnetNetworkSecurityGroupAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_security_group_id=network_security_group_id,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_security_group_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if network_security_group_id is None and 'networkSecurityGroupId' in kwargs:
+            network_security_group_id = kwargs['networkSecurityGroupId']
+        if network_security_group_id is None:
+            raise TypeError("Missing 'network_security_group_id' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+
+        _setter("network_security_group_id", network_security_group_id)
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="networkSecurityGroupId")
@@ -59,10 +80,27 @@ class _SubnetNetworkSecurityGroupAssociationState:
         :param pulumi.Input[str] network_security_group_id: The ID of the Network Security Group which should be associated with the Subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet. Changing this forces a new resource to be created.
         """
+        _SubnetNetworkSecurityGroupAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_security_group_id=network_security_group_id,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_security_group_id: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if network_security_group_id is None and 'networkSecurityGroupId' in kwargs:
+            network_security_group_id = kwargs['networkSecurityGroupId']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if network_security_group_id is not None:
-            pulumi.set(__self__, "network_security_group_id", network_security_group_id)
+            _setter("network_security_group_id", network_security_group_id)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="networkSecurityGroupId")
@@ -208,6 +246,10 @@ class SubnetNetworkSecurityGroupAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SubnetNetworkSecurityGroupAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['StaticSiteCustomDomainArgs', 'StaticSiteCustomDomain']
@@ -23,10 +23,35 @@ class StaticSiteCustomDomainArgs:
         :param pulumi.Input[str] static_site_id: The ID of the Static Site. Changing this forces a new Static Site Custom Domain to be created.
         :param pulumi.Input[str] validation_type: One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "static_site_id", static_site_id)
+        StaticSiteCustomDomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            static_site_id=static_site_id,
+            validation_type=validation_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             static_site_id: Optional[pulumi.Input[str]] = None,
+             validation_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if static_site_id is None and 'staticSiteId' in kwargs:
+            static_site_id = kwargs['staticSiteId']
+        if static_site_id is None:
+            raise TypeError("Missing 'static_site_id' argument")
+        if validation_type is None and 'validationType' in kwargs:
+            validation_type = kwargs['validationType']
+
+        _setter("domain_name", domain_name)
+        _setter("static_site_id", static_site_id)
         if validation_type is not None:
-            pulumi.set(__self__, "validation_type", validation_type)
+            _setter("validation_type", validation_type)
 
     @property
     @pulumi.getter(name="domainName")
@@ -79,14 +104,39 @@ class _StaticSiteCustomDomainState:
         :param pulumi.Input[str] validation_token: Token to be used with `dns-txt-token` validation.
         :param pulumi.Input[str] validation_type: One of `cname-delegation` or `dns-txt-token`. Changing this forces a new Static Site Custom Domain to be created.
         """
+        _StaticSiteCustomDomainState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            static_site_id=static_site_id,
+            validation_token=validation_token,
+            validation_type=validation_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             static_site_id: Optional[pulumi.Input[str]] = None,
+             validation_token: Optional[pulumi.Input[str]] = None,
+             validation_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if static_site_id is None and 'staticSiteId' in kwargs:
+            static_site_id = kwargs['staticSiteId']
+        if validation_token is None and 'validationToken' in kwargs:
+            validation_token = kwargs['validationToken']
+        if validation_type is None and 'validationType' in kwargs:
+            validation_type = kwargs['validationType']
+
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if static_site_id is not None:
-            pulumi.set(__self__, "static_site_id", static_site_id)
+            _setter("static_site_id", static_site_id)
         if validation_token is not None:
-            pulumi.set(__self__, "validation_token", validation_token)
+            _setter("validation_token", validation_token)
         if validation_type is not None:
-            pulumi.set(__self__, "validation_type", validation_type)
+            _setter("validation_type", validation_type)
 
     @property
     @pulumi.getter(name="domainName")
@@ -274,6 +324,10 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StaticSiteCustomDomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

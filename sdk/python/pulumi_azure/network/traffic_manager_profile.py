@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,20 +39,69 @@ class TrafficManagerProfileArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] traffic_view_enabled: Indicates whether Traffic View is enabled for the Traffic Manager profile.
         """
-        pulumi.set(__self__, "dns_config", dns_config)
-        pulumi.set(__self__, "monitor_config", monitor_config)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "traffic_routing_method", traffic_routing_method)
+        TrafficManagerProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_config=dns_config,
+            monitor_config=monitor_config,
+            resource_group_name=resource_group_name,
+            traffic_routing_method=traffic_routing_method,
+            max_return=max_return,
+            name=name,
+            profile_status=profile_status,
+            tags=tags,
+            traffic_view_enabled=traffic_view_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_config: Optional[pulumi.Input['TrafficManagerProfileDnsConfigArgs']] = None,
+             monitor_config: Optional[pulumi.Input['TrafficManagerProfileMonitorConfigArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             traffic_routing_method: Optional[pulumi.Input[str]] = None,
+             max_return: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             profile_status: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             traffic_view_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if dns_config is None and 'dnsConfig' in kwargs:
+            dns_config = kwargs['dnsConfig']
+        if dns_config is None:
+            raise TypeError("Missing 'dns_config' argument")
+        if monitor_config is None and 'monitorConfig' in kwargs:
+            monitor_config = kwargs['monitorConfig']
+        if monitor_config is None:
+            raise TypeError("Missing 'monitor_config' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if traffic_routing_method is None and 'trafficRoutingMethod' in kwargs:
+            traffic_routing_method = kwargs['trafficRoutingMethod']
+        if traffic_routing_method is None:
+            raise TypeError("Missing 'traffic_routing_method' argument")
+        if max_return is None and 'maxReturn' in kwargs:
+            max_return = kwargs['maxReturn']
+        if profile_status is None and 'profileStatus' in kwargs:
+            profile_status = kwargs['profileStatus']
+        if traffic_view_enabled is None and 'trafficViewEnabled' in kwargs:
+            traffic_view_enabled = kwargs['trafficViewEnabled']
+
+        _setter("dns_config", dns_config)
+        _setter("monitor_config", monitor_config)
+        _setter("resource_group_name", resource_group_name)
+        _setter("traffic_routing_method", traffic_routing_method)
         if max_return is not None:
-            pulumi.set(__self__, "max_return", max_return)
+            _setter("max_return", max_return)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if profile_status is not None:
-            pulumi.set(__self__, "profile_status", profile_status)
+            _setter("profile_status", profile_status)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if traffic_view_enabled is not None:
-            pulumi.set(__self__, "traffic_view_enabled", traffic_view_enabled)
+            _setter("traffic_view_enabled", traffic_view_enabled)
 
     @property
     @pulumi.getter(name="dnsConfig")
@@ -193,26 +242,69 @@ class _TrafficManagerProfileState:
         :param pulumi.Input[str] traffic_routing_method: Specifies the algorithm used to route traffic. Possible values are `Geographic`, `Weighted`, `Performance`, `Priority`, `Subnet` and `MultiValue`.
         :param pulumi.Input[bool] traffic_view_enabled: Indicates whether Traffic View is enabled for the Traffic Manager profile.
         """
+        _TrafficManagerProfileState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_config=dns_config,
+            fqdn=fqdn,
+            max_return=max_return,
+            monitor_config=monitor_config,
+            name=name,
+            profile_status=profile_status,
+            resource_group_name=resource_group_name,
+            tags=tags,
+            traffic_routing_method=traffic_routing_method,
+            traffic_view_enabled=traffic_view_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_config: Optional[pulumi.Input['TrafficManagerProfileDnsConfigArgs']] = None,
+             fqdn: Optional[pulumi.Input[str]] = None,
+             max_return: Optional[pulumi.Input[int]] = None,
+             monitor_config: Optional[pulumi.Input['TrafficManagerProfileMonitorConfigArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             profile_status: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             traffic_routing_method: Optional[pulumi.Input[str]] = None,
+             traffic_view_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if dns_config is None and 'dnsConfig' in kwargs:
+            dns_config = kwargs['dnsConfig']
+        if max_return is None and 'maxReturn' in kwargs:
+            max_return = kwargs['maxReturn']
+        if monitor_config is None and 'monitorConfig' in kwargs:
+            monitor_config = kwargs['monitorConfig']
+        if profile_status is None and 'profileStatus' in kwargs:
+            profile_status = kwargs['profileStatus']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if traffic_routing_method is None and 'trafficRoutingMethod' in kwargs:
+            traffic_routing_method = kwargs['trafficRoutingMethod']
+        if traffic_view_enabled is None and 'trafficViewEnabled' in kwargs:
+            traffic_view_enabled = kwargs['trafficViewEnabled']
+
         if dns_config is not None:
-            pulumi.set(__self__, "dns_config", dns_config)
+            _setter("dns_config", dns_config)
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if max_return is not None:
-            pulumi.set(__self__, "max_return", max_return)
+            _setter("max_return", max_return)
         if monitor_config is not None:
-            pulumi.set(__self__, "monitor_config", monitor_config)
+            _setter("monitor_config", monitor_config)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if profile_status is not None:
-            pulumi.set(__self__, "profile_status", profile_status)
+            _setter("profile_status", profile_status)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if traffic_routing_method is not None:
-            pulumi.set(__self__, "traffic_routing_method", traffic_routing_method)
+            _setter("traffic_routing_method", traffic_routing_method)
         if traffic_view_enabled is not None:
-            pulumi.set(__self__, "traffic_view_enabled", traffic_view_enabled)
+            _setter("traffic_view_enabled", traffic_view_enabled)
 
     @property
     @pulumi.getter(name="dnsConfig")
@@ -470,6 +562,10 @@ class TrafficManagerProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TrafficManagerProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -493,10 +589,20 @@ class TrafficManagerProfile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TrafficManagerProfileArgs.__new__(TrafficManagerProfileArgs)
 
+            if dns_config is not None and not isinstance(dns_config, TrafficManagerProfileDnsConfigArgs):
+                dns_config = dns_config or {}
+                def _setter(key, value):
+                    dns_config[key] = value
+                TrafficManagerProfileDnsConfigArgs._configure(_setter, **dns_config)
             if dns_config is None and not opts.urn:
                 raise TypeError("Missing required property 'dns_config'")
             __props__.__dict__["dns_config"] = dns_config
             __props__.__dict__["max_return"] = max_return
+            if monitor_config is not None and not isinstance(monitor_config, TrafficManagerProfileMonitorConfigArgs):
+                monitor_config = monitor_config or {}
+                def _setter(key, value):
+                    monitor_config[key] = value
+                TrafficManagerProfileMonitorConfigArgs._configure(_setter, **monitor_config)
             if monitor_config is None and not opts.urn:
                 raise TypeError("Missing required property 'monitor_config'")
             __props__.__dict__["monitor_config"] = monitor_config

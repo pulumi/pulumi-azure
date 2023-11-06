@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FlexibleServerFirewallRuleArgs', 'FlexibleServerFirewallRule']
@@ -25,11 +25,40 @@ class FlexibleServerFirewallRuleArgs:
         :param pulumi.Input[str] start_ip_address: The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
         :param pulumi.Input[str] name: The name which should be used for this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
         """
-        pulumi.set(__self__, "end_ip_address", end_ip_address)
-        pulumi.set(__self__, "server_id", server_id)
-        pulumi.set(__self__, "start_ip_address", start_ip_address)
+        FlexibleServerFirewallRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_ip_address=end_ip_address,
+            server_id=server_id,
+            start_ip_address=start_ip_address,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_ip_address: Optional[pulumi.Input[str]] = None,
+             server_id: Optional[pulumi.Input[str]] = None,
+             start_ip_address: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if end_ip_address is None and 'endIpAddress' in kwargs:
+            end_ip_address = kwargs['endIpAddress']
+        if end_ip_address is None:
+            raise TypeError("Missing 'end_ip_address' argument")
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
+        if start_ip_address is None and 'startIpAddress' in kwargs:
+            start_ip_address = kwargs['startIpAddress']
+        if start_ip_address is None:
+            raise TypeError("Missing 'start_ip_address' argument")
+
+        _setter("end_ip_address", end_ip_address)
+        _setter("server_id", server_id)
+        _setter("start_ip_address", start_ip_address)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="endIpAddress")
@@ -94,14 +123,37 @@ class _FlexibleServerFirewallRuleState:
         :param pulumi.Input[str] server_id: The ID of the PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Firewall Rule. Changing this forces a new PostgreSQL Flexible Server Firewall Rule to be created.
         :param pulumi.Input[str] start_ip_address: The Start IP Address associated with this PostgreSQL Flexible Server Firewall Rule.
         """
+        _FlexibleServerFirewallRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_ip_address=end_ip_address,
+            name=name,
+            server_id=server_id,
+            start_ip_address=start_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_ip_address: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             server_id: Optional[pulumi.Input[str]] = None,
+             start_ip_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if end_ip_address is None and 'endIpAddress' in kwargs:
+            end_ip_address = kwargs['endIpAddress']
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if start_ip_address is None and 'startIpAddress' in kwargs:
+            start_ip_address = kwargs['startIpAddress']
+
         if end_ip_address is not None:
-            pulumi.set(__self__, "end_ip_address", end_ip_address)
+            _setter("end_ip_address", end_ip_address)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if server_id is not None:
-            pulumi.set(__self__, "server_id", server_id)
+            _setter("server_id", server_id)
         if start_ip_address is not None:
-            pulumi.set(__self__, "start_ip_address", start_ip_address)
+            _setter("start_ip_address", start_ip_address)
 
     @property
     @pulumi.getter(name="endIpAddress")
@@ -249,6 +301,10 @@ class FlexibleServerFirewallRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FlexibleServerFirewallRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,10 +25,33 @@ class FrontdoorSecurityPolicyArgs:
         :param pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesArgs'] security_policies: An `security_policies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
         """
-        pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
-        pulumi.set(__self__, "security_policies", security_policies)
+        FrontdoorSecurityPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cdn_frontdoor_profile_id=cdn_frontdoor_profile_id,
+            security_policies=security_policies,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
+             security_policies: Optional[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
+            cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
+        if cdn_frontdoor_profile_id is None:
+            raise TypeError("Missing 'cdn_frontdoor_profile_id' argument")
+        if security_policies is None and 'securityPolicies' in kwargs:
+            security_policies = kwargs['securityPolicies']
+        if security_policies is None:
+            raise TypeError("Missing 'security_policies' argument")
+
+        _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
+        _setter("security_policies", security_policies)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="cdnFrontdoorProfileId")
@@ -79,12 +102,31 @@ class _FrontdoorSecurityPolicyState:
         :param pulumi.Input[str] name: The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
         :param pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesArgs'] security_policies: An `security_policies` block as defined below. Changing this forces a new Front Door Security Policy to be created.
         """
+        _FrontdoorSecurityPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cdn_frontdoor_profile_id=cdn_frontdoor_profile_id,
+            name=name,
+            security_policies=security_policies,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             security_policies: Optional[pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cdn_frontdoor_profile_id is None and 'cdnFrontdoorProfileId' in kwargs:
+            cdn_frontdoor_profile_id = kwargs['cdnFrontdoorProfileId']
+        if security_policies is None and 'securityPolicies' in kwargs:
+            security_policies = kwargs['securityPolicies']
+
         if cdn_frontdoor_profile_id is not None:
-            pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
+            _setter("cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if security_policies is not None:
-            pulumi.set(__self__, "security_policies", security_policies)
+            _setter("security_policies", security_policies)
 
     @property
     @pulumi.getter(name="cdnFrontdoorProfileId")
@@ -176,6 +218,10 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FrontdoorSecurityPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -197,6 +243,11 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cdn_frontdoor_profile_id'")
             __props__.__dict__["cdn_frontdoor_profile_id"] = cdn_frontdoor_profile_id
             __props__.__dict__["name"] = name
+            if security_policies is not None and not isinstance(security_policies, FrontdoorSecurityPolicySecurityPoliciesArgs):
+                security_policies = security_policies or {}
+                def _setter(key, value):
+                    security_policies[key] = value
+                FrontdoorSecurityPolicySecurityPoliciesArgs._configure(_setter, **security_policies)
             if security_policies is None and not opts.urn:
                 raise TypeError("Missing required property 'security_policies'")
             __props__.__dict__["security_policies"] = security_policies

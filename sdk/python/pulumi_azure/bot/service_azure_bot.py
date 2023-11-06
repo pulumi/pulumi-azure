@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServiceAzureBotArgs', 'ServiceAzureBot']
@@ -55,41 +55,122 @@ class ServiceAzureBotArgs:
         :param pulumi.Input[bool] streaming_endpoint_enabled: Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Azure Bot Service.
         """
-        pulumi.set(__self__, "microsoft_app_id", microsoft_app_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        ServiceAzureBotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            microsoft_app_id=microsoft_app_id,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            developer_app_insights_api_key=developer_app_insights_api_key,
+            developer_app_insights_application_id=developer_app_insights_application_id,
+            developer_app_insights_key=developer_app_insights_key,
+            display_name=display_name,
+            endpoint=endpoint,
+            icon_url=icon_url,
+            local_authentication_enabled=local_authentication_enabled,
+            location=location,
+            luis_app_ids=luis_app_ids,
+            luis_key=luis_key,
+            microsoft_app_msi_id=microsoft_app_msi_id,
+            microsoft_app_tenant_id=microsoft_app_tenant_id,
+            microsoft_app_type=microsoft_app_type,
+            name=name,
+            streaming_endpoint_enabled=streaming_endpoint_enabled,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             microsoft_app_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             developer_app_insights_api_key: Optional[pulumi.Input[str]] = None,
+             developer_app_insights_application_id: Optional[pulumi.Input[str]] = None,
+             developer_app_insights_key: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             icon_url: Optional[pulumi.Input[str]] = None,
+             local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             luis_key: Optional[pulumi.Input[str]] = None,
+             microsoft_app_msi_id: Optional[pulumi.Input[str]] = None,
+             microsoft_app_tenant_id: Optional[pulumi.Input[str]] = None,
+             microsoft_app_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if microsoft_app_id is None and 'microsoftAppId' in kwargs:
+            microsoft_app_id = kwargs['microsoftAppId']
+        if microsoft_app_id is None:
+            raise TypeError("Missing 'microsoft_app_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if developer_app_insights_api_key is None and 'developerAppInsightsApiKey' in kwargs:
+            developer_app_insights_api_key = kwargs['developerAppInsightsApiKey']
+        if developer_app_insights_application_id is None and 'developerAppInsightsApplicationId' in kwargs:
+            developer_app_insights_application_id = kwargs['developerAppInsightsApplicationId']
+        if developer_app_insights_key is None and 'developerAppInsightsKey' in kwargs:
+            developer_app_insights_key = kwargs['developerAppInsightsKey']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if icon_url is None and 'iconUrl' in kwargs:
+            icon_url = kwargs['iconUrl']
+        if local_authentication_enabled is None and 'localAuthenticationEnabled' in kwargs:
+            local_authentication_enabled = kwargs['localAuthenticationEnabled']
+        if luis_app_ids is None and 'luisAppIds' in kwargs:
+            luis_app_ids = kwargs['luisAppIds']
+        if luis_key is None and 'luisKey' in kwargs:
+            luis_key = kwargs['luisKey']
+        if microsoft_app_msi_id is None and 'microsoftAppMsiId' in kwargs:
+            microsoft_app_msi_id = kwargs['microsoftAppMsiId']
+        if microsoft_app_tenant_id is None and 'microsoftAppTenantId' in kwargs:
+            microsoft_app_tenant_id = kwargs['microsoftAppTenantId']
+        if microsoft_app_type is None and 'microsoftAppType' in kwargs:
+            microsoft_app_type = kwargs['microsoftAppType']
+        if streaming_endpoint_enabled is None and 'streamingEndpointEnabled' in kwargs:
+            streaming_endpoint_enabled = kwargs['streamingEndpointEnabled']
+
+        _setter("microsoft_app_id", microsoft_app_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if developer_app_insights_api_key is not None:
-            pulumi.set(__self__, "developer_app_insights_api_key", developer_app_insights_api_key)
+            _setter("developer_app_insights_api_key", developer_app_insights_api_key)
         if developer_app_insights_application_id is not None:
-            pulumi.set(__self__, "developer_app_insights_application_id", developer_app_insights_application_id)
+            _setter("developer_app_insights_application_id", developer_app_insights_application_id)
         if developer_app_insights_key is not None:
-            pulumi.set(__self__, "developer_app_insights_key", developer_app_insights_key)
+            _setter("developer_app_insights_key", developer_app_insights_key)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if icon_url is not None:
-            pulumi.set(__self__, "icon_url", icon_url)
+            _setter("icon_url", icon_url)
         if local_authentication_enabled is not None:
-            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
+            _setter("local_authentication_enabled", local_authentication_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if luis_app_ids is not None:
-            pulumi.set(__self__, "luis_app_ids", luis_app_ids)
+            _setter("luis_app_ids", luis_app_ids)
         if luis_key is not None:
-            pulumi.set(__self__, "luis_key", luis_key)
+            _setter("luis_key", luis_key)
         if microsoft_app_msi_id is not None:
-            pulumi.set(__self__, "microsoft_app_msi_id", microsoft_app_msi_id)
+            _setter("microsoft_app_msi_id", microsoft_app_msi_id)
         if microsoft_app_tenant_id is not None:
-            pulumi.set(__self__, "microsoft_app_tenant_id", microsoft_app_tenant_id)
+            _setter("microsoft_app_tenant_id", microsoft_app_tenant_id)
         if microsoft_app_type is not None:
-            pulumi.set(__self__, "microsoft_app_type", microsoft_app_type)
+            _setter("microsoft_app_type", microsoft_app_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if streaming_endpoint_enabled is not None:
-            pulumi.set(__self__, "streaming_endpoint_enabled", streaming_endpoint_enabled)
+            _setter("streaming_endpoint_enabled", streaming_endpoint_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="microsoftAppId")
@@ -364,44 +445,119 @@ class _ServiceAzureBotState:
         :param pulumi.Input[bool] streaming_endpoint_enabled: Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to this Azure Bot Service.
         """
+        _ServiceAzureBotState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            developer_app_insights_api_key=developer_app_insights_api_key,
+            developer_app_insights_application_id=developer_app_insights_application_id,
+            developer_app_insights_key=developer_app_insights_key,
+            display_name=display_name,
+            endpoint=endpoint,
+            icon_url=icon_url,
+            local_authentication_enabled=local_authentication_enabled,
+            location=location,
+            luis_app_ids=luis_app_ids,
+            luis_key=luis_key,
+            microsoft_app_id=microsoft_app_id,
+            microsoft_app_msi_id=microsoft_app_msi_id,
+            microsoft_app_tenant_id=microsoft_app_tenant_id,
+            microsoft_app_type=microsoft_app_type,
+            name=name,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            streaming_endpoint_enabled=streaming_endpoint_enabled,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             developer_app_insights_api_key: Optional[pulumi.Input[str]] = None,
+             developer_app_insights_application_id: Optional[pulumi.Input[str]] = None,
+             developer_app_insights_key: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             endpoint: Optional[pulumi.Input[str]] = None,
+             icon_url: Optional[pulumi.Input[str]] = None,
+             local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             luis_app_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             luis_key: Optional[pulumi.Input[str]] = None,
+             microsoft_app_id: Optional[pulumi.Input[str]] = None,
+             microsoft_app_msi_id: Optional[pulumi.Input[str]] = None,
+             microsoft_app_tenant_id: Optional[pulumi.Input[str]] = None,
+             microsoft_app_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             streaming_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if developer_app_insights_api_key is None and 'developerAppInsightsApiKey' in kwargs:
+            developer_app_insights_api_key = kwargs['developerAppInsightsApiKey']
+        if developer_app_insights_application_id is None and 'developerAppInsightsApplicationId' in kwargs:
+            developer_app_insights_application_id = kwargs['developerAppInsightsApplicationId']
+        if developer_app_insights_key is None and 'developerAppInsightsKey' in kwargs:
+            developer_app_insights_key = kwargs['developerAppInsightsKey']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if icon_url is None and 'iconUrl' in kwargs:
+            icon_url = kwargs['iconUrl']
+        if local_authentication_enabled is None and 'localAuthenticationEnabled' in kwargs:
+            local_authentication_enabled = kwargs['localAuthenticationEnabled']
+        if luis_app_ids is None and 'luisAppIds' in kwargs:
+            luis_app_ids = kwargs['luisAppIds']
+        if luis_key is None and 'luisKey' in kwargs:
+            luis_key = kwargs['luisKey']
+        if microsoft_app_id is None and 'microsoftAppId' in kwargs:
+            microsoft_app_id = kwargs['microsoftAppId']
+        if microsoft_app_msi_id is None and 'microsoftAppMsiId' in kwargs:
+            microsoft_app_msi_id = kwargs['microsoftAppMsiId']
+        if microsoft_app_tenant_id is None and 'microsoftAppTenantId' in kwargs:
+            microsoft_app_tenant_id = kwargs['microsoftAppTenantId']
+        if microsoft_app_type is None and 'microsoftAppType' in kwargs:
+            microsoft_app_type = kwargs['microsoftAppType']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if streaming_endpoint_enabled is None and 'streamingEndpointEnabled' in kwargs:
+            streaming_endpoint_enabled = kwargs['streamingEndpointEnabled']
+
         if developer_app_insights_api_key is not None:
-            pulumi.set(__self__, "developer_app_insights_api_key", developer_app_insights_api_key)
+            _setter("developer_app_insights_api_key", developer_app_insights_api_key)
         if developer_app_insights_application_id is not None:
-            pulumi.set(__self__, "developer_app_insights_application_id", developer_app_insights_application_id)
+            _setter("developer_app_insights_application_id", developer_app_insights_application_id)
         if developer_app_insights_key is not None:
-            pulumi.set(__self__, "developer_app_insights_key", developer_app_insights_key)
+            _setter("developer_app_insights_key", developer_app_insights_key)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if endpoint is not None:
-            pulumi.set(__self__, "endpoint", endpoint)
+            _setter("endpoint", endpoint)
         if icon_url is not None:
-            pulumi.set(__self__, "icon_url", icon_url)
+            _setter("icon_url", icon_url)
         if local_authentication_enabled is not None:
-            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
+            _setter("local_authentication_enabled", local_authentication_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if luis_app_ids is not None:
-            pulumi.set(__self__, "luis_app_ids", luis_app_ids)
+            _setter("luis_app_ids", luis_app_ids)
         if luis_key is not None:
-            pulumi.set(__self__, "luis_key", luis_key)
+            _setter("luis_key", luis_key)
         if microsoft_app_id is not None:
-            pulumi.set(__self__, "microsoft_app_id", microsoft_app_id)
+            _setter("microsoft_app_id", microsoft_app_id)
         if microsoft_app_msi_id is not None:
-            pulumi.set(__self__, "microsoft_app_msi_id", microsoft_app_msi_id)
+            _setter("microsoft_app_msi_id", microsoft_app_msi_id)
         if microsoft_app_tenant_id is not None:
-            pulumi.set(__self__, "microsoft_app_tenant_id", microsoft_app_tenant_id)
+            _setter("microsoft_app_tenant_id", microsoft_app_tenant_id)
         if microsoft_app_type is not None:
-            pulumi.set(__self__, "microsoft_app_type", microsoft_app_type)
+            _setter("microsoft_app_type", microsoft_app_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if streaming_endpoint_enabled is not None:
-            pulumi.set(__self__, "streaming_endpoint_enabled", streaming_endpoint_enabled)
+            _setter("streaming_endpoint_enabled", streaming_endpoint_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="developerAppInsightsApiKey")
@@ -785,6 +941,10 @@ class ServiceAzureBot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceAzureBotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

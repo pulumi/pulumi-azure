@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,19 +37,54 @@ class ActionHttpArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] queries: Specifies a Map of Key-Value Pairs that should be sent to the `uri` when this HTTP Action is triggered.
         :param pulumi.Input[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]] run_afters: Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
         """
-        pulumi.set(__self__, "logic_app_id", logic_app_id)
-        pulumi.set(__self__, "method", method)
-        pulumi.set(__self__, "uri", uri)
+        ActionHttpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            logic_app_id=logic_app_id,
+            method=method,
+            uri=uri,
+            body=body,
+            headers=headers,
+            name=name,
+            queries=queries,
+            run_afters=run_afters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             logic_app_id: Optional[pulumi.Input[str]] = None,
+             method: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             body: Optional[pulumi.Input[str]] = None,
+             headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             queries: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             run_afters: Optional[pulumi.Input[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if logic_app_id is None and 'logicAppId' in kwargs:
+            logic_app_id = kwargs['logicAppId']
+        if logic_app_id is None:
+            raise TypeError("Missing 'logic_app_id' argument")
+        if method is None:
+            raise TypeError("Missing 'method' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
+        if run_afters is None and 'runAfters' in kwargs:
+            run_afters = kwargs['runAfters']
+
+        _setter("logic_app_id", logic_app_id)
+        _setter("method", method)
+        _setter("uri", uri)
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if queries is not None:
-            pulumi.set(__self__, "queries", queries)
+            _setter("queries", queries)
         if run_afters is not None:
-            pulumi.set(__self__, "run_afters", run_afters)
+            _setter("run_afters", run_afters)
 
     @property
     @pulumi.getter(name="logicAppId")
@@ -174,22 +209,51 @@ class _ActionHttpState:
         :param pulumi.Input[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]] run_afters: Specifies the place of the HTTP Action in the Logic App Workflow. If not specified, the HTTP Action is right after the Trigger. A `run_after` block is as defined below.
         :param pulumi.Input[str] uri: Specifies the URI which will be called when this HTTP Action is triggered.
         """
+        _ActionHttpState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body=body,
+            headers=headers,
+            logic_app_id=logic_app_id,
+            method=method,
+            name=name,
+            queries=queries,
+            run_afters=run_afters,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body: Optional[pulumi.Input[str]] = None,
+             headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             logic_app_id: Optional[pulumi.Input[str]] = None,
+             method: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             queries: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             run_afters: Optional[pulumi.Input[Sequence[pulumi.Input['ActionHttpRunAfterArgs']]]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if logic_app_id is None and 'logicAppId' in kwargs:
+            logic_app_id = kwargs['logicAppId']
+        if run_afters is None and 'runAfters' in kwargs:
+            run_afters = kwargs['runAfters']
+
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if headers is not None:
-            pulumi.set(__self__, "headers", headers)
+            _setter("headers", headers)
         if logic_app_id is not None:
-            pulumi.set(__self__, "logic_app_id", logic_app_id)
+            _setter("logic_app_id", logic_app_id)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if queries is not None:
-            pulumi.set(__self__, "queries", queries)
+            _setter("queries", queries)
         if run_afters is not None:
-            pulumi.set(__self__, "run_afters", run_afters)
+            _setter("run_afters", run_afters)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter
@@ -387,6 +451,10 @@ class ActionHttp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ActionHttpArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

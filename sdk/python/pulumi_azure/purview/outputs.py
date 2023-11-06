@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -50,13 +50,38 @@ class AccountIdentity(dict):
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        pulumi.set(__self__, "type", type)
+        AccountIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -125,12 +150,33 @@ class AccountManagedResource(dict):
         :param str resource_group_id: The ID of the managed resource group.
         :param str storage_account_id: The ID of the managed storage account.
         """
+        AccountManagedResource._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            event_hub_namespace_id=event_hub_namespace_id,
+            resource_group_id=resource_group_id,
+            storage_account_id=storage_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             event_hub_namespace_id: Optional[str] = None,
+             resource_group_id: Optional[str] = None,
+             storage_account_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if event_hub_namespace_id is None and 'eventHubNamespaceId' in kwargs:
+            event_hub_namespace_id = kwargs['eventHubNamespaceId']
+        if resource_group_id is None and 'resourceGroupId' in kwargs:
+            resource_group_id = kwargs['resourceGroupId']
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         if event_hub_namespace_id is not None:
-            pulumi.set(__self__, "event_hub_namespace_id", event_hub_namespace_id)
+            _setter("event_hub_namespace_id", event_hub_namespace_id)
         if resource_group_id is not None:
-            pulumi.set(__self__, "resource_group_id", resource_group_id)
+            _setter("resource_group_id", resource_group_id)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
 
     @property
     @pulumi.getter(name="eventHubNamespaceId")

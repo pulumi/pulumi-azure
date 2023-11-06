@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SettingArgs', 'Setting']
@@ -21,8 +21,27 @@ class SettingArgs:
         :param pulumi.Input[bool] enabled: Boolean flag to enable/disable data access.
         :param pulumi.Input[str] setting_name: The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "setting_name", setting_name)
+        SettingArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            setting_name=setting_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             setting_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if setting_name is None and 'settingName' in kwargs:
+            setting_name = kwargs['settingName']
+        if setting_name is None:
+            raise TypeError("Missing 'setting_name' argument")
+
+        _setter("enabled", enabled)
+        _setter("setting_name", setting_name)
 
     @property
     @pulumi.getter
@@ -59,10 +78,25 @@ class _SettingState:
         :param pulumi.Input[bool] enabled: Boolean flag to enable/disable data access.
         :param pulumi.Input[str] setting_name: The setting to manage. Possible values are `MCAS` , `WDATP` and `SENTINEL`. Changing this forces a new resource to be created.
         """
+        _SettingState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            setting_name=setting_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             setting_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if setting_name is None and 'settingName' in kwargs:
+            setting_name = kwargs['settingName']
+
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if setting_name is not None:
-            pulumi.set(__self__, "setting_name", setting_name)
+            _setter("setting_name", setting_name)
 
     @property
     @pulumi.getter
@@ -170,6 +204,10 @@ class Setting(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SettingArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

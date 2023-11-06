@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,16 +31,49 @@ class IotHubDeviceUpdateInstanceArgs:
         :param pulumi.Input[str] name: Specifies the name which should be used for this IoT Hub Device Update Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the IoT Hub Device Update Instance.
         """
-        pulumi.set(__self__, "device_update_account_id", device_update_account_id)
-        pulumi.set(__self__, "iothub_id", iothub_id)
+        IotHubDeviceUpdateInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_update_account_id=device_update_account_id,
+            iothub_id=iothub_id,
+            diagnostic_enabled=diagnostic_enabled,
+            diagnostic_storage_account=diagnostic_storage_account,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_update_account_id: Optional[pulumi.Input[str]] = None,
+             iothub_id: Optional[pulumi.Input[str]] = None,
+             diagnostic_enabled: Optional[pulumi.Input[bool]] = None,
+             diagnostic_storage_account: Optional[pulumi.Input['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if device_update_account_id is None and 'deviceUpdateAccountId' in kwargs:
+            device_update_account_id = kwargs['deviceUpdateAccountId']
+        if device_update_account_id is None:
+            raise TypeError("Missing 'device_update_account_id' argument")
+        if iothub_id is None and 'iothubId' in kwargs:
+            iothub_id = kwargs['iothubId']
+        if iothub_id is None:
+            raise TypeError("Missing 'iothub_id' argument")
+        if diagnostic_enabled is None and 'diagnosticEnabled' in kwargs:
+            diagnostic_enabled = kwargs['diagnosticEnabled']
+        if diagnostic_storage_account is None and 'diagnosticStorageAccount' in kwargs:
+            diagnostic_storage_account = kwargs['diagnosticStorageAccount']
+
+        _setter("device_update_account_id", device_update_account_id)
+        _setter("iothub_id", iothub_id)
         if diagnostic_enabled is not None:
-            pulumi.set(__self__, "diagnostic_enabled", diagnostic_enabled)
+            _setter("diagnostic_enabled", diagnostic_enabled)
         if diagnostic_storage_account is not None:
-            pulumi.set(__self__, "diagnostic_storage_account", diagnostic_storage_account)
+            _setter("diagnostic_storage_account", diagnostic_storage_account)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="deviceUpdateAccountId")
@@ -133,18 +166,47 @@ class _IotHubDeviceUpdateInstanceState:
         :param pulumi.Input[str] name: Specifies the name which should be used for this IoT Hub Device Update Instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the IoT Hub Device Update Instance.
         """
+        _IotHubDeviceUpdateInstanceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_update_account_id=device_update_account_id,
+            diagnostic_enabled=diagnostic_enabled,
+            diagnostic_storage_account=diagnostic_storage_account,
+            iothub_id=iothub_id,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_update_account_id: Optional[pulumi.Input[str]] = None,
+             diagnostic_enabled: Optional[pulumi.Input[bool]] = None,
+             diagnostic_storage_account: Optional[pulumi.Input['IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs']] = None,
+             iothub_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if device_update_account_id is None and 'deviceUpdateAccountId' in kwargs:
+            device_update_account_id = kwargs['deviceUpdateAccountId']
+        if diagnostic_enabled is None and 'diagnosticEnabled' in kwargs:
+            diagnostic_enabled = kwargs['diagnosticEnabled']
+        if diagnostic_storage_account is None and 'diagnosticStorageAccount' in kwargs:
+            diagnostic_storage_account = kwargs['diagnosticStorageAccount']
+        if iothub_id is None and 'iothubId' in kwargs:
+            iothub_id = kwargs['iothubId']
+
         if device_update_account_id is not None:
-            pulumi.set(__self__, "device_update_account_id", device_update_account_id)
+            _setter("device_update_account_id", device_update_account_id)
         if diagnostic_enabled is not None:
-            pulumi.set(__self__, "diagnostic_enabled", diagnostic_enabled)
+            _setter("diagnostic_enabled", diagnostic_enabled)
         if diagnostic_storage_account is not None:
-            pulumi.set(__self__, "diagnostic_storage_account", diagnostic_storage_account)
+            _setter("diagnostic_storage_account", diagnostic_storage_account)
         if iothub_id is not None:
-            pulumi.set(__self__, "iothub_id", iothub_id)
+            _setter("iothub_id", iothub_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="deviceUpdateAccountId")
@@ -348,6 +410,10 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IotHubDeviceUpdateInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -372,6 +438,11 @@ class IotHubDeviceUpdateInstance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'device_update_account_id'")
             __props__.__dict__["device_update_account_id"] = device_update_account_id
             __props__.__dict__["diagnostic_enabled"] = diagnostic_enabled
+            if diagnostic_storage_account is not None and not isinstance(diagnostic_storage_account, IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs):
+                diagnostic_storage_account = diagnostic_storage_account or {}
+                def _setter(key, value):
+                    diagnostic_storage_account[key] = value
+                IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs._configure(_setter, **diagnostic_storage_account)
             __props__.__dict__["diagnostic_storage_account"] = diagnostic_storage_account
             if iothub_id is None and not opts.urn:
                 raise TypeError("Missing required property 'iothub_id'")

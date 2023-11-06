@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ActionCustomArgs', 'ActionCustom']
@@ -25,10 +25,31 @@ class ActionCustomArgs:
                
                > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
         """
-        pulumi.set(__self__, "body", body)
-        pulumi.set(__self__, "logic_app_id", logic_app_id)
+        ActionCustomArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body=body,
+            logic_app_id=logic_app_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body: Optional[pulumi.Input[str]] = None,
+             logic_app_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if body is None:
+            raise TypeError("Missing 'body' argument")
+        if logic_app_id is None and 'logicAppId' in kwargs:
+            logic_app_id = kwargs['logicAppId']
+        if logic_app_id is None:
+            raise TypeError("Missing 'logic_app_id' argument")
+
+        _setter("body", body)
+        _setter("logic_app_id", logic_app_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -83,12 +104,29 @@ class _ActionCustomState:
                
                > **NOTE:** This name must be unique across all Actions within the Logic App Workflow.
         """
+        _ActionCustomState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            body=body,
+            logic_app_id=logic_app_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             body: Optional[pulumi.Input[str]] = None,
+             logic_app_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if logic_app_id is None and 'logicAppId' in kwargs:
+            logic_app_id = kwargs['logicAppId']
+
         if body is not None:
-            pulumi.set(__self__, "body", body)
+            _setter("body", body)
         if logic_app_id is not None:
-            pulumi.set(__self__, "logic_app_id", logic_app_id)
+            _setter("logic_app_id", logic_app_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -242,6 +280,10 @@ class ActionCustom(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ActionCustomArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

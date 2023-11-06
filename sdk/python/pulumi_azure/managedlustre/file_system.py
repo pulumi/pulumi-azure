@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,24 +45,83 @@ class FileSystemArgs:
         :param pulumi.Input[str] name: The name which should be used for this Azure Managed Lustre File System. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Managed Lustre File System.
         """
-        pulumi.set(__self__, "maintenance_window", maintenance_window)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku_name", sku_name)
-        pulumi.set(__self__, "storage_capacity_in_tb", storage_capacity_in_tb)
-        pulumi.set(__self__, "subnet_id", subnet_id)
-        pulumi.set(__self__, "zones", zones)
+        FileSystemArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            maintenance_window=maintenance_window,
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            storage_capacity_in_tb=storage_capacity_in_tb,
+            subnet_id=subnet_id,
+            zones=zones,
+            encryption_key=encryption_key,
+            hsm_setting=hsm_setting,
+            identity=identity,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             maintenance_window: Optional[pulumi.Input['FileSystemMaintenanceWindowArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             storage_capacity_in_tb: Optional[pulumi.Input[int]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             encryption_key: Optional[pulumi.Input['FileSystemEncryptionKeyArgs']] = None,
+             hsm_setting: Optional[pulumi.Input['FileSystemHsmSettingArgs']] = None,
+             identity: Optional[pulumi.Input['FileSystemIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if maintenance_window is None:
+            raise TypeError("Missing 'maintenance_window' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if storage_capacity_in_tb is None and 'storageCapacityInTb' in kwargs:
+            storage_capacity_in_tb = kwargs['storageCapacityInTb']
+        if storage_capacity_in_tb is None:
+            raise TypeError("Missing 'storage_capacity_in_tb' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if zones is None:
+            raise TypeError("Missing 'zones' argument")
+        if encryption_key is None and 'encryptionKey' in kwargs:
+            encryption_key = kwargs['encryptionKey']
+        if hsm_setting is None and 'hsmSetting' in kwargs:
+            hsm_setting = kwargs['hsmSetting']
+
+        _setter("maintenance_window", maintenance_window)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku_name", sku_name)
+        _setter("storage_capacity_in_tb", storage_capacity_in_tb)
+        _setter("subnet_id", subnet_id)
+        _setter("zones", zones)
         if encryption_key is not None:
-            pulumi.set(__self__, "encryption_key", encryption_key)
+            _setter("encryption_key", encryption_key)
         if hsm_setting is not None:
-            pulumi.set(__self__, "hsm_setting", hsm_setting)
+            _setter("hsm_setting", hsm_setting)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="maintenanceWindow")
@@ -243,30 +302,77 @@ class _FileSystemState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Azure Managed Lustre File System.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: A list of availability zones for the Azure Managed Lustre File System. Changing this forces a new resource to be created.
         """
+        _FileSystemState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption_key=encryption_key,
+            hsm_setting=hsm_setting,
+            identity=identity,
+            location=location,
+            maintenance_window=maintenance_window,
+            name=name,
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            storage_capacity_in_tb=storage_capacity_in_tb,
+            subnet_id=subnet_id,
+            tags=tags,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption_key: Optional[pulumi.Input['FileSystemEncryptionKeyArgs']] = None,
+             hsm_setting: Optional[pulumi.Input['FileSystemHsmSettingArgs']] = None,
+             identity: Optional[pulumi.Input['FileSystemIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maintenance_window: Optional[pulumi.Input['FileSystemMaintenanceWindowArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             storage_capacity_in_tb: Optional[pulumi.Input[int]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if encryption_key is None and 'encryptionKey' in kwargs:
+            encryption_key = kwargs['encryptionKey']
+        if hsm_setting is None and 'hsmSetting' in kwargs:
+            hsm_setting = kwargs['hsmSetting']
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if storage_capacity_in_tb is None and 'storageCapacityInTb' in kwargs:
+            storage_capacity_in_tb = kwargs['storageCapacityInTb']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if encryption_key is not None:
-            pulumi.set(__self__, "encryption_key", encryption_key)
+            _setter("encryption_key", encryption_key)
         if hsm_setting is not None:
-            pulumi.set(__self__, "hsm_setting", hsm_setting)
+            _setter("hsm_setting", hsm_setting)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maintenance_window is not None:
-            pulumi.set(__self__, "maintenance_window", maintenance_window)
+            _setter("maintenance_window", maintenance_window)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
         if storage_capacity_in_tb is not None:
-            pulumi.set(__self__, "storage_capacity_in_tb", storage_capacity_in_tb)
+            _setter("storage_capacity_in_tb", storage_capacity_in_tb)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="encryptionKey")
@@ -488,6 +594,10 @@ class FileSystem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FileSystemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -514,10 +624,30 @@ class FileSystem(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FileSystemArgs.__new__(FileSystemArgs)
 
+            if encryption_key is not None and not isinstance(encryption_key, FileSystemEncryptionKeyArgs):
+                encryption_key = encryption_key or {}
+                def _setter(key, value):
+                    encryption_key[key] = value
+                FileSystemEncryptionKeyArgs._configure(_setter, **encryption_key)
             __props__.__dict__["encryption_key"] = encryption_key
+            if hsm_setting is not None and not isinstance(hsm_setting, FileSystemHsmSettingArgs):
+                hsm_setting = hsm_setting or {}
+                def _setter(key, value):
+                    hsm_setting[key] = value
+                FileSystemHsmSettingArgs._configure(_setter, **hsm_setting)
             __props__.__dict__["hsm_setting"] = hsm_setting
+            if identity is not None and not isinstance(identity, FileSystemIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                FileSystemIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
+            if maintenance_window is not None and not isinstance(maintenance_window, FileSystemMaintenanceWindowArgs):
+                maintenance_window = maintenance_window or {}
+                def _setter(key, value):
+                    maintenance_window[key] = value
+                FileSystemMaintenanceWindowArgs._configure(_setter, **maintenance_window)
             if maintenance_window is None and not opts.urn:
                 raise TypeError("Missing required property 'maintenance_window'")
             __props__.__dict__["maintenance_window"] = maintenance_window

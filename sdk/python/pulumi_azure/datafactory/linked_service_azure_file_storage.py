@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,30 +47,83 @@ class LinkedServiceAzureFileStorageArgs:
         :param pulumi.Input[str] password: The password to log in the server.
         :param pulumi.Input[str] user_id: The user ID to log in the server.
         """
-        pulumi.set(__self__, "connection_string", connection_string)
-        pulumi.set(__self__, "data_factory_id", data_factory_id)
+        LinkedServiceAzureFileStorageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            data_factory_id=data_factory_id,
+            additional_properties=additional_properties,
+            annotations=annotations,
+            description=description,
+            file_share=file_share,
+            host=host,
+            integration_runtime_name=integration_runtime_name,
+            key_vault_password=key_vault_password,
+            name=name,
+            parameters=parameters,
+            password=password,
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: Optional[pulumi.Input[str]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             file_share: Optional[pulumi.Input[str]] = None,
+             host: Optional[pulumi.Input[str]] = None,
+             integration_runtime_name: Optional[pulumi.Input[str]] = None,
+             key_vault_password: Optional[pulumi.Input['LinkedServiceAzureFileStorageKeyVaultPasswordArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if connection_string is None and 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if connection_string is None:
+            raise TypeError("Missing 'connection_string' argument")
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if file_share is None and 'fileShare' in kwargs:
+            file_share = kwargs['fileShare']
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if key_vault_password is None and 'keyVaultPassword' in kwargs:
+            key_vault_password = kwargs['keyVaultPassword']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
+        _setter("connection_string", connection_string)
+        _setter("data_factory_id", data_factory_id)
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if file_share is not None:
-            pulumi.set(__self__, "file_share", file_share)
+            _setter("file_share", file_share)
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if integration_runtime_name is not None:
-            pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
+            _setter("integration_runtime_name", integration_runtime_name)
         if key_vault_password is not None:
-            pulumi.set(__self__, "key_vault_password", key_vault_password)
+            _setter("key_vault_password", key_vault_password)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -265,32 +318,81 @@ class _LinkedServiceAzureFileStorageState:
         :param pulumi.Input[str] password: The password to log in the server.
         :param pulumi.Input[str] user_id: The user ID to log in the server.
         """
+        _LinkedServiceAzureFileStorageState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_properties=additional_properties,
+            annotations=annotations,
+            connection_string=connection_string,
+            data_factory_id=data_factory_id,
+            description=description,
+            file_share=file_share,
+            host=host,
+            integration_runtime_name=integration_runtime_name,
+            key_vault_password=key_vault_password,
+            name=name,
+            parameters=parameters,
+            password=password,
+            user_id=user_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             connection_string: Optional[pulumi.Input[str]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             file_share: Optional[pulumi.Input[str]] = None,
+             host: Optional[pulumi.Input[str]] = None,
+             integration_runtime_name: Optional[pulumi.Input[str]] = None,
+             key_vault_password: Optional[pulumi.Input['LinkedServiceAzureFileStorageKeyVaultPasswordArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             user_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if additional_properties is None and 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if connection_string is None and 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if file_share is None and 'fileShare' in kwargs:
+            file_share = kwargs['fileShare']
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if key_vault_password is None and 'keyVaultPassword' in kwargs:
+            key_vault_password = kwargs['keyVaultPassword']
+        if user_id is None and 'userId' in kwargs:
+            user_id = kwargs['userId']
+
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if data_factory_id is not None:
-            pulumi.set(__self__, "data_factory_id", data_factory_id)
+            _setter("data_factory_id", data_factory_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if file_share is not None:
-            pulumi.set(__self__, "file_share", file_share)
+            _setter("file_share", file_share)
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if integration_runtime_name is not None:
-            pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
+            _setter("integration_runtime_name", integration_runtime_name)
         if key_vault_password is not None:
-            pulumi.set(__self__, "key_vault_password", key_vault_password)
+            _setter("key_vault_password", key_vault_password)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if user_id is not None:
-            pulumi.set(__self__, "user_id", user_id)
+            _setter("user_id", user_id)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -560,6 +662,10 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinkedServiceAzureFileStorageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -599,6 +705,11 @@ class LinkedServiceAzureFileStorage(pulumi.CustomResource):
             __props__.__dict__["file_share"] = file_share
             __props__.__dict__["host"] = host
             __props__.__dict__["integration_runtime_name"] = integration_runtime_name
+            if key_vault_password is not None and not isinstance(key_vault_password, LinkedServiceAzureFileStorageKeyVaultPasswordArgs):
+                key_vault_password = key_vault_password or {}
+                def _setter(key, value):
+                    key_vault_password[key] = value
+                LinkedServiceAzureFileStorageKeyVaultPasswordArgs._configure(_setter, **key_vault_password)
             __props__.__dict__["key_vault_password"] = key_vault_password
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters

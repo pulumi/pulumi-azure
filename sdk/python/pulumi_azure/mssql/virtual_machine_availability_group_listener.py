@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,18 +35,53 @@ class VirtualMachineAvailabilityGroupListenerArgs:
         :param pulumi.Input[str] name: The name which should be used for the Microsoft SQL Virtual Machine Availability Group Listener. Changing this forces a new resource to be created.
         :param pulumi.Input[int] port: The port of the listener. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "replicas", replicas)
-        pulumi.set(__self__, "sql_virtual_machine_group_id", sql_virtual_machine_group_id)
+        VirtualMachineAvailabilityGroupListenerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            replicas=replicas,
+            sql_virtual_machine_group_id=sql_virtual_machine_group_id,
+            availability_group_name=availability_group_name,
+            load_balancer_configuration=load_balancer_configuration,
+            multi_subnet_ip_configurations=multi_subnet_ip_configurations,
+            name=name,
+            port=port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             replicas: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArgs']]]] = None,
+             sql_virtual_machine_group_id: Optional[pulumi.Input[str]] = None,
+             availability_group_name: Optional[pulumi.Input[str]] = None,
+             load_balancer_configuration: Optional[pulumi.Input['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs']] = None,
+             multi_subnet_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if replicas is None:
+            raise TypeError("Missing 'replicas' argument")
+        if sql_virtual_machine_group_id is None and 'sqlVirtualMachineGroupId' in kwargs:
+            sql_virtual_machine_group_id = kwargs['sqlVirtualMachineGroupId']
+        if sql_virtual_machine_group_id is None:
+            raise TypeError("Missing 'sql_virtual_machine_group_id' argument")
+        if availability_group_name is None and 'availabilityGroupName' in kwargs:
+            availability_group_name = kwargs['availabilityGroupName']
+        if load_balancer_configuration is None and 'loadBalancerConfiguration' in kwargs:
+            load_balancer_configuration = kwargs['loadBalancerConfiguration']
+        if multi_subnet_ip_configurations is None and 'multiSubnetIpConfigurations' in kwargs:
+            multi_subnet_ip_configurations = kwargs['multiSubnetIpConfigurations']
+
+        _setter("replicas", replicas)
+        _setter("sql_virtual_machine_group_id", sql_virtual_machine_group_id)
         if availability_group_name is not None:
-            pulumi.set(__self__, "availability_group_name", availability_group_name)
+            _setter("availability_group_name", availability_group_name)
         if load_balancer_configuration is not None:
-            pulumi.set(__self__, "load_balancer_configuration", load_balancer_configuration)
+            _setter("load_balancer_configuration", load_balancer_configuration)
         if multi_subnet_ip_configurations is not None:
-            pulumi.set(__self__, "multi_subnet_ip_configurations", multi_subnet_ip_configurations)
+            _setter("multi_subnet_ip_configurations", multi_subnet_ip_configurations)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
 
     @property
     @pulumi.getter
@@ -157,20 +192,51 @@ class _VirtualMachineAvailabilityGroupListenerState:
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArgs']]] replicas: One or more `replica` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sql_virtual_machine_group_id: The ID of the SQL Virtual Machine Group to create the listener. Changing this forces a new resource to be created.
         """
+        _VirtualMachineAvailabilityGroupListenerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            availability_group_name=availability_group_name,
+            load_balancer_configuration=load_balancer_configuration,
+            multi_subnet_ip_configurations=multi_subnet_ip_configurations,
+            name=name,
+            port=port,
+            replicas=replicas,
+            sql_virtual_machine_group_id=sql_virtual_machine_group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             availability_group_name: Optional[pulumi.Input[str]] = None,
+             load_balancer_configuration: Optional[pulumi.Input['VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs']] = None,
+             multi_subnet_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfigurationArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             replicas: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineAvailabilityGroupListenerReplicaArgs']]]] = None,
+             sql_virtual_machine_group_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if availability_group_name is None and 'availabilityGroupName' in kwargs:
+            availability_group_name = kwargs['availabilityGroupName']
+        if load_balancer_configuration is None and 'loadBalancerConfiguration' in kwargs:
+            load_balancer_configuration = kwargs['loadBalancerConfiguration']
+        if multi_subnet_ip_configurations is None and 'multiSubnetIpConfigurations' in kwargs:
+            multi_subnet_ip_configurations = kwargs['multiSubnetIpConfigurations']
+        if sql_virtual_machine_group_id is None and 'sqlVirtualMachineGroupId' in kwargs:
+            sql_virtual_machine_group_id = kwargs['sqlVirtualMachineGroupId']
+
         if availability_group_name is not None:
-            pulumi.set(__self__, "availability_group_name", availability_group_name)
+            _setter("availability_group_name", availability_group_name)
         if load_balancer_configuration is not None:
-            pulumi.set(__self__, "load_balancer_configuration", load_balancer_configuration)
+            _setter("load_balancer_configuration", load_balancer_configuration)
         if multi_subnet_ip_configurations is not None:
-            pulumi.set(__self__, "multi_subnet_ip_configurations", multi_subnet_ip_configurations)
+            _setter("multi_subnet_ip_configurations", multi_subnet_ip_configurations)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if replicas is not None:
-            pulumi.set(__self__, "replicas", replicas)
+            _setter("replicas", replicas)
         if sql_virtual_machine_group_id is not None:
-            pulumi.set(__self__, "sql_virtual_machine_group_id", sql_virtual_machine_group_id)
+            _setter("sql_virtual_machine_group_id", sql_virtual_machine_group_id)
 
     @property
     @pulumi.getter(name="availabilityGroupName")
@@ -322,6 +388,10 @@ class VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualMachineAvailabilityGroupListenerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -344,6 +414,11 @@ class VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
             __props__ = VirtualMachineAvailabilityGroupListenerArgs.__new__(VirtualMachineAvailabilityGroupListenerArgs)
 
             __props__.__dict__["availability_group_name"] = availability_group_name
+            if load_balancer_configuration is not None and not isinstance(load_balancer_configuration, VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs):
+                load_balancer_configuration = load_balancer_configuration or {}
+                def _setter(key, value):
+                    load_balancer_configuration[key] = value
+                VirtualMachineAvailabilityGroupListenerLoadBalancerConfigurationArgs._configure(_setter, **load_balancer_configuration)
             __props__.__dict__["load_balancer_configuration"] = load_balancer_configuration
             __props__.__dict__["multi_subnet_ip_configurations"] = multi_subnet_ip_configurations
             __props__.__dict__["name"] = name

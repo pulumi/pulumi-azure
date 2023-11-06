@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,13 +29,44 @@ class ContentKeyPolicyArgs:
         :param pulumi.Input[str] description: A description for the Policy.
         :param pulumi.Input[str] name: The name which should be used for this Content Key Policy. Changing this forces a new Content Key Policy to be created.
         """
-        pulumi.set(__self__, "media_services_account_name", media_services_account_name)
-        pulumi.set(__self__, "policy_options", policy_options)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ContentKeyPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            media_services_account_name=media_services_account_name,
+            policy_options=policy_options,
+            resource_group_name=resource_group_name,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             media_services_account_name: Optional[pulumi.Input[str]] = None,
+             policy_options: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
+            media_services_account_name = kwargs['mediaServicesAccountName']
+        if media_services_account_name is None:
+            raise TypeError("Missing 'media_services_account_name' argument")
+        if policy_options is None and 'policyOptions' in kwargs:
+            policy_options = kwargs['policyOptions']
+        if policy_options is None:
+            raise TypeError("Missing 'policy_options' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+
+        _setter("media_services_account_name", media_services_account_name)
+        _setter("policy_options", policy_options)
+        _setter("resource_group_name", resource_group_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="mediaServicesAccountName")
@@ -114,16 +145,41 @@ class _ContentKeyPolicyState:
         :param pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionArgs']]] policy_options: One or more `policy_option` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Content Key Policy should exist. Changing this forces a new Content Key Policy to be created.
         """
+        _ContentKeyPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            media_services_account_name=media_services_account_name,
+            name=name,
+            policy_options=policy_options,
+            resource_group_name=resource_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             media_services_account_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policy_options: Optional[pulumi.Input[Sequence[pulumi.Input['ContentKeyPolicyPolicyOptionArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
+            media_services_account_name = kwargs['mediaServicesAccountName']
+        if policy_options is None and 'policyOptions' in kwargs:
+            policy_options = kwargs['policyOptions']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if media_services_account_name is not None:
-            pulumi.set(__self__, "media_services_account_name", media_services_account_name)
+            _setter("media_services_account_name", media_services_account_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy_options is not None:
-            pulumi.set(__self__, "policy_options", policy_options)
+            _setter("policy_options", policy_options)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter
@@ -451,6 +507,10 @@ class ContentKeyPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ContentKeyPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

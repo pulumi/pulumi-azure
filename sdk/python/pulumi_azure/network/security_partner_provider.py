@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SecurityPartnerProviderArgs', 'SecurityPartnerProvider']
@@ -29,16 +29,47 @@ class SecurityPartnerProviderArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Security Partner Provider.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this Security Partner Provider should be created. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "security_provider_name", security_provider_name)
+        SecurityPartnerProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            security_provider_name=security_provider_name,
+            location=location,
+            name=name,
+            tags=tags,
+            virtual_hub_id=virtual_hub_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             security_provider_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if security_provider_name is None and 'securityProviderName' in kwargs:
+            security_provider_name = kwargs['securityProviderName']
+        if security_provider_name is None:
+            raise TypeError("Missing 'security_provider_name' argument")
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("security_provider_name", security_provider_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_hub_id is not None:
-            pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
+            _setter("virtual_hub_id", virtual_hub_id)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -131,18 +162,45 @@ class _SecurityPartnerProviderState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Security Partner Provider.
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub within which this Security Partner Provider should be created. Changing this forces a new resource to be created.
         """
+        _SecurityPartnerProviderState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            name=name,
+            resource_group_name=resource_group_name,
+            security_provider_name=security_provider_name,
+            tags=tags,
+            virtual_hub_id=virtual_hub_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             security_provider_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if security_provider_name is None and 'securityProviderName' in kwargs:
+            security_provider_name = kwargs['securityProviderName']
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if security_provider_name is not None:
-            pulumi.set(__self__, "security_provider_name", security_provider_name)
+            _setter("security_provider_name", security_provider_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_hub_id is not None:
-            pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
+            _setter("virtual_hub_id", virtual_hub_id)
 
     @property
     @pulumi.getter
@@ -336,6 +394,10 @@ class SecurityPartnerProvider(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SecurityPartnerProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,22 +37,61 @@ class AccountArgs:
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed for the automation account. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku_name", sku_name)
+        AccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            encryptions=encryptions,
+            identity=identity,
+            local_authentication_enabled=local_authentication_enabled,
+            location=location,
+            name=name,
+            public_network_access_enabled=public_network_access_enabled,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]]] = None,
+             identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
+             local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if local_authentication_enabled is None and 'localAuthenticationEnabled' in kwargs:
+            local_authentication_enabled = kwargs['localAuthenticationEnabled']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku_name", sku_name)
         if encryptions is not None:
-            pulumi.set(__self__, "encryptions", encryptions)
+            _setter("encryptions", encryptions)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if local_authentication_enabled is not None:
-            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
+            _setter("local_authentication_enabled", local_authentication_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -196,34 +235,89 @@ class _AccountState:
         :param pulumi.Input[str] sku_name: The SKU of the account. Possible values are `Basic` and `Free`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        _AccountState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dsc_primary_access_key=dsc_primary_access_key,
+            dsc_secondary_access_key=dsc_secondary_access_key,
+            dsc_server_endpoint=dsc_server_endpoint,
+            encryptions=encryptions,
+            hybrid_service_url=hybrid_service_url,
+            identity=identity,
+            local_authentication_enabled=local_authentication_enabled,
+            location=location,
+            name=name,
+            private_endpoint_connections=private_endpoint_connections,
+            public_network_access_enabled=public_network_access_enabled,
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dsc_primary_access_key: Optional[pulumi.Input[str]] = None,
+             dsc_secondary_access_key: Optional[pulumi.Input[str]] = None,
+             dsc_server_endpoint: Optional[pulumi.Input[str]] = None,
+             encryptions: Optional[pulumi.Input[Sequence[pulumi.Input['AccountEncryptionArgs']]]] = None,
+             hybrid_service_url: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['AccountIdentityArgs']] = None,
+             local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['AccountPrivateEndpointConnectionArgs']]]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if dsc_primary_access_key is None and 'dscPrimaryAccessKey' in kwargs:
+            dsc_primary_access_key = kwargs['dscPrimaryAccessKey']
+        if dsc_secondary_access_key is None and 'dscSecondaryAccessKey' in kwargs:
+            dsc_secondary_access_key = kwargs['dscSecondaryAccessKey']
+        if dsc_server_endpoint is None and 'dscServerEndpoint' in kwargs:
+            dsc_server_endpoint = kwargs['dscServerEndpoint']
+        if hybrid_service_url is None and 'hybridServiceUrl' in kwargs:
+            hybrid_service_url = kwargs['hybridServiceUrl']
+        if local_authentication_enabled is None and 'localAuthenticationEnabled' in kwargs:
+            local_authentication_enabled = kwargs['localAuthenticationEnabled']
+        if private_endpoint_connections is None and 'privateEndpointConnections' in kwargs:
+            private_endpoint_connections = kwargs['privateEndpointConnections']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         if dsc_primary_access_key is not None:
-            pulumi.set(__self__, "dsc_primary_access_key", dsc_primary_access_key)
+            _setter("dsc_primary_access_key", dsc_primary_access_key)
         if dsc_secondary_access_key is not None:
-            pulumi.set(__self__, "dsc_secondary_access_key", dsc_secondary_access_key)
+            _setter("dsc_secondary_access_key", dsc_secondary_access_key)
         if dsc_server_endpoint is not None:
-            pulumi.set(__self__, "dsc_server_endpoint", dsc_server_endpoint)
+            _setter("dsc_server_endpoint", dsc_server_endpoint)
         if encryptions is not None:
-            pulumi.set(__self__, "encryptions", encryptions)
+            _setter("encryptions", encryptions)
         if hybrid_service_url is not None:
-            pulumi.set(__self__, "hybrid_service_url", hybrid_service_url)
+            _setter("hybrid_service_url", hybrid_service_url)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if local_authentication_enabled is not None:
-            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
+            _setter("local_authentication_enabled", local_authentication_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_endpoint_connections is not None:
-            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+            _setter("private_endpoint_connections", private_endpoint_connections)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="dscPrimaryAccessKey")
@@ -488,6 +582,10 @@ class Account(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -512,6 +610,11 @@ class Account(pulumi.CustomResource):
             __props__ = AccountArgs.__new__(AccountArgs)
 
             __props__.__dict__["encryptions"] = encryptions
+            if identity is not None and not isinstance(identity, AccountIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                AccountIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
             __props__.__dict__["location"] = location

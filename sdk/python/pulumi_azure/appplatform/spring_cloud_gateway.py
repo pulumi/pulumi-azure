@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,31 +45,86 @@ class SpringCloudGatewayArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] sensitive_environment_variables: Specifies the sensitive environment variables of the Spring Cloud Gateway as a map of key-value pairs. Changing this forces a new resource to be created.
         :param pulumi.Input['SpringCloudGatewaySsoArgs'] sso: A `sso` block as defined below.
         """
-        pulumi.set(__self__, "spring_cloud_service_id", spring_cloud_service_id)
+        SpringCloudGatewayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            spring_cloud_service_id=spring_cloud_service_id,
+            api_metadata=api_metadata,
+            application_performance_monitoring_types=application_performance_monitoring_types,
+            client_authorization=client_authorization,
+            cors=cors,
+            environment_variables=environment_variables,
+            https_only=https_only,
+            instance_count=instance_count,
+            name=name,
+            public_network_access_enabled=public_network_access_enabled,
+            quota=quota,
+            sensitive_environment_variables=sensitive_environment_variables,
+            sso=sso,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
+             api_metadata: Optional[pulumi.Input['SpringCloudGatewayApiMetadataArgs']] = None,
+             application_performance_monitoring_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             client_authorization: Optional[pulumi.Input['SpringCloudGatewayClientAuthorizationArgs']] = None,
+             cors: Optional[pulumi.Input['SpringCloudGatewayCorsArgs']] = None,
+             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             https_only: Optional[pulumi.Input[bool]] = None,
+             instance_count: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             quota: Optional[pulumi.Input['SpringCloudGatewayQuotaArgs']] = None,
+             sensitive_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             sso: Optional[pulumi.Input['SpringCloudGatewaySsoArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
+            spring_cloud_service_id = kwargs['springCloudServiceId']
+        if spring_cloud_service_id is None:
+            raise TypeError("Missing 'spring_cloud_service_id' argument")
+        if api_metadata is None and 'apiMetadata' in kwargs:
+            api_metadata = kwargs['apiMetadata']
+        if application_performance_monitoring_types is None and 'applicationPerformanceMonitoringTypes' in kwargs:
+            application_performance_monitoring_types = kwargs['applicationPerformanceMonitoringTypes']
+        if client_authorization is None and 'clientAuthorization' in kwargs:
+            client_authorization = kwargs['clientAuthorization']
+        if environment_variables is None and 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if https_only is None and 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if instance_count is None and 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if sensitive_environment_variables is None and 'sensitiveEnvironmentVariables' in kwargs:
+            sensitive_environment_variables = kwargs['sensitiveEnvironmentVariables']
+
+        _setter("spring_cloud_service_id", spring_cloud_service_id)
         if api_metadata is not None:
-            pulumi.set(__self__, "api_metadata", api_metadata)
+            _setter("api_metadata", api_metadata)
         if application_performance_monitoring_types is not None:
-            pulumi.set(__self__, "application_performance_monitoring_types", application_performance_monitoring_types)
+            _setter("application_performance_monitoring_types", application_performance_monitoring_types)
         if client_authorization is not None:
-            pulumi.set(__self__, "client_authorization", client_authorization)
+            _setter("client_authorization", client_authorization)
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
+            _setter("environment_variables", environment_variables)
         if https_only is not None:
-            pulumi.set(__self__, "https_only", https_only)
+            _setter("https_only", https_only)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if quota is not None:
-            pulumi.set(__self__, "quota", quota)
+            _setter("quota", quota)
         if sensitive_environment_variables is not None:
-            pulumi.set(__self__, "sensitive_environment_variables", sensitive_environment_variables)
+            _setter("sensitive_environment_variables", sensitive_environment_variables)
         if sso is not None:
-            pulumi.set(__self__, "sso", sso)
+            _setter("sso", sso)
 
     @property
     @pulumi.getter(name="springCloudServiceId")
@@ -262,34 +317,89 @@ class _SpringCloudGatewayState:
         :param pulumi.Input['SpringCloudGatewaySsoArgs'] sso: A `sso` block as defined below.
         :param pulumi.Input[str] url: URL of the Spring Cloud Gateway, exposed when 'public_network_access_enabled' is true.
         """
+        _SpringCloudGatewayState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_metadata=api_metadata,
+            application_performance_monitoring_types=application_performance_monitoring_types,
+            client_authorization=client_authorization,
+            cors=cors,
+            environment_variables=environment_variables,
+            https_only=https_only,
+            instance_count=instance_count,
+            name=name,
+            public_network_access_enabled=public_network_access_enabled,
+            quota=quota,
+            sensitive_environment_variables=sensitive_environment_variables,
+            spring_cloud_service_id=spring_cloud_service_id,
+            sso=sso,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_metadata: Optional[pulumi.Input['SpringCloudGatewayApiMetadataArgs']] = None,
+             application_performance_monitoring_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             client_authorization: Optional[pulumi.Input['SpringCloudGatewayClientAuthorizationArgs']] = None,
+             cors: Optional[pulumi.Input['SpringCloudGatewayCorsArgs']] = None,
+             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             https_only: Optional[pulumi.Input[bool]] = None,
+             instance_count: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             quota: Optional[pulumi.Input['SpringCloudGatewayQuotaArgs']] = None,
+             sensitive_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
+             sso: Optional[pulumi.Input['SpringCloudGatewaySsoArgs']] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_metadata is None and 'apiMetadata' in kwargs:
+            api_metadata = kwargs['apiMetadata']
+        if application_performance_monitoring_types is None and 'applicationPerformanceMonitoringTypes' in kwargs:
+            application_performance_monitoring_types = kwargs['applicationPerformanceMonitoringTypes']
+        if client_authorization is None and 'clientAuthorization' in kwargs:
+            client_authorization = kwargs['clientAuthorization']
+        if environment_variables is None and 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if https_only is None and 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if instance_count is None and 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if sensitive_environment_variables is None and 'sensitiveEnvironmentVariables' in kwargs:
+            sensitive_environment_variables = kwargs['sensitiveEnvironmentVariables']
+        if spring_cloud_service_id is None and 'springCloudServiceId' in kwargs:
+            spring_cloud_service_id = kwargs['springCloudServiceId']
+
         if api_metadata is not None:
-            pulumi.set(__self__, "api_metadata", api_metadata)
+            _setter("api_metadata", api_metadata)
         if application_performance_monitoring_types is not None:
-            pulumi.set(__self__, "application_performance_monitoring_types", application_performance_monitoring_types)
+            _setter("application_performance_monitoring_types", application_performance_monitoring_types)
         if client_authorization is not None:
-            pulumi.set(__self__, "client_authorization", client_authorization)
+            _setter("client_authorization", client_authorization)
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
+            _setter("environment_variables", environment_variables)
         if https_only is not None:
-            pulumi.set(__self__, "https_only", https_only)
+            _setter("https_only", https_only)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if quota is not None:
-            pulumi.set(__self__, "quota", quota)
+            _setter("quota", quota)
         if sensitive_environment_variables is not None:
-            pulumi.set(__self__, "sensitive_environment_variables", sensitive_environment_variables)
+            _setter("sensitive_environment_variables", sensitive_environment_variables)
         if spring_cloud_service_id is not None:
-            pulumi.set(__self__, "spring_cloud_service_id", spring_cloud_service_id)
+            _setter("spring_cloud_service_id", spring_cloud_service_id)
         if sso is not None:
-            pulumi.set(__self__, "sso", sso)
+            _setter("sso", sso)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="apiMetadata")
@@ -623,6 +733,10 @@ class SpringCloudGateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SpringCloudGatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -650,20 +764,45 @@ class SpringCloudGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SpringCloudGatewayArgs.__new__(SpringCloudGatewayArgs)
 
+            if api_metadata is not None and not isinstance(api_metadata, SpringCloudGatewayApiMetadataArgs):
+                api_metadata = api_metadata or {}
+                def _setter(key, value):
+                    api_metadata[key] = value
+                SpringCloudGatewayApiMetadataArgs._configure(_setter, **api_metadata)
             __props__.__dict__["api_metadata"] = api_metadata
             __props__.__dict__["application_performance_monitoring_types"] = application_performance_monitoring_types
+            if client_authorization is not None and not isinstance(client_authorization, SpringCloudGatewayClientAuthorizationArgs):
+                client_authorization = client_authorization or {}
+                def _setter(key, value):
+                    client_authorization[key] = value
+                SpringCloudGatewayClientAuthorizationArgs._configure(_setter, **client_authorization)
             __props__.__dict__["client_authorization"] = client_authorization
+            if cors is not None and not isinstance(cors, SpringCloudGatewayCorsArgs):
+                cors = cors or {}
+                def _setter(key, value):
+                    cors[key] = value
+                SpringCloudGatewayCorsArgs._configure(_setter, **cors)
             __props__.__dict__["cors"] = cors
             __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["https_only"] = https_only
             __props__.__dict__["instance_count"] = instance_count
             __props__.__dict__["name"] = name
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
+            if quota is not None and not isinstance(quota, SpringCloudGatewayQuotaArgs):
+                quota = quota or {}
+                def _setter(key, value):
+                    quota[key] = value
+                SpringCloudGatewayQuotaArgs._configure(_setter, **quota)
             __props__.__dict__["quota"] = quota
             __props__.__dict__["sensitive_environment_variables"] = None if sensitive_environment_variables is None else pulumi.Output.secret(sensitive_environment_variables)
             if spring_cloud_service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'spring_cloud_service_id'")
             __props__.__dict__["spring_cloud_service_id"] = spring_cloud_service_id
+            if sso is not None and not isinstance(sso, SpringCloudGatewaySsoArgs):
+                sso = sso or {}
+                def _setter(key, value):
+                    sso[key] = value
+                SpringCloudGatewaySsoArgs._configure(_setter, **sso)
             __props__.__dict__["sso"] = sso
             __props__.__dict__["url"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["sensitiveEnvironmentVariables"])

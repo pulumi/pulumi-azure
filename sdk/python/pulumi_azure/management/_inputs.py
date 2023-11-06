@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -33,13 +33,38 @@ class GroupPolicyAssignmentIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID of the Policy Assignment for this Management Group.
         :param pulumi.Input[str] tenant_id: The Tenant ID of the Policy Assignment for this Management Group.
         """
-        pulumi.set(__self__, "type", type)
+        GroupPolicyAssignmentIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -101,9 +126,26 @@ class GroupPolicyAssignmentNonComplianceMessageArgs:
         :param pulumi.Input[str] content: The non-compliance message text. When assigning policy sets (initiatives), unless `policy_definition_reference_id` is specified then this message will be the default for all policies.
         :param pulumi.Input[str] policy_definition_reference_id: When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to.
         """
-        pulumi.set(__self__, "content", content)
+        GroupPolicyAssignmentNonComplianceMessageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            policy_definition_reference_id=policy_definition_reference_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional[pulumi.Input[str]] = None,
+             policy_definition_reference_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if policy_definition_reference_id is None and 'policyDefinitionReferenceId' in kwargs:
+            policy_definition_reference_id = kwargs['policyDefinitionReferenceId']
+
+        _setter("content", content)
         if policy_definition_reference_id is not None:
-            pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
+            _setter("policy_definition_reference_id", policy_definition_reference_id)
 
     @property
     @pulumi.getter
@@ -139,9 +181,24 @@ class GroupPolicyAssignmentOverrideArgs:
         :param pulumi.Input[str] value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
         :param pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArgs']]] selectors: One or more `override_selector` as defined below.
         """
-        pulumi.set(__self__, "value", value)
+        GroupPolicyAssignmentOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            value=value,
+            selectors=selectors,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             value: Optional[pulumi.Input[str]] = None,
+             selectors: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("value", value)
         if selectors is not None:
-            pulumi.set(__self__, "selectors", selectors)
+            _setter("selectors", selectors)
 
     @property
     @pulumi.getter
@@ -179,12 +236,29 @@ class GroupPolicyAssignmentOverrideSelectorArgs:
         :param pulumi.Input[str] kind: Specifies which characteristic will narrow down the set of evaluated resources. Possible values are `resourceLocation`,  `resourceType` and `resourceWithoutLocation`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_ins: Specify the list of policy reference id values to filter out. Cannot be used with `in`.
         """
+        GroupPolicyAssignmentOverrideSelectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ins=ins,
+            kind=kind,
+            not_ins=not_ins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if not_ins is None and 'notIns' in kwargs:
+            not_ins = kwargs['notIns']
+
         if ins is not None:
-            pulumi.set(__self__, "ins", ins)
+            _setter("ins", ins)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if not_ins is not None:
-            pulumi.set(__self__, "not_ins", not_ins)
+            _setter("not_ins", not_ins)
 
     @property
     @pulumi.getter
@@ -232,9 +306,24 @@ class GroupPolicyAssignmentResourceSelectorArgs:
         :param pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorSelectorArgs']]] selectors: One or more `resource_selector` block as defined below.
         :param pulumi.Input[str] name: Specifies a name for the resource selector.
         """
-        pulumi.set(__self__, "selectors", selectors)
+        GroupPolicyAssignmentResourceSelectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            selectors=selectors,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             selectors: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorSelectorArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if selectors is None:
+            raise TypeError("Missing 'selectors' argument")
+
+        _setter("selectors", selectors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -272,11 +361,30 @@ class GroupPolicyAssignmentResourceSelectorSelectorArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ins: Specify the list of policy reference id values to filter in. Cannot be used with `not_in`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] not_ins: Specify the list of policy reference id values to filter out. Cannot be used with `in`.
         """
-        pulumi.set(__self__, "kind", kind)
+        GroupPolicyAssignmentResourceSelectorSelectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kind=kind,
+            ins=ins,
+            not_ins=not_ins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kind: Optional[pulumi.Input[str]] = None,
+             ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             not_ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if kind is None:
+            raise TypeError("Missing 'kind' argument")
+        if not_ins is None and 'notIns' in kwargs:
+            not_ins = kwargs['notIns']
+
+        _setter("kind", kind)
         if ins is not None:
-            pulumi.set(__self__, "ins", ins)
+            _setter("ins", ins)
         if not_ins is not None:
-            pulumi.set(__self__, "not_ins", not_ins)
+            _setter("not_ins", not_ins)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,21 +37,66 @@ class EndpointArgs:
         :param pulumi.Input['EndpointPrivateDnsZoneGroupArgs'] private_dns_zone_group: A `private_dns_zone_group` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "private_service_connection", private_service_connection)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        EndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_service_connection=private_service_connection,
+            resource_group_name=resource_group_name,
+            subnet_id=subnet_id,
+            custom_network_interface_name=custom_network_interface_name,
+            ip_configurations=ip_configurations,
+            location=location,
+            name=name,
+            private_dns_zone_group=private_dns_zone_group,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_service_connection: Optional[pulumi.Input['EndpointPrivateServiceConnectionArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             custom_network_interface_name: Optional[pulumi.Input[str]] = None,
+             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             private_dns_zone_group: Optional[pulumi.Input['EndpointPrivateDnsZoneGroupArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if private_service_connection is None and 'privateServiceConnection' in kwargs:
+            private_service_connection = kwargs['privateServiceConnection']
+        if private_service_connection is None:
+            raise TypeError("Missing 'private_service_connection' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if custom_network_interface_name is None and 'customNetworkInterfaceName' in kwargs:
+            custom_network_interface_name = kwargs['customNetworkInterfaceName']
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if private_dns_zone_group is None and 'privateDnsZoneGroup' in kwargs:
+            private_dns_zone_group = kwargs['privateDnsZoneGroup']
+
+        _setter("private_service_connection", private_service_connection)
+        _setter("resource_group_name", resource_group_name)
+        _setter("subnet_id", subnet_id)
         if custom_network_interface_name is not None:
-            pulumi.set(__self__, "custom_network_interface_name", custom_network_interface_name)
+            _setter("custom_network_interface_name", custom_network_interface_name)
         if ip_configurations is not None:
-            pulumi.set(__self__, "ip_configurations", ip_configurations)
+            _setter("ip_configurations", ip_configurations)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_dns_zone_group is not None:
-            pulumi.set(__self__, "private_dns_zone_group", private_dns_zone_group)
+            _setter("private_dns_zone_group", private_dns_zone_group)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="privateServiceConnection")
@@ -192,30 +237,81 @@ class _EndpointState:
         :param pulumi.Input[str] subnet_id: The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        _EndpointState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_dns_configs=custom_dns_configs,
+            custom_network_interface_name=custom_network_interface_name,
+            ip_configurations=ip_configurations,
+            location=location,
+            name=name,
+            network_interfaces=network_interfaces,
+            private_dns_zone_configs=private_dns_zone_configs,
+            private_dns_zone_group=private_dns_zone_group,
+            private_service_connection=private_service_connection,
+            resource_group_name=resource_group_name,
+            subnet_id=subnet_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_dns_configs: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointCustomDnsConfigArgs']]]] = None,
+             custom_network_interface_name: Optional[pulumi.Input[str]] = None,
+             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceArgs']]]] = None,
+             private_dns_zone_configs: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigArgs']]]] = None,
+             private_dns_zone_group: Optional[pulumi.Input['EndpointPrivateDnsZoneGroupArgs']] = None,
+             private_service_connection: Optional[pulumi.Input['EndpointPrivateServiceConnectionArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if custom_dns_configs is None and 'customDnsConfigs' in kwargs:
+            custom_dns_configs = kwargs['customDnsConfigs']
+        if custom_network_interface_name is None and 'customNetworkInterfaceName' in kwargs:
+            custom_network_interface_name = kwargs['customNetworkInterfaceName']
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if network_interfaces is None and 'networkInterfaces' in kwargs:
+            network_interfaces = kwargs['networkInterfaces']
+        if private_dns_zone_configs is None and 'privateDnsZoneConfigs' in kwargs:
+            private_dns_zone_configs = kwargs['privateDnsZoneConfigs']
+        if private_dns_zone_group is None and 'privateDnsZoneGroup' in kwargs:
+            private_dns_zone_group = kwargs['privateDnsZoneGroup']
+        if private_service_connection is None and 'privateServiceConnection' in kwargs:
+            private_service_connection = kwargs['privateServiceConnection']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+
         if custom_dns_configs is not None:
-            pulumi.set(__self__, "custom_dns_configs", custom_dns_configs)
+            _setter("custom_dns_configs", custom_dns_configs)
         if custom_network_interface_name is not None:
-            pulumi.set(__self__, "custom_network_interface_name", custom_network_interface_name)
+            _setter("custom_network_interface_name", custom_network_interface_name)
         if ip_configurations is not None:
-            pulumi.set(__self__, "ip_configurations", ip_configurations)
+            _setter("ip_configurations", ip_configurations)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_interfaces is not None:
-            pulumi.set(__self__, "network_interfaces", network_interfaces)
+            _setter("network_interfaces", network_interfaces)
         if private_dns_zone_configs is not None:
-            pulumi.set(__self__, "private_dns_zone_configs", private_dns_zone_configs)
+            _setter("private_dns_zone_configs", private_dns_zone_configs)
         if private_dns_zone_group is not None:
-            pulumi.set(__self__, "private_dns_zone_group", private_dns_zone_group)
+            _setter("private_dns_zone_group", private_dns_zone_group)
         if private_service_connection is not None:
-            pulumi.set(__self__, "private_service_connection", private_service_connection)
+            _setter("private_service_connection", private_service_connection)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="customDnsConfigs")
@@ -423,6 +519,10 @@ class Endpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -450,7 +550,17 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["ip_configurations"] = ip_configurations
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            if private_dns_zone_group is not None and not isinstance(private_dns_zone_group, EndpointPrivateDnsZoneGroupArgs):
+                private_dns_zone_group = private_dns_zone_group or {}
+                def _setter(key, value):
+                    private_dns_zone_group[key] = value
+                EndpointPrivateDnsZoneGroupArgs._configure(_setter, **private_dns_zone_group)
             __props__.__dict__["private_dns_zone_group"] = private_dns_zone_group
+            if private_service_connection is not None and not isinstance(private_service_connection, EndpointPrivateServiceConnectionArgs):
+                private_service_connection = private_service_connection or {}
+                def _setter(key, value):
+                    private_service_connection[key] = value
+                EndpointPrivateServiceConnectionArgs._configure(_setter, **private_service_connection)
             if private_service_connection is None and not opts.urn:
                 raise TypeError("Missing required property 'private_service_connection'")
             __props__.__dict__["private_service_connection"] = private_service_connection

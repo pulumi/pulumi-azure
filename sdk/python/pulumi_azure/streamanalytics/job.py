@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -59,38 +59,109 @@ class JobArgs:
                
                > **NOTE:** `Edge` doesn't support `stream_analytics_cluster_id` and `streaming_units`.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "transformation_query", transformation_query)
+        JobArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            transformation_query=transformation_query,
+            compatibility_level=compatibility_level,
+            content_storage_policy=content_storage_policy,
+            data_locale=data_locale,
+            events_late_arrival_max_delay_in_seconds=events_late_arrival_max_delay_in_seconds,
+            events_out_of_order_max_delay_in_seconds=events_out_of_order_max_delay_in_seconds,
+            events_out_of_order_policy=events_out_of_order_policy,
+            identity=identity,
+            job_storage_accounts=job_storage_accounts,
+            location=location,
+            name=name,
+            output_error_policy=output_error_policy,
+            stream_analytics_cluster_id=stream_analytics_cluster_id,
+            streaming_units=streaming_units,
+            tags=tags,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             transformation_query: Optional[pulumi.Input[str]] = None,
+             compatibility_level: Optional[pulumi.Input[str]] = None,
+             content_storage_policy: Optional[pulumi.Input[str]] = None,
+             data_locale: Optional[pulumi.Input[str]] = None,
+             events_late_arrival_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
+             events_out_of_order_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
+             events_out_of_order_policy: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['JobIdentityArgs']] = None,
+             job_storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['JobJobStorageAccountArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             output_error_policy: Optional[pulumi.Input[str]] = None,
+             stream_analytics_cluster_id: Optional[pulumi.Input[str]] = None,
+             streaming_units: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if transformation_query is None and 'transformationQuery' in kwargs:
+            transformation_query = kwargs['transformationQuery']
+        if transformation_query is None:
+            raise TypeError("Missing 'transformation_query' argument")
+        if compatibility_level is None and 'compatibilityLevel' in kwargs:
+            compatibility_level = kwargs['compatibilityLevel']
+        if content_storage_policy is None and 'contentStoragePolicy' in kwargs:
+            content_storage_policy = kwargs['contentStoragePolicy']
+        if data_locale is None and 'dataLocale' in kwargs:
+            data_locale = kwargs['dataLocale']
+        if events_late_arrival_max_delay_in_seconds is None and 'eventsLateArrivalMaxDelayInSeconds' in kwargs:
+            events_late_arrival_max_delay_in_seconds = kwargs['eventsLateArrivalMaxDelayInSeconds']
+        if events_out_of_order_max_delay_in_seconds is None and 'eventsOutOfOrderMaxDelayInSeconds' in kwargs:
+            events_out_of_order_max_delay_in_seconds = kwargs['eventsOutOfOrderMaxDelayInSeconds']
+        if events_out_of_order_policy is None and 'eventsOutOfOrderPolicy' in kwargs:
+            events_out_of_order_policy = kwargs['eventsOutOfOrderPolicy']
+        if job_storage_accounts is None and 'jobStorageAccounts' in kwargs:
+            job_storage_accounts = kwargs['jobStorageAccounts']
+        if output_error_policy is None and 'outputErrorPolicy' in kwargs:
+            output_error_policy = kwargs['outputErrorPolicy']
+        if stream_analytics_cluster_id is None and 'streamAnalyticsClusterId' in kwargs:
+            stream_analytics_cluster_id = kwargs['streamAnalyticsClusterId']
+        if streaming_units is None and 'streamingUnits' in kwargs:
+            streaming_units = kwargs['streamingUnits']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("transformation_query", transformation_query)
         if compatibility_level is not None:
-            pulumi.set(__self__, "compatibility_level", compatibility_level)
+            _setter("compatibility_level", compatibility_level)
         if content_storage_policy is not None:
-            pulumi.set(__self__, "content_storage_policy", content_storage_policy)
+            _setter("content_storage_policy", content_storage_policy)
         if data_locale is not None:
-            pulumi.set(__self__, "data_locale", data_locale)
+            _setter("data_locale", data_locale)
         if events_late_arrival_max_delay_in_seconds is not None:
-            pulumi.set(__self__, "events_late_arrival_max_delay_in_seconds", events_late_arrival_max_delay_in_seconds)
+            _setter("events_late_arrival_max_delay_in_seconds", events_late_arrival_max_delay_in_seconds)
         if events_out_of_order_max_delay_in_seconds is not None:
-            pulumi.set(__self__, "events_out_of_order_max_delay_in_seconds", events_out_of_order_max_delay_in_seconds)
+            _setter("events_out_of_order_max_delay_in_seconds", events_out_of_order_max_delay_in_seconds)
         if events_out_of_order_policy is not None:
-            pulumi.set(__self__, "events_out_of_order_policy", events_out_of_order_policy)
+            _setter("events_out_of_order_policy", events_out_of_order_policy)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if job_storage_accounts is not None:
-            pulumi.set(__self__, "job_storage_accounts", job_storage_accounts)
+            _setter("job_storage_accounts", job_storage_accounts)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if output_error_policy is not None:
-            pulumi.set(__self__, "output_error_policy", output_error_policy)
+            _setter("output_error_policy", output_error_policy)
         if stream_analytics_cluster_id is not None:
-            pulumi.set(__self__, "stream_analytics_cluster_id", stream_analytics_cluster_id)
+            _setter("stream_analytics_cluster_id", stream_analytics_cluster_id)
         if streaming_units is not None:
-            pulumi.set(__self__, "streaming_units", streaming_units)
+            _setter("streaming_units", streaming_units)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -351,42 +422,113 @@ class _JobState:
                
                > **NOTE:** `Edge` doesn't support `stream_analytics_cluster_id` and `streaming_units`.
         """
+        _JobState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compatibility_level=compatibility_level,
+            content_storage_policy=content_storage_policy,
+            data_locale=data_locale,
+            events_late_arrival_max_delay_in_seconds=events_late_arrival_max_delay_in_seconds,
+            events_out_of_order_max_delay_in_seconds=events_out_of_order_max_delay_in_seconds,
+            events_out_of_order_policy=events_out_of_order_policy,
+            identity=identity,
+            job_id=job_id,
+            job_storage_accounts=job_storage_accounts,
+            location=location,
+            name=name,
+            output_error_policy=output_error_policy,
+            resource_group_name=resource_group_name,
+            stream_analytics_cluster_id=stream_analytics_cluster_id,
+            streaming_units=streaming_units,
+            tags=tags,
+            transformation_query=transformation_query,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compatibility_level: Optional[pulumi.Input[str]] = None,
+             content_storage_policy: Optional[pulumi.Input[str]] = None,
+             data_locale: Optional[pulumi.Input[str]] = None,
+             events_late_arrival_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
+             events_out_of_order_max_delay_in_seconds: Optional[pulumi.Input[int]] = None,
+             events_out_of_order_policy: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['JobIdentityArgs']] = None,
+             job_id: Optional[pulumi.Input[str]] = None,
+             job_storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['JobJobStorageAccountArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             output_error_policy: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             stream_analytics_cluster_id: Optional[pulumi.Input[str]] = None,
+             streaming_units: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transformation_query: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if compatibility_level is None and 'compatibilityLevel' in kwargs:
+            compatibility_level = kwargs['compatibilityLevel']
+        if content_storage_policy is None and 'contentStoragePolicy' in kwargs:
+            content_storage_policy = kwargs['contentStoragePolicy']
+        if data_locale is None and 'dataLocale' in kwargs:
+            data_locale = kwargs['dataLocale']
+        if events_late_arrival_max_delay_in_seconds is None and 'eventsLateArrivalMaxDelayInSeconds' in kwargs:
+            events_late_arrival_max_delay_in_seconds = kwargs['eventsLateArrivalMaxDelayInSeconds']
+        if events_out_of_order_max_delay_in_seconds is None and 'eventsOutOfOrderMaxDelayInSeconds' in kwargs:
+            events_out_of_order_max_delay_in_seconds = kwargs['eventsOutOfOrderMaxDelayInSeconds']
+        if events_out_of_order_policy is None and 'eventsOutOfOrderPolicy' in kwargs:
+            events_out_of_order_policy = kwargs['eventsOutOfOrderPolicy']
+        if job_id is None and 'jobId' in kwargs:
+            job_id = kwargs['jobId']
+        if job_storage_accounts is None and 'jobStorageAccounts' in kwargs:
+            job_storage_accounts = kwargs['jobStorageAccounts']
+        if output_error_policy is None and 'outputErrorPolicy' in kwargs:
+            output_error_policy = kwargs['outputErrorPolicy']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if stream_analytics_cluster_id is None and 'streamAnalyticsClusterId' in kwargs:
+            stream_analytics_cluster_id = kwargs['streamAnalyticsClusterId']
+        if streaming_units is None and 'streamingUnits' in kwargs:
+            streaming_units = kwargs['streamingUnits']
+        if transformation_query is None and 'transformationQuery' in kwargs:
+            transformation_query = kwargs['transformationQuery']
+
         if compatibility_level is not None:
-            pulumi.set(__self__, "compatibility_level", compatibility_level)
+            _setter("compatibility_level", compatibility_level)
         if content_storage_policy is not None:
-            pulumi.set(__self__, "content_storage_policy", content_storage_policy)
+            _setter("content_storage_policy", content_storage_policy)
         if data_locale is not None:
-            pulumi.set(__self__, "data_locale", data_locale)
+            _setter("data_locale", data_locale)
         if events_late_arrival_max_delay_in_seconds is not None:
-            pulumi.set(__self__, "events_late_arrival_max_delay_in_seconds", events_late_arrival_max_delay_in_seconds)
+            _setter("events_late_arrival_max_delay_in_seconds", events_late_arrival_max_delay_in_seconds)
         if events_out_of_order_max_delay_in_seconds is not None:
-            pulumi.set(__self__, "events_out_of_order_max_delay_in_seconds", events_out_of_order_max_delay_in_seconds)
+            _setter("events_out_of_order_max_delay_in_seconds", events_out_of_order_max_delay_in_seconds)
         if events_out_of_order_policy is not None:
-            pulumi.set(__self__, "events_out_of_order_policy", events_out_of_order_policy)
+            _setter("events_out_of_order_policy", events_out_of_order_policy)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if job_id is not None:
-            pulumi.set(__self__, "job_id", job_id)
+            _setter("job_id", job_id)
         if job_storage_accounts is not None:
-            pulumi.set(__self__, "job_storage_accounts", job_storage_accounts)
+            _setter("job_storage_accounts", job_storage_accounts)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if output_error_policy is not None:
-            pulumi.set(__self__, "output_error_policy", output_error_policy)
+            _setter("output_error_policy", output_error_policy)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if stream_analytics_cluster_id is not None:
-            pulumi.set(__self__, "stream_analytics_cluster_id", stream_analytics_cluster_id)
+            _setter("stream_analytics_cluster_id", stream_analytics_cluster_id)
         if streaming_units is not None:
-            pulumi.set(__self__, "streaming_units", streaming_units)
+            _setter("streaming_units", streaming_units)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if transformation_query is not None:
-            pulumi.set(__self__, "transformation_query", transformation_query)
+            _setter("transformation_query", transformation_query)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="compatibilityLevel")
@@ -750,6 +892,10 @@ class Job(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            JobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -787,6 +933,11 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["events_late_arrival_max_delay_in_seconds"] = events_late_arrival_max_delay_in_seconds
             __props__.__dict__["events_out_of_order_max_delay_in_seconds"] = events_out_of_order_max_delay_in_seconds
             __props__.__dict__["events_out_of_order_policy"] = events_out_of_order_policy
+            if identity is not None and not isinstance(identity, JobIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                JobIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["job_storage_accounts"] = job_storage_accounts
             __props__.__dict__["location"] = location

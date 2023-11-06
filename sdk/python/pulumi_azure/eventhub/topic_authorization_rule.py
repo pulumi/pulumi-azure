@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TopicAuthorizationRuleArgs', 'TopicAuthorizationRule']
@@ -29,15 +29,38 @@ class TopicAuthorizationRuleArgs:
         :param pulumi.Input[str] name: Specifies the name of the ServiceBus Topic Authorization Rule resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] send: Grants send access to this this Authorization Rule. Defaults to `false`.
         """
-        pulumi.set(__self__, "topic_id", topic_id)
+        TopicAuthorizationRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            topic_id=topic_id,
+            listen=listen,
+            manage=manage,
+            name=name,
+            send=send,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             topic_id: Optional[pulumi.Input[str]] = None,
+             listen: Optional[pulumi.Input[bool]] = None,
+             manage: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             send: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if topic_id is None and 'topicId' in kwargs:
+            topic_id = kwargs['topicId']
+        if topic_id is None:
+            raise TypeError("Missing 'topic_id' argument")
+
+        _setter("topic_id", topic_id)
         if listen is not None:
-            pulumi.set(__self__, "listen", listen)
+            _setter("listen", listen)
         if manage is not None:
-            pulumi.set(__self__, "manage", manage)
+            _setter("manage", manage)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if send is not None:
-            pulumi.set(__self__, "send", send)
+            _setter("send", send)
 
     @property
     @pulumi.getter(name="topicId")
@@ -132,28 +155,73 @@ class _TopicAuthorizationRuleState:
                
                > **NOTE** At least one of the 3 permissions below needs to be set.
         """
+        _TopicAuthorizationRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            listen=listen,
+            manage=manage,
+            name=name,
+            primary_connection_string=primary_connection_string,
+            primary_connection_string_alias=primary_connection_string_alias,
+            primary_key=primary_key,
+            secondary_connection_string=secondary_connection_string,
+            secondary_connection_string_alias=secondary_connection_string_alias,
+            secondary_key=secondary_key,
+            send=send,
+            topic_id=topic_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             listen: Optional[pulumi.Input[bool]] = None,
+             manage: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             primary_connection_string: Optional[pulumi.Input[str]] = None,
+             primary_connection_string_alias: Optional[pulumi.Input[str]] = None,
+             primary_key: Optional[pulumi.Input[str]] = None,
+             secondary_connection_string: Optional[pulumi.Input[str]] = None,
+             secondary_connection_string_alias: Optional[pulumi.Input[str]] = None,
+             secondary_key: Optional[pulumi.Input[str]] = None,
+             send: Optional[pulumi.Input[bool]] = None,
+             topic_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if primary_connection_string is None and 'primaryConnectionString' in kwargs:
+            primary_connection_string = kwargs['primaryConnectionString']
+        if primary_connection_string_alias is None and 'primaryConnectionStringAlias' in kwargs:
+            primary_connection_string_alias = kwargs['primaryConnectionStringAlias']
+        if primary_key is None and 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+        if secondary_connection_string is None and 'secondaryConnectionString' in kwargs:
+            secondary_connection_string = kwargs['secondaryConnectionString']
+        if secondary_connection_string_alias is None and 'secondaryConnectionStringAlias' in kwargs:
+            secondary_connection_string_alias = kwargs['secondaryConnectionStringAlias']
+        if secondary_key is None and 'secondaryKey' in kwargs:
+            secondary_key = kwargs['secondaryKey']
+        if topic_id is None and 'topicId' in kwargs:
+            topic_id = kwargs['topicId']
+
         if listen is not None:
-            pulumi.set(__self__, "listen", listen)
+            _setter("listen", listen)
         if manage is not None:
-            pulumi.set(__self__, "manage", manage)
+            _setter("manage", manage)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if primary_connection_string is not None:
-            pulumi.set(__self__, "primary_connection_string", primary_connection_string)
+            _setter("primary_connection_string", primary_connection_string)
         if primary_connection_string_alias is not None:
-            pulumi.set(__self__, "primary_connection_string_alias", primary_connection_string_alias)
+            _setter("primary_connection_string_alias", primary_connection_string_alias)
         if primary_key is not None:
-            pulumi.set(__self__, "primary_key", primary_key)
+            _setter("primary_key", primary_key)
         if secondary_connection_string is not None:
-            pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
+            _setter("secondary_connection_string", secondary_connection_string)
         if secondary_connection_string_alias is not None:
-            pulumi.set(__self__, "secondary_connection_string_alias", secondary_connection_string_alias)
+            _setter("secondary_connection_string_alias", secondary_connection_string_alias)
         if secondary_key is not None:
-            pulumi.set(__self__, "secondary_key", secondary_key)
+            _setter("secondary_key", secondary_key)
         if send is not None:
-            pulumi.set(__self__, "send", send)
+            _setter("send", send)
         if topic_id is not None:
-            pulumi.set(__self__, "topic_id", topic_id)
+            _setter("topic_id", topic_id)
 
     @property
     @pulumi.getter
@@ -398,6 +466,10 @@ class TopicAuthorizationRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TopicAuthorizationRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

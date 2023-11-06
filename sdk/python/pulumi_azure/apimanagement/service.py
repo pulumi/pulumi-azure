@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -85,56 +85,161 @@ class ServiceArgs:
                
                > **NOTE:** Availability zones are only supported in the Premium tier.
         """
-        pulumi.set(__self__, "publisher_email", publisher_email)
-        pulumi.set(__self__, "publisher_name", publisher_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku_name", sku_name)
+        ServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            publisher_email=publisher_email,
+            publisher_name=publisher_name,
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            additional_locations=additional_locations,
+            certificates=certificates,
+            client_certificate_enabled=client_certificate_enabled,
+            delegation=delegation,
+            gateway_disabled=gateway_disabled,
+            hostname_configuration=hostname_configuration,
+            identity=identity,
+            location=location,
+            min_api_version=min_api_version,
+            name=name,
+            notification_sender_email=notification_sender_email,
+            policy=policy,
+            protocols=protocols,
+            public_ip_address_id=public_ip_address_id,
+            public_network_access_enabled=public_network_access_enabled,
+            security=security,
+            sign_in=sign_in,
+            sign_up=sign_up,
+            tags=tags,
+            tenant_access=tenant_access,
+            virtual_network_configuration=virtual_network_configuration,
+            virtual_network_type=virtual_network_type,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             publisher_email: Optional[pulumi.Input[str]] = None,
+             publisher_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]] = None,
+             certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]]] = None,
+             client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+             delegation: Optional[pulumi.Input['ServiceDelegationArgs']] = None,
+             gateway_disabled: Optional[pulumi.Input[bool]] = None,
+             hostname_configuration: Optional[pulumi.Input['ServiceHostnameConfigurationArgs']] = None,
+             identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             min_api_version: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_sender_email: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input['ServicePolicyArgs']] = None,
+             protocols: Optional[pulumi.Input['ServiceProtocolsArgs']] = None,
+             public_ip_address_id: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             security: Optional[pulumi.Input['ServiceSecurityArgs']] = None,
+             sign_in: Optional[pulumi.Input['ServiceSignInArgs']] = None,
+             sign_up: Optional[pulumi.Input['ServiceSignUpArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tenant_access: Optional[pulumi.Input['ServiceTenantAccessArgs']] = None,
+             virtual_network_configuration: Optional[pulumi.Input['ServiceVirtualNetworkConfigurationArgs']] = None,
+             virtual_network_type: Optional[pulumi.Input[str]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if publisher_email is None and 'publisherEmail' in kwargs:
+            publisher_email = kwargs['publisherEmail']
+        if publisher_email is None:
+            raise TypeError("Missing 'publisher_email' argument")
+        if publisher_name is None and 'publisherName' in kwargs:
+            publisher_name = kwargs['publisherName']
+        if publisher_name is None:
+            raise TypeError("Missing 'publisher_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if additional_locations is None and 'additionalLocations' in kwargs:
+            additional_locations = kwargs['additionalLocations']
+        if client_certificate_enabled is None and 'clientCertificateEnabled' in kwargs:
+            client_certificate_enabled = kwargs['clientCertificateEnabled']
+        if gateway_disabled is None and 'gatewayDisabled' in kwargs:
+            gateway_disabled = kwargs['gatewayDisabled']
+        if hostname_configuration is None and 'hostnameConfiguration' in kwargs:
+            hostname_configuration = kwargs['hostnameConfiguration']
+        if min_api_version is None and 'minApiVersion' in kwargs:
+            min_api_version = kwargs['minApiVersion']
+        if notification_sender_email is None and 'notificationSenderEmail' in kwargs:
+            notification_sender_email = kwargs['notificationSenderEmail']
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if sign_in is None and 'signIn' in kwargs:
+            sign_in = kwargs['signIn']
+        if sign_up is None and 'signUp' in kwargs:
+            sign_up = kwargs['signUp']
+        if tenant_access is None and 'tenantAccess' in kwargs:
+            tenant_access = kwargs['tenantAccess']
+        if virtual_network_configuration is None and 'virtualNetworkConfiguration' in kwargs:
+            virtual_network_configuration = kwargs['virtualNetworkConfiguration']
+        if virtual_network_type is None and 'virtualNetworkType' in kwargs:
+            virtual_network_type = kwargs['virtualNetworkType']
+
+        _setter("publisher_email", publisher_email)
+        _setter("publisher_name", publisher_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku_name", sku_name)
         if additional_locations is not None:
-            pulumi.set(__self__, "additional_locations", additional_locations)
+            _setter("additional_locations", additional_locations)
         if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
+            _setter("certificates", certificates)
         if client_certificate_enabled is not None:
-            pulumi.set(__self__, "client_certificate_enabled", client_certificate_enabled)
+            _setter("client_certificate_enabled", client_certificate_enabled)
         if delegation is not None:
-            pulumi.set(__self__, "delegation", delegation)
+            _setter("delegation", delegation)
         if gateway_disabled is not None:
-            pulumi.set(__self__, "gateway_disabled", gateway_disabled)
+            _setter("gateway_disabled", gateway_disabled)
         if hostname_configuration is not None:
-            pulumi.set(__self__, "hostname_configuration", hostname_configuration)
+            _setter("hostname_configuration", hostname_configuration)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if min_api_version is not None:
-            pulumi.set(__self__, "min_api_version", min_api_version)
+            _setter("min_api_version", min_api_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_sender_email is not None:
-            pulumi.set(__self__, "notification_sender_email", notification_sender_email)
+            _setter("notification_sender_email", notification_sender_email)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if protocols is not None:
-            pulumi.set(__self__, "protocols", protocols)
+            _setter("protocols", protocols)
         if public_ip_address_id is not None:
-            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+            _setter("public_ip_address_id", public_ip_address_id)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if security is not None:
-            pulumi.set(__self__, "security", security)
+            _setter("security", security)
         if sign_in is not None:
-            pulumi.set(__self__, "sign_in", sign_in)
+            _setter("sign_in", sign_in)
         if sign_up is not None:
-            pulumi.set(__self__, "sign_up", sign_up)
+            _setter("sign_up", sign_up)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tenant_access is not None:
-            pulumi.set(__self__, "tenant_access", tenant_access)
+            _setter("tenant_access", tenant_access)
         if virtual_network_configuration is not None:
-            pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
+            _setter("virtual_network_configuration", virtual_network_configuration)
         if virtual_network_type is not None:
-            pulumi.set(__self__, "virtual_network_type", virtual_network_type)
+            _setter("virtual_network_type", virtual_network_type)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="publisherEmail")
@@ -561,76 +666,205 @@ class _ServiceState:
                
                > **NOTE:** Availability zones are only supported in the Premium tier.
         """
+        _ServiceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_locations=additional_locations,
+            certificates=certificates,
+            client_certificate_enabled=client_certificate_enabled,
+            delegation=delegation,
+            developer_portal_url=developer_portal_url,
+            gateway_disabled=gateway_disabled,
+            gateway_regional_url=gateway_regional_url,
+            gateway_url=gateway_url,
+            hostname_configuration=hostname_configuration,
+            identity=identity,
+            location=location,
+            management_api_url=management_api_url,
+            min_api_version=min_api_version,
+            name=name,
+            notification_sender_email=notification_sender_email,
+            policy=policy,
+            portal_url=portal_url,
+            private_ip_addresses=private_ip_addresses,
+            protocols=protocols,
+            public_ip_address_id=public_ip_address_id,
+            public_ip_addresses=public_ip_addresses,
+            public_network_access_enabled=public_network_access_enabled,
+            publisher_email=publisher_email,
+            publisher_name=publisher_name,
+            resource_group_name=resource_group_name,
+            scm_url=scm_url,
+            security=security,
+            sign_in=sign_in,
+            sign_up=sign_up,
+            sku_name=sku_name,
+            tags=tags,
+            tenant_access=tenant_access,
+            virtual_network_configuration=virtual_network_configuration,
+            virtual_network_type=virtual_network_type,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAdditionalLocationArgs']]]] = None,
+             certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCertificateArgs']]]] = None,
+             client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+             delegation: Optional[pulumi.Input['ServiceDelegationArgs']] = None,
+             developer_portal_url: Optional[pulumi.Input[str]] = None,
+             gateway_disabled: Optional[pulumi.Input[bool]] = None,
+             gateway_regional_url: Optional[pulumi.Input[str]] = None,
+             gateway_url: Optional[pulumi.Input[str]] = None,
+             hostname_configuration: Optional[pulumi.Input['ServiceHostnameConfigurationArgs']] = None,
+             identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             management_api_url: Optional[pulumi.Input[str]] = None,
+             min_api_version: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notification_sender_email: Optional[pulumi.Input[str]] = None,
+             policy: Optional[pulumi.Input['ServicePolicyArgs']] = None,
+             portal_url: Optional[pulumi.Input[str]] = None,
+             private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             protocols: Optional[pulumi.Input['ServiceProtocolsArgs']] = None,
+             public_ip_address_id: Optional[pulumi.Input[str]] = None,
+             public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             publisher_email: Optional[pulumi.Input[str]] = None,
+             publisher_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scm_url: Optional[pulumi.Input[str]] = None,
+             security: Optional[pulumi.Input['ServiceSecurityArgs']] = None,
+             sign_in: Optional[pulumi.Input['ServiceSignInArgs']] = None,
+             sign_up: Optional[pulumi.Input['ServiceSignUpArgs']] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tenant_access: Optional[pulumi.Input['ServiceTenantAccessArgs']] = None,
+             virtual_network_configuration: Optional[pulumi.Input['ServiceVirtualNetworkConfigurationArgs']] = None,
+             virtual_network_type: Optional[pulumi.Input[str]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if additional_locations is None and 'additionalLocations' in kwargs:
+            additional_locations = kwargs['additionalLocations']
+        if client_certificate_enabled is None and 'clientCertificateEnabled' in kwargs:
+            client_certificate_enabled = kwargs['clientCertificateEnabled']
+        if developer_portal_url is None and 'developerPortalUrl' in kwargs:
+            developer_portal_url = kwargs['developerPortalUrl']
+        if gateway_disabled is None and 'gatewayDisabled' in kwargs:
+            gateway_disabled = kwargs['gatewayDisabled']
+        if gateway_regional_url is None and 'gatewayRegionalUrl' in kwargs:
+            gateway_regional_url = kwargs['gatewayRegionalUrl']
+        if gateway_url is None and 'gatewayUrl' in kwargs:
+            gateway_url = kwargs['gatewayUrl']
+        if hostname_configuration is None and 'hostnameConfiguration' in kwargs:
+            hostname_configuration = kwargs['hostnameConfiguration']
+        if management_api_url is None and 'managementApiUrl' in kwargs:
+            management_api_url = kwargs['managementApiUrl']
+        if min_api_version is None and 'minApiVersion' in kwargs:
+            min_api_version = kwargs['minApiVersion']
+        if notification_sender_email is None and 'notificationSenderEmail' in kwargs:
+            notification_sender_email = kwargs['notificationSenderEmail']
+        if portal_url is None and 'portalUrl' in kwargs:
+            portal_url = kwargs['portalUrl']
+        if private_ip_addresses is None and 'privateIpAddresses' in kwargs:
+            private_ip_addresses = kwargs['privateIpAddresses']
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
+            public_ip_addresses = kwargs['publicIpAddresses']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if publisher_email is None and 'publisherEmail' in kwargs:
+            publisher_email = kwargs['publisherEmail']
+        if publisher_name is None and 'publisherName' in kwargs:
+            publisher_name = kwargs['publisherName']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if scm_url is None and 'scmUrl' in kwargs:
+            scm_url = kwargs['scmUrl']
+        if sign_in is None and 'signIn' in kwargs:
+            sign_in = kwargs['signIn']
+        if sign_up is None and 'signUp' in kwargs:
+            sign_up = kwargs['signUp']
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if tenant_access is None and 'tenantAccess' in kwargs:
+            tenant_access = kwargs['tenantAccess']
+        if virtual_network_configuration is None and 'virtualNetworkConfiguration' in kwargs:
+            virtual_network_configuration = kwargs['virtualNetworkConfiguration']
+        if virtual_network_type is None and 'virtualNetworkType' in kwargs:
+            virtual_network_type = kwargs['virtualNetworkType']
+
         if additional_locations is not None:
-            pulumi.set(__self__, "additional_locations", additional_locations)
+            _setter("additional_locations", additional_locations)
         if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
+            _setter("certificates", certificates)
         if client_certificate_enabled is not None:
-            pulumi.set(__self__, "client_certificate_enabled", client_certificate_enabled)
+            _setter("client_certificate_enabled", client_certificate_enabled)
         if delegation is not None:
-            pulumi.set(__self__, "delegation", delegation)
+            _setter("delegation", delegation)
         if developer_portal_url is not None:
-            pulumi.set(__self__, "developer_portal_url", developer_portal_url)
+            _setter("developer_portal_url", developer_portal_url)
         if gateway_disabled is not None:
-            pulumi.set(__self__, "gateway_disabled", gateway_disabled)
+            _setter("gateway_disabled", gateway_disabled)
         if gateway_regional_url is not None:
-            pulumi.set(__self__, "gateway_regional_url", gateway_regional_url)
+            _setter("gateway_regional_url", gateway_regional_url)
         if gateway_url is not None:
-            pulumi.set(__self__, "gateway_url", gateway_url)
+            _setter("gateway_url", gateway_url)
         if hostname_configuration is not None:
-            pulumi.set(__self__, "hostname_configuration", hostname_configuration)
+            _setter("hostname_configuration", hostname_configuration)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if management_api_url is not None:
-            pulumi.set(__self__, "management_api_url", management_api_url)
+            _setter("management_api_url", management_api_url)
         if min_api_version is not None:
-            pulumi.set(__self__, "min_api_version", min_api_version)
+            _setter("min_api_version", min_api_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notification_sender_email is not None:
-            pulumi.set(__self__, "notification_sender_email", notification_sender_email)
+            _setter("notification_sender_email", notification_sender_email)
         if policy is not None:
-            pulumi.set(__self__, "policy", policy)
+            _setter("policy", policy)
         if portal_url is not None:
-            pulumi.set(__self__, "portal_url", portal_url)
+            _setter("portal_url", portal_url)
         if private_ip_addresses is not None:
-            pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+            _setter("private_ip_addresses", private_ip_addresses)
         if protocols is not None:
-            pulumi.set(__self__, "protocols", protocols)
+            _setter("protocols", protocols)
         if public_ip_address_id is not None:
-            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+            _setter("public_ip_address_id", public_ip_address_id)
         if public_ip_addresses is not None:
-            pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+            _setter("public_ip_addresses", public_ip_addresses)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if publisher_email is not None:
-            pulumi.set(__self__, "publisher_email", publisher_email)
+            _setter("publisher_email", publisher_email)
         if publisher_name is not None:
-            pulumi.set(__self__, "publisher_name", publisher_name)
+            _setter("publisher_name", publisher_name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if scm_url is not None:
-            pulumi.set(__self__, "scm_url", scm_url)
+            _setter("scm_url", scm_url)
         if security is not None:
-            pulumi.set(__self__, "security", security)
+            _setter("security", security)
         if sign_in is not None:
-            pulumi.set(__self__, "sign_in", sign_in)
+            _setter("sign_in", sign_in)
         if sign_up is not None:
-            pulumi.set(__self__, "sign_up", sign_up)
+            _setter("sign_up", sign_up)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tenant_access is not None:
-            pulumi.set(__self__, "tenant_access", tenant_access)
+            _setter("tenant_access", tenant_access)
         if virtual_network_configuration is not None:
-            pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
+            _setter("virtual_network_configuration", virtual_network_configuration)
         if virtual_network_type is not None:
-            pulumi.set(__self__, "virtual_network_type", virtual_network_type)
+            _setter("virtual_network_type", virtual_network_type)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="additionalLocations")
@@ -1204,6 +1438,10 @@ class Service(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1248,15 +1486,40 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["additional_locations"] = additional_locations
             __props__.__dict__["certificates"] = certificates
             __props__.__dict__["client_certificate_enabled"] = client_certificate_enabled
+            if delegation is not None and not isinstance(delegation, ServiceDelegationArgs):
+                delegation = delegation or {}
+                def _setter(key, value):
+                    delegation[key] = value
+                ServiceDelegationArgs._configure(_setter, **delegation)
             __props__.__dict__["delegation"] = delegation
             __props__.__dict__["gateway_disabled"] = gateway_disabled
+            if hostname_configuration is not None and not isinstance(hostname_configuration, ServiceHostnameConfigurationArgs):
+                hostname_configuration = hostname_configuration or {}
+                def _setter(key, value):
+                    hostname_configuration[key] = value
+                ServiceHostnameConfigurationArgs._configure(_setter, **hostname_configuration)
             __props__.__dict__["hostname_configuration"] = hostname_configuration
+            if identity is not None and not isinstance(identity, ServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["min_api_version"] = min_api_version
             __props__.__dict__["name"] = name
             __props__.__dict__["notification_sender_email"] = notification_sender_email
+            if policy is not None and not isinstance(policy, ServicePolicyArgs):
+                policy = policy or {}
+                def _setter(key, value):
+                    policy[key] = value
+                ServicePolicyArgs._configure(_setter, **policy)
             __props__.__dict__["policy"] = policy
+            if protocols is not None and not isinstance(protocols, ServiceProtocolsArgs):
+                protocols = protocols or {}
+                def _setter(key, value):
+                    protocols[key] = value
+                ServiceProtocolsArgs._configure(_setter, **protocols)
             __props__.__dict__["protocols"] = protocols
             __props__.__dict__["public_ip_address_id"] = public_ip_address_id
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
@@ -1269,14 +1532,39 @@ class Service(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if security is not None and not isinstance(security, ServiceSecurityArgs):
+                security = security or {}
+                def _setter(key, value):
+                    security[key] = value
+                ServiceSecurityArgs._configure(_setter, **security)
             __props__.__dict__["security"] = security
+            if sign_in is not None and not isinstance(sign_in, ServiceSignInArgs):
+                sign_in = sign_in or {}
+                def _setter(key, value):
+                    sign_in[key] = value
+                ServiceSignInArgs._configure(_setter, **sign_in)
             __props__.__dict__["sign_in"] = sign_in
+            if sign_up is not None and not isinstance(sign_up, ServiceSignUpArgs):
+                sign_up = sign_up or {}
+                def _setter(key, value):
+                    sign_up[key] = value
+                ServiceSignUpArgs._configure(_setter, **sign_up)
             __props__.__dict__["sign_up"] = sign_up
             if sku_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sku_name'")
             __props__.__dict__["sku_name"] = sku_name
             __props__.__dict__["tags"] = tags
+            if tenant_access is not None and not isinstance(tenant_access, ServiceTenantAccessArgs):
+                tenant_access = tenant_access or {}
+                def _setter(key, value):
+                    tenant_access[key] = value
+                ServiceTenantAccessArgs._configure(_setter, **tenant_access)
             __props__.__dict__["tenant_access"] = tenant_access
+            if virtual_network_configuration is not None and not isinstance(virtual_network_configuration, ServiceVirtualNetworkConfigurationArgs):
+                virtual_network_configuration = virtual_network_configuration or {}
+                def _setter(key, value):
+                    virtual_network_configuration[key] = value
+                ServiceVirtualNetworkConfigurationArgs._configure(_setter, **virtual_network_configuration)
             __props__.__dict__["virtual_network_configuration"] = virtual_network_configuration
             __props__.__dict__["virtual_network_type"] = virtual_network_type
             __props__.__dict__["zones"] = zones

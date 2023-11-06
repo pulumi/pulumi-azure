@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ConfigurationKeyArgs', 'ConfigurationKey']
@@ -39,24 +39,63 @@ class ConfigurationKeyArgs:
                
                > **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
         """
-        pulumi.set(__self__, "configuration_store_id", configuration_store_id)
-        pulumi.set(__self__, "key", key)
+        ConfigurationKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_store_id=configuration_store_id,
+            key=key,
+            content_type=content_type,
+            etag=etag,
+            label=label,
+            locked=locked,
+            tags=tags,
+            type=type,
+            value=value,
+            vault_key_reference=vault_key_reference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_store_id: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             locked: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             vault_key_reference: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if configuration_store_id is None and 'configurationStoreId' in kwargs:
+            configuration_store_id = kwargs['configurationStoreId']
+        if configuration_store_id is None:
+            raise TypeError("Missing 'configuration_store_id' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if vault_key_reference is None and 'vaultKeyReference' in kwargs:
+            vault_key_reference = kwargs['vaultKeyReference']
+
+        _setter("configuration_store_id", configuration_store_id)
+        _setter("key", key)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if locked is not None:
-            pulumi.set(__self__, "locked", locked)
+            _setter("locked", locked)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
         if vault_key_reference is not None:
-            pulumi.set(__self__, "vault_key_reference", vault_key_reference)
+            _setter("vault_key_reference", vault_key_reference)
 
     @property
     @pulumi.getter(name="configurationStoreId")
@@ -209,26 +248,61 @@ class _ConfigurationKeyState:
                
                > **NOTE:** When setting the `vault_key_reference` using the `id` will pin the value to specific version of the secret, to reference latest secret value use `versionless_id`
         """
+        _ConfigurationKeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_store_id=configuration_store_id,
+            content_type=content_type,
+            etag=etag,
+            key=key,
+            label=label,
+            locked=locked,
+            tags=tags,
+            type=type,
+            value=value,
+            vault_key_reference=vault_key_reference,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_store_id: Optional[pulumi.Input[str]] = None,
+             content_type: Optional[pulumi.Input[str]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             locked: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             vault_key_reference: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if configuration_store_id is None and 'configurationStoreId' in kwargs:
+            configuration_store_id = kwargs['configurationStoreId']
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if vault_key_reference is None and 'vaultKeyReference' in kwargs:
+            vault_key_reference = kwargs['vaultKeyReference']
+
         if configuration_store_id is not None:
-            pulumi.set(__self__, "configuration_store_id", configuration_store_id)
+            _setter("configuration_store_id", configuration_store_id)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if locked is not None:
-            pulumi.set(__self__, "locked", locked)
+            _setter("locked", locked)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
         if vault_key_reference is not None:
-            pulumi.set(__self__, "vault_key_reference", vault_key_reference)
+            _setter("vault_key_reference", vault_key_reference)
 
     @property
     @pulumi.getter(name="configurationStoreId")
@@ -580,6 +654,10 @@ class ConfigurationKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigurationKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

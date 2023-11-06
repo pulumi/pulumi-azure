@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProtectedFileShareArgs', 'ProtectedFileShare']
@@ -29,11 +29,50 @@ class ProtectedFileShareArgs:
                
                > **NOTE** The storage account must already be registered with the recovery vault in order to backup shares within the account. You can use the `backup.ContainerStorageAccount` resource or the [Register-AzRecoveryServicesBackupContainer PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-3.2.0) to register a storage account with a vault. When using the `backup.ContainerStorageAccount` resource to register, you can use `depends_on` to explicitly declare the dependency. It will make sure that the registration is completed before creating the `backup.ProtectedFileShare` resource.
         """
-        pulumi.set(__self__, "backup_policy_id", backup_policy_id)
-        pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source_file_share_name", source_file_share_name)
-        pulumi.set(__self__, "source_storage_account_id", source_storage_account_id)
+        ProtectedFileShareArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_policy_id=backup_policy_id,
+            recovery_vault_name=recovery_vault_name,
+            resource_group_name=resource_group_name,
+            source_file_share_name=source_file_share_name,
+            source_storage_account_id=source_storage_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_policy_id: Optional[pulumi.Input[str]] = None,
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             source_file_share_name: Optional[pulumi.Input[str]] = None,
+             source_storage_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if backup_policy_id is None and 'backupPolicyId' in kwargs:
+            backup_policy_id = kwargs['backupPolicyId']
+        if backup_policy_id is None:
+            raise TypeError("Missing 'backup_policy_id' argument")
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
+            recovery_vault_name = kwargs['recoveryVaultName']
+        if recovery_vault_name is None:
+            raise TypeError("Missing 'recovery_vault_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if source_file_share_name is None and 'sourceFileShareName' in kwargs:
+            source_file_share_name = kwargs['sourceFileShareName']
+        if source_file_share_name is None:
+            raise TypeError("Missing 'source_file_share_name' argument")
+        if source_storage_account_id is None and 'sourceStorageAccountId' in kwargs:
+            source_storage_account_id = kwargs['sourceStorageAccountId']
+        if source_storage_account_id is None:
+            raise TypeError("Missing 'source_storage_account_id' argument")
+
+        _setter("backup_policy_id", backup_policy_id)
+        _setter("recovery_vault_name", recovery_vault_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("source_file_share_name", source_file_share_name)
+        _setter("source_storage_account_id", source_storage_account_id)
 
     @property
     @pulumi.getter(name="backupPolicyId")
@@ -116,16 +155,45 @@ class _ProtectedFileShareState:
                
                > **NOTE** The storage account must already be registered with the recovery vault in order to backup shares within the account. You can use the `backup.ContainerStorageAccount` resource or the [Register-AzRecoveryServicesBackupContainer PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.recoveryservices/register-azrecoveryservicesbackupcontainer?view=azps-3.2.0) to register a storage account with a vault. When using the `backup.ContainerStorageAccount` resource to register, you can use `depends_on` to explicitly declare the dependency. It will make sure that the registration is completed before creating the `backup.ProtectedFileShare` resource.
         """
+        _ProtectedFileShareState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backup_policy_id=backup_policy_id,
+            recovery_vault_name=recovery_vault_name,
+            resource_group_name=resource_group_name,
+            source_file_share_name=source_file_share_name,
+            source_storage_account_id=source_storage_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backup_policy_id: Optional[pulumi.Input[str]] = None,
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             source_file_share_name: Optional[pulumi.Input[str]] = None,
+             source_storage_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if backup_policy_id is None and 'backupPolicyId' in kwargs:
+            backup_policy_id = kwargs['backupPolicyId']
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
+            recovery_vault_name = kwargs['recoveryVaultName']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if source_file_share_name is None and 'sourceFileShareName' in kwargs:
+            source_file_share_name = kwargs['sourceFileShareName']
+        if source_storage_account_id is None and 'sourceStorageAccountId' in kwargs:
+            source_storage_account_id = kwargs['sourceStorageAccountId']
+
         if backup_policy_id is not None:
-            pulumi.set(__self__, "backup_policy_id", backup_policy_id)
+            _setter("backup_policy_id", backup_policy_id)
         if recovery_vault_name is not None:
-            pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
+            _setter("recovery_vault_name", recovery_vault_name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if source_file_share_name is not None:
-            pulumi.set(__self__, "source_file_share_name", source_file_share_name)
+            _setter("source_file_share_name", source_file_share_name)
         if source_storage_account_id is not None:
-            pulumi.set(__self__, "source_storage_account_id", source_storage_account_id)
+            _setter("source_storage_account_id", source_storage_account_id)
 
     @property
     @pulumi.getter(name="backupPolicyId")
@@ -335,6 +403,10 @@ class ProtectedFileShare(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProtectedFileShareArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

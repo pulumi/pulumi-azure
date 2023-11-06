@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TagArgs', 'Tag']
@@ -23,11 +23,32 @@ class TagArgs:
         :param pulumi.Input[str] display_name: The display name of the API Management Tag. Defaults to the `name`.
         :param pulumi.Input[str] name: The name which should be used for this API Management Tag. Changing this forces a new API Management Tag to be created. The name must be unique in the API Management Service.
         """
-        pulumi.set(__self__, "api_management_id", api_management_id)
+        TagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_id=api_management_id,
+            display_name=display_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_id: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_management_id is None and 'apiManagementId' in kwargs:
+            api_management_id = kwargs['apiManagementId']
+        if api_management_id is None:
+            raise TypeError("Missing 'api_management_id' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
+        _setter("api_management_id", api_management_id)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="apiManagementId")
@@ -78,12 +99,31 @@ class _TagState:
         :param pulumi.Input[str] display_name: The display name of the API Management Tag. Defaults to the `name`.
         :param pulumi.Input[str] name: The name which should be used for this API Management Tag. Changing this forces a new API Management Tag to be created. The name must be unique in the API Management Service.
         """
+        _TagState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_id=api_management_id,
+            display_name=display_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_id: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_management_id is None and 'apiManagementId' in kwargs:
+            api_management_id = kwargs['apiManagementId']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
         if api_management_id is not None:
-            pulumi.set(__self__, "api_management_id", api_management_id)
+            _setter("api_management_id", api_management_id)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="apiManagementId")
@@ -207,6 +247,10 @@ class Tag(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TagArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

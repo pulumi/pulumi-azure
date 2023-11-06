@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -41,14 +41,63 @@ class DatabaseImportArgs:
         :param pulumi.Input[str] storage_uri: Specifies the blob URI of the .bacpac file.
         :param pulumi.Input[str] operation_mode: Specifies the type of import operation being performed. The only allowable value is `Import`.
         """
-        pulumi.set(__self__, "administrator_login", administrator_login)
-        pulumi.set(__self__, "administrator_login_password", administrator_login_password)
-        pulumi.set(__self__, "authentication_type", authentication_type)
-        pulumi.set(__self__, "storage_key", storage_key)
-        pulumi.set(__self__, "storage_key_type", storage_key_type)
-        pulumi.set(__self__, "storage_uri", storage_uri)
+        DatabaseImportArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrator_login=administrator_login,
+            administrator_login_password=administrator_login_password,
+            authentication_type=authentication_type,
+            storage_key=storage_key,
+            storage_key_type=storage_key_type,
+            storage_uri=storage_uri,
+            operation_mode=operation_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrator_login: Optional[pulumi.Input[str]] = None,
+             administrator_login_password: Optional[pulumi.Input[str]] = None,
+             authentication_type: Optional[pulumi.Input[str]] = None,
+             storage_key: Optional[pulumi.Input[str]] = None,
+             storage_key_type: Optional[pulumi.Input[str]] = None,
+             storage_uri: Optional[pulumi.Input[str]] = None,
+             operation_mode: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if administrator_login is None and 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if administrator_login is None:
+            raise TypeError("Missing 'administrator_login' argument")
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if administrator_login_password is None:
+            raise TypeError("Missing 'administrator_login_password' argument")
+        if authentication_type is None and 'authenticationType' in kwargs:
+            authentication_type = kwargs['authenticationType']
+        if authentication_type is None:
+            raise TypeError("Missing 'authentication_type' argument")
+        if storage_key is None and 'storageKey' in kwargs:
+            storage_key = kwargs['storageKey']
+        if storage_key is None:
+            raise TypeError("Missing 'storage_key' argument")
+        if storage_key_type is None and 'storageKeyType' in kwargs:
+            storage_key_type = kwargs['storageKeyType']
+        if storage_key_type is None:
+            raise TypeError("Missing 'storage_key_type' argument")
+        if storage_uri is None and 'storageUri' in kwargs:
+            storage_uri = kwargs['storageUri']
+        if storage_uri is None:
+            raise TypeError("Missing 'storage_uri' argument")
+        if operation_mode is None and 'operationMode' in kwargs:
+            operation_mode = kwargs['operationMode']
+
+        _setter("administrator_login", administrator_login)
+        _setter("administrator_login_password", administrator_login_password)
+        _setter("authentication_type", authentication_type)
+        _setter("storage_key", storage_key)
+        _setter("storage_key_type", storage_key_type)
+        _setter("storage_uri", storage_uri)
         if operation_mode is not None:
-            pulumi.set(__self__, "operation_mode", operation_mode)
+            _setter("operation_mode", operation_mode)
 
     @property
     @pulumi.getter(name="administratorLogin")
@@ -154,20 +203,55 @@ class DatabaseThreatDetectionPolicyArgs:
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
+        DatabaseThreatDetectionPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disabled_alerts=disabled_alerts,
+            email_account_admins=email_account_admins,
+            email_addresses=email_addresses,
+            retention_days=retention_days,
+            state=state,
+            storage_account_access_key=storage_account_access_key,
+            storage_endpoint=storage_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             email_account_admins: Optional[pulumi.Input[str]] = None,
+             email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             retention_days: Optional[pulumi.Input[int]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             storage_account_access_key: Optional[pulumi.Input[str]] = None,
+             storage_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if disabled_alerts is None and 'disabledAlerts' in kwargs:
+            disabled_alerts = kwargs['disabledAlerts']
+        if email_account_admins is None and 'emailAccountAdmins' in kwargs:
+            email_account_admins = kwargs['emailAccountAdmins']
+        if email_addresses is None and 'emailAddresses' in kwargs:
+            email_addresses = kwargs['emailAddresses']
+        if retention_days is None and 'retentionDays' in kwargs:
+            retention_days = kwargs['retentionDays']
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
+            storage_endpoint = kwargs['storageEndpoint']
+
         if disabled_alerts is not None:
-            pulumi.set(__self__, "disabled_alerts", disabled_alerts)
+            _setter("disabled_alerts", disabled_alerts)
         if email_account_admins is not None:
-            pulumi.set(__self__, "email_account_admins", email_account_admins)
+            _setter("email_account_admins", email_account_admins)
         if email_addresses is not None:
-            pulumi.set(__self__, "email_addresses", email_addresses)
+            _setter("email_addresses", email_addresses)
         if retention_days is not None:
-            pulumi.set(__self__, "retention_days", retention_days)
+            _setter("retention_days", retention_days)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+            _setter("storage_account_access_key", storage_account_access_key)
         if storage_endpoint is not None:
-            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+            _setter("storage_endpoint", storage_endpoint)
 
     @property
     @pulumi.getter(name="disabledAlerts")
@@ -265,11 +349,28 @@ class FailoverGroupPartnerServerArgs:
         :param pulumi.Input[str] location: the location of the failover group.
         :param pulumi.Input[str] role: local replication role of the failover group instance.
         """
-        pulumi.set(__self__, "id", id)
+        FailoverGroupPartnerServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            location=location,
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+
+        _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter
@@ -317,9 +418,26 @@ class FailoverGroupReadWriteEndpointFailoverPolicyArgs:
         :param pulumi.Input[str] mode: the failover mode. Possible values are `Manual`, `Automatic`
         :param pulumi.Input[int] grace_minutes: Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted
         """
-        pulumi.set(__self__, "mode", mode)
+        FailoverGroupReadWriteEndpointFailoverPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            grace_minutes=grace_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: Optional[pulumi.Input[str]] = None,
+             grace_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if grace_minutes is None and 'graceMinutes' in kwargs:
+            grace_minutes = kwargs['graceMinutes']
+
+        _setter("mode", mode)
         if grace_minutes is not None:
-            pulumi.set(__self__, "grace_minutes", grace_minutes)
+            _setter("grace_minutes", grace_minutes)
 
     @property
     @pulumi.getter
@@ -353,7 +471,20 @@ class FailoverGroupReadonlyEndpointFailoverPolicyArgs:
         """
         :param pulumi.Input[str] mode: Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled`
         """
-        pulumi.set(__self__, "mode", mode)
+        FailoverGroupReadonlyEndpointFailoverPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+
+        _setter("mode", mode)
 
     @property
     @pulumi.getter
@@ -377,10 +508,23 @@ class ManagedInstanceFailoverGroupPartnerRegionArgs:
         :param pulumi.Input[str] location: The Azure Region where the SQL Instance Failover Group exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] role: The partner replication role of the SQL Instance Failover Group.
         """
+        ManagedInstanceFailoverGroupPartnerRegionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            role=role,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             role: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if role is not None:
-            pulumi.set(__self__, "role", role)
+            _setter("role", role)
 
     @property
     @pulumi.getter
@@ -416,9 +560,26 @@ class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs:
         :param pulumi.Input[str] mode: The failover mode. Possible values are `Manual`, `Automatic`
         :param pulumi.Input[int] grace_minutes: Applies only if `mode` is `Automatic`. The grace period in minutes before failover with data loss is attempted.
         """
-        pulumi.set(__self__, "mode", mode)
+        ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mode=mode,
+            grace_minutes=grace_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mode: Optional[pulumi.Input[str]] = None,
+             grace_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if grace_minutes is None and 'graceMinutes' in kwargs:
+            grace_minutes = kwargs['graceMinutes']
+
+        _setter("mode", mode)
         if grace_minutes is not None:
-            pulumi.set(__self__, "grace_minutes", grace_minutes)
+            _setter("grace_minutes", grace_minutes)
 
     @property
     @pulumi.getter
@@ -456,11 +617,32 @@ class ManagedInstanceIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Managed Instance.
         """
-        pulumi.set(__self__, "type", type)
+        ManagedInstanceIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("type", type)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -512,11 +694,32 @@ class SqlServerIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID for the Service Principal associated with the Identity of this SQL Server.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the Service Principal associated with the Identity of this SQL Server.
         """
-        pulumi.set(__self__, "type", type)
+        SqlServerIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("type", type)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -576,20 +779,55 @@ class SqlServerThreatDetectionPolicyArgs:
         :param pulumi.Input[str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account. Required if `state` is `Enabled`.
         :param pulumi.Input[str] storage_endpoint: Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`.
         """
+        SqlServerThreatDetectionPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disabled_alerts=disabled_alerts,
+            email_account_admins=email_account_admins,
+            email_addresses=email_addresses,
+            retention_days=retention_days,
+            state=state,
+            storage_account_access_key=storage_account_access_key,
+            storage_endpoint=storage_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             email_account_admins: Optional[pulumi.Input[bool]] = None,
+             email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             retention_days: Optional[pulumi.Input[int]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             storage_account_access_key: Optional[pulumi.Input[str]] = None,
+             storage_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if disabled_alerts is None and 'disabledAlerts' in kwargs:
+            disabled_alerts = kwargs['disabledAlerts']
+        if email_account_admins is None and 'emailAccountAdmins' in kwargs:
+            email_account_admins = kwargs['emailAccountAdmins']
+        if email_addresses is None and 'emailAddresses' in kwargs:
+            email_addresses = kwargs['emailAddresses']
+        if retention_days is None and 'retentionDays' in kwargs:
+            retention_days = kwargs['retentionDays']
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
+            storage_endpoint = kwargs['storageEndpoint']
+
         if disabled_alerts is not None:
-            pulumi.set(__self__, "disabled_alerts", disabled_alerts)
+            _setter("disabled_alerts", disabled_alerts)
         if email_account_admins is not None:
-            pulumi.set(__self__, "email_account_admins", email_account_admins)
+            _setter("email_account_admins", email_account_admins)
         if email_addresses is not None:
-            pulumi.set(__self__, "email_addresses", email_addresses)
+            _setter("email_addresses", email_addresses)
         if retention_days is not None:
-            pulumi.set(__self__, "retention_days", retention_days)
+            _setter("retention_days", retention_days)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+            _setter("storage_account_access_key", storage_account_access_key)
         if storage_endpoint is not None:
-            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+            _setter("storage_endpoint", storage_endpoint)
 
     @property
     @pulumi.getter(name="disabledAlerts")

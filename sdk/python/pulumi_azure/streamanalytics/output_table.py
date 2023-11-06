@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OutputTableArgs', 'OutputTable']
@@ -37,18 +37,79 @@ class OutputTableArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] columns_to_removes: A list of the column names to be removed from output event entities.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "batch_size", batch_size)
-        pulumi.set(__self__, "partition_key", partition_key)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "row_key", row_key)
-        pulumi.set(__self__, "storage_account_key", storage_account_key)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
-        pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
-        pulumi.set(__self__, "table", table)
+        OutputTableArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            batch_size=batch_size,
+            partition_key=partition_key,
+            resource_group_name=resource_group_name,
+            row_key=row_key,
+            storage_account_key=storage_account_key,
+            storage_account_name=storage_account_name,
+            stream_analytics_job_name=stream_analytics_job_name,
+            table=table,
+            columns_to_removes=columns_to_removes,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             batch_size: Optional[pulumi.Input[int]] = None,
+             partition_key: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             row_key: Optional[pulumi.Input[str]] = None,
+             storage_account_key: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+             table: Optional[pulumi.Input[str]] = None,
+             columns_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if batch_size is None and 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if batch_size is None:
+            raise TypeError("Missing 'batch_size' argument")
+        if partition_key is None and 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+        if partition_key is None:
+            raise TypeError("Missing 'partition_key' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if row_key is None and 'rowKey' in kwargs:
+            row_key = kwargs['rowKey']
+        if row_key is None:
+            raise TypeError("Missing 'row_key' argument")
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if storage_account_key is None:
+            raise TypeError("Missing 'storage_account_key' argument")
+        if storage_account_name is None and 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+        if stream_analytics_job_name is None:
+            raise TypeError("Missing 'stream_analytics_job_name' argument")
+        if table is None:
+            raise TypeError("Missing 'table' argument")
+        if columns_to_removes is None and 'columnsToRemoves' in kwargs:
+            columns_to_removes = kwargs['columnsToRemoves']
+
+        _setter("batch_size", batch_size)
+        _setter("partition_key", partition_key)
+        _setter("resource_group_name", resource_group_name)
+        _setter("row_key", row_key)
+        _setter("storage_account_key", storage_account_key)
+        _setter("storage_account_name", storage_account_name)
+        _setter("stream_analytics_job_name", stream_analytics_job_name)
+        _setter("table", table)
         if columns_to_removes is not None:
-            pulumi.set(__self__, "columns_to_removes", columns_to_removes)
+            _setter("columns_to_removes", columns_to_removes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="batchSize")
@@ -197,26 +258,71 @@ class _OutputTableState:
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] table: The name of the table where the stream should be output to.
         """
+        _OutputTableState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            batch_size=batch_size,
+            columns_to_removes=columns_to_removes,
+            name=name,
+            partition_key=partition_key,
+            resource_group_name=resource_group_name,
+            row_key=row_key,
+            storage_account_key=storage_account_key,
+            storage_account_name=storage_account_name,
+            stream_analytics_job_name=stream_analytics_job_name,
+            table=table,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             batch_size: Optional[pulumi.Input[int]] = None,
+             columns_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             partition_key: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             row_key: Optional[pulumi.Input[str]] = None,
+             storage_account_key: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+             table: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if batch_size is None and 'batchSize' in kwargs:
+            batch_size = kwargs['batchSize']
+        if columns_to_removes is None and 'columnsToRemoves' in kwargs:
+            columns_to_removes = kwargs['columnsToRemoves']
+        if partition_key is None and 'partitionKey' in kwargs:
+            partition_key = kwargs['partitionKey']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if row_key is None and 'rowKey' in kwargs:
+            row_key = kwargs['rowKey']
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if storage_account_name is None and 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+
         if batch_size is not None:
-            pulumi.set(__self__, "batch_size", batch_size)
+            _setter("batch_size", batch_size)
         if columns_to_removes is not None:
-            pulumi.set(__self__, "columns_to_removes", columns_to_removes)
+            _setter("columns_to_removes", columns_to_removes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if partition_key is not None:
-            pulumi.set(__self__, "partition_key", partition_key)
+            _setter("partition_key", partition_key)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if row_key is not None:
-            pulumi.set(__self__, "row_key", row_key)
+            _setter("row_key", row_key)
         if storage_account_key is not None:
-            pulumi.set(__self__, "storage_account_key", storage_account_key)
+            _setter("storage_account_key", storage_account_key)
         if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
+            _setter("storage_account_name", storage_account_name)
         if stream_analytics_job_name is not None:
-            pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
+            _setter("stream_analytics_job_name", stream_analytics_job_name)
         if table is not None:
-            pulumi.set(__self__, "table", table)
+            _setter("table", table)
 
     @property
     @pulumi.getter(name="batchSize")
@@ -458,6 +564,10 @@ class OutputTable(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OutputTableArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

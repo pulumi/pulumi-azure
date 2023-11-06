@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,24 +41,73 @@ class CustomDatasetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[str] schema_json: A JSON object that contains the schema of the Data Factory Dataset.
         """
-        pulumi.set(__self__, "data_factory_id", data_factory_id)
-        pulumi.set(__self__, "linked_service", linked_service)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "type_properties_json", type_properties_json)
+        CustomDatasetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_factory_id=data_factory_id,
+            linked_service=linked_service,
+            type=type,
+            type_properties_json=type_properties_json,
+            additional_properties=additional_properties,
+            annotations=annotations,
+            description=description,
+            folder=folder,
+            name=name,
+            parameters=parameters,
+            schema_json=schema_json,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             linked_service: Optional[pulumi.Input['CustomDatasetLinkedServiceArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             type_properties_json: Optional[pulumi.Input[str]] = None,
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             folder: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             schema_json: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if linked_service is None and 'linkedService' in kwargs:
+            linked_service = kwargs['linkedService']
+        if linked_service is None:
+            raise TypeError("Missing 'linked_service' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if type_properties_json is None and 'typePropertiesJson' in kwargs:
+            type_properties_json = kwargs['typePropertiesJson']
+        if type_properties_json is None:
+            raise TypeError("Missing 'type_properties_json' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if schema_json is None and 'schemaJson' in kwargs:
+            schema_json = kwargs['schemaJson']
+
+        _setter("data_factory_id", data_factory_id)
+        _setter("linked_service", linked_service)
+        _setter("type", type)
+        _setter("type_properties_json", type_properties_json)
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if folder is not None:
-            pulumi.set(__self__, "folder", folder)
+            _setter("folder", folder)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if schema_json is not None:
-            pulumi.set(__self__, "schema_json", schema_json)
+            _setter("schema_json", schema_json)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -221,28 +270,69 @@ class _CustomDatasetState:
         :param pulumi.Input[str] type: The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type_properties_json: A JSON object that contains the properties of the Data Factory Dataset.
         """
+        _CustomDatasetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_properties=additional_properties,
+            annotations=annotations,
+            data_factory_id=data_factory_id,
+            description=description,
+            folder=folder,
+            linked_service=linked_service,
+            name=name,
+            parameters=parameters,
+            schema_json=schema_json,
+            type=type,
+            type_properties_json=type_properties_json,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             folder: Optional[pulumi.Input[str]] = None,
+             linked_service: Optional[pulumi.Input['CustomDatasetLinkedServiceArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             schema_json: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             type_properties_json: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if additional_properties is None and 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if linked_service is None and 'linkedService' in kwargs:
+            linked_service = kwargs['linkedService']
+        if schema_json is None and 'schemaJson' in kwargs:
+            schema_json = kwargs['schemaJson']
+        if type_properties_json is None and 'typePropertiesJson' in kwargs:
+            type_properties_json = kwargs['typePropertiesJson']
+
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if data_factory_id is not None:
-            pulumi.set(__self__, "data_factory_id", data_factory_id)
+            _setter("data_factory_id", data_factory_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if folder is not None:
-            pulumi.set(__self__, "folder", folder)
+            _setter("folder", folder)
         if linked_service is not None:
-            pulumi.set(__self__, "linked_service", linked_service)
+            _setter("linked_service", linked_service)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if schema_json is not None:
-            pulumi.set(__self__, "schema_json", schema_json)
+            _setter("schema_json", schema_json)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if type_properties_json is not None:
-            pulumi.set(__self__, "type_properties_json", type_properties_json)
+            _setter("type_properties_json", type_properties_json)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -616,6 +706,10 @@ class CustomDataset(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CustomDatasetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -648,6 +742,11 @@ class CustomDataset(pulumi.CustomResource):
             __props__.__dict__["data_factory_id"] = data_factory_id
             __props__.__dict__["description"] = description
             __props__.__dict__["folder"] = folder
+            if linked_service is not None and not isinstance(linked_service, CustomDatasetLinkedServiceArgs):
+                linked_service = linked_service or {}
+                def _setter(key, value):
+                    linked_service[key] = value
+                CustomDatasetLinkedServiceArgs._configure(_setter, **linked_service)
             if linked_service is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_service'")
             __props__.__dict__["linked_service"] = linked_service

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -23,8 +23,29 @@ class ModuleManagementNetworkProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_private_ip_addresses: The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
-        pulumi.set(__self__, "network_interface_private_ip_addresses", network_interface_private_ip_addresses)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        ModuleManagementNetworkProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_interface_private_ip_addresses=network_interface_private_ip_addresses,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_interface_private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if network_interface_private_ip_addresses is None and 'networkInterfacePrivateIpAddresses' in kwargs:
+            network_interface_private_ip_addresses = kwargs['networkInterfacePrivateIpAddresses']
+        if network_interface_private_ip_addresses is None:
+            raise TypeError("Missing 'network_interface_private_ip_addresses' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+
+        _setter("network_interface_private_ip_addresses", network_interface_private_ip_addresses)
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="networkInterfacePrivateIpAddresses")
@@ -60,8 +81,29 @@ class ModuleNetworkProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_private_ip_addresses: The private IPv4 address of the network interface. Changing this forces a new Dedicated Hardware Security Module to be created.
         :param pulumi.Input[str] subnet_id: The ID of the subnet. Changing this forces a new Dedicated Hardware Security Module to be created.
         """
-        pulumi.set(__self__, "network_interface_private_ip_addresses", network_interface_private_ip_addresses)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        ModuleNetworkProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_interface_private_ip_addresses=network_interface_private_ip_addresses,
+            subnet_id=subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_interface_private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if network_interface_private_ip_addresses is None and 'networkInterfacePrivateIpAddresses' in kwargs:
+            network_interface_private_ip_addresses = kwargs['networkInterfacePrivateIpAddresses']
+        if network_interface_private_ip_addresses is None:
+            raise TypeError("Missing 'network_interface_private_ip_addresses' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+
+        _setter("network_interface_private_ip_addresses", network_interface_private_ip_addresses)
+        _setter("subnet_id", subnet_id)
 
     @property
     @pulumi.getter(name="networkInterfacePrivateIpAddresses")

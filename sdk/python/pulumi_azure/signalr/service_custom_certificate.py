@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServiceCustomCertificateArgs', 'ServiceCustomCertificate']
@@ -27,10 +27,33 @@ class ServiceCustomCertificateArgs:
                > **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         :param pulumi.Input[str] name: The name of the SignalR Custom Certificate. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "custom_certificate_id", custom_certificate_id)
-        pulumi.set(__self__, "signalr_service_id", signalr_service_id)
+        ServiceCustomCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_certificate_id=custom_certificate_id,
+            signalr_service_id=signalr_service_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_certificate_id: Optional[pulumi.Input[str]] = None,
+             signalr_service_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if custom_certificate_id is None and 'customCertificateId' in kwargs:
+            custom_certificate_id = kwargs['customCertificateId']
+        if custom_certificate_id is None:
+            raise TypeError("Missing 'custom_certificate_id' argument")
+        if signalr_service_id is None and 'signalrServiceId' in kwargs:
+            signalr_service_id = kwargs['signalrServiceId']
+        if signalr_service_id is None:
+            raise TypeError("Missing 'signalr_service_id' argument")
+
+        _setter("custom_certificate_id", custom_certificate_id)
+        _setter("signalr_service_id", signalr_service_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="customCertificateId")
@@ -91,14 +114,37 @@ class _ServiceCustomCertificateState:
                
                > **Note:** Custom Certificate is only available for SignalR Premium tier. Please enable managed identity in the corresponding SignalR Service and give the managed identity access to the key vault, the required permission is Get Certificate and Secret.
         """
+        _ServiceCustomCertificateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_version=certificate_version,
+            custom_certificate_id=custom_certificate_id,
+            name=name,
+            signalr_service_id=signalr_service_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_version: Optional[pulumi.Input[str]] = None,
+             custom_certificate_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             signalr_service_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if certificate_version is None and 'certificateVersion' in kwargs:
+            certificate_version = kwargs['certificateVersion']
+        if custom_certificate_id is None and 'customCertificateId' in kwargs:
+            custom_certificate_id = kwargs['customCertificateId']
+        if signalr_service_id is None and 'signalrServiceId' in kwargs:
+            signalr_service_id = kwargs['signalrServiceId']
+
         if certificate_version is not None:
-            pulumi.set(__self__, "certificate_version", certificate_version)
+            _setter("certificate_version", certificate_version)
         if custom_certificate_id is not None:
-            pulumi.set(__self__, "custom_certificate_id", custom_certificate_id)
+            _setter("custom_certificate_id", custom_certificate_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if signalr_service_id is not None:
-            pulumi.set(__self__, "signalr_service_id", signalr_service_id)
+            _setter("signalr_service_id", signalr_service_id)
 
     @property
     @pulumi.getter(name="certificateVersion")
@@ -338,6 +384,10 @@ class ServiceCustomCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceCustomCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

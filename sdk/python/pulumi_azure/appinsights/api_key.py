@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApiKeyArgs', 'ApiKey']
@@ -27,13 +27,38 @@ class ApiKeyArgs:
                
                > **Note:** At least one read or write permission must be defined.
         """
-        pulumi.set(__self__, "application_insights_id", application_insights_id)
+        ApiKeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_insights_id=application_insights_id,
+            name=name,
+            read_permissions=read_permissions,
+            write_permissions=write_permissions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_insights_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             read_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             write_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
+            application_insights_id = kwargs['applicationInsightsId']
+        if application_insights_id is None:
+            raise TypeError("Missing 'application_insights_id' argument")
+        if read_permissions is None and 'readPermissions' in kwargs:
+            read_permissions = kwargs['readPermissions']
+        if write_permissions is None and 'writePermissions' in kwargs:
+            write_permissions = kwargs['writePermissions']
+
+        _setter("application_insights_id", application_insights_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if read_permissions is not None:
-            pulumi.set(__self__, "read_permissions", read_permissions)
+            _setter("read_permissions", read_permissions)
         if write_permissions is not None:
-            pulumi.set(__self__, "write_permissions", write_permissions)
+            _setter("write_permissions", write_permissions)
 
     @property
     @pulumi.getter(name="applicationInsightsId")
@@ -104,16 +129,43 @@ class _ApiKeyState:
                
                > **Note:** At least one read or write permission must be defined.
         """
+        _ApiKeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+            application_insights_id=application_insights_id,
+            name=name,
+            read_permissions=read_permissions,
+            write_permissions=write_permissions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: Optional[pulumi.Input[str]] = None,
+             application_insights_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             read_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             write_permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
+            application_insights_id = kwargs['applicationInsightsId']
+        if read_permissions is None and 'readPermissions' in kwargs:
+            read_permissions = kwargs['readPermissions']
+        if write_permissions is None and 'writePermissions' in kwargs:
+            write_permissions = kwargs['writePermissions']
+
         if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
+            _setter("api_key", api_key)
         if application_insights_id is not None:
-            pulumi.set(__self__, "application_insights_id", application_insights_id)
+            _setter("application_insights_id", application_insights_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if read_permissions is not None:
-            pulumi.set(__self__, "read_permissions", read_permissions)
+            _setter("read_permissions", read_permissions)
         if write_permissions is not None:
-            pulumi.set(__self__, "write_permissions", write_permissions)
+            _setter("write_permissions", write_permissions)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -321,6 +373,10 @@ class ApiKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiKeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

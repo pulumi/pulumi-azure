@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,23 +39,72 @@ class KeyArgs:
         :param pulumi.Input['KeyRotationPolicyArgs'] rotation_policy: A `rotation_policy` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "key_opts", key_opts)
-        pulumi.set(__self__, "key_type", key_type)
-        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        KeyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_opts=key_opts,
+            key_type=key_type,
+            key_vault_id=key_vault_id,
+            curve=curve,
+            expiration_date=expiration_date,
+            key_size=key_size,
+            name=name,
+            not_before_date=not_before_date,
+            rotation_policy=rotation_policy,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_opts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             key_type: Optional[pulumi.Input[str]] = None,
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             curve: Optional[pulumi.Input[str]] = None,
+             expiration_date: Optional[pulumi.Input[str]] = None,
+             key_size: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             not_before_date: Optional[pulumi.Input[str]] = None,
+             rotation_policy: Optional[pulumi.Input['KeyRotationPolicyArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if key_opts is None and 'keyOpts' in kwargs:
+            key_opts = kwargs['keyOpts']
+        if key_opts is None:
+            raise TypeError("Missing 'key_opts' argument")
+        if key_type is None and 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if key_type is None:
+            raise TypeError("Missing 'key_type' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if expiration_date is None and 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if key_size is None and 'keySize' in kwargs:
+            key_size = kwargs['keySize']
+        if not_before_date is None and 'notBeforeDate' in kwargs:
+            not_before_date = kwargs['notBeforeDate']
+        if rotation_policy is None and 'rotationPolicy' in kwargs:
+            rotation_policy = kwargs['rotationPolicy']
+
+        _setter("key_opts", key_opts)
+        _setter("key_type", key_type)
+        _setter("key_vault_id", key_vault_id)
         if curve is not None:
-            pulumi.set(__self__, "curve", curve)
+            _setter("curve", curve)
         if expiration_date is not None:
-            pulumi.set(__self__, "expiration_date", expiration_date)
+            _setter("expiration_date", expiration_date)
         if key_size is not None:
-            pulumi.set(__self__, "key_size", key_size)
+            _setter("key_size", key_size)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if not_before_date is not None:
-            pulumi.set(__self__, "not_before_date", not_before_date)
+            _setter("not_before_date", not_before_date)
         if rotation_policy is not None:
-            pulumi.set(__self__, "rotation_policy", rotation_policy)
+            _setter("rotation_policy", rotation_policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="keyOpts")
@@ -224,46 +273,119 @@ class _KeyState:
         :param pulumi.Input[str] x: The EC X component of this Key Vault Key.
         :param pulumi.Input[str] y: The EC Y component of this Key Vault Key.
         """
+        _KeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            curve=curve,
+            e=e,
+            expiration_date=expiration_date,
+            key_opts=key_opts,
+            key_size=key_size,
+            key_type=key_type,
+            key_vault_id=key_vault_id,
+            n=n,
+            name=name,
+            not_before_date=not_before_date,
+            public_key_openssh=public_key_openssh,
+            public_key_pem=public_key_pem,
+            resource_id=resource_id,
+            resource_versionless_id=resource_versionless_id,
+            rotation_policy=rotation_policy,
+            tags=tags,
+            version=version,
+            versionless_id=versionless_id,
+            x=x,
+            y=y,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             curve: Optional[pulumi.Input[str]] = None,
+             e: Optional[pulumi.Input[str]] = None,
+             expiration_date: Optional[pulumi.Input[str]] = None,
+             key_opts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             key_size: Optional[pulumi.Input[int]] = None,
+             key_type: Optional[pulumi.Input[str]] = None,
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             n: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             not_before_date: Optional[pulumi.Input[str]] = None,
+             public_key_openssh: Optional[pulumi.Input[str]] = None,
+             public_key_pem: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             resource_versionless_id: Optional[pulumi.Input[str]] = None,
+             rotation_policy: Optional[pulumi.Input['KeyRotationPolicyArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             versionless_id: Optional[pulumi.Input[str]] = None,
+             x: Optional[pulumi.Input[str]] = None,
+             y: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if expiration_date is None and 'expirationDate' in kwargs:
+            expiration_date = kwargs['expirationDate']
+        if key_opts is None and 'keyOpts' in kwargs:
+            key_opts = kwargs['keyOpts']
+        if key_size is None and 'keySize' in kwargs:
+            key_size = kwargs['keySize']
+        if key_type is None and 'keyType' in kwargs:
+            key_type = kwargs['keyType']
+        if key_vault_id is None and 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if not_before_date is None and 'notBeforeDate' in kwargs:
+            not_before_date = kwargs['notBeforeDate']
+        if public_key_openssh is None and 'publicKeyOpenssh' in kwargs:
+            public_key_openssh = kwargs['publicKeyOpenssh']
+        if public_key_pem is None and 'publicKeyPem' in kwargs:
+            public_key_pem = kwargs['publicKeyPem']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_versionless_id is None and 'resourceVersionlessId' in kwargs:
+            resource_versionless_id = kwargs['resourceVersionlessId']
+        if rotation_policy is None and 'rotationPolicy' in kwargs:
+            rotation_policy = kwargs['rotationPolicy']
+        if versionless_id is None and 'versionlessId' in kwargs:
+            versionless_id = kwargs['versionlessId']
+
         if curve is not None:
-            pulumi.set(__self__, "curve", curve)
+            _setter("curve", curve)
         if e is not None:
-            pulumi.set(__self__, "e", e)
+            _setter("e", e)
         if expiration_date is not None:
-            pulumi.set(__self__, "expiration_date", expiration_date)
+            _setter("expiration_date", expiration_date)
         if key_opts is not None:
-            pulumi.set(__self__, "key_opts", key_opts)
+            _setter("key_opts", key_opts)
         if key_size is not None:
-            pulumi.set(__self__, "key_size", key_size)
+            _setter("key_size", key_size)
         if key_type is not None:
-            pulumi.set(__self__, "key_type", key_type)
+            _setter("key_type", key_type)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if n is not None:
-            pulumi.set(__self__, "n", n)
+            _setter("n", n)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if not_before_date is not None:
-            pulumi.set(__self__, "not_before_date", not_before_date)
+            _setter("not_before_date", not_before_date)
         if public_key_openssh is not None:
-            pulumi.set(__self__, "public_key_openssh", public_key_openssh)
+            _setter("public_key_openssh", public_key_openssh)
         if public_key_pem is not None:
-            pulumi.set(__self__, "public_key_pem", public_key_pem)
+            _setter("public_key_pem", public_key_pem)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if resource_versionless_id is not None:
-            pulumi.set(__self__, "resource_versionless_id", resource_versionless_id)
+            _setter("resource_versionless_id", resource_versionless_id)
         if rotation_policy is not None:
-            pulumi.set(__self__, "rotation_policy", rotation_policy)
+            _setter("rotation_policy", rotation_policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
         if versionless_id is not None:
-            pulumi.set(__self__, "versionless_id", versionless_id)
+            _setter("versionless_id", versionless_id)
         if x is not None:
-            pulumi.set(__self__, "x", x)
+            _setter("x", x)
         if y is not None:
-            pulumi.set(__self__, "y", y)
+            _setter("y", y)
 
     @property
     @pulumi.getter
@@ -683,6 +805,10 @@ class Key(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -721,6 +847,11 @@ class Key(pulumi.CustomResource):
             __props__.__dict__["key_vault_id"] = key_vault_id
             __props__.__dict__["name"] = name
             __props__.__dict__["not_before_date"] = not_before_date
+            if rotation_policy is not None and not isinstance(rotation_policy, KeyRotationPolicyArgs):
+                rotation_policy = rotation_policy or {}
+                def _setter(key, value):
+                    rotation_policy[key] = value
+                KeyRotationPolicyArgs._configure(_setter, **rotation_policy)
             __props__.__dict__["rotation_policy"] = rotation_policy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["e"] = None

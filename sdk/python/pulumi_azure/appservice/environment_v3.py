@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -42,22 +42,67 @@ class EnvironmentV3Args:
                
                > **NOTE:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        EnvironmentV3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            subnet_id=subnet_id,
+            allow_new_private_endpoint_connections=allow_new_private_endpoint_connections,
+            cluster_settings=cluster_settings,
+            dedicated_host_count=dedicated_host_count,
+            internal_load_balancing_mode=internal_load_balancing_mode,
+            name=name,
+            tags=tags,
+            zone_redundant=zone_redundant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             allow_new_private_endpoint_connections: Optional[pulumi.Input[bool]] = None,
+             cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentV3ClusterSettingArgs']]]] = None,
+             dedicated_host_count: Optional[pulumi.Input[int]] = None,
+             internal_load_balancing_mode: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zone_redundant: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if allow_new_private_endpoint_connections is None and 'allowNewPrivateEndpointConnections' in kwargs:
+            allow_new_private_endpoint_connections = kwargs['allowNewPrivateEndpointConnections']
+        if cluster_settings is None and 'clusterSettings' in kwargs:
+            cluster_settings = kwargs['clusterSettings']
+        if dedicated_host_count is None and 'dedicatedHostCount' in kwargs:
+            dedicated_host_count = kwargs['dedicatedHostCount']
+        if internal_load_balancing_mode is None and 'internalLoadBalancingMode' in kwargs:
+            internal_load_balancing_mode = kwargs['internalLoadBalancingMode']
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("subnet_id", subnet_id)
         if allow_new_private_endpoint_connections is not None:
-            pulumi.set(__self__, "allow_new_private_endpoint_connections", allow_new_private_endpoint_connections)
+            _setter("allow_new_private_endpoint_connections", allow_new_private_endpoint_connections)
         if cluster_settings is not None:
-            pulumi.set(__self__, "cluster_settings", cluster_settings)
+            _setter("cluster_settings", cluster_settings)
         if dedicated_host_count is not None:
-            pulumi.set(__self__, "dedicated_host_count", dedicated_host_count)
+            _setter("dedicated_host_count", dedicated_host_count)
         if internal_load_balancing_mode is not None:
-            pulumi.set(__self__, "internal_load_balancing_mode", internal_load_balancing_mode)
+            _setter("internal_load_balancing_mode", internal_load_balancing_mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
+            _setter("zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -218,42 +263,117 @@ class _EnvironmentV3State:
                
                > **NOTE:** Setting this value will provision 2 Physical Hosts for your App Service Environment V3, this is done at additional cost, please be aware of the pricing commitment in the [General Availability Notes](https://techcommunity.microsoft.com/t5/apps-on-azure/announcing-app-service-environment-v3-ga/ba-p/2517990)
         """
+        _EnvironmentV3State._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_new_private_endpoint_connections=allow_new_private_endpoint_connections,
+            cluster_settings=cluster_settings,
+            dedicated_host_count=dedicated_host_count,
+            dns_suffix=dns_suffix,
+            external_inbound_ip_addresses=external_inbound_ip_addresses,
+            inbound_network_dependencies=inbound_network_dependencies,
+            internal_inbound_ip_addresses=internal_inbound_ip_addresses,
+            internal_load_balancing_mode=internal_load_balancing_mode,
+            ip_ssl_address_count=ip_ssl_address_count,
+            linux_outbound_ip_addresses=linux_outbound_ip_addresses,
+            location=location,
+            name=name,
+            pricing_tier=pricing_tier,
+            resource_group_name=resource_group_name,
+            subnet_id=subnet_id,
+            tags=tags,
+            windows_outbound_ip_addresses=windows_outbound_ip_addresses,
+            zone_redundant=zone_redundant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_new_private_endpoint_connections: Optional[pulumi.Input[bool]] = None,
+             cluster_settings: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentV3ClusterSettingArgs']]]] = None,
+             dedicated_host_count: Optional[pulumi.Input[int]] = None,
+             dns_suffix: Optional[pulumi.Input[str]] = None,
+             external_inbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             inbound_network_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentV3InboundNetworkDependencyArgs']]]] = None,
+             internal_inbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             internal_load_balancing_mode: Optional[pulumi.Input[str]] = None,
+             ip_ssl_address_count: Optional[pulumi.Input[int]] = None,
+             linux_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             pricing_tier: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             windows_outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             zone_redundant: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allow_new_private_endpoint_connections is None and 'allowNewPrivateEndpointConnections' in kwargs:
+            allow_new_private_endpoint_connections = kwargs['allowNewPrivateEndpointConnections']
+        if cluster_settings is None and 'clusterSettings' in kwargs:
+            cluster_settings = kwargs['clusterSettings']
+        if dedicated_host_count is None and 'dedicatedHostCount' in kwargs:
+            dedicated_host_count = kwargs['dedicatedHostCount']
+        if dns_suffix is None and 'dnsSuffix' in kwargs:
+            dns_suffix = kwargs['dnsSuffix']
+        if external_inbound_ip_addresses is None and 'externalInboundIpAddresses' in kwargs:
+            external_inbound_ip_addresses = kwargs['externalInboundIpAddresses']
+        if inbound_network_dependencies is None and 'inboundNetworkDependencies' in kwargs:
+            inbound_network_dependencies = kwargs['inboundNetworkDependencies']
+        if internal_inbound_ip_addresses is None and 'internalInboundIpAddresses' in kwargs:
+            internal_inbound_ip_addresses = kwargs['internalInboundIpAddresses']
+        if internal_load_balancing_mode is None and 'internalLoadBalancingMode' in kwargs:
+            internal_load_balancing_mode = kwargs['internalLoadBalancingMode']
+        if ip_ssl_address_count is None and 'ipSslAddressCount' in kwargs:
+            ip_ssl_address_count = kwargs['ipSslAddressCount']
+        if linux_outbound_ip_addresses is None and 'linuxOutboundIpAddresses' in kwargs:
+            linux_outbound_ip_addresses = kwargs['linuxOutboundIpAddresses']
+        if pricing_tier is None and 'pricingTier' in kwargs:
+            pricing_tier = kwargs['pricingTier']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if windows_outbound_ip_addresses is None and 'windowsOutboundIpAddresses' in kwargs:
+            windows_outbound_ip_addresses = kwargs['windowsOutboundIpAddresses']
+        if zone_redundant is None and 'zoneRedundant' in kwargs:
+            zone_redundant = kwargs['zoneRedundant']
+
         if allow_new_private_endpoint_connections is not None:
-            pulumi.set(__self__, "allow_new_private_endpoint_connections", allow_new_private_endpoint_connections)
+            _setter("allow_new_private_endpoint_connections", allow_new_private_endpoint_connections)
         if cluster_settings is not None:
-            pulumi.set(__self__, "cluster_settings", cluster_settings)
+            _setter("cluster_settings", cluster_settings)
         if dedicated_host_count is not None:
-            pulumi.set(__self__, "dedicated_host_count", dedicated_host_count)
+            _setter("dedicated_host_count", dedicated_host_count)
         if dns_suffix is not None:
-            pulumi.set(__self__, "dns_suffix", dns_suffix)
+            _setter("dns_suffix", dns_suffix)
         if external_inbound_ip_addresses is not None:
-            pulumi.set(__self__, "external_inbound_ip_addresses", external_inbound_ip_addresses)
+            _setter("external_inbound_ip_addresses", external_inbound_ip_addresses)
         if inbound_network_dependencies is not None:
-            pulumi.set(__self__, "inbound_network_dependencies", inbound_network_dependencies)
+            _setter("inbound_network_dependencies", inbound_network_dependencies)
         if internal_inbound_ip_addresses is not None:
-            pulumi.set(__self__, "internal_inbound_ip_addresses", internal_inbound_ip_addresses)
+            _setter("internal_inbound_ip_addresses", internal_inbound_ip_addresses)
         if internal_load_balancing_mode is not None:
-            pulumi.set(__self__, "internal_load_balancing_mode", internal_load_balancing_mode)
+            _setter("internal_load_balancing_mode", internal_load_balancing_mode)
         if ip_ssl_address_count is not None:
-            pulumi.set(__self__, "ip_ssl_address_count", ip_ssl_address_count)
+            _setter("ip_ssl_address_count", ip_ssl_address_count)
         if linux_outbound_ip_addresses is not None:
-            pulumi.set(__self__, "linux_outbound_ip_addresses", linux_outbound_ip_addresses)
+            _setter("linux_outbound_ip_addresses", linux_outbound_ip_addresses)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if pricing_tier is not None:
-            pulumi.set(__self__, "pricing_tier", pricing_tier)
+            _setter("pricing_tier", pricing_tier)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if windows_outbound_ip_addresses is not None:
-            pulumi.set(__self__, "windows_outbound_ip_addresses", windows_outbound_ip_addresses)
+            _setter("windows_outbound_ip_addresses", windows_outbound_ip_addresses)
         if zone_redundant is not None:
-            pulumi.set(__self__, "zone_redundant", zone_redundant)
+            _setter("zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="allowNewPrivateEndpointConnections")
@@ -541,6 +661,10 @@ class EnvironmentV3(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EnvironmentV3Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

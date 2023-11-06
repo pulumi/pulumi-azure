@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,18 +37,53 @@ class HubArgs:
         :param pulumi.Input[str] name: The name to use for this Notification Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        HubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            apns_credential=apns_credential,
+            gcm_credential=gcm_credential,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             apns_credential: Optional[pulumi.Input['HubApnsCredentialArgs']] = None,
+             gcm_credential: Optional[pulumi.Input['HubGcmCredentialArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if apns_credential is None and 'apnsCredential' in kwargs:
+            apns_credential = kwargs['apnsCredential']
+        if gcm_credential is None and 'gcmCredential' in kwargs:
+            gcm_credential = kwargs['gcmCredential']
+
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
         if apns_credential is not None:
-            pulumi.set(__self__, "apns_credential", apns_credential)
+            _setter("apns_credential", apns_credential)
         if gcm_credential is not None:
-            pulumi.set(__self__, "gcm_credential", gcm_credential)
+            _setter("gcm_credential", gcm_credential)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="namespaceName")
@@ -163,20 +198,51 @@ class _HubState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Notification Hub Namespace exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        _HubState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apns_credential=apns_credential,
+            gcm_credential=gcm_credential,
+            location=location,
+            name=name,
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apns_credential: Optional[pulumi.Input['HubApnsCredentialArgs']] = None,
+             gcm_credential: Optional[pulumi.Input['HubGcmCredentialArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if apns_credential is None and 'apnsCredential' in kwargs:
+            apns_credential = kwargs['apnsCredential']
+        if gcm_credential is None and 'gcmCredential' in kwargs:
+            gcm_credential = kwargs['gcmCredential']
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if apns_credential is not None:
-            pulumi.set(__self__, "apns_credential", apns_credential)
+            _setter("apns_credential", apns_credential)
         if gcm_credential is not None:
-            pulumi.set(__self__, "gcm_credential", gcm_credential)
+            _setter("gcm_credential", gcm_credential)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
+            _setter("namespace_name", namespace_name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="apnsCredential")
@@ -368,6 +434,10 @@ class Hub(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HubArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -389,7 +459,17 @@ class Hub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = HubArgs.__new__(HubArgs)
 
+            if apns_credential is not None and not isinstance(apns_credential, HubApnsCredentialArgs):
+                apns_credential = apns_credential or {}
+                def _setter(key, value):
+                    apns_credential[key] = value
+                HubApnsCredentialArgs._configure(_setter, **apns_credential)
             __props__.__dict__["apns_credential"] = apns_credential
+            if gcm_credential is not None and not isinstance(gcm_credential, HubGcmCredentialArgs):
+                gcm_credential = gcm_credential or {}
+                def _setter(key, value):
+                    gcm_credential[key] = value
+                HubGcmCredentialArgs._configure(_setter, **gcm_credential)
             __props__.__dict__["gcm_credential"] = gcm_credential
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

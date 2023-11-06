@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,20 +37,65 @@ class NetworkSimPolicyArgs:
         :param pulumi.Input[int] registration_timer_in_seconds: Interval for the user equipment periodic registration update procedure. Defaults to `3240`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Sim Policies.
         """
-        pulumi.set(__self__, "default_slice_id", default_slice_id)
-        pulumi.set(__self__, "mobile_network_id", mobile_network_id)
-        pulumi.set(__self__, "slices", slices)
-        pulumi.set(__self__, "user_equipment_aggregate_maximum_bit_rate", user_equipment_aggregate_maximum_bit_rate)
+        NetworkSimPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_slice_id=default_slice_id,
+            mobile_network_id=mobile_network_id,
+            slices=slices,
+            user_equipment_aggregate_maximum_bit_rate=user_equipment_aggregate_maximum_bit_rate,
+            location=location,
+            name=name,
+            rat_frequency_selection_priority_index=rat_frequency_selection_priority_index,
+            registration_timer_in_seconds=registration_timer_in_seconds,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_slice_id: Optional[pulumi.Input[str]] = None,
+             mobile_network_id: Optional[pulumi.Input[str]] = None,
+             slices: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArgs']]]] = None,
+             user_equipment_aggregate_maximum_bit_rate: Optional[pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rat_frequency_selection_priority_index: Optional[pulumi.Input[int]] = None,
+             registration_timer_in_seconds: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if default_slice_id is None and 'defaultSliceId' in kwargs:
+            default_slice_id = kwargs['defaultSliceId']
+        if default_slice_id is None:
+            raise TypeError("Missing 'default_slice_id' argument")
+        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
+            mobile_network_id = kwargs['mobileNetworkId']
+        if mobile_network_id is None:
+            raise TypeError("Missing 'mobile_network_id' argument")
+        if slices is None:
+            raise TypeError("Missing 'slices' argument")
+        if user_equipment_aggregate_maximum_bit_rate is None and 'userEquipmentAggregateMaximumBitRate' in kwargs:
+            user_equipment_aggregate_maximum_bit_rate = kwargs['userEquipmentAggregateMaximumBitRate']
+        if user_equipment_aggregate_maximum_bit_rate is None:
+            raise TypeError("Missing 'user_equipment_aggregate_maximum_bit_rate' argument")
+        if rat_frequency_selection_priority_index is None and 'ratFrequencySelectionPriorityIndex' in kwargs:
+            rat_frequency_selection_priority_index = kwargs['ratFrequencySelectionPriorityIndex']
+        if registration_timer_in_seconds is None and 'registrationTimerInSeconds' in kwargs:
+            registration_timer_in_seconds = kwargs['registrationTimerInSeconds']
+
+        _setter("default_slice_id", default_slice_id)
+        _setter("mobile_network_id", mobile_network_id)
+        _setter("slices", slices)
+        _setter("user_equipment_aggregate_maximum_bit_rate", user_equipment_aggregate_maximum_bit_rate)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rat_frequency_selection_priority_index is not None:
-            pulumi.set(__self__, "rat_frequency_selection_priority_index", rat_frequency_selection_priority_index)
+            _setter("rat_frequency_selection_priority_index", rat_frequency_selection_priority_index)
         if registration_timer_in_seconds is not None:
-            pulumi.set(__self__, "registration_timer_in_seconds", registration_timer_in_seconds)
+            _setter("registration_timer_in_seconds", registration_timer_in_seconds)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="defaultSliceId")
@@ -185,24 +230,61 @@ class _NetworkSimPolicyState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Sim Policies.
         :param pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs'] user_equipment_aggregate_maximum_bit_rate: A `user_equipment_aggregate_maximum_bit_rate` block as defined below.
         """
+        _NetworkSimPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_slice_id=default_slice_id,
+            location=location,
+            mobile_network_id=mobile_network_id,
+            name=name,
+            rat_frequency_selection_priority_index=rat_frequency_selection_priority_index,
+            registration_timer_in_seconds=registration_timer_in_seconds,
+            slices=slices,
+            tags=tags,
+            user_equipment_aggregate_maximum_bit_rate=user_equipment_aggregate_maximum_bit_rate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_slice_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mobile_network_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rat_frequency_selection_priority_index: Optional[pulumi.Input[int]] = None,
+             registration_timer_in_seconds: Optional[pulumi.Input[int]] = None,
+             slices: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkSimPolicySliceArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_equipment_aggregate_maximum_bit_rate: Optional[pulumi.Input['NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if default_slice_id is None and 'defaultSliceId' in kwargs:
+            default_slice_id = kwargs['defaultSliceId']
+        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
+            mobile_network_id = kwargs['mobileNetworkId']
+        if rat_frequency_selection_priority_index is None and 'ratFrequencySelectionPriorityIndex' in kwargs:
+            rat_frequency_selection_priority_index = kwargs['ratFrequencySelectionPriorityIndex']
+        if registration_timer_in_seconds is None and 'registrationTimerInSeconds' in kwargs:
+            registration_timer_in_seconds = kwargs['registrationTimerInSeconds']
+        if user_equipment_aggregate_maximum_bit_rate is None and 'userEquipmentAggregateMaximumBitRate' in kwargs:
+            user_equipment_aggregate_maximum_bit_rate = kwargs['userEquipmentAggregateMaximumBitRate']
+
         if default_slice_id is not None:
-            pulumi.set(__self__, "default_slice_id", default_slice_id)
+            _setter("default_slice_id", default_slice_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mobile_network_id is not None:
-            pulumi.set(__self__, "mobile_network_id", mobile_network_id)
+            _setter("mobile_network_id", mobile_network_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rat_frequency_selection_priority_index is not None:
-            pulumi.set(__self__, "rat_frequency_selection_priority_index", rat_frequency_selection_priority_index)
+            _setter("rat_frequency_selection_priority_index", rat_frequency_selection_priority_index)
         if registration_timer_in_seconds is not None:
-            pulumi.set(__self__, "registration_timer_in_seconds", registration_timer_in_seconds)
+            _setter("registration_timer_in_seconds", registration_timer_in_seconds)
         if slices is not None:
-            pulumi.set(__self__, "slices", slices)
+            _setter("slices", slices)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if user_equipment_aggregate_maximum_bit_rate is not None:
-            pulumi.set(__self__, "user_equipment_aggregate_maximum_bit_rate", user_equipment_aggregate_maximum_bit_rate)
+            _setter("user_equipment_aggregate_maximum_bit_rate", user_equipment_aggregate_maximum_bit_rate)
 
     @property
     @pulumi.getter(name="defaultSliceId")
@@ -514,6 +596,10 @@ class NetworkSimPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkSimPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -551,6 +637,11 @@ class NetworkSimPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'slices'")
             __props__.__dict__["slices"] = slices
             __props__.__dict__["tags"] = tags
+            if user_equipment_aggregate_maximum_bit_rate is not None and not isinstance(user_equipment_aggregate_maximum_bit_rate, NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs):
+                user_equipment_aggregate_maximum_bit_rate = user_equipment_aggregate_maximum_bit_rate or {}
+                def _setter(key, value):
+                    user_equipment_aggregate_maximum_bit_rate[key] = value
+                NetworkSimPolicyUserEquipmentAggregateMaximumBitRateArgs._configure(_setter, **user_equipment_aggregate_maximum_bit_rate)
             if user_equipment_aggregate_maximum_bit_rate is None and not opts.urn:
                 raise TypeError("Missing required property 'user_equipment_aggregate_maximum_bit_rate'")
             __props__.__dict__["user_equipment_aggregate_maximum_bit_rate"] = user_equipment_aggregate_maximum_bit_rate

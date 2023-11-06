@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GatewayHostNameConfigurationArgs', 'GatewayHostNameConfiguration']
@@ -35,20 +35,71 @@ class GatewayHostNameConfigurationArgs:
         :param pulumi.Input[bool] tls10_enabled: Whether TLS 1.0 is supported.
         :param pulumi.Input[bool] tls11_enabled: Whether TLS 1.1 is supported.
         """
-        pulumi.set(__self__, "api_management_id", api_management_id)
-        pulumi.set(__self__, "certificate_id", certificate_id)
-        pulumi.set(__self__, "gateway_name", gateway_name)
-        pulumi.set(__self__, "host_name", host_name)
+        GatewayHostNameConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_id=api_management_id,
+            certificate_id=certificate_id,
+            gateway_name=gateway_name,
+            host_name=host_name,
+            http2_enabled=http2_enabled,
+            name=name,
+            request_client_certificate_enabled=request_client_certificate_enabled,
+            tls10_enabled=tls10_enabled,
+            tls11_enabled=tls11_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_id: Optional[pulumi.Input[str]] = None,
+             certificate_id: Optional[pulumi.Input[str]] = None,
+             gateway_name: Optional[pulumi.Input[str]] = None,
+             host_name: Optional[pulumi.Input[str]] = None,
+             http2_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             request_client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+             tls10_enabled: Optional[pulumi.Input[bool]] = None,
+             tls11_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_management_id is None and 'apiManagementId' in kwargs:
+            api_management_id = kwargs['apiManagementId']
+        if api_management_id is None:
+            raise TypeError("Missing 'api_management_id' argument")
+        if certificate_id is None and 'certificateId' in kwargs:
+            certificate_id = kwargs['certificateId']
+        if certificate_id is None:
+            raise TypeError("Missing 'certificate_id' argument")
+        if gateway_name is None and 'gatewayName' in kwargs:
+            gateway_name = kwargs['gatewayName']
+        if gateway_name is None:
+            raise TypeError("Missing 'gateway_name' argument")
+        if host_name is None and 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if http2_enabled is None and 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if request_client_certificate_enabled is None and 'requestClientCertificateEnabled' in kwargs:
+            request_client_certificate_enabled = kwargs['requestClientCertificateEnabled']
+        if tls10_enabled is None and 'tls10Enabled' in kwargs:
+            tls10_enabled = kwargs['tls10Enabled']
+        if tls11_enabled is None and 'tls11Enabled' in kwargs:
+            tls11_enabled = kwargs['tls11Enabled']
+
+        _setter("api_management_id", api_management_id)
+        _setter("certificate_id", certificate_id)
+        _setter("gateway_name", gateway_name)
+        _setter("host_name", host_name)
         if http2_enabled is not None:
-            pulumi.set(__self__, "http2_enabled", http2_enabled)
+            _setter("http2_enabled", http2_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if request_client_certificate_enabled is not None:
-            pulumi.set(__self__, "request_client_certificate_enabled", request_client_certificate_enabled)
+            _setter("request_client_certificate_enabled", request_client_certificate_enabled)
         if tls10_enabled is not None:
-            pulumi.set(__self__, "tls10_enabled", tls10_enabled)
+            _setter("tls10_enabled", tls10_enabled)
         if tls11_enabled is not None:
-            pulumi.set(__self__, "tls11_enabled", tls11_enabled)
+            _setter("tls11_enabled", tls11_enabled)
 
     @property
     @pulumi.getter(name="apiManagementId")
@@ -183,24 +234,67 @@ class _GatewayHostNameConfigurationState:
         :param pulumi.Input[bool] tls10_enabled: Whether TLS 1.0 is supported.
         :param pulumi.Input[bool] tls11_enabled: Whether TLS 1.1 is supported.
         """
+        _GatewayHostNameConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_id=api_management_id,
+            certificate_id=certificate_id,
+            gateway_name=gateway_name,
+            host_name=host_name,
+            http2_enabled=http2_enabled,
+            name=name,
+            request_client_certificate_enabled=request_client_certificate_enabled,
+            tls10_enabled=tls10_enabled,
+            tls11_enabled=tls11_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_id: Optional[pulumi.Input[str]] = None,
+             certificate_id: Optional[pulumi.Input[str]] = None,
+             gateway_name: Optional[pulumi.Input[str]] = None,
+             host_name: Optional[pulumi.Input[str]] = None,
+             http2_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             request_client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+             tls10_enabled: Optional[pulumi.Input[bool]] = None,
+             tls11_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_management_id is None and 'apiManagementId' in kwargs:
+            api_management_id = kwargs['apiManagementId']
+        if certificate_id is None and 'certificateId' in kwargs:
+            certificate_id = kwargs['certificateId']
+        if gateway_name is None and 'gatewayName' in kwargs:
+            gateway_name = kwargs['gatewayName']
+        if host_name is None and 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if http2_enabled is None and 'http2Enabled' in kwargs:
+            http2_enabled = kwargs['http2Enabled']
+        if request_client_certificate_enabled is None and 'requestClientCertificateEnabled' in kwargs:
+            request_client_certificate_enabled = kwargs['requestClientCertificateEnabled']
+        if tls10_enabled is None and 'tls10Enabled' in kwargs:
+            tls10_enabled = kwargs['tls10Enabled']
+        if tls11_enabled is None and 'tls11Enabled' in kwargs:
+            tls11_enabled = kwargs['tls11Enabled']
+
         if api_management_id is not None:
-            pulumi.set(__self__, "api_management_id", api_management_id)
+            _setter("api_management_id", api_management_id)
         if certificate_id is not None:
-            pulumi.set(__self__, "certificate_id", certificate_id)
+            _setter("certificate_id", certificate_id)
         if gateway_name is not None:
-            pulumi.set(__self__, "gateway_name", gateway_name)
+            _setter("gateway_name", gateway_name)
         if host_name is not None:
-            pulumi.set(__self__, "host_name", host_name)
+            _setter("host_name", host_name)
         if http2_enabled is not None:
-            pulumi.set(__self__, "http2_enabled", http2_enabled)
+            _setter("http2_enabled", http2_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if request_client_certificate_enabled is not None:
-            pulumi.set(__self__, "request_client_certificate_enabled", request_client_certificate_enabled)
+            _setter("request_client_certificate_enabled", request_client_certificate_enabled)
         if tls10_enabled is not None:
-            pulumi.set(__self__, "tls10_enabled", tls10_enabled)
+            _setter("tls10_enabled", tls10_enabled)
         if tls11_enabled is not None:
-            pulumi.set(__self__, "tls11_enabled", tls11_enabled)
+            _setter("tls11_enabled", tls11_enabled)
 
     @property
     @pulumi.getter(name="apiManagementId")
@@ -452,6 +546,10 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GatewayHostNameConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

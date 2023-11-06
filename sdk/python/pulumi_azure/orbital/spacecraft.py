@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,17 +35,60 @@ class SpacecraftArgs:
         :param pulumi.Input[str] name: The name of the Spacecraft. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "links", links)
-        pulumi.set(__self__, "norad_id", norad_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "title_line", title_line)
-        pulumi.set(__self__, "two_line_elements", two_line_elements)
+        SpacecraftArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            links=links,
+            norad_id=norad_id,
+            resource_group_name=resource_group_name,
+            title_line=title_line,
+            two_line_elements=two_line_elements,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             links: Optional[pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]]] = None,
+             norad_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             title_line: Optional[pulumi.Input[str]] = None,
+             two_line_elements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if links is None:
+            raise TypeError("Missing 'links' argument")
+        if norad_id is None and 'noradId' in kwargs:
+            norad_id = kwargs['noradId']
+        if norad_id is None:
+            raise TypeError("Missing 'norad_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if title_line is None and 'titleLine' in kwargs:
+            title_line = kwargs['titleLine']
+        if title_line is None:
+            raise TypeError("Missing 'title_line' argument")
+        if two_line_elements is None and 'twoLineElements' in kwargs:
+            two_line_elements = kwargs['twoLineElements']
+        if two_line_elements is None:
+            raise TypeError("Missing 'two_line_elements' argument")
+
+        _setter("links", links)
+        _setter("norad_id", norad_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("title_line", title_line)
+        _setter("two_line_elements", two_line_elements)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -166,22 +209,55 @@ class _SpacecraftState:
         :param pulumi.Input[str] title_line: Title of the two line elements (TLE).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] two_line_elements: A list of the two line elements (TLE), the first string being the first of the TLE, the second string being the second line of the TLE. Changing this forces a new resource to be created.
         """
+        _SpacecraftState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            links=links,
+            location=location,
+            name=name,
+            norad_id=norad_id,
+            resource_group_name=resource_group_name,
+            tags=tags,
+            title_line=title_line,
+            two_line_elements=two_line_elements,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             links: Optional[pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             norad_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             title_line: Optional[pulumi.Input[str]] = None,
+             two_line_elements: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if norad_id is None and 'noradId' in kwargs:
+            norad_id = kwargs['noradId']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if title_line is None and 'titleLine' in kwargs:
+            title_line = kwargs['titleLine']
+        if two_line_elements is None and 'twoLineElements' in kwargs:
+            two_line_elements = kwargs['twoLineElements']
+
         if links is not None:
-            pulumi.set(__self__, "links", links)
+            _setter("links", links)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if norad_id is not None:
-            pulumi.set(__self__, "norad_id", norad_id)
+            _setter("norad_id", norad_id)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if title_line is not None:
-            pulumi.set(__self__, "title_line", title_line)
+            _setter("title_line", title_line)
         if two_line_elements is not None:
-            pulumi.set(__self__, "two_line_elements", two_line_elements)
+            _setter("two_line_elements", two_line_elements)
 
     @property
     @pulumi.getter
@@ -399,6 +475,10 @@ class Spacecraft(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SpacecraftArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServiceCustomDomainArgs', 'ServiceCustomDomain']
@@ -27,11 +27,40 @@ class ServiceCustomDomainArgs:
         :param pulumi.Input[str] signalr_service_id: Specifies the SignalR ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the SignalR Custom Domain. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "signalr_custom_certificate_id", signalr_custom_certificate_id)
-        pulumi.set(__self__, "signalr_service_id", signalr_service_id)
+        ServiceCustomDomainArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            signalr_custom_certificate_id=signalr_custom_certificate_id,
+            signalr_service_id=signalr_service_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             signalr_custom_certificate_id: Optional[pulumi.Input[str]] = None,
+             signalr_service_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if signalr_custom_certificate_id is None and 'signalrCustomCertificateId' in kwargs:
+            signalr_custom_certificate_id = kwargs['signalrCustomCertificateId']
+        if signalr_custom_certificate_id is None:
+            raise TypeError("Missing 'signalr_custom_certificate_id' argument")
+        if signalr_service_id is None and 'signalrServiceId' in kwargs:
+            signalr_service_id = kwargs['signalrServiceId']
+        if signalr_service_id is None:
+            raise TypeError("Missing 'signalr_service_id' argument")
+
+        _setter("domain_name", domain_name)
+        _setter("signalr_custom_certificate_id", signalr_custom_certificate_id)
+        _setter("signalr_service_id", signalr_service_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="domainName")
@@ -100,14 +129,37 @@ class _ServiceCustomDomainState:
         :param pulumi.Input[str] signalr_custom_certificate_id: Specifies the SignalR Custom Certificate ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
         :param pulumi.Input[str] signalr_service_id: Specifies the SignalR ID of the SignalR Custom Domain. Changing this forces a new resource to be created.
         """
+        _ServiceCustomDomainState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            domain_name=domain_name,
+            name=name,
+            signalr_custom_certificate_id=signalr_custom_certificate_id,
+            signalr_service_id=signalr_service_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             domain_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             signalr_custom_certificate_id: Optional[pulumi.Input[str]] = None,
+             signalr_service_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if signalr_custom_certificate_id is None and 'signalrCustomCertificateId' in kwargs:
+            signalr_custom_certificate_id = kwargs['signalrCustomCertificateId']
+        if signalr_service_id is None and 'signalrServiceId' in kwargs:
+            signalr_service_id = kwargs['signalrServiceId']
+
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if signalr_custom_certificate_id is not None:
-            pulumi.set(__self__, "signalr_custom_certificate_id", signalr_custom_certificate_id)
+            _setter("signalr_custom_certificate_id", signalr_custom_certificate_id)
         if signalr_service_id is not None:
-            pulumi.set(__self__, "signalr_service_id", signalr_service_id)
+            _setter("signalr_service_id", signalr_service_id)
 
     @property
     @pulumi.getter(name="domainName")
@@ -353,6 +405,10 @@ class ServiceCustomDomain(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceCustomDomainArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

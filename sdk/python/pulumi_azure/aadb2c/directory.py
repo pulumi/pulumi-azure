@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DirectoryArgs', 'Directory']
@@ -31,16 +31,59 @@ class DirectoryArgs:
         :param pulumi.Input[str] display_name: The initial display name of the B2C tenant. Required when creating a new resource. Changing this forces a new AAD B2C Directory to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the AAD B2C Directory.
         """
-        pulumi.set(__self__, "data_residency_location", data_residency_location)
-        pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku_name", sku_name)
+        DirectoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_residency_location=data_residency_location,
+            domain_name=domain_name,
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            country_code=country_code,
+            display_name=display_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_residency_location: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             country_code: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if data_residency_location is None and 'dataResidencyLocation' in kwargs:
+            data_residency_location = kwargs['dataResidencyLocation']
+        if data_residency_location is None:
+            raise TypeError("Missing 'data_residency_location' argument")
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if domain_name is None:
+            raise TypeError("Missing 'domain_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if country_code is None and 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
+        _setter("data_residency_location", data_residency_location)
+        _setter("domain_name", domain_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku_name", sku_name)
         if country_code is not None:
-            pulumi.set(__self__, "country_code", country_code)
+            _setter("country_code", country_code)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="dataResidencyLocation")
@@ -153,26 +196,73 @@ class _DirectoryState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the AAD B2C Directory.
         :param pulumi.Input[str] tenant_id: The Tenant ID for the AAD B2C tenant.
         """
+        _DirectoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            billing_type=billing_type,
+            country_code=country_code,
+            data_residency_location=data_residency_location,
+            display_name=display_name,
+            domain_name=domain_name,
+            effective_start_date=effective_start_date,
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            tags=tags,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             billing_type: Optional[pulumi.Input[str]] = None,
+             country_code: Optional[pulumi.Input[str]] = None,
+             data_residency_location: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             domain_name: Optional[pulumi.Input[str]] = None,
+             effective_start_date: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if billing_type is None and 'billingType' in kwargs:
+            billing_type = kwargs['billingType']
+        if country_code is None and 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if data_residency_location is None and 'dataResidencyLocation' in kwargs:
+            data_residency_location = kwargs['dataResidencyLocation']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if domain_name is None and 'domainName' in kwargs:
+            domain_name = kwargs['domainName']
+        if effective_start_date is None and 'effectiveStartDate' in kwargs:
+            effective_start_date = kwargs['effectiveStartDate']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if billing_type is not None:
-            pulumi.set(__self__, "billing_type", billing_type)
+            _setter("billing_type", billing_type)
         if country_code is not None:
-            pulumi.set(__self__, "country_code", country_code)
+            _setter("country_code", country_code)
         if data_residency_location is not None:
-            pulumi.set(__self__, "data_residency_location", data_residency_location)
+            _setter("data_residency_location", data_residency_location)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if domain_name is not None:
-            pulumi.set(__self__, "domain_name", domain_name)
+            _setter("domain_name", domain_name)
         if effective_start_date is not None:
-            pulumi.set(__self__, "effective_start_date", effective_start_date)
+            _setter("effective_start_date", effective_start_date)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="billingType")
@@ -386,6 +476,10 @@ class Directory(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DirectoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

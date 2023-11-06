@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,23 +41,70 @@ class LinkServiceArgs:
                
                > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
         """
-        pulumi.set(__self__, "load_balancer_frontend_ip_configuration_ids", load_balancer_frontend_ip_configuration_ids)
-        pulumi.set(__self__, "nat_ip_configurations", nat_ip_configurations)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        LinkServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            load_balancer_frontend_ip_configuration_ids=load_balancer_frontend_ip_configuration_ids,
+            nat_ip_configurations=nat_ip_configurations,
+            resource_group_name=resource_group_name,
+            auto_approval_subscription_ids=auto_approval_subscription_ids,
+            enable_proxy_protocol=enable_proxy_protocol,
+            fqdns=fqdns,
+            location=location,
+            name=name,
+            tags=tags,
+            visibility_subscription_ids=visibility_subscription_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             nat_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LinkServiceNatIpConfigurationArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             auto_approval_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enable_proxy_protocol: Optional[pulumi.Input[bool]] = None,
+             fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             visibility_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if load_balancer_frontend_ip_configuration_ids is None and 'loadBalancerFrontendIpConfigurationIds' in kwargs:
+            load_balancer_frontend_ip_configuration_ids = kwargs['loadBalancerFrontendIpConfigurationIds']
+        if load_balancer_frontend_ip_configuration_ids is None:
+            raise TypeError("Missing 'load_balancer_frontend_ip_configuration_ids' argument")
+        if nat_ip_configurations is None and 'natIpConfigurations' in kwargs:
+            nat_ip_configurations = kwargs['natIpConfigurations']
+        if nat_ip_configurations is None:
+            raise TypeError("Missing 'nat_ip_configurations' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if auto_approval_subscription_ids is None and 'autoApprovalSubscriptionIds' in kwargs:
+            auto_approval_subscription_ids = kwargs['autoApprovalSubscriptionIds']
+        if enable_proxy_protocol is None and 'enableProxyProtocol' in kwargs:
+            enable_proxy_protocol = kwargs['enableProxyProtocol']
+        if visibility_subscription_ids is None and 'visibilitySubscriptionIds' in kwargs:
+            visibility_subscription_ids = kwargs['visibilitySubscriptionIds']
+
+        _setter("load_balancer_frontend_ip_configuration_ids", load_balancer_frontend_ip_configuration_ids)
+        _setter("nat_ip_configurations", nat_ip_configurations)
+        _setter("resource_group_name", resource_group_name)
         if auto_approval_subscription_ids is not None:
-            pulumi.set(__self__, "auto_approval_subscription_ids", auto_approval_subscription_ids)
+            _setter("auto_approval_subscription_ids", auto_approval_subscription_ids)
         if enable_proxy_protocol is not None:
-            pulumi.set(__self__, "enable_proxy_protocol", enable_proxy_protocol)
+            _setter("enable_proxy_protocol", enable_proxy_protocol)
         if fqdns is not None:
-            pulumi.set(__self__, "fqdns", fqdns)
+            _setter("fqdns", fqdns)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if visibility_subscription_ids is not None:
-            pulumi.set(__self__, "visibility_subscription_ids", visibility_subscription_ids)
+            _setter("visibility_subscription_ids", visibility_subscription_ids)
 
     @property
     @pulumi.getter(name="loadBalancerFrontendIpConfigurationIds")
@@ -212,28 +259,71 @@ class _LinkServiceState:
                
                > **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service.
         """
+        _LinkServiceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alias=alias,
+            auto_approval_subscription_ids=auto_approval_subscription_ids,
+            enable_proxy_protocol=enable_proxy_protocol,
+            fqdns=fqdns,
+            load_balancer_frontend_ip_configuration_ids=load_balancer_frontend_ip_configuration_ids,
+            location=location,
+            name=name,
+            nat_ip_configurations=nat_ip_configurations,
+            resource_group_name=resource_group_name,
+            tags=tags,
+            visibility_subscription_ids=visibility_subscription_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alias: Optional[pulumi.Input[str]] = None,
+             auto_approval_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enable_proxy_protocol: Optional[pulumi.Input[bool]] = None,
+             fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             load_balancer_frontend_ip_configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             nat_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LinkServiceNatIpConfigurationArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             visibility_subscription_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if auto_approval_subscription_ids is None and 'autoApprovalSubscriptionIds' in kwargs:
+            auto_approval_subscription_ids = kwargs['autoApprovalSubscriptionIds']
+        if enable_proxy_protocol is None and 'enableProxyProtocol' in kwargs:
+            enable_proxy_protocol = kwargs['enableProxyProtocol']
+        if load_balancer_frontend_ip_configuration_ids is None and 'loadBalancerFrontendIpConfigurationIds' in kwargs:
+            load_balancer_frontend_ip_configuration_ids = kwargs['loadBalancerFrontendIpConfigurationIds']
+        if nat_ip_configurations is None and 'natIpConfigurations' in kwargs:
+            nat_ip_configurations = kwargs['natIpConfigurations']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if visibility_subscription_ids is None and 'visibilitySubscriptionIds' in kwargs:
+            visibility_subscription_ids = kwargs['visibilitySubscriptionIds']
+
         if alias is not None:
-            pulumi.set(__self__, "alias", alias)
+            _setter("alias", alias)
         if auto_approval_subscription_ids is not None:
-            pulumi.set(__self__, "auto_approval_subscription_ids", auto_approval_subscription_ids)
+            _setter("auto_approval_subscription_ids", auto_approval_subscription_ids)
         if enable_proxy_protocol is not None:
-            pulumi.set(__self__, "enable_proxy_protocol", enable_proxy_protocol)
+            _setter("enable_proxy_protocol", enable_proxy_protocol)
         if fqdns is not None:
-            pulumi.set(__self__, "fqdns", fqdns)
+            _setter("fqdns", fqdns)
         if load_balancer_frontend_ip_configuration_ids is not None:
-            pulumi.set(__self__, "load_balancer_frontend_ip_configuration_ids", load_balancer_frontend_ip_configuration_ids)
+            _setter("load_balancer_frontend_ip_configuration_ids", load_balancer_frontend_ip_configuration_ids)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if nat_ip_configurations is not None:
-            pulumi.set(__self__, "nat_ip_configurations", nat_ip_configurations)
+            _setter("nat_ip_configurations", nat_ip_configurations)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if visibility_subscription_ids is not None:
-            pulumi.set(__self__, "visibility_subscription_ids", visibility_subscription_ids)
+            _setter("visibility_subscription_ids", visibility_subscription_ids)
 
     @property
     @pulumi.getter
@@ -549,6 +639,10 @@ class LinkService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinkServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

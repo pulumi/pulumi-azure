@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,28 +43,77 @@ class ServiceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults to `false`.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        ServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            aad_auth_enabled=aad_auth_enabled,
+            capacity=capacity,
+            identity=identity,
+            live_trace=live_trace,
+            local_auth_enabled=local_auth_enabled,
+            location=location,
+            name=name,
+            public_network_access_enabled=public_network_access_enabled,
+            tags=tags,
+            tls_client_cert_enabled=tls_client_cert_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             aad_auth_enabled: Optional[pulumi.Input[bool]] = None,
+             capacity: Optional[pulumi.Input[int]] = None,
+             identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
+             live_trace: Optional[pulumi.Input['ServiceLiveTraceArgs']] = None,
+             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tls_client_cert_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if aad_auth_enabled is None and 'aadAuthEnabled' in kwargs:
+            aad_auth_enabled = kwargs['aadAuthEnabled']
+        if live_trace is None and 'liveTrace' in kwargs:
+            live_trace = kwargs['liveTrace']
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if tls_client_cert_enabled is None and 'tlsClientCertEnabled' in kwargs:
+            tls_client_cert_enabled = kwargs['tlsClientCertEnabled']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if aad_auth_enabled is not None:
-            pulumi.set(__self__, "aad_auth_enabled", aad_auth_enabled)
+            _setter("aad_auth_enabled", aad_auth_enabled)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if live_trace is not None:
-            pulumi.set(__self__, "live_trace", live_trace)
+            _setter("live_trace", live_trace)
         if local_auth_enabled is not None:
-            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
+            _setter("local_auth_enabled", local_auth_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tls_client_cert_enabled is not None:
-            pulumi.set(__self__, "tls_client_cert_enabled", tls_client_cert_enabled)
+            _setter("tls_client_cert_enabled", tls_client_cert_enabled)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -258,48 +307,125 @@ class _ServiceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] tls_client_cert_enabled: Whether to request client certificate during TLS handshake? Defaults to `false`.
         """
+        _ServiceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_auth_enabled=aad_auth_enabled,
+            capacity=capacity,
+            external_ip=external_ip,
+            hostname=hostname,
+            identity=identity,
+            live_trace=live_trace,
+            local_auth_enabled=local_auth_enabled,
+            location=location,
+            name=name,
+            primary_access_key=primary_access_key,
+            primary_connection_string=primary_connection_string,
+            public_network_access_enabled=public_network_access_enabled,
+            public_port=public_port,
+            resource_group_name=resource_group_name,
+            secondary_access_key=secondary_access_key,
+            secondary_connection_string=secondary_connection_string,
+            server_port=server_port,
+            sku=sku,
+            tags=tags,
+            tls_client_cert_enabled=tls_client_cert_enabled,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_auth_enabled: Optional[pulumi.Input[bool]] = None,
+             capacity: Optional[pulumi.Input[int]] = None,
+             external_ip: Optional[pulumi.Input[str]] = None,
+             hostname: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
+             live_trace: Optional[pulumi.Input['ServiceLiveTraceArgs']] = None,
+             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             primary_access_key: Optional[pulumi.Input[str]] = None,
+             primary_connection_string: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             public_port: Optional[pulumi.Input[int]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             secondary_access_key: Optional[pulumi.Input[str]] = None,
+             secondary_connection_string: Optional[pulumi.Input[str]] = None,
+             server_port: Optional[pulumi.Input[int]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tls_client_cert_enabled: Optional[pulumi.Input[bool]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if aad_auth_enabled is None and 'aadAuthEnabled' in kwargs:
+            aad_auth_enabled = kwargs['aadAuthEnabled']
+        if external_ip is None and 'externalIp' in kwargs:
+            external_ip = kwargs['externalIp']
+        if live_trace is None and 'liveTrace' in kwargs:
+            live_trace = kwargs['liveTrace']
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if primary_access_key is None and 'primaryAccessKey' in kwargs:
+            primary_access_key = kwargs['primaryAccessKey']
+        if primary_connection_string is None and 'primaryConnectionString' in kwargs:
+            primary_connection_string = kwargs['primaryConnectionString']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if public_port is None and 'publicPort' in kwargs:
+            public_port = kwargs['publicPort']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if secondary_access_key is None and 'secondaryAccessKey' in kwargs:
+            secondary_access_key = kwargs['secondaryAccessKey']
+        if secondary_connection_string is None and 'secondaryConnectionString' in kwargs:
+            secondary_connection_string = kwargs['secondaryConnectionString']
+        if server_port is None and 'serverPort' in kwargs:
+            server_port = kwargs['serverPort']
+        if tls_client_cert_enabled is None and 'tlsClientCertEnabled' in kwargs:
+            tls_client_cert_enabled = kwargs['tlsClientCertEnabled']
+
         if aad_auth_enabled is not None:
-            pulumi.set(__self__, "aad_auth_enabled", aad_auth_enabled)
+            _setter("aad_auth_enabled", aad_auth_enabled)
         if capacity is not None:
-            pulumi.set(__self__, "capacity", capacity)
+            _setter("capacity", capacity)
         if external_ip is not None:
-            pulumi.set(__self__, "external_ip", external_ip)
+            _setter("external_ip", external_ip)
         if hostname is not None:
-            pulumi.set(__self__, "hostname", hostname)
+            _setter("hostname", hostname)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if live_trace is not None:
-            pulumi.set(__self__, "live_trace", live_trace)
+            _setter("live_trace", live_trace)
         if local_auth_enabled is not None:
-            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
+            _setter("local_auth_enabled", local_auth_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if primary_access_key is not None:
-            pulumi.set(__self__, "primary_access_key", primary_access_key)
+            _setter("primary_access_key", primary_access_key)
         if primary_connection_string is not None:
-            pulumi.set(__self__, "primary_connection_string", primary_connection_string)
+            _setter("primary_connection_string", primary_connection_string)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if public_port is not None:
-            pulumi.set(__self__, "public_port", public_port)
+            _setter("public_port", public_port)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if secondary_access_key is not None:
-            pulumi.set(__self__, "secondary_access_key", secondary_access_key)
+            _setter("secondary_access_key", secondary_access_key)
         if secondary_connection_string is not None:
-            pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
+            _setter("secondary_connection_string", secondary_connection_string)
         if server_port is not None:
-            pulumi.set(__self__, "server_port", server_port)
+            _setter("server_port", server_port)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tls_client_cert_enabled is not None:
-            pulumi.set(__self__, "tls_client_cert_enabled", tls_client_cert_enabled)
+            _setter("tls_client_cert_enabled", tls_client_cert_enabled)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="aadAuthEnabled")
@@ -668,6 +794,10 @@ class Service(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -696,7 +826,17 @@ class Service(pulumi.CustomResource):
 
             __props__.__dict__["aad_auth_enabled"] = aad_auth_enabled
             __props__.__dict__["capacity"] = capacity
+            if identity is not None and not isinstance(identity, ServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
+            if live_trace is not None and not isinstance(live_trace, ServiceLiveTraceArgs):
+                live_trace = live_trace or {}
+                def _setter(key, value):
+                    live_trace[key] = value
+                ServiceLiveTraceArgs._configure(_setter, **live_trace)
             __props__.__dict__["live_trace"] = live_trace
             __props__.__dict__["local_auth_enabled"] = local_auth_enabled
             __props__.__dict__["location"] = location

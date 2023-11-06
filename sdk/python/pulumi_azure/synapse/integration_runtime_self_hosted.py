@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IntegrationRuntimeSelfHostedArgs', 'IntegrationRuntimeSelfHosted']
@@ -23,11 +23,30 @@ class IntegrationRuntimeSelfHostedArgs:
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[str] name: The name which should be used for this Synapse Self-hosted Integration Runtime. Changing this forces a new Synapse Self-hosted Integration Runtime to be created.
         """
-        pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
+        IntegrationRuntimeSelfHostedArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            synapse_workspace_id=synapse_workspace_id,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+        if synapse_workspace_id is None:
+            raise TypeError("Missing 'synapse_workspace_id' argument")
+
+        _setter("synapse_workspace_id", synapse_workspace_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="synapseWorkspaceId")
@@ -82,16 +101,41 @@ class _IntegrationRuntimeSelfHostedState:
         :param pulumi.Input[str] name: The name which should be used for this Synapse Self-hosted Integration Runtime. Changing this forces a new Synapse Self-hosted Integration Runtime to be created.
         :param pulumi.Input[str] synapse_workspace_id: The Synapse Workspace ID in which to associate the Integration Runtime with. Changing this forces a new Synapse Self-hosted Integration Runtime to be created.
         """
+        _IntegrationRuntimeSelfHostedState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_key_primary=authorization_key_primary,
+            authorization_key_secondary=authorization_key_secondary,
+            description=description,
+            name=name,
+            synapse_workspace_id=synapse_workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_key_primary: Optional[pulumi.Input[str]] = None,
+             authorization_key_secondary: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if authorization_key_primary is None and 'authorizationKeyPrimary' in kwargs:
+            authorization_key_primary = kwargs['authorizationKeyPrimary']
+        if authorization_key_secondary is None and 'authorizationKeySecondary' in kwargs:
+            authorization_key_secondary = kwargs['authorizationKeySecondary']
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+
         if authorization_key_primary is not None:
-            pulumi.set(__self__, "authorization_key_primary", authorization_key_primary)
+            _setter("authorization_key_primary", authorization_key_primary)
         if authorization_key_secondary is not None:
-            pulumi.set(__self__, "authorization_key_secondary", authorization_key_secondary)
+            _setter("authorization_key_secondary", authorization_key_secondary)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if synapse_workspace_id is not None:
-            pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
+            _setter("synapse_workspace_id", synapse_workspace_id)
 
     @property
     @pulumi.getter(name="authorizationKeyPrimary")
@@ -273,6 +317,10 @@ class IntegrationRuntimeSelfHosted(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationRuntimeSelfHostedArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

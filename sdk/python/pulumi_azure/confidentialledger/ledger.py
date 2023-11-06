@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,17 +33,54 @@ class LedgerArgs:
         :param pulumi.Input[str] name: Specifies the name of the Confidential Ledger. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Confidential Ledger.
         """
-        pulumi.set(__self__, "azuread_based_service_principals", azuread_based_service_principals)
-        pulumi.set(__self__, "ledger_type", ledger_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        LedgerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azuread_based_service_principals=azuread_based_service_principals,
+            ledger_type=ledger_type,
+            resource_group_name=resource_group_name,
+            certificate_based_security_principals=certificate_based_security_principals,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azuread_based_service_principals: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArgs']]]] = None,
+             ledger_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             certificate_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if azuread_based_service_principals is None and 'azureadBasedServicePrincipals' in kwargs:
+            azuread_based_service_principals = kwargs['azureadBasedServicePrincipals']
+        if azuread_based_service_principals is None:
+            raise TypeError("Missing 'azuread_based_service_principals' argument")
+        if ledger_type is None and 'ledgerType' in kwargs:
+            ledger_type = kwargs['ledgerType']
+        if ledger_type is None:
+            raise TypeError("Missing 'ledger_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if certificate_based_security_principals is None and 'certificateBasedSecurityPrincipals' in kwargs:
+            certificate_based_security_principals = kwargs['certificateBasedSecurityPrincipals']
+
+        _setter("azuread_based_service_principals", azuread_based_service_principals)
+        _setter("ledger_type", ledger_type)
+        _setter("resource_group_name", resource_group_name)
         if certificate_based_security_principals is not None:
-            pulumi.set(__self__, "certificate_based_security_principals", certificate_based_security_principals)
+            _setter("certificate_based_security_principals", certificate_based_security_principals)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="azureadBasedServicePrincipals")
@@ -154,24 +191,63 @@ class _LedgerState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Confidential Ledger exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Confidential Ledger.
         """
+        _LedgerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azuread_based_service_principals=azuread_based_service_principals,
+            certificate_based_security_principals=certificate_based_security_principals,
+            identity_service_endpoint=identity_service_endpoint,
+            ledger_endpoint=ledger_endpoint,
+            ledger_type=ledger_type,
+            location=location,
+            name=name,
+            resource_group_name=resource_group_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azuread_based_service_principals: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerAzureadBasedServicePrincipalArgs']]]] = None,
+             certificate_based_security_principals: Optional[pulumi.Input[Sequence[pulumi.Input['LedgerCertificateBasedSecurityPrincipalArgs']]]] = None,
+             identity_service_endpoint: Optional[pulumi.Input[str]] = None,
+             ledger_endpoint: Optional[pulumi.Input[str]] = None,
+             ledger_type: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if azuread_based_service_principals is None and 'azureadBasedServicePrincipals' in kwargs:
+            azuread_based_service_principals = kwargs['azureadBasedServicePrincipals']
+        if certificate_based_security_principals is None and 'certificateBasedSecurityPrincipals' in kwargs:
+            certificate_based_security_principals = kwargs['certificateBasedSecurityPrincipals']
+        if identity_service_endpoint is None and 'identityServiceEndpoint' in kwargs:
+            identity_service_endpoint = kwargs['identityServiceEndpoint']
+        if ledger_endpoint is None and 'ledgerEndpoint' in kwargs:
+            ledger_endpoint = kwargs['ledgerEndpoint']
+        if ledger_type is None and 'ledgerType' in kwargs:
+            ledger_type = kwargs['ledgerType']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if azuread_based_service_principals is not None:
-            pulumi.set(__self__, "azuread_based_service_principals", azuread_based_service_principals)
+            _setter("azuread_based_service_principals", azuread_based_service_principals)
         if certificate_based_security_principals is not None:
-            pulumi.set(__self__, "certificate_based_security_principals", certificate_based_security_principals)
+            _setter("certificate_based_security_principals", certificate_based_security_principals)
         if identity_service_endpoint is not None:
-            pulumi.set(__self__, "identity_service_endpoint", identity_service_endpoint)
+            _setter("identity_service_endpoint", identity_service_endpoint)
         if ledger_endpoint is not None:
-            pulumi.set(__self__, "ledger_endpoint", ledger_endpoint)
+            _setter("ledger_endpoint", ledger_endpoint)
         if ledger_type is not None:
-            pulumi.set(__self__, "ledger_type", ledger_type)
+            _setter("ledger_type", ledger_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="azureadBasedServicePrincipals")
@@ -381,6 +457,10 @@ class Ledger(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LedgerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

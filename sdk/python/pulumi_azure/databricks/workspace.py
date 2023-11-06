@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -53,34 +53,99 @@ class WorkspaceArgs:
         :param pulumi.Input[bool] public_network_access_enabled: Allow public access for accessing workspace. Set value to `false` to access workspace only via private link endpoint. Possible values include `true` or `false`. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        WorkspaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            custom_parameters=custom_parameters,
+            customer_managed_key_enabled=customer_managed_key_enabled,
+            infrastructure_encryption_enabled=infrastructure_encryption_enabled,
+            load_balancer_backend_address_pool_id=load_balancer_backend_address_pool_id,
+            location=location,
+            managed_disk_cmk_key_vault_key_id=managed_disk_cmk_key_vault_key_id,
+            managed_disk_cmk_rotation_to_latest_version_enabled=managed_disk_cmk_rotation_to_latest_version_enabled,
+            managed_resource_group_name=managed_resource_group_name,
+            managed_services_cmk_key_vault_key_id=managed_services_cmk_key_vault_key_id,
+            name=name,
+            network_security_group_rules_required=network_security_group_rules_required,
+            public_network_access_enabled=public_network_access_enabled,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             custom_parameters: Optional[pulumi.Input['WorkspaceCustomParametersArgs']] = None,
+             customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
+             infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             load_balancer_backend_address_pool_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_disk_cmk_key_vault_key_id: Optional[pulumi.Input[str]] = None,
+             managed_disk_cmk_rotation_to_latest_version_enabled: Optional[pulumi.Input[bool]] = None,
+             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
+             managed_services_cmk_key_vault_key_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_security_group_rules_required: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if custom_parameters is None and 'customParameters' in kwargs:
+            custom_parameters = kwargs['customParameters']
+        if customer_managed_key_enabled is None and 'customerManagedKeyEnabled' in kwargs:
+            customer_managed_key_enabled = kwargs['customerManagedKeyEnabled']
+        if infrastructure_encryption_enabled is None and 'infrastructureEncryptionEnabled' in kwargs:
+            infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
+        if load_balancer_backend_address_pool_id is None and 'loadBalancerBackendAddressPoolId' in kwargs:
+            load_balancer_backend_address_pool_id = kwargs['loadBalancerBackendAddressPoolId']
+        if managed_disk_cmk_key_vault_key_id is None and 'managedDiskCmkKeyVaultKeyId' in kwargs:
+            managed_disk_cmk_key_vault_key_id = kwargs['managedDiskCmkKeyVaultKeyId']
+        if managed_disk_cmk_rotation_to_latest_version_enabled is None and 'managedDiskCmkRotationToLatestVersionEnabled' in kwargs:
+            managed_disk_cmk_rotation_to_latest_version_enabled = kwargs['managedDiskCmkRotationToLatestVersionEnabled']
+        if managed_resource_group_name is None and 'managedResourceGroupName' in kwargs:
+            managed_resource_group_name = kwargs['managedResourceGroupName']
+        if managed_services_cmk_key_vault_key_id is None and 'managedServicesCmkKeyVaultKeyId' in kwargs:
+            managed_services_cmk_key_vault_key_id = kwargs['managedServicesCmkKeyVaultKeyId']
+        if network_security_group_rules_required is None and 'networkSecurityGroupRulesRequired' in kwargs:
+            network_security_group_rules_required = kwargs['networkSecurityGroupRulesRequired']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if custom_parameters is not None:
-            pulumi.set(__self__, "custom_parameters", custom_parameters)
+            _setter("custom_parameters", custom_parameters)
         if customer_managed_key_enabled is not None:
-            pulumi.set(__self__, "customer_managed_key_enabled", customer_managed_key_enabled)
+            _setter("customer_managed_key_enabled", customer_managed_key_enabled)
         if infrastructure_encryption_enabled is not None:
-            pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
+            _setter("infrastructure_encryption_enabled", infrastructure_encryption_enabled)
         if load_balancer_backend_address_pool_id is not None:
-            pulumi.set(__self__, "load_balancer_backend_address_pool_id", load_balancer_backend_address_pool_id)
+            _setter("load_balancer_backend_address_pool_id", load_balancer_backend_address_pool_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_disk_cmk_key_vault_key_id is not None:
-            pulumi.set(__self__, "managed_disk_cmk_key_vault_key_id", managed_disk_cmk_key_vault_key_id)
+            _setter("managed_disk_cmk_key_vault_key_id", managed_disk_cmk_key_vault_key_id)
         if managed_disk_cmk_rotation_to_latest_version_enabled is not None:
-            pulumi.set(__self__, "managed_disk_cmk_rotation_to_latest_version_enabled", managed_disk_cmk_rotation_to_latest_version_enabled)
+            _setter("managed_disk_cmk_rotation_to_latest_version_enabled", managed_disk_cmk_rotation_to_latest_version_enabled)
         if managed_resource_group_name is not None:
-            pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
+            _setter("managed_resource_group_name", managed_resource_group_name)
         if managed_services_cmk_key_vault_key_id is not None:
-            pulumi.set(__self__, "managed_services_cmk_key_vault_key_id", managed_services_cmk_key_vault_key_id)
+            _setter("managed_services_cmk_key_vault_key_id", managed_services_cmk_key_vault_key_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_security_group_rules_required is not None:
-            pulumi.set(__self__, "network_security_group_rules_required", network_security_group_rules_required)
+            _setter("network_security_group_rules_required", network_security_group_rules_required)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -319,48 +384,133 @@ class _WorkspaceState:
         :param pulumi.Input[str] workspace_id: The unique identifier of the databricks workspace in Databricks control plane.
         :param pulumi.Input[str] workspace_url: The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
         """
+        _WorkspaceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_parameters=custom_parameters,
+            customer_managed_key_enabled=customer_managed_key_enabled,
+            disk_encryption_set_id=disk_encryption_set_id,
+            infrastructure_encryption_enabled=infrastructure_encryption_enabled,
+            load_balancer_backend_address_pool_id=load_balancer_backend_address_pool_id,
+            location=location,
+            managed_disk_cmk_key_vault_key_id=managed_disk_cmk_key_vault_key_id,
+            managed_disk_cmk_rotation_to_latest_version_enabled=managed_disk_cmk_rotation_to_latest_version_enabled,
+            managed_disk_identities=managed_disk_identities,
+            managed_resource_group_id=managed_resource_group_id,
+            managed_resource_group_name=managed_resource_group_name,
+            managed_services_cmk_key_vault_key_id=managed_services_cmk_key_vault_key_id,
+            name=name,
+            network_security_group_rules_required=network_security_group_rules_required,
+            public_network_access_enabled=public_network_access_enabled,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            storage_account_identities=storage_account_identities,
+            tags=tags,
+            workspace_id=workspace_id,
+            workspace_url=workspace_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_parameters: Optional[pulumi.Input['WorkspaceCustomParametersArgs']] = None,
+             customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
+             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+             infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             load_balancer_backend_address_pool_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_disk_cmk_key_vault_key_id: Optional[pulumi.Input[str]] = None,
+             managed_disk_cmk_rotation_to_latest_version_enabled: Optional[pulumi.Input[bool]] = None,
+             managed_disk_identities: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceManagedDiskIdentityArgs']]]] = None,
+             managed_resource_group_id: Optional[pulumi.Input[str]] = None,
+             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
+             managed_services_cmk_key_vault_key_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_security_group_rules_required: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             storage_account_identities: Optional[pulumi.Input[Sequence[pulumi.Input['WorkspaceStorageAccountIdentityArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             workspace_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if custom_parameters is None and 'customParameters' in kwargs:
+            custom_parameters = kwargs['customParameters']
+        if customer_managed_key_enabled is None and 'customerManagedKeyEnabled' in kwargs:
+            customer_managed_key_enabled = kwargs['customerManagedKeyEnabled']
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if infrastructure_encryption_enabled is None and 'infrastructureEncryptionEnabled' in kwargs:
+            infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
+        if load_balancer_backend_address_pool_id is None and 'loadBalancerBackendAddressPoolId' in kwargs:
+            load_balancer_backend_address_pool_id = kwargs['loadBalancerBackendAddressPoolId']
+        if managed_disk_cmk_key_vault_key_id is None and 'managedDiskCmkKeyVaultKeyId' in kwargs:
+            managed_disk_cmk_key_vault_key_id = kwargs['managedDiskCmkKeyVaultKeyId']
+        if managed_disk_cmk_rotation_to_latest_version_enabled is None and 'managedDiskCmkRotationToLatestVersionEnabled' in kwargs:
+            managed_disk_cmk_rotation_to_latest_version_enabled = kwargs['managedDiskCmkRotationToLatestVersionEnabled']
+        if managed_disk_identities is None and 'managedDiskIdentities' in kwargs:
+            managed_disk_identities = kwargs['managedDiskIdentities']
+        if managed_resource_group_id is None and 'managedResourceGroupId' in kwargs:
+            managed_resource_group_id = kwargs['managedResourceGroupId']
+        if managed_resource_group_name is None and 'managedResourceGroupName' in kwargs:
+            managed_resource_group_name = kwargs['managedResourceGroupName']
+        if managed_services_cmk_key_vault_key_id is None and 'managedServicesCmkKeyVaultKeyId' in kwargs:
+            managed_services_cmk_key_vault_key_id = kwargs['managedServicesCmkKeyVaultKeyId']
+        if network_security_group_rules_required is None and 'networkSecurityGroupRulesRequired' in kwargs:
+            network_security_group_rules_required = kwargs['networkSecurityGroupRulesRequired']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if storage_account_identities is None and 'storageAccountIdentities' in kwargs:
+            storage_account_identities = kwargs['storageAccountIdentities']
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if workspace_url is None and 'workspaceUrl' in kwargs:
+            workspace_url = kwargs['workspaceUrl']
+
         if custom_parameters is not None:
-            pulumi.set(__self__, "custom_parameters", custom_parameters)
+            _setter("custom_parameters", custom_parameters)
         if customer_managed_key_enabled is not None:
-            pulumi.set(__self__, "customer_managed_key_enabled", customer_managed_key_enabled)
+            _setter("customer_managed_key_enabled", customer_managed_key_enabled)
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
         if infrastructure_encryption_enabled is not None:
-            pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
+            _setter("infrastructure_encryption_enabled", infrastructure_encryption_enabled)
         if load_balancer_backend_address_pool_id is not None:
-            pulumi.set(__self__, "load_balancer_backend_address_pool_id", load_balancer_backend_address_pool_id)
+            _setter("load_balancer_backend_address_pool_id", load_balancer_backend_address_pool_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_disk_cmk_key_vault_key_id is not None:
-            pulumi.set(__self__, "managed_disk_cmk_key_vault_key_id", managed_disk_cmk_key_vault_key_id)
+            _setter("managed_disk_cmk_key_vault_key_id", managed_disk_cmk_key_vault_key_id)
         if managed_disk_cmk_rotation_to_latest_version_enabled is not None:
-            pulumi.set(__self__, "managed_disk_cmk_rotation_to_latest_version_enabled", managed_disk_cmk_rotation_to_latest_version_enabled)
+            _setter("managed_disk_cmk_rotation_to_latest_version_enabled", managed_disk_cmk_rotation_to_latest_version_enabled)
         if managed_disk_identities is not None:
-            pulumi.set(__self__, "managed_disk_identities", managed_disk_identities)
+            _setter("managed_disk_identities", managed_disk_identities)
         if managed_resource_group_id is not None:
-            pulumi.set(__self__, "managed_resource_group_id", managed_resource_group_id)
+            _setter("managed_resource_group_id", managed_resource_group_id)
         if managed_resource_group_name is not None:
-            pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
+            _setter("managed_resource_group_name", managed_resource_group_name)
         if managed_services_cmk_key_vault_key_id is not None:
-            pulumi.set(__self__, "managed_services_cmk_key_vault_key_id", managed_services_cmk_key_vault_key_id)
+            _setter("managed_services_cmk_key_vault_key_id", managed_services_cmk_key_vault_key_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_security_group_rules_required is not None:
-            pulumi.set(__self__, "network_security_group_rules_required", network_security_group_rules_required)
+            _setter("network_security_group_rules_required", network_security_group_rules_required)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if storage_account_identities is not None:
-            pulumi.set(__self__, "storage_account_identities", storage_account_identities)
+            _setter("storage_account_identities", storage_account_identities)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
         if workspace_url is not None:
-            pulumi.set(__self__, "workspace_url", workspace_url)
+            _setter("workspace_url", workspace_url)
 
     @property
     @pulumi.getter(name="customParameters")
@@ -696,6 +846,10 @@ class Workspace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -725,6 +879,11 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
+            if custom_parameters is not None and not isinstance(custom_parameters, WorkspaceCustomParametersArgs):
+                custom_parameters = custom_parameters or {}
+                def _setter(key, value):
+                    custom_parameters[key] = value
+                WorkspaceCustomParametersArgs._configure(_setter, **custom_parameters)
             __props__.__dict__["custom_parameters"] = custom_parameters
             __props__.__dict__["customer_managed_key_enabled"] = customer_managed_key_enabled
             __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled

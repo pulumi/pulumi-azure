@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -142,93 +142,278 @@ class LinuxVirtualMachineArgs:
         :param pulumi.Input[bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
         """
-        pulumi.set(__self__, "admin_username", admin_username)
-        pulumi.set(__self__, "network_interface_ids", network_interface_ids)
-        pulumi.set(__self__, "os_disk", os_disk)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "size", size)
+        LinuxVirtualMachineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_username=admin_username,
+            network_interface_ids=network_interface_ids,
+            os_disk=os_disk,
+            resource_group_name=resource_group_name,
+            size=size,
+            additional_capabilities=additional_capabilities,
+            admin_password=admin_password,
+            admin_ssh_keys=admin_ssh_keys,
+            allow_extension_operations=allow_extension_operations,
+            availability_set_id=availability_set_id,
+            boot_diagnostics=boot_diagnostics,
+            bypass_platform_safety_checks_on_user_schedule_enabled=bypass_platform_safety_checks_on_user_schedule_enabled,
+            capacity_reservation_group_id=capacity_reservation_group_id,
+            computer_name=computer_name,
+            custom_data=custom_data,
+            dedicated_host_group_id=dedicated_host_group_id,
+            dedicated_host_id=dedicated_host_id,
+            disable_password_authentication=disable_password_authentication,
+            edge_zone=edge_zone,
+            encryption_at_host_enabled=encryption_at_host_enabled,
+            eviction_policy=eviction_policy,
+            extensions_time_budget=extensions_time_budget,
+            gallery_applications=gallery_applications,
+            identity=identity,
+            license_type=license_type,
+            location=location,
+            max_bid_price=max_bid_price,
+            name=name,
+            patch_assessment_mode=patch_assessment_mode,
+            patch_mode=patch_mode,
+            plan=plan,
+            platform_fault_domain=platform_fault_domain,
+            priority=priority,
+            provision_vm_agent=provision_vm_agent,
+            proximity_placement_group_id=proximity_placement_group_id,
+            reboot_setting=reboot_setting,
+            secrets=secrets,
+            secure_boot_enabled=secure_boot_enabled,
+            source_image_id=source_image_id,
+            source_image_reference=source_image_reference,
+            tags=tags,
+            termination_notification=termination_notification,
+            user_data=user_data,
+            virtual_machine_scale_set_id=virtual_machine_scale_set_id,
+            vtpm_enabled=vtpm_enabled,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_username: Optional[pulumi.Input[str]] = None,
+             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             os_disk: Optional[pulumi.Input['LinuxVirtualMachineOsDiskArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             additional_capabilities: Optional[pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArgs']] = None,
+             admin_password: Optional[pulumi.Input[str]] = None,
+             admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArgs']]]] = None,
+             allow_extension_operations: Optional[pulumi.Input[bool]] = None,
+             availability_set_id: Optional[pulumi.Input[str]] = None,
+             boot_diagnostics: Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs']] = None,
+             bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[bool]] = None,
+             capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
+             computer_name: Optional[pulumi.Input[str]] = None,
+             custom_data: Optional[pulumi.Input[str]] = None,
+             dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
+             dedicated_host_id: Optional[pulumi.Input[str]] = None,
+             disable_password_authentication: Optional[pulumi.Input[bool]] = None,
+             edge_zone: Optional[pulumi.Input[str]] = None,
+             encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
+             eviction_policy: Optional[pulumi.Input[str]] = None,
+             extensions_time_budget: Optional[pulumi.Input[str]] = None,
+             gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArgs']]]] = None,
+             identity: Optional[pulumi.Input['LinuxVirtualMachineIdentityArgs']] = None,
+             license_type: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             max_bid_price: Optional[pulumi.Input[float]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             patch_assessment_mode: Optional[pulumi.Input[str]] = None,
+             patch_mode: Optional[pulumi.Input[str]] = None,
+             plan: Optional[pulumi.Input['LinuxVirtualMachinePlanArgs']] = None,
+             platform_fault_domain: Optional[pulumi.Input[int]] = None,
+             priority: Optional[pulumi.Input[str]] = None,
+             provision_vm_agent: Optional[pulumi.Input[bool]] = None,
+             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+             reboot_setting: Optional[pulumi.Input[str]] = None,
+             secrets: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArgs']]]] = None,
+             secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
+             source_image_id: Optional[pulumi.Input[str]] = None,
+             source_image_reference: Optional[pulumi.Input['LinuxVirtualMachineSourceImageReferenceArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             termination_notification: Optional[pulumi.Input['LinuxVirtualMachineTerminationNotificationArgs']] = None,
+             user_data: Optional[pulumi.Input[str]] = None,
+             virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+             vtpm_enabled: Optional[pulumi.Input[bool]] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if admin_username is None and 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if admin_username is None:
+            raise TypeError("Missing 'admin_username' argument")
+        if network_interface_ids is None and 'networkInterfaceIds' in kwargs:
+            network_interface_ids = kwargs['networkInterfaceIds']
+        if network_interface_ids is None:
+            raise TypeError("Missing 'network_interface_ids' argument")
+        if os_disk is None and 'osDisk' in kwargs:
+            os_disk = kwargs['osDisk']
+        if os_disk is None:
+            raise TypeError("Missing 'os_disk' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if additional_capabilities is None and 'additionalCapabilities' in kwargs:
+            additional_capabilities = kwargs['additionalCapabilities']
+        if admin_password is None and 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+        if admin_ssh_keys is None and 'adminSshKeys' in kwargs:
+            admin_ssh_keys = kwargs['adminSshKeys']
+        if allow_extension_operations is None and 'allowExtensionOperations' in kwargs:
+            allow_extension_operations = kwargs['allowExtensionOperations']
+        if availability_set_id is None and 'availabilitySetId' in kwargs:
+            availability_set_id = kwargs['availabilitySetId']
+        if boot_diagnostics is None and 'bootDiagnostics' in kwargs:
+            boot_diagnostics = kwargs['bootDiagnostics']
+        if bypass_platform_safety_checks_on_user_schedule_enabled is None and 'bypassPlatformSafetyChecksOnUserScheduleEnabled' in kwargs:
+            bypass_platform_safety_checks_on_user_schedule_enabled = kwargs['bypassPlatformSafetyChecksOnUserScheduleEnabled']
+        if capacity_reservation_group_id is None and 'capacityReservationGroupId' in kwargs:
+            capacity_reservation_group_id = kwargs['capacityReservationGroupId']
+        if computer_name is None and 'computerName' in kwargs:
+            computer_name = kwargs['computerName']
+        if custom_data is None and 'customData' in kwargs:
+            custom_data = kwargs['customData']
+        if dedicated_host_group_id is None and 'dedicatedHostGroupId' in kwargs:
+            dedicated_host_group_id = kwargs['dedicatedHostGroupId']
+        if dedicated_host_id is None and 'dedicatedHostId' in kwargs:
+            dedicated_host_id = kwargs['dedicatedHostId']
+        if disable_password_authentication is None and 'disablePasswordAuthentication' in kwargs:
+            disable_password_authentication = kwargs['disablePasswordAuthentication']
+        if edge_zone is None and 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if encryption_at_host_enabled is None and 'encryptionAtHostEnabled' in kwargs:
+            encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
+        if eviction_policy is None and 'evictionPolicy' in kwargs:
+            eviction_policy = kwargs['evictionPolicy']
+        if extensions_time_budget is None and 'extensionsTimeBudget' in kwargs:
+            extensions_time_budget = kwargs['extensionsTimeBudget']
+        if gallery_applications is None and 'galleryApplications' in kwargs:
+            gallery_applications = kwargs['galleryApplications']
+        if license_type is None and 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if max_bid_price is None and 'maxBidPrice' in kwargs:
+            max_bid_price = kwargs['maxBidPrice']
+        if patch_assessment_mode is None and 'patchAssessmentMode' in kwargs:
+            patch_assessment_mode = kwargs['patchAssessmentMode']
+        if patch_mode is None and 'patchMode' in kwargs:
+            patch_mode = kwargs['patchMode']
+        if platform_fault_domain is None and 'platformFaultDomain' in kwargs:
+            platform_fault_domain = kwargs['platformFaultDomain']
+        if provision_vm_agent is None and 'provisionVmAgent' in kwargs:
+            provision_vm_agent = kwargs['provisionVmAgent']
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
+            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
+        if reboot_setting is None and 'rebootSetting' in kwargs:
+            reboot_setting = kwargs['rebootSetting']
+        if secure_boot_enabled is None and 'secureBootEnabled' in kwargs:
+            secure_boot_enabled = kwargs['secureBootEnabled']
+        if source_image_id is None and 'sourceImageId' in kwargs:
+            source_image_id = kwargs['sourceImageId']
+        if source_image_reference is None and 'sourceImageReference' in kwargs:
+            source_image_reference = kwargs['sourceImageReference']
+        if termination_notification is None and 'terminationNotification' in kwargs:
+            termination_notification = kwargs['terminationNotification']
+        if user_data is None and 'userData' in kwargs:
+            user_data = kwargs['userData']
+        if virtual_machine_scale_set_id is None and 'virtualMachineScaleSetId' in kwargs:
+            virtual_machine_scale_set_id = kwargs['virtualMachineScaleSetId']
+        if vtpm_enabled is None and 'vtpmEnabled' in kwargs:
+            vtpm_enabled = kwargs['vtpmEnabled']
+
+        _setter("admin_username", admin_username)
+        _setter("network_interface_ids", network_interface_ids)
+        _setter("os_disk", os_disk)
+        _setter("resource_group_name", resource_group_name)
+        _setter("size", size)
         if additional_capabilities is not None:
-            pulumi.set(__self__, "additional_capabilities", additional_capabilities)
+            _setter("additional_capabilities", additional_capabilities)
         if admin_password is not None:
-            pulumi.set(__self__, "admin_password", admin_password)
+            _setter("admin_password", admin_password)
         if admin_ssh_keys is not None:
-            pulumi.set(__self__, "admin_ssh_keys", admin_ssh_keys)
+            _setter("admin_ssh_keys", admin_ssh_keys)
         if allow_extension_operations is not None:
-            pulumi.set(__self__, "allow_extension_operations", allow_extension_operations)
+            _setter("allow_extension_operations", allow_extension_operations)
         if availability_set_id is not None:
-            pulumi.set(__self__, "availability_set_id", availability_set_id)
+            _setter("availability_set_id", availability_set_id)
         if boot_diagnostics is not None:
-            pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
+            _setter("boot_diagnostics", boot_diagnostics)
         if bypass_platform_safety_checks_on_user_schedule_enabled is not None:
-            pulumi.set(__self__, "bypass_platform_safety_checks_on_user_schedule_enabled", bypass_platform_safety_checks_on_user_schedule_enabled)
+            _setter("bypass_platform_safety_checks_on_user_schedule_enabled", bypass_platform_safety_checks_on_user_schedule_enabled)
         if capacity_reservation_group_id is not None:
-            pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
+            _setter("capacity_reservation_group_id", capacity_reservation_group_id)
         if computer_name is not None:
-            pulumi.set(__self__, "computer_name", computer_name)
+            _setter("computer_name", computer_name)
         if custom_data is not None:
-            pulumi.set(__self__, "custom_data", custom_data)
+            _setter("custom_data", custom_data)
         if dedicated_host_group_id is not None:
-            pulumi.set(__self__, "dedicated_host_group_id", dedicated_host_group_id)
+            _setter("dedicated_host_group_id", dedicated_host_group_id)
         if dedicated_host_id is not None:
-            pulumi.set(__self__, "dedicated_host_id", dedicated_host_id)
+            _setter("dedicated_host_id", dedicated_host_id)
         if disable_password_authentication is not None:
-            pulumi.set(__self__, "disable_password_authentication", disable_password_authentication)
+            _setter("disable_password_authentication", disable_password_authentication)
         if edge_zone is not None:
-            pulumi.set(__self__, "edge_zone", edge_zone)
+            _setter("edge_zone", edge_zone)
         if encryption_at_host_enabled is not None:
-            pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
+            _setter("encryption_at_host_enabled", encryption_at_host_enabled)
         if eviction_policy is not None:
-            pulumi.set(__self__, "eviction_policy", eviction_policy)
+            _setter("eviction_policy", eviction_policy)
         if extensions_time_budget is not None:
-            pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
+            _setter("extensions_time_budget", extensions_time_budget)
         if gallery_applications is not None:
-            pulumi.set(__self__, "gallery_applications", gallery_applications)
+            _setter("gallery_applications", gallery_applications)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if max_bid_price is not None:
-            pulumi.set(__self__, "max_bid_price", max_bid_price)
+            _setter("max_bid_price", max_bid_price)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if patch_assessment_mode is not None:
-            pulumi.set(__self__, "patch_assessment_mode", patch_assessment_mode)
+            _setter("patch_assessment_mode", patch_assessment_mode)
         if patch_mode is not None:
-            pulumi.set(__self__, "patch_mode", patch_mode)
+            _setter("patch_mode", patch_mode)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
         if platform_fault_domain is not None:
-            pulumi.set(__self__, "platform_fault_domain", platform_fault_domain)
+            _setter("platform_fault_domain", platform_fault_domain)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if provision_vm_agent is not None:
-            pulumi.set(__self__, "provision_vm_agent", provision_vm_agent)
+            _setter("provision_vm_agent", provision_vm_agent)
         if proximity_placement_group_id is not None:
-            pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+            _setter("proximity_placement_group_id", proximity_placement_group_id)
         if reboot_setting is not None:
-            pulumi.set(__self__, "reboot_setting", reboot_setting)
+            _setter("reboot_setting", reboot_setting)
         if secrets is not None:
-            pulumi.set(__self__, "secrets", secrets)
+            _setter("secrets", secrets)
         if secure_boot_enabled is not None:
-            pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
+            _setter("secure_boot_enabled", secure_boot_enabled)
         if source_image_id is not None:
-            pulumi.set(__self__, "source_image_id", source_image_id)
+            _setter("source_image_id", source_image_id)
         if source_image_reference is not None:
-            pulumi.set(__self__, "source_image_reference", source_image_reference)
+            _setter("source_image_reference", source_image_reference)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if termination_notification is not None:
-            pulumi.set(__self__, "termination_notification", termination_notification)
+            _setter("termination_notification", termination_notification)
         if user_data is not None:
-            pulumi.set(__self__, "user_data", user_data)
+            _setter("user_data", user_data)
         if virtual_machine_scale_set_id is not None:
-            pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
+            _setter("virtual_machine_scale_set_id", virtual_machine_scale_set_id)
         if vtpm_enabled is not None:
-            pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
+            _setter("vtpm_enabled", vtpm_enabled)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter(name="adminUsername")
@@ -953,108 +1138,303 @@ class _LinuxVirtualMachineState:
         :param pulumi.Input[bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] zone: Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
         """
+        _LinuxVirtualMachineState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_capabilities=additional_capabilities,
+            admin_password=admin_password,
+            admin_ssh_keys=admin_ssh_keys,
+            admin_username=admin_username,
+            allow_extension_operations=allow_extension_operations,
+            availability_set_id=availability_set_id,
+            boot_diagnostics=boot_diagnostics,
+            bypass_platform_safety_checks_on_user_schedule_enabled=bypass_platform_safety_checks_on_user_schedule_enabled,
+            capacity_reservation_group_id=capacity_reservation_group_id,
+            computer_name=computer_name,
+            custom_data=custom_data,
+            dedicated_host_group_id=dedicated_host_group_id,
+            dedicated_host_id=dedicated_host_id,
+            disable_password_authentication=disable_password_authentication,
+            edge_zone=edge_zone,
+            encryption_at_host_enabled=encryption_at_host_enabled,
+            eviction_policy=eviction_policy,
+            extensions_time_budget=extensions_time_budget,
+            gallery_applications=gallery_applications,
+            identity=identity,
+            license_type=license_type,
+            location=location,
+            max_bid_price=max_bid_price,
+            name=name,
+            network_interface_ids=network_interface_ids,
+            os_disk=os_disk,
+            patch_assessment_mode=patch_assessment_mode,
+            patch_mode=patch_mode,
+            plan=plan,
+            platform_fault_domain=platform_fault_domain,
+            priority=priority,
+            private_ip_address=private_ip_address,
+            private_ip_addresses=private_ip_addresses,
+            provision_vm_agent=provision_vm_agent,
+            proximity_placement_group_id=proximity_placement_group_id,
+            public_ip_address=public_ip_address,
+            public_ip_addresses=public_ip_addresses,
+            reboot_setting=reboot_setting,
+            resource_group_name=resource_group_name,
+            secrets=secrets,
+            secure_boot_enabled=secure_boot_enabled,
+            size=size,
+            source_image_id=source_image_id,
+            source_image_reference=source_image_reference,
+            tags=tags,
+            termination_notification=termination_notification,
+            user_data=user_data,
+            virtual_machine_id=virtual_machine_id,
+            virtual_machine_scale_set_id=virtual_machine_scale_set_id,
+            vtpm_enabled=vtpm_enabled,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_capabilities: Optional[pulumi.Input['LinuxVirtualMachineAdditionalCapabilitiesArgs']] = None,
+             admin_password: Optional[pulumi.Input[str]] = None,
+             admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArgs']]]] = None,
+             admin_username: Optional[pulumi.Input[str]] = None,
+             allow_extension_operations: Optional[pulumi.Input[bool]] = None,
+             availability_set_id: Optional[pulumi.Input[str]] = None,
+             boot_diagnostics: Optional[pulumi.Input['LinuxVirtualMachineBootDiagnosticsArgs']] = None,
+             bypass_platform_safety_checks_on_user_schedule_enabled: Optional[pulumi.Input[bool]] = None,
+             capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
+             computer_name: Optional[pulumi.Input[str]] = None,
+             custom_data: Optional[pulumi.Input[str]] = None,
+             dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
+             dedicated_host_id: Optional[pulumi.Input[str]] = None,
+             disable_password_authentication: Optional[pulumi.Input[bool]] = None,
+             edge_zone: Optional[pulumi.Input[str]] = None,
+             encryption_at_host_enabled: Optional[pulumi.Input[bool]] = None,
+             eviction_policy: Optional[pulumi.Input[str]] = None,
+             extensions_time_budget: Optional[pulumi.Input[str]] = None,
+             gallery_applications: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineGalleryApplicationArgs']]]] = None,
+             identity: Optional[pulumi.Input['LinuxVirtualMachineIdentityArgs']] = None,
+             license_type: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             max_bid_price: Optional[pulumi.Input[float]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             os_disk: Optional[pulumi.Input['LinuxVirtualMachineOsDiskArgs']] = None,
+             patch_assessment_mode: Optional[pulumi.Input[str]] = None,
+             patch_mode: Optional[pulumi.Input[str]] = None,
+             plan: Optional[pulumi.Input['LinuxVirtualMachinePlanArgs']] = None,
+             platform_fault_domain: Optional[pulumi.Input[int]] = None,
+             priority: Optional[pulumi.Input[str]] = None,
+             private_ip_address: Optional[pulumi.Input[str]] = None,
+             private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             provision_vm_agent: Optional[pulumi.Input[bool]] = None,
+             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+             public_ip_address: Optional[pulumi.Input[str]] = None,
+             public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             reboot_setting: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             secrets: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretArgs']]]] = None,
+             secure_boot_enabled: Optional[pulumi.Input[bool]] = None,
+             size: Optional[pulumi.Input[str]] = None,
+             source_image_id: Optional[pulumi.Input[str]] = None,
+             source_image_reference: Optional[pulumi.Input['LinuxVirtualMachineSourceImageReferenceArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             termination_notification: Optional[pulumi.Input['LinuxVirtualMachineTerminationNotificationArgs']] = None,
+             user_data: Optional[pulumi.Input[str]] = None,
+             virtual_machine_id: Optional[pulumi.Input[str]] = None,
+             virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+             vtpm_enabled: Optional[pulumi.Input[bool]] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if additional_capabilities is None and 'additionalCapabilities' in kwargs:
+            additional_capabilities = kwargs['additionalCapabilities']
+        if admin_password is None and 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+        if admin_ssh_keys is None and 'adminSshKeys' in kwargs:
+            admin_ssh_keys = kwargs['adminSshKeys']
+        if admin_username is None and 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if allow_extension_operations is None and 'allowExtensionOperations' in kwargs:
+            allow_extension_operations = kwargs['allowExtensionOperations']
+        if availability_set_id is None and 'availabilitySetId' in kwargs:
+            availability_set_id = kwargs['availabilitySetId']
+        if boot_diagnostics is None and 'bootDiagnostics' in kwargs:
+            boot_diagnostics = kwargs['bootDiagnostics']
+        if bypass_platform_safety_checks_on_user_schedule_enabled is None and 'bypassPlatformSafetyChecksOnUserScheduleEnabled' in kwargs:
+            bypass_platform_safety_checks_on_user_schedule_enabled = kwargs['bypassPlatformSafetyChecksOnUserScheduleEnabled']
+        if capacity_reservation_group_id is None and 'capacityReservationGroupId' in kwargs:
+            capacity_reservation_group_id = kwargs['capacityReservationGroupId']
+        if computer_name is None and 'computerName' in kwargs:
+            computer_name = kwargs['computerName']
+        if custom_data is None and 'customData' in kwargs:
+            custom_data = kwargs['customData']
+        if dedicated_host_group_id is None and 'dedicatedHostGroupId' in kwargs:
+            dedicated_host_group_id = kwargs['dedicatedHostGroupId']
+        if dedicated_host_id is None and 'dedicatedHostId' in kwargs:
+            dedicated_host_id = kwargs['dedicatedHostId']
+        if disable_password_authentication is None and 'disablePasswordAuthentication' in kwargs:
+            disable_password_authentication = kwargs['disablePasswordAuthentication']
+        if edge_zone is None and 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if encryption_at_host_enabled is None and 'encryptionAtHostEnabled' in kwargs:
+            encryption_at_host_enabled = kwargs['encryptionAtHostEnabled']
+        if eviction_policy is None and 'evictionPolicy' in kwargs:
+            eviction_policy = kwargs['evictionPolicy']
+        if extensions_time_budget is None and 'extensionsTimeBudget' in kwargs:
+            extensions_time_budget = kwargs['extensionsTimeBudget']
+        if gallery_applications is None and 'galleryApplications' in kwargs:
+            gallery_applications = kwargs['galleryApplications']
+        if license_type is None and 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if max_bid_price is None and 'maxBidPrice' in kwargs:
+            max_bid_price = kwargs['maxBidPrice']
+        if network_interface_ids is None and 'networkInterfaceIds' in kwargs:
+            network_interface_ids = kwargs['networkInterfaceIds']
+        if os_disk is None and 'osDisk' in kwargs:
+            os_disk = kwargs['osDisk']
+        if patch_assessment_mode is None and 'patchAssessmentMode' in kwargs:
+            patch_assessment_mode = kwargs['patchAssessmentMode']
+        if patch_mode is None and 'patchMode' in kwargs:
+            patch_mode = kwargs['patchMode']
+        if platform_fault_domain is None and 'platformFaultDomain' in kwargs:
+            platform_fault_domain = kwargs['platformFaultDomain']
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if private_ip_addresses is None and 'privateIpAddresses' in kwargs:
+            private_ip_addresses = kwargs['privateIpAddresses']
+        if provision_vm_agent is None and 'provisionVmAgent' in kwargs:
+            provision_vm_agent = kwargs['provisionVmAgent']
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
+            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
+        if public_ip_address is None and 'publicIpAddress' in kwargs:
+            public_ip_address = kwargs['publicIpAddress']
+        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
+            public_ip_addresses = kwargs['publicIpAddresses']
+        if reboot_setting is None and 'rebootSetting' in kwargs:
+            reboot_setting = kwargs['rebootSetting']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if secure_boot_enabled is None and 'secureBootEnabled' in kwargs:
+            secure_boot_enabled = kwargs['secureBootEnabled']
+        if source_image_id is None and 'sourceImageId' in kwargs:
+            source_image_id = kwargs['sourceImageId']
+        if source_image_reference is None and 'sourceImageReference' in kwargs:
+            source_image_reference = kwargs['sourceImageReference']
+        if termination_notification is None and 'terminationNotification' in kwargs:
+            termination_notification = kwargs['terminationNotification']
+        if user_data is None and 'userData' in kwargs:
+            user_data = kwargs['userData']
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
+            virtual_machine_id = kwargs['virtualMachineId']
+        if virtual_machine_scale_set_id is None and 'virtualMachineScaleSetId' in kwargs:
+            virtual_machine_scale_set_id = kwargs['virtualMachineScaleSetId']
+        if vtpm_enabled is None and 'vtpmEnabled' in kwargs:
+            vtpm_enabled = kwargs['vtpmEnabled']
+
         if additional_capabilities is not None:
-            pulumi.set(__self__, "additional_capabilities", additional_capabilities)
+            _setter("additional_capabilities", additional_capabilities)
         if admin_password is not None:
-            pulumi.set(__self__, "admin_password", admin_password)
+            _setter("admin_password", admin_password)
         if admin_ssh_keys is not None:
-            pulumi.set(__self__, "admin_ssh_keys", admin_ssh_keys)
+            _setter("admin_ssh_keys", admin_ssh_keys)
         if admin_username is not None:
-            pulumi.set(__self__, "admin_username", admin_username)
+            _setter("admin_username", admin_username)
         if allow_extension_operations is not None:
-            pulumi.set(__self__, "allow_extension_operations", allow_extension_operations)
+            _setter("allow_extension_operations", allow_extension_operations)
         if availability_set_id is not None:
-            pulumi.set(__self__, "availability_set_id", availability_set_id)
+            _setter("availability_set_id", availability_set_id)
         if boot_diagnostics is not None:
-            pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
+            _setter("boot_diagnostics", boot_diagnostics)
         if bypass_platform_safety_checks_on_user_schedule_enabled is not None:
-            pulumi.set(__self__, "bypass_platform_safety_checks_on_user_schedule_enabled", bypass_platform_safety_checks_on_user_schedule_enabled)
+            _setter("bypass_platform_safety_checks_on_user_schedule_enabled", bypass_platform_safety_checks_on_user_schedule_enabled)
         if capacity_reservation_group_id is not None:
-            pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
+            _setter("capacity_reservation_group_id", capacity_reservation_group_id)
         if computer_name is not None:
-            pulumi.set(__self__, "computer_name", computer_name)
+            _setter("computer_name", computer_name)
         if custom_data is not None:
-            pulumi.set(__self__, "custom_data", custom_data)
+            _setter("custom_data", custom_data)
         if dedicated_host_group_id is not None:
-            pulumi.set(__self__, "dedicated_host_group_id", dedicated_host_group_id)
+            _setter("dedicated_host_group_id", dedicated_host_group_id)
         if dedicated_host_id is not None:
-            pulumi.set(__self__, "dedicated_host_id", dedicated_host_id)
+            _setter("dedicated_host_id", dedicated_host_id)
         if disable_password_authentication is not None:
-            pulumi.set(__self__, "disable_password_authentication", disable_password_authentication)
+            _setter("disable_password_authentication", disable_password_authentication)
         if edge_zone is not None:
-            pulumi.set(__self__, "edge_zone", edge_zone)
+            _setter("edge_zone", edge_zone)
         if encryption_at_host_enabled is not None:
-            pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
+            _setter("encryption_at_host_enabled", encryption_at_host_enabled)
         if eviction_policy is not None:
-            pulumi.set(__self__, "eviction_policy", eviction_policy)
+            _setter("eviction_policy", eviction_policy)
         if extensions_time_budget is not None:
-            pulumi.set(__self__, "extensions_time_budget", extensions_time_budget)
+            _setter("extensions_time_budget", extensions_time_budget)
         if gallery_applications is not None:
-            pulumi.set(__self__, "gallery_applications", gallery_applications)
+            _setter("gallery_applications", gallery_applications)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if max_bid_price is not None:
-            pulumi.set(__self__, "max_bid_price", max_bid_price)
+            _setter("max_bid_price", max_bid_price)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_interface_ids is not None:
-            pulumi.set(__self__, "network_interface_ids", network_interface_ids)
+            _setter("network_interface_ids", network_interface_ids)
         if os_disk is not None:
-            pulumi.set(__self__, "os_disk", os_disk)
+            _setter("os_disk", os_disk)
         if patch_assessment_mode is not None:
-            pulumi.set(__self__, "patch_assessment_mode", patch_assessment_mode)
+            _setter("patch_assessment_mode", patch_assessment_mode)
         if patch_mode is not None:
-            pulumi.set(__self__, "patch_mode", patch_mode)
+            _setter("patch_mode", patch_mode)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
         if platform_fault_domain is not None:
-            pulumi.set(__self__, "platform_fault_domain", platform_fault_domain)
+            _setter("platform_fault_domain", platform_fault_domain)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if private_ip_addresses is not None:
-            pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+            _setter("private_ip_addresses", private_ip_addresses)
         if provision_vm_agent is not None:
-            pulumi.set(__self__, "provision_vm_agent", provision_vm_agent)
+            _setter("provision_vm_agent", provision_vm_agent)
         if proximity_placement_group_id is not None:
-            pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+            _setter("proximity_placement_group_id", proximity_placement_group_id)
         if public_ip_address is not None:
-            pulumi.set(__self__, "public_ip_address", public_ip_address)
+            _setter("public_ip_address", public_ip_address)
         if public_ip_addresses is not None:
-            pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+            _setter("public_ip_addresses", public_ip_addresses)
         if reboot_setting is not None:
-            pulumi.set(__self__, "reboot_setting", reboot_setting)
+            _setter("reboot_setting", reboot_setting)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if secrets is not None:
-            pulumi.set(__self__, "secrets", secrets)
+            _setter("secrets", secrets)
         if secure_boot_enabled is not None:
-            pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
+            _setter("secure_boot_enabled", secure_boot_enabled)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if source_image_id is not None:
-            pulumi.set(__self__, "source_image_id", source_image_id)
+            _setter("source_image_id", source_image_id)
         if source_image_reference is not None:
-            pulumi.set(__self__, "source_image_reference", source_image_reference)
+            _setter("source_image_reference", source_image_reference)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if termination_notification is not None:
-            pulumi.set(__self__, "termination_notification", termination_notification)
+            _setter("termination_notification", termination_notification)
         if user_data is not None:
-            pulumi.set(__self__, "user_data", user_data)
+            _setter("user_data", user_data)
         if virtual_machine_id is not None:
-            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+            _setter("virtual_machine_id", virtual_machine_id)
         if virtual_machine_scale_set_id is not None:
-            pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
+            _setter("virtual_machine_scale_set_id", virtual_machine_scale_set_id)
         if vtpm_enabled is not None:
-            pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
+            _setter("vtpm_enabled", vtpm_enabled)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter(name="additionalCapabilities")
@@ -1988,6 +2368,10 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinuxVirtualMachineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -2048,6 +2432,11 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LinuxVirtualMachineArgs.__new__(LinuxVirtualMachineArgs)
 
+            if additional_capabilities is not None and not isinstance(additional_capabilities, LinuxVirtualMachineAdditionalCapabilitiesArgs):
+                additional_capabilities = additional_capabilities or {}
+                def _setter(key, value):
+                    additional_capabilities[key] = value
+                LinuxVirtualMachineAdditionalCapabilitiesArgs._configure(_setter, **additional_capabilities)
             __props__.__dict__["additional_capabilities"] = additional_capabilities
             __props__.__dict__["admin_password"] = None if admin_password is None else pulumi.Output.secret(admin_password)
             __props__.__dict__["admin_ssh_keys"] = admin_ssh_keys
@@ -2056,6 +2445,11 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["admin_username"] = admin_username
             __props__.__dict__["allow_extension_operations"] = allow_extension_operations
             __props__.__dict__["availability_set_id"] = availability_set_id
+            if boot_diagnostics is not None and not isinstance(boot_diagnostics, LinuxVirtualMachineBootDiagnosticsArgs):
+                boot_diagnostics = boot_diagnostics or {}
+                def _setter(key, value):
+                    boot_diagnostics[key] = value
+                LinuxVirtualMachineBootDiagnosticsArgs._configure(_setter, **boot_diagnostics)
             __props__.__dict__["boot_diagnostics"] = boot_diagnostics
             __props__.__dict__["bypass_platform_safety_checks_on_user_schedule_enabled"] = bypass_platform_safety_checks_on_user_schedule_enabled
             __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
@@ -2069,6 +2463,11 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["eviction_policy"] = eviction_policy
             __props__.__dict__["extensions_time_budget"] = extensions_time_budget
             __props__.__dict__["gallery_applications"] = gallery_applications
+            if identity is not None and not isinstance(identity, LinuxVirtualMachineIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                LinuxVirtualMachineIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["location"] = location
@@ -2077,11 +2476,21 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             if network_interface_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'network_interface_ids'")
             __props__.__dict__["network_interface_ids"] = network_interface_ids
+            if os_disk is not None and not isinstance(os_disk, LinuxVirtualMachineOsDiskArgs):
+                os_disk = os_disk or {}
+                def _setter(key, value):
+                    os_disk[key] = value
+                LinuxVirtualMachineOsDiskArgs._configure(_setter, **os_disk)
             if os_disk is None and not opts.urn:
                 raise TypeError("Missing required property 'os_disk'")
             __props__.__dict__["os_disk"] = os_disk
             __props__.__dict__["patch_assessment_mode"] = patch_assessment_mode
             __props__.__dict__["patch_mode"] = patch_mode
+            if plan is not None and not isinstance(plan, LinuxVirtualMachinePlanArgs):
+                plan = plan or {}
+                def _setter(key, value):
+                    plan[key] = value
+                LinuxVirtualMachinePlanArgs._configure(_setter, **plan)
             __props__.__dict__["plan"] = plan
             __props__.__dict__["platform_fault_domain"] = platform_fault_domain
             __props__.__dict__["priority"] = priority
@@ -2097,8 +2506,18 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                 raise TypeError("Missing required property 'size'")
             __props__.__dict__["size"] = size
             __props__.__dict__["source_image_id"] = source_image_id
+            if source_image_reference is not None and not isinstance(source_image_reference, LinuxVirtualMachineSourceImageReferenceArgs):
+                source_image_reference = source_image_reference or {}
+                def _setter(key, value):
+                    source_image_reference[key] = value
+                LinuxVirtualMachineSourceImageReferenceArgs._configure(_setter, **source_image_reference)
             __props__.__dict__["source_image_reference"] = source_image_reference
             __props__.__dict__["tags"] = tags
+            if termination_notification is not None and not isinstance(termination_notification, LinuxVirtualMachineTerminationNotificationArgs):
+                termination_notification = termination_notification or {}
+                def _setter(key, value):
+                    termination_notification[key] = value
+                LinuxVirtualMachineTerminationNotificationArgs._configure(_setter, **termination_notification)
             __props__.__dict__["termination_notification"] = termination_notification
             __props__.__dict__["user_data"] = user_data
             __props__.__dict__["virtual_machine_scale_set_id"] = virtual_machine_scale_set_id

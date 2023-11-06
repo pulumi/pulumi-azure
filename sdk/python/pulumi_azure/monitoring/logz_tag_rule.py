@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,15 +29,46 @@ class LogzTagRuleArgs:
         :param pulumi.Input[bool] send_subscription_logs: Whether subscription logs should be sent to the Monitor resource?
         :param pulumi.Input[Sequence[pulumi.Input['LogzTagRuleTagFilterArgs']]] tag_filters: One or more (up to 10) `tag_filter` blocks as defined below.
         """
-        pulumi.set(__self__, "logz_monitor_id", logz_monitor_id)
+        LogzTagRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            logz_monitor_id=logz_monitor_id,
+            send_aad_logs=send_aad_logs,
+            send_activity_logs=send_activity_logs,
+            send_subscription_logs=send_subscription_logs,
+            tag_filters=tag_filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             logz_monitor_id: Optional[pulumi.Input[str]] = None,
+             send_aad_logs: Optional[pulumi.Input[bool]] = None,
+             send_activity_logs: Optional[pulumi.Input[bool]] = None,
+             send_subscription_logs: Optional[pulumi.Input[bool]] = None,
+             tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogzTagRuleTagFilterArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if logz_monitor_id is None and 'logzMonitorId' in kwargs:
+            logz_monitor_id = kwargs['logzMonitorId']
+        if logz_monitor_id is None:
+            raise TypeError("Missing 'logz_monitor_id' argument")
+        if send_aad_logs is None and 'sendAadLogs' in kwargs:
+            send_aad_logs = kwargs['sendAadLogs']
+        if send_activity_logs is None and 'sendActivityLogs' in kwargs:
+            send_activity_logs = kwargs['sendActivityLogs']
+        if send_subscription_logs is None and 'sendSubscriptionLogs' in kwargs:
+            send_subscription_logs = kwargs['sendSubscriptionLogs']
+        if tag_filters is None and 'tagFilters' in kwargs:
+            tag_filters = kwargs['tagFilters']
+
+        _setter("logz_monitor_id", logz_monitor_id)
         if send_aad_logs is not None:
-            pulumi.set(__self__, "send_aad_logs", send_aad_logs)
+            _setter("send_aad_logs", send_aad_logs)
         if send_activity_logs is not None:
-            pulumi.set(__self__, "send_activity_logs", send_activity_logs)
+            _setter("send_activity_logs", send_activity_logs)
         if send_subscription_logs is not None:
-            pulumi.set(__self__, "send_subscription_logs", send_subscription_logs)
+            _setter("send_subscription_logs", send_subscription_logs)
         if tag_filters is not None:
-            pulumi.set(__self__, "tag_filters", tag_filters)
+            _setter("tag_filters", tag_filters)
 
     @property
     @pulumi.getter(name="logzMonitorId")
@@ -116,16 +147,45 @@ class _LogzTagRuleState:
         :param pulumi.Input[bool] send_subscription_logs: Whether subscription logs should be sent to the Monitor resource?
         :param pulumi.Input[Sequence[pulumi.Input['LogzTagRuleTagFilterArgs']]] tag_filters: One or more (up to 10) `tag_filter` blocks as defined below.
         """
+        _LogzTagRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            logz_monitor_id=logz_monitor_id,
+            send_aad_logs=send_aad_logs,
+            send_activity_logs=send_activity_logs,
+            send_subscription_logs=send_subscription_logs,
+            tag_filters=tag_filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             logz_monitor_id: Optional[pulumi.Input[str]] = None,
+             send_aad_logs: Optional[pulumi.Input[bool]] = None,
+             send_activity_logs: Optional[pulumi.Input[bool]] = None,
+             send_subscription_logs: Optional[pulumi.Input[bool]] = None,
+             tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogzTagRuleTagFilterArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if logz_monitor_id is None and 'logzMonitorId' in kwargs:
+            logz_monitor_id = kwargs['logzMonitorId']
+        if send_aad_logs is None and 'sendAadLogs' in kwargs:
+            send_aad_logs = kwargs['sendAadLogs']
+        if send_activity_logs is None and 'sendActivityLogs' in kwargs:
+            send_activity_logs = kwargs['sendActivityLogs']
+        if send_subscription_logs is None and 'sendSubscriptionLogs' in kwargs:
+            send_subscription_logs = kwargs['sendSubscriptionLogs']
+        if tag_filters is None and 'tagFilters' in kwargs:
+            tag_filters = kwargs['tagFilters']
+
         if logz_monitor_id is not None:
-            pulumi.set(__self__, "logz_monitor_id", logz_monitor_id)
+            _setter("logz_monitor_id", logz_monitor_id)
         if send_aad_logs is not None:
-            pulumi.set(__self__, "send_aad_logs", send_aad_logs)
+            _setter("send_aad_logs", send_aad_logs)
         if send_activity_logs is not None:
-            pulumi.set(__self__, "send_activity_logs", send_activity_logs)
+            _setter("send_activity_logs", send_activity_logs)
         if send_subscription_logs is not None:
-            pulumi.set(__self__, "send_subscription_logs", send_subscription_logs)
+            _setter("send_subscription_logs", send_subscription_logs)
         if tag_filters is not None:
-            pulumi.set(__self__, "tag_filters", tag_filters)
+            _setter("tag_filters", tag_filters)
 
     @property
     @pulumi.getter(name="logzMonitorId")
@@ -325,6 +385,10 @@ class LogzTagRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LogzTagRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

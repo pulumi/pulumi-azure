@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -57,41 +57,128 @@ class SparkPoolArgs:
         :param pulumi.Input[str] spark_version: The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Spark Pool.
         """
-        pulumi.set(__self__, "node_size", node_size)
-        pulumi.set(__self__, "node_size_family", node_size_family)
-        pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
+        SparkPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            node_size=node_size,
+            node_size_family=node_size_family,
+            synapse_workspace_id=synapse_workspace_id,
+            auto_pause=auto_pause,
+            auto_scale=auto_scale,
+            cache_size=cache_size,
+            compute_isolation_enabled=compute_isolation_enabled,
+            dynamic_executor_allocation_enabled=dynamic_executor_allocation_enabled,
+            library_requirement=library_requirement,
+            max_executors=max_executors,
+            min_executors=min_executors,
+            name=name,
+            node_count=node_count,
+            session_level_packages_enabled=session_level_packages_enabled,
+            spark_config=spark_config,
+            spark_events_folder=spark_events_folder,
+            spark_log_folder=spark_log_folder,
+            spark_version=spark_version,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             node_size: Optional[pulumi.Input[str]] = None,
+             node_size_family: Optional[pulumi.Input[str]] = None,
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
+             auto_pause: Optional[pulumi.Input['SparkPoolAutoPauseArgs']] = None,
+             auto_scale: Optional[pulumi.Input['SparkPoolAutoScaleArgs']] = None,
+             cache_size: Optional[pulumi.Input[int]] = None,
+             compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
+             dynamic_executor_allocation_enabled: Optional[pulumi.Input[bool]] = None,
+             library_requirement: Optional[pulumi.Input['SparkPoolLibraryRequirementArgs']] = None,
+             max_executors: Optional[pulumi.Input[int]] = None,
+             min_executors: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             node_count: Optional[pulumi.Input[int]] = None,
+             session_level_packages_enabled: Optional[pulumi.Input[bool]] = None,
+             spark_config: Optional[pulumi.Input['SparkPoolSparkConfigArgs']] = None,
+             spark_events_folder: Optional[pulumi.Input[str]] = None,
+             spark_log_folder: Optional[pulumi.Input[str]] = None,
+             spark_version: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if node_size is None and 'nodeSize' in kwargs:
+            node_size = kwargs['nodeSize']
+        if node_size is None:
+            raise TypeError("Missing 'node_size' argument")
+        if node_size_family is None and 'nodeSizeFamily' in kwargs:
+            node_size_family = kwargs['nodeSizeFamily']
+        if node_size_family is None:
+            raise TypeError("Missing 'node_size_family' argument")
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+        if synapse_workspace_id is None:
+            raise TypeError("Missing 'synapse_workspace_id' argument")
+        if auto_pause is None and 'autoPause' in kwargs:
+            auto_pause = kwargs['autoPause']
+        if auto_scale is None and 'autoScale' in kwargs:
+            auto_scale = kwargs['autoScale']
+        if cache_size is None and 'cacheSize' in kwargs:
+            cache_size = kwargs['cacheSize']
+        if compute_isolation_enabled is None and 'computeIsolationEnabled' in kwargs:
+            compute_isolation_enabled = kwargs['computeIsolationEnabled']
+        if dynamic_executor_allocation_enabled is None and 'dynamicExecutorAllocationEnabled' in kwargs:
+            dynamic_executor_allocation_enabled = kwargs['dynamicExecutorAllocationEnabled']
+        if library_requirement is None and 'libraryRequirement' in kwargs:
+            library_requirement = kwargs['libraryRequirement']
+        if max_executors is None and 'maxExecutors' in kwargs:
+            max_executors = kwargs['maxExecutors']
+        if min_executors is None and 'minExecutors' in kwargs:
+            min_executors = kwargs['minExecutors']
+        if node_count is None and 'nodeCount' in kwargs:
+            node_count = kwargs['nodeCount']
+        if session_level_packages_enabled is None and 'sessionLevelPackagesEnabled' in kwargs:
+            session_level_packages_enabled = kwargs['sessionLevelPackagesEnabled']
+        if spark_config is None and 'sparkConfig' in kwargs:
+            spark_config = kwargs['sparkConfig']
+        if spark_events_folder is None and 'sparkEventsFolder' in kwargs:
+            spark_events_folder = kwargs['sparkEventsFolder']
+        if spark_log_folder is None and 'sparkLogFolder' in kwargs:
+            spark_log_folder = kwargs['sparkLogFolder']
+        if spark_version is None and 'sparkVersion' in kwargs:
+            spark_version = kwargs['sparkVersion']
+
+        _setter("node_size", node_size)
+        _setter("node_size_family", node_size_family)
+        _setter("synapse_workspace_id", synapse_workspace_id)
         if auto_pause is not None:
-            pulumi.set(__self__, "auto_pause", auto_pause)
+            _setter("auto_pause", auto_pause)
         if auto_scale is not None:
-            pulumi.set(__self__, "auto_scale", auto_scale)
+            _setter("auto_scale", auto_scale)
         if cache_size is not None:
-            pulumi.set(__self__, "cache_size", cache_size)
+            _setter("cache_size", cache_size)
         if compute_isolation_enabled is not None:
-            pulumi.set(__self__, "compute_isolation_enabled", compute_isolation_enabled)
+            _setter("compute_isolation_enabled", compute_isolation_enabled)
         if dynamic_executor_allocation_enabled is not None:
-            pulumi.set(__self__, "dynamic_executor_allocation_enabled", dynamic_executor_allocation_enabled)
+            _setter("dynamic_executor_allocation_enabled", dynamic_executor_allocation_enabled)
         if library_requirement is not None:
-            pulumi.set(__self__, "library_requirement", library_requirement)
+            _setter("library_requirement", library_requirement)
         if max_executors is not None:
-            pulumi.set(__self__, "max_executors", max_executors)
+            _setter("max_executors", max_executors)
         if min_executors is not None:
-            pulumi.set(__self__, "min_executors", min_executors)
+            _setter("min_executors", min_executors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if node_count is not None:
-            pulumi.set(__self__, "node_count", node_count)
+            _setter("node_count", node_count)
         if session_level_packages_enabled is not None:
-            pulumi.set(__self__, "session_level_packages_enabled", session_level_packages_enabled)
+            _setter("session_level_packages_enabled", session_level_packages_enabled)
         if spark_config is not None:
-            pulumi.set(__self__, "spark_config", spark_config)
+            _setter("spark_config", spark_config)
         if spark_events_folder is not None:
-            pulumi.set(__self__, "spark_events_folder", spark_events_folder)
+            _setter("spark_events_folder", spark_events_folder)
         if spark_log_folder is not None:
-            pulumi.set(__self__, "spark_log_folder", spark_log_folder)
+            _setter("spark_log_folder", spark_log_folder)
         if spark_version is not None:
-            pulumi.set(__self__, "spark_version", spark_version)
+            _setter("spark_version", spark_version)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="nodeSize")
@@ -366,44 +453,125 @@ class _SparkPoolState:
         :param pulumi.Input[str] synapse_workspace_id: The ID of the Synapse Workspace where the Synapse Spark Pool should exist. Changing this forces a new Synapse Spark Pool to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Spark Pool.
         """
+        _SparkPoolState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_pause=auto_pause,
+            auto_scale=auto_scale,
+            cache_size=cache_size,
+            compute_isolation_enabled=compute_isolation_enabled,
+            dynamic_executor_allocation_enabled=dynamic_executor_allocation_enabled,
+            library_requirement=library_requirement,
+            max_executors=max_executors,
+            min_executors=min_executors,
+            name=name,
+            node_count=node_count,
+            node_size=node_size,
+            node_size_family=node_size_family,
+            session_level_packages_enabled=session_level_packages_enabled,
+            spark_config=spark_config,
+            spark_events_folder=spark_events_folder,
+            spark_log_folder=spark_log_folder,
+            spark_version=spark_version,
+            synapse_workspace_id=synapse_workspace_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_pause: Optional[pulumi.Input['SparkPoolAutoPauseArgs']] = None,
+             auto_scale: Optional[pulumi.Input['SparkPoolAutoScaleArgs']] = None,
+             cache_size: Optional[pulumi.Input[int]] = None,
+             compute_isolation_enabled: Optional[pulumi.Input[bool]] = None,
+             dynamic_executor_allocation_enabled: Optional[pulumi.Input[bool]] = None,
+             library_requirement: Optional[pulumi.Input['SparkPoolLibraryRequirementArgs']] = None,
+             max_executors: Optional[pulumi.Input[int]] = None,
+             min_executors: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             node_count: Optional[pulumi.Input[int]] = None,
+             node_size: Optional[pulumi.Input[str]] = None,
+             node_size_family: Optional[pulumi.Input[str]] = None,
+             session_level_packages_enabled: Optional[pulumi.Input[bool]] = None,
+             spark_config: Optional[pulumi.Input['SparkPoolSparkConfigArgs']] = None,
+             spark_events_folder: Optional[pulumi.Input[str]] = None,
+             spark_log_folder: Optional[pulumi.Input[str]] = None,
+             spark_version: Optional[pulumi.Input[str]] = None,
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if auto_pause is None and 'autoPause' in kwargs:
+            auto_pause = kwargs['autoPause']
+        if auto_scale is None and 'autoScale' in kwargs:
+            auto_scale = kwargs['autoScale']
+        if cache_size is None and 'cacheSize' in kwargs:
+            cache_size = kwargs['cacheSize']
+        if compute_isolation_enabled is None and 'computeIsolationEnabled' in kwargs:
+            compute_isolation_enabled = kwargs['computeIsolationEnabled']
+        if dynamic_executor_allocation_enabled is None and 'dynamicExecutorAllocationEnabled' in kwargs:
+            dynamic_executor_allocation_enabled = kwargs['dynamicExecutorAllocationEnabled']
+        if library_requirement is None and 'libraryRequirement' in kwargs:
+            library_requirement = kwargs['libraryRequirement']
+        if max_executors is None and 'maxExecutors' in kwargs:
+            max_executors = kwargs['maxExecutors']
+        if min_executors is None and 'minExecutors' in kwargs:
+            min_executors = kwargs['minExecutors']
+        if node_count is None and 'nodeCount' in kwargs:
+            node_count = kwargs['nodeCount']
+        if node_size is None and 'nodeSize' in kwargs:
+            node_size = kwargs['nodeSize']
+        if node_size_family is None and 'nodeSizeFamily' in kwargs:
+            node_size_family = kwargs['nodeSizeFamily']
+        if session_level_packages_enabled is None and 'sessionLevelPackagesEnabled' in kwargs:
+            session_level_packages_enabled = kwargs['sessionLevelPackagesEnabled']
+        if spark_config is None and 'sparkConfig' in kwargs:
+            spark_config = kwargs['sparkConfig']
+        if spark_events_folder is None and 'sparkEventsFolder' in kwargs:
+            spark_events_folder = kwargs['sparkEventsFolder']
+        if spark_log_folder is None and 'sparkLogFolder' in kwargs:
+            spark_log_folder = kwargs['sparkLogFolder']
+        if spark_version is None and 'sparkVersion' in kwargs:
+            spark_version = kwargs['sparkVersion']
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+
         if auto_pause is not None:
-            pulumi.set(__self__, "auto_pause", auto_pause)
+            _setter("auto_pause", auto_pause)
         if auto_scale is not None:
-            pulumi.set(__self__, "auto_scale", auto_scale)
+            _setter("auto_scale", auto_scale)
         if cache_size is not None:
-            pulumi.set(__self__, "cache_size", cache_size)
+            _setter("cache_size", cache_size)
         if compute_isolation_enabled is not None:
-            pulumi.set(__self__, "compute_isolation_enabled", compute_isolation_enabled)
+            _setter("compute_isolation_enabled", compute_isolation_enabled)
         if dynamic_executor_allocation_enabled is not None:
-            pulumi.set(__self__, "dynamic_executor_allocation_enabled", dynamic_executor_allocation_enabled)
+            _setter("dynamic_executor_allocation_enabled", dynamic_executor_allocation_enabled)
         if library_requirement is not None:
-            pulumi.set(__self__, "library_requirement", library_requirement)
+            _setter("library_requirement", library_requirement)
         if max_executors is not None:
-            pulumi.set(__self__, "max_executors", max_executors)
+            _setter("max_executors", max_executors)
         if min_executors is not None:
-            pulumi.set(__self__, "min_executors", min_executors)
+            _setter("min_executors", min_executors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if node_count is not None:
-            pulumi.set(__self__, "node_count", node_count)
+            _setter("node_count", node_count)
         if node_size is not None:
-            pulumi.set(__self__, "node_size", node_size)
+            _setter("node_size", node_size)
         if node_size_family is not None:
-            pulumi.set(__self__, "node_size_family", node_size_family)
+            _setter("node_size_family", node_size_family)
         if session_level_packages_enabled is not None:
-            pulumi.set(__self__, "session_level_packages_enabled", session_level_packages_enabled)
+            _setter("session_level_packages_enabled", session_level_packages_enabled)
         if spark_config is not None:
-            pulumi.set(__self__, "spark_config", spark_config)
+            _setter("spark_config", spark_config)
         if spark_events_folder is not None:
-            pulumi.set(__self__, "spark_events_folder", spark_events_folder)
+            _setter("spark_events_folder", spark_events_folder)
         if spark_log_folder is not None:
-            pulumi.set(__self__, "spark_log_folder", spark_log_folder)
+            _setter("spark_log_folder", spark_log_folder)
         if spark_version is not None:
-            pulumi.set(__self__, "spark_version", spark_version)
+            _setter("spark_version", spark_version)
         if synapse_workspace_id is not None:
-            pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
+            _setter("synapse_workspace_id", synapse_workspace_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="autoPause")
@@ -719,6 +887,10 @@ class SparkPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SparkPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -752,11 +924,26 @@ class SparkPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SparkPoolArgs.__new__(SparkPoolArgs)
 
+            if auto_pause is not None and not isinstance(auto_pause, SparkPoolAutoPauseArgs):
+                auto_pause = auto_pause or {}
+                def _setter(key, value):
+                    auto_pause[key] = value
+                SparkPoolAutoPauseArgs._configure(_setter, **auto_pause)
             __props__.__dict__["auto_pause"] = auto_pause
+            if auto_scale is not None and not isinstance(auto_scale, SparkPoolAutoScaleArgs):
+                auto_scale = auto_scale or {}
+                def _setter(key, value):
+                    auto_scale[key] = value
+                SparkPoolAutoScaleArgs._configure(_setter, **auto_scale)
             __props__.__dict__["auto_scale"] = auto_scale
             __props__.__dict__["cache_size"] = cache_size
             __props__.__dict__["compute_isolation_enabled"] = compute_isolation_enabled
             __props__.__dict__["dynamic_executor_allocation_enabled"] = dynamic_executor_allocation_enabled
+            if library_requirement is not None and not isinstance(library_requirement, SparkPoolLibraryRequirementArgs):
+                library_requirement = library_requirement or {}
+                def _setter(key, value):
+                    library_requirement[key] = value
+                SparkPoolLibraryRequirementArgs._configure(_setter, **library_requirement)
             __props__.__dict__["library_requirement"] = library_requirement
             __props__.__dict__["max_executors"] = max_executors
             __props__.__dict__["min_executors"] = min_executors
@@ -769,6 +956,11 @@ class SparkPool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'node_size_family'")
             __props__.__dict__["node_size_family"] = node_size_family
             __props__.__dict__["session_level_packages_enabled"] = session_level_packages_enabled
+            if spark_config is not None and not isinstance(spark_config, SparkPoolSparkConfigArgs):
+                spark_config = spark_config or {}
+                def _setter(key, value):
+                    spark_config[key] = value
+                SparkPoolSparkConfigArgs._configure(_setter, **spark_config)
             __props__.__dict__["spark_config"] = spark_config
             __props__.__dict__["spark_events_folder"] = spark_events_folder
             __props__.__dict__["spark_log_folder"] = spark_log_folder

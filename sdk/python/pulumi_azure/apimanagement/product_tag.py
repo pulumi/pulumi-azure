@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProductTagArgs', 'ProductTag']
@@ -25,11 +25,40 @@ class ProductTagArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this API Management Tag. Changing this forces a new API Management Tag to be created.
         """
-        pulumi.set(__self__, "api_management_name", api_management_name)
-        pulumi.set(__self__, "api_management_product_id", api_management_product_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ProductTagArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_name=api_management_name,
+            api_management_product_id=api_management_product_id,
+            resource_group_name=resource_group_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             api_management_product_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_management_name is None and 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if api_management_product_id is None and 'apiManagementProductId' in kwargs:
+            api_management_product_id = kwargs['apiManagementProductId']
+        if api_management_product_id is None:
+            raise TypeError("Missing 'api_management_product_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+
+        _setter("api_management_name", api_management_name)
+        _setter("api_management_product_id", api_management_product_id)
+        _setter("resource_group_name", resource_group_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -94,14 +123,37 @@ class _ProductTagState:
         :param pulumi.Input[str] name: The name which should be used for this API Management Tag. Changing this forces a new API Management Tag to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the API Management Service should be exist. Changing this forces a new resource to be created.
         """
+        _ProductTagState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_name=api_management_name,
+            api_management_product_id=api_management_product_id,
+            name=name,
+            resource_group_name=resource_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             api_management_product_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_management_name is None and 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if api_management_product_id is None and 'apiManagementProductId' in kwargs:
+            api_management_product_id = kwargs['apiManagementProductId']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if api_management_name is not None:
-            pulumi.set(__self__, "api_management_name", api_management_name)
+            _setter("api_management_name", api_management_name)
         if api_management_product_id is not None:
-            pulumi.set(__self__, "api_management_product_id", api_management_product_id)
+            _setter("api_management_product_id", api_management_product_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -263,6 +315,10 @@ class ProductTag(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProductTagArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

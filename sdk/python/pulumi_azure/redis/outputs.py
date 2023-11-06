@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -52,13 +52,38 @@ class CacheIdentity(dict):
                
                > **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
         """
-        pulumi.set(__self__, "type", type)
+        CacheIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -123,11 +148,34 @@ class CachePatchSchedule(dict):
                
                > **Note:** The Patch Window lasts for `5` hours from the `start_hour_utc`.
         """
-        pulumi.set(__self__, "day_of_week", day_of_week)
+        CachePatchSchedule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_week=day_of_week,
+            maintenance_window=maintenance_window,
+            start_hour_utc=start_hour_utc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_week: Optional[str] = None,
+             maintenance_window: Optional[str] = None,
+             start_hour_utc: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if day_of_week is None and 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if day_of_week is None:
+            raise TypeError("Missing 'day_of_week' argument")
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if start_hour_utc is None and 'startHourUtc' in kwargs:
+            start_hour_utc = kwargs['startHourUtc']
+
+        _setter("day_of_week", day_of_week)
         if maintenance_window is not None:
-            pulumi.set(__self__, "maintenance_window", maintenance_window)
+            _setter("maintenance_window", maintenance_window)
         if start_hour_utc is not None:
-            pulumi.set(__self__, "start_hour_utc", start_hour_utc)
+            _setter("start_hour_utc", start_hour_utc)
 
     @property
     @pulumi.getter(name="dayOfWeek")
@@ -248,34 +296,97 @@ class CacheRedisConfiguration(dict):
                
                > **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the `ignoreChanges` attribute to ignore changes to this field](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) e.g.:
         """
+        CacheRedisConfiguration._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aof_backup_enabled=aof_backup_enabled,
+            aof_storage_connection_string0=aof_storage_connection_string0,
+            aof_storage_connection_string1=aof_storage_connection_string1,
+            enable_authentication=enable_authentication,
+            maxclients=maxclients,
+            maxfragmentationmemory_reserved=maxfragmentationmemory_reserved,
+            maxmemory_delta=maxmemory_delta,
+            maxmemory_policy=maxmemory_policy,
+            maxmemory_reserved=maxmemory_reserved,
+            notify_keyspace_events=notify_keyspace_events,
+            rdb_backup_enabled=rdb_backup_enabled,
+            rdb_backup_frequency=rdb_backup_frequency,
+            rdb_backup_max_snapshot_count=rdb_backup_max_snapshot_count,
+            rdb_storage_connection_string=rdb_storage_connection_string,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aof_backup_enabled: Optional[bool] = None,
+             aof_storage_connection_string0: Optional[str] = None,
+             aof_storage_connection_string1: Optional[str] = None,
+             enable_authentication: Optional[bool] = None,
+             maxclients: Optional[int] = None,
+             maxfragmentationmemory_reserved: Optional[int] = None,
+             maxmemory_delta: Optional[int] = None,
+             maxmemory_policy: Optional[str] = None,
+             maxmemory_reserved: Optional[int] = None,
+             notify_keyspace_events: Optional[str] = None,
+             rdb_backup_enabled: Optional[bool] = None,
+             rdb_backup_frequency: Optional[int] = None,
+             rdb_backup_max_snapshot_count: Optional[int] = None,
+             rdb_storage_connection_string: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if aof_backup_enabled is None and 'aofBackupEnabled' in kwargs:
+            aof_backup_enabled = kwargs['aofBackupEnabled']
+        if aof_storage_connection_string0 is None and 'aofStorageConnectionString0' in kwargs:
+            aof_storage_connection_string0 = kwargs['aofStorageConnectionString0']
+        if aof_storage_connection_string1 is None and 'aofStorageConnectionString1' in kwargs:
+            aof_storage_connection_string1 = kwargs['aofStorageConnectionString1']
+        if enable_authentication is None and 'enableAuthentication' in kwargs:
+            enable_authentication = kwargs['enableAuthentication']
+        if maxfragmentationmemory_reserved is None and 'maxfragmentationmemoryReserved' in kwargs:
+            maxfragmentationmemory_reserved = kwargs['maxfragmentationmemoryReserved']
+        if maxmemory_delta is None and 'maxmemoryDelta' in kwargs:
+            maxmemory_delta = kwargs['maxmemoryDelta']
+        if maxmemory_policy is None and 'maxmemoryPolicy' in kwargs:
+            maxmemory_policy = kwargs['maxmemoryPolicy']
+        if maxmemory_reserved is None and 'maxmemoryReserved' in kwargs:
+            maxmemory_reserved = kwargs['maxmemoryReserved']
+        if notify_keyspace_events is None and 'notifyKeyspaceEvents' in kwargs:
+            notify_keyspace_events = kwargs['notifyKeyspaceEvents']
+        if rdb_backup_enabled is None and 'rdbBackupEnabled' in kwargs:
+            rdb_backup_enabled = kwargs['rdbBackupEnabled']
+        if rdb_backup_frequency is None and 'rdbBackupFrequency' in kwargs:
+            rdb_backup_frequency = kwargs['rdbBackupFrequency']
+        if rdb_backup_max_snapshot_count is None and 'rdbBackupMaxSnapshotCount' in kwargs:
+            rdb_backup_max_snapshot_count = kwargs['rdbBackupMaxSnapshotCount']
+        if rdb_storage_connection_string is None and 'rdbStorageConnectionString' in kwargs:
+            rdb_storage_connection_string = kwargs['rdbStorageConnectionString']
+
         if aof_backup_enabled is not None:
-            pulumi.set(__self__, "aof_backup_enabled", aof_backup_enabled)
+            _setter("aof_backup_enabled", aof_backup_enabled)
         if aof_storage_connection_string0 is not None:
-            pulumi.set(__self__, "aof_storage_connection_string0", aof_storage_connection_string0)
+            _setter("aof_storage_connection_string0", aof_storage_connection_string0)
         if aof_storage_connection_string1 is not None:
-            pulumi.set(__self__, "aof_storage_connection_string1", aof_storage_connection_string1)
+            _setter("aof_storage_connection_string1", aof_storage_connection_string1)
         if enable_authentication is not None:
-            pulumi.set(__self__, "enable_authentication", enable_authentication)
+            _setter("enable_authentication", enable_authentication)
         if maxclients is not None:
-            pulumi.set(__self__, "maxclients", maxclients)
+            _setter("maxclients", maxclients)
         if maxfragmentationmemory_reserved is not None:
-            pulumi.set(__self__, "maxfragmentationmemory_reserved", maxfragmentationmemory_reserved)
+            _setter("maxfragmentationmemory_reserved", maxfragmentationmemory_reserved)
         if maxmemory_delta is not None:
-            pulumi.set(__self__, "maxmemory_delta", maxmemory_delta)
+            _setter("maxmemory_delta", maxmemory_delta)
         if maxmemory_policy is not None:
-            pulumi.set(__self__, "maxmemory_policy", maxmemory_policy)
+            _setter("maxmemory_policy", maxmemory_policy)
         if maxmemory_reserved is not None:
-            pulumi.set(__self__, "maxmemory_reserved", maxmemory_reserved)
+            _setter("maxmemory_reserved", maxmemory_reserved)
         if notify_keyspace_events is not None:
-            pulumi.set(__self__, "notify_keyspace_events", notify_keyspace_events)
+            _setter("notify_keyspace_events", notify_keyspace_events)
         if rdb_backup_enabled is not None:
-            pulumi.set(__self__, "rdb_backup_enabled", rdb_backup_enabled)
+            _setter("rdb_backup_enabled", rdb_backup_enabled)
         if rdb_backup_frequency is not None:
-            pulumi.set(__self__, "rdb_backup_frequency", rdb_backup_frequency)
+            _setter("rdb_backup_frequency", rdb_backup_frequency)
         if rdb_backup_max_snapshot_count is not None:
-            pulumi.set(__self__, "rdb_backup_max_snapshot_count", rdb_backup_max_snapshot_count)
+            _setter("rdb_backup_max_snapshot_count", rdb_backup_max_snapshot_count)
         if rdb_storage_connection_string is not None:
-            pulumi.set(__self__, "rdb_storage_connection_string", rdb_storage_connection_string)
+            _setter("rdb_storage_connection_string", rdb_storage_connection_string)
 
     @property
     @pulumi.getter(name="aofBackupEnabled")
@@ -418,11 +529,28 @@ class EnterpriseDatabaseModule(dict):
         :param str name: The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`. Changing this forces a new Redis Enterprise Database to be created.
         :param str args: Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`). Changing this forces a new resource to be created. Defaults to `""`.
         """
-        pulumi.set(__self__, "name", name)
+        EnterpriseDatabaseModule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            args=args,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             args: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if args is not None:
-            pulumi.set(__self__, "args", args)
+            _setter("args", args)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -457,9 +585,36 @@ class GetCachePatchScheduleResult(dict):
         :param str maintenance_window: The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated.
         :param int start_hour_utc: The Start Hour for maintenance in UTC
         """
-        pulumi.set(__self__, "day_of_week", day_of_week)
-        pulumi.set(__self__, "maintenance_window", maintenance_window)
-        pulumi.set(__self__, "start_hour_utc", start_hour_utc)
+        GetCachePatchScheduleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            day_of_week=day_of_week,
+            maintenance_window=maintenance_window,
+            start_hour_utc=start_hour_utc,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             day_of_week: Optional[str] = None,
+             maintenance_window: Optional[str] = None,
+             start_hour_utc: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if day_of_week is None and 'dayOfWeek' in kwargs:
+            day_of_week = kwargs['dayOfWeek']
+        if day_of_week is None:
+            raise TypeError("Missing 'day_of_week' argument")
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if maintenance_window is None:
+            raise TypeError("Missing 'maintenance_window' argument")
+        if start_hour_utc is None and 'startHourUtc' in kwargs:
+            start_hour_utc = kwargs['startHourUtc']
+        if start_hour_utc is None:
+            raise TypeError("Missing 'start_hour_utc' argument")
+
+        _setter("day_of_week", day_of_week)
+        _setter("maintenance_window", maintenance_window)
+        _setter("start_hour_utc", start_hour_utc)
 
     @property
     @pulumi.getter(name="dayOfWeek")
@@ -514,20 +669,111 @@ class GetCacheRedisConfigurationResult(dict):
         :param int rdb_backup_max_snapshot_count: The maximum number of snapshots that can be created as a backup.
         :param str rdb_storage_connection_string: The Connection String to the Storage Account. Only supported for Premium SKUs.
         """
-        pulumi.set(__self__, "aof_backup_enabled", aof_backup_enabled)
-        pulumi.set(__self__, "aof_storage_connection_string0", aof_storage_connection_string0)
-        pulumi.set(__self__, "aof_storage_connection_string1", aof_storage_connection_string1)
-        pulumi.set(__self__, "enable_authentication", enable_authentication)
-        pulumi.set(__self__, "maxclients", maxclients)
-        pulumi.set(__self__, "maxfragmentationmemory_reserved", maxfragmentationmemory_reserved)
-        pulumi.set(__self__, "maxmemory_delta", maxmemory_delta)
-        pulumi.set(__self__, "maxmemory_policy", maxmemory_policy)
-        pulumi.set(__self__, "maxmemory_reserved", maxmemory_reserved)
-        pulumi.set(__self__, "notify_keyspace_events", notify_keyspace_events)
-        pulumi.set(__self__, "rdb_backup_enabled", rdb_backup_enabled)
-        pulumi.set(__self__, "rdb_backup_frequency", rdb_backup_frequency)
-        pulumi.set(__self__, "rdb_backup_max_snapshot_count", rdb_backup_max_snapshot_count)
-        pulumi.set(__self__, "rdb_storage_connection_string", rdb_storage_connection_string)
+        GetCacheRedisConfigurationResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aof_backup_enabled=aof_backup_enabled,
+            aof_storage_connection_string0=aof_storage_connection_string0,
+            aof_storage_connection_string1=aof_storage_connection_string1,
+            enable_authentication=enable_authentication,
+            maxclients=maxclients,
+            maxfragmentationmemory_reserved=maxfragmentationmemory_reserved,
+            maxmemory_delta=maxmemory_delta,
+            maxmemory_policy=maxmemory_policy,
+            maxmemory_reserved=maxmemory_reserved,
+            notify_keyspace_events=notify_keyspace_events,
+            rdb_backup_enabled=rdb_backup_enabled,
+            rdb_backup_frequency=rdb_backup_frequency,
+            rdb_backup_max_snapshot_count=rdb_backup_max_snapshot_count,
+            rdb_storage_connection_string=rdb_storage_connection_string,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aof_backup_enabled: Optional[bool] = None,
+             aof_storage_connection_string0: Optional[str] = None,
+             aof_storage_connection_string1: Optional[str] = None,
+             enable_authentication: Optional[bool] = None,
+             maxclients: Optional[int] = None,
+             maxfragmentationmemory_reserved: Optional[int] = None,
+             maxmemory_delta: Optional[int] = None,
+             maxmemory_policy: Optional[str] = None,
+             maxmemory_reserved: Optional[int] = None,
+             notify_keyspace_events: Optional[str] = None,
+             rdb_backup_enabled: Optional[bool] = None,
+             rdb_backup_frequency: Optional[int] = None,
+             rdb_backup_max_snapshot_count: Optional[int] = None,
+             rdb_storage_connection_string: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if aof_backup_enabled is None and 'aofBackupEnabled' in kwargs:
+            aof_backup_enabled = kwargs['aofBackupEnabled']
+        if aof_backup_enabled is None:
+            raise TypeError("Missing 'aof_backup_enabled' argument")
+        if aof_storage_connection_string0 is None and 'aofStorageConnectionString0' in kwargs:
+            aof_storage_connection_string0 = kwargs['aofStorageConnectionString0']
+        if aof_storage_connection_string0 is None:
+            raise TypeError("Missing 'aof_storage_connection_string0' argument")
+        if aof_storage_connection_string1 is None and 'aofStorageConnectionString1' in kwargs:
+            aof_storage_connection_string1 = kwargs['aofStorageConnectionString1']
+        if aof_storage_connection_string1 is None:
+            raise TypeError("Missing 'aof_storage_connection_string1' argument")
+        if enable_authentication is None and 'enableAuthentication' in kwargs:
+            enable_authentication = kwargs['enableAuthentication']
+        if enable_authentication is None:
+            raise TypeError("Missing 'enable_authentication' argument")
+        if maxclients is None:
+            raise TypeError("Missing 'maxclients' argument")
+        if maxfragmentationmemory_reserved is None and 'maxfragmentationmemoryReserved' in kwargs:
+            maxfragmentationmemory_reserved = kwargs['maxfragmentationmemoryReserved']
+        if maxfragmentationmemory_reserved is None:
+            raise TypeError("Missing 'maxfragmentationmemory_reserved' argument")
+        if maxmemory_delta is None and 'maxmemoryDelta' in kwargs:
+            maxmemory_delta = kwargs['maxmemoryDelta']
+        if maxmemory_delta is None:
+            raise TypeError("Missing 'maxmemory_delta' argument")
+        if maxmemory_policy is None and 'maxmemoryPolicy' in kwargs:
+            maxmemory_policy = kwargs['maxmemoryPolicy']
+        if maxmemory_policy is None:
+            raise TypeError("Missing 'maxmemory_policy' argument")
+        if maxmemory_reserved is None and 'maxmemoryReserved' in kwargs:
+            maxmemory_reserved = kwargs['maxmemoryReserved']
+        if maxmemory_reserved is None:
+            raise TypeError("Missing 'maxmemory_reserved' argument")
+        if notify_keyspace_events is None and 'notifyKeyspaceEvents' in kwargs:
+            notify_keyspace_events = kwargs['notifyKeyspaceEvents']
+        if notify_keyspace_events is None:
+            raise TypeError("Missing 'notify_keyspace_events' argument")
+        if rdb_backup_enabled is None and 'rdbBackupEnabled' in kwargs:
+            rdb_backup_enabled = kwargs['rdbBackupEnabled']
+        if rdb_backup_enabled is None:
+            raise TypeError("Missing 'rdb_backup_enabled' argument")
+        if rdb_backup_frequency is None and 'rdbBackupFrequency' in kwargs:
+            rdb_backup_frequency = kwargs['rdbBackupFrequency']
+        if rdb_backup_frequency is None:
+            raise TypeError("Missing 'rdb_backup_frequency' argument")
+        if rdb_backup_max_snapshot_count is None and 'rdbBackupMaxSnapshotCount' in kwargs:
+            rdb_backup_max_snapshot_count = kwargs['rdbBackupMaxSnapshotCount']
+        if rdb_backup_max_snapshot_count is None:
+            raise TypeError("Missing 'rdb_backup_max_snapshot_count' argument")
+        if rdb_storage_connection_string is None and 'rdbStorageConnectionString' in kwargs:
+            rdb_storage_connection_string = kwargs['rdbStorageConnectionString']
+        if rdb_storage_connection_string is None:
+            raise TypeError("Missing 'rdb_storage_connection_string' argument")
+
+        _setter("aof_backup_enabled", aof_backup_enabled)
+        _setter("aof_storage_connection_string0", aof_storage_connection_string0)
+        _setter("aof_storage_connection_string1", aof_storage_connection_string1)
+        _setter("enable_authentication", enable_authentication)
+        _setter("maxclients", maxclients)
+        _setter("maxfragmentationmemory_reserved", maxfragmentationmemory_reserved)
+        _setter("maxmemory_delta", maxmemory_delta)
+        _setter("maxmemory_policy", maxmemory_policy)
+        _setter("maxmemory_reserved", maxmemory_reserved)
+        _setter("notify_keyspace_events", notify_keyspace_events)
+        _setter("rdb_backup_enabled", rdb_backup_enabled)
+        _setter("rdb_backup_frequency", rdb_backup_frequency)
+        _setter("rdb_backup_max_snapshot_count", rdb_backup_max_snapshot_count)
+        _setter("rdb_storage_connection_string", rdb_storage_connection_string)
 
     @property
     @pulumi.getter(name="aofBackupEnabled")

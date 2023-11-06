@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -31,15 +31,40 @@ class PolicySetDefinitionPolicyDefinitionGroupArgs:
         :param pulumi.Input[str] description: The description of this policy definition group.
         :param pulumi.Input[str] display_name: The display name of this policy definition group.
         """
-        pulumi.set(__self__, "name", name)
+        PolicySetDefinitionPolicyDefinitionGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            additional_metadata_resource_id=additional_metadata_resource_id,
+            category=category,
+            description=description,
+            display_name=display_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             additional_metadata_resource_id: Optional[pulumi.Input[str]] = None,
+             category: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if additional_metadata_resource_id is None and 'additionalMetadataResourceId' in kwargs:
+            additional_metadata_resource_id = kwargs['additionalMetadataResourceId']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
+        _setter("name", name)
         if additional_metadata_resource_id is not None:
-            pulumi.set(__self__, "additional_metadata_resource_id", additional_metadata_resource_id)
+            _setter("additional_metadata_resource_id", additional_metadata_resource_id)
         if category is not None:
-            pulumi.set(__self__, "category", category)
+            _setter("category", category)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
 
     @property
     @pulumi.getter
@@ -115,13 +140,40 @@ class PolicySetDefinitionPolicyDefinitionReferenceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_group_names: A list of names of the policy definition groups that this policy definition reference belongs to.
         :param pulumi.Input[str] reference_id: A unique ID within this policy set definition for this policy definition reference.
         """
-        pulumi.set(__self__, "policy_definition_id", policy_definition_id)
+        PolicySetDefinitionPolicyDefinitionReferenceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policy_definition_id=policy_definition_id,
+            parameter_values=parameter_values,
+            policy_group_names=policy_group_names,
+            reference_id=reference_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policy_definition_id: Optional[pulumi.Input[str]] = None,
+             parameter_values: Optional[pulumi.Input[str]] = None,
+             policy_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             reference_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if policy_definition_id is None and 'policyDefinitionId' in kwargs:
+            policy_definition_id = kwargs['policyDefinitionId']
+        if policy_definition_id is None:
+            raise TypeError("Missing 'policy_definition_id' argument")
+        if parameter_values is None and 'parameterValues' in kwargs:
+            parameter_values = kwargs['parameterValues']
+        if policy_group_names is None and 'policyGroupNames' in kwargs:
+            policy_group_names = kwargs['policyGroupNames']
+        if reference_id is None and 'referenceId' in kwargs:
+            reference_id = kwargs['referenceId']
+
+        _setter("policy_definition_id", policy_definition_id)
         if parameter_values is not None:
-            pulumi.set(__self__, "parameter_values", parameter_values)
+            _setter("parameter_values", parameter_values)
         if policy_group_names is not None:
-            pulumi.set(__self__, "policy_group_names", policy_group_names)
+            _setter("policy_group_names", policy_group_names)
         if reference_id is not None:
-            pulumi.set(__self__, "reference_id", reference_id)
+            _setter("reference_id", reference_id)
 
     @property
     @pulumi.getter(name="policyDefinitionId")
@@ -189,16 +241,41 @@ class VirtualMachineConfigurationAssignmentConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]] parameters: One or more `parameter` blocks as defined below which define what configuration parameters and values against.
         :param pulumi.Input[str] version: The version of the Guest Configuration that will be assigned in this Guest Configuration Assignment.
         """
+        VirtualMachineConfigurationAssignmentConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assignment_type=assignment_type,
+            content_hash=content_hash,
+            content_uri=content_uri,
+            parameters=parameters,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assignment_type: Optional[pulumi.Input[str]] = None,
+             content_hash: Optional[pulumi.Input[str]] = None,
+             content_uri: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineConfigurationAssignmentConfigurationParameterArgs']]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if assignment_type is None and 'assignmentType' in kwargs:
+            assignment_type = kwargs['assignmentType']
+        if content_hash is None and 'contentHash' in kwargs:
+            content_hash = kwargs['contentHash']
+        if content_uri is None and 'contentUri' in kwargs:
+            content_uri = kwargs['contentUri']
+
         if assignment_type is not None:
-            pulumi.set(__self__, "assignment_type", assignment_type)
+            _setter("assignment_type", assignment_type)
         if content_hash is not None:
-            pulumi.set(__self__, "content_hash", content_hash)
+            _setter("content_hash", content_hash)
         if content_uri is not None:
-            pulumi.set(__self__, "content_uri", content_uri)
+            _setter("content_uri", content_uri)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="assignmentType")
@@ -272,8 +349,25 @@ class VirtualMachineConfigurationAssignmentConfigurationParameterArgs:
         :param pulumi.Input[str] name: The name of the configuration parameter to check.
         :param pulumi.Input[str] value: The value to check the configuration parameter with.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
+        VirtualMachineConfigurationAssignmentConfigurationParameterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             value: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("name", name)
+        _setter("value", value)
 
     @property
     @pulumi.getter

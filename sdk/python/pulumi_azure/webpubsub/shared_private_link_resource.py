@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SharedPrivateLinkResourceArgs', 'SharedPrivateLinkResource']
@@ -31,13 +31,46 @@ class SharedPrivateLinkResourceArgs:
         :param pulumi.Input[str] name: Specify the name of the Web Pubsub Shared Private Link Resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] request_message: Specify the request message for requesting approval of the Shared Private Link Enabled Remote Resource.
         """
-        pulumi.set(__self__, "subresource_name", subresource_name)
-        pulumi.set(__self__, "target_resource_id", target_resource_id)
-        pulumi.set(__self__, "web_pubsub_id", web_pubsub_id)
+        SharedPrivateLinkResourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subresource_name=subresource_name,
+            target_resource_id=target_resource_id,
+            web_pubsub_id=web_pubsub_id,
+            name=name,
+            request_message=request_message,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subresource_name: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             web_pubsub_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             request_message: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if subresource_name is None and 'subresourceName' in kwargs:
+            subresource_name = kwargs['subresourceName']
+        if subresource_name is None:
+            raise TypeError("Missing 'subresource_name' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if web_pubsub_id is None and 'webPubsubId' in kwargs:
+            web_pubsub_id = kwargs['webPubsubId']
+        if web_pubsub_id is None:
+            raise TypeError("Missing 'web_pubsub_id' argument")
+        if request_message is None and 'requestMessage' in kwargs:
+            request_message = kwargs['requestMessage']
+
+        _setter("subresource_name", subresource_name)
+        _setter("target_resource_id", target_resource_id)
+        _setter("web_pubsub_id", web_pubsub_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if request_message is not None:
-            pulumi.set(__self__, "request_message", request_message)
+            _setter("request_message", request_message)
 
     @property
     @pulumi.getter(name="subresourceName")
@@ -126,18 +159,47 @@ class _SharedPrivateLinkResourceState:
                > **NOTE:** The sub resource name should match with the type of the target resource id that's being specified.
         :param pulumi.Input[str] web_pubsub_id: Specify the id of the Web Pubsub. Changing this forces a new resource to be created.
         """
+        _SharedPrivateLinkResourceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            request_message=request_message,
+            status=status,
+            subresource_name=subresource_name,
+            target_resource_id=target_resource_id,
+            web_pubsub_id=web_pubsub_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             request_message: Optional[pulumi.Input[str]] = None,
+             status: Optional[pulumi.Input[str]] = None,
+             subresource_name: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             web_pubsub_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if request_message is None and 'requestMessage' in kwargs:
+            request_message = kwargs['requestMessage']
+        if subresource_name is None and 'subresourceName' in kwargs:
+            subresource_name = kwargs['subresourceName']
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if web_pubsub_id is None and 'webPubsubId' in kwargs:
+            web_pubsub_id = kwargs['webPubsubId']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if request_message is not None:
-            pulumi.set(__self__, "request_message", request_message)
+            _setter("request_message", request_message)
         if status is not None:
-            pulumi.set(__self__, "status", status)
+            _setter("status", status)
         if subresource_name is not None:
-            pulumi.set(__self__, "subresource_name", subresource_name)
+            _setter("subresource_name", subresource_name)
         if target_resource_id is not None:
-            pulumi.set(__self__, "target_resource_id", target_resource_id)
+            _setter("target_resource_id", target_resource_id)
         if web_pubsub_id is not None:
-            pulumi.set(__self__, "web_pubsub_id", web_pubsub_id)
+            _setter("web_pubsub_id", web_pubsub_id)
 
     @property
     @pulumi.getter
@@ -341,6 +403,10 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SharedPrivateLinkResourceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

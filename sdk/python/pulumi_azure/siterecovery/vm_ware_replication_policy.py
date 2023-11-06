@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VMWareReplicationPolicyArgs', 'VMWareReplicationPolicy']
@@ -25,11 +25,40 @@ class VMWareReplicationPolicyArgs:
         :param pulumi.Input[str] recovery_vault_id: ID of the Recovery Services Vault. Changing this forces a new Replication Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this Classic Replication Policy. Changing this forces a new Replication Policy to be created.
         """
-        pulumi.set(__self__, "application_consistent_snapshot_frequency_in_minutes", application_consistent_snapshot_frequency_in_minutes)
-        pulumi.set(__self__, "recovery_point_retention_in_minutes", recovery_point_retention_in_minutes)
-        pulumi.set(__self__, "recovery_vault_id", recovery_vault_id)
+        VMWareReplicationPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_consistent_snapshot_frequency_in_minutes=application_consistent_snapshot_frequency_in_minutes,
+            recovery_point_retention_in_minutes=recovery_point_retention_in_minutes,
+            recovery_vault_id=recovery_vault_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_consistent_snapshot_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+             recovery_point_retention_in_minutes: Optional[pulumi.Input[int]] = None,
+             recovery_vault_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if application_consistent_snapshot_frequency_in_minutes is None and 'applicationConsistentSnapshotFrequencyInMinutes' in kwargs:
+            application_consistent_snapshot_frequency_in_minutes = kwargs['applicationConsistentSnapshotFrequencyInMinutes']
+        if application_consistent_snapshot_frequency_in_minutes is None:
+            raise TypeError("Missing 'application_consistent_snapshot_frequency_in_minutes' argument")
+        if recovery_point_retention_in_minutes is None and 'recoveryPointRetentionInMinutes' in kwargs:
+            recovery_point_retention_in_minutes = kwargs['recoveryPointRetentionInMinutes']
+        if recovery_point_retention_in_minutes is None:
+            raise TypeError("Missing 'recovery_point_retention_in_minutes' argument")
+        if recovery_vault_id is None and 'recoveryVaultId' in kwargs:
+            recovery_vault_id = kwargs['recoveryVaultId']
+        if recovery_vault_id is None:
+            raise TypeError("Missing 'recovery_vault_id' argument")
+
+        _setter("application_consistent_snapshot_frequency_in_minutes", application_consistent_snapshot_frequency_in_minutes)
+        _setter("recovery_point_retention_in_minutes", recovery_point_retention_in_minutes)
+        _setter("recovery_vault_id", recovery_vault_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="applicationConsistentSnapshotFrequencyInMinutes")
@@ -94,14 +123,37 @@ class _VMWareReplicationPolicyState:
         :param pulumi.Input[int] recovery_point_retention_in_minutes: Specifies the period up to which the recovery points will be retained. Must between `0` to `21600`.
         :param pulumi.Input[str] recovery_vault_id: ID of the Recovery Services Vault. Changing this forces a new Replication Policy to be created.
         """
+        _VMWareReplicationPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_consistent_snapshot_frequency_in_minutes=application_consistent_snapshot_frequency_in_minutes,
+            name=name,
+            recovery_point_retention_in_minutes=recovery_point_retention_in_minutes,
+            recovery_vault_id=recovery_vault_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_consistent_snapshot_frequency_in_minutes: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             recovery_point_retention_in_minutes: Optional[pulumi.Input[int]] = None,
+             recovery_vault_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if application_consistent_snapshot_frequency_in_minutes is None and 'applicationConsistentSnapshotFrequencyInMinutes' in kwargs:
+            application_consistent_snapshot_frequency_in_minutes = kwargs['applicationConsistentSnapshotFrequencyInMinutes']
+        if recovery_point_retention_in_minutes is None and 'recoveryPointRetentionInMinutes' in kwargs:
+            recovery_point_retention_in_minutes = kwargs['recoveryPointRetentionInMinutes']
+        if recovery_vault_id is None and 'recoveryVaultId' in kwargs:
+            recovery_vault_id = kwargs['recoveryVaultId']
+
         if application_consistent_snapshot_frequency_in_minutes is not None:
-            pulumi.set(__self__, "application_consistent_snapshot_frequency_in_minutes", application_consistent_snapshot_frequency_in_minutes)
+            _setter("application_consistent_snapshot_frequency_in_minutes", application_consistent_snapshot_frequency_in_minutes)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if recovery_point_retention_in_minutes is not None:
-            pulumi.set(__self__, "recovery_point_retention_in_minutes", recovery_point_retention_in_minutes)
+            _setter("recovery_point_retention_in_minutes", recovery_point_retention_in_minutes)
         if recovery_vault_id is not None:
-            pulumi.set(__self__, "recovery_vault_id", recovery_vault_id)
+            _setter("recovery_vault_id", recovery_vault_id)
 
     @property
     @pulumi.getter(name="applicationConsistentSnapshotFrequencyInMinutes")
@@ -245,6 +297,10 @@ class VMWareReplicationPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VMWareReplicationPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

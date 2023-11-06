@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,32 +47,93 @@ class LinkedServiceAzureDatabricksArgs:
         :param pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArgs'] new_cluster_config: Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
-        pulumi.set(__self__, "adb_domain", adb_domain)
-        pulumi.set(__self__, "data_factory_id", data_factory_id)
+        LinkedServiceAzureDatabricksArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            adb_domain=adb_domain,
+            data_factory_id=data_factory_id,
+            access_token=access_token,
+            additional_properties=additional_properties,
+            annotations=annotations,
+            description=description,
+            existing_cluster_id=existing_cluster_id,
+            instance_pool=instance_pool,
+            integration_runtime_name=integration_runtime_name,
+            key_vault_password=key_vault_password,
+            msi_work_space_resource_id=msi_work_space_resource_id,
+            name=name,
+            new_cluster_config=new_cluster_config,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             adb_domain: Optional[pulumi.Input[str]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             access_token: Optional[pulumi.Input[str]] = None,
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             existing_cluster_id: Optional[pulumi.Input[str]] = None,
+             instance_pool: Optional[pulumi.Input['LinkedServiceAzureDatabricksInstancePoolArgs']] = None,
+             integration_runtime_name: Optional[pulumi.Input[str]] = None,
+             key_vault_password: Optional[pulumi.Input['LinkedServiceAzureDatabricksKeyVaultPasswordArgs']] = None,
+             msi_work_space_resource_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             new_cluster_config: Optional[pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArgs']] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if adb_domain is None and 'adbDomain' in kwargs:
+            adb_domain = kwargs['adbDomain']
+        if adb_domain is None:
+            raise TypeError("Missing 'adb_domain' argument")
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if access_token is None and 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if additional_properties is None and 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if existing_cluster_id is None and 'existingClusterId' in kwargs:
+            existing_cluster_id = kwargs['existingClusterId']
+        if instance_pool is None and 'instancePool' in kwargs:
+            instance_pool = kwargs['instancePool']
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if key_vault_password is None and 'keyVaultPassword' in kwargs:
+            key_vault_password = kwargs['keyVaultPassword']
+        if msi_work_space_resource_id is None and 'msiWorkSpaceResourceId' in kwargs:
+            msi_work_space_resource_id = kwargs['msiWorkSpaceResourceId']
+        if new_cluster_config is None and 'newClusterConfig' in kwargs:
+            new_cluster_config = kwargs['newClusterConfig']
+
+        _setter("adb_domain", adb_domain)
+        _setter("data_factory_id", data_factory_id)
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if existing_cluster_id is not None:
-            pulumi.set(__self__, "existing_cluster_id", existing_cluster_id)
+            _setter("existing_cluster_id", existing_cluster_id)
         if instance_pool is not None:
-            pulumi.set(__self__, "instance_pool", instance_pool)
+            _setter("instance_pool", instance_pool)
         if integration_runtime_name is not None:
-            pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
+            _setter("integration_runtime_name", integration_runtime_name)
         if key_vault_password is not None:
-            pulumi.set(__self__, "key_vault_password", key_vault_password)
+            _setter("key_vault_password", key_vault_password)
         if msi_work_space_resource_id is not None:
-            pulumi.set(__self__, "msi_work_space_resource_id", msi_work_space_resource_id)
+            _setter("msi_work_space_resource_id", msi_work_space_resource_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if new_cluster_config is not None:
-            pulumi.set(__self__, "new_cluster_config", new_cluster_config)
+            _setter("new_cluster_config", new_cluster_config)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="adbDomain")
@@ -277,34 +338,91 @@ class _LinkedServiceAzureDatabricksState:
         :param pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArgs'] new_cluster_config: Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
+        _LinkedServiceAzureDatabricksState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_token=access_token,
+            adb_domain=adb_domain,
+            additional_properties=additional_properties,
+            annotations=annotations,
+            data_factory_id=data_factory_id,
+            description=description,
+            existing_cluster_id=existing_cluster_id,
+            instance_pool=instance_pool,
+            integration_runtime_name=integration_runtime_name,
+            key_vault_password=key_vault_password,
+            msi_work_space_resource_id=msi_work_space_resource_id,
+            name=name,
+            new_cluster_config=new_cluster_config,
+            parameters=parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_token: Optional[pulumi.Input[str]] = None,
+             adb_domain: Optional[pulumi.Input[str]] = None,
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             existing_cluster_id: Optional[pulumi.Input[str]] = None,
+             instance_pool: Optional[pulumi.Input['LinkedServiceAzureDatabricksInstancePoolArgs']] = None,
+             integration_runtime_name: Optional[pulumi.Input[str]] = None,
+             key_vault_password: Optional[pulumi.Input['LinkedServiceAzureDatabricksKeyVaultPasswordArgs']] = None,
+             msi_work_space_resource_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             new_cluster_config: Optional[pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArgs']] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_token is None and 'accessToken' in kwargs:
+            access_token = kwargs['accessToken']
+        if adb_domain is None and 'adbDomain' in kwargs:
+            adb_domain = kwargs['adbDomain']
+        if additional_properties is None and 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if existing_cluster_id is None and 'existingClusterId' in kwargs:
+            existing_cluster_id = kwargs['existingClusterId']
+        if instance_pool is None and 'instancePool' in kwargs:
+            instance_pool = kwargs['instancePool']
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if key_vault_password is None and 'keyVaultPassword' in kwargs:
+            key_vault_password = kwargs['keyVaultPassword']
+        if msi_work_space_resource_id is None and 'msiWorkSpaceResourceId' in kwargs:
+            msi_work_space_resource_id = kwargs['msiWorkSpaceResourceId']
+        if new_cluster_config is None and 'newClusterConfig' in kwargs:
+            new_cluster_config = kwargs['newClusterConfig']
+
         if access_token is not None:
-            pulumi.set(__self__, "access_token", access_token)
+            _setter("access_token", access_token)
         if adb_domain is not None:
-            pulumi.set(__self__, "adb_domain", adb_domain)
+            _setter("adb_domain", adb_domain)
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if data_factory_id is not None:
-            pulumi.set(__self__, "data_factory_id", data_factory_id)
+            _setter("data_factory_id", data_factory_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if existing_cluster_id is not None:
-            pulumi.set(__self__, "existing_cluster_id", existing_cluster_id)
+            _setter("existing_cluster_id", existing_cluster_id)
         if instance_pool is not None:
-            pulumi.set(__self__, "instance_pool", instance_pool)
+            _setter("instance_pool", instance_pool)
         if integration_runtime_name is not None:
-            pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
+            _setter("integration_runtime_name", integration_runtime_name)
         if key_vault_password is not None:
-            pulumi.set(__self__, "key_vault_password", key_vault_password)
+            _setter("key_vault_password", key_vault_password)
         if msi_work_space_resource_id is not None:
-            pulumi.set(__self__, "msi_work_space_resource_id", msi_work_space_resource_id)
+            _setter("msi_work_space_resource_id", msi_work_space_resource_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if new_cluster_config is not None:
-            pulumi.set(__self__, "new_cluster_config", new_cluster_config)
+            _setter("new_cluster_config", new_cluster_config)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
 
     @property
     @pulumi.getter(name="accessToken")
@@ -698,6 +816,10 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinkedServiceAzureDatabricksArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -737,11 +859,26 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
             __props__.__dict__["data_factory_id"] = data_factory_id
             __props__.__dict__["description"] = description
             __props__.__dict__["existing_cluster_id"] = existing_cluster_id
+            if instance_pool is not None and not isinstance(instance_pool, LinkedServiceAzureDatabricksInstancePoolArgs):
+                instance_pool = instance_pool or {}
+                def _setter(key, value):
+                    instance_pool[key] = value
+                LinkedServiceAzureDatabricksInstancePoolArgs._configure(_setter, **instance_pool)
             __props__.__dict__["instance_pool"] = instance_pool
             __props__.__dict__["integration_runtime_name"] = integration_runtime_name
+            if key_vault_password is not None and not isinstance(key_vault_password, LinkedServiceAzureDatabricksKeyVaultPasswordArgs):
+                key_vault_password = key_vault_password or {}
+                def _setter(key, value):
+                    key_vault_password[key] = value
+                LinkedServiceAzureDatabricksKeyVaultPasswordArgs._configure(_setter, **key_vault_password)
             __props__.__dict__["key_vault_password"] = key_vault_password
             __props__.__dict__["msi_work_space_resource_id"] = msi_work_space_resource_id
             __props__.__dict__["name"] = name
+            if new_cluster_config is not None and not isinstance(new_cluster_config, LinkedServiceAzureDatabricksNewClusterConfigArgs):
+                new_cluster_config = new_cluster_config or {}
+                def _setter(key, value):
+                    new_cluster_config[key] = value
+                LinkedServiceAzureDatabricksNewClusterConfigArgs._configure(_setter, **new_cluster_config)
             __props__.__dict__["new_cluster_config"] = new_cluster_config
             __props__.__dict__["parameters"] = parameters
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken"])

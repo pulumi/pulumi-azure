@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RouteServerArgs', 'RouteServer']
@@ -35,18 +35,59 @@ class RouteServerArgs:
         :param pulumi.Input[str] name: The name of the Route Server. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        RouteServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_ip_address_id=public_ip_address_id,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            subnet_id=subnet_id,
+            branch_to_branch_traffic_enabled=branch_to_branch_traffic_enabled,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_ip_address_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             branch_to_branch_traffic_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if public_ip_address_id is None:
+            raise TypeError("Missing 'public_ip_address_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if branch_to_branch_traffic_enabled is None and 'branchToBranchTrafficEnabled' in kwargs:
+            branch_to_branch_traffic_enabled = kwargs['branchToBranchTrafficEnabled']
+
+        _setter("public_ip_address_id", public_ip_address_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
+        _setter("subnet_id", subnet_id)
         if branch_to_branch_traffic_enabled is not None:
-            pulumi.set(__self__, "branch_to_branch_traffic_enabled", branch_to_branch_traffic_enabled)
+            _setter("branch_to_branch_traffic_enabled", branch_to_branch_traffic_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="publicIpAddressId")
@@ -174,28 +215,73 @@ class _RouteServerState:
                > **NOTE:** Azure Route Server requires a dedicated subnet named RouteServerSubnet. The subnet size has to be at least /27 or short prefix (such as /26 or /25) and cannot be attached to any security group, otherwise, you'll receive an error message when deploying the Route Server
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        _RouteServerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch_to_branch_traffic_enabled=branch_to_branch_traffic_enabled,
+            location=location,
+            name=name,
+            public_ip_address_id=public_ip_address_id,
+            resource_group_name=resource_group_name,
+            routing_state=routing_state,
+            sku=sku,
+            subnet_id=subnet_id,
+            tags=tags,
+            virtual_router_asn=virtual_router_asn,
+            virtual_router_ips=virtual_router_ips,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch_to_branch_traffic_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_ip_address_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             routing_state: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_router_asn: Optional[pulumi.Input[int]] = None,
+             virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if branch_to_branch_traffic_enabled is None and 'branchToBranchTrafficEnabled' in kwargs:
+            branch_to_branch_traffic_enabled = kwargs['branchToBranchTrafficEnabled']
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if routing_state is None and 'routingState' in kwargs:
+            routing_state = kwargs['routingState']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if virtual_router_asn is None and 'virtualRouterAsn' in kwargs:
+            virtual_router_asn = kwargs['virtualRouterAsn']
+        if virtual_router_ips is None and 'virtualRouterIps' in kwargs:
+            virtual_router_ips = kwargs['virtualRouterIps']
+
         if branch_to_branch_traffic_enabled is not None:
-            pulumi.set(__self__, "branch_to_branch_traffic_enabled", branch_to_branch_traffic_enabled)
+            _setter("branch_to_branch_traffic_enabled", branch_to_branch_traffic_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_ip_address_id is not None:
-            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+            _setter("public_ip_address_id", public_ip_address_id)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if routing_state is not None:
-            pulumi.set(__self__, "routing_state", routing_state)
+            _setter("routing_state", routing_state)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_router_asn is not None:
-            pulumi.set(__self__, "virtual_router_asn", virtual_router_asn)
+            _setter("virtual_router_asn", virtual_router_asn)
         if virtual_router_ips is not None:
-            pulumi.set(__self__, "virtual_router_ips", virtual_router_ips)
+            _setter("virtual_router_ips", virtual_router_ips)
 
     @property
     @pulumi.getter(name="branchToBranchTrafficEnabled")
@@ -452,6 +538,10 @@ class RouteServer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RouteServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

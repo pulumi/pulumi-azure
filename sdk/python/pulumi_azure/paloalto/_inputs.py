@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -48,9 +48,26 @@ class LocalRulestackRuleCategoryArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_urls: Specifies a list of URL categories to match. Possible values include `abortion`, `abused-drugs`, `adult`, `alcohol-and-tobacco`, `auctions`, `business-and-economy`, `command-and-control`, `computer-and-internet-info`, `content-delivery-networks`, `copyright-infringement`, `cryptocurrency`, `dating`, `dynamic-dns`, `educational-institutions`, `entertainment-and-arts`, `extremism`, `financial-services`, `gambling`, `games`, `government`, `grayware`, `hacking`, `health-and-medicine`, `high-risk`, `home-and-garden`, `hunting-and-fishing`, `insufficient-content`, `internet-communications-and-telephony`, `internet-portals`, `job-search`, `legal`, `low-risk`, `malware`, `medium-risk`, `military`, `motor-vehicles`, `music`, `newly-registered-domain`, `news`, `not-resolved`, `nudity`, `online-storage-and-backup`, `parked`, `peer-to-peer`, `personal-sites-and-blogs`, `philosophy-and-political-advocacy`, `phishing`, `private-ip-addresses`, `proxy-avoidance-and-anonymizers`, `questionable`, `real-estate`, `real-time-detection`, `recreation-and-hobbies`, `reference-and-research`, `religion`, `search-engines`, `sex-education`, `shareware-and-freeware`, `shopping`, `social-networking`, `society`, `sports`, `stock-advice-and-tools`, `streaming-media`, `swimsuits-and-intimate-apparel`, `training-and-tools`, `translation`, `travel`, `unknown`, `weapons`, `web-advertisements`, `web-based-email`, and  `web-hosting`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] feeds: Specifies a list of feeds to match.
         """
-        pulumi.set(__self__, "custom_urls", custom_urls)
+        LocalRulestackRuleCategoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_urls=custom_urls,
+            feeds=feeds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             feeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if custom_urls is None and 'customUrls' in kwargs:
+            custom_urls = kwargs['customUrls']
+        if custom_urls is None:
+            raise TypeError("Missing 'custom_urls' argument")
+
+        _setter("custom_urls", custom_urls)
         if feeds is not None:
-            pulumi.set(__self__, "feeds", feeds)
+            _setter("feeds", feeds)
 
     @property
     @pulumi.getter(name="customUrls")
@@ -96,16 +113,39 @@ class LocalRulestackRuleDestinationArgs:
                
                > **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
         """
+        LocalRulestackRuleDestinationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidrs=cidrs,
+            countries=countries,
+            feeds=feeds,
+            local_rulestack_fqdn_list_ids=local_rulestack_fqdn_list_ids,
+            local_rulestack_prefix_list_ids=local_rulestack_prefix_list_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             countries: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             feeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             local_rulestack_fqdn_list_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             local_rulestack_prefix_list_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if local_rulestack_fqdn_list_ids is None and 'localRulestackFqdnListIds' in kwargs:
+            local_rulestack_fqdn_list_ids = kwargs['localRulestackFqdnListIds']
+        if local_rulestack_prefix_list_ids is None and 'localRulestackPrefixListIds' in kwargs:
+            local_rulestack_prefix_list_ids = kwargs['localRulestackPrefixListIds']
+
         if cidrs is not None:
-            pulumi.set(__self__, "cidrs", cidrs)
+            _setter("cidrs", cidrs)
         if countries is not None:
-            pulumi.set(__self__, "countries", countries)
+            _setter("countries", countries)
         if feeds is not None:
-            pulumi.set(__self__, "feeds", feeds)
+            _setter("feeds", feeds)
         if local_rulestack_fqdn_list_ids is not None:
-            pulumi.set(__self__, "local_rulestack_fqdn_list_ids", local_rulestack_fqdn_list_ids)
+            _setter("local_rulestack_fqdn_list_ids", local_rulestack_fqdn_list_ids)
         if local_rulestack_prefix_list_ids is not None:
-            pulumi.set(__self__, "local_rulestack_prefix_list_ids", local_rulestack_prefix_list_ids)
+            _setter("local_rulestack_prefix_list_ids", local_rulestack_prefix_list_ids)
 
     @property
     @pulumi.getter
@@ -187,14 +227,33 @@ class LocalRulestackRuleSourceArgs:
                
                > **Note:** This is a list of names of Prefix Lists configured on the same Local Rulestack as this Rule is being created.
         """
+        LocalRulestackRuleSourceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidrs=cidrs,
+            countries=countries,
+            feeds=feeds,
+            local_rulestack_prefix_list_ids=local_rulestack_prefix_list_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidrs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             countries: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             feeds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             local_rulestack_prefix_list_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if local_rulestack_prefix_list_ids is None and 'localRulestackPrefixListIds' in kwargs:
+            local_rulestack_prefix_list_ids = kwargs['localRulestackPrefixListIds']
+
         if cidrs is not None:
-            pulumi.set(__self__, "cidrs", cidrs)
+            _setter("cidrs", cidrs)
         if countries is not None:
-            pulumi.set(__self__, "countries", countries)
+            _setter("countries", countries)
         if feeds is not None:
-            pulumi.set(__self__, "feeds", feeds)
+            _setter("feeds", feeds)
         if local_rulestack_prefix_list_ids is not None:
-            pulumi.set(__self__, "local_rulestack_prefix_list_ids", local_rulestack_prefix_list_ids)
+            _setter("local_rulestack_prefix_list_ids", local_rulestack_prefix_list_ids)
 
     @property
     @pulumi.getter
@@ -254,12 +313,37 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs:
                  protocol: pulumi.Input[str],
                  backend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgs']] = None,
                  frontend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgs']] = None):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "protocol", protocol)
+        NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            protocol=protocol,
+            backend_config=backend_config,
+            frontend_config=frontend_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             backend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgs']] = None,
+             frontend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if backend_config is None and 'backendConfig' in kwargs:
+            backend_config = kwargs['backendConfig']
+        if frontend_config is None and 'frontendConfig' in kwargs:
+            frontend_config = kwargs['frontendConfig']
+
+        _setter("name", name)
+        _setter("protocol", protocol)
         if backend_config is not None:
-            pulumi.set(__self__, "backend_config", backend_config)
+            _setter("backend_config", backend_config)
         if frontend_config is not None:
-            pulumi.set(__self__, "frontend_config", frontend_config)
+            _setter("frontend_config", frontend_config)
 
     @property
     @pulumi.getter
@@ -303,8 +387,27 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigA
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  public_ip_address: pulumi.Input[str]):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "public_ip_address", public_ip_address)
+        NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            public_ip_address=public_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[pulumi.Input[int]] = None,
+             public_ip_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if public_ip_address is None and 'publicIpAddress' in kwargs:
+            public_ip_address = kwargs['publicIpAddress']
+        if public_ip_address is None:
+            raise TypeError("Missing 'public_ip_address' argument")
+
+        _setter("port", port)
+        _setter("public_ip_address", public_ip_address)
 
     @property
     @pulumi.getter
@@ -330,8 +433,27 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfig
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  public_ip_address_id: pulumi.Input[str]):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+        NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            public_ip_address_id=public_ip_address_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[pulumi.Input[int]] = None,
+             public_ip_address_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if public_ip_address_id is None:
+            raise TypeError("Missing 'public_ip_address_id' argument")
+
+        _setter("port", port)
+        _setter("public_ip_address_id", public_ip_address_id)
 
     @property
     @pulumi.getter
@@ -358,12 +480,33 @@ class NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs:
                  azure_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  use_azure_dns: Optional[pulumi.Input[bool]] = None):
+        NextGenerationFirewallVirtualHubLocalRulestackDnsSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_dns_servers=azure_dns_servers,
+            dns_servers=dns_servers,
+            use_azure_dns=use_azure_dns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             use_azure_dns: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if azure_dns_servers is None and 'azureDnsServers' in kwargs:
+            azure_dns_servers = kwargs['azureDnsServers']
+        if dns_servers is None and 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if use_azure_dns is None and 'useAzureDns' in kwargs:
+            use_azure_dns = kwargs['useAzureDns']
+
         if azure_dns_servers is not None:
-            pulumi.set(__self__, "azure_dns_servers", azure_dns_servers)
+            _setter("azure_dns_servers", azure_dns_servers)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if use_azure_dns is not None:
-            pulumi.set(__self__, "use_azure_dns", use_azure_dns)
+            _setter("use_azure_dns", use_azure_dns)
 
     @property
     @pulumi.getter(name="azureDnsServers")
@@ -405,21 +548,72 @@ class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs:
                  public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  trusted_subnet_id: Optional[pulumi.Input[str]] = None,
                  untrusted_subnet_id: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "network_virtual_appliance_id", network_virtual_appliance_id)
-        pulumi.set(__self__, "public_ip_address_ids", public_ip_address_ids)
-        pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
+        NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_virtual_appliance_id=network_virtual_appliance_id,
+            public_ip_address_ids=public_ip_address_ids,
+            virtual_hub_id=virtual_hub_id,
+            egress_nat_ip_address_ids=egress_nat_ip_address_ids,
+            egress_nat_ip_addresses=egress_nat_ip_addresses,
+            ip_of_trust_for_user_defined_routes=ip_of_trust_for_user_defined_routes,
+            public_ip_addresses=public_ip_addresses,
+            trusted_subnet_id=trusted_subnet_id,
+            untrusted_subnet_id=untrusted_subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_virtual_appliance_id: Optional[pulumi.Input[str]] = None,
+             public_ip_address_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
+             egress_nat_ip_address_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             egress_nat_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ip_of_trust_for_user_defined_routes: Optional[pulumi.Input[str]] = None,
+             public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             trusted_subnet_id: Optional[pulumi.Input[str]] = None,
+             untrusted_subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if network_virtual_appliance_id is None and 'networkVirtualApplianceId' in kwargs:
+            network_virtual_appliance_id = kwargs['networkVirtualApplianceId']
+        if network_virtual_appliance_id is None:
+            raise TypeError("Missing 'network_virtual_appliance_id' argument")
+        if public_ip_address_ids is None and 'publicIpAddressIds' in kwargs:
+            public_ip_address_ids = kwargs['publicIpAddressIds']
+        if public_ip_address_ids is None:
+            raise TypeError("Missing 'public_ip_address_ids' argument")
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+        if virtual_hub_id is None:
+            raise TypeError("Missing 'virtual_hub_id' argument")
+        if egress_nat_ip_address_ids is None and 'egressNatIpAddressIds' in kwargs:
+            egress_nat_ip_address_ids = kwargs['egressNatIpAddressIds']
+        if egress_nat_ip_addresses is None and 'egressNatIpAddresses' in kwargs:
+            egress_nat_ip_addresses = kwargs['egressNatIpAddresses']
+        if ip_of_trust_for_user_defined_routes is None and 'ipOfTrustForUserDefinedRoutes' in kwargs:
+            ip_of_trust_for_user_defined_routes = kwargs['ipOfTrustForUserDefinedRoutes']
+        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
+            public_ip_addresses = kwargs['publicIpAddresses']
+        if trusted_subnet_id is None and 'trustedSubnetId' in kwargs:
+            trusted_subnet_id = kwargs['trustedSubnetId']
+        if untrusted_subnet_id is None and 'untrustedSubnetId' in kwargs:
+            untrusted_subnet_id = kwargs['untrustedSubnetId']
+
+        _setter("network_virtual_appliance_id", network_virtual_appliance_id)
+        _setter("public_ip_address_ids", public_ip_address_ids)
+        _setter("virtual_hub_id", virtual_hub_id)
         if egress_nat_ip_address_ids is not None:
-            pulumi.set(__self__, "egress_nat_ip_address_ids", egress_nat_ip_address_ids)
+            _setter("egress_nat_ip_address_ids", egress_nat_ip_address_ids)
         if egress_nat_ip_addresses is not None:
-            pulumi.set(__self__, "egress_nat_ip_addresses", egress_nat_ip_addresses)
+            _setter("egress_nat_ip_addresses", egress_nat_ip_addresses)
         if ip_of_trust_for_user_defined_routes is not None:
-            pulumi.set(__self__, "ip_of_trust_for_user_defined_routes", ip_of_trust_for_user_defined_routes)
+            _setter("ip_of_trust_for_user_defined_routes", ip_of_trust_for_user_defined_routes)
         if public_ip_addresses is not None:
-            pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+            _setter("public_ip_addresses", public_ip_addresses)
         if trusted_subnet_id is not None:
-            pulumi.set(__self__, "trusted_subnet_id", trusted_subnet_id)
+            _setter("trusted_subnet_id", trusted_subnet_id)
         if untrusted_subnet_id is not None:
-            pulumi.set(__self__, "untrusted_subnet_id", untrusted_subnet_id)
+            _setter("untrusted_subnet_id", untrusted_subnet_id)
 
     @property
     @pulumi.getter(name="networkVirtualApplianceId")
@@ -510,12 +704,37 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs:
                  protocol: pulumi.Input[str],
                  backend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs']] = None,
                  frontend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs']] = None):
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "protocol", protocol)
+        NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            protocol=protocol,
+            backend_config=backend_config,
+            frontend_config=frontend_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             backend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs']] = None,
+             frontend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if backend_config is None and 'backendConfig' in kwargs:
+            backend_config = kwargs['backendConfig']
+        if frontend_config is None and 'frontendConfig' in kwargs:
+            frontend_config = kwargs['frontendConfig']
+
+        _setter("name", name)
+        _setter("protocol", protocol)
         if backend_config is not None:
-            pulumi.set(__self__, "backend_config", backend_config)
+            _setter("backend_config", backend_config)
         if frontend_config is not None:
-            pulumi.set(__self__, "frontend_config", frontend_config)
+            _setter("frontend_config", frontend_config)
 
     @property
     @pulumi.getter
@@ -559,8 +778,27 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  public_ip_address: pulumi.Input[str]):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "public_ip_address", public_ip_address)
+        NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            public_ip_address=public_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[pulumi.Input[int]] = None,
+             public_ip_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if public_ip_address is None and 'publicIpAddress' in kwargs:
+            public_ip_address = kwargs['publicIpAddress']
+        if public_ip_address is None:
+            raise TypeError("Missing 'public_ip_address' argument")
+
+        _setter("port", port)
+        _setter("public_ip_address", public_ip_address)
 
     @property
     @pulumi.getter
@@ -586,8 +824,27 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  public_ip_address_id: pulumi.Input[str]):
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+        NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            public_ip_address_id=public_ip_address_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[pulumi.Input[int]] = None,
+             public_ip_address_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if public_ip_address_id is None:
+            raise TypeError("Missing 'public_ip_address_id' argument")
+
+        _setter("port", port)
+        _setter("public_ip_address_id", public_ip_address_id)
 
     @property
     @pulumi.getter
@@ -614,12 +871,33 @@ class NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs:
                  azure_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  use_azure_dns: Optional[pulumi.Input[bool]] = None):
+        NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_dns_servers=azure_dns_servers,
+            dns_servers=dns_servers,
+            use_azure_dns=use_azure_dns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             use_azure_dns: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if azure_dns_servers is None and 'azureDnsServers' in kwargs:
+            azure_dns_servers = kwargs['azureDnsServers']
+        if dns_servers is None and 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if use_azure_dns is None and 'useAzureDns' in kwargs:
+            use_azure_dns = kwargs['useAzureDns']
+
         if azure_dns_servers is not None:
-            pulumi.set(__self__, "azure_dns_servers", azure_dns_servers)
+            _setter("azure_dns_servers", azure_dns_servers)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if use_azure_dns is not None:
-            pulumi.set(__self__, "use_azure_dns", use_azure_dns)
+            _setter("use_azure_dns", use_azure_dns)
 
     @property
     @pulumi.getter(name="azureDnsServers")
@@ -661,21 +939,72 @@ class NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs:
                  public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  trusted_subnet_id: Optional[pulumi.Input[str]] = None,
                  untrusted_subnet_id: Optional[pulumi.Input[str]] = None):
-        pulumi.set(__self__, "network_virtual_appliance_id", network_virtual_appliance_id)
-        pulumi.set(__self__, "public_ip_address_ids", public_ip_address_ids)
-        pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
+        NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_virtual_appliance_id=network_virtual_appliance_id,
+            public_ip_address_ids=public_ip_address_ids,
+            virtual_hub_id=virtual_hub_id,
+            egress_nat_ip_address_ids=egress_nat_ip_address_ids,
+            egress_nat_ip_addresses=egress_nat_ip_addresses,
+            ip_of_trust_for_user_defined_routes=ip_of_trust_for_user_defined_routes,
+            public_ip_addresses=public_ip_addresses,
+            trusted_subnet_id=trusted_subnet_id,
+            untrusted_subnet_id=untrusted_subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_virtual_appliance_id: Optional[pulumi.Input[str]] = None,
+             public_ip_address_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
+             egress_nat_ip_address_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             egress_nat_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ip_of_trust_for_user_defined_routes: Optional[pulumi.Input[str]] = None,
+             public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             trusted_subnet_id: Optional[pulumi.Input[str]] = None,
+             untrusted_subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if network_virtual_appliance_id is None and 'networkVirtualApplianceId' in kwargs:
+            network_virtual_appliance_id = kwargs['networkVirtualApplianceId']
+        if network_virtual_appliance_id is None:
+            raise TypeError("Missing 'network_virtual_appliance_id' argument")
+        if public_ip_address_ids is None and 'publicIpAddressIds' in kwargs:
+            public_ip_address_ids = kwargs['publicIpAddressIds']
+        if public_ip_address_ids is None:
+            raise TypeError("Missing 'public_ip_address_ids' argument")
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+        if virtual_hub_id is None:
+            raise TypeError("Missing 'virtual_hub_id' argument")
+        if egress_nat_ip_address_ids is None and 'egressNatIpAddressIds' in kwargs:
+            egress_nat_ip_address_ids = kwargs['egressNatIpAddressIds']
+        if egress_nat_ip_addresses is None and 'egressNatIpAddresses' in kwargs:
+            egress_nat_ip_addresses = kwargs['egressNatIpAddresses']
+        if ip_of_trust_for_user_defined_routes is None and 'ipOfTrustForUserDefinedRoutes' in kwargs:
+            ip_of_trust_for_user_defined_routes = kwargs['ipOfTrustForUserDefinedRoutes']
+        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
+            public_ip_addresses = kwargs['publicIpAddresses']
+        if trusted_subnet_id is None and 'trustedSubnetId' in kwargs:
+            trusted_subnet_id = kwargs['trustedSubnetId']
+        if untrusted_subnet_id is None and 'untrustedSubnetId' in kwargs:
+            untrusted_subnet_id = kwargs['untrustedSubnetId']
+
+        _setter("network_virtual_appliance_id", network_virtual_appliance_id)
+        _setter("public_ip_address_ids", public_ip_address_ids)
+        _setter("virtual_hub_id", virtual_hub_id)
         if egress_nat_ip_address_ids is not None:
-            pulumi.set(__self__, "egress_nat_ip_address_ids", egress_nat_ip_address_ids)
+            _setter("egress_nat_ip_address_ids", egress_nat_ip_address_ids)
         if egress_nat_ip_addresses is not None:
-            pulumi.set(__self__, "egress_nat_ip_addresses", egress_nat_ip_addresses)
+            _setter("egress_nat_ip_addresses", egress_nat_ip_addresses)
         if ip_of_trust_for_user_defined_routes is not None:
-            pulumi.set(__self__, "ip_of_trust_for_user_defined_routes", ip_of_trust_for_user_defined_routes)
+            _setter("ip_of_trust_for_user_defined_routes", ip_of_trust_for_user_defined_routes)
         if public_ip_addresses is not None:
-            pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+            _setter("public_ip_addresses", public_ip_addresses)
         if trusted_subnet_id is not None:
-            pulumi.set(__self__, "trusted_subnet_id", trusted_subnet_id)
+            _setter("trusted_subnet_id", trusted_subnet_id)
         if untrusted_subnet_id is not None:
-            pulumi.set(__self__, "untrusted_subnet_id", untrusted_subnet_id)
+            _setter("untrusted_subnet_id", untrusted_subnet_id)
 
     @property
     @pulumi.getter(name="networkVirtualApplianceId")
@@ -769,20 +1098,55 @@ class NextGenerationFirewallVirtualHubPanoramaPanoramaArgs:
                  panorama_server2: Optional[pulumi.Input[str]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
                  virtual_machine_ssh_key: Optional[pulumi.Input[str]] = None):
+        NextGenerationFirewallVirtualHubPanoramaPanoramaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_group_name=device_group_name,
+            host_name=host_name,
+            name=name,
+            panorama_server1=panorama_server1,
+            panorama_server2=panorama_server2,
+            template_name=template_name,
+            virtual_machine_ssh_key=virtual_machine_ssh_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_group_name: Optional[pulumi.Input[str]] = None,
+             host_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             panorama_server1: Optional[pulumi.Input[str]] = None,
+             panorama_server2: Optional[pulumi.Input[str]] = None,
+             template_name: Optional[pulumi.Input[str]] = None,
+             virtual_machine_ssh_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if device_group_name is None and 'deviceGroupName' in kwargs:
+            device_group_name = kwargs['deviceGroupName']
+        if host_name is None and 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if panorama_server1 is None and 'panoramaServer1' in kwargs:
+            panorama_server1 = kwargs['panoramaServer1']
+        if panorama_server2 is None and 'panoramaServer2' in kwargs:
+            panorama_server2 = kwargs['panoramaServer2']
+        if template_name is None and 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+        if virtual_machine_ssh_key is None and 'virtualMachineSshKey' in kwargs:
+            virtual_machine_ssh_key = kwargs['virtualMachineSshKey']
+
         if device_group_name is not None:
-            pulumi.set(__self__, "device_group_name", device_group_name)
+            _setter("device_group_name", device_group_name)
         if host_name is not None:
-            pulumi.set(__self__, "host_name", host_name)
+            _setter("host_name", host_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if panorama_server1 is not None:
-            pulumi.set(__self__, "panorama_server1", panorama_server1)
+            _setter("panorama_server1", panorama_server1)
         if panorama_server2 is not None:
-            pulumi.set(__self__, "panorama_server2", panorama_server2)
+            _setter("panorama_server2", panorama_server2)
         if template_name is not None:
-            pulumi.set(__self__, "template_name", template_name)
+            _setter("template_name", template_name)
         if virtual_machine_ssh_key is not None:
-            pulumi.set(__self__, "virtual_machine_ssh_key", virtual_machine_ssh_key)
+            _setter("virtual_machine_ssh_key", virtual_machine_ssh_key)
 
     @property
     @pulumi.getter(name="deviceGroupName")
@@ -861,12 +1225,37 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs:
         :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgs'] backend_config: A `backend_config` block as defined above.
         :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgs'] frontend_config: A `frontend_config` block as defined below.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "protocol", protocol)
+        NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            protocol=protocol,
+            backend_config=backend_config,
+            frontend_config=frontend_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             backend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgs']] = None,
+             frontend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if backend_config is None and 'backendConfig' in kwargs:
+            backend_config = kwargs['backendConfig']
+        if frontend_config is None and 'frontendConfig' in kwargs:
+            frontend_config = kwargs['frontendConfig']
+
+        _setter("name", name)
+        _setter("protocol", protocol)
         if backend_config is not None:
-            pulumi.set(__self__, "backend_config", backend_config)
+            _setter("backend_config", backend_config)
         if frontend_config is not None:
-            pulumi.set(__self__, "frontend_config", frontend_config)
+            _setter("frontend_config", frontend_config)
 
     @property
     @pulumi.getter
@@ -926,8 +1315,27 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendCon
         :param pulumi.Input[int] port: The port number to send traffic to.
         :param pulumi.Input[str] public_ip_address: The IP Address to send the traffic to.
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "public_ip_address", public_ip_address)
+        NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            public_ip_address=public_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[pulumi.Input[int]] = None,
+             public_ip_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if public_ip_address is None and 'publicIpAddress' in kwargs:
+            public_ip_address = kwargs['publicIpAddress']
+        if public_ip_address is None:
+            raise TypeError("Missing 'public_ip_address' argument")
+
+        _setter("port", port)
+        _setter("public_ip_address", public_ip_address)
 
     @property
     @pulumi.getter
@@ -965,8 +1373,27 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendCo
                
                > **Note:** This must be an Azure Public IP address ID also specified in the `public_ip_address_ids` list.
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+        NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            public_ip_address_id=public_ip_address_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[pulumi.Input[int]] = None,
+             public_ip_address_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if public_ip_address_id is None:
+            raise TypeError("Missing 'public_ip_address_id' argument")
+
+        _setter("port", port)
+        _setter("public_ip_address_id", public_ip_address_id)
 
     @property
     @pulumi.getter
@@ -1005,12 +1432,33 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
         :param pulumi.Input[bool] use_azure_dns: Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
         """
+        NextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_dns_servers=azure_dns_servers,
+            dns_servers=dns_servers,
+            use_azure_dns=use_azure_dns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             use_azure_dns: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if azure_dns_servers is None and 'azureDnsServers' in kwargs:
+            azure_dns_servers = kwargs['azureDnsServers']
+        if dns_servers is None and 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if use_azure_dns is None and 'useAzureDns' in kwargs:
+            use_azure_dns = kwargs['useAzureDns']
+
         if azure_dns_servers is not None:
-            pulumi.set(__self__, "azure_dns_servers", azure_dns_servers)
+            _setter("azure_dns_servers", azure_dns_servers)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if use_azure_dns is not None:
-            pulumi.set(__self__, "use_azure_dns", use_azure_dns)
+            _setter("use_azure_dns", use_azure_dns)
 
     @property
     @pulumi.getter(name="azureDnsServers")
@@ -1059,14 +1507,47 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs:
         :param pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs'] vnet_configuration: A `vnet_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] egress_nat_ip_address_ids: Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
         """
-        pulumi.set(__self__, "public_ip_address_ids", public_ip_address_ids)
-        pulumi.set(__self__, "vnet_configuration", vnet_configuration)
+        NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_ip_address_ids=public_ip_address_ids,
+            vnet_configuration=vnet_configuration,
+            egress_nat_ip_address_ids=egress_nat_ip_address_ids,
+            egress_nat_ip_addresses=egress_nat_ip_addresses,
+            public_ip_addresses=public_ip_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_ip_address_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vnet_configuration: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs']] = None,
+             egress_nat_ip_address_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             egress_nat_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if public_ip_address_ids is None and 'publicIpAddressIds' in kwargs:
+            public_ip_address_ids = kwargs['publicIpAddressIds']
+        if public_ip_address_ids is None:
+            raise TypeError("Missing 'public_ip_address_ids' argument")
+        if vnet_configuration is None and 'vnetConfiguration' in kwargs:
+            vnet_configuration = kwargs['vnetConfiguration']
+        if vnet_configuration is None:
+            raise TypeError("Missing 'vnet_configuration' argument")
+        if egress_nat_ip_address_ids is None and 'egressNatIpAddressIds' in kwargs:
+            egress_nat_ip_address_ids = kwargs['egressNatIpAddressIds']
+        if egress_nat_ip_addresses is None and 'egressNatIpAddresses' in kwargs:
+            egress_nat_ip_addresses = kwargs['egressNatIpAddresses']
+        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
+            public_ip_addresses = kwargs['publicIpAddresses']
+
+        _setter("public_ip_address_ids", public_ip_address_ids)
+        _setter("vnet_configuration", vnet_configuration)
         if egress_nat_ip_address_ids is not None:
-            pulumi.set(__self__, "egress_nat_ip_address_ids", egress_nat_ip_address_ids)
+            _setter("egress_nat_ip_address_ids", egress_nat_ip_address_ids)
         if egress_nat_ip_addresses is not None:
-            pulumi.set(__self__, "egress_nat_ip_addresses", egress_nat_ip_addresses)
+            _setter("egress_nat_ip_addresses", egress_nat_ip_addresses)
         if public_ip_addresses is not None:
-            pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+            _setter("public_ip_addresses", public_ip_addresses)
 
     @property
     @pulumi.getter(name="publicIpAddressIds")
@@ -1135,13 +1616,40 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfig
         :param pulumi.Input[str] trusted_subnet_id: The ID of the Trust subnet.
         :param pulumi.Input[str] untrusted_subnet_id: The ID of the UnTrust subnet.
         """
-        pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+        NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_network_id=virtual_network_id,
+            ip_of_trust_for_user_defined_routes=ip_of_trust_for_user_defined_routes,
+            trusted_subnet_id=trusted_subnet_id,
+            untrusted_subnet_id=untrusted_subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_network_id: Optional[pulumi.Input[str]] = None,
+             ip_of_trust_for_user_defined_routes: Optional[pulumi.Input[str]] = None,
+             trusted_subnet_id: Optional[pulumi.Input[str]] = None,
+             untrusted_subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+        if virtual_network_id is None:
+            raise TypeError("Missing 'virtual_network_id' argument")
+        if ip_of_trust_for_user_defined_routes is None and 'ipOfTrustForUserDefinedRoutes' in kwargs:
+            ip_of_trust_for_user_defined_routes = kwargs['ipOfTrustForUserDefinedRoutes']
+        if trusted_subnet_id is None and 'trustedSubnetId' in kwargs:
+            trusted_subnet_id = kwargs['trustedSubnetId']
+        if untrusted_subnet_id is None and 'untrustedSubnetId' in kwargs:
+            untrusted_subnet_id = kwargs['untrustedSubnetId']
+
+        _setter("virtual_network_id", virtual_network_id)
         if ip_of_trust_for_user_defined_routes is not None:
-            pulumi.set(__self__, "ip_of_trust_for_user_defined_routes", ip_of_trust_for_user_defined_routes)
+            _setter("ip_of_trust_for_user_defined_routes", ip_of_trust_for_user_defined_routes)
         if trusted_subnet_id is not None:
-            pulumi.set(__self__, "trusted_subnet_id", trusted_subnet_id)
+            _setter("trusted_subnet_id", trusted_subnet_id)
         if untrusted_subnet_id is not None:
-            pulumi.set(__self__, "untrusted_subnet_id", untrusted_subnet_id)
+            _setter("untrusted_subnet_id", untrusted_subnet_id)
 
     @property
     @pulumi.getter(name="virtualNetworkId")
@@ -1202,12 +1710,37 @@ class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs:
         :param pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArgs'] backend_config: A `backend_config` block as defined above.
         :param pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArgs'] frontend_config: A `frontend_config` block as defined below.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "protocol", protocol)
+        NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            protocol=protocol,
+            backend_config=backend_config,
+            frontend_config=frontend_config,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             backend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArgs']] = None,
+             frontend_config: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if backend_config is None and 'backendConfig' in kwargs:
+            backend_config = kwargs['backendConfig']
+        if frontend_config is None and 'frontendConfig' in kwargs:
+            frontend_config = kwargs['frontendConfig']
+
+        _setter("name", name)
+        _setter("protocol", protocol)
         if backend_config is not None:
-            pulumi.set(__self__, "backend_config", backend_config)
+            _setter("backend_config", backend_config)
         if frontend_config is not None:
-            pulumi.set(__self__, "frontend_config", frontend_config)
+            _setter("frontend_config", frontend_config)
 
     @property
     @pulumi.getter
@@ -1267,8 +1800,27 @@ class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArg
         :param pulumi.Input[int] port: The port number to send traffic to.
         :param pulumi.Input[str] public_ip_address: The IP Address to send the traffic to.
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "public_ip_address", public_ip_address)
+        NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            public_ip_address=public_ip_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[pulumi.Input[int]] = None,
+             public_ip_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if public_ip_address is None and 'publicIpAddress' in kwargs:
+            public_ip_address = kwargs['publicIpAddress']
+        if public_ip_address is None:
+            raise TypeError("Missing 'public_ip_address' argument")
+
+        _setter("port", port)
+        _setter("public_ip_address", public_ip_address)
 
     @property
     @pulumi.getter
@@ -1306,8 +1858,27 @@ class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigAr
                
                > **Note:** This must be an Azure Public IP address ID also specified in the `public_ip_address_ids` list.
         """
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+        NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            port=port,
+            public_ip_address_id=public_ip_address_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             port: Optional[pulumi.Input[int]] = None,
+             public_ip_address_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if public_ip_address_id is None and 'publicIpAddressId' in kwargs:
+            public_ip_address_id = kwargs['publicIpAddressId']
+        if public_ip_address_id is None:
+            raise TypeError("Missing 'public_ip_address_id' argument")
+
+        _setter("port", port)
+        _setter("public_ip_address_id", public_ip_address_id)
 
     @property
     @pulumi.getter
@@ -1346,12 +1917,33 @@ class NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: Specifies a list of DNS servers to use. Conflicts with `dns_settings.0.use_azure_dns`.
         :param pulumi.Input[bool] use_azure_dns: Should the Firewall use Azure Supplied DNS servers. Conflicts with `dns_settings.0.dns_servers`. Defaults to `false`.
         """
+        NextGenerationFirewallVirtualNetworkPanoramaDnsSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_dns_servers=azure_dns_servers,
+            dns_servers=dns_servers,
+            use_azure_dns=use_azure_dns,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             use_azure_dns: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if azure_dns_servers is None and 'azureDnsServers' in kwargs:
+            azure_dns_servers = kwargs['azureDnsServers']
+        if dns_servers is None and 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if use_azure_dns is None and 'useAzureDns' in kwargs:
+            use_azure_dns = kwargs['useAzureDns']
+
         if azure_dns_servers is not None:
-            pulumi.set(__self__, "azure_dns_servers", azure_dns_servers)
+            _setter("azure_dns_servers", azure_dns_servers)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if use_azure_dns is not None:
-            pulumi.set(__self__, "use_azure_dns", use_azure_dns)
+            _setter("use_azure_dns", use_azure_dns)
 
     @property
     @pulumi.getter(name="azureDnsServers")
@@ -1400,14 +1992,47 @@ class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs:
         :param pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs'] vnet_configuration: A `vnet_configuration` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] egress_nat_ip_address_ids: Specifies a list of Azure Public IP Address IDs that can be used for Egress (Source) Network Address Translation.
         """
-        pulumi.set(__self__, "public_ip_address_ids", public_ip_address_ids)
-        pulumi.set(__self__, "vnet_configuration", vnet_configuration)
+        NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            public_ip_address_ids=public_ip_address_ids,
+            vnet_configuration=vnet_configuration,
+            egress_nat_ip_address_ids=egress_nat_ip_address_ids,
+            egress_nat_ip_addresses=egress_nat_ip_addresses,
+            public_ip_addresses=public_ip_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             public_ip_address_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vnet_configuration: Optional[pulumi.Input['NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs']] = None,
+             egress_nat_ip_address_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             egress_nat_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if public_ip_address_ids is None and 'publicIpAddressIds' in kwargs:
+            public_ip_address_ids = kwargs['publicIpAddressIds']
+        if public_ip_address_ids is None:
+            raise TypeError("Missing 'public_ip_address_ids' argument")
+        if vnet_configuration is None and 'vnetConfiguration' in kwargs:
+            vnet_configuration = kwargs['vnetConfiguration']
+        if vnet_configuration is None:
+            raise TypeError("Missing 'vnet_configuration' argument")
+        if egress_nat_ip_address_ids is None and 'egressNatIpAddressIds' in kwargs:
+            egress_nat_ip_address_ids = kwargs['egressNatIpAddressIds']
+        if egress_nat_ip_addresses is None and 'egressNatIpAddresses' in kwargs:
+            egress_nat_ip_addresses = kwargs['egressNatIpAddresses']
+        if public_ip_addresses is None and 'publicIpAddresses' in kwargs:
+            public_ip_addresses = kwargs['publicIpAddresses']
+
+        _setter("public_ip_address_ids", public_ip_address_ids)
+        _setter("vnet_configuration", vnet_configuration)
         if egress_nat_ip_address_ids is not None:
-            pulumi.set(__self__, "egress_nat_ip_address_ids", egress_nat_ip_address_ids)
+            _setter("egress_nat_ip_address_ids", egress_nat_ip_address_ids)
         if egress_nat_ip_addresses is not None:
-            pulumi.set(__self__, "egress_nat_ip_addresses", egress_nat_ip_addresses)
+            _setter("egress_nat_ip_addresses", egress_nat_ip_addresses)
         if public_ip_addresses is not None:
-            pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+            _setter("public_ip_addresses", public_ip_addresses)
 
     @property
     @pulumi.getter(name="publicIpAddressIds")
@@ -1476,13 +2101,40 @@ class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguratio
         :param pulumi.Input[str] trusted_subnet_id: The ID of the Trust subnet.
         :param pulumi.Input[str] untrusted_subnet_id: The ID of the UnTrust subnet.
         """
-        pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+        NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            virtual_network_id=virtual_network_id,
+            ip_of_trust_for_user_defined_routes=ip_of_trust_for_user_defined_routes,
+            trusted_subnet_id=trusted_subnet_id,
+            untrusted_subnet_id=untrusted_subnet_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             virtual_network_id: Optional[pulumi.Input[str]] = None,
+             ip_of_trust_for_user_defined_routes: Optional[pulumi.Input[str]] = None,
+             trusted_subnet_id: Optional[pulumi.Input[str]] = None,
+             untrusted_subnet_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+        if virtual_network_id is None:
+            raise TypeError("Missing 'virtual_network_id' argument")
+        if ip_of_trust_for_user_defined_routes is None and 'ipOfTrustForUserDefinedRoutes' in kwargs:
+            ip_of_trust_for_user_defined_routes = kwargs['ipOfTrustForUserDefinedRoutes']
+        if trusted_subnet_id is None and 'trustedSubnetId' in kwargs:
+            trusted_subnet_id = kwargs['trustedSubnetId']
+        if untrusted_subnet_id is None and 'untrustedSubnetId' in kwargs:
+            untrusted_subnet_id = kwargs['untrustedSubnetId']
+
+        _setter("virtual_network_id", virtual_network_id)
         if ip_of_trust_for_user_defined_routes is not None:
-            pulumi.set(__self__, "ip_of_trust_for_user_defined_routes", ip_of_trust_for_user_defined_routes)
+            _setter("ip_of_trust_for_user_defined_routes", ip_of_trust_for_user_defined_routes)
         if trusted_subnet_id is not None:
-            pulumi.set(__self__, "trusted_subnet_id", trusted_subnet_id)
+            _setter("trusted_subnet_id", trusted_subnet_id)
         if untrusted_subnet_id is not None:
-            pulumi.set(__self__, "untrusted_subnet_id", untrusted_subnet_id)
+            _setter("untrusted_subnet_id", untrusted_subnet_id)
 
     @property
     @pulumi.getter(name="virtualNetworkId")
@@ -1549,20 +2201,55 @@ class NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgs:
         :param pulumi.Input[str] template_name: The name of the Panorama Template applied to this Firewall Resource.
         :param pulumi.Input[str] virtual_machine_ssh_key: The SSH Key to connect to the Firewall Resource.
         """
+        NextGenerationFirewallVirtualNetworkPanoramaPanoramaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_group_name=device_group_name,
+            host_name=host_name,
+            name=name,
+            panorama_server1=panorama_server1,
+            panorama_server2=panorama_server2,
+            template_name=template_name,
+            virtual_machine_ssh_key=virtual_machine_ssh_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_group_name: Optional[pulumi.Input[str]] = None,
+             host_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             panorama_server1: Optional[pulumi.Input[str]] = None,
+             panorama_server2: Optional[pulumi.Input[str]] = None,
+             template_name: Optional[pulumi.Input[str]] = None,
+             virtual_machine_ssh_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if device_group_name is None and 'deviceGroupName' in kwargs:
+            device_group_name = kwargs['deviceGroupName']
+        if host_name is None and 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if panorama_server1 is None and 'panoramaServer1' in kwargs:
+            panorama_server1 = kwargs['panoramaServer1']
+        if panorama_server2 is None and 'panoramaServer2' in kwargs:
+            panorama_server2 = kwargs['panoramaServer2']
+        if template_name is None and 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+        if virtual_machine_ssh_key is None and 'virtualMachineSshKey' in kwargs:
+            virtual_machine_ssh_key = kwargs['virtualMachineSshKey']
+
         if device_group_name is not None:
-            pulumi.set(__self__, "device_group_name", device_group_name)
+            _setter("device_group_name", device_group_name)
         if host_name is not None:
-            pulumi.set(__self__, "host_name", host_name)
+            _setter("host_name", host_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if panorama_server1 is not None:
-            pulumi.set(__self__, "panorama_server1", panorama_server1)
+            _setter("panorama_server1", panorama_server1)
         if panorama_server2 is not None:
-            pulumi.set(__self__, "panorama_server2", panorama_server2)
+            _setter("panorama_server2", panorama_server2)
         if template_name is not None:
-            pulumi.set(__self__, "template_name", template_name)
+            _setter("template_name", template_name)
         if virtual_machine_ssh_key is not None:
-            pulumi.set(__self__, "virtual_machine_ssh_key", virtual_machine_ssh_key)
+            _setter("virtual_machine_ssh_key", virtual_machine_ssh_key)
 
     @property
     @pulumi.getter(name="deviceGroupName")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,13 +31,52 @@ class PolicyVMWorkloadArgs:
         :param pulumi.Input[str] workload_type: The VM Workload type for the Backup Policy. Possible values are `SQLDataBase` and `SAPHanaDatabase`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the VM Workload Backup Policy. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "protection_policies", protection_policies)
-        pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "settings", settings)
-        pulumi.set(__self__, "workload_type", workload_type)
+        PolicyVMWorkloadArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            protection_policies=protection_policies,
+            recovery_vault_name=recovery_vault_name,
+            resource_group_name=resource_group_name,
+            settings=settings,
+            workload_type=workload_type,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             protection_policies: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyVMWorkloadProtectionPolicyArgs']]]] = None,
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             settings: Optional[pulumi.Input['PolicyVMWorkloadSettingsArgs']] = None,
+             workload_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if protection_policies is None and 'protectionPolicies' in kwargs:
+            protection_policies = kwargs['protectionPolicies']
+        if protection_policies is None:
+            raise TypeError("Missing 'protection_policies' argument")
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
+            recovery_vault_name = kwargs['recoveryVaultName']
+        if recovery_vault_name is None:
+            raise TypeError("Missing 'recovery_vault_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if settings is None:
+            raise TypeError("Missing 'settings' argument")
+        if workload_type is None and 'workloadType' in kwargs:
+            workload_type = kwargs['workloadType']
+        if workload_type is None:
+            raise TypeError("Missing 'workload_type' argument")
+
+        _setter("protection_policies", protection_policies)
+        _setter("recovery_vault_name", recovery_vault_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("settings", settings)
+        _setter("workload_type", workload_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="protectionPolicies")
@@ -130,18 +169,47 @@ class _PolicyVMWorkloadState:
         :param pulumi.Input['PolicyVMWorkloadSettingsArgs'] settings: A `settings` block as defined below.
         :param pulumi.Input[str] workload_type: The VM Workload type for the Backup Policy. Possible values are `SQLDataBase` and `SAPHanaDatabase`. Changing this forces a new resource to be created.
         """
+        _PolicyVMWorkloadState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            protection_policies=protection_policies,
+            recovery_vault_name=recovery_vault_name,
+            resource_group_name=resource_group_name,
+            settings=settings,
+            workload_type=workload_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             protection_policies: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyVMWorkloadProtectionPolicyArgs']]]] = None,
+             recovery_vault_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             settings: Optional[pulumi.Input['PolicyVMWorkloadSettingsArgs']] = None,
+             workload_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if protection_policies is None and 'protectionPolicies' in kwargs:
+            protection_policies = kwargs['protectionPolicies']
+        if recovery_vault_name is None and 'recoveryVaultName' in kwargs:
+            recovery_vault_name = kwargs['recoveryVaultName']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if workload_type is None and 'workloadType' in kwargs:
+            workload_type = kwargs['workloadType']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if protection_policies is not None:
-            pulumi.set(__self__, "protection_policies", protection_policies)
+            _setter("protection_policies", protection_policies)
         if recovery_vault_name is not None:
-            pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
+            _setter("recovery_vault_name", recovery_vault_name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
         if workload_type is not None:
-            pulumi.set(__self__, "workload_type", workload_type)
+            _setter("workload_type", workload_type)
 
     @property
     @pulumi.getter
@@ -361,6 +429,10 @@ class PolicyVMWorkload(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PolicyVMWorkloadArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -391,6 +463,11 @@ class PolicyVMWorkload(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if settings is not None and not isinstance(settings, PolicyVMWorkloadSettingsArgs):
+                settings = settings or {}
+                def _setter(key, value):
+                    settings[key] = value
+                PolicyVMWorkloadSettingsArgs._configure(_setter, **settings)
             if settings is None and not opts.urn:
                 raise TypeError("Missing required property 'settings'")
             __props__.__dict__["settings"] = settings

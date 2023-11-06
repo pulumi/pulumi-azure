@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,13 +31,54 @@ class CacheNfsTargetArgs:
         :param pulumi.Input[str] usage_model: The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
         :param pulumi.Input[str] name: The name of the HPC Cache NFS Target. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "cache_name", cache_name)
-        pulumi.set(__self__, "namespace_junctions", namespace_junctions)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "target_host_name", target_host_name)
-        pulumi.set(__self__, "usage_model", usage_model)
+        CacheNfsTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_name=cache_name,
+            namespace_junctions=namespace_junctions,
+            resource_group_name=resource_group_name,
+            target_host_name=target_host_name,
+            usage_model=usage_model,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_name: Optional[pulumi.Input[str]] = None,
+             namespace_junctions: Optional[pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             target_host_name: Optional[pulumi.Input[str]] = None,
+             usage_model: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cache_name is None and 'cacheName' in kwargs:
+            cache_name = kwargs['cacheName']
+        if cache_name is None:
+            raise TypeError("Missing 'cache_name' argument")
+        if namespace_junctions is None and 'namespaceJunctions' in kwargs:
+            namespace_junctions = kwargs['namespaceJunctions']
+        if namespace_junctions is None:
+            raise TypeError("Missing 'namespace_junctions' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if target_host_name is None and 'targetHostName' in kwargs:
+            target_host_name = kwargs['targetHostName']
+        if target_host_name is None:
+            raise TypeError("Missing 'target_host_name' argument")
+        if usage_model is None and 'usageModel' in kwargs:
+            usage_model = kwargs['usageModel']
+        if usage_model is None:
+            raise TypeError("Missing 'usage_model' argument")
+
+        _setter("cache_name", cache_name)
+        _setter("namespace_junctions", namespace_junctions)
+        _setter("resource_group_name", resource_group_name)
+        _setter("target_host_name", target_host_name)
+        _setter("usage_model", usage_model)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="cacheName")
@@ -130,18 +171,49 @@ class _CacheNfsTargetState:
         :param pulumi.Input[str] target_host_name: The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target. Changing this forces a new resource to be created.
         :param pulumi.Input[str] usage_model: The type of usage of the HPC Cache NFS Target. Possible values are: `READ_HEAVY_INFREQ`, `READ_HEAVY_CHECK_180`, `READ_ONLY`, `READ_WRITE`, `WRITE_WORKLOAD_15`, `WRITE_AROUND`, `WRITE_WORKLOAD_CHECK_30`, `WRITE_WORKLOAD_CHECK_60` and `WRITE_WORKLOAD_CLOUDWS`.
         """
+        _CacheNfsTargetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_name=cache_name,
+            name=name,
+            namespace_junctions=namespace_junctions,
+            resource_group_name=resource_group_name,
+            target_host_name=target_host_name,
+            usage_model=usage_model,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             namespace_junctions: Optional[pulumi.Input[Sequence[pulumi.Input['CacheNfsTargetNamespaceJunctionArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             target_host_name: Optional[pulumi.Input[str]] = None,
+             usage_model: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cache_name is None and 'cacheName' in kwargs:
+            cache_name = kwargs['cacheName']
+        if namespace_junctions is None and 'namespaceJunctions' in kwargs:
+            namespace_junctions = kwargs['namespaceJunctions']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if target_host_name is None and 'targetHostName' in kwargs:
+            target_host_name = kwargs['targetHostName']
+        if usage_model is None and 'usageModel' in kwargs:
+            usage_model = kwargs['usageModel']
+
         if cache_name is not None:
-            pulumi.set(__self__, "cache_name", cache_name)
+            _setter("cache_name", cache_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if namespace_junctions is not None:
-            pulumi.set(__self__, "namespace_junctions", namespace_junctions)
+            _setter("namespace_junctions", namespace_junctions)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if target_host_name is not None:
-            pulumi.set(__self__, "target_host_name", target_host_name)
+            _setter("target_host_name", target_host_name)
         if usage_model is not None:
-            pulumi.set(__self__, "usage_model", usage_model)
+            _setter("usage_model", usage_model)
 
     @property
     @pulumi.getter(name="cacheName")
@@ -279,6 +351,10 @@ class CacheNfsTarget(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CacheNfsTargetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DiskPoolManagedDiskAttachmentArgs', 'DiskPoolManagedDiskAttachment']
@@ -21,8 +21,29 @@ class DiskPoolManagedDiskAttachmentArgs:
         :param pulumi.Input[str] disk_pool_id: The ID of the Disk Pool. Changing this forces a new Disk Pool Managed Disk Attachment to be created.
         :param pulumi.Input[str] managed_disk_id: The ID of the Managed Disk. Changing this forces a new Disks Pool Managed Disk Attachment to be created.
         """
-        pulumi.set(__self__, "disk_pool_id", disk_pool_id)
-        pulumi.set(__self__, "managed_disk_id", managed_disk_id)
+        DiskPoolManagedDiskAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_pool_id=disk_pool_id,
+            managed_disk_id=managed_disk_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_pool_id: Optional[pulumi.Input[str]] = None,
+             managed_disk_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if disk_pool_id is None and 'diskPoolId' in kwargs:
+            disk_pool_id = kwargs['diskPoolId']
+        if disk_pool_id is None:
+            raise TypeError("Missing 'disk_pool_id' argument")
+        if managed_disk_id is None and 'managedDiskId' in kwargs:
+            managed_disk_id = kwargs['managedDiskId']
+        if managed_disk_id is None:
+            raise TypeError("Missing 'managed_disk_id' argument")
+
+        _setter("disk_pool_id", disk_pool_id)
+        _setter("managed_disk_id", managed_disk_id)
 
     @property
     @pulumi.getter(name="diskPoolId")
@@ -59,10 +80,27 @@ class _DiskPoolManagedDiskAttachmentState:
         :param pulumi.Input[str] disk_pool_id: The ID of the Disk Pool. Changing this forces a new Disk Pool Managed Disk Attachment to be created.
         :param pulumi.Input[str] managed_disk_id: The ID of the Managed Disk. Changing this forces a new Disks Pool Managed Disk Attachment to be created.
         """
+        _DiskPoolManagedDiskAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disk_pool_id=disk_pool_id,
+            managed_disk_id=managed_disk_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disk_pool_id: Optional[pulumi.Input[str]] = None,
+             managed_disk_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if disk_pool_id is None and 'diskPoolId' in kwargs:
+            disk_pool_id = kwargs['diskPoolId']
+        if managed_disk_id is None and 'managedDiskId' in kwargs:
+            managed_disk_id = kwargs['managedDiskId']
+
         if disk_pool_id is not None:
-            pulumi.set(__self__, "disk_pool_id", disk_pool_id)
+            _setter("disk_pool_id", disk_pool_id)
         if managed_disk_id is not None:
-            pulumi.set(__self__, "managed_disk_id", managed_disk_id)
+            _setter("managed_disk_id", managed_disk_id)
 
     @property
     @pulumi.getter(name="diskPoolId")
@@ -268,6 +306,10 @@ class DiskPoolManagedDiskAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DiskPoolManagedDiskAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

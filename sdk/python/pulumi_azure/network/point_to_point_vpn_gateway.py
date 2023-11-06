@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,21 +39,74 @@ class PointToPointVpnGatewayArgs:
         :param pulumi.Input[bool] routing_preference_internet_enabled: Is the Routing Preference for the Public IP Interface of the VPN Gateway enabled? Defaults to `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Point-to-Site VPN Gateway.
         """
-        pulumi.set(__self__, "connection_configuration", connection_configuration)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scale_unit", scale_unit)
-        pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
-        pulumi.set(__self__, "vpn_server_configuration_id", vpn_server_configuration_id)
+        PointToPointVpnGatewayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_configuration=connection_configuration,
+            resource_group_name=resource_group_name,
+            scale_unit=scale_unit,
+            virtual_hub_id=virtual_hub_id,
+            vpn_server_configuration_id=vpn_server_configuration_id,
+            dns_servers=dns_servers,
+            location=location,
+            name=name,
+            routing_preference_internet_enabled=routing_preference_internet_enabled,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_configuration: Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scale_unit: Optional[pulumi.Input[int]] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
+             vpn_server_configuration_id: Optional[pulumi.Input[str]] = None,
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             routing_preference_internet_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if connection_configuration is None and 'connectionConfiguration' in kwargs:
+            connection_configuration = kwargs['connectionConfiguration']
+        if connection_configuration is None:
+            raise TypeError("Missing 'connection_configuration' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scale_unit is None and 'scaleUnit' in kwargs:
+            scale_unit = kwargs['scaleUnit']
+        if scale_unit is None:
+            raise TypeError("Missing 'scale_unit' argument")
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+        if virtual_hub_id is None:
+            raise TypeError("Missing 'virtual_hub_id' argument")
+        if vpn_server_configuration_id is None and 'vpnServerConfigurationId' in kwargs:
+            vpn_server_configuration_id = kwargs['vpnServerConfigurationId']
+        if vpn_server_configuration_id is None:
+            raise TypeError("Missing 'vpn_server_configuration_id' argument")
+        if dns_servers is None and 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if routing_preference_internet_enabled is None and 'routingPreferenceInternetEnabled' in kwargs:
+            routing_preference_internet_enabled = kwargs['routingPreferenceInternetEnabled']
+
+        _setter("connection_configuration", connection_configuration)
+        _setter("resource_group_name", resource_group_name)
+        _setter("scale_unit", scale_unit)
+        _setter("virtual_hub_id", virtual_hub_id)
+        _setter("vpn_server_configuration_id", vpn_server_configuration_id)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if routing_preference_internet_enabled is not None:
-            pulumi.set(__self__, "routing_preference_internet_enabled", routing_preference_internet_enabled)
+            _setter("routing_preference_internet_enabled", routing_preference_internet_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="connectionConfiguration")
@@ -202,26 +255,69 @@ class _PointToPointVpnGatewayState:
         :param pulumi.Input[str] virtual_hub_id: The ID of the Virtual Hub where this Point-to-Site VPN Gateway should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vpn_server_configuration_id: The ID of the VPN Server Configuration which this Point-to-Site VPN Gateway should use. Changing this forces a new resource to be created.
         """
+        _PointToPointVpnGatewayState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_configuration=connection_configuration,
+            dns_servers=dns_servers,
+            location=location,
+            name=name,
+            resource_group_name=resource_group_name,
+            routing_preference_internet_enabled=routing_preference_internet_enabled,
+            scale_unit=scale_unit,
+            tags=tags,
+            virtual_hub_id=virtual_hub_id,
+            vpn_server_configuration_id=vpn_server_configuration_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_configuration: Optional[pulumi.Input['PointToPointVpnGatewayConnectionConfigurationArgs']] = None,
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             routing_preference_internet_enabled: Optional[pulumi.Input[bool]] = None,
+             scale_unit: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_hub_id: Optional[pulumi.Input[str]] = None,
+             vpn_server_configuration_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if connection_configuration is None and 'connectionConfiguration' in kwargs:
+            connection_configuration = kwargs['connectionConfiguration']
+        if dns_servers is None and 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if routing_preference_internet_enabled is None and 'routingPreferenceInternetEnabled' in kwargs:
+            routing_preference_internet_enabled = kwargs['routingPreferenceInternetEnabled']
+        if scale_unit is None and 'scaleUnit' in kwargs:
+            scale_unit = kwargs['scaleUnit']
+        if virtual_hub_id is None and 'virtualHubId' in kwargs:
+            virtual_hub_id = kwargs['virtualHubId']
+        if vpn_server_configuration_id is None and 'vpnServerConfigurationId' in kwargs:
+            vpn_server_configuration_id = kwargs['vpnServerConfigurationId']
+
         if connection_configuration is not None:
-            pulumi.set(__self__, "connection_configuration", connection_configuration)
+            _setter("connection_configuration", connection_configuration)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if routing_preference_internet_enabled is not None:
-            pulumi.set(__self__, "routing_preference_internet_enabled", routing_preference_internet_enabled)
+            _setter("routing_preference_internet_enabled", routing_preference_internet_enabled)
         if scale_unit is not None:
-            pulumi.set(__self__, "scale_unit", scale_unit)
+            _setter("scale_unit", scale_unit)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_hub_id is not None:
-            pulumi.set(__self__, "virtual_hub_id", virtual_hub_id)
+            _setter("virtual_hub_id", virtual_hub_id)
         if vpn_server_configuration_id is not None:
-            pulumi.set(__self__, "vpn_server_configuration_id", vpn_server_configuration_id)
+            _setter("vpn_server_configuration_id", vpn_server_configuration_id)
 
     @property
     @pulumi.getter(name="connectionConfiguration")
@@ -525,6 +621,10 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PointToPointVpnGatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -549,6 +649,11 @@ class PointToPointVpnGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PointToPointVpnGatewayArgs.__new__(PointToPointVpnGatewayArgs)
 
+            if connection_configuration is not None and not isinstance(connection_configuration, PointToPointVpnGatewayConnectionConfigurationArgs):
+                connection_configuration = connection_configuration or {}
+                def _setter(key, value):
+                    connection_configuration[key] = value
+                PointToPointVpnGatewayConnectionConfigurationArgs._configure(_setter, **connection_configuration)
             if connection_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_configuration'")
             __props__.__dict__["connection_configuration"] = connection_configuration

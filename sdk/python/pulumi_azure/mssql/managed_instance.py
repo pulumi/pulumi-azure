@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -59,38 +59,131 @@ class ManagedInstanceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] timezone_id: The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "administrator_login", administrator_login)
-        pulumi.set(__self__, "administrator_login_password", administrator_login_password)
-        pulumi.set(__self__, "license_type", license_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku_name", sku_name)
-        pulumi.set(__self__, "storage_size_in_gb", storage_size_in_gb)
-        pulumi.set(__self__, "subnet_id", subnet_id)
-        pulumi.set(__self__, "vcores", vcores)
+        ManagedInstanceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrator_login=administrator_login,
+            administrator_login_password=administrator_login_password,
+            license_type=license_type,
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            storage_size_in_gb=storage_size_in_gb,
+            subnet_id=subnet_id,
+            vcores=vcores,
+            collation=collation,
+            dns_zone_partner_id=dns_zone_partner_id,
+            identity=identity,
+            location=location,
+            maintenance_configuration_name=maintenance_configuration_name,
+            minimum_tls_version=minimum_tls_version,
+            name=name,
+            proxy_override=proxy_override,
+            public_data_endpoint_enabled=public_data_endpoint_enabled,
+            storage_account_type=storage_account_type,
+            tags=tags,
+            timezone_id=timezone_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrator_login: Optional[pulumi.Input[str]] = None,
+             administrator_login_password: Optional[pulumi.Input[str]] = None,
+             license_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             storage_size_in_gb: Optional[pulumi.Input[int]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             vcores: Optional[pulumi.Input[int]] = None,
+             collation: Optional[pulumi.Input[str]] = None,
+             dns_zone_partner_id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ManagedInstanceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
+             minimum_tls_version: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             proxy_override: Optional[pulumi.Input[str]] = None,
+             public_data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+             storage_account_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timezone_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if administrator_login is None and 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if administrator_login is None:
+            raise TypeError("Missing 'administrator_login' argument")
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if administrator_login_password is None:
+            raise TypeError("Missing 'administrator_login_password' argument")
+        if license_type is None and 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if license_type is None:
+            raise TypeError("Missing 'license_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if storage_size_in_gb is None and 'storageSizeInGb' in kwargs:
+            storage_size_in_gb = kwargs['storageSizeInGb']
+        if storage_size_in_gb is None:
+            raise TypeError("Missing 'storage_size_in_gb' argument")
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if vcores is None:
+            raise TypeError("Missing 'vcores' argument")
+        if dns_zone_partner_id is None and 'dnsZonePartnerId' in kwargs:
+            dns_zone_partner_id = kwargs['dnsZonePartnerId']
+        if maintenance_configuration_name is None and 'maintenanceConfigurationName' in kwargs:
+            maintenance_configuration_name = kwargs['maintenanceConfigurationName']
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if proxy_override is None and 'proxyOverride' in kwargs:
+            proxy_override = kwargs['proxyOverride']
+        if public_data_endpoint_enabled is None and 'publicDataEndpointEnabled' in kwargs:
+            public_data_endpoint_enabled = kwargs['publicDataEndpointEnabled']
+        if storage_account_type is None and 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+        if timezone_id is None and 'timezoneId' in kwargs:
+            timezone_id = kwargs['timezoneId']
+
+        _setter("administrator_login", administrator_login)
+        _setter("administrator_login_password", administrator_login_password)
+        _setter("license_type", license_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku_name", sku_name)
+        _setter("storage_size_in_gb", storage_size_in_gb)
+        _setter("subnet_id", subnet_id)
+        _setter("vcores", vcores)
         if collation is not None:
-            pulumi.set(__self__, "collation", collation)
+            _setter("collation", collation)
         if dns_zone_partner_id is not None:
-            pulumi.set(__self__, "dns_zone_partner_id", dns_zone_partner_id)
+            _setter("dns_zone_partner_id", dns_zone_partner_id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maintenance_configuration_name is not None:
-            pulumi.set(__self__, "maintenance_configuration_name", maintenance_configuration_name)
+            _setter("maintenance_configuration_name", maintenance_configuration_name)
         if minimum_tls_version is not None:
-            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+            _setter("minimum_tls_version", minimum_tls_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if proxy_override is not None:
-            pulumi.set(__self__, "proxy_override", proxy_override)
+            _setter("proxy_override", proxy_override)
         if public_data_endpoint_enabled is not None:
-            pulumi.set(__self__, "public_data_endpoint_enabled", public_data_endpoint_enabled)
+            _setter("public_data_endpoint_enabled", public_data_endpoint_enabled)
         if storage_account_type is not None:
-            pulumi.set(__self__, "storage_account_type", storage_account_type)
+            _setter("storage_account_type", storage_account_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timezone_id is not None:
-            pulumi.set(__self__, "timezone_id", timezone_id)
+            _setter("timezone_id", timezone_id)
 
     @property
     @pulumi.getter(name="administratorLogin")
@@ -381,48 +474,127 @@ class _ManagedInstanceState:
         :param pulumi.Input[str] timezone_id: The TimeZone ID that the SQL Managed Instance will be operating in. Default value is `UTC`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] vcores: Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `8`, `16`, `24`, `32`, `40`, `64`, or `80` for Gen5 SKUs.
         """
+        _ManagedInstanceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrator_login=administrator_login,
+            administrator_login_password=administrator_login_password,
+            collation=collation,
+            dns_zone_partner_id=dns_zone_partner_id,
+            fqdn=fqdn,
+            identity=identity,
+            license_type=license_type,
+            location=location,
+            maintenance_configuration_name=maintenance_configuration_name,
+            minimum_tls_version=minimum_tls_version,
+            name=name,
+            proxy_override=proxy_override,
+            public_data_endpoint_enabled=public_data_endpoint_enabled,
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            storage_account_type=storage_account_type,
+            storage_size_in_gb=storage_size_in_gb,
+            subnet_id=subnet_id,
+            tags=tags,
+            timezone_id=timezone_id,
+            vcores=vcores,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrator_login: Optional[pulumi.Input[str]] = None,
+             administrator_login_password: Optional[pulumi.Input[str]] = None,
+             collation: Optional[pulumi.Input[str]] = None,
+             dns_zone_partner_id: Optional[pulumi.Input[str]] = None,
+             fqdn: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ManagedInstanceIdentityArgs']] = None,
+             license_type: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maintenance_configuration_name: Optional[pulumi.Input[str]] = None,
+             minimum_tls_version: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             proxy_override: Optional[pulumi.Input[str]] = None,
+             public_data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             storage_account_type: Optional[pulumi.Input[str]] = None,
+             storage_size_in_gb: Optional[pulumi.Input[int]] = None,
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             timezone_id: Optional[pulumi.Input[str]] = None,
+             vcores: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if administrator_login is None and 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if dns_zone_partner_id is None and 'dnsZonePartnerId' in kwargs:
+            dns_zone_partner_id = kwargs['dnsZonePartnerId']
+        if license_type is None and 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if maintenance_configuration_name is None and 'maintenanceConfigurationName' in kwargs:
+            maintenance_configuration_name = kwargs['maintenanceConfigurationName']
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if proxy_override is None and 'proxyOverride' in kwargs:
+            proxy_override = kwargs['proxyOverride']
+        if public_data_endpoint_enabled is None and 'publicDataEndpointEnabled' in kwargs:
+            public_data_endpoint_enabled = kwargs['publicDataEndpointEnabled']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if storage_account_type is None and 'storageAccountType' in kwargs:
+            storage_account_type = kwargs['storageAccountType']
+        if storage_size_in_gb is None and 'storageSizeInGb' in kwargs:
+            storage_size_in_gb = kwargs['storageSizeInGb']
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if timezone_id is None and 'timezoneId' in kwargs:
+            timezone_id = kwargs['timezoneId']
+
         if administrator_login is not None:
-            pulumi.set(__self__, "administrator_login", administrator_login)
+            _setter("administrator_login", administrator_login)
         if administrator_login_password is not None:
-            pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+            _setter("administrator_login_password", administrator_login_password)
         if collation is not None:
-            pulumi.set(__self__, "collation", collation)
+            _setter("collation", collation)
         if dns_zone_partner_id is not None:
-            pulumi.set(__self__, "dns_zone_partner_id", dns_zone_partner_id)
+            _setter("dns_zone_partner_id", dns_zone_partner_id)
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maintenance_configuration_name is not None:
-            pulumi.set(__self__, "maintenance_configuration_name", maintenance_configuration_name)
+            _setter("maintenance_configuration_name", maintenance_configuration_name)
         if minimum_tls_version is not None:
-            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+            _setter("minimum_tls_version", minimum_tls_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if proxy_override is not None:
-            pulumi.set(__self__, "proxy_override", proxy_override)
+            _setter("proxy_override", proxy_override)
         if public_data_endpoint_enabled is not None:
-            pulumi.set(__self__, "public_data_endpoint_enabled", public_data_endpoint_enabled)
+            _setter("public_data_endpoint_enabled", public_data_endpoint_enabled)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
         if storage_account_type is not None:
-            pulumi.set(__self__, "storage_account_type", storage_account_type)
+            _setter("storage_account_type", storage_account_type)
         if storage_size_in_gb is not None:
-            pulumi.set(__self__, "storage_size_in_gb", storage_size_in_gb)
+            _setter("storage_size_in_gb", storage_size_in_gb)
         if subnet_id is not None:
-            pulumi.set(__self__, "subnet_id", subnet_id)
+            _setter("subnet_id", subnet_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if timezone_id is not None:
-            pulumi.set(__self__, "timezone_id", timezone_id)
+            _setter("timezone_id", timezone_id)
         if vcores is not None:
-            pulumi.set(__self__, "vcores", vcores)
+            _setter("vcores", vcores)
 
     @property
     @pulumi.getter(name="administratorLogin")
@@ -1076,6 +1248,10 @@ class ManagedInstance(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedInstanceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1118,6 +1294,11 @@ class ManagedInstance(pulumi.CustomResource):
             __props__.__dict__["administrator_login_password"] = None if administrator_login_password is None else pulumi.Output.secret(administrator_login_password)
             __props__.__dict__["collation"] = collation
             __props__.__dict__["dns_zone_partner_id"] = dns_zone_partner_id
+            if identity is not None and not isinstance(identity, ManagedInstanceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ManagedInstanceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             if license_type is None and not opts.urn:
                 raise TypeError("Missing required property 'license_type'")

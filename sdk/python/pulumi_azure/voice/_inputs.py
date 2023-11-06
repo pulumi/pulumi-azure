@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -30,14 +30,45 @@ class ServicesCommunicationsGatewayServiceLocationArgs:
                
                !> **NOTE:** The `esrp_addresses` must be specified for each `service_location` when the`e911_type` is set to `DirectToEsrp`.  The `esrp_addresses` must not be specified for each `service_location` when the`e911_type` is set to `Standard`.
         """
-        pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "operator_addresses", operator_addresses)
+        ServicesCommunicationsGatewayServiceLocationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            operator_addresses=operator_addresses,
+            allowed_media_source_address_prefixes=allowed_media_source_address_prefixes,
+            allowed_signaling_source_address_prefixes=allowed_signaling_source_address_prefixes,
+            esrp_addresses=esrp_addresses,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             operator_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_media_source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_signaling_source_address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             esrp_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if operator_addresses is None and 'operatorAddresses' in kwargs:
+            operator_addresses = kwargs['operatorAddresses']
+        if operator_addresses is None:
+            raise TypeError("Missing 'operator_addresses' argument")
+        if allowed_media_source_address_prefixes is None and 'allowedMediaSourceAddressPrefixes' in kwargs:
+            allowed_media_source_address_prefixes = kwargs['allowedMediaSourceAddressPrefixes']
+        if allowed_signaling_source_address_prefixes is None and 'allowedSignalingSourceAddressPrefixes' in kwargs:
+            allowed_signaling_source_address_prefixes = kwargs['allowedSignalingSourceAddressPrefixes']
+        if esrp_addresses is None and 'esrpAddresses' in kwargs:
+            esrp_addresses = kwargs['esrpAddresses']
+
+        _setter("location", location)
+        _setter("operator_addresses", operator_addresses)
         if allowed_media_source_address_prefixes is not None:
-            pulumi.set(__self__, "allowed_media_source_address_prefixes", allowed_media_source_address_prefixes)
+            _setter("allowed_media_source_address_prefixes", allowed_media_source_address_prefixes)
         if allowed_signaling_source_address_prefixes is not None:
-            pulumi.set(__self__, "allowed_signaling_source_address_prefixes", allowed_signaling_source_address_prefixes)
+            _setter("allowed_signaling_source_address_prefixes", allowed_signaling_source_address_prefixes)
         if esrp_addresses is not None:
-            pulumi.set(__self__, "esrp_addresses", esrp_addresses)
+            _setter("esrp_addresses", esrp_addresses)
 
     @property
     @pulumi.getter

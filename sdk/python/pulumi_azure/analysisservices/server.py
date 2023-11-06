@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,24 +39,69 @@ class ServerArgs:
         :param pulumi.Input[str] querypool_connection_mode: Controls how the read-write server is used in the query pool. If this value is set to `All` then read-write servers are also used for queries. Otherwise with `ReadOnly` these servers do not participate in query operations.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        ServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            admin_users=admin_users,
+            backup_blob_container_uri=backup_blob_container_uri,
+            enable_power_bi_service=enable_power_bi_service,
+            ipv4_firewall_rules=ipv4_firewall_rules,
+            location=location,
+            name=name,
+            querypool_connection_mode=querypool_connection_mode,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             admin_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             backup_blob_container_uri: Optional[pulumi.Input[str]] = None,
+             enable_power_bi_service: Optional[pulumi.Input[bool]] = None,
+             ipv4_firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             querypool_connection_mode: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if admin_users is None and 'adminUsers' in kwargs:
+            admin_users = kwargs['adminUsers']
+        if backup_blob_container_uri is None and 'backupBlobContainerUri' in kwargs:
+            backup_blob_container_uri = kwargs['backupBlobContainerUri']
+        if enable_power_bi_service is None and 'enablePowerBiService' in kwargs:
+            enable_power_bi_service = kwargs['enablePowerBiService']
+        if ipv4_firewall_rules is None and 'ipv4FirewallRules' in kwargs:
+            ipv4_firewall_rules = kwargs['ipv4FirewallRules']
+        if querypool_connection_mode is None and 'querypoolConnectionMode' in kwargs:
+            querypool_connection_mode = kwargs['querypoolConnectionMode']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if admin_users is not None:
-            pulumi.set(__self__, "admin_users", admin_users)
+            _setter("admin_users", admin_users)
         if backup_blob_container_uri is not None:
-            pulumi.set(__self__, "backup_blob_container_uri", backup_blob_container_uri)
+            _setter("backup_blob_container_uri", backup_blob_container_uri)
         if enable_power_bi_service is not None:
-            pulumi.set(__self__, "enable_power_bi_service", enable_power_bi_service)
+            _setter("enable_power_bi_service", enable_power_bi_service)
         if ipv4_firewall_rules is not None:
-            pulumi.set(__self__, "ipv4_firewall_rules", ipv4_firewall_rules)
+            _setter("ipv4_firewall_rules", ipv4_firewall_rules)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if querypool_connection_mode is not None:
-            pulumi.set(__self__, "querypool_connection_mode", querypool_connection_mode)
+            _setter("querypool_connection_mode", querypool_connection_mode)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -207,28 +252,73 @@ class _ServerState:
         :param pulumi.Input[str] sku: SKU for the Analysis Services Server. Possible values are: `D1`, `B1`, `B2`, `S0`, `S1`, `S2`, `S4`, `S8`, `S9`, `S8v2` and `S9v2`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        _ServerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_users=admin_users,
+            backup_blob_container_uri=backup_blob_container_uri,
+            enable_power_bi_service=enable_power_bi_service,
+            ipv4_firewall_rules=ipv4_firewall_rules,
+            location=location,
+            name=name,
+            querypool_connection_mode=querypool_connection_mode,
+            resource_group_name=resource_group_name,
+            server_full_name=server_full_name,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             backup_blob_container_uri: Optional[pulumi.Input[str]] = None,
+             enable_power_bi_service: Optional[pulumi.Input[bool]] = None,
+             ipv4_firewall_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ServerIpv4FirewallRuleArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             querypool_connection_mode: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_full_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if admin_users is None and 'adminUsers' in kwargs:
+            admin_users = kwargs['adminUsers']
+        if backup_blob_container_uri is None and 'backupBlobContainerUri' in kwargs:
+            backup_blob_container_uri = kwargs['backupBlobContainerUri']
+        if enable_power_bi_service is None and 'enablePowerBiService' in kwargs:
+            enable_power_bi_service = kwargs['enablePowerBiService']
+        if ipv4_firewall_rules is None and 'ipv4FirewallRules' in kwargs:
+            ipv4_firewall_rules = kwargs['ipv4FirewallRules']
+        if querypool_connection_mode is None and 'querypoolConnectionMode' in kwargs:
+            querypool_connection_mode = kwargs['querypoolConnectionMode']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if server_full_name is None and 'serverFullName' in kwargs:
+            server_full_name = kwargs['serverFullName']
+
         if admin_users is not None:
-            pulumi.set(__self__, "admin_users", admin_users)
+            _setter("admin_users", admin_users)
         if backup_blob_container_uri is not None:
-            pulumi.set(__self__, "backup_blob_container_uri", backup_blob_container_uri)
+            _setter("backup_blob_container_uri", backup_blob_container_uri)
         if enable_power_bi_service is not None:
-            pulumi.set(__self__, "enable_power_bi_service", enable_power_bi_service)
+            _setter("enable_power_bi_service", enable_power_bi_service)
         if ipv4_firewall_rules is not None:
-            pulumi.set(__self__, "ipv4_firewall_rules", ipv4_firewall_rules)
+            _setter("ipv4_firewall_rules", ipv4_firewall_rules)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if querypool_connection_mode is not None:
-            pulumi.set(__self__, "querypool_connection_mode", querypool_connection_mode)
+            _setter("querypool_connection_mode", querypool_connection_mode)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if server_full_name is not None:
-            pulumi.set(__self__, "server_full_name", server_full_name)
+            _setter("server_full_name", server_full_name)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="adminUsers")
@@ -480,6 +570,10 @@ class Server(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

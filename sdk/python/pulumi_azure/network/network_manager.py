@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,17 +33,50 @@ class NetworkManagerArgs:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Managers. Changing this forces a new Network Managers to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Managers.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "scope_accesses", scope_accesses)
+        NetworkManagerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            scope=scope,
+            scope_accesses=scope_accesses,
+            description=description,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input['NetworkManagerScopeArgs']] = None,
+             scope_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if scope_accesses is None and 'scopeAccesses' in kwargs:
+            scope_accesses = kwargs['scopeAccesses']
+        if scope_accesses is None:
+            raise TypeError("Missing 'scope_accesses' argument")
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("scope", scope)
+        _setter("scope_accesses", scope_accesses)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -152,22 +185,53 @@ class _NetworkManagerState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scope_accesses: A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Managers.
         """
+        _NetworkManagerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cross_tenant_scopes=cross_tenant_scopes,
+            description=description,
+            location=location,
+            name=name,
+            resource_group_name=resource_group_name,
+            scope=scope,
+            scope_accesses=scope_accesses,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cross_tenant_scopes: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagerCrossTenantScopeArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input['NetworkManagerScopeArgs']] = None,
+             scope_accesses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cross_tenant_scopes is None and 'crossTenantScopes' in kwargs:
+            cross_tenant_scopes = kwargs['crossTenantScopes']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if scope_accesses is None and 'scopeAccesses' in kwargs:
+            scope_accesses = kwargs['scopeAccesses']
+
         if cross_tenant_scopes is not None:
-            pulumi.set(__self__, "cross_tenant_scopes", cross_tenant_scopes)
+            _setter("cross_tenant_scopes", cross_tenant_scopes)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if scope_accesses is not None:
-            pulumi.set(__self__, "scope_accesses", scope_accesses)
+            _setter("scope_accesses", scope_accesses)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="crossTenantScopes")
@@ -375,6 +439,10 @@ class NetworkManager(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkManagerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -402,6 +470,11 @@ class NetworkManager(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if scope is not None and not isinstance(scope, NetworkManagerScopeArgs):
+                scope = scope or {}
+                def _setter(key, value):
+                    scope[key] = value
+                NetworkManagerScopeArgs._configure(_setter, **scope)
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope

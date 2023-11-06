@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FlexibleServerActiveDirectoryAdministratorArgs', 'FlexibleServerActiveDirectoryAdministrator']
@@ -29,12 +29,57 @@ class FlexibleServerActiveDirectoryAdministratorArgs:
         :param pulumi.Input[str] server_name: The name of the PostgreSQL Flexible Server on which to set the administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The Azure Tenant ID. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "principal_name", principal_name)
-        pulumi.set(__self__, "principal_type", principal_type)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        FlexibleServerActiveDirectoryAdministratorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_id=object_id,
+            principal_name=principal_name,
+            principal_type=principal_type,
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_id: Optional[pulumi.Input[str]] = None,
+             principal_name: Optional[pulumi.Input[str]] = None,
+             principal_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if object_id is None and 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if principal_name is None and 'principalName' in kwargs:
+            principal_name = kwargs['principalName']
+        if principal_name is None:
+            raise TypeError("Missing 'principal_name' argument")
+        if principal_type is None and 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+        if principal_type is None:
+            raise TypeError("Missing 'principal_type' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+
+        _setter("object_id", object_id)
+        _setter("principal_name", principal_name)
+        _setter("principal_type", principal_type)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_name", server_name)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="objectId")
@@ -127,18 +172,51 @@ class _FlexibleServerActiveDirectoryAdministratorState:
         :param pulumi.Input[str] server_name: The name of the PostgreSQL Flexible Server on which to set the administrator. Changing this forces a new resource to be created.
         :param pulumi.Input[str] tenant_id: The Azure Tenant ID. Changing this forces a new resource to be created.
         """
+        _FlexibleServerActiveDirectoryAdministratorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            object_id=object_id,
+            principal_name=principal_name,
+            principal_type=principal_type,
+            resource_group_name=resource_group_name,
+            server_name=server_name,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             object_id: Optional[pulumi.Input[str]] = None,
+             principal_name: Optional[pulumi.Input[str]] = None,
+             principal_type: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if object_id is None and 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if principal_name is None and 'principalName' in kwargs:
+            principal_name = kwargs['principalName']
+        if principal_type is None and 'principalType' in kwargs:
+            principal_type = kwargs['principalType']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if principal_name is not None:
-            pulumi.set(__self__, "principal_name", principal_name)
+            _setter("principal_name", principal_name)
         if principal_type is not None:
-            pulumi.set(__self__, "principal_type", principal_type)
+            _setter("principal_type", principal_type)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="objectId")
@@ -336,6 +414,10 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FlexibleServerActiveDirectoryAdministratorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

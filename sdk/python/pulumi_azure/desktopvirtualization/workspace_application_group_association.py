@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WorkspaceApplicationGroupAssociationArgs', 'WorkspaceApplicationGroupAssociation']
@@ -21,8 +21,29 @@ class WorkspaceApplicationGroupAssociationArgs:
         :param pulumi.Input[str] application_group_id: The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workspace_id: The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "application_group_id", application_group_id)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        WorkspaceApplicationGroupAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_group_id=application_group_id,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_group_id: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if application_group_id is None and 'applicationGroupId' in kwargs:
+            application_group_id = kwargs['applicationGroupId']
+        if application_group_id is None:
+            raise TypeError("Missing 'application_group_id' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+
+        _setter("application_group_id", application_group_id)
+        _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="applicationGroupId")
@@ -59,10 +80,27 @@ class _WorkspaceApplicationGroupAssociationState:
         :param pulumi.Input[str] application_group_id: The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workspace_id: The resource ID for the Virtual Desktop Workspace. Changing this forces a new resource to be created.
         """
+        _WorkspaceApplicationGroupAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_group_id=application_group_id,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_group_id: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if application_group_id is None and 'applicationGroupId' in kwargs:
+            application_group_id = kwargs['applicationGroupId']
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if application_group_id is not None:
-            pulumi.set(__self__, "application_group_id", application_group_id)
+            _setter("application_group_id", application_group_id)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="applicationGroupId")
@@ -190,6 +228,10 @@ class WorkspaceApplicationGroupAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceApplicationGroupAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

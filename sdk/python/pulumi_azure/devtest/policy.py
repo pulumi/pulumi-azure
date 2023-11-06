@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PolicyArgs', 'Policy']
@@ -35,19 +35,66 @@ class PolicyArgs:
         :param pulumi.Input[str] name: Specifies the name of the Dev Test Policy. Possible values are `GalleryImage`, `LabPremiumVmCount`, `LabTargetCost`, `LabVmCount`, `LabVmSize`, `UserOwnedLabPremiumVmCount`, `UserOwnedLabVmCount` and `UserOwnedLabVmCountInSubnet`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "evaluator_type", evaluator_type)
-        pulumi.set(__self__, "lab_name", lab_name)
-        pulumi.set(__self__, "policy_set_name", policy_set_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "threshold", threshold)
+        PolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            evaluator_type=evaluator_type,
+            lab_name=lab_name,
+            policy_set_name=policy_set_name,
+            resource_group_name=resource_group_name,
+            threshold=threshold,
+            description=description,
+            fact_data=fact_data,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             evaluator_type: Optional[pulumi.Input[str]] = None,
+             lab_name: Optional[pulumi.Input[str]] = None,
+             policy_set_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             threshold: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             fact_data: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if evaluator_type is None and 'evaluatorType' in kwargs:
+            evaluator_type = kwargs['evaluatorType']
+        if evaluator_type is None:
+            raise TypeError("Missing 'evaluator_type' argument")
+        if lab_name is None and 'labName' in kwargs:
+            lab_name = kwargs['labName']
+        if lab_name is None:
+            raise TypeError("Missing 'lab_name' argument")
+        if policy_set_name is None and 'policySetName' in kwargs:
+            policy_set_name = kwargs['policySetName']
+        if policy_set_name is None:
+            raise TypeError("Missing 'policy_set_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if threshold is None:
+            raise TypeError("Missing 'threshold' argument")
+        if fact_data is None and 'factData' in kwargs:
+            fact_data = kwargs['factData']
+
+        _setter("evaluator_type", evaluator_type)
+        _setter("lab_name", lab_name)
+        _setter("policy_set_name", policy_set_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("threshold", threshold)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if fact_data is not None:
-            pulumi.set(__self__, "fact_data", fact_data)
+            _setter("fact_data", fact_data)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="evaluatorType")
@@ -182,24 +229,61 @@ class _PolicyState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] threshold: The Threshold for this Policy.
         """
+        _PolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            evaluator_type=evaluator_type,
+            fact_data=fact_data,
+            lab_name=lab_name,
+            name=name,
+            policy_set_name=policy_set_name,
+            resource_group_name=resource_group_name,
+            tags=tags,
+            threshold=threshold,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             evaluator_type: Optional[pulumi.Input[str]] = None,
+             fact_data: Optional[pulumi.Input[str]] = None,
+             lab_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policy_set_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             threshold: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if evaluator_type is None and 'evaluatorType' in kwargs:
+            evaluator_type = kwargs['evaluatorType']
+        if fact_data is None and 'factData' in kwargs:
+            fact_data = kwargs['factData']
+        if lab_name is None and 'labName' in kwargs:
+            lab_name = kwargs['labName']
+        if policy_set_name is None and 'policySetName' in kwargs:
+            policy_set_name = kwargs['policySetName']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if evaluator_type is not None:
-            pulumi.set(__self__, "evaluator_type", evaluator_type)
+            _setter("evaluator_type", evaluator_type)
         if fact_data is not None:
-            pulumi.set(__self__, "fact_data", fact_data)
+            _setter("fact_data", fact_data)
         if lab_name is not None:
-            pulumi.set(__self__, "lab_name", lab_name)
+            _setter("lab_name", lab_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policy_set_name is not None:
-            pulumi.set(__self__, "policy_set_name", policy_set_name)
+            _setter("policy_set_name", policy_set_name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if threshold is not None:
-            pulumi.set(__self__, "threshold", threshold)
+            _setter("threshold", threshold)
 
     @property
     @pulumi.getter
@@ -425,6 +509,10 @@ class Policy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

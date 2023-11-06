@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ConnectionCertificateArgs', 'ConnectionCertificate']
@@ -29,14 +29,51 @@ class ConnectionCertificateArgs:
         :param pulumi.Input[str] description: A description for this Connection.
         :param pulumi.Input[str] name: Specifies the name of the Connection. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "automation_certificate_name", automation_certificate_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "subscription_id", subscription_id)
+        ConnectionCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            automation_certificate_name=automation_certificate_name,
+            resource_group_name=resource_group_name,
+            subscription_id=subscription_id,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             automation_certificate_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if automation_account_name is None and 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if automation_account_name is None:
+            raise TypeError("Missing 'automation_account_name' argument")
+        if automation_certificate_name is None and 'automationCertificateName' in kwargs:
+            automation_certificate_name = kwargs['automationCertificateName']
+        if automation_certificate_name is None:
+            raise TypeError("Missing 'automation_certificate_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+
+        _setter("automation_account_name", automation_account_name)
+        _setter("automation_certificate_name", automation_certificate_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("subscription_id", subscription_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -129,18 +166,47 @@ class _ConnectionCertificateState:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Connection is created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subscription_id: The id of subscription where the automation certificate exists.
         """
+        _ConnectionCertificateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            automation_certificate_name=automation_certificate_name,
+            description=description,
+            name=name,
+            resource_group_name=resource_group_name,
+            subscription_id=subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             automation_certificate_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if automation_account_name is None and 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if automation_certificate_name is None and 'automationCertificateName' in kwargs:
+            automation_certificate_name = kwargs['automationCertificateName']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
         if automation_account_name is not None:
-            pulumi.set(__self__, "automation_account_name", automation_account_name)
+            _setter("automation_account_name", automation_account_name)
         if automation_certificate_name is not None:
-            pulumi.set(__self__, "automation_certificate_name", automation_certificate_name)
+            _setter("automation_certificate_name", automation_certificate_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -322,6 +388,10 @@ class ConnectionCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConnectionCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,21 +39,72 @@ class SourceControlArgs:
         :param pulumi.Input[str] name: The name which should be used for this Automation Source Control. Changing this forces a new Automation Source Control to be created.
         :param pulumi.Input[bool] publish_runbook_enabled: Whether auto publish the Source Control. Defaults to `true`.
         """
-        pulumi.set(__self__, "automation_account_id", automation_account_id)
-        pulumi.set(__self__, "folder_path", folder_path)
-        pulumi.set(__self__, "repository_url", repository_url)
-        pulumi.set(__self__, "security", security)
-        pulumi.set(__self__, "source_control_type", source_control_type)
+        SourceControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_id=automation_account_id,
+            folder_path=folder_path,
+            repository_url=repository_url,
+            security=security,
+            source_control_type=source_control_type,
+            automatic_sync=automatic_sync,
+            branch=branch,
+            description=description,
+            name=name,
+            publish_runbook_enabled=publish_runbook_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_id: Optional[pulumi.Input[str]] = None,
+             folder_path: Optional[pulumi.Input[str]] = None,
+             repository_url: Optional[pulumi.Input[str]] = None,
+             security: Optional[pulumi.Input['SourceControlSecurityArgs']] = None,
+             source_control_type: Optional[pulumi.Input[str]] = None,
+             automatic_sync: Optional[pulumi.Input[bool]] = None,
+             branch: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             publish_runbook_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if automation_account_id is None and 'automationAccountId' in kwargs:
+            automation_account_id = kwargs['automationAccountId']
+        if automation_account_id is None:
+            raise TypeError("Missing 'automation_account_id' argument")
+        if folder_path is None and 'folderPath' in kwargs:
+            folder_path = kwargs['folderPath']
+        if folder_path is None:
+            raise TypeError("Missing 'folder_path' argument")
+        if repository_url is None and 'repositoryUrl' in kwargs:
+            repository_url = kwargs['repositoryUrl']
+        if repository_url is None:
+            raise TypeError("Missing 'repository_url' argument")
+        if security is None:
+            raise TypeError("Missing 'security' argument")
+        if source_control_type is None and 'sourceControlType' in kwargs:
+            source_control_type = kwargs['sourceControlType']
+        if source_control_type is None:
+            raise TypeError("Missing 'source_control_type' argument")
+        if automatic_sync is None and 'automaticSync' in kwargs:
+            automatic_sync = kwargs['automaticSync']
+        if publish_runbook_enabled is None and 'publishRunbookEnabled' in kwargs:
+            publish_runbook_enabled = kwargs['publishRunbookEnabled']
+
+        _setter("automation_account_id", automation_account_id)
+        _setter("folder_path", folder_path)
+        _setter("repository_url", repository_url)
+        _setter("security", security)
+        _setter("source_control_type", source_control_type)
         if automatic_sync is not None:
-            pulumi.set(__self__, "automatic_sync", automatic_sync)
+            _setter("automatic_sync", automatic_sync)
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if publish_runbook_enabled is not None:
-            pulumi.set(__self__, "publish_runbook_enabled", publish_runbook_enabled)
+            _setter("publish_runbook_enabled", publish_runbook_enabled)
 
     @property
     @pulumi.getter(name="automationAccountId")
@@ -202,26 +253,67 @@ class _SourceControlState:
         :param pulumi.Input['SourceControlSecurityArgs'] security: A `security` block as defined below.
         :param pulumi.Input[str] source_control_type: The source type of Source Control, possible vaules are `VsoGit`, `VsoTfvc` and `GitHub`, and the value is case sensitive.
         """
+        _SourceControlState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automatic_sync=automatic_sync,
+            automation_account_id=automation_account_id,
+            branch=branch,
+            description=description,
+            folder_path=folder_path,
+            name=name,
+            publish_runbook_enabled=publish_runbook_enabled,
+            repository_url=repository_url,
+            security=security,
+            source_control_type=source_control_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automatic_sync: Optional[pulumi.Input[bool]] = None,
+             automation_account_id: Optional[pulumi.Input[str]] = None,
+             branch: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             folder_path: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             publish_runbook_enabled: Optional[pulumi.Input[bool]] = None,
+             repository_url: Optional[pulumi.Input[str]] = None,
+             security: Optional[pulumi.Input['SourceControlSecurityArgs']] = None,
+             source_control_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if automatic_sync is None and 'automaticSync' in kwargs:
+            automatic_sync = kwargs['automaticSync']
+        if automation_account_id is None and 'automationAccountId' in kwargs:
+            automation_account_id = kwargs['automationAccountId']
+        if folder_path is None and 'folderPath' in kwargs:
+            folder_path = kwargs['folderPath']
+        if publish_runbook_enabled is None and 'publishRunbookEnabled' in kwargs:
+            publish_runbook_enabled = kwargs['publishRunbookEnabled']
+        if repository_url is None and 'repositoryUrl' in kwargs:
+            repository_url = kwargs['repositoryUrl']
+        if source_control_type is None and 'sourceControlType' in kwargs:
+            source_control_type = kwargs['sourceControlType']
+
         if automatic_sync is not None:
-            pulumi.set(__self__, "automatic_sync", automatic_sync)
+            _setter("automatic_sync", automatic_sync)
         if automation_account_id is not None:
-            pulumi.set(__self__, "automation_account_id", automation_account_id)
+            _setter("automation_account_id", automation_account_id)
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if folder_path is not None:
-            pulumi.set(__self__, "folder_path", folder_path)
+            _setter("folder_path", folder_path)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if publish_runbook_enabled is not None:
-            pulumi.set(__self__, "publish_runbook_enabled", publish_runbook_enabled)
+            _setter("publish_runbook_enabled", publish_runbook_enabled)
         if repository_url is not None:
-            pulumi.set(__self__, "repository_url", repository_url)
+            _setter("repository_url", repository_url)
         if security is not None:
-            pulumi.set(__self__, "security", security)
+            _setter("security", security)
         if source_control_type is not None:
-            pulumi.set(__self__, "source_control_type", source_control_type)
+            _setter("source_control_type", source_control_type)
 
     @property
     @pulumi.getter(name="automaticSync")
@@ -457,6 +549,10 @@ class SourceControl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SourceControlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -495,6 +591,11 @@ class SourceControl(pulumi.CustomResource):
             if repository_url is None and not opts.urn:
                 raise TypeError("Missing required property 'repository_url'")
             __props__.__dict__["repository_url"] = repository_url
+            if security is not None and not isinstance(security, SourceControlSecurityArgs):
+                security = security or {}
+                def _setter(key, value):
+                    security[key] = value
+                SourceControlSecurityArgs._configure(_setter, **security)
             if security is None and not opts.urn:
                 raise TypeError("Missing required property 'security'")
             __props__.__dict__["security"] = security

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -49,33 +49,100 @@ class StreamingEndpointArgs:
         :param pulumi.Input[str] name: The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Streaming Endpoint.
         """
-        pulumi.set(__self__, "media_services_account_name", media_services_account_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scale_units", scale_units)
+        StreamingEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            media_services_account_name=media_services_account_name,
+            resource_group_name=resource_group_name,
+            scale_units=scale_units,
+            access_control=access_control,
+            auto_start_enabled=auto_start_enabled,
+            cdn_enabled=cdn_enabled,
+            cdn_profile=cdn_profile,
+            cdn_provider=cdn_provider,
+            cross_site_access_policy=cross_site_access_policy,
+            custom_host_names=custom_host_names,
+            description=description,
+            location=location,
+            max_cache_age_seconds=max_cache_age_seconds,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             media_services_account_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scale_units: Optional[pulumi.Input[int]] = None,
+             access_control: Optional[pulumi.Input['StreamingEndpointAccessControlArgs']] = None,
+             auto_start_enabled: Optional[pulumi.Input[bool]] = None,
+             cdn_enabled: Optional[pulumi.Input[bool]] = None,
+             cdn_profile: Optional[pulumi.Input[str]] = None,
+             cdn_provider: Optional[pulumi.Input[str]] = None,
+             cross_site_access_policy: Optional[pulumi.Input['StreamingEndpointCrossSiteAccessPolicyArgs']] = None,
+             custom_host_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             max_cache_age_seconds: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
+            media_services_account_name = kwargs['mediaServicesAccountName']
+        if media_services_account_name is None:
+            raise TypeError("Missing 'media_services_account_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if scale_units is None and 'scaleUnits' in kwargs:
+            scale_units = kwargs['scaleUnits']
+        if scale_units is None:
+            raise TypeError("Missing 'scale_units' argument")
+        if access_control is None and 'accessControl' in kwargs:
+            access_control = kwargs['accessControl']
+        if auto_start_enabled is None and 'autoStartEnabled' in kwargs:
+            auto_start_enabled = kwargs['autoStartEnabled']
+        if cdn_enabled is None and 'cdnEnabled' in kwargs:
+            cdn_enabled = kwargs['cdnEnabled']
+        if cdn_profile is None and 'cdnProfile' in kwargs:
+            cdn_profile = kwargs['cdnProfile']
+        if cdn_provider is None and 'cdnProvider' in kwargs:
+            cdn_provider = kwargs['cdnProvider']
+        if cross_site_access_policy is None and 'crossSiteAccessPolicy' in kwargs:
+            cross_site_access_policy = kwargs['crossSiteAccessPolicy']
+        if custom_host_names is None and 'customHostNames' in kwargs:
+            custom_host_names = kwargs['customHostNames']
+        if max_cache_age_seconds is None and 'maxCacheAgeSeconds' in kwargs:
+            max_cache_age_seconds = kwargs['maxCacheAgeSeconds']
+
+        _setter("media_services_account_name", media_services_account_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("scale_units", scale_units)
         if access_control is not None:
-            pulumi.set(__self__, "access_control", access_control)
+            _setter("access_control", access_control)
         if auto_start_enabled is not None:
-            pulumi.set(__self__, "auto_start_enabled", auto_start_enabled)
+            _setter("auto_start_enabled", auto_start_enabled)
         if cdn_enabled is not None:
-            pulumi.set(__self__, "cdn_enabled", cdn_enabled)
+            _setter("cdn_enabled", cdn_enabled)
         if cdn_profile is not None:
-            pulumi.set(__self__, "cdn_profile", cdn_profile)
+            _setter("cdn_profile", cdn_profile)
         if cdn_provider is not None:
-            pulumi.set(__self__, "cdn_provider", cdn_provider)
+            _setter("cdn_provider", cdn_provider)
         if cross_site_access_policy is not None:
-            pulumi.set(__self__, "cross_site_access_policy", cross_site_access_policy)
+            _setter("cross_site_access_policy", cross_site_access_policy)
         if custom_host_names is not None:
-            pulumi.set(__self__, "custom_host_names", custom_host_names)
+            _setter("custom_host_names", custom_host_names)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if max_cache_age_seconds is not None:
-            pulumi.set(__self__, "max_cache_age_seconds", max_cache_age_seconds)
+            _setter("max_cache_age_seconds", max_cache_age_seconds)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="mediaServicesAccountName")
@@ -298,40 +365,107 @@ class _StreamingEndpointState:
         :param pulumi.Input[Sequence[pulumi.Input['StreamingEndpointSkusArgs']]] skus: A `sku` block defined as below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Streaming Endpoint.
         """
+        _StreamingEndpointState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_control=access_control,
+            auto_start_enabled=auto_start_enabled,
+            cdn_enabled=cdn_enabled,
+            cdn_profile=cdn_profile,
+            cdn_provider=cdn_provider,
+            cross_site_access_policy=cross_site_access_policy,
+            custom_host_names=custom_host_names,
+            description=description,
+            host_name=host_name,
+            location=location,
+            max_cache_age_seconds=max_cache_age_seconds,
+            media_services_account_name=media_services_account_name,
+            name=name,
+            resource_group_name=resource_group_name,
+            scale_units=scale_units,
+            skus=skus,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_control: Optional[pulumi.Input['StreamingEndpointAccessControlArgs']] = None,
+             auto_start_enabled: Optional[pulumi.Input[bool]] = None,
+             cdn_enabled: Optional[pulumi.Input[bool]] = None,
+             cdn_profile: Optional[pulumi.Input[str]] = None,
+             cdn_provider: Optional[pulumi.Input[str]] = None,
+             cross_site_access_policy: Optional[pulumi.Input['StreamingEndpointCrossSiteAccessPolicyArgs']] = None,
+             custom_host_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             host_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             max_cache_age_seconds: Optional[pulumi.Input[int]] = None,
+             media_services_account_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             scale_units: Optional[pulumi.Input[int]] = None,
+             skus: Optional[pulumi.Input[Sequence[pulumi.Input['StreamingEndpointSkusArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_control is None and 'accessControl' in kwargs:
+            access_control = kwargs['accessControl']
+        if auto_start_enabled is None and 'autoStartEnabled' in kwargs:
+            auto_start_enabled = kwargs['autoStartEnabled']
+        if cdn_enabled is None and 'cdnEnabled' in kwargs:
+            cdn_enabled = kwargs['cdnEnabled']
+        if cdn_profile is None and 'cdnProfile' in kwargs:
+            cdn_profile = kwargs['cdnProfile']
+        if cdn_provider is None and 'cdnProvider' in kwargs:
+            cdn_provider = kwargs['cdnProvider']
+        if cross_site_access_policy is None and 'crossSiteAccessPolicy' in kwargs:
+            cross_site_access_policy = kwargs['crossSiteAccessPolicy']
+        if custom_host_names is None and 'customHostNames' in kwargs:
+            custom_host_names = kwargs['customHostNames']
+        if host_name is None and 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if max_cache_age_seconds is None and 'maxCacheAgeSeconds' in kwargs:
+            max_cache_age_seconds = kwargs['maxCacheAgeSeconds']
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
+            media_services_account_name = kwargs['mediaServicesAccountName']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if scale_units is None and 'scaleUnits' in kwargs:
+            scale_units = kwargs['scaleUnits']
+
         if access_control is not None:
-            pulumi.set(__self__, "access_control", access_control)
+            _setter("access_control", access_control)
         if auto_start_enabled is not None:
-            pulumi.set(__self__, "auto_start_enabled", auto_start_enabled)
+            _setter("auto_start_enabled", auto_start_enabled)
         if cdn_enabled is not None:
-            pulumi.set(__self__, "cdn_enabled", cdn_enabled)
+            _setter("cdn_enabled", cdn_enabled)
         if cdn_profile is not None:
-            pulumi.set(__self__, "cdn_profile", cdn_profile)
+            _setter("cdn_profile", cdn_profile)
         if cdn_provider is not None:
-            pulumi.set(__self__, "cdn_provider", cdn_provider)
+            _setter("cdn_provider", cdn_provider)
         if cross_site_access_policy is not None:
-            pulumi.set(__self__, "cross_site_access_policy", cross_site_access_policy)
+            _setter("cross_site_access_policy", cross_site_access_policy)
         if custom_host_names is not None:
-            pulumi.set(__self__, "custom_host_names", custom_host_names)
+            _setter("custom_host_names", custom_host_names)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if host_name is not None:
-            pulumi.set(__self__, "host_name", host_name)
+            _setter("host_name", host_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if max_cache_age_seconds is not None:
-            pulumi.set(__self__, "max_cache_age_seconds", max_cache_age_seconds)
+            _setter("max_cache_age_seconds", max_cache_age_seconds)
         if media_services_account_name is not None:
-            pulumi.set(__self__, "media_services_account_name", media_services_account_name)
+            _setter("media_services_account_name", media_services_account_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if scale_units is not None:
-            pulumi.set(__self__, "scale_units", scale_units)
+            _setter("scale_units", scale_units)
         if skus is not None:
-            pulumi.set(__self__, "skus", skus)
+            _setter("skus", skus)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="accessControl")
@@ -765,6 +899,10 @@ class StreamingEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StreamingEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -794,11 +932,21 @@ class StreamingEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StreamingEndpointArgs.__new__(StreamingEndpointArgs)
 
+            if access_control is not None and not isinstance(access_control, StreamingEndpointAccessControlArgs):
+                access_control = access_control or {}
+                def _setter(key, value):
+                    access_control[key] = value
+                StreamingEndpointAccessControlArgs._configure(_setter, **access_control)
             __props__.__dict__["access_control"] = access_control
             __props__.__dict__["auto_start_enabled"] = auto_start_enabled
             __props__.__dict__["cdn_enabled"] = cdn_enabled
             __props__.__dict__["cdn_profile"] = cdn_profile
             __props__.__dict__["cdn_provider"] = cdn_provider
+            if cross_site_access_policy is not None and not isinstance(cross_site_access_policy, StreamingEndpointCrossSiteAccessPolicyArgs):
+                cross_site_access_policy = cross_site_access_policy or {}
+                def _setter(key, value):
+                    cross_site_access_policy[key] = value
+                StreamingEndpointCrossSiteAccessPolicyArgs._configure(_setter, **cross_site_access_policy)
             __props__.__dict__["cross_site_access_policy"] = cross_site_access_policy
             __props__.__dict__["custom_host_names"] = custom_host_names
             __props__.__dict__["description"] = description

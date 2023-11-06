@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SqlDedicatedGatewayArgs', 'SqlDedicatedGateway']
@@ -23,9 +23,36 @@ class SqlDedicatedGatewayArgs:
         :param pulumi.Input[int] instance_count: The instance count for the CosmosDB SQL Dedicated Gateway. Possible value is between `1` and `5`.
         :param pulumi.Input[str] instance_size: The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
         """
-        pulumi.set(__self__, "cosmosdb_account_id", cosmosdb_account_id)
-        pulumi.set(__self__, "instance_count", instance_count)
-        pulumi.set(__self__, "instance_size", instance_size)
+        SqlDedicatedGatewayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cosmosdb_account_id=cosmosdb_account_id,
+            instance_count=instance_count,
+            instance_size=instance_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cosmosdb_account_id: Optional[pulumi.Input[str]] = None,
+             instance_count: Optional[pulumi.Input[int]] = None,
+             instance_size: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cosmosdb_account_id is None and 'cosmosdbAccountId' in kwargs:
+            cosmosdb_account_id = kwargs['cosmosdbAccountId']
+        if cosmosdb_account_id is None:
+            raise TypeError("Missing 'cosmosdb_account_id' argument")
+        if instance_count is None and 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if instance_count is None:
+            raise TypeError("Missing 'instance_count' argument")
+        if instance_size is None and 'instanceSize' in kwargs:
+            instance_size = kwargs['instanceSize']
+        if instance_size is None:
+            raise TypeError("Missing 'instance_size' argument")
+
+        _setter("cosmosdb_account_id", cosmosdb_account_id)
+        _setter("instance_count", instance_count)
+        _setter("instance_size", instance_size)
 
     @property
     @pulumi.getter(name="cosmosdbAccountId")
@@ -76,12 +103,33 @@ class _SqlDedicatedGatewayState:
         :param pulumi.Input[int] instance_count: The instance count for the CosmosDB SQL Dedicated Gateway. Possible value is between `1` and `5`.
         :param pulumi.Input[str] instance_size: The instance size for the CosmosDB SQL Dedicated Gateway. Changing this forces a new resource to be created. Possible values are `Cosmos.D4s`, `Cosmos.D8s` and `Cosmos.D16s`.
         """
+        _SqlDedicatedGatewayState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cosmosdb_account_id=cosmosdb_account_id,
+            instance_count=instance_count,
+            instance_size=instance_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cosmosdb_account_id: Optional[pulumi.Input[str]] = None,
+             instance_count: Optional[pulumi.Input[int]] = None,
+             instance_size: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cosmosdb_account_id is None and 'cosmosdbAccountId' in kwargs:
+            cosmosdb_account_id = kwargs['cosmosdbAccountId']
+        if instance_count is None and 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if instance_size is None and 'instanceSize' in kwargs:
+            instance_size = kwargs['instanceSize']
+
         if cosmosdb_account_id is not None:
-            pulumi.set(__self__, "cosmosdb_account_id", cosmosdb_account_id)
+            _setter("cosmosdb_account_id", cosmosdb_account_id)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if instance_size is not None:
-            pulumi.set(__self__, "instance_size", instance_size)
+            _setter("instance_size", instance_size)
 
     @property
     @pulumi.getter(name="cosmosdbAccountId")
@@ -223,6 +271,10 @@ class SqlDedicatedGateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SqlDedicatedGatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

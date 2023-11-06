@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['StorageInsightsArgs', 'StorageInsights']
@@ -31,16 +31,59 @@ class StorageInsightsArgs:
         :param pulumi.Input[str] name: The name which should be used for this Log Analytics Storage Insights. Changing this forces a new Log Analytics Storage Insights to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] table_names: The names of the Azure tables that the workspace should read.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
-        pulumi.set(__self__, "storage_account_key", storage_account_key)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        StorageInsightsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            storage_account_id=storage_account_id,
+            storage_account_key=storage_account_key,
+            workspace_id=workspace_id,
+            blob_container_names=blob_container_names,
+            name=name,
+            table_names=table_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             storage_account_key: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             blob_container_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             table_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if storage_account_key is None:
+            raise TypeError("Missing 'storage_account_key' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if blob_container_names is None and 'blobContainerNames' in kwargs:
+            blob_container_names = kwargs['blobContainerNames']
+        if table_names is None and 'tableNames' in kwargs:
+            table_names = kwargs['tableNames']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_account_id", storage_account_id)
+        _setter("storage_account_key", storage_account_key)
+        _setter("workspace_id", workspace_id)
         if blob_container_names is not None:
-            pulumi.set(__self__, "blob_container_names", blob_container_names)
+            _setter("blob_container_names", blob_container_names)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if table_names is not None:
-            pulumi.set(__self__, "table_names", table_names)
+            _setter("table_names", table_names)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -147,20 +190,55 @@ class _StorageInsightsState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] table_names: The names of the Azure tables that the workspace should read.
         :param pulumi.Input[str] workspace_id: The ID of the Log Analytics Workspace within which the Storage Insights should exist. Changing this forces a new Log Analytics Storage Insights to be created.
         """
+        _StorageInsightsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob_container_names=blob_container_names,
+            name=name,
+            resource_group_name=resource_group_name,
+            storage_account_id=storage_account_id,
+            storage_account_key=storage_account_key,
+            table_names=table_names,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob_container_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             storage_account_key: Optional[pulumi.Input[str]] = None,
+             table_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if blob_container_names is None and 'blobContainerNames' in kwargs:
+            blob_container_names = kwargs['blobContainerNames']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if table_names is None and 'tableNames' in kwargs:
+            table_names = kwargs['tableNames']
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if blob_container_names is not None:
-            pulumi.set(__self__, "blob_container_names", blob_container_names)
+            _setter("blob_container_names", blob_container_names)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
         if storage_account_key is not None:
-            pulumi.set(__self__, "storage_account_key", storage_account_key)
+            _setter("storage_account_key", storage_account_key)
         if table_names is not None:
-            pulumi.set(__self__, "table_names", table_names)
+            _setter("table_names", table_names)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="blobContainerNames")
@@ -356,6 +434,10 @@ class StorageInsights(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StorageInsightsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

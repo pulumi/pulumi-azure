@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -65,42 +65,117 @@ class RegistryArgs:
         :param pulumi.Input['RegistryTrustPolicyArgs'] trust_policy: A `trust_policy` block as documented below.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        RegistryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            admin_enabled=admin_enabled,
+            anonymous_pull_enabled=anonymous_pull_enabled,
+            data_endpoint_enabled=data_endpoint_enabled,
+            encryption=encryption,
+            export_policy_enabled=export_policy_enabled,
+            georeplications=georeplications,
+            identity=identity,
+            location=location,
+            name=name,
+            network_rule_bypass_option=network_rule_bypass_option,
+            network_rule_set=network_rule_set,
+            public_network_access_enabled=public_network_access_enabled,
+            quarantine_policy_enabled=quarantine_policy_enabled,
+            retention_policy=retention_policy,
+            tags=tags,
+            trust_policy=trust_policy,
+            zone_redundancy_enabled=zone_redundancy_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             admin_enabled: Optional[pulumi.Input[bool]] = None,
+             anonymous_pull_enabled: Optional[pulumi.Input[bool]] = None,
+             data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+             encryption: Optional[pulumi.Input['RegistryEncryptionArgs']] = None,
+             export_policy_enabled: Optional[pulumi.Input[bool]] = None,
+             georeplications: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]] = None,
+             identity: Optional[pulumi.Input['RegistryIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_rule_bypass_option: Optional[pulumi.Input[str]] = None,
+             network_rule_set: Optional[pulumi.Input['RegistryNetworkRuleSetArgs']] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             quarantine_policy_enabled: Optional[pulumi.Input[bool]] = None,
+             retention_policy: Optional[pulumi.Input['RegistryRetentionPolicyArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             trust_policy: Optional[pulumi.Input['RegistryTrustPolicyArgs']] = None,
+             zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if admin_enabled is None and 'adminEnabled' in kwargs:
+            admin_enabled = kwargs['adminEnabled']
+        if anonymous_pull_enabled is None and 'anonymousPullEnabled' in kwargs:
+            anonymous_pull_enabled = kwargs['anonymousPullEnabled']
+        if data_endpoint_enabled is None and 'dataEndpointEnabled' in kwargs:
+            data_endpoint_enabled = kwargs['dataEndpointEnabled']
+        if export_policy_enabled is None and 'exportPolicyEnabled' in kwargs:
+            export_policy_enabled = kwargs['exportPolicyEnabled']
+        if network_rule_bypass_option is None and 'networkRuleBypassOption' in kwargs:
+            network_rule_bypass_option = kwargs['networkRuleBypassOption']
+        if network_rule_set is None and 'networkRuleSet' in kwargs:
+            network_rule_set = kwargs['networkRuleSet']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if quarantine_policy_enabled is None and 'quarantinePolicyEnabled' in kwargs:
+            quarantine_policy_enabled = kwargs['quarantinePolicyEnabled']
+        if retention_policy is None and 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+        if trust_policy is None and 'trustPolicy' in kwargs:
+            trust_policy = kwargs['trustPolicy']
+        if zone_redundancy_enabled is None and 'zoneRedundancyEnabled' in kwargs:
+            zone_redundancy_enabled = kwargs['zoneRedundancyEnabled']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if admin_enabled is not None:
-            pulumi.set(__self__, "admin_enabled", admin_enabled)
+            _setter("admin_enabled", admin_enabled)
         if anonymous_pull_enabled is not None:
-            pulumi.set(__self__, "anonymous_pull_enabled", anonymous_pull_enabled)
+            _setter("anonymous_pull_enabled", anonymous_pull_enabled)
         if data_endpoint_enabled is not None:
-            pulumi.set(__self__, "data_endpoint_enabled", data_endpoint_enabled)
+            _setter("data_endpoint_enabled", data_endpoint_enabled)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if export_policy_enabled is not None:
-            pulumi.set(__self__, "export_policy_enabled", export_policy_enabled)
+            _setter("export_policy_enabled", export_policy_enabled)
         if georeplications is not None:
-            pulumi.set(__self__, "georeplications", georeplications)
+            _setter("georeplications", georeplications)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_rule_bypass_option is not None:
-            pulumi.set(__self__, "network_rule_bypass_option", network_rule_bypass_option)
+            _setter("network_rule_bypass_option", network_rule_bypass_option)
         if network_rule_set is not None:
-            pulumi.set(__self__, "network_rule_set", network_rule_set)
+            _setter("network_rule_set", network_rule_set)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if quarantine_policy_enabled is not None:
-            pulumi.set(__self__, "quarantine_policy_enabled", quarantine_policy_enabled)
+            _setter("quarantine_policy_enabled", quarantine_policy_enabled)
         if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
+            _setter("retention_policy", retention_policy)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if trust_policy is not None:
-            pulumi.set(__self__, "trust_policy", trust_policy)
+            _setter("trust_policy", trust_policy)
         if zone_redundancy_enabled is not None:
-            pulumi.set(__self__, "zone_redundancy_enabled", zone_redundancy_enabled)
+            _setter("zone_redundancy_enabled", zone_redundancy_enabled)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -397,50 +472,133 @@ class _RegistryState:
         :param pulumi.Input['RegistryTrustPolicyArgs'] trust_policy: A `trust_policy` block as documented below.
         :param pulumi.Input[bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
         """
+        _RegistryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            admin_enabled=admin_enabled,
+            admin_password=admin_password,
+            admin_username=admin_username,
+            anonymous_pull_enabled=anonymous_pull_enabled,
+            data_endpoint_enabled=data_endpoint_enabled,
+            encryption=encryption,
+            export_policy_enabled=export_policy_enabled,
+            georeplications=georeplications,
+            identity=identity,
+            location=location,
+            login_server=login_server,
+            name=name,
+            network_rule_bypass_option=network_rule_bypass_option,
+            network_rule_set=network_rule_set,
+            public_network_access_enabled=public_network_access_enabled,
+            quarantine_policy_enabled=quarantine_policy_enabled,
+            resource_group_name=resource_group_name,
+            retention_policy=retention_policy,
+            sku=sku,
+            tags=tags,
+            trust_policy=trust_policy,
+            zone_redundancy_enabled=zone_redundancy_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             admin_enabled: Optional[pulumi.Input[bool]] = None,
+             admin_password: Optional[pulumi.Input[str]] = None,
+             admin_username: Optional[pulumi.Input[str]] = None,
+             anonymous_pull_enabled: Optional[pulumi.Input[bool]] = None,
+             data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+             encryption: Optional[pulumi.Input['RegistryEncryptionArgs']] = None,
+             export_policy_enabled: Optional[pulumi.Input[bool]] = None,
+             georeplications: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]]] = None,
+             identity: Optional[pulumi.Input['RegistryIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             login_server: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_rule_bypass_option: Optional[pulumi.Input[str]] = None,
+             network_rule_set: Optional[pulumi.Input['RegistryNetworkRuleSetArgs']] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             quarantine_policy_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             retention_policy: Optional[pulumi.Input['RegistryRetentionPolicyArgs']] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             trust_policy: Optional[pulumi.Input['RegistryTrustPolicyArgs']] = None,
+             zone_redundancy_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if admin_enabled is None and 'adminEnabled' in kwargs:
+            admin_enabled = kwargs['adminEnabled']
+        if admin_password is None and 'adminPassword' in kwargs:
+            admin_password = kwargs['adminPassword']
+        if admin_username is None and 'adminUsername' in kwargs:
+            admin_username = kwargs['adminUsername']
+        if anonymous_pull_enabled is None and 'anonymousPullEnabled' in kwargs:
+            anonymous_pull_enabled = kwargs['anonymousPullEnabled']
+        if data_endpoint_enabled is None and 'dataEndpointEnabled' in kwargs:
+            data_endpoint_enabled = kwargs['dataEndpointEnabled']
+        if export_policy_enabled is None and 'exportPolicyEnabled' in kwargs:
+            export_policy_enabled = kwargs['exportPolicyEnabled']
+        if login_server is None and 'loginServer' in kwargs:
+            login_server = kwargs['loginServer']
+        if network_rule_bypass_option is None and 'networkRuleBypassOption' in kwargs:
+            network_rule_bypass_option = kwargs['networkRuleBypassOption']
+        if network_rule_set is None and 'networkRuleSet' in kwargs:
+            network_rule_set = kwargs['networkRuleSet']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if quarantine_policy_enabled is None and 'quarantinePolicyEnabled' in kwargs:
+            quarantine_policy_enabled = kwargs['quarantinePolicyEnabled']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if retention_policy is None and 'retentionPolicy' in kwargs:
+            retention_policy = kwargs['retentionPolicy']
+        if trust_policy is None and 'trustPolicy' in kwargs:
+            trust_policy = kwargs['trustPolicy']
+        if zone_redundancy_enabled is None and 'zoneRedundancyEnabled' in kwargs:
+            zone_redundancy_enabled = kwargs['zoneRedundancyEnabled']
+
         if admin_enabled is not None:
-            pulumi.set(__self__, "admin_enabled", admin_enabled)
+            _setter("admin_enabled", admin_enabled)
         if admin_password is not None:
-            pulumi.set(__self__, "admin_password", admin_password)
+            _setter("admin_password", admin_password)
         if admin_username is not None:
-            pulumi.set(__self__, "admin_username", admin_username)
+            _setter("admin_username", admin_username)
         if anonymous_pull_enabled is not None:
-            pulumi.set(__self__, "anonymous_pull_enabled", anonymous_pull_enabled)
+            _setter("anonymous_pull_enabled", anonymous_pull_enabled)
         if data_endpoint_enabled is not None:
-            pulumi.set(__self__, "data_endpoint_enabled", data_endpoint_enabled)
+            _setter("data_endpoint_enabled", data_endpoint_enabled)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if export_policy_enabled is not None:
-            pulumi.set(__self__, "export_policy_enabled", export_policy_enabled)
+            _setter("export_policy_enabled", export_policy_enabled)
         if georeplications is not None:
-            pulumi.set(__self__, "georeplications", georeplications)
+            _setter("georeplications", georeplications)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if login_server is not None:
-            pulumi.set(__self__, "login_server", login_server)
+            _setter("login_server", login_server)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_rule_bypass_option is not None:
-            pulumi.set(__self__, "network_rule_bypass_option", network_rule_bypass_option)
+            _setter("network_rule_bypass_option", network_rule_bypass_option)
         if network_rule_set is not None:
-            pulumi.set(__self__, "network_rule_set", network_rule_set)
+            _setter("network_rule_set", network_rule_set)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if quarantine_policy_enabled is not None:
-            pulumi.set(__self__, "quarantine_policy_enabled", quarantine_policy_enabled)
+            _setter("quarantine_policy_enabled", quarantine_policy_enabled)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
+            _setter("retention_policy", retention_policy)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if trust_policy is not None:
-            pulumi.set(__self__, "trust_policy", trust_policy)
+            _setter("trust_policy", trust_policy)
         if zone_redundancy_enabled is not None:
-            pulumi.set(__self__, "zone_redundancy_enabled", zone_redundancy_enabled)
+            _setter("zone_redundancy_enabled", zone_redundancy_enabled)
 
     @property
     @pulumi.getter(name="adminEnabled")
@@ -976,6 +1134,10 @@ class Registry(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RegistryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1012,24 +1174,49 @@ class Registry(pulumi.CustomResource):
             __props__.__dict__["admin_enabled"] = admin_enabled
             __props__.__dict__["anonymous_pull_enabled"] = anonymous_pull_enabled
             __props__.__dict__["data_endpoint_enabled"] = data_endpoint_enabled
+            if encryption is not None and not isinstance(encryption, RegistryEncryptionArgs):
+                encryption = encryption or {}
+                def _setter(key, value):
+                    encryption[key] = value
+                RegistryEncryptionArgs._configure(_setter, **encryption)
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["export_policy_enabled"] = export_policy_enabled
             __props__.__dict__["georeplications"] = georeplications
+            if identity is not None and not isinstance(identity, RegistryIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                RegistryIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["network_rule_bypass_option"] = network_rule_bypass_option
+            if network_rule_set is not None and not isinstance(network_rule_set, RegistryNetworkRuleSetArgs):
+                network_rule_set = network_rule_set or {}
+                def _setter(key, value):
+                    network_rule_set[key] = value
+                RegistryNetworkRuleSetArgs._configure(_setter, **network_rule_set)
             __props__.__dict__["network_rule_set"] = network_rule_set
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["quarantine_policy_enabled"] = quarantine_policy_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if retention_policy is not None and not isinstance(retention_policy, RegistryRetentionPolicyArgs):
+                retention_policy = retention_policy or {}
+                def _setter(key, value):
+                    retention_policy[key] = value
+                RegistryRetentionPolicyArgs._configure(_setter, **retention_policy)
             __props__.__dict__["retention_policy"] = retention_policy
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            if trust_policy is not None and not isinstance(trust_policy, RegistryTrustPolicyArgs):
+                trust_policy = trust_policy or {}
+                def _setter(key, value):
+                    trust_policy[key] = value
+                RegistryTrustPolicyArgs._configure(_setter, **trust_policy)
             __props__.__dict__["trust_policy"] = trust_policy
             __props__.__dict__["zone_redundancy_enabled"] = zone_redundancy_enabled
             __props__.__dict__["admin_password"] = None

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SyncCloudEndpointArgs', 'SyncCloudEndpoint']
@@ -27,13 +27,46 @@ class SyncCloudEndpointArgs:
         :param pulumi.Input[str] name: The name which should be used for this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
         :param pulumi.Input[str] storage_account_tenant_id: The Tenant ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created. Defaults to the current tenant id.
         """
-        pulumi.set(__self__, "file_share_name", file_share_name)
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
-        pulumi.set(__self__, "storage_sync_group_id", storage_sync_group_id)
+        SyncCloudEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file_share_name=file_share_name,
+            storage_account_id=storage_account_id,
+            storage_sync_group_id=storage_sync_group_id,
+            name=name,
+            storage_account_tenant_id=storage_account_tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file_share_name: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             storage_sync_group_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             storage_account_tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if file_share_name is None and 'fileShareName' in kwargs:
+            file_share_name = kwargs['fileShareName']
+        if file_share_name is None:
+            raise TypeError("Missing 'file_share_name' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if storage_sync_group_id is None and 'storageSyncGroupId' in kwargs:
+            storage_sync_group_id = kwargs['storageSyncGroupId']
+        if storage_sync_group_id is None:
+            raise TypeError("Missing 'storage_sync_group_id' argument")
+        if storage_account_tenant_id is None and 'storageAccountTenantId' in kwargs:
+            storage_account_tenant_id = kwargs['storageAccountTenantId']
+
+        _setter("file_share_name", file_share_name)
+        _setter("storage_account_id", storage_account_id)
+        _setter("storage_sync_group_id", storage_sync_group_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if storage_account_tenant_id is not None:
-            pulumi.set(__self__, "storage_account_tenant_id", storage_account_tenant_id)
+            _setter("storage_account_tenant_id", storage_account_tenant_id)
 
     @property
     @pulumi.getter(name="fileShareName")
@@ -112,16 +145,43 @@ class _SyncCloudEndpointState:
         :param pulumi.Input[str] storage_account_tenant_id: The Tenant ID of the Storage Account where the Storage Share exists. Changing this forces a new Storage Sync Cloud Endpoint to be created. Defaults to the current tenant id.
         :param pulumi.Input[str] storage_sync_group_id: The ID of the Storage Sync Group where this Cloud Endpoint should be created. Changing this forces a new Storage Sync Cloud Endpoint to be created.
         """
+        _SyncCloudEndpointState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            file_share_name=file_share_name,
+            name=name,
+            storage_account_id=storage_account_id,
+            storage_account_tenant_id=storage_account_tenant_id,
+            storage_sync_group_id=storage_sync_group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             file_share_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             storage_account_tenant_id: Optional[pulumi.Input[str]] = None,
+             storage_sync_group_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if file_share_name is None and 'fileShareName' in kwargs:
+            file_share_name = kwargs['fileShareName']
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if storage_account_tenant_id is None and 'storageAccountTenantId' in kwargs:
+            storage_account_tenant_id = kwargs['storageAccountTenantId']
+        if storage_sync_group_id is None and 'storageSyncGroupId' in kwargs:
+            storage_sync_group_id = kwargs['storageSyncGroupId']
+
         if file_share_name is not None:
-            pulumi.set(__self__, "file_share_name", file_share_name)
+            _setter("file_share_name", file_share_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
         if storage_account_tenant_id is not None:
-            pulumi.set(__self__, "storage_account_tenant_id", storage_account_tenant_id)
+            _setter("storage_account_tenant_id", storage_account_tenant_id)
         if storage_sync_group_id is not None:
-            pulumi.set(__self__, "storage_sync_group_id", storage_sync_group_id)
+            _setter("storage_sync_group_id", storage_sync_group_id)
 
     @property
     @pulumi.getter(name="fileShareName")
@@ -307,6 +367,10 @@ class SyncCloudEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SyncCloudEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

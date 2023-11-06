@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,29 +45,82 @@ class FhirServiceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FhirServiceOciArtifactArgs']]] oci_artifacts: [A list](https://www.terraform.io/docs/configuration/attr-as-blocks.html) of objects describing [OCI artifacts for export](https://learn.microsoft.com/en-gb/azure/healthcare-apis/fhir/de-identified-export) as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Healthcare FHIR Service.
         """
-        pulumi.set(__self__, "authentication", authentication)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        FhirServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication=authentication,
+            resource_group_name=resource_group_name,
+            workspace_id=workspace_id,
+            access_policy_object_ids=access_policy_object_ids,
+            configuration_export_storage_account_name=configuration_export_storage_account_name,
+            container_registry_login_server_urls=container_registry_login_server_urls,
+            cors=cors,
+            identity=identity,
+            kind=kind,
+            location=location,
+            name=name,
+            oci_artifacts=oci_artifacts,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication: Optional[pulumi.Input['FhirServiceAuthenticationArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             configuration_export_storage_account_name: Optional[pulumi.Input[str]] = None,
+             container_registry_login_server_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cors: Optional[pulumi.Input['FhirServiceCorsArgs']] = None,
+             identity: Optional[pulumi.Input['FhirServiceIdentityArgs']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             oci_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['FhirServiceOciArtifactArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if authentication is None:
+            raise TypeError("Missing 'authentication' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+        if access_policy_object_ids is None and 'accessPolicyObjectIds' in kwargs:
+            access_policy_object_ids = kwargs['accessPolicyObjectIds']
+        if configuration_export_storage_account_name is None and 'configurationExportStorageAccountName' in kwargs:
+            configuration_export_storage_account_name = kwargs['configurationExportStorageAccountName']
+        if container_registry_login_server_urls is None and 'containerRegistryLoginServerUrls' in kwargs:
+            container_registry_login_server_urls = kwargs['containerRegistryLoginServerUrls']
+        if oci_artifacts is None and 'ociArtifacts' in kwargs:
+            oci_artifacts = kwargs['ociArtifacts']
+
+        _setter("authentication", authentication)
+        _setter("resource_group_name", resource_group_name)
+        _setter("workspace_id", workspace_id)
         if access_policy_object_ids is not None:
-            pulumi.set(__self__, "access_policy_object_ids", access_policy_object_ids)
+            _setter("access_policy_object_ids", access_policy_object_ids)
         if configuration_export_storage_account_name is not None:
-            pulumi.set(__self__, "configuration_export_storage_account_name", configuration_export_storage_account_name)
+            _setter("configuration_export_storage_account_name", configuration_export_storage_account_name)
         if container_registry_login_server_urls is not None:
-            pulumi.set(__self__, "container_registry_login_server_urls", container_registry_login_server_urls)
+            _setter("container_registry_login_server_urls", container_registry_login_server_urls)
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if oci_artifacts is not None:
-            pulumi.set(__self__, "oci_artifacts", oci_artifacts)
+            _setter("oci_artifacts", oci_artifacts)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -260,34 +313,85 @@ class _FhirServiceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Healthcare FHIR Service.
         :param pulumi.Input[str] workspace_id: Specifies the id of the Healthcare Workspace where the Healthcare FHIR Service should exist. Changing this forces a new Healthcare FHIR Service to be created.
         """
+        _FhirServiceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_policy_object_ids=access_policy_object_ids,
+            authentication=authentication,
+            configuration_export_storage_account_name=configuration_export_storage_account_name,
+            container_registry_login_server_urls=container_registry_login_server_urls,
+            cors=cors,
+            identity=identity,
+            kind=kind,
+            location=location,
+            name=name,
+            oci_artifacts=oci_artifacts,
+            public_network_access_enabled=public_network_access_enabled,
+            resource_group_name=resource_group_name,
+            tags=tags,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_policy_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             authentication: Optional[pulumi.Input['FhirServiceAuthenticationArgs']] = None,
+             configuration_export_storage_account_name: Optional[pulumi.Input[str]] = None,
+             container_registry_login_server_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cors: Optional[pulumi.Input['FhirServiceCorsArgs']] = None,
+             identity: Optional[pulumi.Input['FhirServiceIdentityArgs']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             oci_artifacts: Optional[pulumi.Input[Sequence[pulumi.Input['FhirServiceOciArtifactArgs']]]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_policy_object_ids is None and 'accessPolicyObjectIds' in kwargs:
+            access_policy_object_ids = kwargs['accessPolicyObjectIds']
+        if configuration_export_storage_account_name is None and 'configurationExportStorageAccountName' in kwargs:
+            configuration_export_storage_account_name = kwargs['configurationExportStorageAccountName']
+        if container_registry_login_server_urls is None and 'containerRegistryLoginServerUrls' in kwargs:
+            container_registry_login_server_urls = kwargs['containerRegistryLoginServerUrls']
+        if oci_artifacts is None and 'ociArtifacts' in kwargs:
+            oci_artifacts = kwargs['ociArtifacts']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if access_policy_object_ids is not None:
-            pulumi.set(__self__, "access_policy_object_ids", access_policy_object_ids)
+            _setter("access_policy_object_ids", access_policy_object_ids)
         if authentication is not None:
-            pulumi.set(__self__, "authentication", authentication)
+            _setter("authentication", authentication)
         if configuration_export_storage_account_name is not None:
-            pulumi.set(__self__, "configuration_export_storage_account_name", configuration_export_storage_account_name)
+            _setter("configuration_export_storage_account_name", configuration_export_storage_account_name)
         if container_registry_login_server_urls is not None:
-            pulumi.set(__self__, "container_registry_login_server_urls", container_registry_login_server_urls)
+            _setter("container_registry_login_server_urls", container_registry_login_server_urls)
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if oci_artifacts is not None:
-            pulumi.set(__self__, "oci_artifacts", oci_artifacts)
+            _setter("oci_artifacts", oci_artifacts)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="accessPolicyObjectIds")
@@ -615,6 +719,10 @@ class FhirService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FhirServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -643,12 +751,27 @@ class FhirService(pulumi.CustomResource):
             __props__ = FhirServiceArgs.__new__(FhirServiceArgs)
 
             __props__.__dict__["access_policy_object_ids"] = access_policy_object_ids
+            if authentication is not None and not isinstance(authentication, FhirServiceAuthenticationArgs):
+                authentication = authentication or {}
+                def _setter(key, value):
+                    authentication[key] = value
+                FhirServiceAuthenticationArgs._configure(_setter, **authentication)
             if authentication is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication'")
             __props__.__dict__["authentication"] = authentication
             __props__.__dict__["configuration_export_storage_account_name"] = configuration_export_storage_account_name
             __props__.__dict__["container_registry_login_server_urls"] = container_registry_login_server_urls
+            if cors is not None and not isinstance(cors, FhirServiceCorsArgs):
+                cors = cors or {}
+                def _setter(key, value):
+                    cors[key] = value
+                FhirServiceCorsArgs._configure(_setter, **cors)
             __props__.__dict__["cors"] = cors
+            if identity is not None and not isinstance(identity, FhirServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                FhirServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location

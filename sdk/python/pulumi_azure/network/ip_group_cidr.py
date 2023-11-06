@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IPGroupCIDRArgs', 'IPGroupCIDR']
@@ -21,8 +21,27 @@ class IPGroupCIDRArgs:
         :param pulumi.Input[str] ip_group_id: The ID of the destination IP Group.
                Changing this forces a new IP Group CIDR to be created.
         """
-        pulumi.set(__self__, "cidr", cidr)
-        pulumi.set(__self__, "ip_group_id", ip_group_id)
+        IPGroupCIDRArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidr=cidr,
+            ip_group_id=ip_group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidr: Optional[pulumi.Input[str]] = None,
+             ip_group_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cidr is None:
+            raise TypeError("Missing 'cidr' argument")
+        if ip_group_id is None and 'ipGroupId' in kwargs:
+            ip_group_id = kwargs['ipGroupId']
+        if ip_group_id is None:
+            raise TypeError("Missing 'ip_group_id' argument")
+
+        _setter("cidr", cidr)
+        _setter("ip_group_id", ip_group_id)
 
     @property
     @pulumi.getter
@@ -57,10 +76,25 @@ class _IPGroupCIDRState:
         :param pulumi.Input[str] ip_group_id: The ID of the destination IP Group.
                Changing this forces a new IP Group CIDR to be created.
         """
+        _IPGroupCIDRState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidr=cidr,
+            ip_group_id=ip_group_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidr: Optional[pulumi.Input[str]] = None,
+             ip_group_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ip_group_id is None and 'ipGroupId' in kwargs:
+            ip_group_id = kwargs['ipGroupId']
+
         if cidr is not None:
-            pulumi.set(__self__, "cidr", cidr)
+            _setter("cidr", cidr)
         if ip_group_id is not None:
-            pulumi.set(__self__, "ip_group_id", ip_group_id)
+            _setter("ip_group_id", ip_group_id)
 
     @property
     @pulumi.getter
@@ -174,6 +208,10 @@ class IPGroupCIDR(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IPGroupCIDRArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

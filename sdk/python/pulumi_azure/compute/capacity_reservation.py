@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,39 @@ class CapacityReservationArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zone: Specifies the Availability Zone for this Capacity Reservation. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
-        pulumi.set(__self__, "sku", sku)
+        CapacityReservationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_reservation_group_id=capacity_reservation_group_id,
+            sku=sku,
+            name=name,
+            tags=tags,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['CapacityReservationSkuArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if capacity_reservation_group_id is None and 'capacityReservationGroupId' in kwargs:
+            capacity_reservation_group_id = kwargs['capacityReservationGroupId']
+        if capacity_reservation_group_id is None:
+            raise TypeError("Missing 'capacity_reservation_group_id' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+
+        _setter("capacity_reservation_group_id", capacity_reservation_group_id)
+        _setter("sku", sku)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter(name="capacityReservationGroupId")
@@ -115,16 +140,37 @@ class _CapacityReservationState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] zone: Specifies the Availability Zone for this Capacity Reservation. Changing this forces a new resource to be created.
         """
+        _CapacityReservationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            capacity_reservation_group_id=capacity_reservation_group_id,
+            name=name,
+            sku=sku,
+            tags=tags,
+            zone=zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['CapacityReservationSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if capacity_reservation_group_id is None and 'capacityReservationGroupId' in kwargs:
+            capacity_reservation_group_id = kwargs['capacityReservationGroupId']
+
         if capacity_reservation_group_id is not None:
-            pulumi.set(__self__, "capacity_reservation_group_id", capacity_reservation_group_id)
+            _setter("capacity_reservation_group_id", capacity_reservation_group_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zone is not None:
-            pulumi.set(__self__, "zone", zone)
+            _setter("zone", zone)
 
     @property
     @pulumi.getter(name="capacityReservationGroupId")
@@ -280,6 +326,10 @@ class CapacityReservation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CapacityReservationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -303,6 +353,11 @@ class CapacityReservation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'capacity_reservation_group_id'")
             __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
             __props__.__dict__["name"] = name
+            if sku is not None and not isinstance(sku, CapacityReservationSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                CapacityReservationSkuArgs._configure(_setter, **sku)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

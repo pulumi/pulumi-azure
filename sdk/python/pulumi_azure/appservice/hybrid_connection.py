@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['HybridConnectionArgs', 'HybridConnection']
@@ -29,13 +29,52 @@ class HybridConnectionArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the App Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] send_key_name: The name of the Service Bus key which has Send permissions. Defaults to `RootManageSharedAccessKey`.
         """
-        pulumi.set(__self__, "app_service_name", app_service_name)
-        pulumi.set(__self__, "hostname", hostname)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "relay_id", relay_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        HybridConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_service_name=app_service_name,
+            hostname=hostname,
+            port=port,
+            relay_id=relay_id,
+            resource_group_name=resource_group_name,
+            send_key_name=send_key_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_service_name: Optional[pulumi.Input[str]] = None,
+             hostname: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             relay_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             send_key_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_service_name is None and 'appServiceName' in kwargs:
+            app_service_name = kwargs['appServiceName']
+        if app_service_name is None:
+            raise TypeError("Missing 'app_service_name' argument")
+        if hostname is None:
+            raise TypeError("Missing 'hostname' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if relay_id is None and 'relayId' in kwargs:
+            relay_id = kwargs['relayId']
+        if relay_id is None:
+            raise TypeError("Missing 'relay_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if send_key_name is None and 'sendKeyName' in kwargs:
+            send_key_name = kwargs['sendKeyName']
+
+        _setter("app_service_name", app_service_name)
+        _setter("hostname", hostname)
+        _setter("port", port)
+        _setter("relay_id", relay_id)
+        _setter("resource_group_name", resource_group_name)
         if send_key_name is not None:
-            pulumi.set(__self__, "send_key_name", send_key_name)
+            _setter("send_key_name", send_key_name)
 
     @property
     @pulumi.getter(name="appServiceName")
@@ -137,28 +176,77 @@ class _HybridConnectionState:
         :param pulumi.Input[str] service_bus_namespace: The name of the Service Bus namespace.
         :param pulumi.Input[str] service_bus_suffix: The suffix for the service bus endpoint.
         """
+        _HybridConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_service_name=app_service_name,
+            hostname=hostname,
+            namespace_name=namespace_name,
+            port=port,
+            relay_id=relay_id,
+            relay_name=relay_name,
+            resource_group_name=resource_group_name,
+            send_key_name=send_key_name,
+            send_key_value=send_key_value,
+            service_bus_namespace=service_bus_namespace,
+            service_bus_suffix=service_bus_suffix,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_service_name: Optional[pulumi.Input[str]] = None,
+             hostname: Optional[pulumi.Input[str]] = None,
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             relay_id: Optional[pulumi.Input[str]] = None,
+             relay_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             send_key_name: Optional[pulumi.Input[str]] = None,
+             send_key_value: Optional[pulumi.Input[str]] = None,
+             service_bus_namespace: Optional[pulumi.Input[str]] = None,
+             service_bus_suffix: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_service_name is None and 'appServiceName' in kwargs:
+            app_service_name = kwargs['appServiceName']
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if relay_id is None and 'relayId' in kwargs:
+            relay_id = kwargs['relayId']
+        if relay_name is None and 'relayName' in kwargs:
+            relay_name = kwargs['relayName']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if send_key_name is None and 'sendKeyName' in kwargs:
+            send_key_name = kwargs['sendKeyName']
+        if send_key_value is None and 'sendKeyValue' in kwargs:
+            send_key_value = kwargs['sendKeyValue']
+        if service_bus_namespace is None and 'serviceBusNamespace' in kwargs:
+            service_bus_namespace = kwargs['serviceBusNamespace']
+        if service_bus_suffix is None and 'serviceBusSuffix' in kwargs:
+            service_bus_suffix = kwargs['serviceBusSuffix']
+
         if app_service_name is not None:
-            pulumi.set(__self__, "app_service_name", app_service_name)
+            _setter("app_service_name", app_service_name)
         if hostname is not None:
-            pulumi.set(__self__, "hostname", hostname)
+            _setter("hostname", hostname)
         if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
+            _setter("namespace_name", namespace_name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if relay_id is not None:
-            pulumi.set(__self__, "relay_id", relay_id)
+            _setter("relay_id", relay_id)
         if relay_name is not None:
-            pulumi.set(__self__, "relay_name", relay_name)
+            _setter("relay_name", relay_name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if send_key_name is not None:
-            pulumi.set(__self__, "send_key_name", send_key_name)
+            _setter("send_key_name", send_key_name)
         if send_key_value is not None:
-            pulumi.set(__self__, "send_key_value", send_key_value)
+            _setter("send_key_value", send_key_value)
         if service_bus_namespace is not None:
-            pulumi.set(__self__, "service_bus_namespace", service_bus_namespace)
+            _setter("service_bus_namespace", service_bus_namespace)
         if service_bus_suffix is not None:
-            pulumi.set(__self__, "service_bus_suffix", service_bus_suffix)
+            _setter("service_bus_suffix", service_bus_suffix)
 
     @property
     @pulumi.getter(name="appServiceName")
@@ -427,6 +515,10 @@ class HybridConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            HybridConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

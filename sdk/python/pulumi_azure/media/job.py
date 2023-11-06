@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,17 +35,62 @@ class JobArgs:
         :param pulumi.Input[str] name: The name which should be used for this Media Job. Changing this forces a new Media Job to be created.
         :param pulumi.Input[str] priority: Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal. Changing this forces a new Media Job to be created. Possible values are `High`, `Normal` and `Low`.
         """
-        pulumi.set(__self__, "input_asset", input_asset)
-        pulumi.set(__self__, "media_services_account_name", media_services_account_name)
-        pulumi.set(__self__, "output_assets", output_assets)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "transform_name", transform_name)
+        JobArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            input_asset=input_asset,
+            media_services_account_name=media_services_account_name,
+            output_assets=output_assets,
+            resource_group_name=resource_group_name,
+            transform_name=transform_name,
+            description=description,
+            name=name,
+            priority=priority,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             input_asset: Optional[pulumi.Input['JobInputAssetArgs']] = None,
+             media_services_account_name: Optional[pulumi.Input[str]] = None,
+             output_assets: Optional[pulumi.Input[Sequence[pulumi.Input['JobOutputAssetArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             transform_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if input_asset is None and 'inputAsset' in kwargs:
+            input_asset = kwargs['inputAsset']
+        if input_asset is None:
+            raise TypeError("Missing 'input_asset' argument")
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
+            media_services_account_name = kwargs['mediaServicesAccountName']
+        if media_services_account_name is None:
+            raise TypeError("Missing 'media_services_account_name' argument")
+        if output_assets is None and 'outputAssets' in kwargs:
+            output_assets = kwargs['outputAssets']
+        if output_assets is None:
+            raise TypeError("Missing 'output_assets' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if transform_name is None and 'transformName' in kwargs:
+            transform_name = kwargs['transformName']
+        if transform_name is None:
+            raise TypeError("Missing 'transform_name' argument")
+
+        _setter("input_asset", input_asset)
+        _setter("media_services_account_name", media_services_account_name)
+        _setter("output_assets", output_assets)
+        _setter("resource_group_name", resource_group_name)
+        _setter("transform_name", transform_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
 
     @property
     @pulumi.getter(name="inputAsset")
@@ -166,22 +211,57 @@ class _JobState:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Media Job should exist. Changing this forces a new Media Job to be created.
         :param pulumi.Input[str] transform_name: The Transform name. Changing this forces a new Media Job to be created.
         """
+        _JobState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            input_asset=input_asset,
+            media_services_account_name=media_services_account_name,
+            name=name,
+            output_assets=output_assets,
+            priority=priority,
+            resource_group_name=resource_group_name,
+            transform_name=transform_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             input_asset: Optional[pulumi.Input['JobInputAssetArgs']] = None,
+             media_services_account_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             output_assets: Optional[pulumi.Input[Sequence[pulumi.Input['JobOutputAssetArgs']]]] = None,
+             priority: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             transform_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if input_asset is None and 'inputAsset' in kwargs:
+            input_asset = kwargs['inputAsset']
+        if media_services_account_name is None and 'mediaServicesAccountName' in kwargs:
+            media_services_account_name = kwargs['mediaServicesAccountName']
+        if output_assets is None and 'outputAssets' in kwargs:
+            output_assets = kwargs['outputAssets']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if transform_name is None and 'transformName' in kwargs:
+            transform_name = kwargs['transformName']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if input_asset is not None:
-            pulumi.set(__self__, "input_asset", input_asset)
+            _setter("input_asset", input_asset)
         if media_services_account_name is not None:
-            pulumi.set(__self__, "media_services_account_name", media_services_account_name)
+            _setter("media_services_account_name", media_services_account_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if output_assets is not None:
-            pulumi.set(__self__, "output_assets", output_assets)
+            _setter("output_assets", output_assets)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if transform_name is not None:
-            pulumi.set(__self__, "transform_name", transform_name)
+            _setter("transform_name", transform_name)
 
     @property
     @pulumi.getter
@@ -447,6 +527,10 @@ class Job(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            JobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -470,6 +554,11 @@ class Job(pulumi.CustomResource):
             __props__ = JobArgs.__new__(JobArgs)
 
             __props__.__dict__["description"] = description
+            if input_asset is not None and not isinstance(input_asset, JobInputAssetArgs):
+                input_asset = input_asset or {}
+                def _setter(key, value):
+                    input_asset[key] = value
+                JobInputAssetArgs._configure(_setter, **input_asset)
             if input_asset is None and not opts.urn:
                 raise TypeError("Missing required property 'input_asset'")
             __props__.__dict__["input_asset"] = input_asset

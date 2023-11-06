@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SharedAccessPolicyArgs', 'SharedAccessPolicy']
@@ -35,18 +35,57 @@ class SharedAccessPolicyArgs:
                > **NOTE** When `registry_write` is set to `true`, `registry_read` must also be set to true. This is a limitation of the Azure REST API
         :param pulumi.Input[bool] service_connect: Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
         """
-        pulumi.set(__self__, "iothub_name", iothub_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        SharedAccessPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            iothub_name=iothub_name,
+            resource_group_name=resource_group_name,
+            device_connect=device_connect,
+            name=name,
+            registry_read=registry_read,
+            registry_write=registry_write,
+            service_connect=service_connect,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             iothub_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             device_connect: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             registry_read: Optional[pulumi.Input[bool]] = None,
+             registry_write: Optional[pulumi.Input[bool]] = None,
+             service_connect: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if iothub_name is None and 'iothubName' in kwargs:
+            iothub_name = kwargs['iothubName']
+        if iothub_name is None:
+            raise TypeError("Missing 'iothub_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if device_connect is None and 'deviceConnect' in kwargs:
+            device_connect = kwargs['deviceConnect']
+        if registry_read is None and 'registryRead' in kwargs:
+            registry_read = kwargs['registryRead']
+        if registry_write is None and 'registryWrite' in kwargs:
+            registry_write = kwargs['registryWrite']
+        if service_connect is None and 'serviceConnect' in kwargs:
+            service_connect = kwargs['serviceConnect']
+
+        _setter("iothub_name", iothub_name)
+        _setter("resource_group_name", resource_group_name)
         if device_connect is not None:
-            pulumi.set(__self__, "device_connect", device_connect)
+            _setter("device_connect", device_connect)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if registry_read is not None:
-            pulumi.set(__self__, "registry_read", registry_read)
+            _setter("registry_read", registry_read)
         if registry_write is not None:
-            pulumi.set(__self__, "registry_write", registry_write)
+            _setter("registry_write", registry_write)
         if service_connect is not None:
-            pulumi.set(__self__, "service_connect", service_connect)
+            _setter("service_connect", service_connect)
 
     @property
     @pulumi.getter(name="iothubName")
@@ -169,28 +208,79 @@ class _SharedAccessPolicyState:
         :param pulumi.Input[str] secondary_key: The secondary key used to create the authentication token.
         :param pulumi.Input[bool] service_connect: Adds `ServiceConnect` permission to this Shared Access Account. It allows sending and receiving on the cloud-side endpoints.
         """
+        _SharedAccessPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_connect=device_connect,
+            iothub_name=iothub_name,
+            name=name,
+            primary_connection_string=primary_connection_string,
+            primary_key=primary_key,
+            registry_read=registry_read,
+            registry_write=registry_write,
+            resource_group_name=resource_group_name,
+            secondary_connection_string=secondary_connection_string,
+            secondary_key=secondary_key,
+            service_connect=service_connect,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_connect: Optional[pulumi.Input[bool]] = None,
+             iothub_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             primary_connection_string: Optional[pulumi.Input[str]] = None,
+             primary_key: Optional[pulumi.Input[str]] = None,
+             registry_read: Optional[pulumi.Input[bool]] = None,
+             registry_write: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             secondary_connection_string: Optional[pulumi.Input[str]] = None,
+             secondary_key: Optional[pulumi.Input[str]] = None,
+             service_connect: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if device_connect is None and 'deviceConnect' in kwargs:
+            device_connect = kwargs['deviceConnect']
+        if iothub_name is None and 'iothubName' in kwargs:
+            iothub_name = kwargs['iothubName']
+        if primary_connection_string is None and 'primaryConnectionString' in kwargs:
+            primary_connection_string = kwargs['primaryConnectionString']
+        if primary_key is None and 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+        if registry_read is None and 'registryRead' in kwargs:
+            registry_read = kwargs['registryRead']
+        if registry_write is None and 'registryWrite' in kwargs:
+            registry_write = kwargs['registryWrite']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if secondary_connection_string is None and 'secondaryConnectionString' in kwargs:
+            secondary_connection_string = kwargs['secondaryConnectionString']
+        if secondary_key is None and 'secondaryKey' in kwargs:
+            secondary_key = kwargs['secondaryKey']
+        if service_connect is None and 'serviceConnect' in kwargs:
+            service_connect = kwargs['serviceConnect']
+
         if device_connect is not None:
-            pulumi.set(__self__, "device_connect", device_connect)
+            _setter("device_connect", device_connect)
         if iothub_name is not None:
-            pulumi.set(__self__, "iothub_name", iothub_name)
+            _setter("iothub_name", iothub_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if primary_connection_string is not None:
-            pulumi.set(__self__, "primary_connection_string", primary_connection_string)
+            _setter("primary_connection_string", primary_connection_string)
         if primary_key is not None:
-            pulumi.set(__self__, "primary_key", primary_key)
+            _setter("primary_key", primary_key)
         if registry_read is not None:
-            pulumi.set(__self__, "registry_read", registry_read)
+            _setter("registry_read", registry_read)
         if registry_write is not None:
-            pulumi.set(__self__, "registry_write", registry_write)
+            _setter("registry_write", registry_write)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if secondary_connection_string is not None:
-            pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
+            _setter("secondary_connection_string", secondary_connection_string)
         if secondary_key is not None:
-            pulumi.set(__self__, "secondary_key", secondary_key)
+            _setter("secondary_key", secondary_key)
         if service_connect is not None:
-            pulumi.set(__self__, "service_connect", service_connect)
+            _setter("service_connect", service_connect)
 
     @property
     @pulumi.getter(name="deviceConnect")
@@ -436,6 +526,10 @@ class SharedAccessPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SharedAccessPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

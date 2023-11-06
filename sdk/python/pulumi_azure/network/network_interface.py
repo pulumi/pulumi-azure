@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -53,28 +53,83 @@ class NetworkInterfaceArgs:
         :param pulumi.Input[str] name: The name of the Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "ip_configurations", ip_configurations)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NetworkInterfaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_configurations=ip_configurations,
+            resource_group_name=resource_group_name,
+            auxiliary_mode=auxiliary_mode,
+            auxiliary_sku=auxiliary_sku,
+            dns_servers=dns_servers,
+            edge_zone=edge_zone,
+            enable_accelerated_networking=enable_accelerated_networking,
+            enable_ip_forwarding=enable_ip_forwarding,
+            internal_dns_name_label=internal_dns_name_label,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             auxiliary_mode: Optional[pulumi.Input[str]] = None,
+             auxiliary_sku: Optional[pulumi.Input[str]] = None,
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             edge_zone: Optional[pulumi.Input[str]] = None,
+             enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
+             enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
+             internal_dns_name_label: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if ip_configurations is None:
+            raise TypeError("Missing 'ip_configurations' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if auxiliary_mode is None and 'auxiliaryMode' in kwargs:
+            auxiliary_mode = kwargs['auxiliaryMode']
+        if auxiliary_sku is None and 'auxiliarySku' in kwargs:
+            auxiliary_sku = kwargs['auxiliarySku']
+        if dns_servers is None and 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if edge_zone is None and 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if enable_accelerated_networking is None and 'enableAcceleratedNetworking' in kwargs:
+            enable_accelerated_networking = kwargs['enableAcceleratedNetworking']
+        if enable_ip_forwarding is None and 'enableIpForwarding' in kwargs:
+            enable_ip_forwarding = kwargs['enableIpForwarding']
+        if internal_dns_name_label is None and 'internalDnsNameLabel' in kwargs:
+            internal_dns_name_label = kwargs['internalDnsNameLabel']
+
+        _setter("ip_configurations", ip_configurations)
+        _setter("resource_group_name", resource_group_name)
         if auxiliary_mode is not None:
-            pulumi.set(__self__, "auxiliary_mode", auxiliary_mode)
+            _setter("auxiliary_mode", auxiliary_mode)
         if auxiliary_sku is not None:
-            pulumi.set(__self__, "auxiliary_sku", auxiliary_sku)
+            _setter("auxiliary_sku", auxiliary_sku)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if edge_zone is not None:
-            pulumi.set(__self__, "edge_zone", edge_zone)
+            _setter("edge_zone", edge_zone)
         if enable_accelerated_networking is not None:
-            pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
+            _setter("enable_accelerated_networking", enable_accelerated_networking)
         if enable_ip_forwarding is not None:
-            pulumi.set(__self__, "enable_ip_forwarding", enable_ip_forwarding)
+            _setter("enable_ip_forwarding", enable_ip_forwarding)
         if internal_dns_name_label is not None:
-            pulumi.set(__self__, "internal_dns_name_label", internal_dns_name_label)
+            _setter("internal_dns_name_label", internal_dns_name_label)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="ipConfigurations")
@@ -283,42 +338,117 @@ class _NetworkInterfaceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine which this Network Interface is connected to.
         """
+        _NetworkInterfaceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            applied_dns_servers=applied_dns_servers,
+            auxiliary_mode=auxiliary_mode,
+            auxiliary_sku=auxiliary_sku,
+            dns_servers=dns_servers,
+            edge_zone=edge_zone,
+            enable_accelerated_networking=enable_accelerated_networking,
+            enable_ip_forwarding=enable_ip_forwarding,
+            internal_dns_name_label=internal_dns_name_label,
+            internal_domain_name_suffix=internal_domain_name_suffix,
+            ip_configurations=ip_configurations,
+            location=location,
+            mac_address=mac_address,
+            name=name,
+            private_ip_address=private_ip_address,
+            private_ip_addresses=private_ip_addresses,
+            resource_group_name=resource_group_name,
+            tags=tags,
+            virtual_machine_id=virtual_machine_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             applied_dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             auxiliary_mode: Optional[pulumi.Input[str]] = None,
+             auxiliary_sku: Optional[pulumi.Input[str]] = None,
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             edge_zone: Optional[pulumi.Input[str]] = None,
+             enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
+             enable_ip_forwarding: Optional[pulumi.Input[bool]] = None,
+             internal_dns_name_label: Optional[pulumi.Input[str]] = None,
+             internal_domain_name_suffix: Optional[pulumi.Input[str]] = None,
+             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceIpConfigurationArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             mac_address: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             private_ip_address: Optional[pulumi.Input[str]] = None,
+             private_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_machine_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if applied_dns_servers is None and 'appliedDnsServers' in kwargs:
+            applied_dns_servers = kwargs['appliedDnsServers']
+        if auxiliary_mode is None and 'auxiliaryMode' in kwargs:
+            auxiliary_mode = kwargs['auxiliaryMode']
+        if auxiliary_sku is None and 'auxiliarySku' in kwargs:
+            auxiliary_sku = kwargs['auxiliarySku']
+        if dns_servers is None and 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if edge_zone is None and 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if enable_accelerated_networking is None and 'enableAcceleratedNetworking' in kwargs:
+            enable_accelerated_networking = kwargs['enableAcceleratedNetworking']
+        if enable_ip_forwarding is None and 'enableIpForwarding' in kwargs:
+            enable_ip_forwarding = kwargs['enableIpForwarding']
+        if internal_dns_name_label is None and 'internalDnsNameLabel' in kwargs:
+            internal_dns_name_label = kwargs['internalDnsNameLabel']
+        if internal_domain_name_suffix is None and 'internalDomainNameSuffix' in kwargs:
+            internal_domain_name_suffix = kwargs['internalDomainNameSuffix']
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if mac_address is None and 'macAddress' in kwargs:
+            mac_address = kwargs['macAddress']
+        if private_ip_address is None and 'privateIpAddress' in kwargs:
+            private_ip_address = kwargs['privateIpAddress']
+        if private_ip_addresses is None and 'privateIpAddresses' in kwargs:
+            private_ip_addresses = kwargs['privateIpAddresses']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
+            virtual_machine_id = kwargs['virtualMachineId']
+
         if applied_dns_servers is not None:
-            pulumi.set(__self__, "applied_dns_servers", applied_dns_servers)
+            _setter("applied_dns_servers", applied_dns_servers)
         if auxiliary_mode is not None:
-            pulumi.set(__self__, "auxiliary_mode", auxiliary_mode)
+            _setter("auxiliary_mode", auxiliary_mode)
         if auxiliary_sku is not None:
-            pulumi.set(__self__, "auxiliary_sku", auxiliary_sku)
+            _setter("auxiliary_sku", auxiliary_sku)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if edge_zone is not None:
-            pulumi.set(__self__, "edge_zone", edge_zone)
+            _setter("edge_zone", edge_zone)
         if enable_accelerated_networking is not None:
-            pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
+            _setter("enable_accelerated_networking", enable_accelerated_networking)
         if enable_ip_forwarding is not None:
-            pulumi.set(__self__, "enable_ip_forwarding", enable_ip_forwarding)
+            _setter("enable_ip_forwarding", enable_ip_forwarding)
         if internal_dns_name_label is not None:
-            pulumi.set(__self__, "internal_dns_name_label", internal_dns_name_label)
+            _setter("internal_dns_name_label", internal_dns_name_label)
         if internal_domain_name_suffix is not None:
-            pulumi.set(__self__, "internal_domain_name_suffix", internal_domain_name_suffix)
+            _setter("internal_domain_name_suffix", internal_domain_name_suffix)
         if ip_configurations is not None:
-            pulumi.set(__self__, "ip_configurations", ip_configurations)
+            _setter("ip_configurations", ip_configurations)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mac_address is not None:
-            pulumi.set(__self__, "mac_address", mac_address)
+            _setter("mac_address", mac_address)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_ip_address is not None:
-            pulumi.set(__self__, "private_ip_address", private_ip_address)
+            _setter("private_ip_address", private_ip_address)
         if private_ip_addresses is not None:
-            pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+            _setter("private_ip_addresses", private_ip_addresses)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_machine_id is not None:
-            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+            _setter("virtual_machine_id", virtual_machine_id)
 
     @property
     @pulumi.getter(name="appliedDnsServers")
@@ -678,6 +808,10 @@ class NetworkInterface(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkInterfaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

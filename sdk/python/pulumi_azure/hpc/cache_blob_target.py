@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CacheBlobTargetArgs', 'CacheBlobTarget']
@@ -31,14 +31,53 @@ class CacheBlobTargetArgs:
         :param pulumi.Input[str] access_policy_name: The name of the access policy applied to this target. Defaults to `default`.
         :param pulumi.Input[str] name: The name of the HPC Cache Blob Target. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "cache_name", cache_name)
-        pulumi.set(__self__, "namespace_path", namespace_path)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_container_id", storage_container_id)
+        CacheBlobTargetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_name=cache_name,
+            namespace_path=namespace_path,
+            resource_group_name=resource_group_name,
+            storage_container_id=storage_container_id,
+            access_policy_name=access_policy_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_name: Optional[pulumi.Input[str]] = None,
+             namespace_path: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_container_id: Optional[pulumi.Input[str]] = None,
+             access_policy_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cache_name is None and 'cacheName' in kwargs:
+            cache_name = kwargs['cacheName']
+        if cache_name is None:
+            raise TypeError("Missing 'cache_name' argument")
+        if namespace_path is None and 'namespacePath' in kwargs:
+            namespace_path = kwargs['namespacePath']
+        if namespace_path is None:
+            raise TypeError("Missing 'namespace_path' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_container_id is None and 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+        if storage_container_id is None:
+            raise TypeError("Missing 'storage_container_id' argument")
+        if access_policy_name is None and 'accessPolicyName' in kwargs:
+            access_policy_name = kwargs['accessPolicyName']
+
+        _setter("cache_name", cache_name)
+        _setter("namespace_path", namespace_path)
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_container_id", storage_container_id)
         if access_policy_name is not None:
-            pulumi.set(__self__, "access_policy_name", access_policy_name)
+            _setter("access_policy_name", access_policy_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="cacheName")
@@ -135,18 +174,49 @@ class _CacheBlobTargetState:
                
                > **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `storage.Container` Data Source/Resource as `resource_manager_id`.
         """
+        _CacheBlobTargetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_policy_name=access_policy_name,
+            cache_name=cache_name,
+            name=name,
+            namespace_path=namespace_path,
+            resource_group_name=resource_group_name,
+            storage_container_id=storage_container_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_policy_name: Optional[pulumi.Input[str]] = None,
+             cache_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             namespace_path: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_container_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_policy_name is None and 'accessPolicyName' in kwargs:
+            access_policy_name = kwargs['accessPolicyName']
+        if cache_name is None and 'cacheName' in kwargs:
+            cache_name = kwargs['cacheName']
+        if namespace_path is None and 'namespacePath' in kwargs:
+            namespace_path = kwargs['namespacePath']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if storage_container_id is None and 'storageContainerId' in kwargs:
+            storage_container_id = kwargs['storageContainerId']
+
         if access_policy_name is not None:
-            pulumi.set(__self__, "access_policy_name", access_policy_name)
+            _setter("access_policy_name", access_policy_name)
         if cache_name is not None:
-            pulumi.set(__self__, "cache_name", cache_name)
+            _setter("cache_name", cache_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if namespace_path is not None:
-            pulumi.set(__self__, "namespace_path", namespace_path)
+            _setter("namespace_path", namespace_path)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if storage_container_id is not None:
-            pulumi.set(__self__, "storage_container_id", storage_container_id)
+            _setter("storage_container_id", storage_container_id)
 
     @property
     @pulumi.getter(name="accessPolicyName")
@@ -376,6 +446,10 @@ class CacheBlobTarget(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CacheBlobTargetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

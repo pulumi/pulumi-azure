@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MongoUserDefinitionArgs', 'MongoUserDefinition']
@@ -27,11 +27,38 @@ class MongoUserDefinitionArgs:
                
                > **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`.
         """
-        pulumi.set(__self__, "cosmos_mongo_database_id", cosmos_mongo_database_id)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        MongoUserDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cosmos_mongo_database_id=cosmos_mongo_database_id,
+            password=password,
+            username=username,
+            inherited_role_names=inherited_role_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cosmos_mongo_database_id: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cosmos_mongo_database_id is None and 'cosmosMongoDatabaseId' in kwargs:
+            cosmos_mongo_database_id = kwargs['cosmosMongoDatabaseId']
+        if cosmos_mongo_database_id is None:
+            raise TypeError("Missing 'cosmos_mongo_database_id' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if inherited_role_names is None and 'inheritedRoleNames' in kwargs:
+            inherited_role_names = kwargs['inheritedRoleNames']
+
+        _setter("cosmos_mongo_database_id", cosmos_mongo_database_id)
+        _setter("password", password)
+        _setter("username", username)
         if inherited_role_names is not None:
-            pulumi.set(__self__, "inherited_role_names", inherited_role_names)
+            _setter("inherited_role_names", inherited_role_names)
 
     @property
     @pulumi.getter(name="cosmosMongoDatabaseId")
@@ -100,14 +127,35 @@ class _MongoUserDefinitionState:
         :param pulumi.Input[str] password: The password for the Mongo User Definition.
         :param pulumi.Input[str] username: The username for the Mongo User Definition. Changing this forces a new resource to be created.
         """
+        _MongoUserDefinitionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cosmos_mongo_database_id=cosmos_mongo_database_id,
+            inherited_role_names=inherited_role_names,
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cosmos_mongo_database_id: Optional[pulumi.Input[str]] = None,
+             inherited_role_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cosmos_mongo_database_id is None and 'cosmosMongoDatabaseId' in kwargs:
+            cosmos_mongo_database_id = kwargs['cosmosMongoDatabaseId']
+        if inherited_role_names is None and 'inheritedRoleNames' in kwargs:
+            inherited_role_names = kwargs['inheritedRoleNames']
+
         if cosmos_mongo_database_id is not None:
-            pulumi.set(__self__, "cosmos_mongo_database_id", cosmos_mongo_database_id)
+            _setter("cosmos_mongo_database_id", cosmos_mongo_database_id)
         if inherited_role_names is not None:
-            pulumi.set(__self__, "inherited_role_names", inherited_role_names)
+            _setter("inherited_role_names", inherited_role_names)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="cosmosMongoDatabaseId")
@@ -289,6 +337,10 @@ class MongoUserDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MongoUserDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

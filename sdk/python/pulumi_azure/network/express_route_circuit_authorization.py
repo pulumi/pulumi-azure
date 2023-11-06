@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ExpressRouteCircuitAuthorizationArgs', 'ExpressRouteCircuitAuthorization']
@@ -23,10 +23,33 @@ class ExpressRouteCircuitAuthorizationArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "express_route_circuit_name", express_route_circuit_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ExpressRouteCircuitAuthorizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            express_route_circuit_name=express_route_circuit_name,
+            resource_group_name=resource_group_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             express_route_circuit_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if express_route_circuit_name is None and 'expressRouteCircuitName' in kwargs:
+            express_route_circuit_name = kwargs['expressRouteCircuitName']
+        if express_route_circuit_name is None:
+            raise TypeError("Missing 'express_route_circuit_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+
+        _setter("express_route_circuit_name", express_route_circuit_name)
+        _setter("resource_group_name", resource_group_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="expressRouteCircuitName")
@@ -81,16 +104,43 @@ class _ExpressRouteCircuitAuthorizationState:
         :param pulumi.Input[str] name: The name of the ExpressRoute circuit. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the ExpressRoute circuit. Changing this forces a new resource to be created.
         """
+        _ExpressRouteCircuitAuthorizationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization_key=authorization_key,
+            authorization_use_status=authorization_use_status,
+            express_route_circuit_name=express_route_circuit_name,
+            name=name,
+            resource_group_name=resource_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization_key: Optional[pulumi.Input[str]] = None,
+             authorization_use_status: Optional[pulumi.Input[str]] = None,
+             express_route_circuit_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if authorization_key is None and 'authorizationKey' in kwargs:
+            authorization_key = kwargs['authorizationKey']
+        if authorization_use_status is None and 'authorizationUseStatus' in kwargs:
+            authorization_use_status = kwargs['authorizationUseStatus']
+        if express_route_circuit_name is None and 'expressRouteCircuitName' in kwargs:
+            express_route_circuit_name = kwargs['expressRouteCircuitName']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if authorization_key is not None:
-            pulumi.set(__self__, "authorization_key", authorization_key)
+            _setter("authorization_key", authorization_key)
         if authorization_use_status is not None:
-            pulumi.set(__self__, "authorization_use_status", authorization_use_status)
+            _setter("authorization_use_status", authorization_use_status)
         if express_route_circuit_name is not None:
-            pulumi.set(__self__, "express_route_circuit_name", express_route_circuit_name)
+            _setter("express_route_circuit_name", express_route_circuit_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="authorizationKey")
@@ -258,6 +308,10 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ExpressRouteCircuitAuthorizationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

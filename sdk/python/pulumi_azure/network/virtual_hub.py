@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,25 +39,66 @@ class VirtualHubArgs:
         :param pulumi.Input[int] virtual_router_auto_scale_min_capacity: Minimum instance capacity for the scaling configuration of the Virtual Hub Router.
         :param pulumi.Input[str] virtual_wan_id: The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        VirtualHubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            address_prefix=address_prefix,
+            hub_routing_preference=hub_routing_preference,
+            location=location,
+            name=name,
+            routes=routes,
+            sku=sku,
+            tags=tags,
+            virtual_router_auto_scale_min_capacity=virtual_router_auto_scale_min_capacity,
+            virtual_wan_id=virtual_wan_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             address_prefix: Optional[pulumi.Input[str]] = None,
+             hub_routing_preference: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteArgs']]]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_router_auto_scale_min_capacity: Optional[pulumi.Input[int]] = None,
+             virtual_wan_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if address_prefix is None and 'addressPrefix' in kwargs:
+            address_prefix = kwargs['addressPrefix']
+        if hub_routing_preference is None and 'hubRoutingPreference' in kwargs:
+            hub_routing_preference = kwargs['hubRoutingPreference']
+        if virtual_router_auto_scale_min_capacity is None and 'virtualRouterAutoScaleMinCapacity' in kwargs:
+            virtual_router_auto_scale_min_capacity = kwargs['virtualRouterAutoScaleMinCapacity']
+        if virtual_wan_id is None and 'virtualWanId' in kwargs:
+            virtual_wan_id = kwargs['virtualWanId']
+
+        _setter("resource_group_name", resource_group_name)
         if address_prefix is not None:
-            pulumi.set(__self__, "address_prefix", address_prefix)
+            _setter("address_prefix", address_prefix)
         if hub_routing_preference is not None:
-            pulumi.set(__self__, "hub_routing_preference", hub_routing_preference)
+            _setter("hub_routing_preference", hub_routing_preference)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if routes is not None:
-            pulumi.set(__self__, "routes", routes)
+            _setter("routes", routes)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_router_auto_scale_min_capacity is not None:
-            pulumi.set(__self__, "virtual_router_auto_scale_min_capacity", virtual_router_auto_scale_min_capacity)
+            _setter("virtual_router_auto_scale_min_capacity", virtual_router_auto_scale_min_capacity)
         if virtual_wan_id is not None:
-            pulumi.set(__self__, "virtual_wan_id", virtual_wan_id)
+            _setter("virtual_wan_id", virtual_wan_id)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -212,32 +253,83 @@ class _VirtualHubState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_router_ips: The IP addresses of the Virtual Hub BGP router.
         :param pulumi.Input[str] virtual_wan_id: The ID of a Virtual WAN within which the Virtual Hub should be created. Changing this forces a new resource to be created.
         """
+        _VirtualHubState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address_prefix=address_prefix,
+            default_route_table_id=default_route_table_id,
+            hub_routing_preference=hub_routing_preference,
+            location=location,
+            name=name,
+            resource_group_name=resource_group_name,
+            routes=routes,
+            sku=sku,
+            tags=tags,
+            virtual_router_asn=virtual_router_asn,
+            virtual_router_auto_scale_min_capacity=virtual_router_auto_scale_min_capacity,
+            virtual_router_ips=virtual_router_ips,
+            virtual_wan_id=virtual_wan_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address_prefix: Optional[pulumi.Input[str]] = None,
+             default_route_table_id: Optional[pulumi.Input[str]] = None,
+             hub_routing_preference: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             routes: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteArgs']]]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_router_asn: Optional[pulumi.Input[int]] = None,
+             virtual_router_auto_scale_min_capacity: Optional[pulumi.Input[int]] = None,
+             virtual_router_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             virtual_wan_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if address_prefix is None and 'addressPrefix' in kwargs:
+            address_prefix = kwargs['addressPrefix']
+        if default_route_table_id is None and 'defaultRouteTableId' in kwargs:
+            default_route_table_id = kwargs['defaultRouteTableId']
+        if hub_routing_preference is None and 'hubRoutingPreference' in kwargs:
+            hub_routing_preference = kwargs['hubRoutingPreference']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if virtual_router_asn is None and 'virtualRouterAsn' in kwargs:
+            virtual_router_asn = kwargs['virtualRouterAsn']
+        if virtual_router_auto_scale_min_capacity is None and 'virtualRouterAutoScaleMinCapacity' in kwargs:
+            virtual_router_auto_scale_min_capacity = kwargs['virtualRouterAutoScaleMinCapacity']
+        if virtual_router_ips is None and 'virtualRouterIps' in kwargs:
+            virtual_router_ips = kwargs['virtualRouterIps']
+        if virtual_wan_id is None and 'virtualWanId' in kwargs:
+            virtual_wan_id = kwargs['virtualWanId']
+
         if address_prefix is not None:
-            pulumi.set(__self__, "address_prefix", address_prefix)
+            _setter("address_prefix", address_prefix)
         if default_route_table_id is not None:
-            pulumi.set(__self__, "default_route_table_id", default_route_table_id)
+            _setter("default_route_table_id", default_route_table_id)
         if hub_routing_preference is not None:
-            pulumi.set(__self__, "hub_routing_preference", hub_routing_preference)
+            _setter("hub_routing_preference", hub_routing_preference)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if routes is not None:
-            pulumi.set(__self__, "routes", routes)
+            _setter("routes", routes)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_router_asn is not None:
-            pulumi.set(__self__, "virtual_router_asn", virtual_router_asn)
+            _setter("virtual_router_asn", virtual_router_asn)
         if virtual_router_auto_scale_min_capacity is not None:
-            pulumi.set(__self__, "virtual_router_auto_scale_min_capacity", virtual_router_auto_scale_min_capacity)
+            _setter("virtual_router_auto_scale_min_capacity", virtual_router_auto_scale_min_capacity)
         if virtual_router_ips is not None:
-            pulumi.set(__self__, "virtual_router_ips", virtual_router_ips)
+            _setter("virtual_router_ips", virtual_router_ips)
         if virtual_wan_id is not None:
-            pulumi.set(__self__, "virtual_wan_id", virtual_wan_id)
+            _setter("virtual_wan_id", virtual_wan_id)
 
     @property
     @pulumi.getter(name="addressPrefix")
@@ -497,6 +589,10 @@ class VirtualHub(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualHubArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

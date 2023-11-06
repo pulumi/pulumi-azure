@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,20 +41,85 @@ class ReferenceInputBlobArgs:
         :param pulumi.Input[str] name: The name of the Reference Input Blob. Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_account_key: The Access Key which should be used to connect to this Storage Account. Required if `authentication_mode` is `ConnectionString`.
         """
-        pulumi.set(__self__, "date_format", date_format)
-        pulumi.set(__self__, "path_pattern", path_pattern)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "serialization", serialization)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
-        pulumi.set(__self__, "storage_container_name", storage_container_name)
-        pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
-        pulumi.set(__self__, "time_format", time_format)
+        ReferenceInputBlobArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            date_format=date_format,
+            path_pattern=path_pattern,
+            resource_group_name=resource_group_name,
+            serialization=serialization,
+            storage_account_name=storage_account_name,
+            storage_container_name=storage_container_name,
+            stream_analytics_job_name=stream_analytics_job_name,
+            time_format=time_format,
+            authentication_mode=authentication_mode,
+            name=name,
+            storage_account_key=storage_account_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             date_format: Optional[pulumi.Input[str]] = None,
+             path_pattern: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             serialization: Optional[pulumi.Input['ReferenceInputBlobSerializationArgs']] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             storage_container_name: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+             time_format: Optional[pulumi.Input[str]] = None,
+             authentication_mode: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             storage_account_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if date_format is None and 'dateFormat' in kwargs:
+            date_format = kwargs['dateFormat']
+        if date_format is None:
+            raise TypeError("Missing 'date_format' argument")
+        if path_pattern is None and 'pathPattern' in kwargs:
+            path_pattern = kwargs['pathPattern']
+        if path_pattern is None:
+            raise TypeError("Missing 'path_pattern' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if serialization is None:
+            raise TypeError("Missing 'serialization' argument")
+        if storage_account_name is None and 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
+        if storage_container_name is None and 'storageContainerName' in kwargs:
+            storage_container_name = kwargs['storageContainerName']
+        if storage_container_name is None:
+            raise TypeError("Missing 'storage_container_name' argument")
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+        if stream_analytics_job_name is None:
+            raise TypeError("Missing 'stream_analytics_job_name' argument")
+        if time_format is None and 'timeFormat' in kwargs:
+            time_format = kwargs['timeFormat']
+        if time_format is None:
+            raise TypeError("Missing 'time_format' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+
+        _setter("date_format", date_format)
+        _setter("path_pattern", path_pattern)
+        _setter("resource_group_name", resource_group_name)
+        _setter("serialization", serialization)
+        _setter("storage_account_name", storage_account_name)
+        _setter("storage_container_name", storage_container_name)
+        _setter("stream_analytics_job_name", stream_analytics_job_name)
+        _setter("time_format", time_format)
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if storage_account_key is not None:
-            pulumi.set(__self__, "storage_account_key", storage_account_key)
+            _setter("storage_account_key", storage_account_key)
 
     @property
     @pulumi.getter(name="dateFormat")
@@ -217,28 +282,77 @@ class _ReferenceInputBlobState:
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job. Changing this forces a new resource to be created.
         :param pulumi.Input[str] time_format: The time format. Wherever `{time}` appears in `path_pattern`, the value of this property is used as the time format instead.
         """
+        _ReferenceInputBlobState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_mode=authentication_mode,
+            date_format=date_format,
+            name=name,
+            path_pattern=path_pattern,
+            resource_group_name=resource_group_name,
+            serialization=serialization,
+            storage_account_key=storage_account_key,
+            storage_account_name=storage_account_name,
+            storage_container_name=storage_container_name,
+            stream_analytics_job_name=stream_analytics_job_name,
+            time_format=time_format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_mode: Optional[pulumi.Input[str]] = None,
+             date_format: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             path_pattern: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             serialization: Optional[pulumi.Input['ReferenceInputBlobSerializationArgs']] = None,
+             storage_account_key: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             storage_container_name: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+             time_format: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if authentication_mode is None and 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+        if date_format is None and 'dateFormat' in kwargs:
+            date_format = kwargs['dateFormat']
+        if path_pattern is None and 'pathPattern' in kwargs:
+            path_pattern = kwargs['pathPattern']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if storage_account_key is None and 'storageAccountKey' in kwargs:
+            storage_account_key = kwargs['storageAccountKey']
+        if storage_account_name is None and 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if storage_container_name is None and 'storageContainerName' in kwargs:
+            storage_container_name = kwargs['storageContainerName']
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+        if time_format is None and 'timeFormat' in kwargs:
+            time_format = kwargs['timeFormat']
+
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
         if date_format is not None:
-            pulumi.set(__self__, "date_format", date_format)
+            _setter("date_format", date_format)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if path_pattern is not None:
-            pulumi.set(__self__, "path_pattern", path_pattern)
+            _setter("path_pattern", path_pattern)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if serialization is not None:
-            pulumi.set(__self__, "serialization", serialization)
+            _setter("serialization", serialization)
         if storage_account_key is not None:
-            pulumi.set(__self__, "storage_account_key", storage_account_key)
+            _setter("storage_account_key", storage_account_key)
         if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
+            _setter("storage_account_name", storage_account_name)
         if storage_container_name is not None:
-            pulumi.set(__self__, "storage_container_name", storage_container_name)
+            _setter("storage_container_name", storage_container_name)
         if stream_analytics_job_name is not None:
-            pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
+            _setter("stream_analytics_job_name", stream_analytics_job_name)
         if time_format is not None:
-            pulumi.set(__self__, "time_format", time_format)
+            _setter("time_format", time_format)
 
     @property
     @pulumi.getter(name="authenticationMode")
@@ -506,6 +620,10 @@ class ReferenceInputBlob(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ReferenceInputBlobArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -542,6 +660,11 @@ class ReferenceInputBlob(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if serialization is not None and not isinstance(serialization, ReferenceInputBlobSerializationArgs):
+                serialization = serialization or {}
+                def _setter(key, value):
+                    serialization[key] = value
+                ReferenceInputBlobSerializationArgs._configure(_setter, **serialization)
             if serialization is None and not opts.urn:
                 raise TypeError("Missing required property 'serialization'")
             __props__.__dict__["serialization"] = serialization

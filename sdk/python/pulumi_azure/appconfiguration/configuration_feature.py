@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -42,29 +42,72 @@ class ConfigurationFeatureArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]] targeting_filters: A `targeting_filter` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]] timewindow_filters: A `timewindow_filter` block as defined below.
         """
-        pulumi.set(__self__, "configuration_store_id", configuration_store_id)
+        ConfigurationFeatureArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_store_id=configuration_store_id,
+            description=description,
+            enabled=enabled,
+            etag=etag,
+            key=key,
+            label=label,
+            locked=locked,
+            name=name,
+            percentage_filter_value=percentage_filter_value,
+            tags=tags,
+            targeting_filters=targeting_filters,
+            timewindow_filters=timewindow_filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_store_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             locked: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             percentage_filter_value: Optional[pulumi.Input[float]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]] = None,
+             timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if configuration_store_id is None and 'configurationStoreId' in kwargs:
+            configuration_store_id = kwargs['configurationStoreId']
+        if configuration_store_id is None:
+            raise TypeError("Missing 'configuration_store_id' argument")
+        if percentage_filter_value is None and 'percentageFilterValue' in kwargs:
+            percentage_filter_value = kwargs['percentageFilterValue']
+        if targeting_filters is None and 'targetingFilters' in kwargs:
+            targeting_filters = kwargs['targetingFilters']
+        if timewindow_filters is None and 'timewindowFilters' in kwargs:
+            timewindow_filters = kwargs['timewindowFilters']
+
+        _setter("configuration_store_id", configuration_store_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if locked is not None:
-            pulumi.set(__self__, "locked", locked)
+            _setter("locked", locked)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if percentage_filter_value is not None:
-            pulumi.set(__self__, "percentage_filter_value", percentage_filter_value)
+            _setter("percentage_filter_value", percentage_filter_value)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if targeting_filters is not None:
-            pulumi.set(__self__, "targeting_filters", targeting_filters)
+            _setter("targeting_filters", targeting_filters)
         if timewindow_filters is not None:
-            pulumi.set(__self__, "timewindow_filters", timewindow_filters)
+            _setter("timewindow_filters", timewindow_filters)
 
     @property
     @pulumi.getter(name="configurationStoreId")
@@ -237,30 +280,71 @@ class _ConfigurationFeatureState:
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]] targeting_filters: A `targeting_filter` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]] timewindow_filters: A `timewindow_filter` block as defined below.
         """
+        _ConfigurationFeatureState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configuration_store_id=configuration_store_id,
+            description=description,
+            enabled=enabled,
+            etag=etag,
+            key=key,
+            label=label,
+            locked=locked,
+            name=name,
+            percentage_filter_value=percentage_filter_value,
+            tags=tags,
+            targeting_filters=targeting_filters,
+            timewindow_filters=timewindow_filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configuration_store_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             etag: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             label: Optional[pulumi.Input[str]] = None,
+             locked: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             percentage_filter_value: Optional[pulumi.Input[float]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             targeting_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterArgs']]]] = None,
+             timewindow_filters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationFeatureTimewindowFilterArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if configuration_store_id is None and 'configurationStoreId' in kwargs:
+            configuration_store_id = kwargs['configurationStoreId']
+        if percentage_filter_value is None and 'percentageFilterValue' in kwargs:
+            percentage_filter_value = kwargs['percentageFilterValue']
+        if targeting_filters is None and 'targetingFilters' in kwargs:
+            targeting_filters = kwargs['targetingFilters']
+        if timewindow_filters is None and 'timewindowFilters' in kwargs:
+            timewindow_filters = kwargs['timewindowFilters']
+
         if configuration_store_id is not None:
-            pulumi.set(__self__, "configuration_store_id", configuration_store_id)
+            _setter("configuration_store_id", configuration_store_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if etag is not None:
-            pulumi.set(__self__, "etag", etag)
+            _setter("etag", etag)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if locked is not None:
-            pulumi.set(__self__, "locked", locked)
+            _setter("locked", locked)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if percentage_filter_value is not None:
-            pulumi.set(__self__, "percentage_filter_value", percentage_filter_value)
+            _setter("percentage_filter_value", percentage_filter_value)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if targeting_filters is not None:
-            pulumi.set(__self__, "targeting_filters", targeting_filters)
+            _setter("targeting_filters", targeting_filters)
         if timewindow_filters is not None:
-            pulumi.set(__self__, "timewindow_filters", timewindow_filters)
+            _setter("timewindow_filters", timewindow_filters)
 
     @property
     @pulumi.getter(name="configurationStoreId")
@@ -534,6 +618,10 @@ class ConfigurationFeature(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ConfigurationFeatureArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

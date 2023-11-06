@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DataDiskAttachmentArgs', 'DataDiskAttachment']
@@ -29,14 +29,51 @@ class DataDiskAttachmentArgs:
         :param pulumi.Input[str] create_option: The Create Option of the Data Disk, such as `Empty` or `Attach`. Defaults to `Attach`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] write_accelerator_enabled: Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
         """
-        pulumi.set(__self__, "caching", caching)
-        pulumi.set(__self__, "lun", lun)
-        pulumi.set(__self__, "managed_disk_id", managed_disk_id)
-        pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+        DataDiskAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            caching=caching,
+            lun=lun,
+            managed_disk_id=managed_disk_id,
+            virtual_machine_id=virtual_machine_id,
+            create_option=create_option,
+            write_accelerator_enabled=write_accelerator_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             caching: Optional[pulumi.Input[str]] = None,
+             lun: Optional[pulumi.Input[int]] = None,
+             managed_disk_id: Optional[pulumi.Input[str]] = None,
+             virtual_machine_id: Optional[pulumi.Input[str]] = None,
+             create_option: Optional[pulumi.Input[str]] = None,
+             write_accelerator_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if caching is None:
+            raise TypeError("Missing 'caching' argument")
+        if lun is None:
+            raise TypeError("Missing 'lun' argument")
+        if managed_disk_id is None and 'managedDiskId' in kwargs:
+            managed_disk_id = kwargs['managedDiskId']
+        if managed_disk_id is None:
+            raise TypeError("Missing 'managed_disk_id' argument")
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
+            virtual_machine_id = kwargs['virtualMachineId']
+        if virtual_machine_id is None:
+            raise TypeError("Missing 'virtual_machine_id' argument")
+        if create_option is None and 'createOption' in kwargs:
+            create_option = kwargs['createOption']
+        if write_accelerator_enabled is None and 'writeAcceleratorEnabled' in kwargs:
+            write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
+
+        _setter("caching", caching)
+        _setter("lun", lun)
+        _setter("managed_disk_id", managed_disk_id)
+        _setter("virtual_machine_id", virtual_machine_id)
         if create_option is not None:
-            pulumi.set(__self__, "create_option", create_option)
+            _setter("create_option", create_option)
         if write_accelerator_enabled is not None:
-            pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
+            _setter("write_accelerator_enabled", write_accelerator_enabled)
 
     @property
     @pulumi.getter
@@ -129,18 +166,47 @@ class _DataDiskAttachmentState:
         :param pulumi.Input[str] virtual_machine_id: The ID of the Virtual Machine to which the Data Disk should be attached. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] write_accelerator_enabled: Specifies if Write Accelerator is enabled on the disk. This can only be enabled on `Premium_LRS` managed disks with no caching and [M-Series VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/how-to-enable-write-accelerator). Defaults to `false`.
         """
+        _DataDiskAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            caching=caching,
+            create_option=create_option,
+            lun=lun,
+            managed_disk_id=managed_disk_id,
+            virtual_machine_id=virtual_machine_id,
+            write_accelerator_enabled=write_accelerator_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             caching: Optional[pulumi.Input[str]] = None,
+             create_option: Optional[pulumi.Input[str]] = None,
+             lun: Optional[pulumi.Input[int]] = None,
+             managed_disk_id: Optional[pulumi.Input[str]] = None,
+             virtual_machine_id: Optional[pulumi.Input[str]] = None,
+             write_accelerator_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if create_option is None and 'createOption' in kwargs:
+            create_option = kwargs['createOption']
+        if managed_disk_id is None and 'managedDiskId' in kwargs:
+            managed_disk_id = kwargs['managedDiskId']
+        if virtual_machine_id is None and 'virtualMachineId' in kwargs:
+            virtual_machine_id = kwargs['virtualMachineId']
+        if write_accelerator_enabled is None and 'writeAcceleratorEnabled' in kwargs:
+            write_accelerator_enabled = kwargs['writeAcceleratorEnabled']
+
         if caching is not None:
-            pulumi.set(__self__, "caching", caching)
+            _setter("caching", caching)
         if create_option is not None:
-            pulumi.set(__self__, "create_option", create_option)
+            _setter("create_option", create_option)
         if lun is not None:
-            pulumi.set(__self__, "lun", lun)
+            _setter("lun", lun)
         if managed_disk_id is not None:
-            pulumi.set(__self__, "managed_disk_id", managed_disk_id)
+            _setter("managed_disk_id", managed_disk_id)
         if virtual_machine_id is not None:
-            pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
+            _setter("virtual_machine_id", virtual_machine_id)
         if write_accelerator_enabled is not None:
-            pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
+            _setter("write_accelerator_enabled", write_accelerator_enabled)
 
     @property
     @pulumi.getter
@@ -414,6 +480,10 @@ class DataDiskAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataDiskAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

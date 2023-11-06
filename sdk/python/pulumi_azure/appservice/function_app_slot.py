@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -65,39 +65,122 @@ class FunctionAppSlotArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
         """
-        pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
-        pulumi.set(__self__, "function_app_name", function_app_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
+        FunctionAppSlotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_service_plan_id=app_service_plan_id,
+            function_app_name=function_app_name,
+            resource_group_name=resource_group_name,
+            storage_account_access_key=storage_account_access_key,
+            storage_account_name=storage_account_name,
+            app_settings=app_settings,
+            auth_settings=auth_settings,
+            connection_strings=connection_strings,
+            daily_memory_time_quota=daily_memory_time_quota,
+            enable_builtin_logging=enable_builtin_logging,
+            enabled=enabled,
+            https_only=https_only,
+            identity=identity,
+            location=location,
+            name=name,
+            os_type=os_type,
+            site_config=site_config,
+            tags=tags,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_service_plan_id: Optional[pulumi.Input[str]] = None,
+             function_app_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_account_access_key: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             auth_settings: Optional[pulumi.Input['FunctionAppSlotAuthSettingsArgs']] = None,
+             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotConnectionStringArgs']]]] = None,
+             daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
+             enable_builtin_logging: Optional[pulumi.Input[bool]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             https_only: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['FunctionAppSlotIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             os_type: Optional[pulumi.Input[str]] = None,
+             site_config: Optional[pulumi.Input['FunctionAppSlotSiteConfigArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_service_plan_id is None and 'appServicePlanId' in kwargs:
+            app_service_plan_id = kwargs['appServicePlanId']
+        if app_service_plan_id is None:
+            raise TypeError("Missing 'app_service_plan_id' argument")
+        if function_app_name is None and 'functionAppName' in kwargs:
+            function_app_name = kwargs['functionAppName']
+        if function_app_name is None:
+            raise TypeError("Missing 'function_app_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if storage_account_access_key is None:
+            raise TypeError("Missing 'storage_account_access_key' argument")
+        if storage_account_name is None and 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+        if storage_account_name is None:
+            raise TypeError("Missing 'storage_account_name' argument")
+        if app_settings is None and 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if auth_settings is None and 'authSettings' in kwargs:
+            auth_settings = kwargs['authSettings']
+        if connection_strings is None and 'connectionStrings' in kwargs:
+            connection_strings = kwargs['connectionStrings']
+        if daily_memory_time_quota is None and 'dailyMemoryTimeQuota' in kwargs:
+            daily_memory_time_quota = kwargs['dailyMemoryTimeQuota']
+        if enable_builtin_logging is None and 'enableBuiltinLogging' in kwargs:
+            enable_builtin_logging = kwargs['enableBuiltinLogging']
+        if https_only is None and 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if site_config is None and 'siteConfig' in kwargs:
+            site_config = kwargs['siteConfig']
+
+        _setter("app_service_plan_id", app_service_plan_id)
+        _setter("function_app_name", function_app_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_account_access_key", storage_account_access_key)
+        _setter("storage_account_name", storage_account_name)
         if app_settings is not None:
-            pulumi.set(__self__, "app_settings", app_settings)
+            _setter("app_settings", app_settings)
         if auth_settings is not None:
-            pulumi.set(__self__, "auth_settings", auth_settings)
+            _setter("auth_settings", auth_settings)
         if connection_strings is not None:
-            pulumi.set(__self__, "connection_strings", connection_strings)
+            _setter("connection_strings", connection_strings)
         if daily_memory_time_quota is not None:
-            pulumi.set(__self__, "daily_memory_time_quota", daily_memory_time_quota)
+            _setter("daily_memory_time_quota", daily_memory_time_quota)
         if enable_builtin_logging is not None:
-            pulumi.set(__self__, "enable_builtin_logging", enable_builtin_logging)
+            _setter("enable_builtin_logging", enable_builtin_logging)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if https_only is not None:
-            pulumi.set(__self__, "https_only", https_only)
+            _setter("https_only", https_only)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if site_config is not None:
-            pulumi.set(__self__, "site_config", site_config)
+            _setter("site_config", site_config)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="appServicePlanId")
@@ -398,54 +481,145 @@ class _FunctionAppSlotState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: The runtime version associated with the Function App. Defaults to `~1`.
         """
+        _FunctionAppSlotState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_service_plan_id=app_service_plan_id,
+            app_settings=app_settings,
+            auth_settings=auth_settings,
+            connection_strings=connection_strings,
+            daily_memory_time_quota=daily_memory_time_quota,
+            default_hostname=default_hostname,
+            enable_builtin_logging=enable_builtin_logging,
+            enabled=enabled,
+            function_app_name=function_app_name,
+            https_only=https_only,
+            identity=identity,
+            kind=kind,
+            location=location,
+            name=name,
+            os_type=os_type,
+            outbound_ip_addresses=outbound_ip_addresses,
+            possible_outbound_ip_addresses=possible_outbound_ip_addresses,
+            resource_group_name=resource_group_name,
+            site_config=site_config,
+            site_credentials=site_credentials,
+            storage_account_access_key=storage_account_access_key,
+            storage_account_name=storage_account_name,
+            tags=tags,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_service_plan_id: Optional[pulumi.Input[str]] = None,
+             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             auth_settings: Optional[pulumi.Input['FunctionAppSlotAuthSettingsArgs']] = None,
+             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotConnectionStringArgs']]]] = None,
+             daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
+             default_hostname: Optional[pulumi.Input[str]] = None,
+             enable_builtin_logging: Optional[pulumi.Input[bool]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             function_app_name: Optional[pulumi.Input[str]] = None,
+             https_only: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['FunctionAppSlotIdentityArgs']] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             os_type: Optional[pulumi.Input[str]] = None,
+             outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+             possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             site_config: Optional[pulumi.Input['FunctionAppSlotSiteConfigArgs']] = None,
+             site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionAppSlotSiteCredentialArgs']]]] = None,
+             storage_account_access_key: Optional[pulumi.Input[str]] = None,
+             storage_account_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_service_plan_id is None and 'appServicePlanId' in kwargs:
+            app_service_plan_id = kwargs['appServicePlanId']
+        if app_settings is None and 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if auth_settings is None and 'authSettings' in kwargs:
+            auth_settings = kwargs['authSettings']
+        if connection_strings is None and 'connectionStrings' in kwargs:
+            connection_strings = kwargs['connectionStrings']
+        if daily_memory_time_quota is None and 'dailyMemoryTimeQuota' in kwargs:
+            daily_memory_time_quota = kwargs['dailyMemoryTimeQuota']
+        if default_hostname is None and 'defaultHostname' in kwargs:
+            default_hostname = kwargs['defaultHostname']
+        if enable_builtin_logging is None and 'enableBuiltinLogging' in kwargs:
+            enable_builtin_logging = kwargs['enableBuiltinLogging']
+        if function_app_name is None and 'functionAppName' in kwargs:
+            function_app_name = kwargs['functionAppName']
+        if https_only is None and 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if os_type is None and 'osType' in kwargs:
+            os_type = kwargs['osType']
+        if outbound_ip_addresses is None and 'outboundIpAddresses' in kwargs:
+            outbound_ip_addresses = kwargs['outboundIpAddresses']
+        if possible_outbound_ip_addresses is None and 'possibleOutboundIpAddresses' in kwargs:
+            possible_outbound_ip_addresses = kwargs['possibleOutboundIpAddresses']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if site_config is None and 'siteConfig' in kwargs:
+            site_config = kwargs['siteConfig']
+        if site_credentials is None and 'siteCredentials' in kwargs:
+            site_credentials = kwargs['siteCredentials']
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if storage_account_name is None and 'storageAccountName' in kwargs:
+            storage_account_name = kwargs['storageAccountName']
+
         if app_service_plan_id is not None:
-            pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
+            _setter("app_service_plan_id", app_service_plan_id)
         if app_settings is not None:
-            pulumi.set(__self__, "app_settings", app_settings)
+            _setter("app_settings", app_settings)
         if auth_settings is not None:
-            pulumi.set(__self__, "auth_settings", auth_settings)
+            _setter("auth_settings", auth_settings)
         if connection_strings is not None:
-            pulumi.set(__self__, "connection_strings", connection_strings)
+            _setter("connection_strings", connection_strings)
         if daily_memory_time_quota is not None:
-            pulumi.set(__self__, "daily_memory_time_quota", daily_memory_time_quota)
+            _setter("daily_memory_time_quota", daily_memory_time_quota)
         if default_hostname is not None:
-            pulumi.set(__self__, "default_hostname", default_hostname)
+            _setter("default_hostname", default_hostname)
         if enable_builtin_logging is not None:
-            pulumi.set(__self__, "enable_builtin_logging", enable_builtin_logging)
+            _setter("enable_builtin_logging", enable_builtin_logging)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if function_app_name is not None:
-            pulumi.set(__self__, "function_app_name", function_app_name)
+            _setter("function_app_name", function_app_name)
         if https_only is not None:
-            pulumi.set(__self__, "https_only", https_only)
+            _setter("https_only", https_only)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
+            _setter("os_type", os_type)
         if outbound_ip_addresses is not None:
-            pulumi.set(__self__, "outbound_ip_addresses", outbound_ip_addresses)
+            _setter("outbound_ip_addresses", outbound_ip_addresses)
         if possible_outbound_ip_addresses is not None:
-            pulumi.set(__self__, "possible_outbound_ip_addresses", possible_outbound_ip_addresses)
+            _setter("possible_outbound_ip_addresses", possible_outbound_ip_addresses)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if site_config is not None:
-            pulumi.set(__self__, "site_config", site_config)
+            _setter("site_config", site_config)
         if site_credentials is not None:
-            pulumi.set(__self__, "site_credentials", site_credentials)
+            _setter("site_credentials", site_credentials)
         if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+            _setter("storage_account_access_key", storage_account_access_key)
         if storage_account_name is not None:
-            pulumi.set(__self__, "storage_account_name", storage_account_name)
+            _setter("storage_account_name", storage_account_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="appServicePlanId")
@@ -911,6 +1085,10 @@ class FunctionAppSlot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FunctionAppSlotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -948,6 +1126,11 @@ class FunctionAppSlot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'app_service_plan_id'")
             __props__.__dict__["app_service_plan_id"] = app_service_plan_id
             __props__.__dict__["app_settings"] = app_settings
+            if auth_settings is not None and not isinstance(auth_settings, FunctionAppSlotAuthSettingsArgs):
+                auth_settings = auth_settings or {}
+                def _setter(key, value):
+                    auth_settings[key] = value
+                FunctionAppSlotAuthSettingsArgs._configure(_setter, **auth_settings)
             __props__.__dict__["auth_settings"] = auth_settings
             __props__.__dict__["connection_strings"] = connection_strings
             __props__.__dict__["daily_memory_time_quota"] = daily_memory_time_quota
@@ -957,6 +1140,11 @@ class FunctionAppSlot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'function_app_name'")
             __props__.__dict__["function_app_name"] = function_app_name
             __props__.__dict__["https_only"] = https_only
+            if identity is not None and not isinstance(identity, FunctionAppSlotIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                FunctionAppSlotIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -964,6 +1152,11 @@ class FunctionAppSlot(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if site_config is not None and not isinstance(site_config, FunctionAppSlotSiteConfigArgs):
+                site_config = site_config or {}
+                def _setter(key, value):
+                    site_config[key] = value
+                FunctionAppSlotSiteConfigArgs._configure(_setter, **site_config)
             __props__.__dict__["site_config"] = site_config
             if storage_account_access_key is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_access_key'")

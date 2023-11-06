@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -79,56 +79,169 @@ class ScaleSetArgs:
                
                > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
-        pulumi.set(__self__, "network_profiles", network_profiles)
-        pulumi.set(__self__, "os_profile", os_profile)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
-        pulumi.set(__self__, "storage_profile_os_disk", storage_profile_os_disk)
-        pulumi.set(__self__, "upgrade_policy_mode", upgrade_policy_mode)
+        ScaleSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_profiles=network_profiles,
+            os_profile=os_profile,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            storage_profile_os_disk=storage_profile_os_disk,
+            upgrade_policy_mode=upgrade_policy_mode,
+            automatic_os_upgrade=automatic_os_upgrade,
+            boot_diagnostics=boot_diagnostics,
+            eviction_policy=eviction_policy,
+            extensions=extensions,
+            health_probe_id=health_probe_id,
+            identity=identity,
+            license_type=license_type,
+            location=location,
+            name=name,
+            os_profile_linux_config=os_profile_linux_config,
+            os_profile_secrets=os_profile_secrets,
+            os_profile_windows_config=os_profile_windows_config,
+            overprovision=overprovision,
+            plan=plan,
+            priority=priority,
+            proximity_placement_group_id=proximity_placement_group_id,
+            rolling_upgrade_policy=rolling_upgrade_policy,
+            single_placement_group=single_placement_group,
+            storage_profile_data_disks=storage_profile_data_disks,
+            storage_profile_image_reference=storage_profile_image_reference,
+            tags=tags,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileArgs']]]] = None,
+             os_profile: Optional[pulumi.Input['ScaleSetOsProfileArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['ScaleSetSkuArgs']] = None,
+             storage_profile_os_disk: Optional[pulumi.Input['ScaleSetStorageProfileOsDiskArgs']] = None,
+             upgrade_policy_mode: Optional[pulumi.Input[str]] = None,
+             automatic_os_upgrade: Optional[pulumi.Input[bool]] = None,
+             boot_diagnostics: Optional[pulumi.Input['ScaleSetBootDiagnosticsArgs']] = None,
+             eviction_policy: Optional[pulumi.Input[str]] = None,
+             extensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArgs']]]] = None,
+             health_probe_id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ScaleSetIdentityArgs']] = None,
+             license_type: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             os_profile_linux_config: Optional[pulumi.Input['ScaleSetOsProfileLinuxConfigArgs']] = None,
+             os_profile_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretArgs']]]] = None,
+             os_profile_windows_config: Optional[pulumi.Input['ScaleSetOsProfileWindowsConfigArgs']] = None,
+             overprovision: Optional[pulumi.Input[bool]] = None,
+             plan: Optional[pulumi.Input['ScaleSetPlanArgs']] = None,
+             priority: Optional[pulumi.Input[str]] = None,
+             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+             rolling_upgrade_policy: Optional[pulumi.Input['ScaleSetRollingUpgradePolicyArgs']] = None,
+             single_placement_group: Optional[pulumi.Input[bool]] = None,
+             storage_profile_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetStorageProfileDataDiskArgs']]]] = None,
+             storage_profile_image_reference: Optional[pulumi.Input['ScaleSetStorageProfileImageReferenceArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if network_profiles is None and 'networkProfiles' in kwargs:
+            network_profiles = kwargs['networkProfiles']
+        if network_profiles is None:
+            raise TypeError("Missing 'network_profiles' argument")
+        if os_profile is None and 'osProfile' in kwargs:
+            os_profile = kwargs['osProfile']
+        if os_profile is None:
+            raise TypeError("Missing 'os_profile' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if storage_profile_os_disk is None and 'storageProfileOsDisk' in kwargs:
+            storage_profile_os_disk = kwargs['storageProfileOsDisk']
+        if storage_profile_os_disk is None:
+            raise TypeError("Missing 'storage_profile_os_disk' argument")
+        if upgrade_policy_mode is None and 'upgradePolicyMode' in kwargs:
+            upgrade_policy_mode = kwargs['upgradePolicyMode']
+        if upgrade_policy_mode is None:
+            raise TypeError("Missing 'upgrade_policy_mode' argument")
+        if automatic_os_upgrade is None and 'automaticOsUpgrade' in kwargs:
+            automatic_os_upgrade = kwargs['automaticOsUpgrade']
+        if boot_diagnostics is None and 'bootDiagnostics' in kwargs:
+            boot_diagnostics = kwargs['bootDiagnostics']
+        if eviction_policy is None and 'evictionPolicy' in kwargs:
+            eviction_policy = kwargs['evictionPolicy']
+        if health_probe_id is None and 'healthProbeId' in kwargs:
+            health_probe_id = kwargs['healthProbeId']
+        if license_type is None and 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if os_profile_linux_config is None and 'osProfileLinuxConfig' in kwargs:
+            os_profile_linux_config = kwargs['osProfileLinuxConfig']
+        if os_profile_secrets is None and 'osProfileSecrets' in kwargs:
+            os_profile_secrets = kwargs['osProfileSecrets']
+        if os_profile_windows_config is None and 'osProfileWindowsConfig' in kwargs:
+            os_profile_windows_config = kwargs['osProfileWindowsConfig']
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
+            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
+        if rolling_upgrade_policy is None and 'rollingUpgradePolicy' in kwargs:
+            rolling_upgrade_policy = kwargs['rollingUpgradePolicy']
+        if single_placement_group is None and 'singlePlacementGroup' in kwargs:
+            single_placement_group = kwargs['singlePlacementGroup']
+        if storage_profile_data_disks is None and 'storageProfileDataDisks' in kwargs:
+            storage_profile_data_disks = kwargs['storageProfileDataDisks']
+        if storage_profile_image_reference is None and 'storageProfileImageReference' in kwargs:
+            storage_profile_image_reference = kwargs['storageProfileImageReference']
+
+        _setter("network_profiles", network_profiles)
+        _setter("os_profile", os_profile)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
+        _setter("storage_profile_os_disk", storage_profile_os_disk)
+        _setter("upgrade_policy_mode", upgrade_policy_mode)
         if automatic_os_upgrade is not None:
-            pulumi.set(__self__, "automatic_os_upgrade", automatic_os_upgrade)
+            _setter("automatic_os_upgrade", automatic_os_upgrade)
         if boot_diagnostics is not None:
-            pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
+            _setter("boot_diagnostics", boot_diagnostics)
         if eviction_policy is not None:
-            pulumi.set(__self__, "eviction_policy", eviction_policy)
+            _setter("eviction_policy", eviction_policy)
         if extensions is not None:
-            pulumi.set(__self__, "extensions", extensions)
+            _setter("extensions", extensions)
         if health_probe_id is not None:
-            pulumi.set(__self__, "health_probe_id", health_probe_id)
+            _setter("health_probe_id", health_probe_id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if os_profile_linux_config is not None:
-            pulumi.set(__self__, "os_profile_linux_config", os_profile_linux_config)
+            _setter("os_profile_linux_config", os_profile_linux_config)
         if os_profile_secrets is not None:
-            pulumi.set(__self__, "os_profile_secrets", os_profile_secrets)
+            _setter("os_profile_secrets", os_profile_secrets)
         if os_profile_windows_config is not None:
-            pulumi.set(__self__, "os_profile_windows_config", os_profile_windows_config)
+            _setter("os_profile_windows_config", os_profile_windows_config)
         if overprovision is not None:
-            pulumi.set(__self__, "overprovision", overprovision)
+            _setter("overprovision", overprovision)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if proximity_placement_group_id is not None:
-            pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+            _setter("proximity_placement_group_id", proximity_placement_group_id)
         if rolling_upgrade_policy is not None:
-            pulumi.set(__self__, "rolling_upgrade_policy", rolling_upgrade_policy)
+            _setter("rolling_upgrade_policy", rolling_upgrade_policy)
         if single_placement_group is not None:
-            pulumi.set(__self__, "single_placement_group", single_placement_group)
+            _setter("single_placement_group", single_placement_group)
         if storage_profile_data_disks is not None:
-            pulumi.set(__self__, "storage_profile_data_disks", storage_profile_data_disks)
+            _setter("storage_profile_data_disks", storage_profile_data_disks)
         if storage_profile_image_reference is not None:
-            pulumi.set(__self__, "storage_profile_image_reference", storage_profile_image_reference)
+            _setter("storage_profile_image_reference", storage_profile_image_reference)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="networkProfiles")
@@ -537,62 +650,163 @@ class _ScaleSetState:
                
                > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
+        _ScaleSetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automatic_os_upgrade=automatic_os_upgrade,
+            boot_diagnostics=boot_diagnostics,
+            eviction_policy=eviction_policy,
+            extensions=extensions,
+            health_probe_id=health_probe_id,
+            identity=identity,
+            license_type=license_type,
+            location=location,
+            name=name,
+            network_profiles=network_profiles,
+            os_profile=os_profile,
+            os_profile_linux_config=os_profile_linux_config,
+            os_profile_secrets=os_profile_secrets,
+            os_profile_windows_config=os_profile_windows_config,
+            overprovision=overprovision,
+            plan=plan,
+            priority=priority,
+            proximity_placement_group_id=proximity_placement_group_id,
+            resource_group_name=resource_group_name,
+            rolling_upgrade_policy=rolling_upgrade_policy,
+            single_placement_group=single_placement_group,
+            sku=sku,
+            storage_profile_data_disks=storage_profile_data_disks,
+            storage_profile_image_reference=storage_profile_image_reference,
+            storage_profile_os_disk=storage_profile_os_disk,
+            tags=tags,
+            upgrade_policy_mode=upgrade_policy_mode,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automatic_os_upgrade: Optional[pulumi.Input[bool]] = None,
+             boot_diagnostics: Optional[pulumi.Input['ScaleSetBootDiagnosticsArgs']] = None,
+             eviction_policy: Optional[pulumi.Input[str]] = None,
+             extensions: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetExtensionArgs']]]] = None,
+             health_probe_id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ScaleSetIdentityArgs']] = None,
+             license_type: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileArgs']]]] = None,
+             os_profile: Optional[pulumi.Input['ScaleSetOsProfileArgs']] = None,
+             os_profile_linux_config: Optional[pulumi.Input['ScaleSetOsProfileLinuxConfigArgs']] = None,
+             os_profile_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretArgs']]]] = None,
+             os_profile_windows_config: Optional[pulumi.Input['ScaleSetOsProfileWindowsConfigArgs']] = None,
+             overprovision: Optional[pulumi.Input[bool]] = None,
+             plan: Optional[pulumi.Input['ScaleSetPlanArgs']] = None,
+             priority: Optional[pulumi.Input[str]] = None,
+             proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             rolling_upgrade_policy: Optional[pulumi.Input['ScaleSetRollingUpgradePolicyArgs']] = None,
+             single_placement_group: Optional[pulumi.Input[bool]] = None,
+             sku: Optional[pulumi.Input['ScaleSetSkuArgs']] = None,
+             storage_profile_data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetStorageProfileDataDiskArgs']]]] = None,
+             storage_profile_image_reference: Optional[pulumi.Input['ScaleSetStorageProfileImageReferenceArgs']] = None,
+             storage_profile_os_disk: Optional[pulumi.Input['ScaleSetStorageProfileOsDiskArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             upgrade_policy_mode: Optional[pulumi.Input[str]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if automatic_os_upgrade is None and 'automaticOsUpgrade' in kwargs:
+            automatic_os_upgrade = kwargs['automaticOsUpgrade']
+        if boot_diagnostics is None and 'bootDiagnostics' in kwargs:
+            boot_diagnostics = kwargs['bootDiagnostics']
+        if eviction_policy is None and 'evictionPolicy' in kwargs:
+            eviction_policy = kwargs['evictionPolicy']
+        if health_probe_id is None and 'healthProbeId' in kwargs:
+            health_probe_id = kwargs['healthProbeId']
+        if license_type is None and 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if network_profiles is None and 'networkProfiles' in kwargs:
+            network_profiles = kwargs['networkProfiles']
+        if os_profile is None and 'osProfile' in kwargs:
+            os_profile = kwargs['osProfile']
+        if os_profile_linux_config is None and 'osProfileLinuxConfig' in kwargs:
+            os_profile_linux_config = kwargs['osProfileLinuxConfig']
+        if os_profile_secrets is None and 'osProfileSecrets' in kwargs:
+            os_profile_secrets = kwargs['osProfileSecrets']
+        if os_profile_windows_config is None and 'osProfileWindowsConfig' in kwargs:
+            os_profile_windows_config = kwargs['osProfileWindowsConfig']
+        if proximity_placement_group_id is None and 'proximityPlacementGroupId' in kwargs:
+            proximity_placement_group_id = kwargs['proximityPlacementGroupId']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if rolling_upgrade_policy is None and 'rollingUpgradePolicy' in kwargs:
+            rolling_upgrade_policy = kwargs['rollingUpgradePolicy']
+        if single_placement_group is None and 'singlePlacementGroup' in kwargs:
+            single_placement_group = kwargs['singlePlacementGroup']
+        if storage_profile_data_disks is None and 'storageProfileDataDisks' in kwargs:
+            storage_profile_data_disks = kwargs['storageProfileDataDisks']
+        if storage_profile_image_reference is None and 'storageProfileImageReference' in kwargs:
+            storage_profile_image_reference = kwargs['storageProfileImageReference']
+        if storage_profile_os_disk is None and 'storageProfileOsDisk' in kwargs:
+            storage_profile_os_disk = kwargs['storageProfileOsDisk']
+        if upgrade_policy_mode is None and 'upgradePolicyMode' in kwargs:
+            upgrade_policy_mode = kwargs['upgradePolicyMode']
+
         if automatic_os_upgrade is not None:
-            pulumi.set(__self__, "automatic_os_upgrade", automatic_os_upgrade)
+            _setter("automatic_os_upgrade", automatic_os_upgrade)
         if boot_diagnostics is not None:
-            pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
+            _setter("boot_diagnostics", boot_diagnostics)
         if eviction_policy is not None:
-            pulumi.set(__self__, "eviction_policy", eviction_policy)
+            _setter("eviction_policy", eviction_policy)
         if extensions is not None:
-            pulumi.set(__self__, "extensions", extensions)
+            _setter("extensions", extensions)
         if health_probe_id is not None:
-            pulumi.set(__self__, "health_probe_id", health_probe_id)
+            _setter("health_probe_id", health_probe_id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_profiles is not None:
-            pulumi.set(__self__, "network_profiles", network_profiles)
+            _setter("network_profiles", network_profiles)
         if os_profile is not None:
-            pulumi.set(__self__, "os_profile", os_profile)
+            _setter("os_profile", os_profile)
         if os_profile_linux_config is not None:
-            pulumi.set(__self__, "os_profile_linux_config", os_profile_linux_config)
+            _setter("os_profile_linux_config", os_profile_linux_config)
         if os_profile_secrets is not None:
-            pulumi.set(__self__, "os_profile_secrets", os_profile_secrets)
+            _setter("os_profile_secrets", os_profile_secrets)
         if os_profile_windows_config is not None:
-            pulumi.set(__self__, "os_profile_windows_config", os_profile_windows_config)
+            _setter("os_profile_windows_config", os_profile_windows_config)
         if overprovision is not None:
-            pulumi.set(__self__, "overprovision", overprovision)
+            _setter("overprovision", overprovision)
         if plan is not None:
-            pulumi.set(__self__, "plan", plan)
+            _setter("plan", plan)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if proximity_placement_group_id is not None:
-            pulumi.set(__self__, "proximity_placement_group_id", proximity_placement_group_id)
+            _setter("proximity_placement_group_id", proximity_placement_group_id)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if rolling_upgrade_policy is not None:
-            pulumi.set(__self__, "rolling_upgrade_policy", rolling_upgrade_policy)
+            _setter("rolling_upgrade_policy", rolling_upgrade_policy)
         if single_placement_group is not None:
-            pulumi.set(__self__, "single_placement_group", single_placement_group)
+            _setter("single_placement_group", single_placement_group)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if storage_profile_data_disks is not None:
-            pulumi.set(__self__, "storage_profile_data_disks", storage_profile_data_disks)
+            _setter("storage_profile_data_disks", storage_profile_data_disks)
         if storage_profile_image_reference is not None:
-            pulumi.set(__self__, "storage_profile_image_reference", storage_profile_image_reference)
+            _setter("storage_profile_image_reference", storage_profile_image_reference)
         if storage_profile_os_disk is not None:
-            pulumi.set(__self__, "storage_profile_os_disk", storage_profile_os_disk)
+            _setter("storage_profile_os_disk", storage_profile_os_disk)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if upgrade_policy_mode is not None:
-            pulumi.set(__self__, "upgrade_policy_mode", upgrade_policy_mode)
+            _setter("upgrade_policy_mode", upgrade_policy_mode)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="automaticOsUpgrade")
@@ -1418,6 +1632,10 @@ class ScaleSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ScaleSetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1461,10 +1679,20 @@ class ScaleSet(pulumi.CustomResource):
             __props__ = ScaleSetArgs.__new__(ScaleSetArgs)
 
             __props__.__dict__["automatic_os_upgrade"] = automatic_os_upgrade
+            if boot_diagnostics is not None and not isinstance(boot_diagnostics, ScaleSetBootDiagnosticsArgs):
+                boot_diagnostics = boot_diagnostics or {}
+                def _setter(key, value):
+                    boot_diagnostics[key] = value
+                ScaleSetBootDiagnosticsArgs._configure(_setter, **boot_diagnostics)
             __props__.__dict__["boot_diagnostics"] = boot_diagnostics
             __props__.__dict__["eviction_policy"] = eviction_policy
             __props__.__dict__["extensions"] = extensions
             __props__.__dict__["health_probe_id"] = health_probe_id
+            if identity is not None and not isinstance(identity, ScaleSetIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ScaleSetIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["location"] = location
@@ -1472,26 +1700,66 @@ class ScaleSet(pulumi.CustomResource):
             if network_profiles is None and not opts.urn:
                 raise TypeError("Missing required property 'network_profiles'")
             __props__.__dict__["network_profiles"] = network_profiles
+            if os_profile is not None and not isinstance(os_profile, ScaleSetOsProfileArgs):
+                os_profile = os_profile or {}
+                def _setter(key, value):
+                    os_profile[key] = value
+                ScaleSetOsProfileArgs._configure(_setter, **os_profile)
             if os_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'os_profile'")
             __props__.__dict__["os_profile"] = os_profile
+            if os_profile_linux_config is not None and not isinstance(os_profile_linux_config, ScaleSetOsProfileLinuxConfigArgs):
+                os_profile_linux_config = os_profile_linux_config or {}
+                def _setter(key, value):
+                    os_profile_linux_config[key] = value
+                ScaleSetOsProfileLinuxConfigArgs._configure(_setter, **os_profile_linux_config)
             __props__.__dict__["os_profile_linux_config"] = os_profile_linux_config
             __props__.__dict__["os_profile_secrets"] = os_profile_secrets
+            if os_profile_windows_config is not None and not isinstance(os_profile_windows_config, ScaleSetOsProfileWindowsConfigArgs):
+                os_profile_windows_config = os_profile_windows_config or {}
+                def _setter(key, value):
+                    os_profile_windows_config[key] = value
+                ScaleSetOsProfileWindowsConfigArgs._configure(_setter, **os_profile_windows_config)
             __props__.__dict__["os_profile_windows_config"] = os_profile_windows_config
             __props__.__dict__["overprovision"] = overprovision
+            if plan is not None and not isinstance(plan, ScaleSetPlanArgs):
+                plan = plan or {}
+                def _setter(key, value):
+                    plan[key] = value
+                ScaleSetPlanArgs._configure(_setter, **plan)
             __props__.__dict__["plan"] = plan
             __props__.__dict__["priority"] = priority
             __props__.__dict__["proximity_placement_group_id"] = proximity_placement_group_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if rolling_upgrade_policy is not None and not isinstance(rolling_upgrade_policy, ScaleSetRollingUpgradePolicyArgs):
+                rolling_upgrade_policy = rolling_upgrade_policy or {}
+                def _setter(key, value):
+                    rolling_upgrade_policy[key] = value
+                ScaleSetRollingUpgradePolicyArgs._configure(_setter, **rolling_upgrade_policy)
             __props__.__dict__["rolling_upgrade_policy"] = rolling_upgrade_policy
             __props__.__dict__["single_placement_group"] = single_placement_group
+            if sku is not None and not isinstance(sku, ScaleSetSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                ScaleSetSkuArgs._configure(_setter, **sku)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["storage_profile_data_disks"] = storage_profile_data_disks
+            if storage_profile_image_reference is not None and not isinstance(storage_profile_image_reference, ScaleSetStorageProfileImageReferenceArgs):
+                storage_profile_image_reference = storage_profile_image_reference or {}
+                def _setter(key, value):
+                    storage_profile_image_reference[key] = value
+                ScaleSetStorageProfileImageReferenceArgs._configure(_setter, **storage_profile_image_reference)
             __props__.__dict__["storage_profile_image_reference"] = storage_profile_image_reference
+            if storage_profile_os_disk is not None and not isinstance(storage_profile_os_disk, ScaleSetStorageProfileOsDiskArgs):
+                storage_profile_os_disk = storage_profile_os_disk or {}
+                def _setter(key, value):
+                    storage_profile_os_disk[key] = value
+                ScaleSetStorageProfileOsDiskArgs._configure(_setter, **storage_profile_os_disk)
             if storage_profile_os_disk is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_profile_os_disk'")
             __props__.__dict__["storage_profile_os_disk"] = storage_profile_os_disk

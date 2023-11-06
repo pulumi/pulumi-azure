@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,24 +39,67 @@ class ServiceAccountArgs:
         :param pulumi.Input[str] storage_authentication_type: Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_accounts", storage_accounts)
+        ServiceAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            storage_accounts=storage_accounts,
+            encryption=encryption,
+            identity=identity,
+            key_delivery_access_control=key_delivery_access_control,
+            location=location,
+            name=name,
+            public_network_access_enabled=public_network_access_enabled,
+            storage_authentication_type=storage_authentication_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAccountStorageAccountArgs']]]] = None,
+             encryption: Optional[pulumi.Input['ServiceAccountEncryptionArgs']] = None,
+             identity: Optional[pulumi.Input['ServiceAccountIdentityArgs']] = None,
+             key_delivery_access_control: Optional[pulumi.Input['ServiceAccountKeyDeliveryAccessControlArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             storage_authentication_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_accounts is None and 'storageAccounts' in kwargs:
+            storage_accounts = kwargs['storageAccounts']
+        if storage_accounts is None:
+            raise TypeError("Missing 'storage_accounts' argument")
+        if key_delivery_access_control is None and 'keyDeliveryAccessControl' in kwargs:
+            key_delivery_access_control = kwargs['keyDeliveryAccessControl']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if storage_authentication_type is None and 'storageAuthenticationType' in kwargs:
+            storage_authentication_type = kwargs['storageAuthenticationType']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_accounts", storage_accounts)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_delivery_access_control is not None:
-            pulumi.set(__self__, "key_delivery_access_control", key_delivery_access_control)
+            _setter("key_delivery_access_control", key_delivery_access_control)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if storage_authentication_type is not None:
-            pulumi.set(__self__, "storage_authentication_type", storage_authentication_type)
+            _setter("storage_authentication_type", storage_authentication_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -205,26 +248,65 @@ class _ServiceAccountState:
         :param pulumi.Input[str] storage_authentication_type: Specifies the storage authentication type. Possible value is `ManagedIdentity` or `System`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags assigned to the resource.
         """
+        _ServiceAccountState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            encryption=encryption,
+            identity=identity,
+            key_delivery_access_control=key_delivery_access_control,
+            location=location,
+            name=name,
+            public_network_access_enabled=public_network_access_enabled,
+            resource_group_name=resource_group_name,
+            storage_accounts=storage_accounts,
+            storage_authentication_type=storage_authentication_type,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             encryption: Optional[pulumi.Input['ServiceAccountEncryptionArgs']] = None,
+             identity: Optional[pulumi.Input['ServiceAccountIdentityArgs']] = None,
+             key_delivery_access_control: Optional[pulumi.Input['ServiceAccountKeyDeliveryAccessControlArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceAccountStorageAccountArgs']]]] = None,
+             storage_authentication_type: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if key_delivery_access_control is None and 'keyDeliveryAccessControl' in kwargs:
+            key_delivery_access_control = kwargs['keyDeliveryAccessControl']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if storage_accounts is None and 'storageAccounts' in kwargs:
+            storage_accounts = kwargs['storageAccounts']
+        if storage_authentication_type is None and 'storageAuthenticationType' in kwargs:
+            storage_authentication_type = kwargs['storageAuthenticationType']
+
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_delivery_access_control is not None:
-            pulumi.set(__self__, "key_delivery_access_control", key_delivery_access_control)
+            _setter("key_delivery_access_control", key_delivery_access_control)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if storage_accounts is not None:
-            pulumi.set(__self__, "storage_accounts", storage_accounts)
+            _setter("storage_accounts", storage_accounts)
         if storage_authentication_type is not None:
-            pulumi.set(__self__, "storage_authentication_type", storage_authentication_type)
+            _setter("storage_authentication_type", storage_authentication_type)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -456,6 +538,10 @@ class ServiceAccount(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceAccountArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -480,8 +566,23 @@ class ServiceAccount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceAccountArgs.__new__(ServiceAccountArgs)
 
+            if encryption is not None and not isinstance(encryption, ServiceAccountEncryptionArgs):
+                encryption = encryption or {}
+                def _setter(key, value):
+                    encryption[key] = value
+                ServiceAccountEncryptionArgs._configure(_setter, **encryption)
             __props__.__dict__["encryption"] = encryption
+            if identity is not None and not isinstance(identity, ServiceAccountIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ServiceAccountIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
+            if key_delivery_access_control is not None and not isinstance(key_delivery_access_control, ServiceAccountKeyDeliveryAccessControlArgs):
+                key_delivery_access_control = key_delivery_access_control or {}
+                def _setter(key, value):
+                    key_delivery_access_control[key] = value
+                ServiceAccountKeyDeliveryAccessControlArgs._configure(_setter, **key_delivery_access_control)
             __props__.__dict__["key_delivery_access_control"] = key_delivery_access_control
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

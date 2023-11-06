@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ServerArgs', 'Server']
@@ -55,38 +55,119 @@ class ServerArgs:
         :param pulumi.Input[int] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB (5GB) and `1024000`MB (1TB) for the Basic SKU and between `5120` MB (5GB) and `4096000` MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#storageprofile).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku_name", sku_name)
-        pulumi.set(__self__, "ssl_enforcement_enabled", ssl_enforcement_enabled)
-        pulumi.set(__self__, "version", version)
+        ServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            ssl_enforcement_enabled=ssl_enforcement_enabled,
+            version=version,
+            administrator_login=administrator_login,
+            administrator_login_password=administrator_login_password,
+            auto_grow_enabled=auto_grow_enabled,
+            backup_retention_days=backup_retention_days,
+            create_mode=create_mode,
+            creation_source_server_id=creation_source_server_id,
+            geo_redundant_backup_enabled=geo_redundant_backup_enabled,
+            location=location,
+            name=name,
+            public_network_access_enabled=public_network_access_enabled,
+            restore_point_in_time=restore_point_in_time,
+            ssl_minimal_tls_version_enforced=ssl_minimal_tls_version_enforced,
+            storage_mb=storage_mb,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             ssl_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             administrator_login: Optional[pulumi.Input[str]] = None,
+             administrator_login_password: Optional[pulumi.Input[str]] = None,
+             auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
+             backup_retention_days: Optional[pulumi.Input[int]] = None,
+             create_mode: Optional[pulumi.Input[str]] = None,
+             creation_source_server_id: Optional[pulumi.Input[str]] = None,
+             geo_redundant_backup_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             restore_point_in_time: Optional[pulumi.Input[str]] = None,
+             ssl_minimal_tls_version_enforced: Optional[pulumi.Input[str]] = None,
+             storage_mb: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if ssl_enforcement_enabled is None and 'sslEnforcementEnabled' in kwargs:
+            ssl_enforcement_enabled = kwargs['sslEnforcementEnabled']
+        if ssl_enforcement_enabled is None:
+            raise TypeError("Missing 'ssl_enforcement_enabled' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if administrator_login is None and 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if auto_grow_enabled is None and 'autoGrowEnabled' in kwargs:
+            auto_grow_enabled = kwargs['autoGrowEnabled']
+        if backup_retention_days is None and 'backupRetentionDays' in kwargs:
+            backup_retention_days = kwargs['backupRetentionDays']
+        if create_mode is None and 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if creation_source_server_id is None and 'creationSourceServerId' in kwargs:
+            creation_source_server_id = kwargs['creationSourceServerId']
+        if geo_redundant_backup_enabled is None and 'geoRedundantBackupEnabled' in kwargs:
+            geo_redundant_backup_enabled = kwargs['geoRedundantBackupEnabled']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if restore_point_in_time is None and 'restorePointInTime' in kwargs:
+            restore_point_in_time = kwargs['restorePointInTime']
+        if ssl_minimal_tls_version_enforced is None and 'sslMinimalTlsVersionEnforced' in kwargs:
+            ssl_minimal_tls_version_enforced = kwargs['sslMinimalTlsVersionEnforced']
+        if storage_mb is None and 'storageMb' in kwargs:
+            storage_mb = kwargs['storageMb']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku_name", sku_name)
+        _setter("ssl_enforcement_enabled", ssl_enforcement_enabled)
+        _setter("version", version)
         if administrator_login is not None:
-            pulumi.set(__self__, "administrator_login", administrator_login)
+            _setter("administrator_login", administrator_login)
         if administrator_login_password is not None:
-            pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+            _setter("administrator_login_password", administrator_login_password)
         if auto_grow_enabled is not None:
-            pulumi.set(__self__, "auto_grow_enabled", auto_grow_enabled)
+            _setter("auto_grow_enabled", auto_grow_enabled)
         if backup_retention_days is not None:
-            pulumi.set(__self__, "backup_retention_days", backup_retention_days)
+            _setter("backup_retention_days", backup_retention_days)
         if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
+            _setter("create_mode", create_mode)
         if creation_source_server_id is not None:
-            pulumi.set(__self__, "creation_source_server_id", creation_source_server_id)
+            _setter("creation_source_server_id", creation_source_server_id)
         if geo_redundant_backup_enabled is not None:
-            pulumi.set(__self__, "geo_redundant_backup_enabled", geo_redundant_backup_enabled)
+            _setter("geo_redundant_backup_enabled", geo_redundant_backup_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if restore_point_in_time is not None:
-            pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
+            _setter("restore_point_in_time", restore_point_in_time)
         if ssl_minimal_tls_version_enforced is not None:
-            pulumi.set(__self__, "ssl_minimal_tls_version_enforced", ssl_minimal_tls_version_enforced)
+            _setter("ssl_minimal_tls_version_enforced", ssl_minimal_tls_version_enforced)
         if storage_mb is not None:
-            pulumi.set(__self__, "storage_mb", storage_mb)
+            _setter("storage_mb", storage_mb)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -353,44 +434,119 @@ class _ServerState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] version: Specifies the version of MariaDB to use. Possible values are `10.2` and `10.3`. Changing this forces a new resource to be created.
         """
+        _ServerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrator_login=administrator_login,
+            administrator_login_password=administrator_login_password,
+            auto_grow_enabled=auto_grow_enabled,
+            backup_retention_days=backup_retention_days,
+            create_mode=create_mode,
+            creation_source_server_id=creation_source_server_id,
+            fqdn=fqdn,
+            geo_redundant_backup_enabled=geo_redundant_backup_enabled,
+            location=location,
+            name=name,
+            public_network_access_enabled=public_network_access_enabled,
+            resource_group_name=resource_group_name,
+            restore_point_in_time=restore_point_in_time,
+            sku_name=sku_name,
+            ssl_enforcement_enabled=ssl_enforcement_enabled,
+            ssl_minimal_tls_version_enforced=ssl_minimal_tls_version_enforced,
+            storage_mb=storage_mb,
+            tags=tags,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrator_login: Optional[pulumi.Input[str]] = None,
+             administrator_login_password: Optional[pulumi.Input[str]] = None,
+             auto_grow_enabled: Optional[pulumi.Input[bool]] = None,
+             backup_retention_days: Optional[pulumi.Input[int]] = None,
+             create_mode: Optional[pulumi.Input[str]] = None,
+             creation_source_server_id: Optional[pulumi.Input[str]] = None,
+             fqdn: Optional[pulumi.Input[str]] = None,
+             geo_redundant_backup_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             restore_point_in_time: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             ssl_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
+             ssl_minimal_tls_version_enforced: Optional[pulumi.Input[str]] = None,
+             storage_mb: Optional[pulumi.Input[int]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if administrator_login is None and 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if auto_grow_enabled is None and 'autoGrowEnabled' in kwargs:
+            auto_grow_enabled = kwargs['autoGrowEnabled']
+        if backup_retention_days is None and 'backupRetentionDays' in kwargs:
+            backup_retention_days = kwargs['backupRetentionDays']
+        if create_mode is None and 'createMode' in kwargs:
+            create_mode = kwargs['createMode']
+        if creation_source_server_id is None and 'creationSourceServerId' in kwargs:
+            creation_source_server_id = kwargs['creationSourceServerId']
+        if geo_redundant_backup_enabled is None and 'geoRedundantBackupEnabled' in kwargs:
+            geo_redundant_backup_enabled = kwargs['geoRedundantBackupEnabled']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if restore_point_in_time is None and 'restorePointInTime' in kwargs:
+            restore_point_in_time = kwargs['restorePointInTime']
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if ssl_enforcement_enabled is None and 'sslEnforcementEnabled' in kwargs:
+            ssl_enforcement_enabled = kwargs['sslEnforcementEnabled']
+        if ssl_minimal_tls_version_enforced is None and 'sslMinimalTlsVersionEnforced' in kwargs:
+            ssl_minimal_tls_version_enforced = kwargs['sslMinimalTlsVersionEnforced']
+        if storage_mb is None and 'storageMb' in kwargs:
+            storage_mb = kwargs['storageMb']
+
         if administrator_login is not None:
-            pulumi.set(__self__, "administrator_login", administrator_login)
+            _setter("administrator_login", administrator_login)
         if administrator_login_password is not None:
-            pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+            _setter("administrator_login_password", administrator_login_password)
         if auto_grow_enabled is not None:
-            pulumi.set(__self__, "auto_grow_enabled", auto_grow_enabled)
+            _setter("auto_grow_enabled", auto_grow_enabled)
         if backup_retention_days is not None:
-            pulumi.set(__self__, "backup_retention_days", backup_retention_days)
+            _setter("backup_retention_days", backup_retention_days)
         if create_mode is not None:
-            pulumi.set(__self__, "create_mode", create_mode)
+            _setter("create_mode", create_mode)
         if creation_source_server_id is not None:
-            pulumi.set(__self__, "creation_source_server_id", creation_source_server_id)
+            _setter("creation_source_server_id", creation_source_server_id)
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if geo_redundant_backup_enabled is not None:
-            pulumi.set(__self__, "geo_redundant_backup_enabled", geo_redundant_backup_enabled)
+            _setter("geo_redundant_backup_enabled", geo_redundant_backup_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if restore_point_in_time is not None:
-            pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
+            _setter("restore_point_in_time", restore_point_in_time)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
         if ssl_enforcement_enabled is not None:
-            pulumi.set(__self__, "ssl_enforcement_enabled", ssl_enforcement_enabled)
+            _setter("ssl_enforcement_enabled", ssl_enforcement_enabled)
         if ssl_minimal_tls_version_enforced is not None:
-            pulumi.set(__self__, "ssl_minimal_tls_version_enforced", ssl_minimal_tls_version_enforced)
+            _setter("ssl_minimal_tls_version_enforced", ssl_minimal_tls_version_enforced)
         if storage_mb is not None:
-            pulumi.set(__self__, "storage_mb", storage_mb)
+            _setter("storage_mb", storage_mb)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="administratorLogin")
@@ -754,6 +910,10 @@ class Server(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

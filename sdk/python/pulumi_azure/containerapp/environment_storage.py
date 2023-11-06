@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EnvironmentStorageArgs', 'EnvironmentStorage']
@@ -29,13 +29,54 @@ class EnvironmentStorageArgs:
         :param pulumi.Input[str] share_name: The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name for this Container App Environment Storage. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "access_key", access_key)
-        pulumi.set(__self__, "access_mode", access_mode)
-        pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "container_app_environment_id", container_app_environment_id)
-        pulumi.set(__self__, "share_name", share_name)
+        EnvironmentStorageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_key=access_key,
+            access_mode=access_mode,
+            account_name=account_name,
+            container_app_environment_id=container_app_environment_id,
+            share_name=share_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_key: Optional[pulumi.Input[str]] = None,
+             access_mode: Optional[pulumi.Input[str]] = None,
+             account_name: Optional[pulumi.Input[str]] = None,
+             container_app_environment_id: Optional[pulumi.Input[str]] = None,
+             share_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_key is None and 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if access_key is None:
+            raise TypeError("Missing 'access_key' argument")
+        if access_mode is None and 'accessMode' in kwargs:
+            access_mode = kwargs['accessMode']
+        if access_mode is None:
+            raise TypeError("Missing 'access_mode' argument")
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if container_app_environment_id is None and 'containerAppEnvironmentId' in kwargs:
+            container_app_environment_id = kwargs['containerAppEnvironmentId']
+        if container_app_environment_id is None:
+            raise TypeError("Missing 'container_app_environment_id' argument")
+        if share_name is None and 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
+
+        _setter("access_key", access_key)
+        _setter("access_mode", access_mode)
+        _setter("account_name", account_name)
+        _setter("container_app_environment_id", container_app_environment_id)
+        _setter("share_name", share_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="accessKey")
@@ -128,18 +169,49 @@ class _EnvironmentStorageState:
         :param pulumi.Input[str] name: The name for this Container App Environment Storage. Changing this forces a new resource to be created.
         :param pulumi.Input[str] share_name: The name of the Azure Storage Share to use. Changing this forces a new resource to be created.
         """
+        _EnvironmentStorageState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_key=access_key,
+            access_mode=access_mode,
+            account_name=account_name,
+            container_app_environment_id=container_app_environment_id,
+            name=name,
+            share_name=share_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_key: Optional[pulumi.Input[str]] = None,
+             access_mode: Optional[pulumi.Input[str]] = None,
+             account_name: Optional[pulumi.Input[str]] = None,
+             container_app_environment_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             share_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_key is None and 'accessKey' in kwargs:
+            access_key = kwargs['accessKey']
+        if access_mode is None and 'accessMode' in kwargs:
+            access_mode = kwargs['accessMode']
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if container_app_environment_id is None and 'containerAppEnvironmentId' in kwargs:
+            container_app_environment_id = kwargs['containerAppEnvironmentId']
+        if share_name is None and 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+
         if access_key is not None:
-            pulumi.set(__self__, "access_key", access_key)
+            _setter("access_key", access_key)
         if access_mode is not None:
-            pulumi.set(__self__, "access_mode", access_mode)
+            _setter("access_mode", access_mode)
         if account_name is not None:
-            pulumi.set(__self__, "account_name", account_name)
+            _setter("account_name", account_name)
         if container_app_environment_id is not None:
-            pulumi.set(__self__, "container_app_environment_id", container_app_environment_id)
+            _setter("container_app_environment_id", container_app_environment_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if share_name is not None:
-            pulumi.set(__self__, "share_name", share_name)
+            _setter("share_name", share_name)
 
     @property
     @pulumi.getter(name="accessKey")
@@ -337,6 +409,10 @@ class EnvironmentStorage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EnvironmentStorageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

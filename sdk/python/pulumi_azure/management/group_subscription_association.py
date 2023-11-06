@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GroupSubscriptionAssociationArgs', 'GroupSubscriptionAssociation']
@@ -21,8 +21,29 @@ class GroupSubscriptionAssociationArgs:
         :param pulumi.Input[str] management_group_id: The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created.
         :param pulumi.Input[str] subscription_id: The ID of the Subscription to be associated with the Management Group. Changing this forces a new Management to be created.
         """
-        pulumi.set(__self__, "management_group_id", management_group_id)
-        pulumi.set(__self__, "subscription_id", subscription_id)
+        GroupSubscriptionAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            management_group_id=management_group_id,
+            subscription_id=subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             management_group_id: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if management_group_id is None and 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if management_group_id is None:
+            raise TypeError("Missing 'management_group_id' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+
+        _setter("management_group_id", management_group_id)
+        _setter("subscription_id", subscription_id)
 
     @property
     @pulumi.getter(name="managementGroupId")
@@ -59,10 +80,27 @@ class _GroupSubscriptionAssociationState:
         :param pulumi.Input[str] management_group_id: The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created.
         :param pulumi.Input[str] subscription_id: The ID of the Subscription to be associated with the Management Group. Changing this forces a new Management to be created.
         """
+        _GroupSubscriptionAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            management_group_id=management_group_id,
+            subscription_id=subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             management_group_id: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if management_group_id is None and 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
         if management_group_id is not None:
-            pulumi.set(__self__, "management_group_id", management_group_id)
+            _setter("management_group_id", management_group_id)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
 
     @property
     @pulumi.getter(name="managementGroupId")
@@ -170,6 +208,10 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GroupSubscriptionAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

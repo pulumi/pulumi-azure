@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -54,9 +54,26 @@ class FunctionJavaScriptUDFInput(dict):
         :param str type: The Data Type for the Input Argument of this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
         :param bool configuration_parameter: Is this input parameter a configuration parameter? Defaults to `false`.
         """
-        pulumi.set(__self__, "type", type)
+        FunctionJavaScriptUDFInput._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            configuration_parameter=configuration_parameter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             configuration_parameter: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if configuration_parameter is None and 'configurationParameter' in kwargs:
+            configuration_parameter = kwargs['configurationParameter']
+
+        _setter("type", type)
         if configuration_parameter is not None:
-            pulumi.set(__self__, "configuration_parameter", configuration_parameter)
+            _setter("configuration_parameter", configuration_parameter)
 
     @property
     @pulumi.getter
@@ -82,7 +99,20 @@ class FunctionJavaScriptUDFOutput(dict):
         """
         :param str type: The Data Type output from this JavaScript Function. Possible values include `array`, `any`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
         """
-        pulumi.set(__self__, "type", type)
+        FunctionJavaScriptUDFOutput._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -119,9 +149,26 @@ class FunctionJavascriptUdaInput(dict):
         :param str type: The input data type of this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
         :param bool configuration_parameter: Is this input parameter a configuration parameter? Defaults to `false`.
         """
-        pulumi.set(__self__, "type", type)
+        FunctionJavascriptUdaInput._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            configuration_parameter=configuration_parameter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             configuration_parameter: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if configuration_parameter is None and 'configurationParameter' in kwargs:
+            configuration_parameter = kwargs['configurationParameter']
+
+        _setter("type", type)
         if configuration_parameter is not None:
-            pulumi.set(__self__, "configuration_parameter", configuration_parameter)
+            _setter("configuration_parameter", configuration_parameter)
 
     @property
     @pulumi.getter
@@ -147,7 +194,20 @@ class FunctionJavascriptUdaOutput(dict):
         """
         :param str type: The output data type from this JavaScript Function. Possible values include `any`, `array`, `bigint`, `datetime`, `float`, `nvarchar(max)` and `record`.
         """
-        pulumi.set(__self__, "type", type)
+        FunctionJavascriptUdaOutput._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -188,11 +248,32 @@ class JobIdentity(dict):
         :param str principal_id: The Principal ID associated with this Managed Service Identity.
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        pulumi.set(__self__, "type", type)
+        JobIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("type", type)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -251,10 +332,35 @@ class JobJobStorageAccount(dict):
         :param str account_name: The name of the Azure storage account.
         :param str authentication_mode: The authentication mode of the storage account. The only supported value is `ConnectionString`. Defaults to `ConnectionString`.
         """
-        pulumi.set(__self__, "account_key", account_key)
-        pulumi.set(__self__, "account_name", account_name)
+        JobJobStorageAccount._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_key=account_key,
+            account_name=account_name,
+            authentication_mode=authentication_mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_key: Optional[str] = None,
+             account_name: Optional[str] = None,
+             authentication_mode: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if account_key is None and 'accountKey' in kwargs:
+            account_key = kwargs['accountKey']
+        if account_key is None:
+            raise TypeError("Missing 'account_key' argument")
+        if account_name is None and 'accountName' in kwargs:
+            account_name = kwargs['accountName']
+        if account_name is None:
+            raise TypeError("Missing 'account_name' argument")
+        if authentication_mode is None and 'authenticationMode' in kwargs:
+            authentication_mode = kwargs['authenticationMode']
+
+        _setter("account_key", account_key)
+        _setter("account_name", account_name)
         if authentication_mode is not None:
-            pulumi.set(__self__, "authentication_mode", authentication_mode)
+            _setter("authentication_mode", authentication_mode)
 
     @property
     @pulumi.getter(name="accountKey")
@@ -319,13 +425,34 @@ class OutputBlobSerialization(dict):
                
                > **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
         """
-        pulumi.set(__self__, "type", type)
+        OutputBlobSerialization._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            encoding=encoding,
+            field_delimiter=field_delimiter,
+            format=format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             encoding: Optional[str] = None,
+             field_delimiter: Optional[str] = None,
+             format: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if field_delimiter is None and 'fieldDelimiter' in kwargs:
+            field_delimiter = kwargs['fieldDelimiter']
+
+        _setter("type", type)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if field_delimiter is not None:
-            pulumi.set(__self__, "field_delimiter", field_delimiter)
+            _setter("field_delimiter", field_delimiter)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
 
     @property
     @pulumi.getter
@@ -404,13 +531,34 @@ class OutputEventHubSerialization(dict):
                
                > **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
         """
-        pulumi.set(__self__, "type", type)
+        OutputEventHubSerialization._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            encoding=encoding,
+            field_delimiter=field_delimiter,
+            format=format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             encoding: Optional[str] = None,
+             field_delimiter: Optional[str] = None,
+             format: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if field_delimiter is None and 'fieldDelimiter' in kwargs:
+            field_delimiter = kwargs['fieldDelimiter']
+
+        _setter("type", type)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if field_delimiter is not None:
-            pulumi.set(__self__, "field_delimiter", field_delimiter)
+            _setter("field_delimiter", field_delimiter)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
 
     @property
     @pulumi.getter
@@ -487,13 +635,34 @@ class OutputServiceBusQueueSerialization(dict):
                
                > **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
         """
-        pulumi.set(__self__, "type", type)
+        OutputServiceBusQueueSerialization._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            encoding=encoding,
+            field_delimiter=field_delimiter,
+            format=format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             encoding: Optional[str] = None,
+             field_delimiter: Optional[str] = None,
+             format: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if field_delimiter is None and 'fieldDelimiter' in kwargs:
+            field_delimiter = kwargs['fieldDelimiter']
+
+        _setter("type", type)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if field_delimiter is not None:
-            pulumi.set(__self__, "field_delimiter", field_delimiter)
+            _setter("field_delimiter", field_delimiter)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
 
     @property
     @pulumi.getter
@@ -570,13 +739,34 @@ class OutputServicebusTopicSerialization(dict):
                
                > **NOTE:** This is Required and can only be specified when `type` is set to `Json`.
         """
-        pulumi.set(__self__, "type", type)
+        OutputServicebusTopicSerialization._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            encoding=encoding,
+            field_delimiter=field_delimiter,
+            format=format,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             encoding: Optional[str] = None,
+             field_delimiter: Optional[str] = None,
+             format: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if field_delimiter is None and 'fieldDelimiter' in kwargs:
+            field_delimiter = kwargs['fieldDelimiter']
+
+        _setter("type", type)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if field_delimiter is not None:
-            pulumi.set(__self__, "field_delimiter", field_delimiter)
+            _setter("field_delimiter", field_delimiter)
         if format is not None:
-            pulumi.set(__self__, "format", format)
+            _setter("format", format)
 
     @property
     @pulumi.getter
@@ -649,11 +839,30 @@ class ReferenceInputBlobSerialization(dict):
                
                > **NOTE:** This is required when `type` is set to `Csv`.
         """
-        pulumi.set(__self__, "type", type)
+        ReferenceInputBlobSerialization._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            encoding=encoding,
+            field_delimiter=field_delimiter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             encoding: Optional[str] = None,
+             field_delimiter: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if field_delimiter is None and 'fieldDelimiter' in kwargs:
+            field_delimiter = kwargs['fieldDelimiter']
+
+        _setter("type", type)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if field_delimiter is not None:
-            pulumi.set(__self__, "field_delimiter", field_delimiter)
+            _setter("field_delimiter", field_delimiter)
 
     @property
     @pulumi.getter
@@ -716,11 +925,30 @@ class StreamInputBlobSerialization(dict):
                
                > **NOTE:** This is required when `type` is set to `Csv`.
         """
-        pulumi.set(__self__, "type", type)
+        StreamInputBlobSerialization._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            encoding=encoding,
+            field_delimiter=field_delimiter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             encoding: Optional[str] = None,
+             field_delimiter: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if field_delimiter is None and 'fieldDelimiter' in kwargs:
+            field_delimiter = kwargs['fieldDelimiter']
+
+        _setter("type", type)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if field_delimiter is not None:
-            pulumi.set(__self__, "field_delimiter", field_delimiter)
+            _setter("field_delimiter", field_delimiter)
 
     @property
     @pulumi.getter
@@ -783,11 +1011,30 @@ class StreamInputEventHubSerialization(dict):
                
                > **NOTE:** This is required when `type` is set to `Csv`.
         """
-        pulumi.set(__self__, "type", type)
+        StreamInputEventHubSerialization._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            encoding=encoding,
+            field_delimiter=field_delimiter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             encoding: Optional[str] = None,
+             field_delimiter: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if field_delimiter is None and 'fieldDelimiter' in kwargs:
+            field_delimiter = kwargs['fieldDelimiter']
+
+        _setter("type", type)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if field_delimiter is not None:
-            pulumi.set(__self__, "field_delimiter", field_delimiter)
+            _setter("field_delimiter", field_delimiter)
 
     @property
     @pulumi.getter
@@ -850,11 +1097,30 @@ class StreamInputEventHubV2Serialization(dict):
                
                > **NOTE:** This is required when `type` is set to `Csv`.
         """
-        pulumi.set(__self__, "type", type)
+        StreamInputEventHubV2Serialization._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            encoding=encoding,
+            field_delimiter=field_delimiter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             encoding: Optional[str] = None,
+             field_delimiter: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if field_delimiter is None and 'fieldDelimiter' in kwargs:
+            field_delimiter = kwargs['fieldDelimiter']
+
+        _setter("type", type)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if field_delimiter is not None:
-            pulumi.set(__self__, "field_delimiter", field_delimiter)
+            _setter("field_delimiter", field_delimiter)
 
     @property
     @pulumi.getter
@@ -917,11 +1183,30 @@ class StreamInputIotHubSerialization(dict):
                
                > **NOTE:** This is required when `type` is set to `Csv`.
         """
-        pulumi.set(__self__, "type", type)
+        StreamInputIotHubSerialization._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            encoding=encoding,
+            field_delimiter=field_delimiter,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             encoding: Optional[str] = None,
+             field_delimiter: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if field_delimiter is None and 'fieldDelimiter' in kwargs:
+            field_delimiter = kwargs['fieldDelimiter']
+
+        _setter("type", type)
         if encoding is not None:
-            pulumi.set(__self__, "encoding", encoding)
+            _setter("encoding", encoding)
         if field_delimiter is not None:
-            pulumi.set(__self__, "field_delimiter", field_delimiter)
+            _setter("field_delimiter", field_delimiter)
 
     @property
     @pulumi.getter
@@ -963,9 +1248,34 @@ class GetJobIdentityResult(dict):
         :param str tenant_id: The Tenant ID associated with this Managed Service Identity.
         :param str type: The identity type of this Managed Service Identity.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        GetJobIdentityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="principalId")

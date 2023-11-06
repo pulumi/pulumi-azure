@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,28 +43,81 @@ class IntegrationRuntimeManagedArgs:
         :param pulumi.Input[int] number_of_nodes: Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
         :param pulumi.Input['IntegrationRuntimeManagedVnetIntegrationArgs'] vnet_integration: A `vnet_integration` block as defined below.
         """
-        pulumi.set(__self__, "data_factory_id", data_factory_id)
-        pulumi.set(__self__, "node_size", node_size)
+        IntegrationRuntimeManagedArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_factory_id=data_factory_id,
+            node_size=node_size,
+            catalog_info=catalog_info,
+            custom_setup_script=custom_setup_script,
+            description=description,
+            edition=edition,
+            license_type=license_type,
+            location=location,
+            max_parallel_executions_per_node=max_parallel_executions_per_node,
+            name=name,
+            number_of_nodes=number_of_nodes,
+            vnet_integration=vnet_integration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             node_size: Optional[pulumi.Input[str]] = None,
+             catalog_info: Optional[pulumi.Input['IntegrationRuntimeManagedCatalogInfoArgs']] = None,
+             custom_setup_script: Optional[pulumi.Input['IntegrationRuntimeManagedCustomSetupScriptArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             edition: Optional[pulumi.Input[str]] = None,
+             license_type: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             max_parallel_executions_per_node: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             number_of_nodes: Optional[pulumi.Input[int]] = None,
+             vnet_integration: Optional[pulumi.Input['IntegrationRuntimeManagedVnetIntegrationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if node_size is None and 'nodeSize' in kwargs:
+            node_size = kwargs['nodeSize']
+        if node_size is None:
+            raise TypeError("Missing 'node_size' argument")
+        if catalog_info is None and 'catalogInfo' in kwargs:
+            catalog_info = kwargs['catalogInfo']
+        if custom_setup_script is None and 'customSetupScript' in kwargs:
+            custom_setup_script = kwargs['customSetupScript']
+        if license_type is None and 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if max_parallel_executions_per_node is None and 'maxParallelExecutionsPerNode' in kwargs:
+            max_parallel_executions_per_node = kwargs['maxParallelExecutionsPerNode']
+        if number_of_nodes is None and 'numberOfNodes' in kwargs:
+            number_of_nodes = kwargs['numberOfNodes']
+        if vnet_integration is None and 'vnetIntegration' in kwargs:
+            vnet_integration = kwargs['vnetIntegration']
+
+        _setter("data_factory_id", data_factory_id)
+        _setter("node_size", node_size)
         if catalog_info is not None:
-            pulumi.set(__self__, "catalog_info", catalog_info)
+            _setter("catalog_info", catalog_info)
         if custom_setup_script is not None:
-            pulumi.set(__self__, "custom_setup_script", custom_setup_script)
+            _setter("custom_setup_script", custom_setup_script)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if edition is not None:
-            pulumi.set(__self__, "edition", edition)
+            _setter("edition", edition)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if max_parallel_executions_per_node is not None:
-            pulumi.set(__self__, "max_parallel_executions_per_node", max_parallel_executions_per_node)
+            _setter("max_parallel_executions_per_node", max_parallel_executions_per_node)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if number_of_nodes is not None:
-            pulumi.set(__self__, "number_of_nodes", number_of_nodes)
+            _setter("number_of_nodes", number_of_nodes)
         if vnet_integration is not None:
-            pulumi.set(__self__, "vnet_integration", vnet_integration)
+            _setter("vnet_integration", vnet_integration)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -241,30 +294,79 @@ class _IntegrationRuntimeManagedState:
         :param pulumi.Input[int] number_of_nodes: Number of nodes for the Managed Integration Runtime. Max is `10`. Defaults to `1`.
         :param pulumi.Input['IntegrationRuntimeManagedVnetIntegrationArgs'] vnet_integration: A `vnet_integration` block as defined below.
         """
+        _IntegrationRuntimeManagedState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            catalog_info=catalog_info,
+            custom_setup_script=custom_setup_script,
+            data_factory_id=data_factory_id,
+            description=description,
+            edition=edition,
+            license_type=license_type,
+            location=location,
+            max_parallel_executions_per_node=max_parallel_executions_per_node,
+            name=name,
+            node_size=node_size,
+            number_of_nodes=number_of_nodes,
+            vnet_integration=vnet_integration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             catalog_info: Optional[pulumi.Input['IntegrationRuntimeManagedCatalogInfoArgs']] = None,
+             custom_setup_script: Optional[pulumi.Input['IntegrationRuntimeManagedCustomSetupScriptArgs']] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             edition: Optional[pulumi.Input[str]] = None,
+             license_type: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             max_parallel_executions_per_node: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             node_size: Optional[pulumi.Input[str]] = None,
+             number_of_nodes: Optional[pulumi.Input[int]] = None,
+             vnet_integration: Optional[pulumi.Input['IntegrationRuntimeManagedVnetIntegrationArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if catalog_info is None and 'catalogInfo' in kwargs:
+            catalog_info = kwargs['catalogInfo']
+        if custom_setup_script is None and 'customSetupScript' in kwargs:
+            custom_setup_script = kwargs['customSetupScript']
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if license_type is None and 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if max_parallel_executions_per_node is None and 'maxParallelExecutionsPerNode' in kwargs:
+            max_parallel_executions_per_node = kwargs['maxParallelExecutionsPerNode']
+        if node_size is None and 'nodeSize' in kwargs:
+            node_size = kwargs['nodeSize']
+        if number_of_nodes is None and 'numberOfNodes' in kwargs:
+            number_of_nodes = kwargs['numberOfNodes']
+        if vnet_integration is None and 'vnetIntegration' in kwargs:
+            vnet_integration = kwargs['vnetIntegration']
+
         if catalog_info is not None:
-            pulumi.set(__self__, "catalog_info", catalog_info)
+            _setter("catalog_info", catalog_info)
         if custom_setup_script is not None:
-            pulumi.set(__self__, "custom_setup_script", custom_setup_script)
+            _setter("custom_setup_script", custom_setup_script)
         if data_factory_id is not None:
-            pulumi.set(__self__, "data_factory_id", data_factory_id)
+            _setter("data_factory_id", data_factory_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if edition is not None:
-            pulumi.set(__self__, "edition", edition)
+            _setter("edition", edition)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if max_parallel_executions_per_node is not None:
-            pulumi.set(__self__, "max_parallel_executions_per_node", max_parallel_executions_per_node)
+            _setter("max_parallel_executions_per_node", max_parallel_executions_per_node)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if node_size is not None:
-            pulumi.set(__self__, "node_size", node_size)
+            _setter("node_size", node_size)
         if number_of_nodes is not None:
-            pulumi.set(__self__, "number_of_nodes", number_of_nodes)
+            _setter("number_of_nodes", number_of_nodes)
         if vnet_integration is not None:
-            pulumi.set(__self__, "vnet_integration", vnet_integration)
+            _setter("vnet_integration", vnet_integration)
 
     @property
     @pulumi.getter(name="catalogInfo")
@@ -518,6 +620,10 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationRuntimeManagedArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -544,7 +650,17 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IntegrationRuntimeManagedArgs.__new__(IntegrationRuntimeManagedArgs)
 
+            if catalog_info is not None and not isinstance(catalog_info, IntegrationRuntimeManagedCatalogInfoArgs):
+                catalog_info = catalog_info or {}
+                def _setter(key, value):
+                    catalog_info[key] = value
+                IntegrationRuntimeManagedCatalogInfoArgs._configure(_setter, **catalog_info)
             __props__.__dict__["catalog_info"] = catalog_info
+            if custom_setup_script is not None and not isinstance(custom_setup_script, IntegrationRuntimeManagedCustomSetupScriptArgs):
+                custom_setup_script = custom_setup_script or {}
+                def _setter(key, value):
+                    custom_setup_script[key] = value
+                IntegrationRuntimeManagedCustomSetupScriptArgs._configure(_setter, **custom_setup_script)
             __props__.__dict__["custom_setup_script"] = custom_setup_script
             if data_factory_id is None and not opts.urn:
                 raise TypeError("Missing required property 'data_factory_id'")
@@ -559,6 +675,11 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
                 raise TypeError("Missing required property 'node_size'")
             __props__.__dict__["node_size"] = node_size
             __props__.__dict__["number_of_nodes"] = number_of_nodes
+            if vnet_integration is not None and not isinstance(vnet_integration, IntegrationRuntimeManagedVnetIntegrationArgs):
+                vnet_integration = vnet_integration or {}
+                def _setter(key, value):
+                    vnet_integration[key] = value
+                IntegrationRuntimeManagedVnetIntegrationArgs._configure(_setter, **vnet_integration)
             __props__.__dict__["vnet_integration"] = vnet_integration
         super(IntegrationRuntimeManaged, __self__).__init__(
             'azure:datafactory/integrationRuntimeManaged:IntegrationRuntimeManaged',

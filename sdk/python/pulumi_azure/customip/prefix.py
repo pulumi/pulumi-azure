@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PrefixArgs', 'Prefix']
@@ -45,26 +45,73 @@ class PrefixArgs:
                
                > **Note:** In regions with [availability zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview), the Custom IP Prefix must be specified as either `Zone-redundant` or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
         """
-        pulumi.set(__self__, "cidr", cidr)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        PrefixArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidr=cidr,
+            resource_group_name=resource_group_name,
+            commissioning_enabled=commissioning_enabled,
+            internet_advertising_disabled=internet_advertising_disabled,
+            location=location,
+            name=name,
+            parent_custom_ip_prefix_id=parent_custom_ip_prefix_id,
+            roa_validity_end_date=roa_validity_end_date,
+            tags=tags,
+            wan_validation_signed_message=wan_validation_signed_message,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidr: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             commissioning_enabled: Optional[pulumi.Input[bool]] = None,
+             internet_advertising_disabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parent_custom_ip_prefix_id: Optional[pulumi.Input[str]] = None,
+             roa_validity_end_date: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             wan_validation_signed_message: Optional[pulumi.Input[str]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cidr is None:
+            raise TypeError("Missing 'cidr' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if commissioning_enabled is None and 'commissioningEnabled' in kwargs:
+            commissioning_enabled = kwargs['commissioningEnabled']
+        if internet_advertising_disabled is None and 'internetAdvertisingDisabled' in kwargs:
+            internet_advertising_disabled = kwargs['internetAdvertisingDisabled']
+        if parent_custom_ip_prefix_id is None and 'parentCustomIpPrefixId' in kwargs:
+            parent_custom_ip_prefix_id = kwargs['parentCustomIpPrefixId']
+        if roa_validity_end_date is None and 'roaValidityEndDate' in kwargs:
+            roa_validity_end_date = kwargs['roaValidityEndDate']
+        if wan_validation_signed_message is None and 'wanValidationSignedMessage' in kwargs:
+            wan_validation_signed_message = kwargs['wanValidationSignedMessage']
+
+        _setter("cidr", cidr)
+        _setter("resource_group_name", resource_group_name)
         if commissioning_enabled is not None:
-            pulumi.set(__self__, "commissioning_enabled", commissioning_enabled)
+            _setter("commissioning_enabled", commissioning_enabled)
         if internet_advertising_disabled is not None:
-            pulumi.set(__self__, "internet_advertising_disabled", internet_advertising_disabled)
+            _setter("internet_advertising_disabled", internet_advertising_disabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parent_custom_ip_prefix_id is not None:
-            pulumi.set(__self__, "parent_custom_ip_prefix_id", parent_custom_ip_prefix_id)
+            _setter("parent_custom_ip_prefix_id", parent_custom_ip_prefix_id)
         if roa_validity_end_date is not None:
-            pulumi.set(__self__, "roa_validity_end_date", roa_validity_end_date)
+            _setter("roa_validity_end_date", roa_validity_end_date)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if wan_validation_signed_message is not None:
-            pulumi.set(__self__, "wan_validation_signed_message", wan_validation_signed_message)
+            _setter("wan_validation_signed_message", wan_validation_signed_message)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter
@@ -239,28 +286,71 @@ class _PrefixState:
                
                > **Note:** In regions with [availability zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview), the Custom IP Prefix must be specified as either `Zone-redundant` or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties.
         """
+        _PrefixState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cidr=cidr,
+            commissioning_enabled=commissioning_enabled,
+            internet_advertising_disabled=internet_advertising_disabled,
+            location=location,
+            name=name,
+            parent_custom_ip_prefix_id=parent_custom_ip_prefix_id,
+            resource_group_name=resource_group_name,
+            roa_validity_end_date=roa_validity_end_date,
+            tags=tags,
+            wan_validation_signed_message=wan_validation_signed_message,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cidr: Optional[pulumi.Input[str]] = None,
+             commissioning_enabled: Optional[pulumi.Input[bool]] = None,
+             internet_advertising_disabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parent_custom_ip_prefix_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             roa_validity_end_date: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             wan_validation_signed_message: Optional[pulumi.Input[str]] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if commissioning_enabled is None and 'commissioningEnabled' in kwargs:
+            commissioning_enabled = kwargs['commissioningEnabled']
+        if internet_advertising_disabled is None and 'internetAdvertisingDisabled' in kwargs:
+            internet_advertising_disabled = kwargs['internetAdvertisingDisabled']
+        if parent_custom_ip_prefix_id is None and 'parentCustomIpPrefixId' in kwargs:
+            parent_custom_ip_prefix_id = kwargs['parentCustomIpPrefixId']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if roa_validity_end_date is None and 'roaValidityEndDate' in kwargs:
+            roa_validity_end_date = kwargs['roaValidityEndDate']
+        if wan_validation_signed_message is None and 'wanValidationSignedMessage' in kwargs:
+            wan_validation_signed_message = kwargs['wanValidationSignedMessage']
+
         if cidr is not None:
-            pulumi.set(__self__, "cidr", cidr)
+            _setter("cidr", cidr)
         if commissioning_enabled is not None:
-            pulumi.set(__self__, "commissioning_enabled", commissioning_enabled)
+            _setter("commissioning_enabled", commissioning_enabled)
         if internet_advertising_disabled is not None:
-            pulumi.set(__self__, "internet_advertising_disabled", internet_advertising_disabled)
+            _setter("internet_advertising_disabled", internet_advertising_disabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parent_custom_ip_prefix_id is not None:
-            pulumi.set(__self__, "parent_custom_ip_prefix_id", parent_custom_ip_prefix_id)
+            _setter("parent_custom_ip_prefix_id", parent_custom_ip_prefix_id)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if roa_validity_end_date is not None:
-            pulumi.set(__self__, "roa_validity_end_date", roa_validity_end_date)
+            _setter("roa_validity_end_date", roa_validity_end_date)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if wan_validation_signed_message is not None:
-            pulumi.set(__self__, "wan_validation_signed_message", wan_validation_signed_message)
+            _setter("wan_validation_signed_message", wan_validation_signed_message)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter
@@ -476,6 +566,10 @@ class Prefix(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PrefixArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

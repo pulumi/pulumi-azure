@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ManagedStorageAccountSasTokenDefinitionArgs', 'ManagedStorageAccountSasTokenDefinition']
@@ -29,14 +29,51 @@ class ManagedStorageAccountSasTokenDefinitionArgs:
         :param pulumi.Input[str] name: The name which should be used for this SAS Definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "managed_storage_account_id", managed_storage_account_id)
-        pulumi.set(__self__, "sas_template_uri", sas_template_uri)
-        pulumi.set(__self__, "sas_type", sas_type)
-        pulumi.set(__self__, "validity_period", validity_period)
+        ManagedStorageAccountSasTokenDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_storage_account_id=managed_storage_account_id,
+            sas_template_uri=sas_template_uri,
+            sas_type=sas_type,
+            validity_period=validity_period,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_storage_account_id: Optional[pulumi.Input[str]] = None,
+             sas_template_uri: Optional[pulumi.Input[str]] = None,
+             sas_type: Optional[pulumi.Input[str]] = None,
+             validity_period: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if managed_storage_account_id is None and 'managedStorageAccountId' in kwargs:
+            managed_storage_account_id = kwargs['managedStorageAccountId']
+        if managed_storage_account_id is None:
+            raise TypeError("Missing 'managed_storage_account_id' argument")
+        if sas_template_uri is None and 'sasTemplateUri' in kwargs:
+            sas_template_uri = kwargs['sasTemplateUri']
+        if sas_template_uri is None:
+            raise TypeError("Missing 'sas_template_uri' argument")
+        if sas_type is None and 'sasType' in kwargs:
+            sas_type = kwargs['sasType']
+        if sas_type is None:
+            raise TypeError("Missing 'sas_type' argument")
+        if validity_period is None and 'validityPeriod' in kwargs:
+            validity_period = kwargs['validityPeriod']
+        if validity_period is None:
+            raise TypeError("Missing 'validity_period' argument")
+
+        _setter("managed_storage_account_id", managed_storage_account_id)
+        _setter("sas_template_uri", sas_template_uri)
+        _setter("sas_type", sas_type)
+        _setter("validity_period", validity_period)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="managedStorageAccountId")
@@ -131,20 +168,53 @@ class _ManagedStorageAccountSasTokenDefinitionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the SAS Definition. Changing this forces a new resource to be created.
         :param pulumi.Input[str] validity_period: Validity period of SAS token. Value needs to be in [ISO 8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         """
+        _ManagedStorageAccountSasTokenDefinitionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            managed_storage_account_id=managed_storage_account_id,
+            name=name,
+            sas_template_uri=sas_template_uri,
+            sas_type=sas_type,
+            secret_id=secret_id,
+            tags=tags,
+            validity_period=validity_period,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             managed_storage_account_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             sas_template_uri: Optional[pulumi.Input[str]] = None,
+             sas_type: Optional[pulumi.Input[str]] = None,
+             secret_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             validity_period: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if managed_storage_account_id is None and 'managedStorageAccountId' in kwargs:
+            managed_storage_account_id = kwargs['managedStorageAccountId']
+        if sas_template_uri is None and 'sasTemplateUri' in kwargs:
+            sas_template_uri = kwargs['sasTemplateUri']
+        if sas_type is None and 'sasType' in kwargs:
+            sas_type = kwargs['sasType']
+        if secret_id is None and 'secretId' in kwargs:
+            secret_id = kwargs['secretId']
+        if validity_period is None and 'validityPeriod' in kwargs:
+            validity_period = kwargs['validityPeriod']
+
         if managed_storage_account_id is not None:
-            pulumi.set(__self__, "managed_storage_account_id", managed_storage_account_id)
+            _setter("managed_storage_account_id", managed_storage_account_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sas_template_uri is not None:
-            pulumi.set(__self__, "sas_template_uri", sas_template_uri)
+            _setter("sas_template_uri", sas_template_uri)
         if sas_type is not None:
-            pulumi.set(__self__, "sas_type", sas_type)
+            _setter("sas_type", sas_type)
         if secret_id is not None:
-            pulumi.set(__self__, "secret_id", secret_id)
+            _setter("secret_id", secret_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if validity_period is not None:
-            pulumi.set(__self__, "validity_period", validity_period)
+            _setter("validity_period", validity_period)
 
     @property
     @pulumi.getter(name="managedStorageAccountId")
@@ -442,6 +512,10 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ManagedStorageAccountSasTokenDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

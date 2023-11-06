@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,29 +47,86 @@ class TrafficManagerNestedEndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]] subnets: One or more `subnet` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
         """
-        pulumi.set(__self__, "minimum_child_endpoints", minimum_child_endpoints)
-        pulumi.set(__self__, "profile_id", profile_id)
-        pulumi.set(__self__, "target_resource_id", target_resource_id)
+        TrafficManagerNestedEndpointArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            minimum_child_endpoints=minimum_child_endpoints,
+            profile_id=profile_id,
+            target_resource_id=target_resource_id,
+            custom_headers=custom_headers,
+            enabled=enabled,
+            endpoint_location=endpoint_location,
+            geo_mappings=geo_mappings,
+            minimum_required_child_endpoints_ipv4=minimum_required_child_endpoints_ipv4,
+            minimum_required_child_endpoints_ipv6=minimum_required_child_endpoints_ipv6,
+            name=name,
+            priority=priority,
+            subnets=subnets,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             minimum_child_endpoints: Optional[pulumi.Input[int]] = None,
+             profile_id: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             endpoint_location: Optional[pulumi.Input[str]] = None,
+             geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             minimum_required_child_endpoints_ipv4: Optional[pulumi.Input[int]] = None,
+             minimum_required_child_endpoints_ipv6: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]] = None,
+             weight: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if minimum_child_endpoints is None and 'minimumChildEndpoints' in kwargs:
+            minimum_child_endpoints = kwargs['minimumChildEndpoints']
+        if minimum_child_endpoints is None:
+            raise TypeError("Missing 'minimum_child_endpoints' argument")
+        if profile_id is None and 'profileId' in kwargs:
+            profile_id = kwargs['profileId']
+        if profile_id is None:
+            raise TypeError("Missing 'profile_id' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if custom_headers is None and 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if endpoint_location is None and 'endpointLocation' in kwargs:
+            endpoint_location = kwargs['endpointLocation']
+        if geo_mappings is None and 'geoMappings' in kwargs:
+            geo_mappings = kwargs['geoMappings']
+        if minimum_required_child_endpoints_ipv4 is None and 'minimumRequiredChildEndpointsIpv4' in kwargs:
+            minimum_required_child_endpoints_ipv4 = kwargs['minimumRequiredChildEndpointsIpv4']
+        if minimum_required_child_endpoints_ipv6 is None and 'minimumRequiredChildEndpointsIpv6' in kwargs:
+            minimum_required_child_endpoints_ipv6 = kwargs['minimumRequiredChildEndpointsIpv6']
+
+        _setter("minimum_child_endpoints", minimum_child_endpoints)
+        _setter("profile_id", profile_id)
+        _setter("target_resource_id", target_resource_id)
         if custom_headers is not None:
-            pulumi.set(__self__, "custom_headers", custom_headers)
+            _setter("custom_headers", custom_headers)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if endpoint_location is not None:
-            pulumi.set(__self__, "endpoint_location", endpoint_location)
+            _setter("endpoint_location", endpoint_location)
         if geo_mappings is not None:
-            pulumi.set(__self__, "geo_mappings", geo_mappings)
+            _setter("geo_mappings", geo_mappings)
         if minimum_required_child_endpoints_ipv4 is not None:
-            pulumi.set(__self__, "minimum_required_child_endpoints_ipv4", minimum_required_child_endpoints_ipv4)
+            _setter("minimum_required_child_endpoints_ipv4", minimum_required_child_endpoints_ipv4)
         if minimum_required_child_endpoints_ipv6 is not None:
-            pulumi.set(__self__, "minimum_required_child_endpoints_ipv6", minimum_required_child_endpoints_ipv6)
+            _setter("minimum_required_child_endpoints_ipv6", minimum_required_child_endpoints_ipv6)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter(name="minimumChildEndpoints")
@@ -264,32 +321,83 @@ class _TrafficManagerNestedEndpointState:
         :param pulumi.Input[str] target_resource_id: The resource id of an Azure resource to target.
         :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
         """
+        _TrafficManagerNestedEndpointState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            custom_headers=custom_headers,
+            enabled=enabled,
+            endpoint_location=endpoint_location,
+            geo_mappings=geo_mappings,
+            minimum_child_endpoints=minimum_child_endpoints,
+            minimum_required_child_endpoints_ipv4=minimum_required_child_endpoints_ipv4,
+            minimum_required_child_endpoints_ipv6=minimum_required_child_endpoints_ipv6,
+            name=name,
+            priority=priority,
+            profile_id=profile_id,
+            subnets=subnets,
+            target_resource_id=target_resource_id,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointCustomHeaderArgs']]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             endpoint_location: Optional[pulumi.Input[str]] = None,
+             geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             minimum_child_endpoints: Optional[pulumi.Input[int]] = None,
+             minimum_required_child_endpoints_ipv4: Optional[pulumi.Input[int]] = None,
+             minimum_required_child_endpoints_ipv6: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             profile_id: Optional[pulumi.Input[str]] = None,
+             subnets: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerNestedEndpointSubnetArgs']]]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             weight: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if custom_headers is None and 'customHeaders' in kwargs:
+            custom_headers = kwargs['customHeaders']
+        if endpoint_location is None and 'endpointLocation' in kwargs:
+            endpoint_location = kwargs['endpointLocation']
+        if geo_mappings is None and 'geoMappings' in kwargs:
+            geo_mappings = kwargs['geoMappings']
+        if minimum_child_endpoints is None and 'minimumChildEndpoints' in kwargs:
+            minimum_child_endpoints = kwargs['minimumChildEndpoints']
+        if minimum_required_child_endpoints_ipv4 is None and 'minimumRequiredChildEndpointsIpv4' in kwargs:
+            minimum_required_child_endpoints_ipv4 = kwargs['minimumRequiredChildEndpointsIpv4']
+        if minimum_required_child_endpoints_ipv6 is None and 'minimumRequiredChildEndpointsIpv6' in kwargs:
+            minimum_required_child_endpoints_ipv6 = kwargs['minimumRequiredChildEndpointsIpv6']
+        if profile_id is None and 'profileId' in kwargs:
+            profile_id = kwargs['profileId']
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+
         if custom_headers is not None:
-            pulumi.set(__self__, "custom_headers", custom_headers)
+            _setter("custom_headers", custom_headers)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if endpoint_location is not None:
-            pulumi.set(__self__, "endpoint_location", endpoint_location)
+            _setter("endpoint_location", endpoint_location)
         if geo_mappings is not None:
-            pulumi.set(__self__, "geo_mappings", geo_mappings)
+            _setter("geo_mappings", geo_mappings)
         if minimum_child_endpoints is not None:
-            pulumi.set(__self__, "minimum_child_endpoints", minimum_child_endpoints)
+            _setter("minimum_child_endpoints", minimum_child_endpoints)
         if minimum_required_child_endpoints_ipv4 is not None:
-            pulumi.set(__self__, "minimum_required_child_endpoints_ipv4", minimum_required_child_endpoints_ipv4)
+            _setter("minimum_required_child_endpoints_ipv4", minimum_required_child_endpoints_ipv4)
         if minimum_required_child_endpoints_ipv6 is not None:
-            pulumi.set(__self__, "minimum_required_child_endpoints_ipv6", minimum_required_child_endpoints_ipv6)
+            _setter("minimum_required_child_endpoints_ipv6", minimum_required_child_endpoints_ipv6)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if profile_id is not None:
-            pulumi.set(__self__, "profile_id", profile_id)
+            _setter("profile_id", profile_id)
         if subnets is not None:
-            pulumi.set(__self__, "subnets", subnets)
+            _setter("subnets", subnets)
         if target_resource_id is not None:
-            pulumi.set(__self__, "target_resource_id", target_resource_id)
+            _setter("target_resource_id", target_resource_id)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter(name="customHeaders")
@@ -625,6 +733,10 @@ class TrafficManagerNestedEndpoint(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TrafficManagerNestedEndpointArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

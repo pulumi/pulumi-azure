@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -21,7 +21,22 @@ class CollectorPolicyIpfxEmissionArgs:
         """
         :param pulumi.Input[str] destination_types: A list of emission destination types. The only possible value is `AzureMonitor`. Changing this forces a new Network Function Collector Policy to be created.
         """
-        pulumi.set(__self__, "destination_types", destination_types)
+        CollectorPolicyIpfxEmissionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_types=destination_types,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_types: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if destination_types is None and 'destinationTypes' in kwargs:
+            destination_types = kwargs['destinationTypes']
+        if destination_types is None:
+            raise TypeError("Missing 'destination_types' argument")
+
+        _setter("destination_types", destination_types)
 
     @property
     @pulumi.getter(name="destinationTypes")
@@ -43,7 +58,22 @@ class CollectorPolicyIpfxIngestionArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] source_resource_ids: A list of ingestion source resource IDs. Changing this forces a new Network Function Collector Policy to be created.
         """
-        pulumi.set(__self__, "source_resource_ids", source_resource_ids)
+        CollectorPolicyIpfxIngestionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            source_resource_ids=source_resource_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             source_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if source_resource_ids is None and 'sourceResourceIds' in kwargs:
+            source_resource_ids = kwargs['sourceResourceIds']
+        if source_resource_ids is None:
+            raise TypeError("Missing 'source_resource_ids' argument")
+
+        _setter("source_resource_ids", source_resource_ids)
 
     @property
     @pulumi.getter(name="sourceResourceIds")

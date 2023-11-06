@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AuthorizationRuleArgs', 'AuthorizationRule']
@@ -33,17 +33,52 @@ class AuthorizationRuleArgs:
         :param pulumi.Input[str] name: Specifies the name of the EventHub Authorization Rule resource. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] send: Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
         """
-        pulumi.set(__self__, "eventhub_name", eventhub_name)
-        pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AuthorizationRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            eventhub_name=eventhub_name,
+            namespace_name=namespace_name,
+            resource_group_name=resource_group_name,
+            listen=listen,
+            manage=manage,
+            name=name,
+            send=send,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             eventhub_name: Optional[pulumi.Input[str]] = None,
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             listen: Optional[pulumi.Input[bool]] = None,
+             manage: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             send: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if eventhub_name is None and 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if eventhub_name is None:
+            raise TypeError("Missing 'eventhub_name' argument")
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if namespace_name is None:
+            raise TypeError("Missing 'namespace_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+
+        _setter("eventhub_name", eventhub_name)
+        _setter("namespace_name", namespace_name)
+        _setter("resource_group_name", resource_group_name)
         if listen is not None:
-            pulumi.set(__self__, "listen", listen)
+            _setter("listen", listen)
         if manage is not None:
-            pulumi.set(__self__, "manage", manage)
+            _setter("manage", manage)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if send is not None:
-            pulumi.set(__self__, "send", send)
+            _setter("send", send)
 
     @property
     @pulumi.getter(name="eventhubName")
@@ -166,32 +201,85 @@ class _AuthorizationRuleState:
         :param pulumi.Input[str] secondary_key: The Secondary Key for the Event Hubs Authorization Rule.
         :param pulumi.Input[bool] send: Does this Authorization Rule have permissions to Send to the Event Hub? Defaults to `false`.
         """
+        _AuthorizationRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            eventhub_name=eventhub_name,
+            listen=listen,
+            manage=manage,
+            name=name,
+            namespace_name=namespace_name,
+            primary_connection_string=primary_connection_string,
+            primary_connection_string_alias=primary_connection_string_alias,
+            primary_key=primary_key,
+            resource_group_name=resource_group_name,
+            secondary_connection_string=secondary_connection_string,
+            secondary_connection_string_alias=secondary_connection_string_alias,
+            secondary_key=secondary_key,
+            send=send,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             eventhub_name: Optional[pulumi.Input[str]] = None,
+             listen: Optional[pulumi.Input[bool]] = None,
+             manage: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             namespace_name: Optional[pulumi.Input[str]] = None,
+             primary_connection_string: Optional[pulumi.Input[str]] = None,
+             primary_connection_string_alias: Optional[pulumi.Input[str]] = None,
+             primary_key: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             secondary_connection_string: Optional[pulumi.Input[str]] = None,
+             secondary_connection_string_alias: Optional[pulumi.Input[str]] = None,
+             secondary_key: Optional[pulumi.Input[str]] = None,
+             send: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if eventhub_name is None and 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if namespace_name is None and 'namespaceName' in kwargs:
+            namespace_name = kwargs['namespaceName']
+        if primary_connection_string is None and 'primaryConnectionString' in kwargs:
+            primary_connection_string = kwargs['primaryConnectionString']
+        if primary_connection_string_alias is None and 'primaryConnectionStringAlias' in kwargs:
+            primary_connection_string_alias = kwargs['primaryConnectionStringAlias']
+        if primary_key is None and 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if secondary_connection_string is None and 'secondaryConnectionString' in kwargs:
+            secondary_connection_string = kwargs['secondaryConnectionString']
+        if secondary_connection_string_alias is None and 'secondaryConnectionStringAlias' in kwargs:
+            secondary_connection_string_alias = kwargs['secondaryConnectionStringAlias']
+        if secondary_key is None and 'secondaryKey' in kwargs:
+            secondary_key = kwargs['secondaryKey']
+
         if eventhub_name is not None:
-            pulumi.set(__self__, "eventhub_name", eventhub_name)
+            _setter("eventhub_name", eventhub_name)
         if listen is not None:
-            pulumi.set(__self__, "listen", listen)
+            _setter("listen", listen)
         if manage is not None:
-            pulumi.set(__self__, "manage", manage)
+            _setter("manage", manage)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if namespace_name is not None:
-            pulumi.set(__self__, "namespace_name", namespace_name)
+            _setter("namespace_name", namespace_name)
         if primary_connection_string is not None:
-            pulumi.set(__self__, "primary_connection_string", primary_connection_string)
+            _setter("primary_connection_string", primary_connection_string)
         if primary_connection_string_alias is not None:
-            pulumi.set(__self__, "primary_connection_string_alias", primary_connection_string_alias)
+            _setter("primary_connection_string_alias", primary_connection_string_alias)
         if primary_key is not None:
-            pulumi.set(__self__, "primary_key", primary_key)
+            _setter("primary_key", primary_key)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if secondary_connection_string is not None:
-            pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
+            _setter("secondary_connection_string", secondary_connection_string)
         if secondary_connection_string_alias is not None:
-            pulumi.set(__self__, "secondary_connection_string_alias", secondary_connection_string_alias)
+            _setter("secondary_connection_string_alias", secondary_connection_string_alias)
         if secondary_key is not None:
-            pulumi.set(__self__, "secondary_key", secondary_key)
+            _setter("secondary_key", secondary_key)
         if send is not None:
-            pulumi.set(__self__, "send", send)
+            _setter("send", send)
 
     @property
     @pulumi.getter(name="eventhubName")
@@ -473,6 +561,10 @@ class AuthorizationRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AuthorizationRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

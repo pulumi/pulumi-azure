@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EventGridDataConnectionArgs', 'EventGridDataConnection']
@@ -49,32 +49,113 @@ class EventGridDataConnectionArgs:
         :param pulumi.Input[bool] skip_first_record: is the first record of every file ignored? Defaults to `false`.
         :param pulumi.Input[str] table_name: Specifies the target table name used for the message ingestion. Table must exist before resource is created.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "eventhub_consumer_group_name", eventhub_consumer_group_name)
-        pulumi.set(__self__, "eventhub_id", eventhub_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        EventGridDataConnectionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            database_name=database_name,
+            eventhub_consumer_group_name=eventhub_consumer_group_name,
+            eventhub_id=eventhub_id,
+            resource_group_name=resource_group_name,
+            storage_account_id=storage_account_id,
+            blob_storage_event_type=blob_storage_event_type,
+            data_format=data_format,
+            database_routing_type=database_routing_type,
+            eventgrid_resource_id=eventgrid_resource_id,
+            location=location,
+            managed_identity_resource_id=managed_identity_resource_id,
+            mapping_rule_name=mapping_rule_name,
+            name=name,
+            skip_first_record=skip_first_record,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
+             eventhub_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             blob_storage_event_type: Optional[pulumi.Input[str]] = None,
+             data_format: Optional[pulumi.Input[str]] = None,
+             database_routing_type: Optional[pulumi.Input[str]] = None,
+             eventgrid_resource_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
+             mapping_rule_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             skip_first_record: Optional[pulumi.Input[bool]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
+            eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
+        if eventhub_consumer_group_name is None:
+            raise TypeError("Missing 'eventhub_consumer_group_name' argument")
+        if eventhub_id is None and 'eventhubId' in kwargs:
+            eventhub_id = kwargs['eventhubId']
+        if eventhub_id is None:
+            raise TypeError("Missing 'eventhub_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if blob_storage_event_type is None and 'blobStorageEventType' in kwargs:
+            blob_storage_event_type = kwargs['blobStorageEventType']
+        if data_format is None and 'dataFormat' in kwargs:
+            data_format = kwargs['dataFormat']
+        if database_routing_type is None and 'databaseRoutingType' in kwargs:
+            database_routing_type = kwargs['databaseRoutingType']
+        if eventgrid_resource_id is None and 'eventgridResourceId' in kwargs:
+            eventgrid_resource_id = kwargs['eventgridResourceId']
+        if managed_identity_resource_id is None and 'managedIdentityResourceId' in kwargs:
+            managed_identity_resource_id = kwargs['managedIdentityResourceId']
+        if mapping_rule_name is None and 'mappingRuleName' in kwargs:
+            mapping_rule_name = kwargs['mappingRuleName']
+        if skip_first_record is None and 'skipFirstRecord' in kwargs:
+            skip_first_record = kwargs['skipFirstRecord']
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
+        _setter("cluster_name", cluster_name)
+        _setter("database_name", database_name)
+        _setter("eventhub_consumer_group_name", eventhub_consumer_group_name)
+        _setter("eventhub_id", eventhub_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_account_id", storage_account_id)
         if blob_storage_event_type is not None:
-            pulumi.set(__self__, "blob_storage_event_type", blob_storage_event_type)
+            _setter("blob_storage_event_type", blob_storage_event_type)
         if data_format is not None:
-            pulumi.set(__self__, "data_format", data_format)
+            _setter("data_format", data_format)
         if database_routing_type is not None:
-            pulumi.set(__self__, "database_routing_type", database_routing_type)
+            _setter("database_routing_type", database_routing_type)
         if eventgrid_resource_id is not None:
-            pulumi.set(__self__, "eventgrid_resource_id", eventgrid_resource_id)
+            _setter("eventgrid_resource_id", eventgrid_resource_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_identity_resource_id is not None:
-            pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
+            _setter("managed_identity_resource_id", managed_identity_resource_id)
         if mapping_rule_name is not None:
-            pulumi.set(__self__, "mapping_rule_name", mapping_rule_name)
+            _setter("mapping_rule_name", mapping_rule_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if skip_first_record is not None:
-            pulumi.set(__self__, "skip_first_record", skip_first_record)
+            _setter("skip_first_record", skip_first_record)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -307,38 +388,107 @@ class _EventGridDataConnectionState:
         :param pulumi.Input[str] storage_account_id: Specifies the resource id of the Storage Account this data connection will use for ingestion. Changing this forces a new resource to be created.
         :param pulumi.Input[str] table_name: Specifies the target table name used for the message ingestion. Table must exist before resource is created.
         """
+        _EventGridDataConnectionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob_storage_event_type=blob_storage_event_type,
+            cluster_name=cluster_name,
+            data_format=data_format,
+            database_name=database_name,
+            database_routing_type=database_routing_type,
+            eventgrid_resource_id=eventgrid_resource_id,
+            eventhub_consumer_group_name=eventhub_consumer_group_name,
+            eventhub_id=eventhub_id,
+            location=location,
+            managed_identity_resource_id=managed_identity_resource_id,
+            mapping_rule_name=mapping_rule_name,
+            name=name,
+            resource_group_name=resource_group_name,
+            skip_first_record=skip_first_record,
+            storage_account_id=storage_account_id,
+            table_name=table_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob_storage_event_type: Optional[pulumi.Input[str]] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             data_format: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             database_routing_type: Optional[pulumi.Input[str]] = None,
+             eventgrid_resource_id: Optional[pulumi.Input[str]] = None,
+             eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
+             eventhub_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
+             mapping_rule_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             skip_first_record: Optional[pulumi.Input[bool]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             table_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if blob_storage_event_type is None and 'blobStorageEventType' in kwargs:
+            blob_storage_event_type = kwargs['blobStorageEventType']
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if data_format is None and 'dataFormat' in kwargs:
+            data_format = kwargs['dataFormat']
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_routing_type is None and 'databaseRoutingType' in kwargs:
+            database_routing_type = kwargs['databaseRoutingType']
+        if eventgrid_resource_id is None and 'eventgridResourceId' in kwargs:
+            eventgrid_resource_id = kwargs['eventgridResourceId']
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
+            eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
+        if eventhub_id is None and 'eventhubId' in kwargs:
+            eventhub_id = kwargs['eventhubId']
+        if managed_identity_resource_id is None and 'managedIdentityResourceId' in kwargs:
+            managed_identity_resource_id = kwargs['managedIdentityResourceId']
+        if mapping_rule_name is None and 'mappingRuleName' in kwargs:
+            mapping_rule_name = kwargs['mappingRuleName']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if skip_first_record is None and 'skipFirstRecord' in kwargs:
+            skip_first_record = kwargs['skipFirstRecord']
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if table_name is None and 'tableName' in kwargs:
+            table_name = kwargs['tableName']
+
         if blob_storage_event_type is not None:
-            pulumi.set(__self__, "blob_storage_event_type", blob_storage_event_type)
+            _setter("blob_storage_event_type", blob_storage_event_type)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if data_format is not None:
-            pulumi.set(__self__, "data_format", data_format)
+            _setter("data_format", data_format)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if database_routing_type is not None:
-            pulumi.set(__self__, "database_routing_type", database_routing_type)
+            _setter("database_routing_type", database_routing_type)
         if eventgrid_resource_id is not None:
-            pulumi.set(__self__, "eventgrid_resource_id", eventgrid_resource_id)
+            _setter("eventgrid_resource_id", eventgrid_resource_id)
         if eventhub_consumer_group_name is not None:
-            pulumi.set(__self__, "eventhub_consumer_group_name", eventhub_consumer_group_name)
+            _setter("eventhub_consumer_group_name", eventhub_consumer_group_name)
         if eventhub_id is not None:
-            pulumi.set(__self__, "eventhub_id", eventhub_id)
+            _setter("eventhub_id", eventhub_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_identity_resource_id is not None:
-            pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
+            _setter("managed_identity_resource_id", managed_identity_resource_id)
         if mapping_rule_name is not None:
-            pulumi.set(__self__, "mapping_rule_name", mapping_rule_name)
+            _setter("mapping_rule_name", mapping_rule_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if skip_first_record is not None:
-            pulumi.set(__self__, "skip_first_record", skip_first_record)
+            _setter("skip_first_record", skip_first_record)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
         if table_name is not None:
-            pulumi.set(__self__, "table_name", table_name)
+            _setter("table_name", table_name)
 
     @property
     @pulumi.getter(name="blobStorageEventType")
@@ -740,6 +890,10 @@ class EventGridDataConnection(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventGridDataConnectionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

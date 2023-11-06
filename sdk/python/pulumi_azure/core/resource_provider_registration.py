@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -22,10 +22,23 @@ class ResourceProviderRegistrationArgs:
         The set of arguments for constructing a ResourceProviderRegistration resource.
         :param pulumi.Input[str] name: The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
         """
+        ResourceProviderRegistrationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            features=features,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             features: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if features is not None:
-            pulumi.set(__self__, "features", features)
+            _setter("features", features)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -58,10 +71,23 @@ class _ResourceProviderRegistrationState:
         Input properties used for looking up and filtering ResourceProviderRegistration resources.
         :param pulumi.Input[str] name: The namespace of the Resource Provider which should be registered. Changing this forces a new resource to be created.
         """
+        _ResourceProviderRegistrationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            features=features,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             features: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceProviderRegistrationFeatureArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if features is not None:
-            pulumi.set(__self__, "features", features)
+            _setter("features", features)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -187,6 +213,10 @@ class ResourceProviderRegistration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourceProviderRegistrationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

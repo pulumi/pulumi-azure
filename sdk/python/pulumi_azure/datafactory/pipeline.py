@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PipelineArgs', 'Pipeline']
@@ -37,25 +37,62 @@ class PipelineArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Pipeline.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map of variables to associate with the Data Factory Pipeline.
         """
-        pulumi.set(__self__, "data_factory_id", data_factory_id)
+        PipelineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_factory_id=data_factory_id,
+            activities_json=activities_json,
+            annotations=annotations,
+            concurrency=concurrency,
+            description=description,
+            folder=folder,
+            moniter_metrics_after_duration=moniter_metrics_after_duration,
+            name=name,
+            parameters=parameters,
+            variables=variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             activities_json: Optional[pulumi.Input[str]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             concurrency: Optional[pulumi.Input[int]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             folder: Optional[pulumi.Input[str]] = None,
+             moniter_metrics_after_duration: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if activities_json is None and 'activitiesJson' in kwargs:
+            activities_json = kwargs['activitiesJson']
+        if moniter_metrics_after_duration is None and 'moniterMetricsAfterDuration' in kwargs:
+            moniter_metrics_after_duration = kwargs['moniterMetricsAfterDuration']
+
+        _setter("data_factory_id", data_factory_id)
         if activities_json is not None:
-            pulumi.set(__self__, "activities_json", activities_json)
+            _setter("activities_json", activities_json)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if concurrency is not None:
-            pulumi.set(__self__, "concurrency", concurrency)
+            _setter("concurrency", concurrency)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if folder is not None:
-            pulumi.set(__self__, "folder", folder)
+            _setter("folder", folder)
         if moniter_metrics_after_duration is not None:
-            pulumi.set(__self__, "moniter_metrics_after_duration", moniter_metrics_after_duration)
+            _setter("moniter_metrics_after_duration", moniter_metrics_after_duration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -204,26 +241,61 @@ class _PipelineState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Pipeline.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: A map of variables to associate with the Data Factory Pipeline.
         """
+        _PipelineState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            activities_json=activities_json,
+            annotations=annotations,
+            concurrency=concurrency,
+            data_factory_id=data_factory_id,
+            description=description,
+            folder=folder,
+            moniter_metrics_after_duration=moniter_metrics_after_duration,
+            name=name,
+            parameters=parameters,
+            variables=variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             activities_json: Optional[pulumi.Input[str]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             concurrency: Optional[pulumi.Input[int]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             folder: Optional[pulumi.Input[str]] = None,
+             moniter_metrics_after_duration: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if activities_json is None and 'activitiesJson' in kwargs:
+            activities_json = kwargs['activitiesJson']
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if moniter_metrics_after_duration is None and 'moniterMetricsAfterDuration' in kwargs:
+            moniter_metrics_after_duration = kwargs['moniterMetricsAfterDuration']
+
         if activities_json is not None:
-            pulumi.set(__self__, "activities_json", activities_json)
+            _setter("activities_json", activities_json)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if concurrency is not None:
-            pulumi.set(__self__, "concurrency", concurrency)
+            _setter("concurrency", concurrency)
         if data_factory_id is not None:
-            pulumi.set(__self__, "data_factory_id", data_factory_id)
+            _setter("data_factory_id", data_factory_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if folder is not None:
-            pulumi.set(__self__, "folder", folder)
+            _setter("folder", folder)
         if moniter_metrics_after_duration is not None:
-            pulumi.set(__self__, "moniter_metrics_after_duration", moniter_metrics_after_duration)
+            _setter("moniter_metrics_after_duration", moniter_metrics_after_duration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
 
     @property
     @pulumi.getter(name="activitiesJson")
@@ -489,6 +561,10 @@ class Pipeline(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PipelineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

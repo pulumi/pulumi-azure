@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,24 +41,69 @@ class AppArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]] secrets: One or more `secret` block as detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Container App.
         """
-        pulumi.set(__self__, "container_app_environment_id", container_app_environment_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "revision_mode", revision_mode)
-        pulumi.set(__self__, "template", template)
+        AppArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_app_environment_id=container_app_environment_id,
+            resource_group_name=resource_group_name,
+            revision_mode=revision_mode,
+            template=template,
+            dapr=dapr,
+            identity=identity,
+            ingress=ingress,
+            name=name,
+            registries=registries,
+            secrets=secrets,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_app_environment_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             revision_mode: Optional[pulumi.Input[str]] = None,
+             template: Optional[pulumi.Input['AppTemplateArgs']] = None,
+             dapr: Optional[pulumi.Input['AppDaprArgs']] = None,
+             identity: Optional[pulumi.Input['AppIdentityArgs']] = None,
+             ingress: Optional[pulumi.Input['AppIngressArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             registries: Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]]] = None,
+             secrets: Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if container_app_environment_id is None and 'containerAppEnvironmentId' in kwargs:
+            container_app_environment_id = kwargs['containerAppEnvironmentId']
+        if container_app_environment_id is None:
+            raise TypeError("Missing 'container_app_environment_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if revision_mode is None and 'revisionMode' in kwargs:
+            revision_mode = kwargs['revisionMode']
+        if revision_mode is None:
+            raise TypeError("Missing 'revision_mode' argument")
+        if template is None:
+            raise TypeError("Missing 'template' argument")
+
+        _setter("container_app_environment_id", container_app_environment_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("revision_mode", revision_mode)
+        _setter("template", template)
         if dapr is not None:
-            pulumi.set(__self__, "dapr", dapr)
+            _setter("dapr", dapr)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if ingress is not None:
-            pulumi.set(__self__, "ingress", ingress)
+            _setter("ingress", ingress)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if registries is not None:
-            pulumi.set(__self__, "registries", registries)
+            _setter("registries", registries)
         if secrets is not None:
-            pulumi.set(__self__, "secrets", secrets)
+            _setter("secrets", secrets)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="containerAppEnvironmentId")
@@ -231,38 +276,93 @@ class _AppState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Container App.
         :param pulumi.Input['AppTemplateArgs'] template: A `template` block as detailed below.
         """
+        _AppState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_app_environment_id=container_app_environment_id,
+            custom_domain_verification_id=custom_domain_verification_id,
+            dapr=dapr,
+            identity=identity,
+            ingress=ingress,
+            latest_revision_fqdn=latest_revision_fqdn,
+            latest_revision_name=latest_revision_name,
+            location=location,
+            name=name,
+            outbound_ip_addresses=outbound_ip_addresses,
+            registries=registries,
+            resource_group_name=resource_group_name,
+            revision_mode=revision_mode,
+            secrets=secrets,
+            tags=tags,
+            template=template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_app_environment_id: Optional[pulumi.Input[str]] = None,
+             custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
+             dapr: Optional[pulumi.Input['AppDaprArgs']] = None,
+             identity: Optional[pulumi.Input['AppIdentityArgs']] = None,
+             ingress: Optional[pulumi.Input['AppIngressArgs']] = None,
+             latest_revision_fqdn: Optional[pulumi.Input[str]] = None,
+             latest_revision_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             outbound_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             registries: Optional[pulumi.Input[Sequence[pulumi.Input['AppRegistryArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             revision_mode: Optional[pulumi.Input[str]] = None,
+             secrets: Optional[pulumi.Input[Sequence[pulumi.Input['AppSecretArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             template: Optional[pulumi.Input['AppTemplateArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if container_app_environment_id is None and 'containerAppEnvironmentId' in kwargs:
+            container_app_environment_id = kwargs['containerAppEnvironmentId']
+        if custom_domain_verification_id is None and 'customDomainVerificationId' in kwargs:
+            custom_domain_verification_id = kwargs['customDomainVerificationId']
+        if latest_revision_fqdn is None and 'latestRevisionFqdn' in kwargs:
+            latest_revision_fqdn = kwargs['latestRevisionFqdn']
+        if latest_revision_name is None and 'latestRevisionName' in kwargs:
+            latest_revision_name = kwargs['latestRevisionName']
+        if outbound_ip_addresses is None and 'outboundIpAddresses' in kwargs:
+            outbound_ip_addresses = kwargs['outboundIpAddresses']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if revision_mode is None and 'revisionMode' in kwargs:
+            revision_mode = kwargs['revisionMode']
+
         if container_app_environment_id is not None:
-            pulumi.set(__self__, "container_app_environment_id", container_app_environment_id)
+            _setter("container_app_environment_id", container_app_environment_id)
         if custom_domain_verification_id is not None:
-            pulumi.set(__self__, "custom_domain_verification_id", custom_domain_verification_id)
+            _setter("custom_domain_verification_id", custom_domain_verification_id)
         if dapr is not None:
-            pulumi.set(__self__, "dapr", dapr)
+            _setter("dapr", dapr)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if ingress is not None:
-            pulumi.set(__self__, "ingress", ingress)
+            _setter("ingress", ingress)
         if latest_revision_fqdn is not None:
-            pulumi.set(__self__, "latest_revision_fqdn", latest_revision_fqdn)
+            _setter("latest_revision_fqdn", latest_revision_fqdn)
         if latest_revision_name is not None:
-            pulumi.set(__self__, "latest_revision_name", latest_revision_name)
+            _setter("latest_revision_name", latest_revision_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if outbound_ip_addresses is not None:
-            pulumi.set(__self__, "outbound_ip_addresses", outbound_ip_addresses)
+            _setter("outbound_ip_addresses", outbound_ip_addresses)
         if registries is not None:
-            pulumi.set(__self__, "registries", registries)
+            _setter("registries", registries)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if revision_mode is not None:
-            pulumi.set(__self__, "revision_mode", revision_mode)
+            _setter("revision_mode", revision_mode)
         if secrets is not None:
-            pulumi.set(__self__, "secrets", secrets)
+            _setter("secrets", secrets)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if template is not None:
-            pulumi.set(__self__, "template", template)
+            _setter("template", template)
 
     @property
     @pulumi.getter(name="containerAppEnvironmentId")
@@ -586,6 +686,10 @@ class App(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AppArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -614,8 +718,23 @@ class App(pulumi.CustomResource):
             if container_app_environment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'container_app_environment_id'")
             __props__.__dict__["container_app_environment_id"] = container_app_environment_id
+            if dapr is not None and not isinstance(dapr, AppDaprArgs):
+                dapr = dapr or {}
+                def _setter(key, value):
+                    dapr[key] = value
+                AppDaprArgs._configure(_setter, **dapr)
             __props__.__dict__["dapr"] = dapr
+            if identity is not None and not isinstance(identity, AppIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                AppIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
+            if ingress is not None and not isinstance(ingress, AppIngressArgs):
+                ingress = ingress or {}
+                def _setter(key, value):
+                    ingress[key] = value
+                AppIngressArgs._configure(_setter, **ingress)
             __props__.__dict__["ingress"] = ingress
             __props__.__dict__["name"] = name
             __props__.__dict__["registries"] = registries
@@ -627,6 +746,11 @@ class App(pulumi.CustomResource):
             __props__.__dict__["revision_mode"] = revision_mode
             __props__.__dict__["secrets"] = None if secrets is None else pulumi.Output.secret(secrets)
             __props__.__dict__["tags"] = tags
+            if template is not None and not isinstance(template, AppTemplateArgs):
+                template = template or {}
+                def _setter(key, value):
+                    template[key] = value
+                AppTemplateArgs._configure(_setter, **template)
             if template is None and not opts.urn:
                 raise TypeError("Missing required property 'template'")
             __props__.__dict__["template"] = template

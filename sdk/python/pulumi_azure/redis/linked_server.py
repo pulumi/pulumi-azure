@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LinkedServerArgs', 'LinkedServer']
@@ -27,11 +27,50 @@ class LinkedServerArgs:
         :param pulumi.Input[str] server_role: The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
         :param pulumi.Input[str] target_redis_cache_name: The name of Redis cache to link with. Changing this forces a new Redis to be created. (eg The primary role)
         """
-        pulumi.set(__self__, "linked_redis_cache_id", linked_redis_cache_id)
-        pulumi.set(__self__, "linked_redis_cache_location", linked_redis_cache_location)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_role", server_role)
-        pulumi.set(__self__, "target_redis_cache_name", target_redis_cache_name)
+        LinkedServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_redis_cache_id=linked_redis_cache_id,
+            linked_redis_cache_location=linked_redis_cache_location,
+            resource_group_name=resource_group_name,
+            server_role=server_role,
+            target_redis_cache_name=target_redis_cache_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_redis_cache_id: Optional[pulumi.Input[str]] = None,
+             linked_redis_cache_location: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_role: Optional[pulumi.Input[str]] = None,
+             target_redis_cache_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if linked_redis_cache_id is None and 'linkedRedisCacheId' in kwargs:
+            linked_redis_cache_id = kwargs['linkedRedisCacheId']
+        if linked_redis_cache_id is None:
+            raise TypeError("Missing 'linked_redis_cache_id' argument")
+        if linked_redis_cache_location is None and 'linkedRedisCacheLocation' in kwargs:
+            linked_redis_cache_location = kwargs['linkedRedisCacheLocation']
+        if linked_redis_cache_location is None:
+            raise TypeError("Missing 'linked_redis_cache_location' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server_role is None and 'serverRole' in kwargs:
+            server_role = kwargs['serverRole']
+        if server_role is None:
+            raise TypeError("Missing 'server_role' argument")
+        if target_redis_cache_name is None and 'targetRedisCacheName' in kwargs:
+            target_redis_cache_name = kwargs['targetRedisCacheName']
+        if target_redis_cache_name is None:
+            raise TypeError("Missing 'target_redis_cache_name' argument")
+
+        _setter("linked_redis_cache_id", linked_redis_cache_id)
+        _setter("linked_redis_cache_location", linked_redis_cache_location)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server_role", server_role)
+        _setter("target_redis_cache_name", target_redis_cache_name)
 
     @property
     @pulumi.getter(name="linkedRedisCacheId")
@@ -112,18 +151,49 @@ class _LinkedServerState:
         :param pulumi.Input[str] server_role: The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`.
         :param pulumi.Input[str] target_redis_cache_name: The name of Redis cache to link with. Changing this forces a new Redis to be created. (eg The primary role)
         """
+        _LinkedServerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            linked_redis_cache_id=linked_redis_cache_id,
+            linked_redis_cache_location=linked_redis_cache_location,
+            name=name,
+            resource_group_name=resource_group_name,
+            server_role=server_role,
+            target_redis_cache_name=target_redis_cache_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             linked_redis_cache_id: Optional[pulumi.Input[str]] = None,
+             linked_redis_cache_location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server_role: Optional[pulumi.Input[str]] = None,
+             target_redis_cache_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if linked_redis_cache_id is None and 'linkedRedisCacheId' in kwargs:
+            linked_redis_cache_id = kwargs['linkedRedisCacheId']
+        if linked_redis_cache_location is None and 'linkedRedisCacheLocation' in kwargs:
+            linked_redis_cache_location = kwargs['linkedRedisCacheLocation']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if server_role is None and 'serverRole' in kwargs:
+            server_role = kwargs['serverRole']
+        if target_redis_cache_name is None and 'targetRedisCacheName' in kwargs:
+            target_redis_cache_name = kwargs['targetRedisCacheName']
+
         if linked_redis_cache_id is not None:
-            pulumi.set(__self__, "linked_redis_cache_id", linked_redis_cache_id)
+            _setter("linked_redis_cache_id", linked_redis_cache_id)
         if linked_redis_cache_location is not None:
-            pulumi.set(__self__, "linked_redis_cache_location", linked_redis_cache_location)
+            _setter("linked_redis_cache_location", linked_redis_cache_location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if server_role is not None:
-            pulumi.set(__self__, "server_role", server_role)
+            _setter("server_role", server_role)
         if target_redis_cache_name is not None:
-            pulumi.set(__self__, "target_redis_cache_name", target_redis_cache_name)
+            _setter("target_redis_cache_name", target_redis_cache_name)
 
     @property
     @pulumi.getter(name="linkedRedisCacheId")
@@ -335,6 +405,10 @@ class LinkedServer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinkedServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IntegrationRuntimeAzureArgs', 'IntegrationRuntimeAzure']
@@ -31,19 +31,52 @@ class IntegrationRuntimeAzureArgs:
         :param pulumi.Input[str] name: The name which should be used for this Synapse Azure Integration Runtime. Changing this forces a new Synapse Azure Integration Runtime to be created.
         :param pulumi.Input[int] time_to_live_min: Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
         """
-        pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
+        IntegrationRuntimeAzureArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            synapse_workspace_id=synapse_workspace_id,
+            compute_type=compute_type,
+            core_count=core_count,
+            description=description,
+            location=location,
+            name=name,
+            time_to_live_min=time_to_live_min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
+             compute_type: Optional[pulumi.Input[str]] = None,
+             core_count: Optional[pulumi.Input[int]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             time_to_live_min: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+        if synapse_workspace_id is None:
+            raise TypeError("Missing 'synapse_workspace_id' argument")
+        if compute_type is None and 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if core_count is None and 'coreCount' in kwargs:
+            core_count = kwargs['coreCount']
+        if time_to_live_min is None and 'timeToLiveMin' in kwargs:
+            time_to_live_min = kwargs['timeToLiveMin']
+
+        _setter("synapse_workspace_id", synapse_workspace_id)
         if compute_type is not None:
-            pulumi.set(__self__, "compute_type", compute_type)
+            _setter("compute_type", compute_type)
         if core_count is not None:
-            pulumi.set(__self__, "core_count", core_count)
+            _setter("core_count", core_count)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if time_to_live_min is not None:
-            pulumi.set(__self__, "time_to_live_min", time_to_live_min)
+            _setter("time_to_live_min", time_to_live_min)
 
     @property
     @pulumi.getter(name="synapseWorkspaceId")
@@ -150,20 +183,51 @@ class _IntegrationRuntimeAzureState:
         :param pulumi.Input[str] synapse_workspace_id: The Synapse Workspace ID in which to associate the Integration Runtime with. Changing this forces a new Synapse Azure Integration Runtime to be created.
         :param pulumi.Input[int] time_to_live_min: Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
         """
+        _IntegrationRuntimeAzureState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            compute_type=compute_type,
+            core_count=core_count,
+            description=description,
+            location=location,
+            name=name,
+            synapse_workspace_id=synapse_workspace_id,
+            time_to_live_min=time_to_live_min,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             compute_type: Optional[pulumi.Input[str]] = None,
+             core_count: Optional[pulumi.Input[int]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             synapse_workspace_id: Optional[pulumi.Input[str]] = None,
+             time_to_live_min: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if compute_type is None and 'computeType' in kwargs:
+            compute_type = kwargs['computeType']
+        if core_count is None and 'coreCount' in kwargs:
+            core_count = kwargs['coreCount']
+        if synapse_workspace_id is None and 'synapseWorkspaceId' in kwargs:
+            synapse_workspace_id = kwargs['synapseWorkspaceId']
+        if time_to_live_min is None and 'timeToLiveMin' in kwargs:
+            time_to_live_min = kwargs['timeToLiveMin']
+
         if compute_type is not None:
-            pulumi.set(__self__, "compute_type", compute_type)
+            _setter("compute_type", compute_type)
         if core_count is not None:
-            pulumi.set(__self__, "core_count", core_count)
+            _setter("core_count", core_count)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if synapse_workspace_id is not None:
-            pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
+            _setter("synapse_workspace_id", synapse_workspace_id)
         if time_to_live_min is not None:
-            pulumi.set(__self__, "time_to_live_min", time_to_live_min)
+            _setter("time_to_live_min", time_to_live_min)
 
     @property
     @pulumi.getter(name="computeType")
@@ -381,6 +445,10 @@ class IntegrationRuntimeAzure(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IntegrationRuntimeAzureArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

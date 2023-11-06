@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -61,28 +61,89 @@ class VirtualMachineScaleSetExtensionArgs:
                
                > **NOTE:** Keys within the `settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         """
-        pulumi.set(__self__, "publisher", publisher)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "type_handler_version", type_handler_version)
-        pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
+        VirtualMachineScaleSetExtensionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            publisher=publisher,
+            type=type,
+            type_handler_version=type_handler_version,
+            virtual_machine_scale_set_id=virtual_machine_scale_set_id,
+            auto_upgrade_minor_version=auto_upgrade_minor_version,
+            automatic_upgrade_enabled=automatic_upgrade_enabled,
+            failure_suppression_enabled=failure_suppression_enabled,
+            force_update_tag=force_update_tag,
+            name=name,
+            protected_settings=protected_settings,
+            protected_settings_from_key_vault=protected_settings_from_key_vault,
+            provision_after_extensions=provision_after_extensions,
+            settings=settings,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             publisher: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             type_handler_version: Optional[pulumi.Input[str]] = None,
+             virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+             auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+             automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
+             failure_suppression_enabled: Optional[pulumi.Input[bool]] = None,
+             force_update_tag: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             protected_settings: Optional[pulumi.Input[str]] = None,
+             protected_settings_from_key_vault: Optional[pulumi.Input['VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']] = None,
+             provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             settings: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if type_handler_version is None and 'typeHandlerVersion' in kwargs:
+            type_handler_version = kwargs['typeHandlerVersion']
+        if type_handler_version is None:
+            raise TypeError("Missing 'type_handler_version' argument")
+        if virtual_machine_scale_set_id is None and 'virtualMachineScaleSetId' in kwargs:
+            virtual_machine_scale_set_id = kwargs['virtualMachineScaleSetId']
+        if virtual_machine_scale_set_id is None:
+            raise TypeError("Missing 'virtual_machine_scale_set_id' argument")
+        if auto_upgrade_minor_version is None and 'autoUpgradeMinorVersion' in kwargs:
+            auto_upgrade_minor_version = kwargs['autoUpgradeMinorVersion']
+        if automatic_upgrade_enabled is None and 'automaticUpgradeEnabled' in kwargs:
+            automatic_upgrade_enabled = kwargs['automaticUpgradeEnabled']
+        if failure_suppression_enabled is None and 'failureSuppressionEnabled' in kwargs:
+            failure_suppression_enabled = kwargs['failureSuppressionEnabled']
+        if force_update_tag is None and 'forceUpdateTag' in kwargs:
+            force_update_tag = kwargs['forceUpdateTag']
+        if protected_settings is None and 'protectedSettings' in kwargs:
+            protected_settings = kwargs['protectedSettings']
+        if protected_settings_from_key_vault is None and 'protectedSettingsFromKeyVault' in kwargs:
+            protected_settings_from_key_vault = kwargs['protectedSettingsFromKeyVault']
+        if provision_after_extensions is None and 'provisionAfterExtensions' in kwargs:
+            provision_after_extensions = kwargs['provisionAfterExtensions']
+
+        _setter("publisher", publisher)
+        _setter("type", type)
+        _setter("type_handler_version", type_handler_version)
+        _setter("virtual_machine_scale_set_id", virtual_machine_scale_set_id)
         if auto_upgrade_minor_version is not None:
-            pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+            _setter("auto_upgrade_minor_version", auto_upgrade_minor_version)
         if automatic_upgrade_enabled is not None:
-            pulumi.set(__self__, "automatic_upgrade_enabled", automatic_upgrade_enabled)
+            _setter("automatic_upgrade_enabled", automatic_upgrade_enabled)
         if failure_suppression_enabled is not None:
-            pulumi.set(__self__, "failure_suppression_enabled", failure_suppression_enabled)
+            _setter("failure_suppression_enabled", failure_suppression_enabled)
         if force_update_tag is not None:
-            pulumi.set(__self__, "force_update_tag", force_update_tag)
+            _setter("force_update_tag", force_update_tag)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if protected_settings is not None:
-            pulumi.set(__self__, "protected_settings", protected_settings)
+            _setter("protected_settings", protected_settings)
         if protected_settings_from_key_vault is not None:
-            pulumi.set(__self__, "protected_settings_from_key_vault", protected_settings_from_key_vault)
+            _setter("protected_settings_from_key_vault", protected_settings_from_key_vault)
         if provision_after_extensions is not None:
-            pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
+            _setter("provision_after_extensions", provision_after_extensions)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
 
     @property
     @pulumi.getter
@@ -305,32 +366,85 @@ class _VirtualMachineScaleSetExtensionState:
                
                > **NOTE:** This should be the ID from the `compute.LinuxVirtualMachineScaleSet` or `compute.WindowsVirtualMachineScaleSet` resource - when using the older `compute.ScaleSet` resource extensions should instead be defined inline.
         """
+        _VirtualMachineScaleSetExtensionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_upgrade_minor_version=auto_upgrade_minor_version,
+            automatic_upgrade_enabled=automatic_upgrade_enabled,
+            failure_suppression_enabled=failure_suppression_enabled,
+            force_update_tag=force_update_tag,
+            name=name,
+            protected_settings=protected_settings,
+            protected_settings_from_key_vault=protected_settings_from_key_vault,
+            provision_after_extensions=provision_after_extensions,
+            publisher=publisher,
+            settings=settings,
+            type=type,
+            type_handler_version=type_handler_version,
+            virtual_machine_scale_set_id=virtual_machine_scale_set_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+             automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
+             failure_suppression_enabled: Optional[pulumi.Input[bool]] = None,
+             force_update_tag: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             protected_settings: Optional[pulumi.Input[str]] = None,
+             protected_settings_from_key_vault: Optional[pulumi.Input['VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']] = None,
+             provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             publisher: Optional[pulumi.Input[str]] = None,
+             settings: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             type_handler_version: Optional[pulumi.Input[str]] = None,
+             virtual_machine_scale_set_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if auto_upgrade_minor_version is None and 'autoUpgradeMinorVersion' in kwargs:
+            auto_upgrade_minor_version = kwargs['autoUpgradeMinorVersion']
+        if automatic_upgrade_enabled is None and 'automaticUpgradeEnabled' in kwargs:
+            automatic_upgrade_enabled = kwargs['automaticUpgradeEnabled']
+        if failure_suppression_enabled is None and 'failureSuppressionEnabled' in kwargs:
+            failure_suppression_enabled = kwargs['failureSuppressionEnabled']
+        if force_update_tag is None and 'forceUpdateTag' in kwargs:
+            force_update_tag = kwargs['forceUpdateTag']
+        if protected_settings is None and 'protectedSettings' in kwargs:
+            protected_settings = kwargs['protectedSettings']
+        if protected_settings_from_key_vault is None and 'protectedSettingsFromKeyVault' in kwargs:
+            protected_settings_from_key_vault = kwargs['protectedSettingsFromKeyVault']
+        if provision_after_extensions is None and 'provisionAfterExtensions' in kwargs:
+            provision_after_extensions = kwargs['provisionAfterExtensions']
+        if type_handler_version is None and 'typeHandlerVersion' in kwargs:
+            type_handler_version = kwargs['typeHandlerVersion']
+        if virtual_machine_scale_set_id is None and 'virtualMachineScaleSetId' in kwargs:
+            virtual_machine_scale_set_id = kwargs['virtualMachineScaleSetId']
+
         if auto_upgrade_minor_version is not None:
-            pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+            _setter("auto_upgrade_minor_version", auto_upgrade_minor_version)
         if automatic_upgrade_enabled is not None:
-            pulumi.set(__self__, "automatic_upgrade_enabled", automatic_upgrade_enabled)
+            _setter("automatic_upgrade_enabled", automatic_upgrade_enabled)
         if failure_suppression_enabled is not None:
-            pulumi.set(__self__, "failure_suppression_enabled", failure_suppression_enabled)
+            _setter("failure_suppression_enabled", failure_suppression_enabled)
         if force_update_tag is not None:
-            pulumi.set(__self__, "force_update_tag", force_update_tag)
+            _setter("force_update_tag", force_update_tag)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if protected_settings is not None:
-            pulumi.set(__self__, "protected_settings", protected_settings)
+            _setter("protected_settings", protected_settings)
         if protected_settings_from_key_vault is not None:
-            pulumi.set(__self__, "protected_settings_from_key_vault", protected_settings_from_key_vault)
+            _setter("protected_settings_from_key_vault", protected_settings_from_key_vault)
         if provision_after_extensions is not None:
-            pulumi.set(__self__, "provision_after_extensions", provision_after_extensions)
+            _setter("provision_after_extensions", provision_after_extensions)
         if publisher is not None:
-            pulumi.set(__self__, "publisher", publisher)
+            _setter("publisher", publisher)
         if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+            _setter("settings", settings)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if type_handler_version is not None:
-            pulumi.set(__self__, "type_handler_version", type_handler_version)
+            _setter("type_handler_version", type_handler_version)
         if virtual_machine_scale_set_id is not None:
-            pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
+            _setter("virtual_machine_scale_set_id", virtual_machine_scale_set_id)
 
     @property
     @pulumi.getter(name="autoUpgradeMinorVersion")
@@ -678,6 +792,10 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualMachineScaleSetExtensionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -711,6 +829,11 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             __props__.__dict__["force_update_tag"] = force_update_tag
             __props__.__dict__["name"] = name
             __props__.__dict__["protected_settings"] = None if protected_settings is None else pulumi.Output.secret(protected_settings)
+            if protected_settings_from_key_vault is not None and not isinstance(protected_settings_from_key_vault, VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs):
+                protected_settings_from_key_vault = protected_settings_from_key_vault or {}
+                def _setter(key, value):
+                    protected_settings_from_key_vault[key] = value
+                VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs._configure(_setter, **protected_settings_from_key_vault)
             __props__.__dict__["protected_settings_from_key_vault"] = protected_settings_from_key_vault
             __props__.__dict__["provision_after_extensions"] = provision_after_extensions
             if publisher is None and not opts.urn:

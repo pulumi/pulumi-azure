@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -61,45 +61,122 @@ class ServiceArgs:
                > **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        ServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            aad_auth_enabled=aad_auth_enabled,
+            connectivity_logs_enabled=connectivity_logs_enabled,
+            cors=cors,
+            http_request_logs_enabled=http_request_logs_enabled,
+            identity=identity,
+            live_trace=live_trace,
+            live_trace_enabled=live_trace_enabled,
+            local_auth_enabled=local_auth_enabled,
+            location=location,
+            messaging_logs_enabled=messaging_logs_enabled,
+            name=name,
+            public_network_access_enabled=public_network_access_enabled,
+            serverless_connection_timeout_in_seconds=serverless_connection_timeout_in_seconds,
+            service_mode=service_mode,
+            tags=tags,
+            tls_client_cert_enabled=tls_client_cert_enabled,
+            upstream_endpoints=upstream_endpoints,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['ServiceSkuArgs']] = None,
+             aad_auth_enabled: Optional[pulumi.Input[bool]] = None,
+             connectivity_logs_enabled: Optional[pulumi.Input[bool]] = None,
+             cors: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]]] = None,
+             http_request_logs_enabled: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
+             live_trace: Optional[pulumi.Input['ServiceLiveTraceArgs']] = None,
+             live_trace_enabled: Optional[pulumi.Input[bool]] = None,
+             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             messaging_logs_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             serverless_connection_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             service_mode: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tls_client_cert_enabled: Optional[pulumi.Input[bool]] = None,
+             upstream_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if aad_auth_enabled is None and 'aadAuthEnabled' in kwargs:
+            aad_auth_enabled = kwargs['aadAuthEnabled']
+        if connectivity_logs_enabled is None and 'connectivityLogsEnabled' in kwargs:
+            connectivity_logs_enabled = kwargs['connectivityLogsEnabled']
+        if http_request_logs_enabled is None and 'httpRequestLogsEnabled' in kwargs:
+            http_request_logs_enabled = kwargs['httpRequestLogsEnabled']
+        if live_trace is None and 'liveTrace' in kwargs:
+            live_trace = kwargs['liveTrace']
+        if live_trace_enabled is None and 'liveTraceEnabled' in kwargs:
+            live_trace_enabled = kwargs['liveTraceEnabled']
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if messaging_logs_enabled is None and 'messagingLogsEnabled' in kwargs:
+            messaging_logs_enabled = kwargs['messagingLogsEnabled']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if serverless_connection_timeout_in_seconds is None and 'serverlessConnectionTimeoutInSeconds' in kwargs:
+            serverless_connection_timeout_in_seconds = kwargs['serverlessConnectionTimeoutInSeconds']
+        if service_mode is None and 'serviceMode' in kwargs:
+            service_mode = kwargs['serviceMode']
+        if tls_client_cert_enabled is None and 'tlsClientCertEnabled' in kwargs:
+            tls_client_cert_enabled = kwargs['tlsClientCertEnabled']
+        if upstream_endpoints is None and 'upstreamEndpoints' in kwargs:
+            upstream_endpoints = kwargs['upstreamEndpoints']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if aad_auth_enabled is not None:
-            pulumi.set(__self__, "aad_auth_enabled", aad_auth_enabled)
+            _setter("aad_auth_enabled", aad_auth_enabled)
         if connectivity_logs_enabled is not None:
-            pulumi.set(__self__, "connectivity_logs_enabled", connectivity_logs_enabled)
+            _setter("connectivity_logs_enabled", connectivity_logs_enabled)
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if http_request_logs_enabled is not None:
-            pulumi.set(__self__, "http_request_logs_enabled", http_request_logs_enabled)
+            _setter("http_request_logs_enabled", http_request_logs_enabled)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if live_trace is not None:
-            pulumi.set(__self__, "live_trace", live_trace)
+            _setter("live_trace", live_trace)
         if live_trace_enabled is not None:
             warnings.warn("""`live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""", DeprecationWarning)
             pulumi.log.warn("""live_trace_enabled is deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""")
         if live_trace_enabled is not None:
-            pulumi.set(__self__, "live_trace_enabled", live_trace_enabled)
+            _setter("live_trace_enabled", live_trace_enabled)
         if local_auth_enabled is not None:
-            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
+            _setter("local_auth_enabled", local_auth_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if messaging_logs_enabled is not None:
-            pulumi.set(__self__, "messaging_logs_enabled", messaging_logs_enabled)
+            _setter("messaging_logs_enabled", messaging_logs_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if serverless_connection_timeout_in_seconds is not None:
-            pulumi.set(__self__, "serverless_connection_timeout_in_seconds", serverless_connection_timeout_in_seconds)
+            _setter("serverless_connection_timeout_in_seconds", serverless_connection_timeout_in_seconds)
         if service_mode is not None:
-            pulumi.set(__self__, "service_mode", service_mode)
+            _setter("service_mode", service_mode)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tls_client_cert_enabled is not None:
-            pulumi.set(__self__, "tls_client_cert_enabled", tls_client_cert_enabled)
+            _setter("tls_client_cert_enabled", tls_client_cert_enabled)
         if upstream_endpoints is not None:
-            pulumi.set(__self__, "upstream_endpoints", upstream_endpoints)
+            _setter("upstream_endpoints", upstream_endpoints)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -401,63 +478,166 @@ class _ServiceState:
                > **Note:** `tls_client_cert_enabled` cannot be set to `true` in `Free` sku tier.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]] upstream_endpoints: An `upstream_endpoint` block as documented below. Using this block requires the SignalR service to be Serverless. When creating multiple blocks they will be processed in the order they are defined in.
         """
+        _ServiceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_auth_enabled=aad_auth_enabled,
+            connectivity_logs_enabled=connectivity_logs_enabled,
+            cors=cors,
+            hostname=hostname,
+            http_request_logs_enabled=http_request_logs_enabled,
+            identity=identity,
+            ip_address=ip_address,
+            live_trace=live_trace,
+            live_trace_enabled=live_trace_enabled,
+            local_auth_enabled=local_auth_enabled,
+            location=location,
+            messaging_logs_enabled=messaging_logs_enabled,
+            name=name,
+            primary_access_key=primary_access_key,
+            primary_connection_string=primary_connection_string,
+            public_network_access_enabled=public_network_access_enabled,
+            public_port=public_port,
+            resource_group_name=resource_group_name,
+            secondary_access_key=secondary_access_key,
+            secondary_connection_string=secondary_connection_string,
+            server_port=server_port,
+            serverless_connection_timeout_in_seconds=serverless_connection_timeout_in_seconds,
+            service_mode=service_mode,
+            sku=sku,
+            tags=tags,
+            tls_client_cert_enabled=tls_client_cert_enabled,
+            upstream_endpoints=upstream_endpoints,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_auth_enabled: Optional[pulumi.Input[bool]] = None,
+             connectivity_logs_enabled: Optional[pulumi.Input[bool]] = None,
+             cors: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceCorArgs']]]] = None,
+             hostname: Optional[pulumi.Input[str]] = None,
+             http_request_logs_enabled: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
+             ip_address: Optional[pulumi.Input[str]] = None,
+             live_trace: Optional[pulumi.Input['ServiceLiveTraceArgs']] = None,
+             live_trace_enabled: Optional[pulumi.Input[bool]] = None,
+             local_auth_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             messaging_logs_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             primary_access_key: Optional[pulumi.Input[str]] = None,
+             primary_connection_string: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             public_port: Optional[pulumi.Input[int]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             secondary_access_key: Optional[pulumi.Input[str]] = None,
+             secondary_connection_string: Optional[pulumi.Input[str]] = None,
+             server_port: Optional[pulumi.Input[int]] = None,
+             serverless_connection_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
+             service_mode: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['ServiceSkuArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             tls_client_cert_enabled: Optional[pulumi.Input[bool]] = None,
+             upstream_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceUpstreamEndpointArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if aad_auth_enabled is None and 'aadAuthEnabled' in kwargs:
+            aad_auth_enabled = kwargs['aadAuthEnabled']
+        if connectivity_logs_enabled is None and 'connectivityLogsEnabled' in kwargs:
+            connectivity_logs_enabled = kwargs['connectivityLogsEnabled']
+        if http_request_logs_enabled is None and 'httpRequestLogsEnabled' in kwargs:
+            http_request_logs_enabled = kwargs['httpRequestLogsEnabled']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if live_trace is None and 'liveTrace' in kwargs:
+            live_trace = kwargs['liveTrace']
+        if live_trace_enabled is None and 'liveTraceEnabled' in kwargs:
+            live_trace_enabled = kwargs['liveTraceEnabled']
+        if local_auth_enabled is None and 'localAuthEnabled' in kwargs:
+            local_auth_enabled = kwargs['localAuthEnabled']
+        if messaging_logs_enabled is None and 'messagingLogsEnabled' in kwargs:
+            messaging_logs_enabled = kwargs['messagingLogsEnabled']
+        if primary_access_key is None and 'primaryAccessKey' in kwargs:
+            primary_access_key = kwargs['primaryAccessKey']
+        if primary_connection_string is None and 'primaryConnectionString' in kwargs:
+            primary_connection_string = kwargs['primaryConnectionString']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if public_port is None and 'publicPort' in kwargs:
+            public_port = kwargs['publicPort']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if secondary_access_key is None and 'secondaryAccessKey' in kwargs:
+            secondary_access_key = kwargs['secondaryAccessKey']
+        if secondary_connection_string is None and 'secondaryConnectionString' in kwargs:
+            secondary_connection_string = kwargs['secondaryConnectionString']
+        if server_port is None and 'serverPort' in kwargs:
+            server_port = kwargs['serverPort']
+        if serverless_connection_timeout_in_seconds is None and 'serverlessConnectionTimeoutInSeconds' in kwargs:
+            serverless_connection_timeout_in_seconds = kwargs['serverlessConnectionTimeoutInSeconds']
+        if service_mode is None and 'serviceMode' in kwargs:
+            service_mode = kwargs['serviceMode']
+        if tls_client_cert_enabled is None and 'tlsClientCertEnabled' in kwargs:
+            tls_client_cert_enabled = kwargs['tlsClientCertEnabled']
+        if upstream_endpoints is None and 'upstreamEndpoints' in kwargs:
+            upstream_endpoints = kwargs['upstreamEndpoints']
+
         if aad_auth_enabled is not None:
-            pulumi.set(__self__, "aad_auth_enabled", aad_auth_enabled)
+            _setter("aad_auth_enabled", aad_auth_enabled)
         if connectivity_logs_enabled is not None:
-            pulumi.set(__self__, "connectivity_logs_enabled", connectivity_logs_enabled)
+            _setter("connectivity_logs_enabled", connectivity_logs_enabled)
         if cors is not None:
-            pulumi.set(__self__, "cors", cors)
+            _setter("cors", cors)
         if hostname is not None:
-            pulumi.set(__self__, "hostname", hostname)
+            _setter("hostname", hostname)
         if http_request_logs_enabled is not None:
-            pulumi.set(__self__, "http_request_logs_enabled", http_request_logs_enabled)
+            _setter("http_request_logs_enabled", http_request_logs_enabled)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if ip_address is not None:
-            pulumi.set(__self__, "ip_address", ip_address)
+            _setter("ip_address", ip_address)
         if live_trace is not None:
-            pulumi.set(__self__, "live_trace", live_trace)
+            _setter("live_trace", live_trace)
         if live_trace_enabled is not None:
             warnings.warn("""`live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""", DeprecationWarning)
             pulumi.log.warn("""live_trace_enabled is deprecated: `live_trace_enabled` has been deprecated in favor of `live_trace` and will be removed in 4.0.""")
         if live_trace_enabled is not None:
-            pulumi.set(__self__, "live_trace_enabled", live_trace_enabled)
+            _setter("live_trace_enabled", live_trace_enabled)
         if local_auth_enabled is not None:
-            pulumi.set(__self__, "local_auth_enabled", local_auth_enabled)
+            _setter("local_auth_enabled", local_auth_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if messaging_logs_enabled is not None:
-            pulumi.set(__self__, "messaging_logs_enabled", messaging_logs_enabled)
+            _setter("messaging_logs_enabled", messaging_logs_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if primary_access_key is not None:
-            pulumi.set(__self__, "primary_access_key", primary_access_key)
+            _setter("primary_access_key", primary_access_key)
         if primary_connection_string is not None:
-            pulumi.set(__self__, "primary_connection_string", primary_connection_string)
+            _setter("primary_connection_string", primary_connection_string)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if public_port is not None:
-            pulumi.set(__self__, "public_port", public_port)
+            _setter("public_port", public_port)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if secondary_access_key is not None:
-            pulumi.set(__self__, "secondary_access_key", secondary_access_key)
+            _setter("secondary_access_key", secondary_access_key)
         if secondary_connection_string is not None:
-            pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
+            _setter("secondary_connection_string", secondary_connection_string)
         if server_port is not None:
-            pulumi.set(__self__, "server_port", server_port)
+            _setter("server_port", server_port)
         if serverless_connection_timeout_in_seconds is not None:
-            pulumi.set(__self__, "serverless_connection_timeout_in_seconds", serverless_connection_timeout_in_seconds)
+            _setter("serverless_connection_timeout_in_seconds", serverless_connection_timeout_in_seconds)
         if service_mode is not None:
-            pulumi.set(__self__, "service_mode", service_mode)
+            _setter("service_mode", service_mode)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if tls_client_cert_enabled is not None:
-            pulumi.set(__self__, "tls_client_cert_enabled", tls_client_cert_enabled)
+            _setter("tls_client_cert_enabled", tls_client_cert_enabled)
         if upstream_endpoints is not None:
-            pulumi.set(__self__, "upstream_endpoints", upstream_endpoints)
+            _setter("upstream_endpoints", upstream_endpoints)
 
     @property
     @pulumi.getter(name="aadAuthEnabled")
@@ -944,6 +1124,10 @@ class Service(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -981,7 +1165,17 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["connectivity_logs_enabled"] = connectivity_logs_enabled
             __props__.__dict__["cors"] = cors
             __props__.__dict__["http_request_logs_enabled"] = http_request_logs_enabled
+            if identity is not None and not isinstance(identity, ServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
+            if live_trace is not None and not isinstance(live_trace, ServiceLiveTraceArgs):
+                live_trace = live_trace or {}
+                def _setter(key, value):
+                    live_trace[key] = value
+                ServiceLiveTraceArgs._configure(_setter, **live_trace)
             __props__.__dict__["live_trace"] = live_trace
             __props__.__dict__["live_trace_enabled"] = live_trace_enabled
             __props__.__dict__["local_auth_enabled"] = local_auth_enabled
@@ -994,6 +1188,11 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["serverless_connection_timeout_in_seconds"] = serverless_connection_timeout_in_seconds
             __props__.__dict__["service_mode"] = service_mode
+            if sku is not None and not isinstance(sku, ServiceSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                ServiceSkuArgs._configure(_setter, **sku)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku

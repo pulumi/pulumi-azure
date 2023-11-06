@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DataConnectorAwsS3Args', 'DataConnectorAwsS3']
@@ -27,12 +27,47 @@ class DataConnectorAwsS3Args:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sqs_urls: Specifies a list of AWS SQS urls for the AWS S3 Data Connector.
         :param pulumi.Input[str] name: The name which should be used for this AWS S3 Data Connector. Changing this forces a new AWS S3 Data Connector to be created.
         """
-        pulumi.set(__self__, "aws_role_arn", aws_role_arn)
-        pulumi.set(__self__, "destination_table", destination_table)
-        pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
-        pulumi.set(__self__, "sqs_urls", sqs_urls)
+        DataConnectorAwsS3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_role_arn=aws_role_arn,
+            destination_table=destination_table,
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            sqs_urls=sqs_urls,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_role_arn: Optional[pulumi.Input[str]] = None,
+             destination_table: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             sqs_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if aws_role_arn is None and 'awsRoleArn' in kwargs:
+            aws_role_arn = kwargs['awsRoleArn']
+        if aws_role_arn is None:
+            raise TypeError("Missing 'aws_role_arn' argument")
+        if destination_table is None and 'destinationTable' in kwargs:
+            destination_table = kwargs['destinationTable']
+        if destination_table is None:
+            raise TypeError("Missing 'destination_table' argument")
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if log_analytics_workspace_id is None:
+            raise TypeError("Missing 'log_analytics_workspace_id' argument")
+        if sqs_urls is None and 'sqsUrls' in kwargs:
+            sqs_urls = kwargs['sqsUrls']
+        if sqs_urls is None:
+            raise TypeError("Missing 'sqs_urls' argument")
+
+        _setter("aws_role_arn", aws_role_arn)
+        _setter("destination_table", destination_table)
+        _setter("log_analytics_workspace_id", log_analytics_workspace_id)
+        _setter("sqs_urls", sqs_urls)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="awsRoleArn")
@@ -111,16 +146,43 @@ class _DataConnectorAwsS3State:
         :param pulumi.Input[str] name: The name which should be used for this AWS S3 Data Connector. Changing this forces a new AWS S3 Data Connector to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] sqs_urls: Specifies a list of AWS SQS urls for the AWS S3 Data Connector.
         """
+        _DataConnectorAwsS3State._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aws_role_arn=aws_role_arn,
+            destination_table=destination_table,
+            log_analytics_workspace_id=log_analytics_workspace_id,
+            name=name,
+            sqs_urls=sqs_urls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aws_role_arn: Optional[pulumi.Input[str]] = None,
+             destination_table: Optional[pulumi.Input[str]] = None,
+             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             sqs_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if aws_role_arn is None and 'awsRoleArn' in kwargs:
+            aws_role_arn = kwargs['awsRoleArn']
+        if destination_table is None and 'destinationTable' in kwargs:
+            destination_table = kwargs['destinationTable']
+        if log_analytics_workspace_id is None and 'logAnalyticsWorkspaceId' in kwargs:
+            log_analytics_workspace_id = kwargs['logAnalyticsWorkspaceId']
+        if sqs_urls is None and 'sqsUrls' in kwargs:
+            sqs_urls = kwargs['sqsUrls']
+
         if aws_role_arn is not None:
-            pulumi.set(__self__, "aws_role_arn", aws_role_arn)
+            _setter("aws_role_arn", aws_role_arn)
         if destination_table is not None:
-            pulumi.set(__self__, "destination_table", destination_table)
+            _setter("destination_table", destination_table)
         if log_analytics_workspace_id is not None:
-            pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
+            _setter("log_analytics_workspace_id", log_analytics_workspace_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sqs_urls is not None:
-            pulumi.set(__self__, "sqs_urls", sqs_urls)
+            _setter("sqs_urls", sqs_urls)
 
     @property
     @pulumi.getter(name="awsRoleArn")
@@ -278,6 +340,10 @@ class DataConnectorAwsS3(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataConnectorAwsS3Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

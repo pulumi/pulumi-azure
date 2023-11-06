@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['StorageDefenderArgs', 'StorageDefender']
@@ -27,15 +27,46 @@ class StorageDefenderArgs:
         :param pulumi.Input[bool] override_subscription_settings_enabled: Whether the settings defined for this storage account should override the settings defined for the subscription. Defaults to `false`.
         :param pulumi.Input[bool] sensitive_data_discovery_enabled: Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
         """
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        StorageDefenderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            storage_account_id=storage_account_id,
+            malware_scanning_on_upload_cap_gb_per_month=malware_scanning_on_upload_cap_gb_per_month,
+            malware_scanning_on_upload_enabled=malware_scanning_on_upload_enabled,
+            override_subscription_settings_enabled=override_subscription_settings_enabled,
+            sensitive_data_discovery_enabled=sensitive_data_discovery_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             malware_scanning_on_upload_cap_gb_per_month: Optional[pulumi.Input[int]] = None,
+             malware_scanning_on_upload_enabled: Optional[pulumi.Input[bool]] = None,
+             override_subscription_settings_enabled: Optional[pulumi.Input[bool]] = None,
+             sensitive_data_discovery_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if malware_scanning_on_upload_cap_gb_per_month is None and 'malwareScanningOnUploadCapGbPerMonth' in kwargs:
+            malware_scanning_on_upload_cap_gb_per_month = kwargs['malwareScanningOnUploadCapGbPerMonth']
+        if malware_scanning_on_upload_enabled is None and 'malwareScanningOnUploadEnabled' in kwargs:
+            malware_scanning_on_upload_enabled = kwargs['malwareScanningOnUploadEnabled']
+        if override_subscription_settings_enabled is None and 'overrideSubscriptionSettingsEnabled' in kwargs:
+            override_subscription_settings_enabled = kwargs['overrideSubscriptionSettingsEnabled']
+        if sensitive_data_discovery_enabled is None and 'sensitiveDataDiscoveryEnabled' in kwargs:
+            sensitive_data_discovery_enabled = kwargs['sensitiveDataDiscoveryEnabled']
+
+        _setter("storage_account_id", storage_account_id)
         if malware_scanning_on_upload_cap_gb_per_month is not None:
-            pulumi.set(__self__, "malware_scanning_on_upload_cap_gb_per_month", malware_scanning_on_upload_cap_gb_per_month)
+            _setter("malware_scanning_on_upload_cap_gb_per_month", malware_scanning_on_upload_cap_gb_per_month)
         if malware_scanning_on_upload_enabled is not None:
-            pulumi.set(__self__, "malware_scanning_on_upload_enabled", malware_scanning_on_upload_enabled)
+            _setter("malware_scanning_on_upload_enabled", malware_scanning_on_upload_enabled)
         if override_subscription_settings_enabled is not None:
-            pulumi.set(__self__, "override_subscription_settings_enabled", override_subscription_settings_enabled)
+            _setter("override_subscription_settings_enabled", override_subscription_settings_enabled)
         if sensitive_data_discovery_enabled is not None:
-            pulumi.set(__self__, "sensitive_data_discovery_enabled", sensitive_data_discovery_enabled)
+            _setter("sensitive_data_discovery_enabled", sensitive_data_discovery_enabled)
 
     @property
     @pulumi.getter(name="storageAccountId")
@@ -114,16 +145,45 @@ class _StorageDefenderState:
         :param pulumi.Input[bool] sensitive_data_discovery_enabled: Whether Sensitive Data Discovery should be enabled. Defaults to `false`.
         :param pulumi.Input[str] storage_account_id: The ID of the storage account the defender applied to. Changing this forces a new resource to be created.
         """
+        _StorageDefenderState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            malware_scanning_on_upload_cap_gb_per_month=malware_scanning_on_upload_cap_gb_per_month,
+            malware_scanning_on_upload_enabled=malware_scanning_on_upload_enabled,
+            override_subscription_settings_enabled=override_subscription_settings_enabled,
+            sensitive_data_discovery_enabled=sensitive_data_discovery_enabled,
+            storage_account_id=storage_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             malware_scanning_on_upload_cap_gb_per_month: Optional[pulumi.Input[int]] = None,
+             malware_scanning_on_upload_enabled: Optional[pulumi.Input[bool]] = None,
+             override_subscription_settings_enabled: Optional[pulumi.Input[bool]] = None,
+             sensitive_data_discovery_enabled: Optional[pulumi.Input[bool]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if malware_scanning_on_upload_cap_gb_per_month is None and 'malwareScanningOnUploadCapGbPerMonth' in kwargs:
+            malware_scanning_on_upload_cap_gb_per_month = kwargs['malwareScanningOnUploadCapGbPerMonth']
+        if malware_scanning_on_upload_enabled is None and 'malwareScanningOnUploadEnabled' in kwargs:
+            malware_scanning_on_upload_enabled = kwargs['malwareScanningOnUploadEnabled']
+        if override_subscription_settings_enabled is None and 'overrideSubscriptionSettingsEnabled' in kwargs:
+            override_subscription_settings_enabled = kwargs['overrideSubscriptionSettingsEnabled']
+        if sensitive_data_discovery_enabled is None and 'sensitiveDataDiscoveryEnabled' in kwargs:
+            sensitive_data_discovery_enabled = kwargs['sensitiveDataDiscoveryEnabled']
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         if malware_scanning_on_upload_cap_gb_per_month is not None:
-            pulumi.set(__self__, "malware_scanning_on_upload_cap_gb_per_month", malware_scanning_on_upload_cap_gb_per_month)
+            _setter("malware_scanning_on_upload_cap_gb_per_month", malware_scanning_on_upload_cap_gb_per_month)
         if malware_scanning_on_upload_enabled is not None:
-            pulumi.set(__self__, "malware_scanning_on_upload_enabled", malware_scanning_on_upload_enabled)
+            _setter("malware_scanning_on_upload_enabled", malware_scanning_on_upload_enabled)
         if override_subscription_settings_enabled is not None:
-            pulumi.set(__self__, "override_subscription_settings_enabled", override_subscription_settings_enabled)
+            _setter("override_subscription_settings_enabled", override_subscription_settings_enabled)
         if sensitive_data_discovery_enabled is not None:
-            pulumi.set(__self__, "sensitive_data_discovery_enabled", sensitive_data_discovery_enabled)
+            _setter("sensitive_data_discovery_enabled", sensitive_data_discovery_enabled)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
 
     @property
     @pulumi.getter(name="malwareScanningOnUploadCapGbPerMonth")
@@ -273,6 +333,10 @@ class StorageDefender(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            StorageDefenderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DatabaseArgs', 'Database']
@@ -29,16 +29,49 @@ class DatabaseArgs:
         :param pulumi.Input[str] name: The name of the Kusto Database to create. Changing this forces a new resource to be created.
         :param pulumi.Input[str] soft_delete_period: The time the data should be kept before it stops being accessible to queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        DatabaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            resource_group_name=resource_group_name,
+            hot_cache_period=hot_cache_period,
+            location=location,
+            name=name,
+            soft_delete_period=soft_delete_period,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             hot_cache_period: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             soft_delete_period: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if hot_cache_period is None and 'hotCachePeriod' in kwargs:
+            hot_cache_period = kwargs['hotCachePeriod']
+        if soft_delete_period is None and 'softDeletePeriod' in kwargs:
+            soft_delete_period = kwargs['softDeletePeriod']
+
+        _setter("cluster_name", cluster_name)
+        _setter("resource_group_name", resource_group_name)
         if hot_cache_period is not None:
-            pulumi.set(__self__, "hot_cache_period", hot_cache_period)
+            _setter("hot_cache_period", hot_cache_period)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if soft_delete_period is not None:
-            pulumi.set(__self__, "soft_delete_period", soft_delete_period)
+            _setter("soft_delete_period", soft_delete_period)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -133,20 +166,51 @@ class _DatabaseState:
         :param pulumi.Input[float] size: The size of the database in bytes.
         :param pulumi.Input[str] soft_delete_period: The time the data should be kept before it stops being accessible to queries as ISO 8601 timespan. Default is unlimited. For more information see: [ISO 8601 Timespan](https://en.wikipedia.org/wiki/ISO_8601#Durations)
         """
+        _DatabaseState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            hot_cache_period=hot_cache_period,
+            location=location,
+            name=name,
+            resource_group_name=resource_group_name,
+            size=size,
+            soft_delete_period=soft_delete_period,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             hot_cache_period: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             size: Optional[pulumi.Input[float]] = None,
+             soft_delete_period: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if hot_cache_period is None and 'hotCachePeriod' in kwargs:
+            hot_cache_period = kwargs['hotCachePeriod']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if soft_delete_period is None and 'softDeletePeriod' in kwargs:
+            soft_delete_period = kwargs['softDeletePeriod']
+
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if hot_cache_period is not None:
-            pulumi.set(__self__, "hot_cache_period", hot_cache_period)
+            _setter("hot_cache_period", hot_cache_period)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if size is not None:
-            pulumi.set(__self__, "size", size)
+            _setter("size", size)
         if soft_delete_period is not None:
-            pulumi.set(__self__, "soft_delete_period", soft_delete_period)
+            _setter("soft_delete_period", soft_delete_period)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -336,6 +400,10 @@ class Database(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DatabaseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

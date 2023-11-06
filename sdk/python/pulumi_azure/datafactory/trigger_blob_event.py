@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -45,26 +45,79 @@ class TriggerBlobEventArgs:
         :param pulumi.Input[bool] ignore_empty_blobs: are blobs with zero bytes ignored?
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Blob Event Trigger. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "data_factory_id", data_factory_id)
-        pulumi.set(__self__, "events", events)
-        pulumi.set(__self__, "pipelines", pipelines)
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        TriggerBlobEventArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_factory_id=data_factory_id,
+            events=events,
+            pipelines=pipelines,
+            storage_account_id=storage_account_id,
+            activated=activated,
+            additional_properties=additional_properties,
+            annotations=annotations,
+            blob_path_begins_with=blob_path_begins_with,
+            blob_path_ends_with=blob_path_ends_with,
+            description=description,
+            ignore_empty_blobs=ignore_empty_blobs,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             activated: Optional[pulumi.Input[bool]] = None,
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             blob_path_begins_with: Optional[pulumi.Input[str]] = None,
+             blob_path_ends_with: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             ignore_empty_blobs: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if events is None:
+            raise TypeError("Missing 'events' argument")
+        if pipelines is None:
+            raise TypeError("Missing 'pipelines' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if blob_path_begins_with is None and 'blobPathBeginsWith' in kwargs:
+            blob_path_begins_with = kwargs['blobPathBeginsWith']
+        if blob_path_ends_with is None and 'blobPathEndsWith' in kwargs:
+            blob_path_ends_with = kwargs['blobPathEndsWith']
+        if ignore_empty_blobs is None and 'ignoreEmptyBlobs' in kwargs:
+            ignore_empty_blobs = kwargs['ignoreEmptyBlobs']
+
+        _setter("data_factory_id", data_factory_id)
+        _setter("events", events)
+        _setter("pipelines", pipelines)
+        _setter("storage_account_id", storage_account_id)
         if activated is not None:
-            pulumi.set(__self__, "activated", activated)
+            _setter("activated", activated)
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if blob_path_begins_with is not None:
-            pulumi.set(__self__, "blob_path_begins_with", blob_path_begins_with)
+            _setter("blob_path_begins_with", blob_path_begins_with)
         if blob_path_ends_with is not None:
-            pulumi.set(__self__, "blob_path_ends_with", blob_path_ends_with)
+            _setter("blob_path_ends_with", blob_path_ends_with)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if ignore_empty_blobs is not None:
-            pulumi.set(__self__, "ignore_empty_blobs", ignore_empty_blobs)
+            _setter("ignore_empty_blobs", ignore_empty_blobs)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -245,30 +298,75 @@ class _TriggerBlobEventState:
         :param pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]] pipelines: One or more `pipeline` blocks as defined below.
         :param pulumi.Input[str] storage_account_id: The ID of Storage Account in which blob event will be listened. Changing this forces a new resource.
         """
+        _TriggerBlobEventState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            activated=activated,
+            additional_properties=additional_properties,
+            annotations=annotations,
+            blob_path_begins_with=blob_path_begins_with,
+            blob_path_ends_with=blob_path_ends_with,
+            data_factory_id=data_factory_id,
+            description=description,
+            events=events,
+            ignore_empty_blobs=ignore_empty_blobs,
+            name=name,
+            pipelines=pipelines,
+            storage_account_id=storage_account_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             activated: Optional[pulumi.Input[bool]] = None,
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             blob_path_begins_with: Optional[pulumi.Input[str]] = None,
+             blob_path_ends_with: Optional[pulumi.Input[str]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             ignore_empty_blobs: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if additional_properties is None and 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if blob_path_begins_with is None and 'blobPathBeginsWith' in kwargs:
+            blob_path_begins_with = kwargs['blobPathBeginsWith']
+        if blob_path_ends_with is None and 'blobPathEndsWith' in kwargs:
+            blob_path_ends_with = kwargs['blobPathEndsWith']
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if ignore_empty_blobs is None and 'ignoreEmptyBlobs' in kwargs:
+            ignore_empty_blobs = kwargs['ignoreEmptyBlobs']
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
         if activated is not None:
-            pulumi.set(__self__, "activated", activated)
+            _setter("activated", activated)
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if blob_path_begins_with is not None:
-            pulumi.set(__self__, "blob_path_begins_with", blob_path_begins_with)
+            _setter("blob_path_begins_with", blob_path_begins_with)
         if blob_path_ends_with is not None:
-            pulumi.set(__self__, "blob_path_ends_with", blob_path_ends_with)
+            _setter("blob_path_ends_with", blob_path_ends_with)
         if data_factory_id is not None:
-            pulumi.set(__self__, "data_factory_id", data_factory_id)
+            _setter("data_factory_id", data_factory_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if events is not None:
-            pulumi.set(__self__, "events", events)
+            _setter("events", events)
         if ignore_empty_blobs is not None:
-            pulumi.set(__self__, "ignore_empty_blobs", ignore_empty_blobs)
+            _setter("ignore_empty_blobs", ignore_empty_blobs)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if pipelines is not None:
-            pulumi.set(__self__, "pipelines", pipelines)
+            _setter("pipelines", pipelines)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
 
     @property
     @pulumi.getter
@@ -578,6 +676,10 @@ class TriggerBlobEvent(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TriggerBlobEventArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

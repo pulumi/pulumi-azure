@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,18 +35,61 @@ class AttachedDatabaseConfigurationArgs:
         :param pulumi.Input[str] name: The name of the Kusto Attached Database Configuration to create. Changing this forces a new resource to be created.
         :param pulumi.Input['AttachedDatabaseConfigurationSharingArgs'] sharing: A `sharing` block as defined below.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
-        pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        AttachedDatabaseConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            cluster_resource_id=cluster_resource_id,
+            database_name=database_name,
+            resource_group_name=resource_group_name,
+            default_principal_modification_kind=default_principal_modification_kind,
+            location=location,
+            name=name,
+            sharing=sharing,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             cluster_resource_id: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             default_principal_modification_kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             sharing: Optional[pulumi.Input['AttachedDatabaseConfigurationSharingArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if cluster_resource_id is None and 'clusterResourceId' in kwargs:
+            cluster_resource_id = kwargs['clusterResourceId']
+        if cluster_resource_id is None:
+            raise TypeError("Missing 'cluster_resource_id' argument")
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if database_name is None:
+            raise TypeError("Missing 'database_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if default_principal_modification_kind is None and 'defaultPrincipalModificationKind' in kwargs:
+            default_principal_modification_kind = kwargs['defaultPrincipalModificationKind']
+
+        _setter("cluster_name", cluster_name)
+        _setter("cluster_resource_id", cluster_resource_id)
+        _setter("database_name", database_name)
+        _setter("resource_group_name", resource_group_name)
         if default_principal_modification_kind is not None:
-            pulumi.set(__self__, "default_principal_modification_kind", default_principal_modification_kind)
+            _setter("default_principal_modification_kind", default_principal_modification_kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if sharing is not None:
-            pulumi.set(__self__, "sharing", sharing)
+            _setter("sharing", sharing)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -169,24 +212,63 @@ class _AttachedDatabaseConfigurationState:
         :param pulumi.Input[str] resource_group_name: Specifies the resource group of the Kusto Cluster for which the configuration will be created. Changing this forces a new resource to be created.
         :param pulumi.Input['AttachedDatabaseConfigurationSharingArgs'] sharing: A `sharing` block as defined below.
         """
+        _AttachedDatabaseConfigurationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            attached_database_names=attached_database_names,
+            cluster_name=cluster_name,
+            cluster_resource_id=cluster_resource_id,
+            database_name=database_name,
+            default_principal_modification_kind=default_principal_modification_kind,
+            location=location,
+            name=name,
+            resource_group_name=resource_group_name,
+            sharing=sharing,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             attached_database_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             cluster_resource_id: Optional[pulumi.Input[str]] = None,
+             database_name: Optional[pulumi.Input[str]] = None,
+             default_principal_modification_kind: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sharing: Optional[pulumi.Input['AttachedDatabaseConfigurationSharingArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if attached_database_names is None and 'attachedDatabaseNames' in kwargs:
+            attached_database_names = kwargs['attachedDatabaseNames']
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_resource_id is None and 'clusterResourceId' in kwargs:
+            cluster_resource_id = kwargs['clusterResourceId']
+        if database_name is None and 'databaseName' in kwargs:
+            database_name = kwargs['databaseName']
+        if default_principal_modification_kind is None and 'defaultPrincipalModificationKind' in kwargs:
+            default_principal_modification_kind = kwargs['defaultPrincipalModificationKind']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if attached_database_names is not None:
-            pulumi.set(__self__, "attached_database_names", attached_database_names)
+            _setter("attached_database_names", attached_database_names)
         if cluster_name is not None:
-            pulumi.set(__self__, "cluster_name", cluster_name)
+            _setter("cluster_name", cluster_name)
         if cluster_resource_id is not None:
-            pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
+            _setter("cluster_resource_id", cluster_resource_id)
         if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
+            _setter("database_name", database_name)
         if default_principal_modification_kind is not None:
-            pulumi.set(__self__, "default_principal_modification_kind", default_principal_modification_kind)
+            _setter("default_principal_modification_kind", default_principal_modification_kind)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sharing is not None:
-            pulumi.set(__self__, "sharing", sharing)
+            _setter("sharing", sharing)
 
     @property
     @pulumi.getter(name="attachedDatabaseNames")
@@ -450,6 +532,10 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AttachedDatabaseConfigurationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -487,6 +573,11 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sharing is not None and not isinstance(sharing, AttachedDatabaseConfigurationSharingArgs):
+                sharing = sharing or {}
+                def _setter(key, value):
+                    sharing[key] = value
+                AttachedDatabaseConfigurationSharingArgs._configure(_setter, **sharing)
             __props__.__dict__["sharing"] = sharing
             __props__.__dict__["attached_database_names"] = None
         super(AttachedDatabaseConfiguration, __self__).__init__(

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,17 +33,52 @@ class NamespaceNetworkRuleSetInitArgs:
         :param pulumi.Input[bool] public_network_access_enabled: Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[bool] trusted_services_allowed: If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
         """
-        pulumi.set(__self__, "namespace_id", namespace_id)
+        NamespaceNetworkRuleSetInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            namespace_id=namespace_id,
+            default_action=default_action,
+            ip_rules=ip_rules,
+            network_rules=network_rules,
+            public_network_access_enabled=public_network_access_enabled,
+            trusted_services_allowed=trusted_services_allowed,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             namespace_id: Optional[pulumi.Input[str]] = None,
+             default_action: Optional[pulumi.Input[str]] = None,
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             trusted_services_allowed: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if namespace_id is None and 'namespaceId' in kwargs:
+            namespace_id = kwargs['namespaceId']
+        if namespace_id is None:
+            raise TypeError("Missing 'namespace_id' argument")
+        if default_action is None and 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if ip_rules is None and 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if network_rules is None and 'networkRules' in kwargs:
+            network_rules = kwargs['networkRules']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if trusted_services_allowed is None and 'trustedServicesAllowed' in kwargs:
+            trusted_services_allowed = kwargs['trustedServicesAllowed']
+
+        _setter("namespace_id", namespace_id)
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
         if network_rules is not None:
-            pulumi.set(__self__, "network_rules", network_rules)
+            _setter("network_rules", network_rules)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if trusted_services_allowed is not None:
-            pulumi.set(__self__, "trusted_services_allowed", trusted_services_allowed)
+            _setter("trusted_services_allowed", trusted_services_allowed)
 
     @property
     @pulumi.getter(name="namespaceId")
@@ -140,18 +175,51 @@ class _NamespaceNetworkRuleSetState:
         :param pulumi.Input[bool] public_network_access_enabled: Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[bool] trusted_services_allowed: If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
         """
+        _NamespaceNetworkRuleSetState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_action=default_action,
+            ip_rules=ip_rules,
+            namespace_id=namespace_id,
+            network_rules=network_rules,
+            public_network_access_enabled=public_network_access_enabled,
+            trusted_services_allowed=trusted_services_allowed,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_action: Optional[pulumi.Input[str]] = None,
+             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             namespace_id: Optional[pulumi.Input[str]] = None,
+             network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             trusted_services_allowed: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if default_action is None and 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if ip_rules is None and 'ipRules' in kwargs:
+            ip_rules = kwargs['ipRules']
+        if namespace_id is None and 'namespaceId' in kwargs:
+            namespace_id = kwargs['namespaceId']
+        if network_rules is None and 'networkRules' in kwargs:
+            network_rules = kwargs['networkRules']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if trusted_services_allowed is None and 'trustedServicesAllowed' in kwargs:
+            trusted_services_allowed = kwargs['trustedServicesAllowed']
+
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
+            _setter("ip_rules", ip_rules)
         if namespace_id is not None:
-            pulumi.set(__self__, "namespace_id", namespace_id)
+            _setter("namespace_id", namespace_id)
         if network_rules is not None:
-            pulumi.set(__self__, "network_rules", network_rules)
+            _setter("network_rules", network_rules)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if trusted_services_allowed is not None:
-            pulumi.set(__self__, "trusted_services_allowed", trusted_services_allowed)
+            _setter("trusted_services_allowed", trusted_services_allowed)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -361,6 +429,10 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NamespaceNetworkRuleSetInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

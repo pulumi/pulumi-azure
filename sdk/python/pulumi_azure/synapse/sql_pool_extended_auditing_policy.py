@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SqlPoolExtendedAuditingPolicyArgs', 'SqlPoolExtendedAuditingPolicy']
@@ -29,17 +29,52 @@ class SqlPoolExtendedAuditingPolicyArgs:
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
         :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         """
-        pulumi.set(__self__, "sql_pool_id", sql_pool_id)
+        SqlPoolExtendedAuditingPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            sql_pool_id=sql_pool_id,
+            log_monitoring_enabled=log_monitoring_enabled,
+            retention_in_days=retention_in_days,
+            storage_account_access_key=storage_account_access_key,
+            storage_account_access_key_is_secondary=storage_account_access_key_is_secondary,
+            storage_endpoint=storage_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             sql_pool_id: Optional[pulumi.Input[str]] = None,
+             log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             storage_account_access_key: Optional[pulumi.Input[str]] = None,
+             storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
+             storage_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if sql_pool_id is None and 'sqlPoolId' in kwargs:
+            sql_pool_id = kwargs['sqlPoolId']
+        if sql_pool_id is None:
+            raise TypeError("Missing 'sql_pool_id' argument")
+        if log_monitoring_enabled is None and 'logMonitoringEnabled' in kwargs:
+            log_monitoring_enabled = kwargs['logMonitoringEnabled']
+        if retention_in_days is None and 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if storage_account_access_key_is_secondary is None and 'storageAccountAccessKeyIsSecondary' in kwargs:
+            storage_account_access_key_is_secondary = kwargs['storageAccountAccessKeyIsSecondary']
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
+            storage_endpoint = kwargs['storageEndpoint']
+
+        _setter("sql_pool_id", sql_pool_id)
         if log_monitoring_enabled is not None:
-            pulumi.set(__self__, "log_monitoring_enabled", log_monitoring_enabled)
+            _setter("log_monitoring_enabled", log_monitoring_enabled)
         if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
+            _setter("retention_in_days", retention_in_days)
         if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+            _setter("storage_account_access_key", storage_account_access_key)
         if storage_account_access_key_is_secondary is not None:
-            pulumi.set(__self__, "storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
+            _setter("storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
         if storage_endpoint is not None:
-            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+            _setter("storage_endpoint", storage_endpoint)
 
     @property
     @pulumi.getter(name="sqlPoolId")
@@ -132,18 +167,51 @@ class _SqlPoolExtendedAuditingPolicyState:
         :param pulumi.Input[bool] storage_account_access_key_is_secondary: Is `storage_account_access_key` value the storage's secondary key?
         :param pulumi.Input[str] storage_endpoint: The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
         """
+        _SqlPoolExtendedAuditingPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            log_monitoring_enabled=log_monitoring_enabled,
+            retention_in_days=retention_in_days,
+            sql_pool_id=sql_pool_id,
+            storage_account_access_key=storage_account_access_key,
+            storage_account_access_key_is_secondary=storage_account_access_key_is_secondary,
+            storage_endpoint=storage_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             log_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
+             retention_in_days: Optional[pulumi.Input[int]] = None,
+             sql_pool_id: Optional[pulumi.Input[str]] = None,
+             storage_account_access_key: Optional[pulumi.Input[str]] = None,
+             storage_account_access_key_is_secondary: Optional[pulumi.Input[bool]] = None,
+             storage_endpoint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if log_monitoring_enabled is None and 'logMonitoringEnabled' in kwargs:
+            log_monitoring_enabled = kwargs['logMonitoringEnabled']
+        if retention_in_days is None and 'retentionInDays' in kwargs:
+            retention_in_days = kwargs['retentionInDays']
+        if sql_pool_id is None and 'sqlPoolId' in kwargs:
+            sql_pool_id = kwargs['sqlPoolId']
+        if storage_account_access_key is None and 'storageAccountAccessKey' in kwargs:
+            storage_account_access_key = kwargs['storageAccountAccessKey']
+        if storage_account_access_key_is_secondary is None and 'storageAccountAccessKeyIsSecondary' in kwargs:
+            storage_account_access_key_is_secondary = kwargs['storageAccountAccessKeyIsSecondary']
+        if storage_endpoint is None and 'storageEndpoint' in kwargs:
+            storage_endpoint = kwargs['storageEndpoint']
+
         if log_monitoring_enabled is not None:
-            pulumi.set(__self__, "log_monitoring_enabled", log_monitoring_enabled)
+            _setter("log_monitoring_enabled", log_monitoring_enabled)
         if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
+            _setter("retention_in_days", retention_in_days)
         if sql_pool_id is not None:
-            pulumi.set(__self__, "sql_pool_id", sql_pool_id)
+            _setter("sql_pool_id", sql_pool_id)
         if storage_account_access_key is not None:
-            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+            _setter("storage_account_access_key", storage_account_access_key)
         if storage_account_access_key_is_secondary is not None:
-            pulumi.set(__self__, "storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
+            _setter("storage_account_access_key_is_secondary", storage_account_access_key_is_secondary)
         if storage_endpoint is not None:
-            pulumi.set(__self__, "storage_endpoint", storage_endpoint)
+            _setter("storage_endpoint", storage_endpoint)
 
     @property
     @pulumi.getter(name="logMonitoringEnabled")
@@ -357,6 +425,10 @@ class SqlPoolExtendedAuditingPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SqlPoolExtendedAuditingPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

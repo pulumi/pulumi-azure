@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkSiteArgs', 'NetworkSite']
@@ -25,13 +25,34 @@ class NetworkSiteArgs:
         :param pulumi.Input[str] name: The name which should be used for this Mobile Network Site. Changing this forces a new Mobile Network Site to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Site.
         """
-        pulumi.set(__self__, "mobile_network_id", mobile_network_id)
+        NetworkSiteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mobile_network_id=mobile_network_id,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mobile_network_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
+            mobile_network_id = kwargs['mobileNetworkId']
+        if mobile_network_id is None:
+            raise TypeError("Missing 'mobile_network_id' argument")
+
+        _setter("mobile_network_id", mobile_network_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="mobileNetworkId")
@@ -98,16 +119,39 @@ class _NetworkSiteState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_function_ids: An array of Id of Network Functions deployed on the site.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Mobile Network Site.
         """
+        _NetworkSiteState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            location=location,
+            mobile_network_id=mobile_network_id,
+            name=name,
+            network_function_ids=network_function_ids,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             location: Optional[pulumi.Input[str]] = None,
+             mobile_network_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_function_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if mobile_network_id is None and 'mobileNetworkId' in kwargs:
+            mobile_network_id = kwargs['mobileNetworkId']
+        if network_function_ids is None and 'networkFunctionIds' in kwargs:
+            network_function_ids = kwargs['networkFunctionIds']
+
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if mobile_network_id is not None:
-            pulumi.set(__self__, "mobile_network_id", mobile_network_id)
+            _setter("mobile_network_id", mobile_network_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_function_ids is not None:
-            pulumi.set(__self__, "network_function_ids", network_function_ids)
+            _setter("network_function_ids", network_function_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter
@@ -273,6 +317,10 @@ class NetworkSite(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkSiteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

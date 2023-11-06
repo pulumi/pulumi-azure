@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -65,47 +65,136 @@ class EventSubscriptionArgs:
                
                > **NOTE:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
         """
-        pulumi.set(__self__, "scope", scope)
+        EventSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scope=scope,
+            advanced_filter=advanced_filter,
+            advanced_filtering_on_arrays_enabled=advanced_filtering_on_arrays_enabled,
+            azure_function_endpoint=azure_function_endpoint,
+            dead_letter_identity=dead_letter_identity,
+            delivery_identity=delivery_identity,
+            delivery_properties=delivery_properties,
+            event_delivery_schema=event_delivery_schema,
+            eventhub_endpoint_id=eventhub_endpoint_id,
+            expiration_time_utc=expiration_time_utc,
+            hybrid_connection_endpoint_id=hybrid_connection_endpoint_id,
+            included_event_types=included_event_types,
+            labels=labels,
+            name=name,
+            retry_policy=retry_policy,
+            service_bus_queue_endpoint_id=service_bus_queue_endpoint_id,
+            service_bus_topic_endpoint_id=service_bus_topic_endpoint_id,
+            storage_blob_dead_letter_destination=storage_blob_dead_letter_destination,
+            storage_queue_endpoint=storage_queue_endpoint,
+            subject_filter=subject_filter,
+            webhook_endpoint=webhook_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scope: Optional[pulumi.Input[str]] = None,
+             advanced_filter: Optional[pulumi.Input['EventSubscriptionAdvancedFilterArgs']] = None,
+             advanced_filtering_on_arrays_enabled: Optional[pulumi.Input[bool]] = None,
+             azure_function_endpoint: Optional[pulumi.Input['EventSubscriptionAzureFunctionEndpointArgs']] = None,
+             dead_letter_identity: Optional[pulumi.Input['EventSubscriptionDeadLetterIdentityArgs']] = None,
+             delivery_identity: Optional[pulumi.Input['EventSubscriptionDeliveryIdentityArgs']] = None,
+             delivery_properties: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionDeliveryPropertyArgs']]]] = None,
+             event_delivery_schema: Optional[pulumi.Input[str]] = None,
+             eventhub_endpoint_id: Optional[pulumi.Input[str]] = None,
+             expiration_time_utc: Optional[pulumi.Input[str]] = None,
+             hybrid_connection_endpoint_id: Optional[pulumi.Input[str]] = None,
+             included_event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             retry_policy: Optional[pulumi.Input['EventSubscriptionRetryPolicyArgs']] = None,
+             service_bus_queue_endpoint_id: Optional[pulumi.Input[str]] = None,
+             service_bus_topic_endpoint_id: Optional[pulumi.Input[str]] = None,
+             storage_blob_dead_letter_destination: Optional[pulumi.Input['EventSubscriptionStorageBlobDeadLetterDestinationArgs']] = None,
+             storage_queue_endpoint: Optional[pulumi.Input['EventSubscriptionStorageQueueEndpointArgs']] = None,
+             subject_filter: Optional[pulumi.Input['EventSubscriptionSubjectFilterArgs']] = None,
+             webhook_endpoint: Optional[pulumi.Input['EventSubscriptionWebhookEndpointArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if scope is None:
+            raise TypeError("Missing 'scope' argument")
+        if advanced_filter is None and 'advancedFilter' in kwargs:
+            advanced_filter = kwargs['advancedFilter']
+        if advanced_filtering_on_arrays_enabled is None and 'advancedFilteringOnArraysEnabled' in kwargs:
+            advanced_filtering_on_arrays_enabled = kwargs['advancedFilteringOnArraysEnabled']
+        if azure_function_endpoint is None and 'azureFunctionEndpoint' in kwargs:
+            azure_function_endpoint = kwargs['azureFunctionEndpoint']
+        if dead_letter_identity is None and 'deadLetterIdentity' in kwargs:
+            dead_letter_identity = kwargs['deadLetterIdentity']
+        if delivery_identity is None and 'deliveryIdentity' in kwargs:
+            delivery_identity = kwargs['deliveryIdentity']
+        if delivery_properties is None and 'deliveryProperties' in kwargs:
+            delivery_properties = kwargs['deliveryProperties']
+        if event_delivery_schema is None and 'eventDeliverySchema' in kwargs:
+            event_delivery_schema = kwargs['eventDeliverySchema']
+        if eventhub_endpoint_id is None and 'eventhubEndpointId' in kwargs:
+            eventhub_endpoint_id = kwargs['eventhubEndpointId']
+        if expiration_time_utc is None and 'expirationTimeUtc' in kwargs:
+            expiration_time_utc = kwargs['expirationTimeUtc']
+        if hybrid_connection_endpoint_id is None and 'hybridConnectionEndpointId' in kwargs:
+            hybrid_connection_endpoint_id = kwargs['hybridConnectionEndpointId']
+        if included_event_types is None and 'includedEventTypes' in kwargs:
+            included_event_types = kwargs['includedEventTypes']
+        if retry_policy is None and 'retryPolicy' in kwargs:
+            retry_policy = kwargs['retryPolicy']
+        if service_bus_queue_endpoint_id is None and 'serviceBusQueueEndpointId' in kwargs:
+            service_bus_queue_endpoint_id = kwargs['serviceBusQueueEndpointId']
+        if service_bus_topic_endpoint_id is None and 'serviceBusTopicEndpointId' in kwargs:
+            service_bus_topic_endpoint_id = kwargs['serviceBusTopicEndpointId']
+        if storage_blob_dead_letter_destination is None and 'storageBlobDeadLetterDestination' in kwargs:
+            storage_blob_dead_letter_destination = kwargs['storageBlobDeadLetterDestination']
+        if storage_queue_endpoint is None and 'storageQueueEndpoint' in kwargs:
+            storage_queue_endpoint = kwargs['storageQueueEndpoint']
+        if subject_filter is None and 'subjectFilter' in kwargs:
+            subject_filter = kwargs['subjectFilter']
+        if webhook_endpoint is None and 'webhookEndpoint' in kwargs:
+            webhook_endpoint = kwargs['webhookEndpoint']
+
+        _setter("scope", scope)
         if advanced_filter is not None:
-            pulumi.set(__self__, "advanced_filter", advanced_filter)
+            _setter("advanced_filter", advanced_filter)
         if advanced_filtering_on_arrays_enabled is not None:
-            pulumi.set(__self__, "advanced_filtering_on_arrays_enabled", advanced_filtering_on_arrays_enabled)
+            _setter("advanced_filtering_on_arrays_enabled", advanced_filtering_on_arrays_enabled)
         if azure_function_endpoint is not None:
-            pulumi.set(__self__, "azure_function_endpoint", azure_function_endpoint)
+            _setter("azure_function_endpoint", azure_function_endpoint)
         if dead_letter_identity is not None:
-            pulumi.set(__self__, "dead_letter_identity", dead_letter_identity)
+            _setter("dead_letter_identity", dead_letter_identity)
         if delivery_identity is not None:
-            pulumi.set(__self__, "delivery_identity", delivery_identity)
+            _setter("delivery_identity", delivery_identity)
         if delivery_properties is not None:
-            pulumi.set(__self__, "delivery_properties", delivery_properties)
+            _setter("delivery_properties", delivery_properties)
         if event_delivery_schema is not None:
-            pulumi.set(__self__, "event_delivery_schema", event_delivery_schema)
+            _setter("event_delivery_schema", event_delivery_schema)
         if eventhub_endpoint_id is not None:
-            pulumi.set(__self__, "eventhub_endpoint_id", eventhub_endpoint_id)
+            _setter("eventhub_endpoint_id", eventhub_endpoint_id)
         if expiration_time_utc is not None:
-            pulumi.set(__self__, "expiration_time_utc", expiration_time_utc)
+            _setter("expiration_time_utc", expiration_time_utc)
         if hybrid_connection_endpoint_id is not None:
-            pulumi.set(__self__, "hybrid_connection_endpoint_id", hybrid_connection_endpoint_id)
+            _setter("hybrid_connection_endpoint_id", hybrid_connection_endpoint_id)
         if included_event_types is not None:
-            pulumi.set(__self__, "included_event_types", included_event_types)
+            _setter("included_event_types", included_event_types)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if retry_policy is not None:
-            pulumi.set(__self__, "retry_policy", retry_policy)
+            _setter("retry_policy", retry_policy)
         if service_bus_queue_endpoint_id is not None:
-            pulumi.set(__self__, "service_bus_queue_endpoint_id", service_bus_queue_endpoint_id)
+            _setter("service_bus_queue_endpoint_id", service_bus_queue_endpoint_id)
         if service_bus_topic_endpoint_id is not None:
-            pulumi.set(__self__, "service_bus_topic_endpoint_id", service_bus_topic_endpoint_id)
+            _setter("service_bus_topic_endpoint_id", service_bus_topic_endpoint_id)
         if storage_blob_dead_letter_destination is not None:
-            pulumi.set(__self__, "storage_blob_dead_letter_destination", storage_blob_dead_letter_destination)
+            _setter("storage_blob_dead_letter_destination", storage_blob_dead_letter_destination)
         if storage_queue_endpoint is not None:
-            pulumi.set(__self__, "storage_queue_endpoint", storage_queue_endpoint)
+            _setter("storage_queue_endpoint", storage_queue_endpoint)
         if subject_filter is not None:
-            pulumi.set(__self__, "subject_filter", subject_filter)
+            _setter("subject_filter", subject_filter)
         if webhook_endpoint is not None:
-            pulumi.set(__self__, "webhook_endpoint", webhook_endpoint)
+            _setter("webhook_endpoint", webhook_endpoint)
 
     @property
     @pulumi.getter
@@ -416,48 +505,135 @@ class _EventSubscriptionState:
                
                > **NOTE:** One of `eventhub_endpoint_id`, `hybrid_connection_endpoint_id`, `service_bus_queue_endpoint_id`, `service_bus_topic_endpoint_id`, `storage_queue_endpoint`, `webhook_endpoint` or `azure_function_endpoint` must be specified.
         """
+        _EventSubscriptionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            advanced_filter=advanced_filter,
+            advanced_filtering_on_arrays_enabled=advanced_filtering_on_arrays_enabled,
+            azure_function_endpoint=azure_function_endpoint,
+            dead_letter_identity=dead_letter_identity,
+            delivery_identity=delivery_identity,
+            delivery_properties=delivery_properties,
+            event_delivery_schema=event_delivery_schema,
+            eventhub_endpoint_id=eventhub_endpoint_id,
+            expiration_time_utc=expiration_time_utc,
+            hybrid_connection_endpoint_id=hybrid_connection_endpoint_id,
+            included_event_types=included_event_types,
+            labels=labels,
+            name=name,
+            retry_policy=retry_policy,
+            scope=scope,
+            service_bus_queue_endpoint_id=service_bus_queue_endpoint_id,
+            service_bus_topic_endpoint_id=service_bus_topic_endpoint_id,
+            storage_blob_dead_letter_destination=storage_blob_dead_letter_destination,
+            storage_queue_endpoint=storage_queue_endpoint,
+            subject_filter=subject_filter,
+            webhook_endpoint=webhook_endpoint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             advanced_filter: Optional[pulumi.Input['EventSubscriptionAdvancedFilterArgs']] = None,
+             advanced_filtering_on_arrays_enabled: Optional[pulumi.Input[bool]] = None,
+             azure_function_endpoint: Optional[pulumi.Input['EventSubscriptionAzureFunctionEndpointArgs']] = None,
+             dead_letter_identity: Optional[pulumi.Input['EventSubscriptionDeadLetterIdentityArgs']] = None,
+             delivery_identity: Optional[pulumi.Input['EventSubscriptionDeliveryIdentityArgs']] = None,
+             delivery_properties: Optional[pulumi.Input[Sequence[pulumi.Input['EventSubscriptionDeliveryPropertyArgs']]]] = None,
+             event_delivery_schema: Optional[pulumi.Input[str]] = None,
+             eventhub_endpoint_id: Optional[pulumi.Input[str]] = None,
+             expiration_time_utc: Optional[pulumi.Input[str]] = None,
+             hybrid_connection_endpoint_id: Optional[pulumi.Input[str]] = None,
+             included_event_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             labels: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             retry_policy: Optional[pulumi.Input['EventSubscriptionRetryPolicyArgs']] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             service_bus_queue_endpoint_id: Optional[pulumi.Input[str]] = None,
+             service_bus_topic_endpoint_id: Optional[pulumi.Input[str]] = None,
+             storage_blob_dead_letter_destination: Optional[pulumi.Input['EventSubscriptionStorageBlobDeadLetterDestinationArgs']] = None,
+             storage_queue_endpoint: Optional[pulumi.Input['EventSubscriptionStorageQueueEndpointArgs']] = None,
+             subject_filter: Optional[pulumi.Input['EventSubscriptionSubjectFilterArgs']] = None,
+             webhook_endpoint: Optional[pulumi.Input['EventSubscriptionWebhookEndpointArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if advanced_filter is None and 'advancedFilter' in kwargs:
+            advanced_filter = kwargs['advancedFilter']
+        if advanced_filtering_on_arrays_enabled is None and 'advancedFilteringOnArraysEnabled' in kwargs:
+            advanced_filtering_on_arrays_enabled = kwargs['advancedFilteringOnArraysEnabled']
+        if azure_function_endpoint is None and 'azureFunctionEndpoint' in kwargs:
+            azure_function_endpoint = kwargs['azureFunctionEndpoint']
+        if dead_letter_identity is None and 'deadLetterIdentity' in kwargs:
+            dead_letter_identity = kwargs['deadLetterIdentity']
+        if delivery_identity is None and 'deliveryIdentity' in kwargs:
+            delivery_identity = kwargs['deliveryIdentity']
+        if delivery_properties is None and 'deliveryProperties' in kwargs:
+            delivery_properties = kwargs['deliveryProperties']
+        if event_delivery_schema is None and 'eventDeliverySchema' in kwargs:
+            event_delivery_schema = kwargs['eventDeliverySchema']
+        if eventhub_endpoint_id is None and 'eventhubEndpointId' in kwargs:
+            eventhub_endpoint_id = kwargs['eventhubEndpointId']
+        if expiration_time_utc is None and 'expirationTimeUtc' in kwargs:
+            expiration_time_utc = kwargs['expirationTimeUtc']
+        if hybrid_connection_endpoint_id is None and 'hybridConnectionEndpointId' in kwargs:
+            hybrid_connection_endpoint_id = kwargs['hybridConnectionEndpointId']
+        if included_event_types is None and 'includedEventTypes' in kwargs:
+            included_event_types = kwargs['includedEventTypes']
+        if retry_policy is None and 'retryPolicy' in kwargs:
+            retry_policy = kwargs['retryPolicy']
+        if service_bus_queue_endpoint_id is None and 'serviceBusQueueEndpointId' in kwargs:
+            service_bus_queue_endpoint_id = kwargs['serviceBusQueueEndpointId']
+        if service_bus_topic_endpoint_id is None and 'serviceBusTopicEndpointId' in kwargs:
+            service_bus_topic_endpoint_id = kwargs['serviceBusTopicEndpointId']
+        if storage_blob_dead_letter_destination is None and 'storageBlobDeadLetterDestination' in kwargs:
+            storage_blob_dead_letter_destination = kwargs['storageBlobDeadLetterDestination']
+        if storage_queue_endpoint is None and 'storageQueueEndpoint' in kwargs:
+            storage_queue_endpoint = kwargs['storageQueueEndpoint']
+        if subject_filter is None and 'subjectFilter' in kwargs:
+            subject_filter = kwargs['subjectFilter']
+        if webhook_endpoint is None and 'webhookEndpoint' in kwargs:
+            webhook_endpoint = kwargs['webhookEndpoint']
+
         if advanced_filter is not None:
-            pulumi.set(__self__, "advanced_filter", advanced_filter)
+            _setter("advanced_filter", advanced_filter)
         if advanced_filtering_on_arrays_enabled is not None:
-            pulumi.set(__self__, "advanced_filtering_on_arrays_enabled", advanced_filtering_on_arrays_enabled)
+            _setter("advanced_filtering_on_arrays_enabled", advanced_filtering_on_arrays_enabled)
         if azure_function_endpoint is not None:
-            pulumi.set(__self__, "azure_function_endpoint", azure_function_endpoint)
+            _setter("azure_function_endpoint", azure_function_endpoint)
         if dead_letter_identity is not None:
-            pulumi.set(__self__, "dead_letter_identity", dead_letter_identity)
+            _setter("dead_letter_identity", dead_letter_identity)
         if delivery_identity is not None:
-            pulumi.set(__self__, "delivery_identity", delivery_identity)
+            _setter("delivery_identity", delivery_identity)
         if delivery_properties is not None:
-            pulumi.set(__self__, "delivery_properties", delivery_properties)
+            _setter("delivery_properties", delivery_properties)
         if event_delivery_schema is not None:
-            pulumi.set(__self__, "event_delivery_schema", event_delivery_schema)
+            _setter("event_delivery_schema", event_delivery_schema)
         if eventhub_endpoint_id is not None:
-            pulumi.set(__self__, "eventhub_endpoint_id", eventhub_endpoint_id)
+            _setter("eventhub_endpoint_id", eventhub_endpoint_id)
         if expiration_time_utc is not None:
-            pulumi.set(__self__, "expiration_time_utc", expiration_time_utc)
+            _setter("expiration_time_utc", expiration_time_utc)
         if hybrid_connection_endpoint_id is not None:
-            pulumi.set(__self__, "hybrid_connection_endpoint_id", hybrid_connection_endpoint_id)
+            _setter("hybrid_connection_endpoint_id", hybrid_connection_endpoint_id)
         if included_event_types is not None:
-            pulumi.set(__self__, "included_event_types", included_event_types)
+            _setter("included_event_types", included_event_types)
         if labels is not None:
-            pulumi.set(__self__, "labels", labels)
+            _setter("labels", labels)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if retry_policy is not None:
-            pulumi.set(__self__, "retry_policy", retry_policy)
+            _setter("retry_policy", retry_policy)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if service_bus_queue_endpoint_id is not None:
-            pulumi.set(__self__, "service_bus_queue_endpoint_id", service_bus_queue_endpoint_id)
+            _setter("service_bus_queue_endpoint_id", service_bus_queue_endpoint_id)
         if service_bus_topic_endpoint_id is not None:
-            pulumi.set(__self__, "service_bus_topic_endpoint_id", service_bus_topic_endpoint_id)
+            _setter("service_bus_topic_endpoint_id", service_bus_topic_endpoint_id)
         if storage_blob_dead_letter_destination is not None:
-            pulumi.set(__self__, "storage_blob_dead_letter_destination", storage_blob_dead_letter_destination)
+            _setter("storage_blob_dead_letter_destination", storage_blob_dead_letter_destination)
         if storage_queue_endpoint is not None:
-            pulumi.set(__self__, "storage_queue_endpoint", storage_queue_endpoint)
+            _setter("storage_queue_endpoint", storage_queue_endpoint)
         if subject_filter is not None:
-            pulumi.set(__self__, "subject_filter", subject_filter)
+            _setter("subject_filter", subject_filter)
         if webhook_endpoint is not None:
-            pulumi.set(__self__, "webhook_endpoint", webhook_endpoint)
+            _setter("webhook_endpoint", webhook_endpoint)
 
     @property
     @pulumi.getter(name="advancedFilter")
@@ -862,6 +1038,10 @@ class EventSubscription(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventSubscriptionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -898,10 +1078,30 @@ class EventSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventSubscriptionArgs.__new__(EventSubscriptionArgs)
 
+            if advanced_filter is not None and not isinstance(advanced_filter, EventSubscriptionAdvancedFilterArgs):
+                advanced_filter = advanced_filter or {}
+                def _setter(key, value):
+                    advanced_filter[key] = value
+                EventSubscriptionAdvancedFilterArgs._configure(_setter, **advanced_filter)
             __props__.__dict__["advanced_filter"] = advanced_filter
             __props__.__dict__["advanced_filtering_on_arrays_enabled"] = advanced_filtering_on_arrays_enabled
+            if azure_function_endpoint is not None and not isinstance(azure_function_endpoint, EventSubscriptionAzureFunctionEndpointArgs):
+                azure_function_endpoint = azure_function_endpoint or {}
+                def _setter(key, value):
+                    azure_function_endpoint[key] = value
+                EventSubscriptionAzureFunctionEndpointArgs._configure(_setter, **azure_function_endpoint)
             __props__.__dict__["azure_function_endpoint"] = azure_function_endpoint
+            if dead_letter_identity is not None and not isinstance(dead_letter_identity, EventSubscriptionDeadLetterIdentityArgs):
+                dead_letter_identity = dead_letter_identity or {}
+                def _setter(key, value):
+                    dead_letter_identity[key] = value
+                EventSubscriptionDeadLetterIdentityArgs._configure(_setter, **dead_letter_identity)
             __props__.__dict__["dead_letter_identity"] = dead_letter_identity
+            if delivery_identity is not None and not isinstance(delivery_identity, EventSubscriptionDeliveryIdentityArgs):
+                delivery_identity = delivery_identity or {}
+                def _setter(key, value):
+                    delivery_identity[key] = value
+                EventSubscriptionDeliveryIdentityArgs._configure(_setter, **delivery_identity)
             __props__.__dict__["delivery_identity"] = delivery_identity
             __props__.__dict__["delivery_properties"] = delivery_properties
             __props__.__dict__["event_delivery_schema"] = event_delivery_schema
@@ -911,15 +1111,40 @@ class EventSubscription(pulumi.CustomResource):
             __props__.__dict__["included_event_types"] = included_event_types
             __props__.__dict__["labels"] = labels
             __props__.__dict__["name"] = name
+            if retry_policy is not None and not isinstance(retry_policy, EventSubscriptionRetryPolicyArgs):
+                retry_policy = retry_policy or {}
+                def _setter(key, value):
+                    retry_policy[key] = value
+                EventSubscriptionRetryPolicyArgs._configure(_setter, **retry_policy)
             __props__.__dict__["retry_policy"] = retry_policy
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
             __props__.__dict__["service_bus_queue_endpoint_id"] = service_bus_queue_endpoint_id
             __props__.__dict__["service_bus_topic_endpoint_id"] = service_bus_topic_endpoint_id
+            if storage_blob_dead_letter_destination is not None and not isinstance(storage_blob_dead_letter_destination, EventSubscriptionStorageBlobDeadLetterDestinationArgs):
+                storage_blob_dead_letter_destination = storage_blob_dead_letter_destination or {}
+                def _setter(key, value):
+                    storage_blob_dead_letter_destination[key] = value
+                EventSubscriptionStorageBlobDeadLetterDestinationArgs._configure(_setter, **storage_blob_dead_letter_destination)
             __props__.__dict__["storage_blob_dead_letter_destination"] = storage_blob_dead_letter_destination
+            if storage_queue_endpoint is not None and not isinstance(storage_queue_endpoint, EventSubscriptionStorageQueueEndpointArgs):
+                storage_queue_endpoint = storage_queue_endpoint or {}
+                def _setter(key, value):
+                    storage_queue_endpoint[key] = value
+                EventSubscriptionStorageQueueEndpointArgs._configure(_setter, **storage_queue_endpoint)
             __props__.__dict__["storage_queue_endpoint"] = storage_queue_endpoint
+            if subject_filter is not None and not isinstance(subject_filter, EventSubscriptionSubjectFilterArgs):
+                subject_filter = subject_filter or {}
+                def _setter(key, value):
+                    subject_filter[key] = value
+                EventSubscriptionSubjectFilterArgs._configure(_setter, **subject_filter)
             __props__.__dict__["subject_filter"] = subject_filter
+            if webhook_endpoint is not None and not isinstance(webhook_endpoint, EventSubscriptionWebhookEndpointArgs):
+                webhook_endpoint = webhook_endpoint or {}
+                def _setter(key, value):
+                    webhook_endpoint[key] = value
+                EventSubscriptionWebhookEndpointArgs._configure(_setter, **webhook_endpoint)
             __props__.__dict__["webhook_endpoint"] = webhook_endpoint
         super(EventSubscription, __self__).__init__(
             'azure:eventhub/eventSubscription:EventSubscription',

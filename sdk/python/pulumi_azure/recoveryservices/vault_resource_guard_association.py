@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VaultResourceGuardAssociationArgs', 'VaultResourceGuardAssociation']
@@ -25,13 +25,36 @@ class VaultResourceGuardAssociationArgs:
                
                > **NOTE:** `name` has been deprecated and will be removed in version 4.0 of the provider.
         """
-        pulumi.set(__self__, "resource_guard_id", resource_guard_id)
-        pulumi.set(__self__, "vault_id", vault_id)
+        VaultResourceGuardAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_guard_id=resource_guard_id,
+            vault_id=vault_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_guard_id: Optional[pulumi.Input[str]] = None,
+             vault_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_guard_id is None and 'resourceGuardId' in kwargs:
+            resource_guard_id = kwargs['resourceGuardId']
+        if resource_guard_id is None:
+            raise TypeError("Missing 'resource_guard_id' argument")
+        if vault_id is None and 'vaultId' in kwargs:
+            vault_id = kwargs['vaultId']
+        if vault_id is None:
+            raise TypeError("Missing 'vault_id' argument")
+
+        _setter("resource_guard_id", resource_guard_id)
+        _setter("vault_id", vault_id)
         if name is not None:
             warnings.warn("""The `name` field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
             pulumi.log.warn("""name is deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.""")
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="resourceGuardId")
@@ -89,15 +112,34 @@ class _VaultResourceGuardAssociationState:
         :param pulumi.Input[str] resource_guard_id: ID of the Resource Guard which should be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vault_id: ID of the Recovery Services Vault which should be associated with. Changing this forces a new resource to be created.
         """
+        _VaultResourceGuardAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            resource_guard_id=resource_guard_id,
+            vault_id=vault_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             resource_guard_id: Optional[pulumi.Input[str]] = None,
+             vault_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_guard_id is None and 'resourceGuardId' in kwargs:
+            resource_guard_id = kwargs['resourceGuardId']
+        if vault_id is None and 'vaultId' in kwargs:
+            vault_id = kwargs['vaultId']
+
         if name is not None:
             warnings.warn("""The `name` field will be removed in v4.0 of the AzureRM Provider.""", DeprecationWarning)
             pulumi.log.warn("""name is deprecated: The `name` field will be removed in v4.0 of the AzureRM Provider.""")
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_guard_id is not None:
-            pulumi.set(__self__, "resource_guard_id", resource_guard_id)
+            _setter("resource_guard_id", resource_guard_id)
         if vault_id is not None:
-            pulumi.set(__self__, "vault_id", vault_id)
+            _setter("vault_id", vault_id)
 
     @property
     @pulumi.getter
@@ -236,6 +278,10 @@ class VaultResourceGuardAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VaultResourceGuardAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

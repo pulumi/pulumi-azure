@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
@@ -40,30 +40,85 @@ class ProviderFeaturesArgs:
                  template_deployment: Optional[pulumi.Input['ProviderFeaturesTemplateDeploymentArgs']] = None,
                  virtual_machine: Optional[pulumi.Input['ProviderFeaturesVirtualMachineArgs']] = None,
                  virtual_machine_scale_set: Optional[pulumi.Input['ProviderFeaturesVirtualMachineScaleSetArgs']] = None):
+        ProviderFeaturesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management=api_management,
+            app_configuration=app_configuration,
+            application_insights=application_insights,
+            cognitive_account=cognitive_account,
+            key_vault=key_vault,
+            log_analytics_workspace=log_analytics_workspace,
+            managed_disk=managed_disk,
+            resource_group=resource_group,
+            subscription=subscription,
+            template_deployment=template_deployment,
+            virtual_machine=virtual_machine,
+            virtual_machine_scale_set=virtual_machine_scale_set,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management: Optional[pulumi.Input['ProviderFeaturesApiManagementArgs']] = None,
+             app_configuration: Optional[pulumi.Input['ProviderFeaturesAppConfigurationArgs']] = None,
+             application_insights: Optional[pulumi.Input['ProviderFeaturesApplicationInsightsArgs']] = None,
+             cognitive_account: Optional[pulumi.Input['ProviderFeaturesCognitiveAccountArgs']] = None,
+             key_vault: Optional[pulumi.Input['ProviderFeaturesKeyVaultArgs']] = None,
+             log_analytics_workspace: Optional[pulumi.Input['ProviderFeaturesLogAnalyticsWorkspaceArgs']] = None,
+             managed_disk: Optional[pulumi.Input['ProviderFeaturesManagedDiskArgs']] = None,
+             resource_group: Optional[pulumi.Input['ProviderFeaturesResourceGroupArgs']] = None,
+             subscription: Optional[pulumi.Input['ProviderFeaturesSubscriptionArgs']] = None,
+             template_deployment: Optional[pulumi.Input['ProviderFeaturesTemplateDeploymentArgs']] = None,
+             virtual_machine: Optional[pulumi.Input['ProviderFeaturesVirtualMachineArgs']] = None,
+             virtual_machine_scale_set: Optional[pulumi.Input['ProviderFeaturesVirtualMachineScaleSetArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_management is None and 'apiManagement' in kwargs:
+            api_management = kwargs['apiManagement']
+        if app_configuration is None and 'appConfiguration' in kwargs:
+            app_configuration = kwargs['appConfiguration']
+        if application_insights is None and 'applicationInsights' in kwargs:
+            application_insights = kwargs['applicationInsights']
+        if cognitive_account is None and 'cognitiveAccount' in kwargs:
+            cognitive_account = kwargs['cognitiveAccount']
+        if key_vault is None and 'keyVault' in kwargs:
+            key_vault = kwargs['keyVault']
+        if log_analytics_workspace is None and 'logAnalyticsWorkspace' in kwargs:
+            log_analytics_workspace = kwargs['logAnalyticsWorkspace']
+        if managed_disk is None and 'managedDisk' in kwargs:
+            managed_disk = kwargs['managedDisk']
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if template_deployment is None and 'templateDeployment' in kwargs:
+            template_deployment = kwargs['templateDeployment']
+        if virtual_machine is None and 'virtualMachine' in kwargs:
+            virtual_machine = kwargs['virtualMachine']
+        if virtual_machine_scale_set is None and 'virtualMachineScaleSet' in kwargs:
+            virtual_machine_scale_set = kwargs['virtualMachineScaleSet']
+
         if api_management is not None:
-            pulumi.set(__self__, "api_management", api_management)
+            _setter("api_management", api_management)
         if app_configuration is not None:
-            pulumi.set(__self__, "app_configuration", app_configuration)
+            _setter("app_configuration", app_configuration)
         if application_insights is not None:
-            pulumi.set(__self__, "application_insights", application_insights)
+            _setter("application_insights", application_insights)
         if cognitive_account is not None:
-            pulumi.set(__self__, "cognitive_account", cognitive_account)
+            _setter("cognitive_account", cognitive_account)
         if key_vault is not None:
-            pulumi.set(__self__, "key_vault", key_vault)
+            _setter("key_vault", key_vault)
         if log_analytics_workspace is not None:
-            pulumi.set(__self__, "log_analytics_workspace", log_analytics_workspace)
+            _setter("log_analytics_workspace", log_analytics_workspace)
         if managed_disk is not None:
-            pulumi.set(__self__, "managed_disk", managed_disk)
+            _setter("managed_disk", managed_disk)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if subscription is not None:
-            pulumi.set(__self__, "subscription", subscription)
+            _setter("subscription", subscription)
         if template_deployment is not None:
-            pulumi.set(__self__, "template_deployment", template_deployment)
+            _setter("template_deployment", template_deployment)
         if virtual_machine is not None:
-            pulumi.set(__self__, "virtual_machine", virtual_machine)
+            _setter("virtual_machine", virtual_machine)
         if virtual_machine_scale_set is not None:
-            pulumi.set(__self__, "virtual_machine_scale_set", virtual_machine_scale_set)
+            _setter("virtual_machine_scale_set", virtual_machine_scale_set)
 
     @property
     @pulumi.getter(name="apiManagement")
@@ -179,10 +234,27 @@ class ProviderFeaturesApiManagementArgs:
     def __init__(__self__, *,
                  purge_soft_delete_on_destroy: Optional[pulumi.Input[bool]] = None,
                  recover_soft_deleted: Optional[pulumi.Input[bool]] = None):
+        ProviderFeaturesApiManagementArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            purge_soft_delete_on_destroy=purge_soft_delete_on_destroy,
+            recover_soft_deleted=recover_soft_deleted,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             purge_soft_delete_on_destroy: Optional[pulumi.Input[bool]] = None,
+             recover_soft_deleted: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if purge_soft_delete_on_destroy is None and 'purgeSoftDeleteOnDestroy' in kwargs:
+            purge_soft_delete_on_destroy = kwargs['purgeSoftDeleteOnDestroy']
+        if recover_soft_deleted is None and 'recoverSoftDeleted' in kwargs:
+            recover_soft_deleted = kwargs['recoverSoftDeleted']
+
         if purge_soft_delete_on_destroy is not None:
-            pulumi.set(__self__, "purge_soft_delete_on_destroy", purge_soft_delete_on_destroy)
+            _setter("purge_soft_delete_on_destroy", purge_soft_delete_on_destroy)
         if recover_soft_deleted is not None:
-            pulumi.set(__self__, "recover_soft_deleted", recover_soft_deleted)
+            _setter("recover_soft_deleted", recover_soft_deleted)
 
     @property
     @pulumi.getter(name="purgeSoftDeleteOnDestroy")
@@ -208,10 +280,27 @@ class ProviderFeaturesAppConfigurationArgs:
     def __init__(__self__, *,
                  purge_soft_delete_on_destroy: Optional[pulumi.Input[bool]] = None,
                  recover_soft_deleted: Optional[pulumi.Input[bool]] = None):
+        ProviderFeaturesAppConfigurationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            purge_soft_delete_on_destroy=purge_soft_delete_on_destroy,
+            recover_soft_deleted=recover_soft_deleted,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             purge_soft_delete_on_destroy: Optional[pulumi.Input[bool]] = None,
+             recover_soft_deleted: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if purge_soft_delete_on_destroy is None and 'purgeSoftDeleteOnDestroy' in kwargs:
+            purge_soft_delete_on_destroy = kwargs['purgeSoftDeleteOnDestroy']
+        if recover_soft_deleted is None and 'recoverSoftDeleted' in kwargs:
+            recover_soft_deleted = kwargs['recoverSoftDeleted']
+
         if purge_soft_delete_on_destroy is not None:
-            pulumi.set(__self__, "purge_soft_delete_on_destroy", purge_soft_delete_on_destroy)
+            _setter("purge_soft_delete_on_destroy", purge_soft_delete_on_destroy)
         if recover_soft_deleted is not None:
-            pulumi.set(__self__, "recover_soft_deleted", recover_soft_deleted)
+            _setter("recover_soft_deleted", recover_soft_deleted)
 
     @property
     @pulumi.getter(name="purgeSoftDeleteOnDestroy")
@@ -236,8 +325,21 @@ class ProviderFeaturesAppConfigurationArgs:
 class ProviderFeaturesApplicationInsightsArgs:
     def __init__(__self__, *,
                  disable_generated_rule: Optional[pulumi.Input[bool]] = None):
+        ProviderFeaturesApplicationInsightsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            disable_generated_rule=disable_generated_rule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             disable_generated_rule: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if disable_generated_rule is None and 'disableGeneratedRule' in kwargs:
+            disable_generated_rule = kwargs['disableGeneratedRule']
+
         if disable_generated_rule is not None:
-            pulumi.set(__self__, "disable_generated_rule", disable_generated_rule)
+            _setter("disable_generated_rule", disable_generated_rule)
 
     @property
     @pulumi.getter(name="disableGeneratedRule")
@@ -253,8 +355,21 @@ class ProviderFeaturesApplicationInsightsArgs:
 class ProviderFeaturesCognitiveAccountArgs:
     def __init__(__self__, *,
                  purge_soft_delete_on_destroy: Optional[pulumi.Input[bool]] = None):
+        ProviderFeaturesCognitiveAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            purge_soft_delete_on_destroy=purge_soft_delete_on_destroy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             purge_soft_delete_on_destroy: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if purge_soft_delete_on_destroy is None and 'purgeSoftDeleteOnDestroy' in kwargs:
+            purge_soft_delete_on_destroy = kwargs['purgeSoftDeleteOnDestroy']
+
         if purge_soft_delete_on_destroy is not None:
-            pulumi.set(__self__, "purge_soft_delete_on_destroy", purge_soft_delete_on_destroy)
+            _setter("purge_soft_delete_on_destroy", purge_soft_delete_on_destroy)
 
     @property
     @pulumi.getter(name="purgeSoftDeleteOnDestroy")
@@ -278,24 +393,69 @@ class ProviderFeaturesKeyVaultArgs:
                  recover_soft_deleted_key_vaults: Optional[pulumi.Input[bool]] = None,
                  recover_soft_deleted_keys: Optional[pulumi.Input[bool]] = None,
                  recover_soft_deleted_secrets: Optional[pulumi.Input[bool]] = None):
+        ProviderFeaturesKeyVaultArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            purge_soft_delete_on_destroy=purge_soft_delete_on_destroy,
+            purge_soft_deleted_certificates_on_destroy=purge_soft_deleted_certificates_on_destroy,
+            purge_soft_deleted_hardware_security_modules_on_destroy=purge_soft_deleted_hardware_security_modules_on_destroy,
+            purge_soft_deleted_keys_on_destroy=purge_soft_deleted_keys_on_destroy,
+            purge_soft_deleted_secrets_on_destroy=purge_soft_deleted_secrets_on_destroy,
+            recover_soft_deleted_certificates=recover_soft_deleted_certificates,
+            recover_soft_deleted_key_vaults=recover_soft_deleted_key_vaults,
+            recover_soft_deleted_keys=recover_soft_deleted_keys,
+            recover_soft_deleted_secrets=recover_soft_deleted_secrets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             purge_soft_delete_on_destroy: Optional[pulumi.Input[bool]] = None,
+             purge_soft_deleted_certificates_on_destroy: Optional[pulumi.Input[bool]] = None,
+             purge_soft_deleted_hardware_security_modules_on_destroy: Optional[pulumi.Input[bool]] = None,
+             purge_soft_deleted_keys_on_destroy: Optional[pulumi.Input[bool]] = None,
+             purge_soft_deleted_secrets_on_destroy: Optional[pulumi.Input[bool]] = None,
+             recover_soft_deleted_certificates: Optional[pulumi.Input[bool]] = None,
+             recover_soft_deleted_key_vaults: Optional[pulumi.Input[bool]] = None,
+             recover_soft_deleted_keys: Optional[pulumi.Input[bool]] = None,
+             recover_soft_deleted_secrets: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if purge_soft_delete_on_destroy is None and 'purgeSoftDeleteOnDestroy' in kwargs:
+            purge_soft_delete_on_destroy = kwargs['purgeSoftDeleteOnDestroy']
+        if purge_soft_deleted_certificates_on_destroy is None and 'purgeSoftDeletedCertificatesOnDestroy' in kwargs:
+            purge_soft_deleted_certificates_on_destroy = kwargs['purgeSoftDeletedCertificatesOnDestroy']
+        if purge_soft_deleted_hardware_security_modules_on_destroy is None and 'purgeSoftDeletedHardwareSecurityModulesOnDestroy' in kwargs:
+            purge_soft_deleted_hardware_security_modules_on_destroy = kwargs['purgeSoftDeletedHardwareSecurityModulesOnDestroy']
+        if purge_soft_deleted_keys_on_destroy is None and 'purgeSoftDeletedKeysOnDestroy' in kwargs:
+            purge_soft_deleted_keys_on_destroy = kwargs['purgeSoftDeletedKeysOnDestroy']
+        if purge_soft_deleted_secrets_on_destroy is None and 'purgeSoftDeletedSecretsOnDestroy' in kwargs:
+            purge_soft_deleted_secrets_on_destroy = kwargs['purgeSoftDeletedSecretsOnDestroy']
+        if recover_soft_deleted_certificates is None and 'recoverSoftDeletedCertificates' in kwargs:
+            recover_soft_deleted_certificates = kwargs['recoverSoftDeletedCertificates']
+        if recover_soft_deleted_key_vaults is None and 'recoverSoftDeletedKeyVaults' in kwargs:
+            recover_soft_deleted_key_vaults = kwargs['recoverSoftDeletedKeyVaults']
+        if recover_soft_deleted_keys is None and 'recoverSoftDeletedKeys' in kwargs:
+            recover_soft_deleted_keys = kwargs['recoverSoftDeletedKeys']
+        if recover_soft_deleted_secrets is None and 'recoverSoftDeletedSecrets' in kwargs:
+            recover_soft_deleted_secrets = kwargs['recoverSoftDeletedSecrets']
+
         if purge_soft_delete_on_destroy is not None:
-            pulumi.set(__self__, "purge_soft_delete_on_destroy", purge_soft_delete_on_destroy)
+            _setter("purge_soft_delete_on_destroy", purge_soft_delete_on_destroy)
         if purge_soft_deleted_certificates_on_destroy is not None:
-            pulumi.set(__self__, "purge_soft_deleted_certificates_on_destroy", purge_soft_deleted_certificates_on_destroy)
+            _setter("purge_soft_deleted_certificates_on_destroy", purge_soft_deleted_certificates_on_destroy)
         if purge_soft_deleted_hardware_security_modules_on_destroy is not None:
-            pulumi.set(__self__, "purge_soft_deleted_hardware_security_modules_on_destroy", purge_soft_deleted_hardware_security_modules_on_destroy)
+            _setter("purge_soft_deleted_hardware_security_modules_on_destroy", purge_soft_deleted_hardware_security_modules_on_destroy)
         if purge_soft_deleted_keys_on_destroy is not None:
-            pulumi.set(__self__, "purge_soft_deleted_keys_on_destroy", purge_soft_deleted_keys_on_destroy)
+            _setter("purge_soft_deleted_keys_on_destroy", purge_soft_deleted_keys_on_destroy)
         if purge_soft_deleted_secrets_on_destroy is not None:
-            pulumi.set(__self__, "purge_soft_deleted_secrets_on_destroy", purge_soft_deleted_secrets_on_destroy)
+            _setter("purge_soft_deleted_secrets_on_destroy", purge_soft_deleted_secrets_on_destroy)
         if recover_soft_deleted_certificates is not None:
-            pulumi.set(__self__, "recover_soft_deleted_certificates", recover_soft_deleted_certificates)
+            _setter("recover_soft_deleted_certificates", recover_soft_deleted_certificates)
         if recover_soft_deleted_key_vaults is not None:
-            pulumi.set(__self__, "recover_soft_deleted_key_vaults", recover_soft_deleted_key_vaults)
+            _setter("recover_soft_deleted_key_vaults", recover_soft_deleted_key_vaults)
         if recover_soft_deleted_keys is not None:
-            pulumi.set(__self__, "recover_soft_deleted_keys", recover_soft_deleted_keys)
+            _setter("recover_soft_deleted_keys", recover_soft_deleted_keys)
         if recover_soft_deleted_secrets is not None:
-            pulumi.set(__self__, "recover_soft_deleted_secrets", recover_soft_deleted_secrets)
+            _setter("recover_soft_deleted_secrets", recover_soft_deleted_secrets)
 
     @property
     @pulumi.getter(name="purgeSoftDeleteOnDestroy")
@@ -383,8 +543,21 @@ class ProviderFeaturesKeyVaultArgs:
 class ProviderFeaturesLogAnalyticsWorkspaceArgs:
     def __init__(__self__, *,
                  permanently_delete_on_destroy: Optional[pulumi.Input[bool]] = None):
+        ProviderFeaturesLogAnalyticsWorkspaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            permanently_delete_on_destroy=permanently_delete_on_destroy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             permanently_delete_on_destroy: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if permanently_delete_on_destroy is None and 'permanentlyDeleteOnDestroy' in kwargs:
+            permanently_delete_on_destroy = kwargs['permanentlyDeleteOnDestroy']
+
         if permanently_delete_on_destroy is not None:
-            pulumi.set(__self__, "permanently_delete_on_destroy", permanently_delete_on_destroy)
+            _setter("permanently_delete_on_destroy", permanently_delete_on_destroy)
 
     @property
     @pulumi.getter(name="permanentlyDeleteOnDestroy")
@@ -400,8 +573,21 @@ class ProviderFeaturesLogAnalyticsWorkspaceArgs:
 class ProviderFeaturesManagedDiskArgs:
     def __init__(__self__, *,
                  expand_without_downtime: Optional[pulumi.Input[bool]] = None):
+        ProviderFeaturesManagedDiskArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            expand_without_downtime=expand_without_downtime,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             expand_without_downtime: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if expand_without_downtime is None and 'expandWithoutDowntime' in kwargs:
+            expand_without_downtime = kwargs['expandWithoutDowntime']
+
         if expand_without_downtime is not None:
-            pulumi.set(__self__, "expand_without_downtime", expand_without_downtime)
+            _setter("expand_without_downtime", expand_without_downtime)
 
     @property
     @pulumi.getter(name="expandWithoutDowntime")
@@ -417,8 +603,21 @@ class ProviderFeaturesManagedDiskArgs:
 class ProviderFeaturesResourceGroupArgs:
     def __init__(__self__, *,
                  prevent_deletion_if_contains_resources: Optional[pulumi.Input[bool]] = None):
+        ProviderFeaturesResourceGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            prevent_deletion_if_contains_resources=prevent_deletion_if_contains_resources,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             prevent_deletion_if_contains_resources: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if prevent_deletion_if_contains_resources is None and 'preventDeletionIfContainsResources' in kwargs:
+            prevent_deletion_if_contains_resources = kwargs['preventDeletionIfContainsResources']
+
         if prevent_deletion_if_contains_resources is not None:
-            pulumi.set(__self__, "prevent_deletion_if_contains_resources", prevent_deletion_if_contains_resources)
+            _setter("prevent_deletion_if_contains_resources", prevent_deletion_if_contains_resources)
 
     @property
     @pulumi.getter(name="preventDeletionIfContainsResources")
@@ -434,8 +633,21 @@ class ProviderFeaturesResourceGroupArgs:
 class ProviderFeaturesSubscriptionArgs:
     def __init__(__self__, *,
                  prevent_cancellation_on_destroy: Optional[pulumi.Input[bool]] = None):
+        ProviderFeaturesSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            prevent_cancellation_on_destroy=prevent_cancellation_on_destroy,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             prevent_cancellation_on_destroy: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if prevent_cancellation_on_destroy is None and 'preventCancellationOnDestroy' in kwargs:
+            prevent_cancellation_on_destroy = kwargs['preventCancellationOnDestroy']
+
         if prevent_cancellation_on_destroy is not None:
-            pulumi.set(__self__, "prevent_cancellation_on_destroy", prevent_cancellation_on_destroy)
+            _setter("prevent_cancellation_on_destroy", prevent_cancellation_on_destroy)
 
     @property
     @pulumi.getter(name="preventCancellationOnDestroy")
@@ -451,7 +663,22 @@ class ProviderFeaturesSubscriptionArgs:
 class ProviderFeaturesTemplateDeploymentArgs:
     def __init__(__self__, *,
                  delete_nested_items_during_deletion: pulumi.Input[bool]):
-        pulumi.set(__self__, "delete_nested_items_during_deletion", delete_nested_items_during_deletion)
+        ProviderFeaturesTemplateDeploymentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_nested_items_during_deletion=delete_nested_items_during_deletion,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_nested_items_during_deletion: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if delete_nested_items_during_deletion is None and 'deleteNestedItemsDuringDeletion' in kwargs:
+            delete_nested_items_during_deletion = kwargs['deleteNestedItemsDuringDeletion']
+        if delete_nested_items_during_deletion is None:
+            raise TypeError("Missing 'delete_nested_items_during_deletion' argument")
+
+        _setter("delete_nested_items_during_deletion", delete_nested_items_during_deletion)
 
     @property
     @pulumi.getter(name="deleteNestedItemsDuringDeletion")
@@ -469,12 +696,33 @@ class ProviderFeaturesVirtualMachineArgs:
                  delete_os_disk_on_deletion: Optional[pulumi.Input[bool]] = None,
                  graceful_shutdown: Optional[pulumi.Input[bool]] = None,
                  skip_shutdown_and_force_delete: Optional[pulumi.Input[bool]] = None):
+        ProviderFeaturesVirtualMachineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            delete_os_disk_on_deletion=delete_os_disk_on_deletion,
+            graceful_shutdown=graceful_shutdown,
+            skip_shutdown_and_force_delete=skip_shutdown_and_force_delete,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             delete_os_disk_on_deletion: Optional[pulumi.Input[bool]] = None,
+             graceful_shutdown: Optional[pulumi.Input[bool]] = None,
+             skip_shutdown_and_force_delete: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if delete_os_disk_on_deletion is None and 'deleteOsDiskOnDeletion' in kwargs:
+            delete_os_disk_on_deletion = kwargs['deleteOsDiskOnDeletion']
+        if graceful_shutdown is None and 'gracefulShutdown' in kwargs:
+            graceful_shutdown = kwargs['gracefulShutdown']
+        if skip_shutdown_and_force_delete is None and 'skipShutdownAndForceDelete' in kwargs:
+            skip_shutdown_and_force_delete = kwargs['skipShutdownAndForceDelete']
+
         if delete_os_disk_on_deletion is not None:
-            pulumi.set(__self__, "delete_os_disk_on_deletion", delete_os_disk_on_deletion)
+            _setter("delete_os_disk_on_deletion", delete_os_disk_on_deletion)
         if graceful_shutdown is not None:
-            pulumi.set(__self__, "graceful_shutdown", graceful_shutdown)
+            _setter("graceful_shutdown", graceful_shutdown)
         if skip_shutdown_and_force_delete is not None:
-            pulumi.set(__self__, "skip_shutdown_and_force_delete", skip_shutdown_and_force_delete)
+            _setter("skip_shutdown_and_force_delete", skip_shutdown_and_force_delete)
 
     @property
     @pulumi.getter(name="deleteOsDiskOnDeletion")
@@ -510,12 +758,33 @@ class ProviderFeaturesVirtualMachineScaleSetArgs:
                  force_delete: Optional[pulumi.Input[bool]] = None,
                  roll_instances_when_required: Optional[pulumi.Input[bool]] = None,
                  scale_to_zero_before_deletion: Optional[pulumi.Input[bool]] = None):
+        ProviderFeaturesVirtualMachineScaleSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            force_delete=force_delete,
+            roll_instances_when_required=roll_instances_when_required,
+            scale_to_zero_before_deletion=scale_to_zero_before_deletion,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             force_delete: Optional[pulumi.Input[bool]] = None,
+             roll_instances_when_required: Optional[pulumi.Input[bool]] = None,
+             scale_to_zero_before_deletion: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if force_delete is None and 'forceDelete' in kwargs:
+            force_delete = kwargs['forceDelete']
+        if roll_instances_when_required is None and 'rollInstancesWhenRequired' in kwargs:
+            roll_instances_when_required = kwargs['rollInstancesWhenRequired']
+        if scale_to_zero_before_deletion is None and 'scaleToZeroBeforeDeletion' in kwargs:
+            scale_to_zero_before_deletion = kwargs['scaleToZeroBeforeDeletion']
+
         if force_delete is not None:
-            pulumi.set(__self__, "force_delete", force_delete)
+            _setter("force_delete", force_delete)
         if roll_instances_when_required is not None:
-            pulumi.set(__self__, "roll_instances_when_required", roll_instances_when_required)
+            _setter("roll_instances_when_required", roll_instances_when_required)
         if scale_to_zero_before_deletion is not None:
-            pulumi.set(__self__, "scale_to_zero_before_deletion", scale_to_zero_before_deletion)
+            _setter("scale_to_zero_before_deletion", scale_to_zero_before_deletion)
 
     @property
     @pulumi.getter(name="forceDelete")

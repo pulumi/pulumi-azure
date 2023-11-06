@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DefinitionArgs', 'Definition']
@@ -37,21 +37,62 @@ class DefinitionArgs:
         :param pulumi.Input[str] parameters: Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition.
         :param pulumi.Input[str] policy_rule: The policy rule for the policy definition. This is a JSON string representing the rule that contains an if and a then block.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "mode", mode)
-        pulumi.set(__self__, "policy_type", policy_type)
+        DefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            mode=mode,
+            policy_type=policy_type,
+            description=description,
+            management_group_id=management_group_id,
+            metadata=metadata,
+            name=name,
+            parameters=parameters,
+            policy_rule=policy_rule,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[pulumi.Input[str]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             policy_type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             management_group_id: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[str]] = None,
+             policy_rule: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if mode is None:
+            raise TypeError("Missing 'mode' argument")
+        if policy_type is None and 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if policy_type is None:
+            raise TypeError("Missing 'policy_type' argument")
+        if management_group_id is None and 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if policy_rule is None and 'policyRule' in kwargs:
+            policy_rule = kwargs['policyRule']
+
+        _setter("display_name", display_name)
+        _setter("mode", mode)
+        _setter("policy_type", policy_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if management_group_id is not None:
-            pulumi.set(__self__, "management_group_id", management_group_id)
+            _setter("management_group_id", management_group_id)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if policy_rule is not None:
-            pulumi.set(__self__, "policy_rule", policy_rule)
+            _setter("policy_rule", policy_rule)
 
     @property
     @pulumi.getter(name="displayName")
@@ -192,26 +233,65 @@ class _DefinitionState:
         :param pulumi.Input[str] policy_type: The policy type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] role_definition_ids: A list of role definition id extracted from `policy_rule` required for remediation.
         """
+        _DefinitionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            display_name=display_name,
+            management_group_id=management_group_id,
+            metadata=metadata,
+            mode=mode,
+            name=name,
+            parameters=parameters,
+            policy_rule=policy_rule,
+            policy_type=policy_type,
+            role_definition_ids=role_definition_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             management_group_id: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[str]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[str]] = None,
+             policy_rule: Optional[pulumi.Input[str]] = None,
+             policy_type: Optional[pulumi.Input[str]] = None,
+             role_definition_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if management_group_id is None and 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if policy_rule is None and 'policyRule' in kwargs:
+            policy_rule = kwargs['policyRule']
+        if policy_type is None and 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if role_definition_ids is None and 'roleDefinitionIds' in kwargs:
+            role_definition_ids = kwargs['roleDefinitionIds']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if management_group_id is not None:
-            pulumi.set(__self__, "management_group_id", management_group_id)
+            _setter("management_group_id", management_group_id)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if policy_rule is not None:
-            pulumi.set(__self__, "policy_rule", policy_rule)
+            _setter("policy_rule", policy_rule)
         if policy_type is not None:
-            pulumi.set(__self__, "policy_type", policy_type)
+            _setter("policy_type", policy_type)
         if role_definition_ids is not None:
-            pulumi.set(__self__, "role_definition_ids", role_definition_ids)
+            _setter("role_definition_ids", role_definition_ids)
 
     @property
     @pulumi.getter
@@ -505,6 +585,10 @@ class Definition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

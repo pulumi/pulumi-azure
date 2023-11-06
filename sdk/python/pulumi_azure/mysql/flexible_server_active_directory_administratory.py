@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['FlexibleServerActiveDirectoryAdministratoryArgs', 'FlexibleServerActiveDirectoryAdministratory']
@@ -22,11 +22,48 @@ class FlexibleServerActiveDirectoryAdministratoryArgs:
         """
         The set of arguments for constructing a FlexibleServerActiveDirectoryAdministratory resource.
         """
-        pulumi.set(__self__, "identity_id", identity_id)
-        pulumi.set(__self__, "login", login)
-        pulumi.set(__self__, "object_id", object_id)
-        pulumi.set(__self__, "server_id", server_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        FlexibleServerActiveDirectoryAdministratoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_id=identity_id,
+            login=login,
+            object_id=object_id,
+            server_id=server_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_id: Optional[pulumi.Input[str]] = None,
+             login: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             server_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if identity_id is None and 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+        if identity_id is None:
+            raise TypeError("Missing 'identity_id' argument")
+        if login is None:
+            raise TypeError("Missing 'login' argument")
+        if object_id is None and 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if object_id is None:
+            raise TypeError("Missing 'object_id' argument")
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if server_id is None:
+            raise TypeError("Missing 'server_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+
+        _setter("identity_id", identity_id)
+        _setter("login", login)
+        _setter("object_id", object_id)
+        _setter("server_id", server_id)
+        _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="identityId")
@@ -85,16 +122,43 @@ class _FlexibleServerActiveDirectoryAdministratoryState:
         """
         Input properties used for looking up and filtering FlexibleServerActiveDirectoryAdministratory resources.
         """
+        _FlexibleServerActiveDirectoryAdministratoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_id=identity_id,
+            login=login,
+            object_id=object_id,
+            server_id=server_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_id: Optional[pulumi.Input[str]] = None,
+             login: Optional[pulumi.Input[str]] = None,
+             object_id: Optional[pulumi.Input[str]] = None,
+             server_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if identity_id is None and 'identityId' in kwargs:
+            identity_id = kwargs['identityId']
+        if object_id is None and 'objectId' in kwargs:
+            object_id = kwargs['objectId']
+        if server_id is None and 'serverId' in kwargs:
+            server_id = kwargs['serverId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
         if identity_id is not None:
-            pulumi.set(__self__, "identity_id", identity_id)
+            _setter("identity_id", identity_id)
         if login is not None:
-            pulumi.set(__self__, "login", login)
+            _setter("login", login)
         if object_id is not None:
-            pulumi.set(__self__, "object_id", object_id)
+            _setter("object_id", object_id)
         if server_id is not None:
-            pulumi.set(__self__, "server_id", server_id)
+            _setter("server_id", server_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter(name="identityId")
@@ -176,6 +240,10 @@ class FlexibleServerActiveDirectoryAdministratory(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FlexibleServerActiveDirectoryAdministratoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

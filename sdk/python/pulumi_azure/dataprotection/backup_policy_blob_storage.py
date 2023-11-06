@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BackupPolicyBlobStorageArgs', 'BackupPolicyBlobStorage']
@@ -23,10 +23,33 @@ class BackupPolicyBlobStorageArgs:
         :param pulumi.Input[str] vault_id: The ID of the Backup Vault within which the Backup Policy Blob Storage should exist. Changing this forces a new Backup Policy Blob Storage to be created.
         :param pulumi.Input[str] name: The name which should be used for this Backup Policy Blob Storage. Changing this forces a new Backup Policy Blob Storage to be created.
         """
-        pulumi.set(__self__, "retention_duration", retention_duration)
-        pulumi.set(__self__, "vault_id", vault_id)
+        BackupPolicyBlobStorageArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            retention_duration=retention_duration,
+            vault_id=vault_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             retention_duration: Optional[pulumi.Input[str]] = None,
+             vault_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if retention_duration is None and 'retentionDuration' in kwargs:
+            retention_duration = kwargs['retentionDuration']
+        if retention_duration is None:
+            raise TypeError("Missing 'retention_duration' argument")
+        if vault_id is None and 'vaultId' in kwargs:
+            vault_id = kwargs['vaultId']
+        if vault_id is None:
+            raise TypeError("Missing 'vault_id' argument")
+
+        _setter("retention_duration", retention_duration)
+        _setter("vault_id", vault_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="retentionDuration")
@@ -77,12 +100,31 @@ class _BackupPolicyBlobStorageState:
         :param pulumi.Input[str] retention_duration: Duration of deletion after given timespan. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Blob Storage to be created.
         :param pulumi.Input[str] vault_id: The ID of the Backup Vault within which the Backup Policy Blob Storage should exist. Changing this forces a new Backup Policy Blob Storage to be created.
         """
+        _BackupPolicyBlobStorageState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            retention_duration=retention_duration,
+            vault_id=vault_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             retention_duration: Optional[pulumi.Input[str]] = None,
+             vault_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if retention_duration is None and 'retentionDuration' in kwargs:
+            retention_duration = kwargs['retentionDuration']
+        if vault_id is None and 'vaultId' in kwargs:
+            vault_id = kwargs['vaultId']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if retention_duration is not None:
-            pulumi.set(__self__, "retention_duration", retention_duration)
+            _setter("retention_duration", retention_duration)
         if vault_id is not None:
-            pulumi.set(__self__, "vault_id", vault_id)
+            _setter("vault_id", vault_id)
 
     @property
     @pulumi.getter
@@ -208,6 +250,10 @@ class BackupPolicyBlobStorage(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BackupPolicyBlobStorageArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

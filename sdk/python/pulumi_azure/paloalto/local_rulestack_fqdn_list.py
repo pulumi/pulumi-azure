@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['LocalRulestackFqdnListArgs', 'LocalRulestackFqdnList']
@@ -27,14 +27,43 @@ class LocalRulestackFqdnListArgs:
         :param pulumi.Input[str] description: The description for the FQDN List.
         :param pulumi.Input[str] name: The name which should be used for this Palo Alto Local Rulestack FQDN List.
         """
-        pulumi.set(__self__, "fully_qualified_domain_names", fully_qualified_domain_names)
-        pulumi.set(__self__, "rulestack_id", rulestack_id)
+        LocalRulestackFqdnListArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fully_qualified_domain_names=fully_qualified_domain_names,
+            rulestack_id=rulestack_id,
+            audit_comment=audit_comment,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fully_qualified_domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             rulestack_id: Optional[pulumi.Input[str]] = None,
+             audit_comment: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if fully_qualified_domain_names is None and 'fullyQualifiedDomainNames' in kwargs:
+            fully_qualified_domain_names = kwargs['fullyQualifiedDomainNames']
+        if fully_qualified_domain_names is None:
+            raise TypeError("Missing 'fully_qualified_domain_names' argument")
+        if rulestack_id is None and 'rulestackId' in kwargs:
+            rulestack_id = kwargs['rulestackId']
+        if rulestack_id is None:
+            raise TypeError("Missing 'rulestack_id' argument")
+        if audit_comment is None and 'auditComment' in kwargs:
+            audit_comment = kwargs['auditComment']
+
+        _setter("fully_qualified_domain_names", fully_qualified_domain_names)
+        _setter("rulestack_id", rulestack_id)
         if audit_comment is not None:
-            pulumi.set(__self__, "audit_comment", audit_comment)
+            _setter("audit_comment", audit_comment)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="fullyQualifiedDomainNames")
@@ -113,16 +142,41 @@ class _LocalRulestackFqdnListState:
         :param pulumi.Input[str] name: The name which should be used for this Palo Alto Local Rulestack FQDN List.
         :param pulumi.Input[str] rulestack_id: The ID of the TODO. Changing this forces a new Palo Alto Local Rulestack FQDN List to be created.
         """
+        _LocalRulestackFqdnListState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            audit_comment=audit_comment,
+            description=description,
+            fully_qualified_domain_names=fully_qualified_domain_names,
+            name=name,
+            rulestack_id=rulestack_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             audit_comment: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             fully_qualified_domain_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             rulestack_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if audit_comment is None and 'auditComment' in kwargs:
+            audit_comment = kwargs['auditComment']
+        if fully_qualified_domain_names is None and 'fullyQualifiedDomainNames' in kwargs:
+            fully_qualified_domain_names = kwargs['fullyQualifiedDomainNames']
+        if rulestack_id is None and 'rulestackId' in kwargs:
+            rulestack_id = kwargs['rulestackId']
+
         if audit_comment is not None:
-            pulumi.set(__self__, "audit_comment", audit_comment)
+            _setter("audit_comment", audit_comment)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if fully_qualified_domain_names is not None:
-            pulumi.set(__self__, "fully_qualified_domain_names", fully_qualified_domain_names)
+            _setter("fully_qualified_domain_names", fully_qualified_domain_names)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if rulestack_id is not None:
-            pulumi.set(__self__, "rulestack_id", rulestack_id)
+            _setter("rulestack_id", rulestack_id)
 
     @property
     @pulumi.getter(name="auditComment")
@@ -272,6 +326,10 @@ class LocalRulestackFqdnList(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LocalRulestackFqdnListArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

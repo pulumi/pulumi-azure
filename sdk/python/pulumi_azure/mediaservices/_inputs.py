@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -31,14 +31,37 @@ class AccountEncryptionArgs:
         :param pulumi.Input['AccountEncryptionManagedIdentityArgs'] managed_identity: A `managed_identity` block as defined below.
         :param pulumi.Input[str] type: Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
         """
+        AccountEncryptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            current_key_identifier=current_key_identifier,
+            key_vault_key_identifier=key_vault_key_identifier,
+            managed_identity=managed_identity,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             current_key_identifier: Optional[pulumi.Input[str]] = None,
+             key_vault_key_identifier: Optional[pulumi.Input[str]] = None,
+             managed_identity: Optional[pulumi.Input['AccountEncryptionManagedIdentityArgs']] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if current_key_identifier is None and 'currentKeyIdentifier' in kwargs:
+            current_key_identifier = kwargs['currentKeyIdentifier']
+        if key_vault_key_identifier is None and 'keyVaultKeyIdentifier' in kwargs:
+            key_vault_key_identifier = kwargs['keyVaultKeyIdentifier']
+        if managed_identity is None and 'managedIdentity' in kwargs:
+            managed_identity = kwargs['managedIdentity']
+
         if current_key_identifier is not None:
-            pulumi.set(__self__, "current_key_identifier", current_key_identifier)
+            _setter("current_key_identifier", current_key_identifier)
         if key_vault_key_identifier is not None:
-            pulumi.set(__self__, "key_vault_key_identifier", key_vault_key_identifier)
+            _setter("key_vault_key_identifier", key_vault_key_identifier)
         if managed_identity is not None:
-            pulumi.set(__self__, "managed_identity", managed_identity)
+            _setter("managed_identity", managed_identity)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="currentKeyIdentifier")
@@ -98,10 +121,27 @@ class AccountEncryptionManagedIdentityArgs:
         :param pulumi.Input[bool] use_system_assigned_identity: Whether to use System Assigned Identity. Possible Values are `true` and `false`.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Identity. This value can only be set when `use_system_assigned_identity` is `false`
         """
+        AccountEncryptionManagedIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            use_system_assigned_identity=use_system_assigned_identity,
+            user_assigned_identity_id=user_assigned_identity_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             use_system_assigned_identity: Optional[pulumi.Input[bool]] = None,
+             user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if use_system_assigned_identity is None and 'useSystemAssignedIdentity' in kwargs:
+            use_system_assigned_identity = kwargs['useSystemAssignedIdentity']
+        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
         if use_system_assigned_identity is not None:
-            pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
+            _setter("use_system_assigned_identity", use_system_assigned_identity)
         if user_assigned_identity_id is not None:
-            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+            _setter("user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="useSystemAssignedIdentity")
@@ -141,13 +181,38 @@ class AccountIdentityArgs:
         :param pulumi.Input[str] principal_id: The Principal ID associated with this Managed Service Identity.
         :param pulumi.Input[str] tenant_id: The Tenant ID associated with this Managed Service Identity.
         """
-        pulumi.set(__self__, "type", type)
+        AccountIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[pulumi.Input[str]] = None,
+             identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             principal_id: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -207,10 +272,27 @@ class AccountKeyDeliveryAccessControlArgs:
         :param pulumi.Input[str] default_action: The Default Action to use when no rules match from `ip_allow_list`. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_allow_lists: One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery.
         """
+        AccountKeyDeliveryAccessControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_action=default_action,
+            ip_allow_lists=ip_allow_lists,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_action: Optional[pulumi.Input[str]] = None,
+             ip_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if default_action is None and 'defaultAction' in kwargs:
+            default_action = kwargs['defaultAction']
+        if ip_allow_lists is None and 'ipAllowLists' in kwargs:
+            ip_allow_lists = kwargs['ipAllowLists']
+
         if default_action is not None:
-            pulumi.set(__self__, "default_action", default_action)
+            _setter("default_action", default_action)
         if ip_allow_lists is not None:
-            pulumi.set(__self__, "ip_allow_lists", ip_allow_lists)
+            _setter("ip_allow_lists", ip_allow_lists)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -250,11 +332,32 @@ class AccountStorageAccountArgs:
                > **NOTE:** Whilst multiple `storage_account` blocks can be specified - one of them must be set to the primary
         :param pulumi.Input['AccountStorageAccountManagedIdentityArgs'] managed_identity: A `managed_identity` block as defined below.
         """
-        pulumi.set(__self__, "id", id)
+        AccountStorageAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            is_primary=is_primary,
+            managed_identity=managed_identity,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[pulumi.Input[str]] = None,
+             is_primary: Optional[pulumi.Input[bool]] = None,
+             managed_identity: Optional[pulumi.Input['AccountStorageAccountManagedIdentityArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if is_primary is None and 'isPrimary' in kwargs:
+            is_primary = kwargs['isPrimary']
+        if managed_identity is None and 'managedIdentity' in kwargs:
+            managed_identity = kwargs['managedIdentity']
+
+        _setter("id", id)
         if is_primary is not None:
-            pulumi.set(__self__, "is_primary", is_primary)
+            _setter("is_primary", is_primary)
         if managed_identity is not None:
-            pulumi.set(__self__, "managed_identity", managed_identity)
+            _setter("managed_identity", managed_identity)
 
     @property
     @pulumi.getter
@@ -304,10 +407,27 @@ class AccountStorageAccountManagedIdentityArgs:
         :param pulumi.Input[bool] use_system_assigned_identity: Whether to use System Assigned Identity. Possible Values are `true` and `false`.
         :param pulumi.Input[str] user_assigned_identity_id: The ID of the User Assigned Identity. This value can only be set when `use_system_assigned_identity` is `false`
         """
+        AccountStorageAccountManagedIdentityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            use_system_assigned_identity=use_system_assigned_identity,
+            user_assigned_identity_id=user_assigned_identity_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             use_system_assigned_identity: Optional[pulumi.Input[bool]] = None,
+             user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if use_system_assigned_identity is None and 'useSystemAssignedIdentity' in kwargs:
+            use_system_assigned_identity = kwargs['useSystemAssignedIdentity']
+        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
         if use_system_assigned_identity is not None:
-            pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
+            _setter("use_system_assigned_identity", use_system_assigned_identity)
         if user_assigned_identity_id is not None:
-            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+            _setter("user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="useSystemAssignedIdentity")

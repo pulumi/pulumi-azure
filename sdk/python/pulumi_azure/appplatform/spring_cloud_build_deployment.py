@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,18 +33,55 @@ class SpringCloudBuildDeploymentArgs:
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Build Deployment. Changing this forces a new Spring Cloud Build Deployment to be created.
         :param pulumi.Input['SpringCloudBuildDeploymentQuotaArgs'] quota: A `quota` block as defined below.
         """
-        pulumi.set(__self__, "build_result_id", build_result_id)
-        pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
+        SpringCloudBuildDeploymentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            build_result_id=build_result_id,
+            spring_cloud_app_id=spring_cloud_app_id,
+            addon_json=addon_json,
+            environment_variables=environment_variables,
+            instance_count=instance_count,
+            name=name,
+            quota=quota,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             build_result_id: Optional[pulumi.Input[str]] = None,
+             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
+             addon_json: Optional[pulumi.Input[str]] = None,
+             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             instance_count: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             quota: Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if build_result_id is None and 'buildResultId' in kwargs:
+            build_result_id = kwargs['buildResultId']
+        if build_result_id is None:
+            raise TypeError("Missing 'build_result_id' argument")
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
+            spring_cloud_app_id = kwargs['springCloudAppId']
+        if spring_cloud_app_id is None:
+            raise TypeError("Missing 'spring_cloud_app_id' argument")
+        if addon_json is None and 'addonJson' in kwargs:
+            addon_json = kwargs['addonJson']
+        if environment_variables is None and 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if instance_count is None and 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+
+        _setter("build_result_id", build_result_id)
+        _setter("spring_cloud_app_id", spring_cloud_app_id)
         if addon_json is not None:
-            pulumi.set(__self__, "addon_json", addon_json)
+            _setter("addon_json", addon_json)
         if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
+            _setter("environment_variables", environment_variables)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if quota is not None:
-            pulumi.set(__self__, "quota", quota)
+            _setter("quota", quota)
 
     @property
     @pulumi.getter(name="buildResultId")
@@ -151,20 +188,53 @@ class _SpringCloudBuildDeploymentState:
         :param pulumi.Input['SpringCloudBuildDeploymentQuotaArgs'] quota: A `quota` block as defined below.
         :param pulumi.Input[str] spring_cloud_app_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Build Deployment to be created.
         """
+        _SpringCloudBuildDeploymentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            addon_json=addon_json,
+            build_result_id=build_result_id,
+            environment_variables=environment_variables,
+            instance_count=instance_count,
+            name=name,
+            quota=quota,
+            spring_cloud_app_id=spring_cloud_app_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             addon_json: Optional[pulumi.Input[str]] = None,
+             build_result_id: Optional[pulumi.Input[str]] = None,
+             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             instance_count: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             quota: Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArgs']] = None,
+             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if addon_json is None and 'addonJson' in kwargs:
+            addon_json = kwargs['addonJson']
+        if build_result_id is None and 'buildResultId' in kwargs:
+            build_result_id = kwargs['buildResultId']
+        if environment_variables is None and 'environmentVariables' in kwargs:
+            environment_variables = kwargs['environmentVariables']
+        if instance_count is None and 'instanceCount' in kwargs:
+            instance_count = kwargs['instanceCount']
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
+            spring_cloud_app_id = kwargs['springCloudAppId']
+
         if addon_json is not None:
-            pulumi.set(__self__, "addon_json", addon_json)
+            _setter("addon_json", addon_json)
         if build_result_id is not None:
-            pulumi.set(__self__, "build_result_id", build_result_id)
+            _setter("build_result_id", build_result_id)
         if environment_variables is not None:
-            pulumi.set(__self__, "environment_variables", environment_variables)
+            _setter("environment_variables", environment_variables)
         if instance_count is not None:
-            pulumi.set(__self__, "instance_count", instance_count)
+            _setter("instance_count", instance_count)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if quota is not None:
-            pulumi.set(__self__, "quota", quota)
+            _setter("quota", quota)
         if spring_cloud_app_id is not None:
-            pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
+            _setter("spring_cloud_app_id", spring_cloud_app_id)
 
     @property
     @pulumi.getter(name="addonJson")
@@ -372,6 +442,10 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SpringCloudBuildDeploymentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -400,6 +474,11 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
             __props__.__dict__["environment_variables"] = environment_variables
             __props__.__dict__["instance_count"] = instance_count
             __props__.__dict__["name"] = name
+            if quota is not None and not isinstance(quota, SpringCloudBuildDeploymentQuotaArgs):
+                quota = quota or {}
+                def _setter(key, value):
+                    quota[key] = value
+                SpringCloudBuildDeploymentQuotaArgs._configure(_setter, **quota)
             __props__.__dict__["quota"] = quota
             if spring_cloud_app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'spring_cloud_app_id'")

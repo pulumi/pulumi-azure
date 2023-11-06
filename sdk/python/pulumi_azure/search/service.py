@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -63,34 +63,97 @@ class ServiceArgs:
                > **NOTE:** The `semantic_search_sku` cannot be defined if your Search Services `sku` is set to `free`. The Semantic Search feature is only available in certain regions, please see the [product documentation](https://learn.microsoft.com/azure/search/semantic-search-overview#availability-and-pricing) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a mapping of tags which should be assigned to this Search Service.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        ServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            allowed_ips=allowed_ips,
+            authentication_failure_mode=authentication_failure_mode,
+            customer_managed_key_enforcement_enabled=customer_managed_key_enforcement_enabled,
+            hosting_mode=hosting_mode,
+            identity=identity,
+            local_authentication_enabled=local_authentication_enabled,
+            location=location,
+            name=name,
+            partition_count=partition_count,
+            public_network_access_enabled=public_network_access_enabled,
+            replica_count=replica_count,
+            semantic_search_sku=semantic_search_sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             authentication_failure_mode: Optional[pulumi.Input[str]] = None,
+             customer_managed_key_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
+             hosting_mode: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
+             local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             partition_count: Optional[pulumi.Input[int]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             replica_count: Optional[pulumi.Input[int]] = None,
+             semantic_search_sku: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if allowed_ips is None and 'allowedIps' in kwargs:
+            allowed_ips = kwargs['allowedIps']
+        if authentication_failure_mode is None and 'authenticationFailureMode' in kwargs:
+            authentication_failure_mode = kwargs['authenticationFailureMode']
+        if customer_managed_key_enforcement_enabled is None and 'customerManagedKeyEnforcementEnabled' in kwargs:
+            customer_managed_key_enforcement_enabled = kwargs['customerManagedKeyEnforcementEnabled']
+        if hosting_mode is None and 'hostingMode' in kwargs:
+            hosting_mode = kwargs['hostingMode']
+        if local_authentication_enabled is None and 'localAuthenticationEnabled' in kwargs:
+            local_authentication_enabled = kwargs['localAuthenticationEnabled']
+        if partition_count is None and 'partitionCount' in kwargs:
+            partition_count = kwargs['partitionCount']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if replica_count is None and 'replicaCount' in kwargs:
+            replica_count = kwargs['replicaCount']
+        if semantic_search_sku is None and 'semanticSearchSku' in kwargs:
+            semantic_search_sku = kwargs['semanticSearchSku']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if allowed_ips is not None:
-            pulumi.set(__self__, "allowed_ips", allowed_ips)
+            _setter("allowed_ips", allowed_ips)
         if authentication_failure_mode is not None:
-            pulumi.set(__self__, "authentication_failure_mode", authentication_failure_mode)
+            _setter("authentication_failure_mode", authentication_failure_mode)
         if customer_managed_key_enforcement_enabled is not None:
-            pulumi.set(__self__, "customer_managed_key_enforcement_enabled", customer_managed_key_enforcement_enabled)
+            _setter("customer_managed_key_enforcement_enabled", customer_managed_key_enforcement_enabled)
         if hosting_mode is not None:
-            pulumi.set(__self__, "hosting_mode", hosting_mode)
+            _setter("hosting_mode", hosting_mode)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if local_authentication_enabled is not None:
-            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
+            _setter("local_authentication_enabled", local_authentication_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if partition_count is not None:
-            pulumi.set(__self__, "partition_count", partition_count)
+            _setter("partition_count", partition_count)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if replica_count is not None:
-            pulumi.set(__self__, "replica_count", replica_count)
+            _setter("replica_count", replica_count)
         if semantic_search_sku is not None:
-            pulumi.set(__self__, "semantic_search_sku", semantic_search_sku)
+            _setter("semantic_search_sku", semantic_search_sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -343,42 +406,113 @@ class _ServiceState:
                > **NOTE:** The SKUs `standard2`, `standard3`, `storage_optimized_l1` and `storage_optimized_l2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a mapping of tags which should be assigned to this Search Service.
         """
+        _ServiceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_ips=allowed_ips,
+            authentication_failure_mode=authentication_failure_mode,
+            customer_managed_key_enforcement_enabled=customer_managed_key_enforcement_enabled,
+            hosting_mode=hosting_mode,
+            identity=identity,
+            local_authentication_enabled=local_authentication_enabled,
+            location=location,
+            name=name,
+            partition_count=partition_count,
+            primary_key=primary_key,
+            public_network_access_enabled=public_network_access_enabled,
+            query_keys=query_keys,
+            replica_count=replica_count,
+            resource_group_name=resource_group_name,
+            secondary_key=secondary_key,
+            semantic_search_sku=semantic_search_sku,
+            sku=sku,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             authentication_failure_mode: Optional[pulumi.Input[str]] = None,
+             customer_managed_key_enforcement_enabled: Optional[pulumi.Input[bool]] = None,
+             hosting_mode: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ServiceIdentityArgs']] = None,
+             local_authentication_enabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             partition_count: Optional[pulumi.Input[int]] = None,
+             primary_key: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             query_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceQueryKeyArgs']]]] = None,
+             replica_count: Optional[pulumi.Input[int]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             secondary_key: Optional[pulumi.Input[str]] = None,
+             semantic_search_sku: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allowed_ips is None and 'allowedIps' in kwargs:
+            allowed_ips = kwargs['allowedIps']
+        if authentication_failure_mode is None and 'authenticationFailureMode' in kwargs:
+            authentication_failure_mode = kwargs['authenticationFailureMode']
+        if customer_managed_key_enforcement_enabled is None and 'customerManagedKeyEnforcementEnabled' in kwargs:
+            customer_managed_key_enforcement_enabled = kwargs['customerManagedKeyEnforcementEnabled']
+        if hosting_mode is None and 'hostingMode' in kwargs:
+            hosting_mode = kwargs['hostingMode']
+        if local_authentication_enabled is None and 'localAuthenticationEnabled' in kwargs:
+            local_authentication_enabled = kwargs['localAuthenticationEnabled']
+        if partition_count is None and 'partitionCount' in kwargs:
+            partition_count = kwargs['partitionCount']
+        if primary_key is None and 'primaryKey' in kwargs:
+            primary_key = kwargs['primaryKey']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if query_keys is None and 'queryKeys' in kwargs:
+            query_keys = kwargs['queryKeys']
+        if replica_count is None and 'replicaCount' in kwargs:
+            replica_count = kwargs['replicaCount']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if secondary_key is None and 'secondaryKey' in kwargs:
+            secondary_key = kwargs['secondaryKey']
+        if semantic_search_sku is None and 'semanticSearchSku' in kwargs:
+            semantic_search_sku = kwargs['semanticSearchSku']
+
         if allowed_ips is not None:
-            pulumi.set(__self__, "allowed_ips", allowed_ips)
+            _setter("allowed_ips", allowed_ips)
         if authentication_failure_mode is not None:
-            pulumi.set(__self__, "authentication_failure_mode", authentication_failure_mode)
+            _setter("authentication_failure_mode", authentication_failure_mode)
         if customer_managed_key_enforcement_enabled is not None:
-            pulumi.set(__self__, "customer_managed_key_enforcement_enabled", customer_managed_key_enforcement_enabled)
+            _setter("customer_managed_key_enforcement_enabled", customer_managed_key_enforcement_enabled)
         if hosting_mode is not None:
-            pulumi.set(__self__, "hosting_mode", hosting_mode)
+            _setter("hosting_mode", hosting_mode)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if local_authentication_enabled is not None:
-            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
+            _setter("local_authentication_enabled", local_authentication_enabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if partition_count is not None:
-            pulumi.set(__self__, "partition_count", partition_count)
+            _setter("partition_count", partition_count)
         if primary_key is not None:
-            pulumi.set(__self__, "primary_key", primary_key)
+            _setter("primary_key", primary_key)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if query_keys is not None:
-            pulumi.set(__self__, "query_keys", query_keys)
+            _setter("query_keys", query_keys)
         if replica_count is not None:
-            pulumi.set(__self__, "replica_count", replica_count)
+            _setter("replica_count", replica_count)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if secondary_key is not None:
-            pulumi.set(__self__, "secondary_key", secondary_key)
+            _setter("secondary_key", secondary_key)
         if semantic_search_sku is not None:
-            pulumi.set(__self__, "semantic_search_sku", semantic_search_sku)
+            _setter("semantic_search_sku", semantic_search_sku)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="allowedIps")
@@ -784,6 +918,10 @@ class Service(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -817,6 +955,11 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["authentication_failure_mode"] = authentication_failure_mode
             __props__.__dict__["customer_managed_key_enforcement_enabled"] = customer_managed_key_enforcement_enabled
             __props__.__dict__["hosting_mode"] = hosting_mode
+            if identity is not None and not isinstance(identity, ServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
             __props__.__dict__["location"] = location

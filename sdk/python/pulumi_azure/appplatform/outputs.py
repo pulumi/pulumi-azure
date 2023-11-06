@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -93,14 +93,37 @@ class SpringCloudApiPortalSso(dict):
         :param str issuer_uri: The URI of Issuer Identifier.
         :param Sequence[str] scopes: It defines the specific actions applications can be allowed to do on a user's behalf.
         """
+        SpringCloudApiPortalSso._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret=client_secret,
+            issuer_uri=issuer_uri,
+            scopes=scopes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             client_secret: Optional[str] = None,
+             issuer_uri: Optional[str] = None,
+             scopes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if issuer_uri is None and 'issuerUri' in kwargs:
+            issuer_uri = kwargs['issuerUri']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if issuer_uri is not None:
-            pulumi.set(__self__, "issuer_uri", issuer_uri)
+            _setter("issuer_uri", issuer_uri)
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
 
     @property
     @pulumi.getter(name="clientId")
@@ -175,13 +198,48 @@ class SpringCloudAppCustomPersistentDisk(dict):
         :param Sequence[str] mount_options: These are the mount options for a persistent disk.
         :param bool read_only_enabled: Indicates whether the persistent disk is a readOnly one.
         """
-        pulumi.set(__self__, "mount_path", mount_path)
-        pulumi.set(__self__, "share_name", share_name)
-        pulumi.set(__self__, "storage_name", storage_name)
+        SpringCloudAppCustomPersistentDisk._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mount_path=mount_path,
+            share_name=share_name,
+            storage_name=storage_name,
+            mount_options=mount_options,
+            read_only_enabled=read_only_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mount_path: Optional[str] = None,
+             share_name: Optional[str] = None,
+             storage_name: Optional[str] = None,
+             mount_options: Optional[Sequence[str]] = None,
+             read_only_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if mount_path is None and 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+        if mount_path is None:
+            raise TypeError("Missing 'mount_path' argument")
+        if share_name is None and 'shareName' in kwargs:
+            share_name = kwargs['shareName']
+        if share_name is None:
+            raise TypeError("Missing 'share_name' argument")
+        if storage_name is None and 'storageName' in kwargs:
+            storage_name = kwargs['storageName']
+        if storage_name is None:
+            raise TypeError("Missing 'storage_name' argument")
+        if mount_options is None and 'mountOptions' in kwargs:
+            mount_options = kwargs['mountOptions']
+        if read_only_enabled is None and 'readOnlyEnabled' in kwargs:
+            read_only_enabled = kwargs['readOnlyEnabled']
+
+        _setter("mount_path", mount_path)
+        _setter("share_name", share_name)
+        _setter("storage_name", storage_name)
         if mount_options is not None:
-            pulumi.set(__self__, "mount_options", mount_options)
+            _setter("mount_options", mount_options)
         if read_only_enabled is not None:
-            pulumi.set(__self__, "read_only_enabled", read_only_enabled)
+            _setter("read_only_enabled", read_only_enabled)
 
     @property
     @pulumi.getter(name="mountPath")
@@ -260,13 +318,38 @@ class SpringCloudAppIdentity(dict):
         :param str principal_id: The Principal ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
         """
-        pulumi.set(__self__, "type", type)
+        SpringCloudAppIdentity._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if identity_ids is None and 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+
+        _setter("type", type)
         if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
+            _setter("identity_ids", identity_ids)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
+            _setter("tenant_id", tenant_id)
 
     @property
     @pulumi.getter
@@ -343,16 +426,45 @@ class SpringCloudAppIngressSettings(dict):
         :param str session_affinity: Specifies the type of the affinity, set this to `Cookie` to enable session affinity. Allowed values are `Cookie` and `None`. Defaults to `None`.
         :param int session_cookie_max_age: Specifies the time in seconds until the cookie expires.
         """
+        SpringCloudAppIngressSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_protocol=backend_protocol,
+            read_timeout_in_seconds=read_timeout_in_seconds,
+            send_timeout_in_seconds=send_timeout_in_seconds,
+            session_affinity=session_affinity,
+            session_cookie_max_age=session_cookie_max_age,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_protocol: Optional[str] = None,
+             read_timeout_in_seconds: Optional[int] = None,
+             send_timeout_in_seconds: Optional[int] = None,
+             session_affinity: Optional[str] = None,
+             session_cookie_max_age: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if backend_protocol is None and 'backendProtocol' in kwargs:
+            backend_protocol = kwargs['backendProtocol']
+        if read_timeout_in_seconds is None and 'readTimeoutInSeconds' in kwargs:
+            read_timeout_in_seconds = kwargs['readTimeoutInSeconds']
+        if send_timeout_in_seconds is None and 'sendTimeoutInSeconds' in kwargs:
+            send_timeout_in_seconds = kwargs['sendTimeoutInSeconds']
+        if session_affinity is None and 'sessionAffinity' in kwargs:
+            session_affinity = kwargs['sessionAffinity']
+        if session_cookie_max_age is None and 'sessionCookieMaxAge' in kwargs:
+            session_cookie_max_age = kwargs['sessionCookieMaxAge']
+
         if backend_protocol is not None:
-            pulumi.set(__self__, "backend_protocol", backend_protocol)
+            _setter("backend_protocol", backend_protocol)
         if read_timeout_in_seconds is not None:
-            pulumi.set(__self__, "read_timeout_in_seconds", read_timeout_in_seconds)
+            _setter("read_timeout_in_seconds", read_timeout_in_seconds)
         if send_timeout_in_seconds is not None:
-            pulumi.set(__self__, "send_timeout_in_seconds", send_timeout_in_seconds)
+            _setter("send_timeout_in_seconds", send_timeout_in_seconds)
         if session_affinity is not None:
-            pulumi.set(__self__, "session_affinity", session_affinity)
+            _setter("session_affinity", session_affinity)
         if session_cookie_max_age is not None:
-            pulumi.set(__self__, "session_cookie_max_age", session_cookie_max_age)
+            _setter("session_cookie_max_age", session_cookie_max_age)
 
     @property
     @pulumi.getter(name="backendProtocol")
@@ -423,9 +535,28 @@ class SpringCloudAppPersistentDisk(dict):
         :param int size_in_gb: Specifies the size of the persistent disk in GB. Possible values are between `0` and `50`.
         :param str mount_path: Specifies the mount path of the persistent disk. Defaults to `/persistent`.
         """
-        pulumi.set(__self__, "size_in_gb", size_in_gb)
+        SpringCloudAppPersistentDisk._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            size_in_gb=size_in_gb,
+            mount_path=mount_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             size_in_gb: Optional[int] = None,
+             mount_path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if size_in_gb is None and 'sizeInGb' in kwargs:
+            size_in_gb = kwargs['sizeInGb']
+        if size_in_gb is None:
+            raise TypeError("Missing 'size_in_gb' argument")
+        if mount_path is None and 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+
+        _setter("size_in_gb", size_in_gb)
         if mount_path is not None:
-            pulumi.set(__self__, "mount_path", mount_path)
+            _setter("mount_path", mount_path)
 
     @property
     @pulumi.getter(name="sizeInGb")
@@ -457,10 +588,23 @@ class SpringCloudBuildDeploymentQuota(dict):
                
                > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
         """
+        SpringCloudBuildDeploymentQuota._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu=cpu,
+            memory=memory,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu: Optional[str] = None,
+             memory: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
+            _setter("cpu", cpu)
         if memory is not None:
-            pulumi.set(__self__, "memory", memory)
+            _setter("memory", memory)
 
     @property
     @pulumi.getter
@@ -492,10 +636,23 @@ class SpringCloudBuildPackBindingLaunch(dict):
         :param Mapping[str, str] properties: Specifies a map of non-sensitive properties for launchProperties.
         :param Mapping[str, str] secrets: Specifies a map of sensitive properties for launchProperties.
         """
+        SpringCloudBuildPackBindingLaunch._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            properties=properties,
+            secrets=secrets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             properties: Optional[Mapping[str, str]] = None,
+             secrets: Optional[Mapping[str, str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+            _setter("properties", properties)
         if secrets is not None:
-            pulumi.set(__self__, "secrets", secrets)
+            _setter("secrets", secrets)
 
     @property
     @pulumi.getter
@@ -540,9 +697,26 @@ class SpringCloudBuilderBuildPackGroup(dict):
         :param str name: The name which should be used for this build pack group.
         :param Sequence[str] build_pack_ids: Specifies a list of the build pack's ID.
         """
-        pulumi.set(__self__, "name", name)
+        SpringCloudBuilderBuildPackGroup._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            build_pack_ids=build_pack_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             build_pack_ids: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if build_pack_ids is None and 'buildPackIds' in kwargs:
+            build_pack_ids = kwargs['buildPackIds']
+
+        _setter("name", name)
         if build_pack_ids is not None:
-            pulumi.set(__self__, "build_pack_ids", build_pack_ids)
+            _setter("build_pack_ids", build_pack_ids)
 
     @property
     @pulumi.getter
@@ -570,8 +744,25 @@ class SpringCloudBuilderStack(dict):
         :param str id: Specifies the ID of the ClusterStack.
         :param str version: Specifies the version of the ClusterStack
         """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "version", version)
+        SpringCloudBuilderStack._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            id=id,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             id: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+
+        _setter("id", id)
+        _setter("version", version)
 
     @property
     @pulumi.getter
@@ -646,26 +837,79 @@ class SpringCloudConfigurationServiceRepository(dict):
         :param bool strict_host_key_checking: Specifies whether enable the strict host key checking.
         :param str username: Specifies the username of git repository basic auth.
         """
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "patterns", patterns)
-        pulumi.set(__self__, "uri", uri)
+        SpringCloudConfigurationServiceRepository._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            label=label,
+            name=name,
+            patterns=patterns,
+            uri=uri,
+            ca_certificate_id=ca_certificate_id,
+            host_key=host_key,
+            host_key_algorithm=host_key_algorithm,
+            password=password,
+            private_key=private_key,
+            search_paths=search_paths,
+            strict_host_key_checking=strict_host_key_checking,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             label: Optional[str] = None,
+             name: Optional[str] = None,
+             patterns: Optional[Sequence[str]] = None,
+             uri: Optional[str] = None,
+             ca_certificate_id: Optional[str] = None,
+             host_key: Optional[str] = None,
+             host_key_algorithm: Optional[str] = None,
+             password: Optional[str] = None,
+             private_key: Optional[str] = None,
+             search_paths: Optional[Sequence[str]] = None,
+             strict_host_key_checking: Optional[bool] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if patterns is None:
+            raise TypeError("Missing 'patterns' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
+        if ca_certificate_id is None and 'caCertificateId' in kwargs:
+            ca_certificate_id = kwargs['caCertificateId']
+        if host_key is None and 'hostKey' in kwargs:
+            host_key = kwargs['hostKey']
+        if host_key_algorithm is None and 'hostKeyAlgorithm' in kwargs:
+            host_key_algorithm = kwargs['hostKeyAlgorithm']
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if search_paths is None and 'searchPaths' in kwargs:
+            search_paths = kwargs['searchPaths']
+        if strict_host_key_checking is None and 'strictHostKeyChecking' in kwargs:
+            strict_host_key_checking = kwargs['strictHostKeyChecking']
+
+        _setter("label", label)
+        _setter("name", name)
+        _setter("patterns", patterns)
+        _setter("uri", uri)
         if ca_certificate_id is not None:
-            pulumi.set(__self__, "ca_certificate_id", ca_certificate_id)
+            _setter("ca_certificate_id", ca_certificate_id)
         if host_key is not None:
-            pulumi.set(__self__, "host_key", host_key)
+            _setter("host_key", host_key)
         if host_key_algorithm is not None:
-            pulumi.set(__self__, "host_key_algorithm", host_key_algorithm)
+            _setter("host_key_algorithm", host_key_algorithm)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if private_key is not None:
-            pulumi.set(__self__, "private_key", private_key)
+            _setter("private_key", private_key)
         if search_paths is not None:
-            pulumi.set(__self__, "search_paths", search_paths)
+            _setter("search_paths", search_paths)
         if strict_host_key_checking is not None:
-            pulumi.set(__self__, "strict_host_key_checking", strict_host_key_checking)
+            _setter("strict_host_key_checking", strict_host_key_checking)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -804,19 +1048,50 @@ class SpringCloudConnectionAuthentication(dict):
         :param str secret: Password or account key for secret auth. `secret` and `name` should be either both specified or both not specified when `type` is set to `secret`.
         :param str subscription_id: Subscription ID for `userAssignedIdentity`. `subscription_id` and `client_id` should be either both specified or both not specified.
         """
-        pulumi.set(__self__, "type", type)
+        SpringCloudConnectionAuthentication._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            type=type,
+            certificate=certificate,
+            client_id=client_id,
+            name=name,
+            principal_id=principal_id,
+            secret=secret,
+            subscription_id=subscription_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             type: Optional[str] = None,
+             certificate: Optional[str] = None,
+             client_id: Optional[str] = None,
+             name: Optional[str] = None,
+             principal_id: Optional[str] = None,
+             secret: Optional[str] = None,
+             subscription_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+
+        _setter("type", type)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+            _setter("principal_id", principal_id)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
         if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+            _setter("subscription_id", subscription_id)
 
     @property
     @pulumi.getter
@@ -899,7 +1174,22 @@ class SpringCloudConnectionSecretStore(dict):
         """
         :param str key_vault_id: The key vault id to store secret.
         """
-        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        SpringCloudConnectionSecretStore._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            key_vault_id=key_vault_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             key_vault_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if key_vault_id is None and 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+
+        _setter("key_vault_id", key_vault_id)
 
     @property
     @pulumi.getter(name="keyVaultId")
@@ -923,10 +1213,23 @@ class SpringCloudContainerDeploymentQuota(dict):
                
                > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
         """
+        SpringCloudContainerDeploymentQuota._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu=cpu,
+            memory=memory,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu: Optional[str] = None,
+             memory: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
+            _setter("cpu", cpu)
         if memory is not None:
-            pulumi.set(__self__, "memory", memory)
+            _setter("memory", memory)
 
     @property
     @pulumi.getter
@@ -995,21 +1298,58 @@ class SpringCloudCustomizedAcceleratorGitRepository(dict):
         :param int interval_in_seconds: Specifies the interval for checking for updates to Git or image repository. It should be greater than 10.
         :param 'SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs' ssh_auth: A `ssh_auth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         """
-        pulumi.set(__self__, "url", url)
+        SpringCloudCustomizedAcceleratorGitRepository._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            url=url,
+            basic_auth=basic_auth,
+            branch=branch,
+            ca_certificate_id=ca_certificate_id,
+            commit=commit,
+            git_tag=git_tag,
+            interval_in_seconds=interval_in_seconds,
+            ssh_auth=ssh_auth,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             url: Optional[str] = None,
+             basic_auth: Optional['outputs.SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth'] = None,
+             branch: Optional[str] = None,
+             ca_certificate_id: Optional[str] = None,
+             commit: Optional[str] = None,
+             git_tag: Optional[str] = None,
+             interval_in_seconds: Optional[int] = None,
+             ssh_auth: Optional['outputs.SpringCloudCustomizedAcceleratorGitRepositorySshAuth'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if basic_auth is None and 'basicAuth' in kwargs:
+            basic_auth = kwargs['basicAuth']
+        if ca_certificate_id is None and 'caCertificateId' in kwargs:
+            ca_certificate_id = kwargs['caCertificateId']
+        if git_tag is None and 'gitTag' in kwargs:
+            git_tag = kwargs['gitTag']
+        if interval_in_seconds is None and 'intervalInSeconds' in kwargs:
+            interval_in_seconds = kwargs['intervalInSeconds']
+        if ssh_auth is None and 'sshAuth' in kwargs:
+            ssh_auth = kwargs['sshAuth']
+
+        _setter("url", url)
         if basic_auth is not None:
-            pulumi.set(__self__, "basic_auth", basic_auth)
+            _setter("basic_auth", basic_auth)
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if ca_certificate_id is not None:
-            pulumi.set(__self__, "ca_certificate_id", ca_certificate_id)
+            _setter("ca_certificate_id", ca_certificate_id)
         if commit is not None:
-            pulumi.set(__self__, "commit", commit)
+            _setter("commit", commit)
         if git_tag is not None:
-            pulumi.set(__self__, "git_tag", git_tag)
+            _setter("git_tag", git_tag)
         if interval_in_seconds is not None:
-            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+            _setter("interval_in_seconds", interval_in_seconds)
         if ssh_auth is not None:
-            pulumi.set(__self__, "ssh_auth", ssh_auth)
+            _setter("ssh_auth", ssh_auth)
 
     @property
     @pulumi.getter
@@ -1085,8 +1425,25 @@ class SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth(dict):
         :param str password: Specifies the password of git repository basic auth.
         :param str username: Specifies the username of git repository basic auth.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        SpringCloudCustomizedAcceleratorGitRepositoryBasicAuth._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -1137,11 +1494,34 @@ class SpringCloudCustomizedAcceleratorGitRepositorySshAuth(dict):
         :param str host_key: Specifies the Public SSH Key of git repository basic auth.
         :param str host_key_algorithm: Specifies the SSH Key algorithm of git repository basic auth.
         """
-        pulumi.set(__self__, "private_key", private_key)
+        SpringCloudCustomizedAcceleratorGitRepositorySshAuth._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_key=private_key,
+            host_key=host_key,
+            host_key_algorithm=host_key_algorithm,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_key: Optional[str] = None,
+             host_key: Optional[str] = None,
+             host_key_algorithm: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if private_key is None:
+            raise TypeError("Missing 'private_key' argument")
+        if host_key is None and 'hostKey' in kwargs:
+            host_key = kwargs['hostKey']
+        if host_key_algorithm is None and 'hostKeyAlgorithm' in kwargs:
+            host_key_algorithm = kwargs['hostKeyAlgorithm']
+
+        _setter("private_key", private_key)
         if host_key is not None:
-            pulumi.set(__self__, "host_key", host_key)
+            _setter("host_key", host_key)
         if host_key_algorithm is not None:
-            pulumi.set(__self__, "host_key_algorithm", host_key_algorithm)
+            _setter("host_key_algorithm", host_key_algorithm)
 
     @property
     @pulumi.getter(name="privateKey")
@@ -1202,14 +1582,37 @@ class SpringCloudDevToolPortalSso(dict):
         :param str metadata_url: Specifies the URI of a JSON file with generic OIDC provider configuration.
         :param Sequence[str] scopes: Specifies a list of specific actions applications can be allowed to do on a user's behalf.
         """
+        SpringCloudDevToolPortalSso._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret=client_secret,
+            metadata_url=metadata_url,
+            scopes=scopes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             client_secret: Optional[str] = None,
+             metadata_url: Optional[str] = None,
+             scopes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if metadata_url is None and 'metadataUrl' in kwargs:
+            metadata_url = kwargs['metadataUrl']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if metadata_url is not None:
-            pulumi.set(__self__, "metadata_url", metadata_url)
+            _setter("metadata_url", metadata_url)
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
 
     @property
     @pulumi.getter(name="clientId")
@@ -1278,16 +1681,39 @@ class SpringCloudGatewayApiMetadata(dict):
         :param str title: Specifies the title describing the context of the APIs available on the Gateway instance.
         :param str version: Specifies the version of APIs available on this Gateway instance.
         """
+        SpringCloudGatewayApiMetadata._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            documentation_url=documentation_url,
+            server_url=server_url,
+            title=title,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[str] = None,
+             documentation_url: Optional[str] = None,
+             server_url: Optional[str] = None,
+             title: Optional[str] = None,
+             version: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if documentation_url is None and 'documentationUrl' in kwargs:
+            documentation_url = kwargs['documentationUrl']
+        if server_url is None and 'serverUrl' in kwargs:
+            server_url = kwargs['serverUrl']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if documentation_url is not None:
-            pulumi.set(__self__, "documentation_url", documentation_url)
+            _setter("documentation_url", documentation_url)
         if server_url is not None:
-            pulumi.set(__self__, "server_url", server_url)
+            _setter("server_url", server_url)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter
@@ -1358,10 +1784,27 @@ class SpringCloudGatewayClientAuthorization(dict):
         :param Sequence[str] certificate_ids: Specifies the Spring Cloud Certificate IDs of the Spring Cloud Gateway.
         :param bool verification_enabled: Specifies whether the client certificate verification is enabled.
         """
+        SpringCloudGatewayClientAuthorization._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_ids=certificate_ids,
+            verification_enabled=verification_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_ids: Optional[Sequence[str]] = None,
+             verification_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if certificate_ids is None and 'certificateIds' in kwargs:
+            certificate_ids = kwargs['certificateIds']
+        if verification_enabled is None and 'verificationEnabled' in kwargs:
+            verification_enabled = kwargs['verificationEnabled']
+
         if certificate_ids is not None:
-            pulumi.set(__self__, "certificate_ids", certificate_ids)
+            _setter("certificate_ids", certificate_ids)
         if verification_enabled is not None:
-            pulumi.set(__self__, "verification_enabled", verification_enabled)
+            _setter("verification_enabled", verification_enabled)
 
     @property
     @pulumi.getter(name="certificateIds")
@@ -1428,20 +1871,57 @@ class SpringCloudGatewayCors(dict):
         :param Sequence[str] exposed_headers: HTTP response headers to expose for cross-site requests.
         :param int max_age_seconds: How long, in seconds, the response from a pre-flight request can be cached by clients.
         """
+        SpringCloudGatewayCors._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_headers=allowed_headers,
+            allowed_methods=allowed_methods,
+            allowed_origin_patterns=allowed_origin_patterns,
+            allowed_origins=allowed_origins,
+            credentials_allowed=credentials_allowed,
+            exposed_headers=exposed_headers,
+            max_age_seconds=max_age_seconds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_headers: Optional[Sequence[str]] = None,
+             allowed_methods: Optional[Sequence[str]] = None,
+             allowed_origin_patterns: Optional[Sequence[str]] = None,
+             allowed_origins: Optional[Sequence[str]] = None,
+             credentials_allowed: Optional[bool] = None,
+             exposed_headers: Optional[Sequence[str]] = None,
+             max_age_seconds: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allowed_headers is None and 'allowedHeaders' in kwargs:
+            allowed_headers = kwargs['allowedHeaders']
+        if allowed_methods is None and 'allowedMethods' in kwargs:
+            allowed_methods = kwargs['allowedMethods']
+        if allowed_origin_patterns is None and 'allowedOriginPatterns' in kwargs:
+            allowed_origin_patterns = kwargs['allowedOriginPatterns']
+        if allowed_origins is None and 'allowedOrigins' in kwargs:
+            allowed_origins = kwargs['allowedOrigins']
+        if credentials_allowed is None and 'credentialsAllowed' in kwargs:
+            credentials_allowed = kwargs['credentialsAllowed']
+        if exposed_headers is None and 'exposedHeaders' in kwargs:
+            exposed_headers = kwargs['exposedHeaders']
+        if max_age_seconds is None and 'maxAgeSeconds' in kwargs:
+            max_age_seconds = kwargs['maxAgeSeconds']
+
         if allowed_headers is not None:
-            pulumi.set(__self__, "allowed_headers", allowed_headers)
+            _setter("allowed_headers", allowed_headers)
         if allowed_methods is not None:
-            pulumi.set(__self__, "allowed_methods", allowed_methods)
+            _setter("allowed_methods", allowed_methods)
         if allowed_origin_patterns is not None:
-            pulumi.set(__self__, "allowed_origin_patterns", allowed_origin_patterns)
+            _setter("allowed_origin_patterns", allowed_origin_patterns)
         if allowed_origins is not None:
-            pulumi.set(__self__, "allowed_origins", allowed_origins)
+            _setter("allowed_origins", allowed_origins)
         if credentials_allowed is not None:
-            pulumi.set(__self__, "credentials_allowed", credentials_allowed)
+            _setter("credentials_allowed", credentials_allowed)
         if exposed_headers is not None:
-            pulumi.set(__self__, "exposed_headers", exposed_headers)
+            _setter("exposed_headers", exposed_headers)
         if max_age_seconds is not None:
-            pulumi.set(__self__, "max_age_seconds", max_age_seconds)
+            _setter("max_age_seconds", max_age_seconds)
 
     @property
     @pulumi.getter(name="allowedHeaders")
@@ -1513,10 +1993,23 @@ class SpringCloudGatewayQuota(dict):
                
                > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
         """
+        SpringCloudGatewayQuota._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu=cpu,
+            memory=memory,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu: Optional[str] = None,
+             memory: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
+            _setter("cpu", cpu)
         if memory is not None:
-            pulumi.set(__self__, "memory", memory)
+            _setter("memory", memory)
 
     @property
     @pulumi.getter
@@ -1546,8 +2039,19 @@ class SpringCloudGatewayRouteConfigOpenApi(dict):
         """
         :param str uri: The URI of OpenAPI specification.
         """
+        SpringCloudGatewayRouteConfigOpenApi._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter
@@ -1602,23 +2106,58 @@ class SpringCloudGatewayRouteConfigRoute(dict):
         :param bool token_relay: Should pass currently-authenticated user's identity token to application service?
         :param str uri: Specifies the full uri which will override `appName`.
         """
-        pulumi.set(__self__, "order", order)
+        SpringCloudGatewayRouteConfigRoute._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            order=order,
+            classification_tags=classification_tags,
+            description=description,
+            filters=filters,
+            predicates=predicates,
+            sso_validation_enabled=sso_validation_enabled,
+            title=title,
+            token_relay=token_relay,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             order: Optional[int] = None,
+             classification_tags: Optional[Sequence[str]] = None,
+             description: Optional[str] = None,
+             filters: Optional[Sequence[str]] = None,
+             predicates: Optional[Sequence[str]] = None,
+             sso_validation_enabled: Optional[bool] = None,
+             title: Optional[str] = None,
+             token_relay: Optional[bool] = None,
+             uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if order is None:
+            raise TypeError("Missing 'order' argument")
+        if classification_tags is None and 'classificationTags' in kwargs:
+            classification_tags = kwargs['classificationTags']
+        if sso_validation_enabled is None and 'ssoValidationEnabled' in kwargs:
+            sso_validation_enabled = kwargs['ssoValidationEnabled']
+        if token_relay is None and 'tokenRelay' in kwargs:
+            token_relay = kwargs['tokenRelay']
+
+        _setter("order", order)
         if classification_tags is not None:
-            pulumi.set(__self__, "classification_tags", classification_tags)
+            _setter("classification_tags", classification_tags)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if filters is not None:
-            pulumi.set(__self__, "filters", filters)
+            _setter("filters", filters)
         if predicates is not None:
-            pulumi.set(__self__, "predicates", predicates)
+            _setter("predicates", predicates)
         if sso_validation_enabled is not None:
-            pulumi.set(__self__, "sso_validation_enabled", sso_validation_enabled)
+            _setter("sso_validation_enabled", sso_validation_enabled)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if token_relay is not None:
-            pulumi.set(__self__, "token_relay", token_relay)
+            _setter("token_relay", token_relay)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter
@@ -1727,14 +2266,37 @@ class SpringCloudGatewaySso(dict):
         :param str issuer_uri: The URI of Issuer Identifier.
         :param Sequence[str] scopes: It defines the specific actions applications can be allowed to do on a user's behalf.
         """
+        SpringCloudGatewaySso._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_id=client_id,
+            client_secret=client_secret,
+            issuer_uri=issuer_uri,
+            scopes=scopes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_id: Optional[str] = None,
+             client_secret: Optional[str] = None,
+             issuer_uri: Optional[str] = None,
+             scopes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if client_id is None and 'clientId' in kwargs:
+            client_id = kwargs['clientId']
+        if client_secret is None and 'clientSecret' in kwargs:
+            client_secret = kwargs['clientSecret']
+        if issuer_uri is None and 'issuerUri' in kwargs:
+            issuer_uri = kwargs['issuerUri']
+
         if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+            _setter("client_id", client_id)
         if client_secret is not None:
-            pulumi.set(__self__, "client_secret", client_secret)
+            _setter("client_secret", client_secret)
         if issuer_uri is not None:
-            pulumi.set(__self__, "issuer_uri", issuer_uri)
+            _setter("issuer_uri", issuer_uri)
         if scopes is not None:
-            pulumi.set(__self__, "scopes", scopes)
+            _setter("scopes", scopes)
 
     @property
     @pulumi.getter(name="clientId")
@@ -1782,10 +2344,23 @@ class SpringCloudJavaDeploymentQuota(dict):
                
                > **Note:** `memory` supports `512Mi`, `1Gi` and `2Gi` for Basic tier, `512Mi`, `1Gi`, `2Gi`, `3Gi`, `4Gi`, `5Gi`, `6Gi`, `7Gi`, and `8Gi` for Standard tier.
         """
+        SpringCloudJavaDeploymentQuota._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cpu=cpu,
+            memory=memory,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cpu: Optional[str] = None,
+             memory: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if cpu is not None:
-            pulumi.set(__self__, "cpu", cpu)
+            _setter("cpu", cpu)
         if memory is not None:
-            pulumi.set(__self__, "memory", memory)
+            _setter("memory", memory)
 
     @property
     @pulumi.getter
@@ -1846,17 +2421,46 @@ class SpringCloudServiceConfigServerGitSetting(dict):
         :param Sequence[str] search_paths: An array of strings used to search subdirectories of the Git repository.
         :param 'SpringCloudServiceConfigServerGitSettingSshAuthArgs' ssh_auth: A `ssh_auth` block as defined below.
         """
-        pulumi.set(__self__, "uri", uri)
+        SpringCloudServiceConfigServerGitSetting._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            uri=uri,
+            http_basic_auth=http_basic_auth,
+            label=label,
+            repositories=repositories,
+            search_paths=search_paths,
+            ssh_auth=ssh_auth,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             uri: Optional[str] = None,
+             http_basic_auth: Optional['outputs.SpringCloudServiceConfigServerGitSettingHttpBasicAuth'] = None,
+             label: Optional[str] = None,
+             repositories: Optional[Sequence['outputs.SpringCloudServiceConfigServerGitSettingRepository']] = None,
+             search_paths: Optional[Sequence[str]] = None,
+             ssh_auth: Optional['outputs.SpringCloudServiceConfigServerGitSettingSshAuth'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
+        if http_basic_auth is None and 'httpBasicAuth' in kwargs:
+            http_basic_auth = kwargs['httpBasicAuth']
+        if search_paths is None and 'searchPaths' in kwargs:
+            search_paths = kwargs['searchPaths']
+        if ssh_auth is None and 'sshAuth' in kwargs:
+            ssh_auth = kwargs['sshAuth']
+
+        _setter("uri", uri)
         if http_basic_auth is not None:
-            pulumi.set(__self__, "http_basic_auth", http_basic_auth)
+            _setter("http_basic_auth", http_basic_auth)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if repositories is not None:
-            pulumi.set(__self__, "repositories", repositories)
+            _setter("repositories", repositories)
         if search_paths is not None:
-            pulumi.set(__self__, "search_paths", search_paths)
+            _setter("search_paths", search_paths)
         if ssh_auth is not None:
-            pulumi.set(__self__, "ssh_auth", ssh_auth)
+            _setter("ssh_auth", ssh_auth)
 
     @property
     @pulumi.getter
@@ -1916,8 +2520,25 @@ class SpringCloudServiceConfigServerGitSettingHttpBasicAuth(dict):
         :param str password: The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
         :param str username: The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        SpringCloudServiceConfigServerGitSettingHttpBasicAuth._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -1976,18 +2597,51 @@ class SpringCloudServiceConfigServerGitSettingRepository(dict):
         :param Sequence[str] search_paths: An array of strings used to search subdirectories of the Git repository.
         :param 'SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs' ssh_auth: A `ssh_auth` block as defined below.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "uri", uri)
+        SpringCloudServiceConfigServerGitSettingRepository._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            uri=uri,
+            http_basic_auth=http_basic_auth,
+            label=label,
+            patterns=patterns,
+            search_paths=search_paths,
+            ssh_auth=ssh_auth,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             uri: Optional[str] = None,
+             http_basic_auth: Optional['outputs.SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth'] = None,
+             label: Optional[str] = None,
+             patterns: Optional[Sequence[str]] = None,
+             search_paths: Optional[Sequence[str]] = None,
+             ssh_auth: Optional['outputs.SpringCloudServiceConfigServerGitSettingRepositorySshAuth'] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
+        if http_basic_auth is None and 'httpBasicAuth' in kwargs:
+            http_basic_auth = kwargs['httpBasicAuth']
+        if search_paths is None and 'searchPaths' in kwargs:
+            search_paths = kwargs['searchPaths']
+        if ssh_auth is None and 'sshAuth' in kwargs:
+            ssh_auth = kwargs['sshAuth']
+
+        _setter("name", name)
+        _setter("uri", uri)
         if http_basic_auth is not None:
-            pulumi.set(__self__, "http_basic_auth", http_basic_auth)
+            _setter("http_basic_auth", http_basic_auth)
         if label is not None:
-            pulumi.set(__self__, "label", label)
+            _setter("label", label)
         if patterns is not None:
-            pulumi.set(__self__, "patterns", patterns)
+            _setter("patterns", patterns)
         if search_paths is not None:
-            pulumi.set(__self__, "search_paths", search_paths)
+            _setter("search_paths", search_paths)
         if ssh_auth is not None:
-            pulumi.set(__self__, "ssh_auth", ssh_auth)
+            _setter("ssh_auth", ssh_auth)
 
     @property
     @pulumi.getter
@@ -2055,8 +2709,25 @@ class SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth(dict):
         :param str password: The password used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
         :param str username: The username that's used to access the Git repository server, required when the Git repository server supports HTTP Basic Authentication.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuth._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -2111,13 +2782,40 @@ class SpringCloudServiceConfigServerGitSettingRepositorySshAuth(dict):
         :param str host_key_algorithm: The host key algorithm, should be `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Required only if `host-key` exists.
         :param bool strict_host_key_checking_enabled: Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to `true`.
         """
-        pulumi.set(__self__, "private_key", private_key)
+        SpringCloudServiceConfigServerGitSettingRepositorySshAuth._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_key=private_key,
+            host_key=host_key,
+            host_key_algorithm=host_key_algorithm,
+            strict_host_key_checking_enabled=strict_host_key_checking_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_key: Optional[str] = None,
+             host_key: Optional[str] = None,
+             host_key_algorithm: Optional[str] = None,
+             strict_host_key_checking_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if private_key is None:
+            raise TypeError("Missing 'private_key' argument")
+        if host_key is None and 'hostKey' in kwargs:
+            host_key = kwargs['hostKey']
+        if host_key_algorithm is None and 'hostKeyAlgorithm' in kwargs:
+            host_key_algorithm = kwargs['hostKeyAlgorithm']
+        if strict_host_key_checking_enabled is None and 'strictHostKeyCheckingEnabled' in kwargs:
+            strict_host_key_checking_enabled = kwargs['strictHostKeyCheckingEnabled']
+
+        _setter("private_key", private_key)
         if host_key is not None:
-            pulumi.set(__self__, "host_key", host_key)
+            _setter("host_key", host_key)
         if host_key_algorithm is not None:
-            pulumi.set(__self__, "host_key_algorithm", host_key_algorithm)
+            _setter("host_key_algorithm", host_key_algorithm)
         if strict_host_key_checking_enabled is not None:
-            pulumi.set(__self__, "strict_host_key_checking_enabled", strict_host_key_checking_enabled)
+            _setter("strict_host_key_checking_enabled", strict_host_key_checking_enabled)
 
     @property
     @pulumi.getter(name="privateKey")
@@ -2188,13 +2886,40 @@ class SpringCloudServiceConfigServerGitSettingSshAuth(dict):
         :param str host_key_algorithm: The host key algorithm, should be `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, or `ecdsa-sha2-nistp521`. Required only if `host-key` exists.
         :param bool strict_host_key_checking_enabled: Indicates whether the Config Server instance will fail to start if the host_key does not match. Defaults to `true`.
         """
-        pulumi.set(__self__, "private_key", private_key)
+        SpringCloudServiceConfigServerGitSettingSshAuth._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_key=private_key,
+            host_key=host_key,
+            host_key_algorithm=host_key_algorithm,
+            strict_host_key_checking_enabled=strict_host_key_checking_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_key: Optional[str] = None,
+             host_key: Optional[str] = None,
+             host_key_algorithm: Optional[str] = None,
+             strict_host_key_checking_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if private_key is None:
+            raise TypeError("Missing 'private_key' argument")
+        if host_key is None and 'hostKey' in kwargs:
+            host_key = kwargs['hostKey']
+        if host_key_algorithm is None and 'hostKeyAlgorithm' in kwargs:
+            host_key_algorithm = kwargs['hostKeyAlgorithm']
+        if strict_host_key_checking_enabled is None and 'strictHostKeyCheckingEnabled' in kwargs:
+            strict_host_key_checking_enabled = kwargs['strictHostKeyCheckingEnabled']
+
+        _setter("private_key", private_key)
         if host_key is not None:
-            pulumi.set(__self__, "host_key", host_key)
+            _setter("host_key", host_key)
         if host_key_algorithm is not None:
-            pulumi.set(__self__, "host_key_algorithm", host_key_algorithm)
+            _setter("host_key_algorithm", host_key_algorithm)
         if strict_host_key_checking_enabled is not None:
-            pulumi.set(__self__, "strict_host_key_checking_enabled", strict_host_key_checking_enabled)
+            _setter("strict_host_key_checking_enabled", strict_host_key_checking_enabled)
 
     @property
     @pulumi.getter(name="privateKey")
@@ -2242,10 +2967,35 @@ class SpringCloudServiceContainerRegistry(dict):
         :param str server: Specifies the login server of the container registry.
         :param str username: Specifies the username of the container registry.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
+        SpringCloudServiceContainerRegistry._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            password=password,
+            server=server,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             password: Optional[str] = None,
+             server: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("name", name)
+        _setter("password", password)
+        _setter("server", server)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -2304,8 +3054,21 @@ class SpringCloudServiceDefaultBuildService(dict):
         """
         :param str container_registry_name: Specifies the name of the container registry used in the default build service.
         """
+        SpringCloudServiceDefaultBuildService._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            container_registry_name=container_registry_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             container_registry_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if container_registry_name is None and 'containerRegistryName' in kwargs:
+            container_registry_name = kwargs['containerRegistryName']
+
         if container_registry_name is not None:
-            pulumi.set(__self__, "container_registry_name", container_registry_name)
+            _setter("container_registry_name", container_registry_name)
 
     @property
     @pulumi.getter(name="containerRegistryName")
@@ -2327,9 +3090,30 @@ class SpringCloudServiceMarketplace(dict):
         :param str product: Specifies the 3rd Party artifact that is being procured.
         :param str publisher: Specifies the publisher ID of the 3rd Party Artifact that is being procured.
         """
-        pulumi.set(__self__, "plan", plan)
-        pulumi.set(__self__, "product", product)
-        pulumi.set(__self__, "publisher", publisher)
+        SpringCloudServiceMarketplace._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            plan=plan,
+            product=product,
+            publisher=publisher,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             plan: Optional[str] = None,
+             product: Optional[str] = None,
+             publisher: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if plan is None:
+            raise TypeError("Missing 'plan' argument")
+        if product is None:
+            raise TypeError("Missing 'product' argument")
+        if publisher is None:
+            raise TypeError("Missing 'publisher' argument")
+
+        _setter("plan", plan)
+        _setter("product", product)
+        _setter("publisher", publisher)
 
     @property
     @pulumi.getter
@@ -2404,17 +3188,60 @@ class SpringCloudServiceNetwork(dict):
         :param int read_timeout_seconds: Ingress read time out in seconds.
         :param str service_runtime_network_resource_group: Specifies the Name of the resource group containing network resources of Azure Spring Cloud Service Runtime. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "app_subnet_id", app_subnet_id)
-        pulumi.set(__self__, "cidr_ranges", cidr_ranges)
-        pulumi.set(__self__, "service_runtime_subnet_id", service_runtime_subnet_id)
+        SpringCloudServiceNetwork._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_subnet_id=app_subnet_id,
+            cidr_ranges=cidr_ranges,
+            service_runtime_subnet_id=service_runtime_subnet_id,
+            app_network_resource_group=app_network_resource_group,
+            outbound_type=outbound_type,
+            read_timeout_seconds=read_timeout_seconds,
+            service_runtime_network_resource_group=service_runtime_network_resource_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_subnet_id: Optional[str] = None,
+             cidr_ranges: Optional[Sequence[str]] = None,
+             service_runtime_subnet_id: Optional[str] = None,
+             app_network_resource_group: Optional[str] = None,
+             outbound_type: Optional[str] = None,
+             read_timeout_seconds: Optional[int] = None,
+             service_runtime_network_resource_group: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_subnet_id is None and 'appSubnetId' in kwargs:
+            app_subnet_id = kwargs['appSubnetId']
+        if app_subnet_id is None:
+            raise TypeError("Missing 'app_subnet_id' argument")
+        if cidr_ranges is None and 'cidrRanges' in kwargs:
+            cidr_ranges = kwargs['cidrRanges']
+        if cidr_ranges is None:
+            raise TypeError("Missing 'cidr_ranges' argument")
+        if service_runtime_subnet_id is None and 'serviceRuntimeSubnetId' in kwargs:
+            service_runtime_subnet_id = kwargs['serviceRuntimeSubnetId']
+        if service_runtime_subnet_id is None:
+            raise TypeError("Missing 'service_runtime_subnet_id' argument")
+        if app_network_resource_group is None and 'appNetworkResourceGroup' in kwargs:
+            app_network_resource_group = kwargs['appNetworkResourceGroup']
+        if outbound_type is None and 'outboundType' in kwargs:
+            outbound_type = kwargs['outboundType']
+        if read_timeout_seconds is None and 'readTimeoutSeconds' in kwargs:
+            read_timeout_seconds = kwargs['readTimeoutSeconds']
+        if service_runtime_network_resource_group is None and 'serviceRuntimeNetworkResourceGroup' in kwargs:
+            service_runtime_network_resource_group = kwargs['serviceRuntimeNetworkResourceGroup']
+
+        _setter("app_subnet_id", app_subnet_id)
+        _setter("cidr_ranges", cidr_ranges)
+        _setter("service_runtime_subnet_id", service_runtime_subnet_id)
         if app_network_resource_group is not None:
-            pulumi.set(__self__, "app_network_resource_group", app_network_resource_group)
+            _setter("app_network_resource_group", app_network_resource_group)
         if outbound_type is not None:
-            pulumi.set(__self__, "outbound_type", outbound_type)
+            _setter("outbound_type", outbound_type)
         if read_timeout_seconds is not None:
-            pulumi.set(__self__, "read_timeout_seconds", read_timeout_seconds)
+            _setter("read_timeout_seconds", read_timeout_seconds)
         if service_runtime_network_resource_group is not None:
-            pulumi.set(__self__, "service_runtime_network_resource_group", service_runtime_network_resource_group)
+            _setter("service_runtime_network_resource_group", service_runtime_network_resource_group)
 
     @property
     @pulumi.getter(name="appSubnetId")
@@ -2505,16 +3332,37 @@ class SpringCloudServiceRequiredNetworkTrafficRule(dict):
         :param int port: The port of required traffic.
         :param str protocol: The protocol of required traffic.
         """
+        SpringCloudServiceRequiredNetworkTrafficRule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            direction=direction,
+            fqdns=fqdns,
+            ip_addresses=ip_addresses,
+            port=port,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             direction: Optional[str] = None,
+             fqdns: Optional[Sequence[str]] = None,
+             ip_addresses: Optional[Sequence[str]] = None,
+             port: Optional[int] = None,
+             protocol: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ip_addresses is None and 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+
         if direction is not None:
-            pulumi.set(__self__, "direction", direction)
+            _setter("direction", direction)
         if fqdns is not None:
-            pulumi.set(__self__, "fqdns", fqdns)
+            _setter("fqdns", fqdns)
         if ip_addresses is not None:
-            pulumi.set(__self__, "ip_addresses", ip_addresses)
+            _setter("ip_addresses", ip_addresses)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
 
     @property
     @pulumi.getter
@@ -2585,10 +3433,27 @@ class SpringCloudServiceTrace(dict):
         :param str connection_string: The connection string used for Application Insights.
         :param float sample_rate: The sampling rate of Application Insights Agent. Must be between `0.0` and `100.0`. Defaults to `10.0`.
         """
+        SpringCloudServiceTrace._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_string=connection_string,
+            sample_rate=sample_rate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_string: Optional[str] = None,
+             sample_rate: Optional[float] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if connection_string is None and 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if sample_rate is None and 'sampleRate' in kwargs:
+            sample_rate = kwargs['sampleRate']
+
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if sample_rate is not None:
-            pulumi.set(__self__, "sample_rate", sample_rate)
+            _setter("sample_rate", sample_rate)
 
     @property
     @pulumi.getter(name="connectionString")
@@ -2619,10 +3484,41 @@ class GetSpringCloudAppIdentityResult(dict):
         :param str tenant_id: The Tenant ID for the Service Principal associated with the Managed Service Identity of this Spring Cloud Application.
         :param str type: The Type of Managed Identity assigned to the Spring Cloud Application.
         """
-        pulumi.set(__self__, "identity_ids", identity_ids)
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
-        pulumi.set(__self__, "type", type)
+        GetSpringCloudAppIdentityResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            identity_ids=identity_ids,
+            principal_id=principal_id,
+            tenant_id=tenant_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             identity_ids: Optional[Sequence[str]] = None,
+             principal_id: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if identity_ids is None and 'identityIds' in kwargs:
+            identity_ids = kwargs['identityIds']
+        if identity_ids is None:
+            raise TypeError("Missing 'identity_ids' argument")
+        if principal_id is None and 'principalId' in kwargs:
+            principal_id = kwargs['principalId']
+        if principal_id is None:
+            raise TypeError("Missing 'principal_id' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
+        _setter("identity_ids", identity_ids)
+        _setter("principal_id", principal_id)
+        _setter("tenant_id", tenant_id)
+        _setter("type", type)
 
     @property
     @pulumi.getter(name="identityIds")
@@ -2663,8 +3559,29 @@ class GetSpringCloudAppPersistentDiskResult(dict):
         :param str mount_path: The mount path of the persistent disk.
         :param int size_in_gb: The size of the persistent disk in GB.
         """
-        pulumi.set(__self__, "mount_path", mount_path)
-        pulumi.set(__self__, "size_in_gb", size_in_gb)
+        GetSpringCloudAppPersistentDiskResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            mount_path=mount_path,
+            size_in_gb=size_in_gb,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             mount_path: Optional[str] = None,
+             size_in_gb: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if mount_path is None and 'mountPath' in kwargs:
+            mount_path = kwargs['mountPath']
+        if mount_path is None:
+            raise TypeError("Missing 'mount_path' argument")
+        if size_in_gb is None and 'sizeInGb' in kwargs:
+            size_in_gb = kwargs['sizeInGb']
+        if size_in_gb is None:
+            raise TypeError("Missing 'size_in_gb' argument")
+
+        _setter("mount_path", mount_path)
+        _setter("size_in_gb", size_in_gb)
 
     @property
     @pulumi.getter(name="mountPath")
@@ -2700,12 +3617,51 @@ class GetSpringCloudServiceConfigServerGitSettingResult(dict):
         :param Sequence['GetSpringCloudServiceConfigServerGitSettingSshAuthArgs'] ssh_auths: A `ssh_auth` block as defined below.
         :param str uri: The URI of the Git repository
         """
-        pulumi.set(__self__, "http_basic_auths", http_basic_auths)
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "repositories", repositories)
-        pulumi.set(__self__, "search_paths", search_paths)
-        pulumi.set(__self__, "ssh_auths", ssh_auths)
-        pulumi.set(__self__, "uri", uri)
+        GetSpringCloudServiceConfigServerGitSettingResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            http_basic_auths=http_basic_auths,
+            label=label,
+            repositories=repositories,
+            search_paths=search_paths,
+            ssh_auths=ssh_auths,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             http_basic_auths: Optional[Sequence['outputs.GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthResult']] = None,
+             label: Optional[str] = None,
+             repositories: Optional[Sequence['outputs.GetSpringCloudServiceConfigServerGitSettingRepositoryResult']] = None,
+             search_paths: Optional[Sequence[str]] = None,
+             ssh_auths: Optional[Sequence['outputs.GetSpringCloudServiceConfigServerGitSettingSshAuthResult']] = None,
+             uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if http_basic_auths is None and 'httpBasicAuths' in kwargs:
+            http_basic_auths = kwargs['httpBasicAuths']
+        if http_basic_auths is None:
+            raise TypeError("Missing 'http_basic_auths' argument")
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+        if repositories is None:
+            raise TypeError("Missing 'repositories' argument")
+        if search_paths is None and 'searchPaths' in kwargs:
+            search_paths = kwargs['searchPaths']
+        if search_paths is None:
+            raise TypeError("Missing 'search_paths' argument")
+        if ssh_auths is None and 'sshAuths' in kwargs:
+            ssh_auths = kwargs['sshAuths']
+        if ssh_auths is None:
+            raise TypeError("Missing 'ssh_auths' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
+
+        _setter("http_basic_auths", http_basic_auths)
+        _setter("label", label)
+        _setter("repositories", repositories)
+        _setter("search_paths", search_paths)
+        _setter("ssh_auths", ssh_auths)
+        _setter("uri", uri)
 
     @property
     @pulumi.getter(name="httpBasicAuths")
@@ -2765,8 +3721,25 @@ class GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthResult(dict):
         :param str password: The password used to access the HTTP Basic Authentication Git repository server.
         :param str username: The username used to access the HTTP Basic Authentication Git repository server.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        GetSpringCloudServiceConfigServerGitSettingHttpBasicAuthResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -2804,13 +3777,56 @@ class GetSpringCloudServiceConfigServerGitSettingRepositoryResult(dict):
         :param Sequence['GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs'] ssh_auths: A `ssh_auth` block as defined below.
         :param str uri: The URI of the Git repository
         """
-        pulumi.set(__self__, "http_basic_auths", http_basic_auths)
-        pulumi.set(__self__, "label", label)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "patterns", patterns)
-        pulumi.set(__self__, "search_paths", search_paths)
-        pulumi.set(__self__, "ssh_auths", ssh_auths)
-        pulumi.set(__self__, "uri", uri)
+        GetSpringCloudServiceConfigServerGitSettingRepositoryResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            http_basic_auths=http_basic_auths,
+            label=label,
+            name=name,
+            patterns=patterns,
+            search_paths=search_paths,
+            ssh_auths=ssh_auths,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             http_basic_auths: Optional[Sequence['outputs.GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthResult']] = None,
+             label: Optional[str] = None,
+             name: Optional[str] = None,
+             patterns: Optional[Sequence[str]] = None,
+             search_paths: Optional[Sequence[str]] = None,
+             ssh_auths: Optional[Sequence['outputs.GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthResult']] = None,
+             uri: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if http_basic_auths is None and 'httpBasicAuths' in kwargs:
+            http_basic_auths = kwargs['httpBasicAuths']
+        if http_basic_auths is None:
+            raise TypeError("Missing 'http_basic_auths' argument")
+        if label is None:
+            raise TypeError("Missing 'label' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if patterns is None:
+            raise TypeError("Missing 'patterns' argument")
+        if search_paths is None and 'searchPaths' in kwargs:
+            search_paths = kwargs['searchPaths']
+        if search_paths is None:
+            raise TypeError("Missing 'search_paths' argument")
+        if ssh_auths is None and 'sshAuths' in kwargs:
+            ssh_auths = kwargs['sshAuths']
+        if ssh_auths is None:
+            raise TypeError("Missing 'ssh_auths' argument")
+        if uri is None:
+            raise TypeError("Missing 'uri' argument")
+
+        _setter("http_basic_auths", http_basic_auths)
+        _setter("label", label)
+        _setter("name", name)
+        _setter("patterns", patterns)
+        _setter("search_paths", search_paths)
+        _setter("ssh_auths", ssh_auths)
+        _setter("uri", uri)
 
     @property
     @pulumi.getter(name="httpBasicAuths")
@@ -2878,8 +3894,25 @@ class GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthResult(d
         :param str password: The password used to access the HTTP Basic Authentication Git repository server.
         :param str username: The username used to access the HTTP Basic Authentication Git repository server.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        GetSpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -2911,10 +3944,43 @@ class GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthResult(dict):
         :param str private_key: The SSH private key to access the Git repository, needed when the URI starts with `git@` or `ssh://`.
         :param bool strict_host_key_checking_enabled: Indicates whether the Config Server instance will fail to start if the host_key does not match.
         """
-        pulumi.set(__self__, "host_key", host_key)
-        pulumi.set(__self__, "host_key_algorithm", host_key_algorithm)
-        pulumi.set(__self__, "private_key", private_key)
-        pulumi.set(__self__, "strict_host_key_checking_enabled", strict_host_key_checking_enabled)
+        GetSpringCloudServiceConfigServerGitSettingRepositorySshAuthResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_key=host_key,
+            host_key_algorithm=host_key_algorithm,
+            private_key=private_key,
+            strict_host_key_checking_enabled=strict_host_key_checking_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_key: Optional[str] = None,
+             host_key_algorithm: Optional[str] = None,
+             private_key: Optional[str] = None,
+             strict_host_key_checking_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if host_key is None and 'hostKey' in kwargs:
+            host_key = kwargs['hostKey']
+        if host_key is None:
+            raise TypeError("Missing 'host_key' argument")
+        if host_key_algorithm is None and 'hostKeyAlgorithm' in kwargs:
+            host_key_algorithm = kwargs['hostKeyAlgorithm']
+        if host_key_algorithm is None:
+            raise TypeError("Missing 'host_key_algorithm' argument")
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if private_key is None:
+            raise TypeError("Missing 'private_key' argument")
+        if strict_host_key_checking_enabled is None and 'strictHostKeyCheckingEnabled' in kwargs:
+            strict_host_key_checking_enabled = kwargs['strictHostKeyCheckingEnabled']
+        if strict_host_key_checking_enabled is None:
+            raise TypeError("Missing 'strict_host_key_checking_enabled' argument")
+
+        _setter("host_key", host_key)
+        _setter("host_key_algorithm", host_key_algorithm)
+        _setter("private_key", private_key)
+        _setter("strict_host_key_checking_enabled", strict_host_key_checking_enabled)
 
     @property
     @pulumi.getter(name="hostKey")
@@ -2962,10 +4028,43 @@ class GetSpringCloudServiceConfigServerGitSettingSshAuthResult(dict):
         :param str private_key: The SSH private key to access the Git repository, needed when the URI starts with `git@` or `ssh://`.
         :param bool strict_host_key_checking_enabled: Indicates whether the Config Server instance will fail to start if the host_key does not match.
         """
-        pulumi.set(__self__, "host_key", host_key)
-        pulumi.set(__self__, "host_key_algorithm", host_key_algorithm)
-        pulumi.set(__self__, "private_key", private_key)
-        pulumi.set(__self__, "strict_host_key_checking_enabled", strict_host_key_checking_enabled)
+        GetSpringCloudServiceConfigServerGitSettingSshAuthResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            host_key=host_key,
+            host_key_algorithm=host_key_algorithm,
+            private_key=private_key,
+            strict_host_key_checking_enabled=strict_host_key_checking_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             host_key: Optional[str] = None,
+             host_key_algorithm: Optional[str] = None,
+             private_key: Optional[str] = None,
+             strict_host_key_checking_enabled: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if host_key is None and 'hostKey' in kwargs:
+            host_key = kwargs['hostKey']
+        if host_key is None:
+            raise TypeError("Missing 'host_key' argument")
+        if host_key_algorithm is None and 'hostKeyAlgorithm' in kwargs:
+            host_key_algorithm = kwargs['hostKeyAlgorithm']
+        if host_key_algorithm is None:
+            raise TypeError("Missing 'host_key_algorithm' argument")
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if private_key is None:
+            raise TypeError("Missing 'private_key' argument")
+        if strict_host_key_checking_enabled is None and 'strictHostKeyCheckingEnabled' in kwargs:
+            strict_host_key_checking_enabled = kwargs['strictHostKeyCheckingEnabled']
+        if strict_host_key_checking_enabled is None:
+            raise TypeError("Missing 'strict_host_key_checking_enabled' argument")
+
+        _setter("host_key", host_key)
+        _setter("host_key_algorithm", host_key_algorithm)
+        _setter("private_key", private_key)
+        _setter("strict_host_key_checking_enabled", strict_host_key_checking_enabled)
 
     @property
     @pulumi.getter(name="hostKey")
@@ -3015,11 +4114,42 @@ class GetSpringCloudServiceRequiredNetworkTrafficRuleResult(dict):
         :param int port: The port of required traffic.
         :param str protocol: The protocol of required traffic.
         """
-        pulumi.set(__self__, "direction", direction)
-        pulumi.set(__self__, "fqdns", fqdns)
-        pulumi.set(__self__, "ip_addresses", ip_addresses)
-        pulumi.set(__self__, "port", port)
-        pulumi.set(__self__, "protocol", protocol)
+        GetSpringCloudServiceRequiredNetworkTrafficRuleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            direction=direction,
+            fqdns=fqdns,
+            ip_addresses=ip_addresses,
+            port=port,
+            protocol=protocol,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             direction: Optional[str] = None,
+             fqdns: Optional[Sequence[str]] = None,
+             ip_addresses: Optional[Sequence[str]] = None,
+             port: Optional[int] = None,
+             protocol: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if direction is None:
+            raise TypeError("Missing 'direction' argument")
+        if fqdns is None:
+            raise TypeError("Missing 'fqdns' argument")
+        if ip_addresses is None and 'ipAddresses' in kwargs:
+            ip_addresses = kwargs['ipAddresses']
+        if ip_addresses is None:
+            raise TypeError("Missing 'ip_addresses' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+
+        _setter("direction", direction)
+        _setter("fqdns", fqdns)
+        _setter("ip_addresses", ip_addresses)
+        _setter("port", port)
+        _setter("protocol", protocol)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NamespaceCustomerManagedKeyInitArgs', 'NamespaceCustomerManagedKey']
@@ -29,12 +29,41 @@ class NamespaceCustomerManagedKeyInitArgs:
                
                > **Note:** If using `user_assigned_identity_id`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
         """
-        pulumi.set(__self__, "eventhub_namespace_id", eventhub_namespace_id)
-        pulumi.set(__self__, "key_vault_key_ids", key_vault_key_ids)
+        NamespaceCustomerManagedKeyInitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            eventhub_namespace_id=eventhub_namespace_id,
+            key_vault_key_ids=key_vault_key_ids,
+            infrastructure_encryption_enabled=infrastructure_encryption_enabled,
+            user_assigned_identity_id=user_assigned_identity_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             eventhub_namespace_id: Optional[pulumi.Input[str]] = None,
+             key_vault_key_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if eventhub_namespace_id is None and 'eventhubNamespaceId' in kwargs:
+            eventhub_namespace_id = kwargs['eventhubNamespaceId']
+        if eventhub_namespace_id is None:
+            raise TypeError("Missing 'eventhub_namespace_id' argument")
+        if key_vault_key_ids is None and 'keyVaultKeyIds' in kwargs:
+            key_vault_key_ids = kwargs['keyVaultKeyIds']
+        if key_vault_key_ids is None:
+            raise TypeError("Missing 'key_vault_key_ids' argument")
+        if infrastructure_encryption_enabled is None and 'infrastructureEncryptionEnabled' in kwargs:
+            infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
+        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
+        _setter("eventhub_namespace_id", eventhub_namespace_id)
+        _setter("key_vault_key_ids", key_vault_key_ids)
         if infrastructure_encryption_enabled is not None:
-            pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
+            _setter("infrastructure_encryption_enabled", infrastructure_encryption_enabled)
         if user_assigned_identity_id is not None:
-            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+            _setter("user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="eventhubNamespaceId")
@@ -107,14 +136,39 @@ class _NamespaceCustomerManagedKeyState:
                
                > **Note:** If using `user_assigned_identity_id`, make sure to assign the identity the appropriate permissions to access the Key Vault key. Failure to grant `Get, UnwrapKey, and WrapKey` will cause this resource to fail to apply.
         """
+        _NamespaceCustomerManagedKeyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            eventhub_namespace_id=eventhub_namespace_id,
+            infrastructure_encryption_enabled=infrastructure_encryption_enabled,
+            key_vault_key_ids=key_vault_key_ids,
+            user_assigned_identity_id=user_assigned_identity_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             eventhub_namespace_id: Optional[pulumi.Input[str]] = None,
+             infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             key_vault_key_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if eventhub_namespace_id is None and 'eventhubNamespaceId' in kwargs:
+            eventhub_namespace_id = kwargs['eventhubNamespaceId']
+        if infrastructure_encryption_enabled is None and 'infrastructureEncryptionEnabled' in kwargs:
+            infrastructure_encryption_enabled = kwargs['infrastructureEncryptionEnabled']
+        if key_vault_key_ids is None and 'keyVaultKeyIds' in kwargs:
+            key_vault_key_ids = kwargs['keyVaultKeyIds']
+        if user_assigned_identity_id is None and 'userAssignedIdentityId' in kwargs:
+            user_assigned_identity_id = kwargs['userAssignedIdentityId']
+
         if eventhub_namespace_id is not None:
-            pulumi.set(__self__, "eventhub_namespace_id", eventhub_namespace_id)
+            _setter("eventhub_namespace_id", eventhub_namespace_id)
         if infrastructure_encryption_enabled is not None:
-            pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
+            _setter("infrastructure_encryption_enabled", infrastructure_encryption_enabled)
         if key_vault_key_ids is not None:
-            pulumi.set(__self__, "key_vault_key_ids", key_vault_key_ids)
+            _setter("key_vault_key_ids", key_vault_key_ids)
         if user_assigned_identity_id is not None:
-            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+            _setter("user_assigned_identity_id", user_assigned_identity_id)
 
     @property
     @pulumi.getter(name="eventhubNamespaceId")
@@ -518,6 +572,10 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NamespaceCustomerManagedKeyInitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

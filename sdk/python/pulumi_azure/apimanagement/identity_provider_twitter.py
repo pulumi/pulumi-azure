@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IdentityProviderTwitterArgs', 'IdentityProviderTwitter']
@@ -25,10 +25,43 @@ class IdentityProviderTwitterArgs:
         :param pulumi.Input[str] api_secret_key: App Consumer API secret key for Twitter.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "api_key", api_key)
-        pulumi.set(__self__, "api_management_name", api_management_name)
-        pulumi.set(__self__, "api_secret_key", api_secret_key)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        IdentityProviderTwitterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+            api_management_name=api_management_name,
+            api_secret_key=api_secret_key,
+            resource_group_name=resource_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: Optional[pulumi.Input[str]] = None,
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             api_secret_key: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if api_key is None:
+            raise TypeError("Missing 'api_key' argument")
+        if api_management_name is None and 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if api_secret_key is None and 'apiSecretKey' in kwargs:
+            api_secret_key = kwargs['apiSecretKey']
+        if api_secret_key is None:
+            raise TypeError("Missing 'api_secret_key' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+
+        _setter("api_key", api_key)
+        _setter("api_management_name", api_management_name)
+        _setter("api_secret_key", api_secret_key)
+        _setter("resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -93,14 +126,39 @@ class _IdentityProviderTwitterState:
         :param pulumi.Input[str] api_secret_key: App Consumer API secret key for Twitter.
         :param pulumi.Input[str] resource_group_name: The Name of the Resource Group where the API Management Service exists. Changing this forces a new resource to be created.
         """
+        _IdentityProviderTwitterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_key=api_key,
+            api_management_name=api_management_name,
+            api_secret_key=api_secret_key,
+            resource_group_name=resource_group_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_key: Optional[pulumi.Input[str]] = None,
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             api_secret_key: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_key is None and 'apiKey' in kwargs:
+            api_key = kwargs['apiKey']
+        if api_management_name is None and 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if api_secret_key is None and 'apiSecretKey' in kwargs:
+            api_secret_key = kwargs['apiSecretKey']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if api_key is not None:
-            pulumi.set(__self__, "api_key", api_key)
+            _setter("api_key", api_key)
         if api_management_name is not None:
-            pulumi.set(__self__, "api_management_name", api_management_name)
+            _setter("api_management_name", api_management_name)
         if api_secret_key is not None:
-            pulumi.set(__self__, "api_secret_key", api_secret_key)
+            _setter("api_secret_key", api_secret_key)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -246,6 +304,10 @@ class IdentityProviderTwitter(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IdentityProviderTwitterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

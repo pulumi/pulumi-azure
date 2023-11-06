@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,41 @@ class VpnServerConfigurationPolicyGroupArgs:
         :param pulumi.Input[str] name: The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created.
         :param pulumi.Input[int] priority: The priority of this VPN Server Configuration Policy Group. Defaults to `0`.
         """
-        pulumi.set(__self__, "policies", policies)
-        pulumi.set(__self__, "vpn_server_configuration_id", vpn_server_configuration_id)
+        VpnServerConfigurationPolicyGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            policies=policies,
+            vpn_server_configuration_id=vpn_server_configuration_id,
+            is_default=is_default,
+            name=name,
+            priority=priority,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupPolicyArgs']]]] = None,
+             vpn_server_configuration_id: Optional[pulumi.Input[str]] = None,
+             is_default: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if policies is None:
+            raise TypeError("Missing 'policies' argument")
+        if vpn_server_configuration_id is None and 'vpnServerConfigurationId' in kwargs:
+            vpn_server_configuration_id = kwargs['vpnServerConfigurationId']
+        if vpn_server_configuration_id is None:
+            raise TypeError("Missing 'vpn_server_configuration_id' argument")
+        if is_default is None and 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+
+        _setter("policies", policies)
+        _setter("vpn_server_configuration_id", vpn_server_configuration_id)
         if is_default is not None:
-            pulumi.set(__self__, "is_default", is_default)
+            _setter("is_default", is_default)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
 
     @property
     @pulumi.getter
@@ -115,16 +142,39 @@ class _VpnServerConfigurationPolicyGroupState:
         :param pulumi.Input[int] priority: The priority of this VPN Server Configuration Policy Group. Defaults to `0`.
         :param pulumi.Input[str] vpn_server_configuration_id: The ID of the VPN Server Configuration that the VPN Server Configuration Policy Group belongs to. Changing this forces a new resource to be created.
         """
+        _VpnServerConfigurationPolicyGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            is_default=is_default,
+            name=name,
+            policies=policies,
+            priority=priority,
+            vpn_server_configuration_id=vpn_server_configuration_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             is_default: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             policies: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupPolicyArgs']]]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             vpn_server_configuration_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if is_default is None and 'isDefault' in kwargs:
+            is_default = kwargs['isDefault']
+        if vpn_server_configuration_id is None and 'vpnServerConfigurationId' in kwargs:
+            vpn_server_configuration_id = kwargs['vpnServerConfigurationId']
+
         if is_default is not None:
-            pulumi.set(__self__, "is_default", is_default)
+            _setter("is_default", is_default)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if policies is not None:
-            pulumi.set(__self__, "policies", policies)
+            _setter("policies", policies)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if vpn_server_configuration_id is not None:
-            pulumi.set(__self__, "vpn_server_configuration_id", vpn_server_configuration_id)
+            _setter("vpn_server_configuration_id", vpn_server_configuration_id)
 
     @property
     @pulumi.getter(name="isDefault")
@@ -298,6 +348,10 @@ class VpnServerConfigurationPolicyGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VpnServerConfigurationPolicyGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

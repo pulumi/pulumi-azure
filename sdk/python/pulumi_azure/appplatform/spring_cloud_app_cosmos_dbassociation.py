@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SpringCloudAppCosmosDBAssociationArgs', 'SpringCloudAppCosmosDBAssociation']
@@ -37,22 +37,77 @@ class SpringCloudAppCosmosDBAssociationArgs:
         :param pulumi.Input[str] cosmosdb_sql_database_name: Specifies the name of the SQL Database which the Spring Cloud App should be associated with. Should only be set when `api_type` is `sql`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "api_type", api_type)
-        pulumi.set(__self__, "cosmosdb_access_key", cosmosdb_access_key)
-        pulumi.set(__self__, "cosmosdb_account_id", cosmosdb_account_id)
-        pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
+        SpringCloudAppCosmosDBAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_type=api_type,
+            cosmosdb_access_key=cosmosdb_access_key,
+            cosmosdb_account_id=cosmosdb_account_id,
+            spring_cloud_app_id=spring_cloud_app_id,
+            cosmosdb_cassandra_keyspace_name=cosmosdb_cassandra_keyspace_name,
+            cosmosdb_gremlin_database_name=cosmosdb_gremlin_database_name,
+            cosmosdb_gremlin_graph_name=cosmosdb_gremlin_graph_name,
+            cosmosdb_mongo_database_name=cosmosdb_mongo_database_name,
+            cosmosdb_sql_database_name=cosmosdb_sql_database_name,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_type: Optional[pulumi.Input[str]] = None,
+             cosmosdb_access_key: Optional[pulumi.Input[str]] = None,
+             cosmosdb_account_id: Optional[pulumi.Input[str]] = None,
+             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
+             cosmosdb_cassandra_keyspace_name: Optional[pulumi.Input[str]] = None,
+             cosmosdb_gremlin_database_name: Optional[pulumi.Input[str]] = None,
+             cosmosdb_gremlin_graph_name: Optional[pulumi.Input[str]] = None,
+             cosmosdb_mongo_database_name: Optional[pulumi.Input[str]] = None,
+             cosmosdb_sql_database_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_type is None and 'apiType' in kwargs:
+            api_type = kwargs['apiType']
+        if api_type is None:
+            raise TypeError("Missing 'api_type' argument")
+        if cosmosdb_access_key is None and 'cosmosdbAccessKey' in kwargs:
+            cosmosdb_access_key = kwargs['cosmosdbAccessKey']
+        if cosmosdb_access_key is None:
+            raise TypeError("Missing 'cosmosdb_access_key' argument")
+        if cosmosdb_account_id is None and 'cosmosdbAccountId' in kwargs:
+            cosmosdb_account_id = kwargs['cosmosdbAccountId']
+        if cosmosdb_account_id is None:
+            raise TypeError("Missing 'cosmosdb_account_id' argument")
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
+            spring_cloud_app_id = kwargs['springCloudAppId']
+        if spring_cloud_app_id is None:
+            raise TypeError("Missing 'spring_cloud_app_id' argument")
+        if cosmosdb_cassandra_keyspace_name is None and 'cosmosdbCassandraKeyspaceName' in kwargs:
+            cosmosdb_cassandra_keyspace_name = kwargs['cosmosdbCassandraKeyspaceName']
+        if cosmosdb_gremlin_database_name is None and 'cosmosdbGremlinDatabaseName' in kwargs:
+            cosmosdb_gremlin_database_name = kwargs['cosmosdbGremlinDatabaseName']
+        if cosmosdb_gremlin_graph_name is None and 'cosmosdbGremlinGraphName' in kwargs:
+            cosmosdb_gremlin_graph_name = kwargs['cosmosdbGremlinGraphName']
+        if cosmosdb_mongo_database_name is None and 'cosmosdbMongoDatabaseName' in kwargs:
+            cosmosdb_mongo_database_name = kwargs['cosmosdbMongoDatabaseName']
+        if cosmosdb_sql_database_name is None and 'cosmosdbSqlDatabaseName' in kwargs:
+            cosmosdb_sql_database_name = kwargs['cosmosdbSqlDatabaseName']
+
+        _setter("api_type", api_type)
+        _setter("cosmosdb_access_key", cosmosdb_access_key)
+        _setter("cosmosdb_account_id", cosmosdb_account_id)
+        _setter("spring_cloud_app_id", spring_cloud_app_id)
         if cosmosdb_cassandra_keyspace_name is not None:
-            pulumi.set(__self__, "cosmosdb_cassandra_keyspace_name", cosmosdb_cassandra_keyspace_name)
+            _setter("cosmosdb_cassandra_keyspace_name", cosmosdb_cassandra_keyspace_name)
         if cosmosdb_gremlin_database_name is not None:
-            pulumi.set(__self__, "cosmosdb_gremlin_database_name", cosmosdb_gremlin_database_name)
+            _setter("cosmosdb_gremlin_database_name", cosmosdb_gremlin_database_name)
         if cosmosdb_gremlin_graph_name is not None:
-            pulumi.set(__self__, "cosmosdb_gremlin_graph_name", cosmosdb_gremlin_graph_name)
+            _setter("cosmosdb_gremlin_graph_name", cosmosdb_gremlin_graph_name)
         if cosmosdb_mongo_database_name is not None:
-            pulumi.set(__self__, "cosmosdb_mongo_database_name", cosmosdb_mongo_database_name)
+            _setter("cosmosdb_mongo_database_name", cosmosdb_mongo_database_name)
         if cosmosdb_sql_database_name is not None:
-            pulumi.set(__self__, "cosmosdb_sql_database_name", cosmosdb_sql_database_name)
+            _setter("cosmosdb_sql_database_name", cosmosdb_sql_database_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="apiType")
@@ -201,26 +256,73 @@ class _SpringCloudAppCosmosDBAssociationState:
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application Association. Changing this forces a new resource to be created.
         :param pulumi.Input[str] spring_cloud_app_id: Specifies the ID of the Spring Cloud Application where this Association is created. Changing this forces a new resource to be created.
         """
+        _SpringCloudAppCosmosDBAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_type=api_type,
+            cosmosdb_access_key=cosmosdb_access_key,
+            cosmosdb_account_id=cosmosdb_account_id,
+            cosmosdb_cassandra_keyspace_name=cosmosdb_cassandra_keyspace_name,
+            cosmosdb_gremlin_database_name=cosmosdb_gremlin_database_name,
+            cosmosdb_gremlin_graph_name=cosmosdb_gremlin_graph_name,
+            cosmosdb_mongo_database_name=cosmosdb_mongo_database_name,
+            cosmosdb_sql_database_name=cosmosdb_sql_database_name,
+            name=name,
+            spring_cloud_app_id=spring_cloud_app_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_type: Optional[pulumi.Input[str]] = None,
+             cosmosdb_access_key: Optional[pulumi.Input[str]] = None,
+             cosmosdb_account_id: Optional[pulumi.Input[str]] = None,
+             cosmosdb_cassandra_keyspace_name: Optional[pulumi.Input[str]] = None,
+             cosmosdb_gremlin_database_name: Optional[pulumi.Input[str]] = None,
+             cosmosdb_gremlin_graph_name: Optional[pulumi.Input[str]] = None,
+             cosmosdb_mongo_database_name: Optional[pulumi.Input[str]] = None,
+             cosmosdb_sql_database_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_type is None and 'apiType' in kwargs:
+            api_type = kwargs['apiType']
+        if cosmosdb_access_key is None and 'cosmosdbAccessKey' in kwargs:
+            cosmosdb_access_key = kwargs['cosmosdbAccessKey']
+        if cosmosdb_account_id is None and 'cosmosdbAccountId' in kwargs:
+            cosmosdb_account_id = kwargs['cosmosdbAccountId']
+        if cosmosdb_cassandra_keyspace_name is None and 'cosmosdbCassandraKeyspaceName' in kwargs:
+            cosmosdb_cassandra_keyspace_name = kwargs['cosmosdbCassandraKeyspaceName']
+        if cosmosdb_gremlin_database_name is None and 'cosmosdbGremlinDatabaseName' in kwargs:
+            cosmosdb_gremlin_database_name = kwargs['cosmosdbGremlinDatabaseName']
+        if cosmosdb_gremlin_graph_name is None and 'cosmosdbGremlinGraphName' in kwargs:
+            cosmosdb_gremlin_graph_name = kwargs['cosmosdbGremlinGraphName']
+        if cosmosdb_mongo_database_name is None and 'cosmosdbMongoDatabaseName' in kwargs:
+            cosmosdb_mongo_database_name = kwargs['cosmosdbMongoDatabaseName']
+        if cosmosdb_sql_database_name is None and 'cosmosdbSqlDatabaseName' in kwargs:
+            cosmosdb_sql_database_name = kwargs['cosmosdbSqlDatabaseName']
+        if spring_cloud_app_id is None and 'springCloudAppId' in kwargs:
+            spring_cloud_app_id = kwargs['springCloudAppId']
+
         if api_type is not None:
-            pulumi.set(__self__, "api_type", api_type)
+            _setter("api_type", api_type)
         if cosmosdb_access_key is not None:
-            pulumi.set(__self__, "cosmosdb_access_key", cosmosdb_access_key)
+            _setter("cosmosdb_access_key", cosmosdb_access_key)
         if cosmosdb_account_id is not None:
-            pulumi.set(__self__, "cosmosdb_account_id", cosmosdb_account_id)
+            _setter("cosmosdb_account_id", cosmosdb_account_id)
         if cosmosdb_cassandra_keyspace_name is not None:
-            pulumi.set(__self__, "cosmosdb_cassandra_keyspace_name", cosmosdb_cassandra_keyspace_name)
+            _setter("cosmosdb_cassandra_keyspace_name", cosmosdb_cassandra_keyspace_name)
         if cosmosdb_gremlin_database_name is not None:
-            pulumi.set(__self__, "cosmosdb_gremlin_database_name", cosmosdb_gremlin_database_name)
+            _setter("cosmosdb_gremlin_database_name", cosmosdb_gremlin_database_name)
         if cosmosdb_gremlin_graph_name is not None:
-            pulumi.set(__self__, "cosmosdb_gremlin_graph_name", cosmosdb_gremlin_graph_name)
+            _setter("cosmosdb_gremlin_graph_name", cosmosdb_gremlin_graph_name)
         if cosmosdb_mongo_database_name is not None:
-            pulumi.set(__self__, "cosmosdb_mongo_database_name", cosmosdb_mongo_database_name)
+            _setter("cosmosdb_mongo_database_name", cosmosdb_mongo_database_name)
         if cosmosdb_sql_database_name is not None:
-            pulumi.set(__self__, "cosmosdb_sql_database_name", cosmosdb_sql_database_name)
+            _setter("cosmosdb_sql_database_name", cosmosdb_sql_database_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if spring_cloud_app_id is not None:
-            pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
+            _setter("spring_cloud_app_id", spring_cloud_app_id)
 
     @property
     @pulumi.getter(name="apiType")
@@ -474,6 +576,10 @@ class SpringCloudAppCosmosDBAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SpringCloudAppCosmosDBAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

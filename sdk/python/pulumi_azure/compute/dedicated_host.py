@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DedicatedHostArgs', 'DedicatedHost']
@@ -33,19 +33,60 @@ class DedicatedHostArgs:
         :param pulumi.Input[str] name: Specifies the name of this Dedicated Host. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "dedicated_host_group_id", dedicated_host_group_id)
-        pulumi.set(__self__, "platform_fault_domain", platform_fault_domain)
-        pulumi.set(__self__, "sku_name", sku_name)
+        DedicatedHostArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dedicated_host_group_id=dedicated_host_group_id,
+            platform_fault_domain=platform_fault_domain,
+            sku_name=sku_name,
+            auto_replace_on_failure=auto_replace_on_failure,
+            license_type=license_type,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
+             platform_fault_domain: Optional[pulumi.Input[int]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             auto_replace_on_failure: Optional[pulumi.Input[bool]] = None,
+             license_type: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if dedicated_host_group_id is None and 'dedicatedHostGroupId' in kwargs:
+            dedicated_host_group_id = kwargs['dedicatedHostGroupId']
+        if dedicated_host_group_id is None:
+            raise TypeError("Missing 'dedicated_host_group_id' argument")
+        if platform_fault_domain is None and 'platformFaultDomain' in kwargs:
+            platform_fault_domain = kwargs['platformFaultDomain']
+        if platform_fault_domain is None:
+            raise TypeError("Missing 'platform_fault_domain' argument")
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if auto_replace_on_failure is None and 'autoReplaceOnFailure' in kwargs:
+            auto_replace_on_failure = kwargs['autoReplaceOnFailure']
+        if license_type is None and 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+
+        _setter("dedicated_host_group_id", dedicated_host_group_id)
+        _setter("platform_fault_domain", platform_fault_domain)
+        _setter("sku_name", sku_name)
         if auto_replace_on_failure is not None:
-            pulumi.set(__self__, "auto_replace_on_failure", auto_replace_on_failure)
+            _setter("auto_replace_on_failure", auto_replace_on_failure)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="dedicatedHostGroupId")
@@ -166,22 +207,57 @@ class _DedicatedHostState:
         :param pulumi.Input[str] sku_name: Specify the SKU name of the Dedicated Host. Possible values are `DADSv5-Type1`, `DASv4-Type1`, `DASv4-Type2`, `DASv5-Type1`, `DCSv2-Type1`, `DDSv4-Type1`, `DDSv4-Type2`, `DDSv5-Type1`, `DSv3-Type1`, `DSv3-Type2`, `DSv3-Type3`, `DSv3-Type4`, `DSv4-Type1`, `DSv4-Type2`, `DSv5-Type1`, `EADSv5-Type1`, `EASv4-Type1`, `EASv4-Type2`, `EASv5-Type1`, `EDSv4-Type1`, `EDSv4-Type2`, `EDSv5-Type1`, `ESv3-Type1`, `ESv3-Type2`, `ESv3-Type3`, `ESv3-Type4`, `ESv4-Type1`, `ESv4-Type2`, `ESv5-Type1`, `FSv2-Type2`, `FSv2-Type3`, `FSv2-Type4`, `FXmds-Type1`, `LSv2-Type1`, `LSv3-Type1`, `MDMSv2MedMem-Type1`, `MDSv2MedMem-Type1`, `MMSv2MedMem-Type1`, `MS-Type1`, `MSm-Type1`, `MSmv2-Type1`, `MSv2-Type1`, `MSv2MedMem-Type1`, `NVASv4-Type1` and `NVSv3-Type1`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
+        _DedicatedHostState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_replace_on_failure=auto_replace_on_failure,
+            dedicated_host_group_id=dedicated_host_group_id,
+            license_type=license_type,
+            location=location,
+            name=name,
+            platform_fault_domain=platform_fault_domain,
+            sku_name=sku_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_replace_on_failure: Optional[pulumi.Input[bool]] = None,
+             dedicated_host_group_id: Optional[pulumi.Input[str]] = None,
+             license_type: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             platform_fault_domain: Optional[pulumi.Input[int]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if auto_replace_on_failure is None and 'autoReplaceOnFailure' in kwargs:
+            auto_replace_on_failure = kwargs['autoReplaceOnFailure']
+        if dedicated_host_group_id is None and 'dedicatedHostGroupId' in kwargs:
+            dedicated_host_group_id = kwargs['dedicatedHostGroupId']
+        if license_type is None and 'licenseType' in kwargs:
+            license_type = kwargs['licenseType']
+        if platform_fault_domain is None and 'platformFaultDomain' in kwargs:
+            platform_fault_domain = kwargs['platformFaultDomain']
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+
         if auto_replace_on_failure is not None:
-            pulumi.set(__self__, "auto_replace_on_failure", auto_replace_on_failure)
+            _setter("auto_replace_on_failure", auto_replace_on_failure)
         if dedicated_host_group_id is not None:
-            pulumi.set(__self__, "dedicated_host_group_id", dedicated_host_group_id)
+            _setter("dedicated_host_group_id", dedicated_host_group_id)
         if license_type is not None:
-            pulumi.set(__self__, "license_type", license_type)
+            _setter("license_type", license_type)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if platform_fault_domain is not None:
-            pulumi.set(__self__, "platform_fault_domain", platform_fault_domain)
+            _setter("platform_fault_domain", platform_fault_domain)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="autoReplaceOnFailure")
@@ -379,6 +455,10 @@ class DedicatedHost(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DedicatedHostArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

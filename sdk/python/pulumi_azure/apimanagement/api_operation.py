@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,21 +41,80 @@ class ApiOperationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseArgs']]] responses: One or more `response` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]] template_parameters: One or more `template_parameter` blocks as defined below.  Required if `url_template` contains one or more parameters.
         """
-        pulumi.set(__self__, "api_management_name", api_management_name)
-        pulumi.set(__self__, "api_name", api_name)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "method", method)
-        pulumi.set(__self__, "operation_id", operation_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "url_template", url_template)
+        ApiOperationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_name=api_management_name,
+            api_name=api_name,
+            display_name=display_name,
+            method=method,
+            operation_id=operation_id,
+            resource_group_name=resource_group_name,
+            url_template=url_template,
+            description=description,
+            request=request,
+            responses=responses,
+            template_parameters=template_parameters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             api_name: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             method: Optional[pulumi.Input[str]] = None,
+             operation_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             url_template: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             request: Optional[pulumi.Input['ApiOperationRequestArgs']] = None,
+             responses: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseArgs']]]] = None,
+             template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_management_name is None and 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if api_name is None and 'apiName' in kwargs:
+            api_name = kwargs['apiName']
+        if api_name is None:
+            raise TypeError("Missing 'api_name' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if method is None:
+            raise TypeError("Missing 'method' argument")
+        if operation_id is None and 'operationId' in kwargs:
+            operation_id = kwargs['operationId']
+        if operation_id is None:
+            raise TypeError("Missing 'operation_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if url_template is None and 'urlTemplate' in kwargs:
+            url_template = kwargs['urlTemplate']
+        if url_template is None:
+            raise TypeError("Missing 'url_template' argument")
+        if template_parameters is None and 'templateParameters' in kwargs:
+            template_parameters = kwargs['templateParameters']
+
+        _setter("api_management_name", api_management_name)
+        _setter("api_name", api_name)
+        _setter("display_name", display_name)
+        _setter("method", method)
+        _setter("operation_id", operation_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("url_template", url_template)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if request is not None:
-            pulumi.set(__self__, "request", request)
+            _setter("request", request)
         if responses is not None:
-            pulumi.set(__self__, "responses", responses)
+            _setter("responses", responses)
         if template_parameters is not None:
-            pulumi.set(__self__, "template_parameters", template_parameters)
+            _setter("template_parameters", template_parameters)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -218,28 +277,73 @@ class _ApiOperationState:
         :param pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]] template_parameters: One or more `template_parameter` blocks as defined below.  Required if `url_template` contains one or more parameters.
         :param pulumi.Input[str] url_template: The relative URL Template identifying the target resource for this operation, which may include parameters.
         """
+        _ApiOperationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_name=api_management_name,
+            api_name=api_name,
+            description=description,
+            display_name=display_name,
+            method=method,
+            operation_id=operation_id,
+            request=request,
+            resource_group_name=resource_group_name,
+            responses=responses,
+            template_parameters=template_parameters,
+            url_template=url_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             api_name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             method: Optional[pulumi.Input[str]] = None,
+             operation_id: Optional[pulumi.Input[str]] = None,
+             request: Optional[pulumi.Input['ApiOperationRequestArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             responses: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationResponseArgs']]]] = None,
+             template_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ApiOperationTemplateParameterArgs']]]] = None,
+             url_template: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_management_name is None and 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if api_name is None and 'apiName' in kwargs:
+            api_name = kwargs['apiName']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if operation_id is None and 'operationId' in kwargs:
+            operation_id = kwargs['operationId']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if template_parameters is None and 'templateParameters' in kwargs:
+            template_parameters = kwargs['templateParameters']
+        if url_template is None and 'urlTemplate' in kwargs:
+            url_template = kwargs['urlTemplate']
+
         if api_management_name is not None:
-            pulumi.set(__self__, "api_management_name", api_management_name)
+            _setter("api_management_name", api_management_name)
         if api_name is not None:
-            pulumi.set(__self__, "api_name", api_name)
+            _setter("api_name", api_name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if operation_id is not None:
-            pulumi.set(__self__, "operation_id", operation_id)
+            _setter("operation_id", operation_id)
         if request is not None:
-            pulumi.set(__self__, "request", request)
+            _setter("request", request)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if responses is not None:
-            pulumi.set(__self__, "responses", responses)
+            _setter("responses", responses)
         if template_parameters is not None:
-            pulumi.set(__self__, "template_parameters", template_parameters)
+            _setter("template_parameters", template_parameters)
         if url_template is not None:
-            pulumi.set(__self__, "url_template", url_template)
+            _setter("url_template", url_template)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -501,6 +605,10 @@ class ApiOperation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiOperationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -542,6 +650,11 @@ class ApiOperation(pulumi.CustomResource):
             if operation_id is None and not opts.urn:
                 raise TypeError("Missing required property 'operation_id'")
             __props__.__dict__["operation_id"] = operation_id
+            if request is not None and not isinstance(request, ApiOperationRequestArgs):
+                request = request or {}
+                def _setter(key, value):
+                    request[key] = value
+                ApiOperationRequestArgs._configure(_setter, **request)
             __props__.__dict__["request"] = request
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

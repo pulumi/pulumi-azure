@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -65,50 +65,143 @@ class WindowsWebAppSlotArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App Slot.
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
-        pulumi.set(__self__, "app_service_id", app_service_id)
-        pulumi.set(__self__, "site_config", site_config)
+        WindowsWebAppSlotArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_service_id=app_service_id,
+            site_config=site_config,
+            app_settings=app_settings,
+            auth_settings=auth_settings,
+            auth_settings_v2=auth_settings_v2,
+            backup=backup,
+            client_affinity_enabled=client_affinity_enabled,
+            client_certificate_enabled=client_certificate_enabled,
+            client_certificate_exclusion_paths=client_certificate_exclusion_paths,
+            client_certificate_mode=client_certificate_mode,
+            connection_strings=connection_strings,
+            enabled=enabled,
+            https_only=https_only,
+            identity=identity,
+            key_vault_reference_identity_id=key_vault_reference_identity_id,
+            logs=logs,
+            name=name,
+            public_network_access_enabled=public_network_access_enabled,
+            service_plan_id=service_plan_id,
+            storage_accounts=storage_accounts,
+            tags=tags,
+            virtual_network_subnet_id=virtual_network_subnet_id,
+            zip_deploy_file=zip_deploy_file,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_service_id: Optional[pulumi.Input[str]] = None,
+             site_config: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigArgs']] = None,
+             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             auth_settings: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsArgs']] = None,
+             auth_settings_v2: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2Args']] = None,
+             backup: Optional[pulumi.Input['WindowsWebAppSlotBackupArgs']] = None,
+             client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
+             client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+             client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
+             client_certificate_mode: Optional[pulumi.Input[str]] = None,
+             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotConnectionStringArgs']]]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             https_only: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['WindowsWebAppSlotIdentityArgs']] = None,
+             key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
+             logs: Optional[pulumi.Input['WindowsWebAppSlotLogsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             service_plan_id: Optional[pulumi.Input[str]] = None,
+             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotStorageAccountArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+             zip_deploy_file: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_service_id is None and 'appServiceId' in kwargs:
+            app_service_id = kwargs['appServiceId']
+        if app_service_id is None:
+            raise TypeError("Missing 'app_service_id' argument")
+        if site_config is None and 'siteConfig' in kwargs:
+            site_config = kwargs['siteConfig']
+        if site_config is None:
+            raise TypeError("Missing 'site_config' argument")
+        if app_settings is None and 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if auth_settings is None and 'authSettings' in kwargs:
+            auth_settings = kwargs['authSettings']
+        if auth_settings_v2 is None and 'authSettingsV2' in kwargs:
+            auth_settings_v2 = kwargs['authSettingsV2']
+        if client_affinity_enabled is None and 'clientAffinityEnabled' in kwargs:
+            client_affinity_enabled = kwargs['clientAffinityEnabled']
+        if client_certificate_enabled is None and 'clientCertificateEnabled' in kwargs:
+            client_certificate_enabled = kwargs['clientCertificateEnabled']
+        if client_certificate_exclusion_paths is None and 'clientCertificateExclusionPaths' in kwargs:
+            client_certificate_exclusion_paths = kwargs['clientCertificateExclusionPaths']
+        if client_certificate_mode is None and 'clientCertificateMode' in kwargs:
+            client_certificate_mode = kwargs['clientCertificateMode']
+        if connection_strings is None and 'connectionStrings' in kwargs:
+            connection_strings = kwargs['connectionStrings']
+        if https_only is None and 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if key_vault_reference_identity_id is None and 'keyVaultReferenceIdentityId' in kwargs:
+            key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if service_plan_id is None and 'servicePlanId' in kwargs:
+            service_plan_id = kwargs['servicePlanId']
+        if storage_accounts is None and 'storageAccounts' in kwargs:
+            storage_accounts = kwargs['storageAccounts']
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+        if zip_deploy_file is None and 'zipDeployFile' in kwargs:
+            zip_deploy_file = kwargs['zipDeployFile']
+
+        _setter("app_service_id", app_service_id)
+        _setter("site_config", site_config)
         if app_settings is not None:
-            pulumi.set(__self__, "app_settings", app_settings)
+            _setter("app_settings", app_settings)
         if auth_settings is not None:
-            pulumi.set(__self__, "auth_settings", auth_settings)
+            _setter("auth_settings", auth_settings)
         if auth_settings_v2 is not None:
-            pulumi.set(__self__, "auth_settings_v2", auth_settings_v2)
+            _setter("auth_settings_v2", auth_settings_v2)
         if backup is not None:
-            pulumi.set(__self__, "backup", backup)
+            _setter("backup", backup)
         if client_affinity_enabled is not None:
-            pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
+            _setter("client_affinity_enabled", client_affinity_enabled)
         if client_certificate_enabled is not None:
-            pulumi.set(__self__, "client_certificate_enabled", client_certificate_enabled)
+            _setter("client_certificate_enabled", client_certificate_enabled)
         if client_certificate_exclusion_paths is not None:
-            pulumi.set(__self__, "client_certificate_exclusion_paths", client_certificate_exclusion_paths)
+            _setter("client_certificate_exclusion_paths", client_certificate_exclusion_paths)
         if client_certificate_mode is not None:
-            pulumi.set(__self__, "client_certificate_mode", client_certificate_mode)
+            _setter("client_certificate_mode", client_certificate_mode)
         if connection_strings is not None:
-            pulumi.set(__self__, "connection_strings", connection_strings)
+            _setter("connection_strings", connection_strings)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if https_only is not None:
-            pulumi.set(__self__, "https_only", https_only)
+            _setter("https_only", https_only)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_vault_reference_identity_id is not None:
-            pulumi.set(__self__, "key_vault_reference_identity_id", key_vault_reference_identity_id)
+            _setter("key_vault_reference_identity_id", key_vault_reference_identity_id)
         if logs is not None:
-            pulumi.set(__self__, "logs", logs)
+            _setter("logs", logs)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if service_plan_id is not None:
-            pulumi.set(__self__, "service_plan_id", service_plan_id)
+            _setter("service_plan_id", service_plan_id)
         if storage_accounts is not None:
-            pulumi.set(__self__, "storage_accounts", storage_accounts)
+            _setter("storage_accounts", storage_accounts)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_network_subnet_id is not None:
-            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+            _setter("virtual_network_subnet_id", virtual_network_subnet_id)
         if zip_deploy_file is not None:
-            pulumi.set(__self__, "zip_deploy_file", zip_deploy_file)
+            _setter("zip_deploy_file", zip_deploy_file)
 
     @property
     @pulumi.getter(name="appServiceId")
@@ -453,70 +546,193 @@ class _WindowsWebAppSlotState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Windows Web App Slot.
         :param pulumi.Input[str] zip_deploy_file: The local path and filename of the Zip packaged application to deploy to this Windows Web App.
         """
+        _WindowsWebAppSlotState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_service_id=app_service_id,
+            app_settings=app_settings,
+            auth_settings=auth_settings,
+            auth_settings_v2=auth_settings_v2,
+            backup=backup,
+            client_affinity_enabled=client_affinity_enabled,
+            client_certificate_enabled=client_certificate_enabled,
+            client_certificate_exclusion_paths=client_certificate_exclusion_paths,
+            client_certificate_mode=client_certificate_mode,
+            connection_strings=connection_strings,
+            custom_domain_verification_id=custom_domain_verification_id,
+            default_hostname=default_hostname,
+            enabled=enabled,
+            hosting_environment_id=hosting_environment_id,
+            https_only=https_only,
+            identity=identity,
+            key_vault_reference_identity_id=key_vault_reference_identity_id,
+            kind=kind,
+            logs=logs,
+            name=name,
+            outbound_ip_address_lists=outbound_ip_address_lists,
+            outbound_ip_addresses=outbound_ip_addresses,
+            possible_outbound_ip_address_lists=possible_outbound_ip_address_lists,
+            possible_outbound_ip_addresses=possible_outbound_ip_addresses,
+            public_network_access_enabled=public_network_access_enabled,
+            service_plan_id=service_plan_id,
+            site_config=site_config,
+            site_credentials=site_credentials,
+            storage_accounts=storage_accounts,
+            tags=tags,
+            virtual_network_subnet_id=virtual_network_subnet_id,
+            zip_deploy_file=zip_deploy_file,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_service_id: Optional[pulumi.Input[str]] = None,
+             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             auth_settings: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsArgs']] = None,
+             auth_settings_v2: Optional[pulumi.Input['WindowsWebAppSlotAuthSettingsV2Args']] = None,
+             backup: Optional[pulumi.Input['WindowsWebAppSlotBackupArgs']] = None,
+             client_affinity_enabled: Optional[pulumi.Input[bool]] = None,
+             client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
+             client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
+             client_certificate_mode: Optional[pulumi.Input[str]] = None,
+             connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotConnectionStringArgs']]]] = None,
+             custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
+             default_hostname: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             hosting_environment_id: Optional[pulumi.Input[str]] = None,
+             https_only: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['WindowsWebAppSlotIdentityArgs']] = None,
+             key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
+             kind: Optional[pulumi.Input[str]] = None,
+             logs: Optional[pulumi.Input['WindowsWebAppSlotLogsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+             possible_outbound_ip_address_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             service_plan_id: Optional[pulumi.Input[str]] = None,
+             site_config: Optional[pulumi.Input['WindowsWebAppSlotSiteConfigArgs']] = None,
+             site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotSiteCredentialArgs']]]] = None,
+             storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsWebAppSlotStorageAccountArgs']]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_network_subnet_id: Optional[pulumi.Input[str]] = None,
+             zip_deploy_file: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_service_id is None and 'appServiceId' in kwargs:
+            app_service_id = kwargs['appServiceId']
+        if app_settings is None and 'appSettings' in kwargs:
+            app_settings = kwargs['appSettings']
+        if auth_settings is None and 'authSettings' in kwargs:
+            auth_settings = kwargs['authSettings']
+        if auth_settings_v2 is None and 'authSettingsV2' in kwargs:
+            auth_settings_v2 = kwargs['authSettingsV2']
+        if client_affinity_enabled is None and 'clientAffinityEnabled' in kwargs:
+            client_affinity_enabled = kwargs['clientAffinityEnabled']
+        if client_certificate_enabled is None and 'clientCertificateEnabled' in kwargs:
+            client_certificate_enabled = kwargs['clientCertificateEnabled']
+        if client_certificate_exclusion_paths is None and 'clientCertificateExclusionPaths' in kwargs:
+            client_certificate_exclusion_paths = kwargs['clientCertificateExclusionPaths']
+        if client_certificate_mode is None and 'clientCertificateMode' in kwargs:
+            client_certificate_mode = kwargs['clientCertificateMode']
+        if connection_strings is None and 'connectionStrings' in kwargs:
+            connection_strings = kwargs['connectionStrings']
+        if custom_domain_verification_id is None and 'customDomainVerificationId' in kwargs:
+            custom_domain_verification_id = kwargs['customDomainVerificationId']
+        if default_hostname is None and 'defaultHostname' in kwargs:
+            default_hostname = kwargs['defaultHostname']
+        if hosting_environment_id is None and 'hostingEnvironmentId' in kwargs:
+            hosting_environment_id = kwargs['hostingEnvironmentId']
+        if https_only is None and 'httpsOnly' in kwargs:
+            https_only = kwargs['httpsOnly']
+        if key_vault_reference_identity_id is None and 'keyVaultReferenceIdentityId' in kwargs:
+            key_vault_reference_identity_id = kwargs['keyVaultReferenceIdentityId']
+        if outbound_ip_address_lists is None and 'outboundIpAddressLists' in kwargs:
+            outbound_ip_address_lists = kwargs['outboundIpAddressLists']
+        if outbound_ip_addresses is None and 'outboundIpAddresses' in kwargs:
+            outbound_ip_addresses = kwargs['outboundIpAddresses']
+        if possible_outbound_ip_address_lists is None and 'possibleOutboundIpAddressLists' in kwargs:
+            possible_outbound_ip_address_lists = kwargs['possibleOutboundIpAddressLists']
+        if possible_outbound_ip_addresses is None and 'possibleOutboundIpAddresses' in kwargs:
+            possible_outbound_ip_addresses = kwargs['possibleOutboundIpAddresses']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if service_plan_id is None and 'servicePlanId' in kwargs:
+            service_plan_id = kwargs['servicePlanId']
+        if site_config is None and 'siteConfig' in kwargs:
+            site_config = kwargs['siteConfig']
+        if site_credentials is None and 'siteCredentials' in kwargs:
+            site_credentials = kwargs['siteCredentials']
+        if storage_accounts is None and 'storageAccounts' in kwargs:
+            storage_accounts = kwargs['storageAccounts']
+        if virtual_network_subnet_id is None and 'virtualNetworkSubnetId' in kwargs:
+            virtual_network_subnet_id = kwargs['virtualNetworkSubnetId']
+        if zip_deploy_file is None and 'zipDeployFile' in kwargs:
+            zip_deploy_file = kwargs['zipDeployFile']
+
         if app_service_id is not None:
-            pulumi.set(__self__, "app_service_id", app_service_id)
+            _setter("app_service_id", app_service_id)
         if app_settings is not None:
-            pulumi.set(__self__, "app_settings", app_settings)
+            _setter("app_settings", app_settings)
         if auth_settings is not None:
-            pulumi.set(__self__, "auth_settings", auth_settings)
+            _setter("auth_settings", auth_settings)
         if auth_settings_v2 is not None:
-            pulumi.set(__self__, "auth_settings_v2", auth_settings_v2)
+            _setter("auth_settings_v2", auth_settings_v2)
         if backup is not None:
-            pulumi.set(__self__, "backup", backup)
+            _setter("backup", backup)
         if client_affinity_enabled is not None:
-            pulumi.set(__self__, "client_affinity_enabled", client_affinity_enabled)
+            _setter("client_affinity_enabled", client_affinity_enabled)
         if client_certificate_enabled is not None:
-            pulumi.set(__self__, "client_certificate_enabled", client_certificate_enabled)
+            _setter("client_certificate_enabled", client_certificate_enabled)
         if client_certificate_exclusion_paths is not None:
-            pulumi.set(__self__, "client_certificate_exclusion_paths", client_certificate_exclusion_paths)
+            _setter("client_certificate_exclusion_paths", client_certificate_exclusion_paths)
         if client_certificate_mode is not None:
-            pulumi.set(__self__, "client_certificate_mode", client_certificate_mode)
+            _setter("client_certificate_mode", client_certificate_mode)
         if connection_strings is not None:
-            pulumi.set(__self__, "connection_strings", connection_strings)
+            _setter("connection_strings", connection_strings)
         if custom_domain_verification_id is not None:
-            pulumi.set(__self__, "custom_domain_verification_id", custom_domain_verification_id)
+            _setter("custom_domain_verification_id", custom_domain_verification_id)
         if default_hostname is not None:
-            pulumi.set(__self__, "default_hostname", default_hostname)
+            _setter("default_hostname", default_hostname)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if hosting_environment_id is not None:
-            pulumi.set(__self__, "hosting_environment_id", hosting_environment_id)
+            _setter("hosting_environment_id", hosting_environment_id)
         if https_only is not None:
-            pulumi.set(__self__, "https_only", https_only)
+            _setter("https_only", https_only)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if key_vault_reference_identity_id is not None:
-            pulumi.set(__self__, "key_vault_reference_identity_id", key_vault_reference_identity_id)
+            _setter("key_vault_reference_identity_id", key_vault_reference_identity_id)
         if kind is not None:
-            pulumi.set(__self__, "kind", kind)
+            _setter("kind", kind)
         if logs is not None:
-            pulumi.set(__self__, "logs", logs)
+            _setter("logs", logs)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if outbound_ip_address_lists is not None:
-            pulumi.set(__self__, "outbound_ip_address_lists", outbound_ip_address_lists)
+            _setter("outbound_ip_address_lists", outbound_ip_address_lists)
         if outbound_ip_addresses is not None:
-            pulumi.set(__self__, "outbound_ip_addresses", outbound_ip_addresses)
+            _setter("outbound_ip_addresses", outbound_ip_addresses)
         if possible_outbound_ip_address_lists is not None:
-            pulumi.set(__self__, "possible_outbound_ip_address_lists", possible_outbound_ip_address_lists)
+            _setter("possible_outbound_ip_address_lists", possible_outbound_ip_address_lists)
         if possible_outbound_ip_addresses is not None:
-            pulumi.set(__self__, "possible_outbound_ip_addresses", possible_outbound_ip_addresses)
+            _setter("possible_outbound_ip_addresses", possible_outbound_ip_addresses)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if service_plan_id is not None:
-            pulumi.set(__self__, "service_plan_id", service_plan_id)
+            _setter("service_plan_id", service_plan_id)
         if site_config is not None:
-            pulumi.set(__self__, "site_config", site_config)
+            _setter("site_config", site_config)
         if site_credentials is not None:
-            pulumi.set(__self__, "site_credentials", site_credentials)
+            _setter("site_credentials", site_credentials)
         if storage_accounts is not None:
-            pulumi.set(__self__, "storage_accounts", storage_accounts)
+            _setter("storage_accounts", storage_accounts)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_network_subnet_id is not None:
-            pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+            _setter("virtual_network_subnet_id", virtual_network_subnet_id)
         if zip_deploy_file is not None:
-            pulumi.set(__self__, "zip_deploy_file", zip_deploy_file)
+            _setter("zip_deploy_file", zip_deploy_file)
 
     @property
     @pulumi.getter(name="appServiceId")
@@ -1036,6 +1252,10 @@ class WindowsWebAppSlot(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WindowsWebAppSlotArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1077,8 +1297,23 @@ class WindowsWebAppSlot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'app_service_id'")
             __props__.__dict__["app_service_id"] = app_service_id
             __props__.__dict__["app_settings"] = app_settings
+            if auth_settings is not None and not isinstance(auth_settings, WindowsWebAppSlotAuthSettingsArgs):
+                auth_settings = auth_settings or {}
+                def _setter(key, value):
+                    auth_settings[key] = value
+                WindowsWebAppSlotAuthSettingsArgs._configure(_setter, **auth_settings)
             __props__.__dict__["auth_settings"] = auth_settings
+            if auth_settings_v2 is not None and not isinstance(auth_settings_v2, WindowsWebAppSlotAuthSettingsV2Args):
+                auth_settings_v2 = auth_settings_v2 or {}
+                def _setter(key, value):
+                    auth_settings_v2[key] = value
+                WindowsWebAppSlotAuthSettingsV2Args._configure(_setter, **auth_settings_v2)
             __props__.__dict__["auth_settings_v2"] = auth_settings_v2
+            if backup is not None and not isinstance(backup, WindowsWebAppSlotBackupArgs):
+                backup = backup or {}
+                def _setter(key, value):
+                    backup[key] = value
+                WindowsWebAppSlotBackupArgs._configure(_setter, **backup)
             __props__.__dict__["backup"] = backup
             __props__.__dict__["client_affinity_enabled"] = client_affinity_enabled
             __props__.__dict__["client_certificate_enabled"] = client_certificate_enabled
@@ -1087,12 +1322,27 @@ class WindowsWebAppSlot(pulumi.CustomResource):
             __props__.__dict__["connection_strings"] = connection_strings
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["https_only"] = https_only
+            if identity is not None and not isinstance(identity, WindowsWebAppSlotIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                WindowsWebAppSlotIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["key_vault_reference_identity_id"] = key_vault_reference_identity_id
+            if logs is not None and not isinstance(logs, WindowsWebAppSlotLogsArgs):
+                logs = logs or {}
+                def _setter(key, value):
+                    logs[key] = value
+                WindowsWebAppSlotLogsArgs._configure(_setter, **logs)
             __props__.__dict__["logs"] = logs
             __props__.__dict__["name"] = name
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
             __props__.__dict__["service_plan_id"] = service_plan_id
+            if site_config is not None and not isinstance(site_config, WindowsWebAppSlotSiteConfigArgs):
+                site_config = site_config or {}
+                def _setter(key, value):
+                    site_config[key] = value
+                WindowsWebAppSlotSiteConfigArgs._configure(_setter, **site_config)
             if site_config is None and not opts.urn:
                 raise TypeError("Missing required property 'site_config'")
             __props__.__dict__["site_config"] = site_config

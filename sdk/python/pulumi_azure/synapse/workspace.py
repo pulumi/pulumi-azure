@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -63,48 +63,141 @@ class WorkspaceArgs:
         :param pulumi.Input[bool] sql_identity_control_enabled: Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Workspace.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_data_lake_gen2_filesystem_id", storage_data_lake_gen2_filesystem_id)
+        WorkspaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            storage_data_lake_gen2_filesystem_id=storage_data_lake_gen2_filesystem_id,
+            aad_admin=aad_admin,
+            azure_devops_repo=azure_devops_repo,
+            azuread_authentication_only=azuread_authentication_only,
+            compute_subnet_id=compute_subnet_id,
+            customer_managed_key=customer_managed_key,
+            data_exfiltration_protection_enabled=data_exfiltration_protection_enabled,
+            github_repo=github_repo,
+            identity=identity,
+            linking_allowed_for_aad_tenant_ids=linking_allowed_for_aad_tenant_ids,
+            location=location,
+            managed_resource_group_name=managed_resource_group_name,
+            managed_virtual_network_enabled=managed_virtual_network_enabled,
+            name=name,
+            public_network_access_enabled=public_network_access_enabled,
+            purview_id=purview_id,
+            sql_aad_admin=sql_aad_admin,
+            sql_administrator_login=sql_administrator_login,
+            sql_administrator_login_password=sql_administrator_login_password,
+            sql_identity_control_enabled=sql_identity_control_enabled,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_data_lake_gen2_filesystem_id: Optional[pulumi.Input[str]] = None,
+             aad_admin: Optional[pulumi.Input['WorkspaceAadAdminArgs']] = None,
+             azure_devops_repo: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']] = None,
+             azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
+             compute_subnet_id: Optional[pulumi.Input[str]] = None,
+             customer_managed_key: Optional[pulumi.Input['WorkspaceCustomerManagedKeyArgs']] = None,
+             data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
+             github_repo: Optional[pulumi.Input['WorkspaceGithubRepoArgs']] = None,
+             identity: Optional[pulumi.Input['WorkspaceIdentityArgs']] = None,
+             linking_allowed_for_aad_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
+             managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             purview_id: Optional[pulumi.Input[str]] = None,
+             sql_aad_admin: Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']] = None,
+             sql_administrator_login: Optional[pulumi.Input[str]] = None,
+             sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
+             sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_data_lake_gen2_filesystem_id is None and 'storageDataLakeGen2FilesystemId' in kwargs:
+            storage_data_lake_gen2_filesystem_id = kwargs['storageDataLakeGen2FilesystemId']
+        if storage_data_lake_gen2_filesystem_id is None:
+            raise TypeError("Missing 'storage_data_lake_gen2_filesystem_id' argument")
+        if aad_admin is None and 'aadAdmin' in kwargs:
+            aad_admin = kwargs['aadAdmin']
+        if azure_devops_repo is None and 'azureDevopsRepo' in kwargs:
+            azure_devops_repo = kwargs['azureDevopsRepo']
+        if azuread_authentication_only is None and 'azureadAuthenticationOnly' in kwargs:
+            azuread_authentication_only = kwargs['azureadAuthenticationOnly']
+        if compute_subnet_id is None and 'computeSubnetId' in kwargs:
+            compute_subnet_id = kwargs['computeSubnetId']
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
+            customer_managed_key = kwargs['customerManagedKey']
+        if data_exfiltration_protection_enabled is None and 'dataExfiltrationProtectionEnabled' in kwargs:
+            data_exfiltration_protection_enabled = kwargs['dataExfiltrationProtectionEnabled']
+        if github_repo is None and 'githubRepo' in kwargs:
+            github_repo = kwargs['githubRepo']
+        if linking_allowed_for_aad_tenant_ids is None and 'linkingAllowedForAadTenantIds' in kwargs:
+            linking_allowed_for_aad_tenant_ids = kwargs['linkingAllowedForAadTenantIds']
+        if managed_resource_group_name is None and 'managedResourceGroupName' in kwargs:
+            managed_resource_group_name = kwargs['managedResourceGroupName']
+        if managed_virtual_network_enabled is None and 'managedVirtualNetworkEnabled' in kwargs:
+            managed_virtual_network_enabled = kwargs['managedVirtualNetworkEnabled']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if purview_id is None and 'purviewId' in kwargs:
+            purview_id = kwargs['purviewId']
+        if sql_aad_admin is None and 'sqlAadAdmin' in kwargs:
+            sql_aad_admin = kwargs['sqlAadAdmin']
+        if sql_administrator_login is None and 'sqlAdministratorLogin' in kwargs:
+            sql_administrator_login = kwargs['sqlAdministratorLogin']
+        if sql_administrator_login_password is None and 'sqlAdministratorLoginPassword' in kwargs:
+            sql_administrator_login_password = kwargs['sqlAdministratorLoginPassword']
+        if sql_identity_control_enabled is None and 'sqlIdentityControlEnabled' in kwargs:
+            sql_identity_control_enabled = kwargs['sqlIdentityControlEnabled']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_data_lake_gen2_filesystem_id", storage_data_lake_gen2_filesystem_id)
         if aad_admin is not None:
-            pulumi.set(__self__, "aad_admin", aad_admin)
+            _setter("aad_admin", aad_admin)
         if azure_devops_repo is not None:
-            pulumi.set(__self__, "azure_devops_repo", azure_devops_repo)
+            _setter("azure_devops_repo", azure_devops_repo)
         if azuread_authentication_only is not None:
-            pulumi.set(__self__, "azuread_authentication_only", azuread_authentication_only)
+            _setter("azuread_authentication_only", azuread_authentication_only)
         if compute_subnet_id is not None:
-            pulumi.set(__self__, "compute_subnet_id", compute_subnet_id)
+            _setter("compute_subnet_id", compute_subnet_id)
         if customer_managed_key is not None:
-            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
+            _setter("customer_managed_key", customer_managed_key)
         if data_exfiltration_protection_enabled is not None:
-            pulumi.set(__self__, "data_exfiltration_protection_enabled", data_exfiltration_protection_enabled)
+            _setter("data_exfiltration_protection_enabled", data_exfiltration_protection_enabled)
         if github_repo is not None:
-            pulumi.set(__self__, "github_repo", github_repo)
+            _setter("github_repo", github_repo)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if linking_allowed_for_aad_tenant_ids is not None:
-            pulumi.set(__self__, "linking_allowed_for_aad_tenant_ids", linking_allowed_for_aad_tenant_ids)
+            _setter("linking_allowed_for_aad_tenant_ids", linking_allowed_for_aad_tenant_ids)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_resource_group_name is not None:
-            pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
+            _setter("managed_resource_group_name", managed_resource_group_name)
         if managed_virtual_network_enabled is not None:
-            pulumi.set(__self__, "managed_virtual_network_enabled", managed_virtual_network_enabled)
+            _setter("managed_virtual_network_enabled", managed_virtual_network_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if purview_id is not None:
-            pulumi.set(__self__, "purview_id", purview_id)
+            _setter("purview_id", purview_id)
         if sql_aad_admin is not None:
-            pulumi.set(__self__, "sql_aad_admin", sql_aad_admin)
+            _setter("sql_aad_admin", sql_aad_admin)
         if sql_administrator_login is not None:
-            pulumi.set(__self__, "sql_administrator_login", sql_administrator_login)
+            _setter("sql_administrator_login", sql_administrator_login)
         if sql_administrator_login_password is not None:
-            pulumi.set(__self__, "sql_administrator_login_password", sql_administrator_login_password)
+            _setter("sql_administrator_login_password", sql_administrator_login_password)
         if sql_identity_control_enabled is not None:
-            pulumi.set(__self__, "sql_identity_control_enabled", sql_identity_control_enabled)
+            _setter("sql_identity_control_enabled", sql_identity_control_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -423,52 +516,145 @@ class _WorkspaceState:
         :param pulumi.Input[str] storage_data_lake_gen2_filesystem_id: Specifies the ID of storage data lake gen2 filesystem resource. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Synapse Workspace.
         """
+        _WorkspaceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aad_admin=aad_admin,
+            azure_devops_repo=azure_devops_repo,
+            azuread_authentication_only=azuread_authentication_only,
+            compute_subnet_id=compute_subnet_id,
+            connectivity_endpoints=connectivity_endpoints,
+            customer_managed_key=customer_managed_key,
+            data_exfiltration_protection_enabled=data_exfiltration_protection_enabled,
+            github_repo=github_repo,
+            identity=identity,
+            linking_allowed_for_aad_tenant_ids=linking_allowed_for_aad_tenant_ids,
+            location=location,
+            managed_resource_group_name=managed_resource_group_name,
+            managed_virtual_network_enabled=managed_virtual_network_enabled,
+            name=name,
+            public_network_access_enabled=public_network_access_enabled,
+            purview_id=purview_id,
+            resource_group_name=resource_group_name,
+            sql_aad_admin=sql_aad_admin,
+            sql_administrator_login=sql_administrator_login,
+            sql_administrator_login_password=sql_administrator_login_password,
+            sql_identity_control_enabled=sql_identity_control_enabled,
+            storage_data_lake_gen2_filesystem_id=storage_data_lake_gen2_filesystem_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aad_admin: Optional[pulumi.Input['WorkspaceAadAdminArgs']] = None,
+             azure_devops_repo: Optional[pulumi.Input['WorkspaceAzureDevopsRepoArgs']] = None,
+             azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
+             compute_subnet_id: Optional[pulumi.Input[str]] = None,
+             connectivity_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             customer_managed_key: Optional[pulumi.Input['WorkspaceCustomerManagedKeyArgs']] = None,
+             data_exfiltration_protection_enabled: Optional[pulumi.Input[bool]] = None,
+             github_repo: Optional[pulumi.Input['WorkspaceGithubRepoArgs']] = None,
+             identity: Optional[pulumi.Input['WorkspaceIdentityArgs']] = None,
+             linking_allowed_for_aad_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_resource_group_name: Optional[pulumi.Input[str]] = None,
+             managed_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             purview_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sql_aad_admin: Optional[pulumi.Input['WorkspaceSqlAadAdminArgs']] = None,
+             sql_administrator_login: Optional[pulumi.Input[str]] = None,
+             sql_administrator_login_password: Optional[pulumi.Input[str]] = None,
+             sql_identity_control_enabled: Optional[pulumi.Input[bool]] = None,
+             storage_data_lake_gen2_filesystem_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if aad_admin is None and 'aadAdmin' in kwargs:
+            aad_admin = kwargs['aadAdmin']
+        if azure_devops_repo is None and 'azureDevopsRepo' in kwargs:
+            azure_devops_repo = kwargs['azureDevopsRepo']
+        if azuread_authentication_only is None and 'azureadAuthenticationOnly' in kwargs:
+            azuread_authentication_only = kwargs['azureadAuthenticationOnly']
+        if compute_subnet_id is None and 'computeSubnetId' in kwargs:
+            compute_subnet_id = kwargs['computeSubnetId']
+        if connectivity_endpoints is None and 'connectivityEndpoints' in kwargs:
+            connectivity_endpoints = kwargs['connectivityEndpoints']
+        if customer_managed_key is None and 'customerManagedKey' in kwargs:
+            customer_managed_key = kwargs['customerManagedKey']
+        if data_exfiltration_protection_enabled is None and 'dataExfiltrationProtectionEnabled' in kwargs:
+            data_exfiltration_protection_enabled = kwargs['dataExfiltrationProtectionEnabled']
+        if github_repo is None and 'githubRepo' in kwargs:
+            github_repo = kwargs['githubRepo']
+        if linking_allowed_for_aad_tenant_ids is None and 'linkingAllowedForAadTenantIds' in kwargs:
+            linking_allowed_for_aad_tenant_ids = kwargs['linkingAllowedForAadTenantIds']
+        if managed_resource_group_name is None and 'managedResourceGroupName' in kwargs:
+            managed_resource_group_name = kwargs['managedResourceGroupName']
+        if managed_virtual_network_enabled is None and 'managedVirtualNetworkEnabled' in kwargs:
+            managed_virtual_network_enabled = kwargs['managedVirtualNetworkEnabled']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if purview_id is None and 'purviewId' in kwargs:
+            purview_id = kwargs['purviewId']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if sql_aad_admin is None and 'sqlAadAdmin' in kwargs:
+            sql_aad_admin = kwargs['sqlAadAdmin']
+        if sql_administrator_login is None and 'sqlAdministratorLogin' in kwargs:
+            sql_administrator_login = kwargs['sqlAdministratorLogin']
+        if sql_administrator_login_password is None and 'sqlAdministratorLoginPassword' in kwargs:
+            sql_administrator_login_password = kwargs['sqlAdministratorLoginPassword']
+        if sql_identity_control_enabled is None and 'sqlIdentityControlEnabled' in kwargs:
+            sql_identity_control_enabled = kwargs['sqlIdentityControlEnabled']
+        if storage_data_lake_gen2_filesystem_id is None and 'storageDataLakeGen2FilesystemId' in kwargs:
+            storage_data_lake_gen2_filesystem_id = kwargs['storageDataLakeGen2FilesystemId']
+
         if aad_admin is not None:
-            pulumi.set(__self__, "aad_admin", aad_admin)
+            _setter("aad_admin", aad_admin)
         if azure_devops_repo is not None:
-            pulumi.set(__self__, "azure_devops_repo", azure_devops_repo)
+            _setter("azure_devops_repo", azure_devops_repo)
         if azuread_authentication_only is not None:
-            pulumi.set(__self__, "azuread_authentication_only", azuread_authentication_only)
+            _setter("azuread_authentication_only", azuread_authentication_only)
         if compute_subnet_id is not None:
-            pulumi.set(__self__, "compute_subnet_id", compute_subnet_id)
+            _setter("compute_subnet_id", compute_subnet_id)
         if connectivity_endpoints is not None:
-            pulumi.set(__self__, "connectivity_endpoints", connectivity_endpoints)
+            _setter("connectivity_endpoints", connectivity_endpoints)
         if customer_managed_key is not None:
-            pulumi.set(__self__, "customer_managed_key", customer_managed_key)
+            _setter("customer_managed_key", customer_managed_key)
         if data_exfiltration_protection_enabled is not None:
-            pulumi.set(__self__, "data_exfiltration_protection_enabled", data_exfiltration_protection_enabled)
+            _setter("data_exfiltration_protection_enabled", data_exfiltration_protection_enabled)
         if github_repo is not None:
-            pulumi.set(__self__, "github_repo", github_repo)
+            _setter("github_repo", github_repo)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if linking_allowed_for_aad_tenant_ids is not None:
-            pulumi.set(__self__, "linking_allowed_for_aad_tenant_ids", linking_allowed_for_aad_tenant_ids)
+            _setter("linking_allowed_for_aad_tenant_ids", linking_allowed_for_aad_tenant_ids)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_resource_group_name is not None:
-            pulumi.set(__self__, "managed_resource_group_name", managed_resource_group_name)
+            _setter("managed_resource_group_name", managed_resource_group_name)
         if managed_virtual_network_enabled is not None:
-            pulumi.set(__self__, "managed_virtual_network_enabled", managed_virtual_network_enabled)
+            _setter("managed_virtual_network_enabled", managed_virtual_network_enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if purview_id is not None:
-            pulumi.set(__self__, "purview_id", purview_id)
+            _setter("purview_id", purview_id)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sql_aad_admin is not None:
-            pulumi.set(__self__, "sql_aad_admin", sql_aad_admin)
+            _setter("sql_aad_admin", sql_aad_admin)
         if sql_administrator_login is not None:
-            pulumi.set(__self__, "sql_administrator_login", sql_administrator_login)
+            _setter("sql_administrator_login", sql_administrator_login)
         if sql_administrator_login_password is not None:
-            pulumi.set(__self__, "sql_administrator_login_password", sql_administrator_login_password)
+            _setter("sql_administrator_login_password", sql_administrator_login_password)
         if sql_identity_control_enabled is not None:
-            pulumi.set(__self__, "sql_identity_control_enabled", sql_identity_control_enabled)
+            _setter("sql_identity_control_enabled", sql_identity_control_enabled)
         if storage_data_lake_gen2_filesystem_id is not None:
-            pulumi.set(__self__, "storage_data_lake_gen2_filesystem_id", storage_data_lake_gen2_filesystem_id)
+            _setter("storage_data_lake_gen2_filesystem_id", storage_data_lake_gen2_filesystem_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="aadAdmin")
@@ -1066,6 +1252,10 @@ class Workspace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1102,13 +1292,38 @@ class Workspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkspaceArgs.__new__(WorkspaceArgs)
 
+            if aad_admin is not None and not isinstance(aad_admin, WorkspaceAadAdminArgs):
+                aad_admin = aad_admin or {}
+                def _setter(key, value):
+                    aad_admin[key] = value
+                WorkspaceAadAdminArgs._configure(_setter, **aad_admin)
             __props__.__dict__["aad_admin"] = aad_admin
+            if azure_devops_repo is not None and not isinstance(azure_devops_repo, WorkspaceAzureDevopsRepoArgs):
+                azure_devops_repo = azure_devops_repo or {}
+                def _setter(key, value):
+                    azure_devops_repo[key] = value
+                WorkspaceAzureDevopsRepoArgs._configure(_setter, **azure_devops_repo)
             __props__.__dict__["azure_devops_repo"] = azure_devops_repo
             __props__.__dict__["azuread_authentication_only"] = azuread_authentication_only
             __props__.__dict__["compute_subnet_id"] = compute_subnet_id
+            if customer_managed_key is not None and not isinstance(customer_managed_key, WorkspaceCustomerManagedKeyArgs):
+                customer_managed_key = customer_managed_key or {}
+                def _setter(key, value):
+                    customer_managed_key[key] = value
+                WorkspaceCustomerManagedKeyArgs._configure(_setter, **customer_managed_key)
             __props__.__dict__["customer_managed_key"] = customer_managed_key
             __props__.__dict__["data_exfiltration_protection_enabled"] = data_exfiltration_protection_enabled
+            if github_repo is not None and not isinstance(github_repo, WorkspaceGithubRepoArgs):
+                github_repo = github_repo or {}
+                def _setter(key, value):
+                    github_repo[key] = value
+                WorkspaceGithubRepoArgs._configure(_setter, **github_repo)
             __props__.__dict__["github_repo"] = github_repo
+            if identity is not None and not isinstance(identity, WorkspaceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                WorkspaceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["linking_allowed_for_aad_tenant_ids"] = linking_allowed_for_aad_tenant_ids
             __props__.__dict__["location"] = location
@@ -1120,6 +1335,11 @@ class Workspace(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sql_aad_admin is not None and not isinstance(sql_aad_admin, WorkspaceSqlAadAdminArgs):
+                sql_aad_admin = sql_aad_admin or {}
+                def _setter(key, value):
+                    sql_aad_admin[key] = value
+                WorkspaceSqlAadAdminArgs._configure(_setter, **sql_aad_admin)
             __props__.__dict__["sql_aad_admin"] = sql_aad_admin
             __props__.__dict__["sql_administrator_login"] = sql_administrator_login
             __props__.__dict__["sql_administrator_login_password"] = None if sql_administrator_login_password is None else pulumi.Output.secret(sql_administrator_login_password)

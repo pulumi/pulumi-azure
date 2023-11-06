@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,19 +37,66 @@ class MedtechServiceArgs:
         :param pulumi.Input[str] name: Specifies the name of the Healthcare Med Tech Service. Changing this forces a new Healthcare Med Tech Service to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Healthcare Med Tech Service.
         """
-        pulumi.set(__self__, "device_mapping_json", device_mapping_json)
-        pulumi.set(__self__, "eventhub_consumer_group_name", eventhub_consumer_group_name)
-        pulumi.set(__self__, "eventhub_name", eventhub_name)
-        pulumi.set(__self__, "eventhub_namespace_name", eventhub_namespace_name)
-        pulumi.set(__self__, "workspace_id", workspace_id)
+        MedtechServiceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_mapping_json=device_mapping_json,
+            eventhub_consumer_group_name=eventhub_consumer_group_name,
+            eventhub_name=eventhub_name,
+            eventhub_namespace_name=eventhub_namespace_name,
+            workspace_id=workspace_id,
+            identity=identity,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_mapping_json: Optional[pulumi.Input[str]] = None,
+             eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
+             eventhub_name: Optional[pulumi.Input[str]] = None,
+             eventhub_namespace_name: Optional[pulumi.Input[str]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['MedtechServiceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if device_mapping_json is None and 'deviceMappingJson' in kwargs:
+            device_mapping_json = kwargs['deviceMappingJson']
+        if device_mapping_json is None:
+            raise TypeError("Missing 'device_mapping_json' argument")
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
+            eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
+        if eventhub_consumer_group_name is None:
+            raise TypeError("Missing 'eventhub_consumer_group_name' argument")
+        if eventhub_name is None and 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if eventhub_name is None:
+            raise TypeError("Missing 'eventhub_name' argument")
+        if eventhub_namespace_name is None and 'eventhubNamespaceName' in kwargs:
+            eventhub_namespace_name = kwargs['eventhubNamespaceName']
+        if eventhub_namespace_name is None:
+            raise TypeError("Missing 'eventhub_namespace_name' argument")
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+        if workspace_id is None:
+            raise TypeError("Missing 'workspace_id' argument")
+
+        _setter("device_mapping_json", device_mapping_json)
+        _setter("eventhub_consumer_group_name", eventhub_consumer_group_name)
+        _setter("eventhub_name", eventhub_name)
+        _setter("eventhub_namespace_name", eventhub_namespace_name)
+        _setter("workspace_id", workspace_id)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="deviceMappingJson")
@@ -184,24 +231,61 @@ class _MedtechServiceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the Healthcare Med Tech Service.
         :param pulumi.Input[str] workspace_id: Specifies the id of the Healthcare Workspace where the Healthcare Med Tech Service should exist. Changing this forces a new Healthcare Med Tech Service to be created.
         """
+        _MedtechServiceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            device_mapping_json=device_mapping_json,
+            eventhub_consumer_group_name=eventhub_consumer_group_name,
+            eventhub_name=eventhub_name,
+            eventhub_namespace_name=eventhub_namespace_name,
+            identity=identity,
+            location=location,
+            name=name,
+            tags=tags,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             device_mapping_json: Optional[pulumi.Input[str]] = None,
+             eventhub_consumer_group_name: Optional[pulumi.Input[str]] = None,
+             eventhub_name: Optional[pulumi.Input[str]] = None,
+             eventhub_namespace_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['MedtechServiceIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if device_mapping_json is None and 'deviceMappingJson' in kwargs:
+            device_mapping_json = kwargs['deviceMappingJson']
+        if eventhub_consumer_group_name is None and 'eventhubConsumerGroupName' in kwargs:
+            eventhub_consumer_group_name = kwargs['eventhubConsumerGroupName']
+        if eventhub_name is None and 'eventhubName' in kwargs:
+            eventhub_name = kwargs['eventhubName']
+        if eventhub_namespace_name is None and 'eventhubNamespaceName' in kwargs:
+            eventhub_namespace_name = kwargs['eventhubNamespaceName']
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if device_mapping_json is not None:
-            pulumi.set(__self__, "device_mapping_json", device_mapping_json)
+            _setter("device_mapping_json", device_mapping_json)
         if eventhub_consumer_group_name is not None:
-            pulumi.set(__self__, "eventhub_consumer_group_name", eventhub_consumer_group_name)
+            _setter("eventhub_consumer_group_name", eventhub_consumer_group_name)
         if eventhub_name is not None:
-            pulumi.set(__self__, "eventhub_name", eventhub_name)
+            _setter("eventhub_name", eventhub_name)
         if eventhub_namespace_name is not None:
-            pulumi.set(__self__, "eventhub_namespace_name", eventhub_namespace_name)
+            _setter("eventhub_namespace_name", eventhub_namespace_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="deviceMappingJson")
@@ -455,6 +539,10 @@ class MedtechService(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            MedtechServiceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -490,6 +578,11 @@ class MedtechService(pulumi.CustomResource):
             if eventhub_namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'eventhub_namespace_name'")
             __props__.__dict__["eventhub_namespace_name"] = eventhub_namespace_name
+            if identity is not None and not isinstance(identity, MedtechServiceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                MedtechServiceIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

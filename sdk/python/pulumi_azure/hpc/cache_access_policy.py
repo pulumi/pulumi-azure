@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -25,10 +25,33 @@ class CacheAccessPolicyArgs:
         :param pulumi.Input[str] hpc_cache_id: The ID of the HPC Cache that this HPC Cache Access Policy resides in. Changing this forces a new HPC Cache Access Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this HPC Cache Access Policy. Changing this forces a new HPC Cache Access Policy to be created.
         """
-        pulumi.set(__self__, "access_rules", access_rules)
-        pulumi.set(__self__, "hpc_cache_id", hpc_cache_id)
+        CacheAccessPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_rules=access_rules,
+            hpc_cache_id=hpc_cache_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CacheAccessPolicyAccessRuleArgs']]]] = None,
+             hpc_cache_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_rules is None and 'accessRules' in kwargs:
+            access_rules = kwargs['accessRules']
+        if access_rules is None:
+            raise TypeError("Missing 'access_rules' argument")
+        if hpc_cache_id is None and 'hpcCacheId' in kwargs:
+            hpc_cache_id = kwargs['hpcCacheId']
+        if hpc_cache_id is None:
+            raise TypeError("Missing 'hpc_cache_id' argument")
+
+        _setter("access_rules", access_rules)
+        _setter("hpc_cache_id", hpc_cache_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="accessRules")
@@ -79,12 +102,31 @@ class _CacheAccessPolicyState:
         :param pulumi.Input[str] hpc_cache_id: The ID of the HPC Cache that this HPC Cache Access Policy resides in. Changing this forces a new HPC Cache Access Policy to be created.
         :param pulumi.Input[str] name: The name which should be used for this HPC Cache Access Policy. Changing this forces a new HPC Cache Access Policy to be created.
         """
+        _CacheAccessPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_rules=access_rules,
+            hpc_cache_id=hpc_cache_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['CacheAccessPolicyAccessRuleArgs']]]] = None,
+             hpc_cache_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if access_rules is None and 'accessRules' in kwargs:
+            access_rules = kwargs['accessRules']
+        if hpc_cache_id is None and 'hpcCacheId' in kwargs:
+            hpc_cache_id = kwargs['hpcCacheId']
+
         if access_rules is not None:
-            pulumi.set(__self__, "access_rules", access_rules)
+            _setter("access_rules", access_rules)
         if hpc_cache_id is not None:
-            pulumi.set(__self__, "hpc_cache_id", hpc_cache_id)
+            _setter("hpc_cache_id", hpc_cache_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="accessRules")
@@ -234,6 +276,10 @@ class CacheAccessPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CacheAccessPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

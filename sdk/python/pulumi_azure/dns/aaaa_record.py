@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['AaaaRecordArgs', 'AaaaRecord']
@@ -33,17 +33,52 @@ class AaaaRecordArgs:
                > **Note:** either `records` OR `target_resource_id` must be specified, but not both.
         :param pulumi.Input[str] target_resource_id: The Azure resource id of the target object. Conflicts with `records`.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "ttl", ttl)
-        pulumi.set(__self__, "zone_name", zone_name)
+        AaaaRecordArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            ttl=ttl,
+            zone_name=zone_name,
+            name=name,
+            records=records,
+            tags=tags,
+            target_resource_id=target_resource_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             ttl: Optional[pulumi.Input[int]] = None,
+             zone_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if ttl is None:
+            raise TypeError("Missing 'ttl' argument")
+        if zone_name is None and 'zoneName' in kwargs:
+            zone_name = kwargs['zoneName']
+        if zone_name is None:
+            raise TypeError("Missing 'zone_name' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("ttl", ttl)
+        _setter("zone_name", zone_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if records is not None:
-            pulumi.set(__self__, "records", records)
+            _setter("records", records)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_resource_id is not None:
-            pulumi.set(__self__, "target_resource_id", target_resource_id)
+            _setter("target_resource_id", target_resource_id)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -156,22 +191,53 @@ class _AaaaRecordState:
         :param pulumi.Input[int] ttl: The Time To Live (TTL) of the DNS record in seconds.
         :param pulumi.Input[str] zone_name: Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
+        _AaaaRecordState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fqdn=fqdn,
+            name=name,
+            records=records,
+            resource_group_name=resource_group_name,
+            tags=tags,
+            target_resource_id=target_resource_id,
+            ttl=ttl,
+            zone_name=zone_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fqdn: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             records: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             ttl: Optional[pulumi.Input[int]] = None,
+             zone_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if zone_name is None and 'zoneName' in kwargs:
+            zone_name = kwargs['zoneName']
+
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if records is not None:
-            pulumi.set(__self__, "records", records)
+            _setter("records", records)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_resource_id is not None:
-            pulumi.set(__self__, "target_resource_id", target_resource_id)
+            _setter("target_resource_id", target_resource_id)
         if ttl is not None:
-            pulumi.set(__self__, "ttl", ttl)
+            _setter("ttl", ttl)
         if zone_name is not None:
-            pulumi.set(__self__, "zone_name", zone_name)
+            _setter("zone_name", zone_name)
 
     @property
     @pulumi.getter
@@ -399,6 +465,10 @@ class AaaaRecord(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AaaaRecordArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

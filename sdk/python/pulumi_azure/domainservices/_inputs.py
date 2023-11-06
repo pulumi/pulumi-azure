@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -33,17 +33,48 @@ class ServiceInitialReplicaSetArgs:
         :param pulumi.Input[str] location: The Azure location where the Domain Service exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_status: The current service status for the initial replica set.
         """
-        pulumi.set(__self__, "subnet_id", subnet_id)
+        ServiceInitialReplicaSetArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            subnet_id=subnet_id,
+            domain_controller_ip_addresses=domain_controller_ip_addresses,
+            external_access_ip_address=external_access_ip_address,
+            id=id,
+            location=location,
+            service_status=service_status,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             subnet_id: Optional[pulumi.Input[str]] = None,
+             domain_controller_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             external_access_ip_address: Optional[pulumi.Input[str]] = None,
+             id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             service_status: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if subnet_id is None and 'subnetId' in kwargs:
+            subnet_id = kwargs['subnetId']
+        if subnet_id is None:
+            raise TypeError("Missing 'subnet_id' argument")
+        if domain_controller_ip_addresses is None and 'domainControllerIpAddresses' in kwargs:
+            domain_controller_ip_addresses = kwargs['domainControllerIpAddresses']
+        if external_access_ip_address is None and 'externalAccessIpAddress' in kwargs:
+            external_access_ip_address = kwargs['externalAccessIpAddress']
+        if service_status is None and 'serviceStatus' in kwargs:
+            service_status = kwargs['serviceStatus']
+
+        _setter("subnet_id", subnet_id)
         if domain_controller_ip_addresses is not None:
-            pulumi.set(__self__, "domain_controller_ip_addresses", domain_controller_ip_addresses)
+            _setter("domain_controller_ip_addresses", domain_controller_ip_addresses)
         if external_access_ip_address is not None:
-            pulumi.set(__self__, "external_access_ip_address", external_access_ip_address)
+            _setter("external_access_ip_address", external_access_ip_address)
         if id is not None:
-            pulumi.set(__self__, "id", id)
+            _setter("id", id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if service_status is not None:
-            pulumi.set(__self__, "service_status", service_status)
+            _setter("service_status", service_status)
 
     @property
     @pulumi.getter(name="subnetId")
@@ -129,12 +160,33 @@ class ServiceNotificationsArgs:
         :param pulumi.Input[bool] notify_dc_admins: Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain.
         :param pulumi.Input[bool] notify_global_admins: Whether to notify all Global Administrators when there are alerts in the managed domain.
         """
+        ServiceNotificationsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_recipients=additional_recipients,
+            notify_dc_admins=notify_dc_admins,
+            notify_global_admins=notify_global_admins,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             notify_dc_admins: Optional[pulumi.Input[bool]] = None,
+             notify_global_admins: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if additional_recipients is None and 'additionalRecipients' in kwargs:
+            additional_recipients = kwargs['additionalRecipients']
+        if notify_dc_admins is None and 'notifyDcAdmins' in kwargs:
+            notify_dc_admins = kwargs['notifyDcAdmins']
+        if notify_global_admins is None and 'notifyGlobalAdmins' in kwargs:
+            notify_global_admins = kwargs['notifyGlobalAdmins']
+
         if additional_recipients is not None:
-            pulumi.set(__self__, "additional_recipients", additional_recipients)
+            _setter("additional_recipients", additional_recipients)
         if notify_dc_admins is not None:
-            pulumi.set(__self__, "notify_dc_admins", notify_dc_admins)
+            _setter("notify_dc_admins", notify_dc_admins)
         if notify_global_admins is not None:
-            pulumi.set(__self__, "notify_global_admins", notify_global_admins)
+            _setter("notify_global_admins", notify_global_admins)
 
     @property
     @pulumi.getter(name="additionalRecipients")
@@ -192,17 +244,58 @@ class ServiceSecureLdapArgs:
         :param pulumi.Input[bool] external_access_enabled: Whether to enable external access to LDAPS over the Internet. Defaults to `false`.
         :param pulumi.Input[str] public_certificate: The public certificate.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "pfx_certificate", pfx_certificate)
-        pulumi.set(__self__, "pfx_certificate_password", pfx_certificate_password)
+        ServiceSecureLdapArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            pfx_certificate=pfx_certificate,
+            pfx_certificate_password=pfx_certificate_password,
+            certificate_expiry=certificate_expiry,
+            certificate_thumbprint=certificate_thumbprint,
+            external_access_enabled=external_access_enabled,
+            public_certificate=public_certificate,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[pulumi.Input[bool]] = None,
+             pfx_certificate: Optional[pulumi.Input[str]] = None,
+             pfx_certificate_password: Optional[pulumi.Input[str]] = None,
+             certificate_expiry: Optional[pulumi.Input[str]] = None,
+             certificate_thumbprint: Optional[pulumi.Input[str]] = None,
+             external_access_enabled: Optional[pulumi.Input[bool]] = None,
+             public_certificate: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if pfx_certificate is None and 'pfxCertificate' in kwargs:
+            pfx_certificate = kwargs['pfxCertificate']
+        if pfx_certificate is None:
+            raise TypeError("Missing 'pfx_certificate' argument")
+        if pfx_certificate_password is None and 'pfxCertificatePassword' in kwargs:
+            pfx_certificate_password = kwargs['pfxCertificatePassword']
+        if pfx_certificate_password is None:
+            raise TypeError("Missing 'pfx_certificate_password' argument")
+        if certificate_expiry is None and 'certificateExpiry' in kwargs:
+            certificate_expiry = kwargs['certificateExpiry']
+        if certificate_thumbprint is None and 'certificateThumbprint' in kwargs:
+            certificate_thumbprint = kwargs['certificateThumbprint']
+        if external_access_enabled is None and 'externalAccessEnabled' in kwargs:
+            external_access_enabled = kwargs['externalAccessEnabled']
+        if public_certificate is None and 'publicCertificate' in kwargs:
+            public_certificate = kwargs['publicCertificate']
+
+        _setter("enabled", enabled)
+        _setter("pfx_certificate", pfx_certificate)
+        _setter("pfx_certificate_password", pfx_certificate_password)
         if certificate_expiry is not None:
-            pulumi.set(__self__, "certificate_expiry", certificate_expiry)
+            _setter("certificate_expiry", certificate_expiry)
         if certificate_thumbprint is not None:
-            pulumi.set(__self__, "certificate_thumbprint", certificate_thumbprint)
+            _setter("certificate_thumbprint", certificate_thumbprint)
         if external_access_enabled is not None:
-            pulumi.set(__self__, "external_access_enabled", external_access_enabled)
+            _setter("external_access_enabled", external_access_enabled)
         if public_certificate is not None:
-            pulumi.set(__self__, "public_certificate", public_certificate)
+            _setter("public_certificate", public_certificate)
 
     @property
     @pulumi.getter
@@ -308,20 +401,57 @@ class ServiceSecurityArgs:
         :param pulumi.Input[bool] sync_on_prem_passwords: Whether to synchronize on-premises password hashes to the managed domain. Defaults to `false`.
         :param pulumi.Input[bool] tls_v1_enabled: Whether to enable legacy TLS v1 support. Defaults to `false`.
         """
+        ServiceSecurityArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kerberos_armoring_enabled=kerberos_armoring_enabled,
+            kerberos_rc4_encryption_enabled=kerberos_rc4_encryption_enabled,
+            ntlm_v1_enabled=ntlm_v1_enabled,
+            sync_kerberos_passwords=sync_kerberos_passwords,
+            sync_ntlm_passwords=sync_ntlm_passwords,
+            sync_on_prem_passwords=sync_on_prem_passwords,
+            tls_v1_enabled=tls_v1_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kerberos_armoring_enabled: Optional[pulumi.Input[bool]] = None,
+             kerberos_rc4_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             ntlm_v1_enabled: Optional[pulumi.Input[bool]] = None,
+             sync_kerberos_passwords: Optional[pulumi.Input[bool]] = None,
+             sync_ntlm_passwords: Optional[pulumi.Input[bool]] = None,
+             sync_on_prem_passwords: Optional[pulumi.Input[bool]] = None,
+             tls_v1_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if kerberos_armoring_enabled is None and 'kerberosArmoringEnabled' in kwargs:
+            kerberos_armoring_enabled = kwargs['kerberosArmoringEnabled']
+        if kerberos_rc4_encryption_enabled is None and 'kerberosRc4EncryptionEnabled' in kwargs:
+            kerberos_rc4_encryption_enabled = kwargs['kerberosRc4EncryptionEnabled']
+        if ntlm_v1_enabled is None and 'ntlmV1Enabled' in kwargs:
+            ntlm_v1_enabled = kwargs['ntlmV1Enabled']
+        if sync_kerberos_passwords is None and 'syncKerberosPasswords' in kwargs:
+            sync_kerberos_passwords = kwargs['syncKerberosPasswords']
+        if sync_ntlm_passwords is None and 'syncNtlmPasswords' in kwargs:
+            sync_ntlm_passwords = kwargs['syncNtlmPasswords']
+        if sync_on_prem_passwords is None and 'syncOnPremPasswords' in kwargs:
+            sync_on_prem_passwords = kwargs['syncOnPremPasswords']
+        if tls_v1_enabled is None and 'tlsV1Enabled' in kwargs:
+            tls_v1_enabled = kwargs['tlsV1Enabled']
+
         if kerberos_armoring_enabled is not None:
-            pulumi.set(__self__, "kerberos_armoring_enabled", kerberos_armoring_enabled)
+            _setter("kerberos_armoring_enabled", kerberos_armoring_enabled)
         if kerberos_rc4_encryption_enabled is not None:
-            pulumi.set(__self__, "kerberos_rc4_encryption_enabled", kerberos_rc4_encryption_enabled)
+            _setter("kerberos_rc4_encryption_enabled", kerberos_rc4_encryption_enabled)
         if ntlm_v1_enabled is not None:
-            pulumi.set(__self__, "ntlm_v1_enabled", ntlm_v1_enabled)
+            _setter("ntlm_v1_enabled", ntlm_v1_enabled)
         if sync_kerberos_passwords is not None:
-            pulumi.set(__self__, "sync_kerberos_passwords", sync_kerberos_passwords)
+            _setter("sync_kerberos_passwords", sync_kerberos_passwords)
         if sync_ntlm_passwords is not None:
-            pulumi.set(__self__, "sync_ntlm_passwords", sync_ntlm_passwords)
+            _setter("sync_ntlm_passwords", sync_ntlm_passwords)
         if sync_on_prem_passwords is not None:
-            pulumi.set(__self__, "sync_on_prem_passwords", sync_on_prem_passwords)
+            _setter("sync_on_prem_passwords", sync_on_prem_passwords)
         if tls_v1_enabled is not None:
-            pulumi.set(__self__, "tls_v1_enabled", tls_v1_enabled)
+            _setter("tls_v1_enabled", tls_v1_enabled)
 
     @property
     @pulumi.getter(name="kerberosArmoringEnabled")

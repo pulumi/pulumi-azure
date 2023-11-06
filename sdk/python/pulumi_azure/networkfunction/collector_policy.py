@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,15 +31,48 @@ class CollectorPolicyArgs:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Network Function Collector Policy. Changing this forces a new Network Function Collector Policy to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Function Collector Policy.
         """
-        pulumi.set(__self__, "ipfx_emission", ipfx_emission)
-        pulumi.set(__self__, "ipfx_ingestion", ipfx_ingestion)
-        pulumi.set(__self__, "traffic_collector_id", traffic_collector_id)
+        CollectorPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ipfx_emission=ipfx_emission,
+            ipfx_ingestion=ipfx_ingestion,
+            traffic_collector_id=traffic_collector_id,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ipfx_emission: Optional[pulumi.Input['CollectorPolicyIpfxEmissionArgs']] = None,
+             ipfx_ingestion: Optional[pulumi.Input['CollectorPolicyIpfxIngestionArgs']] = None,
+             traffic_collector_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ipfx_emission is None and 'ipfxEmission' in kwargs:
+            ipfx_emission = kwargs['ipfxEmission']
+        if ipfx_emission is None:
+            raise TypeError("Missing 'ipfx_emission' argument")
+        if ipfx_ingestion is None and 'ipfxIngestion' in kwargs:
+            ipfx_ingestion = kwargs['ipfxIngestion']
+        if ipfx_ingestion is None:
+            raise TypeError("Missing 'ipfx_ingestion' argument")
+        if traffic_collector_id is None and 'trafficCollectorId' in kwargs:
+            traffic_collector_id = kwargs['trafficCollectorId']
+        if traffic_collector_id is None:
+            raise TypeError("Missing 'traffic_collector_id' argument")
+
+        _setter("ipfx_emission", ipfx_emission)
+        _setter("ipfx_ingestion", ipfx_ingestion)
+        _setter("traffic_collector_id", traffic_collector_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="ipfxEmission")
@@ -132,18 +165,45 @@ class _CollectorPolicyState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Network Function Collector Policy.
         :param pulumi.Input[str] traffic_collector_id: Specifies the Azure Traffic Collector ID of the Network Function Collector Policy. Changing this forces a new Network Function Collector Policy to be created.
         """
+        _CollectorPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ipfx_emission=ipfx_emission,
+            ipfx_ingestion=ipfx_ingestion,
+            location=location,
+            name=name,
+            tags=tags,
+            traffic_collector_id=traffic_collector_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ipfx_emission: Optional[pulumi.Input['CollectorPolicyIpfxEmissionArgs']] = None,
+             ipfx_ingestion: Optional[pulumi.Input['CollectorPolicyIpfxIngestionArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             traffic_collector_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ipfx_emission is None and 'ipfxEmission' in kwargs:
+            ipfx_emission = kwargs['ipfxEmission']
+        if ipfx_ingestion is None and 'ipfxIngestion' in kwargs:
+            ipfx_ingestion = kwargs['ipfxIngestion']
+        if traffic_collector_id is None and 'trafficCollectorId' in kwargs:
+            traffic_collector_id = kwargs['trafficCollectorId']
+
         if ipfx_emission is not None:
-            pulumi.set(__self__, "ipfx_emission", ipfx_emission)
+            _setter("ipfx_emission", ipfx_emission)
         if ipfx_ingestion is not None:
-            pulumi.set(__self__, "ipfx_ingestion", ipfx_ingestion)
+            _setter("ipfx_ingestion", ipfx_ingestion)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if traffic_collector_id is not None:
-            pulumi.set(__self__, "traffic_collector_id", traffic_collector_id)
+            _setter("traffic_collector_id", traffic_collector_id)
 
     @property
     @pulumi.getter(name="ipfxEmission")
@@ -277,6 +337,10 @@ class CollectorPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CollectorPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -297,9 +361,19 @@ class CollectorPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CollectorPolicyArgs.__new__(CollectorPolicyArgs)
 
+            if ipfx_emission is not None and not isinstance(ipfx_emission, CollectorPolicyIpfxEmissionArgs):
+                ipfx_emission = ipfx_emission or {}
+                def _setter(key, value):
+                    ipfx_emission[key] = value
+                CollectorPolicyIpfxEmissionArgs._configure(_setter, **ipfx_emission)
             if ipfx_emission is None and not opts.urn:
                 raise TypeError("Missing required property 'ipfx_emission'")
             __props__.__dict__["ipfx_emission"] = ipfx_emission
+            if ipfx_ingestion is not None and not isinstance(ipfx_ingestion, CollectorPolicyIpfxIngestionArgs):
+                ipfx_ingestion = ipfx_ingestion or {}
+                def _setter(key, value):
+                    ipfx_ingestion[key] = value
+                CollectorPolicyIpfxIngestionArgs._configure(_setter, **ipfx_ingestion)
             if ipfx_ingestion is None and not opts.urn:
                 raise TypeError("Missing required property 'ipfx_ingestion'")
             __props__.__dict__["ipfx_ingestion"] = ipfx_ingestion

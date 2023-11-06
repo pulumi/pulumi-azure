@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -50,30 +50,85 @@ class FrontdoorOriginArgs:
                > **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
         :param pulumi.Input[int] weight: The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
         """
-        pulumi.set(__self__, "cdn_frontdoor_origin_group_id", cdn_frontdoor_origin_group_id)
-        pulumi.set(__self__, "certificate_name_check_enabled", certificate_name_check_enabled)
-        pulumi.set(__self__, "host_name", host_name)
+        FrontdoorOriginArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cdn_frontdoor_origin_group_id=cdn_frontdoor_origin_group_id,
+            certificate_name_check_enabled=certificate_name_check_enabled,
+            host_name=host_name,
+            enabled=enabled,
+            health_probes_enabled=health_probes_enabled,
+            http_port=http_port,
+            https_port=https_port,
+            name=name,
+            origin_host_header=origin_host_header,
+            priority=priority,
+            private_link=private_link,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
+             certificate_name_check_enabled: Optional[pulumi.Input[bool]] = None,
+             host_name: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             health_probes_enabled: Optional[pulumi.Input[bool]] = None,
+             http_port: Optional[pulumi.Input[int]] = None,
+             https_port: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             origin_host_header: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             private_link: Optional[pulumi.Input['FrontdoorOriginPrivateLinkArgs']] = None,
+             weight: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cdn_frontdoor_origin_group_id is None and 'cdnFrontdoorOriginGroupId' in kwargs:
+            cdn_frontdoor_origin_group_id = kwargs['cdnFrontdoorOriginGroupId']
+        if cdn_frontdoor_origin_group_id is None:
+            raise TypeError("Missing 'cdn_frontdoor_origin_group_id' argument")
+        if certificate_name_check_enabled is None and 'certificateNameCheckEnabled' in kwargs:
+            certificate_name_check_enabled = kwargs['certificateNameCheckEnabled']
+        if certificate_name_check_enabled is None:
+            raise TypeError("Missing 'certificate_name_check_enabled' argument")
+        if host_name is None and 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if host_name is None:
+            raise TypeError("Missing 'host_name' argument")
+        if health_probes_enabled is None and 'healthProbesEnabled' in kwargs:
+            health_probes_enabled = kwargs['healthProbesEnabled']
+        if http_port is None and 'httpPort' in kwargs:
+            http_port = kwargs['httpPort']
+        if https_port is None and 'httpsPort' in kwargs:
+            https_port = kwargs['httpsPort']
+        if origin_host_header is None and 'originHostHeader' in kwargs:
+            origin_host_header = kwargs['originHostHeader']
+        if private_link is None and 'privateLink' in kwargs:
+            private_link = kwargs['privateLink']
+
+        _setter("cdn_frontdoor_origin_group_id", cdn_frontdoor_origin_group_id)
+        _setter("certificate_name_check_enabled", certificate_name_check_enabled)
+        _setter("host_name", host_name)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if health_probes_enabled is not None:
             warnings.warn("""`health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
             pulumi.log.warn("""health_probes_enabled is deprecated: `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""")
         if health_probes_enabled is not None:
-            pulumi.set(__self__, "health_probes_enabled", health_probes_enabled)
+            _setter("health_probes_enabled", health_probes_enabled)
         if http_port is not None:
-            pulumi.set(__self__, "http_port", http_port)
+            _setter("http_port", http_port)
         if https_port is not None:
-            pulumi.set(__self__, "https_port", https_port)
+            _setter("https_port", https_port)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if origin_host_header is not None:
-            pulumi.set(__self__, "origin_host_header", origin_host_header)
+            _setter("origin_host_header", origin_host_header)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if private_link is not None:
-            pulumi.set(__self__, "private_link", private_link)
+            _setter("private_link", private_link)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter(name="cdnFrontdoorOriginGroupId")
@@ -265,33 +320,82 @@ class _FrontdoorOriginState:
                > **NOTE:** Private Link requires that the Front Door Profile this Origin is hosted within is using the SKU `Premium_AzureFrontDoor` and that the `certificate_name_check_enabled` field is set to `true`.
         :param pulumi.Input[int] weight: The weight of the origin in a given origin group for load balancing. Must be between `1` and `1000`. Defaults to `500`.
         """
+        _FrontdoorOriginState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cdn_frontdoor_origin_group_id=cdn_frontdoor_origin_group_id,
+            certificate_name_check_enabled=certificate_name_check_enabled,
+            enabled=enabled,
+            health_probes_enabled=health_probes_enabled,
+            host_name=host_name,
+            http_port=http_port,
+            https_port=https_port,
+            name=name,
+            origin_host_header=origin_host_header,
+            priority=priority,
+            private_link=private_link,
+            weight=weight,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
+             certificate_name_check_enabled: Optional[pulumi.Input[bool]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             health_probes_enabled: Optional[pulumi.Input[bool]] = None,
+             host_name: Optional[pulumi.Input[str]] = None,
+             http_port: Optional[pulumi.Input[int]] = None,
+             https_port: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             origin_host_header: Optional[pulumi.Input[str]] = None,
+             priority: Optional[pulumi.Input[int]] = None,
+             private_link: Optional[pulumi.Input['FrontdoorOriginPrivateLinkArgs']] = None,
+             weight: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cdn_frontdoor_origin_group_id is None and 'cdnFrontdoorOriginGroupId' in kwargs:
+            cdn_frontdoor_origin_group_id = kwargs['cdnFrontdoorOriginGroupId']
+        if certificate_name_check_enabled is None and 'certificateNameCheckEnabled' in kwargs:
+            certificate_name_check_enabled = kwargs['certificateNameCheckEnabled']
+        if health_probes_enabled is None and 'healthProbesEnabled' in kwargs:
+            health_probes_enabled = kwargs['healthProbesEnabled']
+        if host_name is None and 'hostName' in kwargs:
+            host_name = kwargs['hostName']
+        if http_port is None and 'httpPort' in kwargs:
+            http_port = kwargs['httpPort']
+        if https_port is None and 'httpsPort' in kwargs:
+            https_port = kwargs['httpsPort']
+        if origin_host_header is None and 'originHostHeader' in kwargs:
+            origin_host_header = kwargs['originHostHeader']
+        if private_link is None and 'privateLink' in kwargs:
+            private_link = kwargs['privateLink']
+
         if cdn_frontdoor_origin_group_id is not None:
-            pulumi.set(__self__, "cdn_frontdoor_origin_group_id", cdn_frontdoor_origin_group_id)
+            _setter("cdn_frontdoor_origin_group_id", cdn_frontdoor_origin_group_id)
         if certificate_name_check_enabled is not None:
-            pulumi.set(__self__, "certificate_name_check_enabled", certificate_name_check_enabled)
+            _setter("certificate_name_check_enabled", certificate_name_check_enabled)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if health_probes_enabled is not None:
             warnings.warn("""`health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
             pulumi.log.warn("""health_probes_enabled is deprecated: `health_probes_enabled` will be removed in favour of the `enabled` property in version 4.0 of the AzureRM Provider.""")
         if health_probes_enabled is not None:
-            pulumi.set(__self__, "health_probes_enabled", health_probes_enabled)
+            _setter("health_probes_enabled", health_probes_enabled)
         if host_name is not None:
-            pulumi.set(__self__, "host_name", host_name)
+            _setter("host_name", host_name)
         if http_port is not None:
-            pulumi.set(__self__, "http_port", http_port)
+            _setter("http_port", http_port)
         if https_port is not None:
-            pulumi.set(__self__, "https_port", https_port)
+            _setter("https_port", https_port)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if origin_host_header is not None:
-            pulumi.set(__self__, "origin_host_header", origin_host_header)
+            _setter("origin_host_header", origin_host_header)
         if priority is not None:
-            pulumi.set(__self__, "priority", priority)
+            _setter("priority", priority)
         if private_link is not None:
-            pulumi.set(__self__, "private_link", private_link)
+            _setter("private_link", private_link)
         if weight is not None:
-            pulumi.set(__self__, "weight", weight)
+            _setter("weight", weight)
 
     @property
     @pulumi.getter(name="cdnFrontdoorOriginGroupId")
@@ -520,6 +624,10 @@ class FrontdoorOrigin(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FrontdoorOriginArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -562,6 +670,11 @@ class FrontdoorOrigin(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["origin_host_header"] = origin_host_header
             __props__.__dict__["priority"] = priority
+            if private_link is not None and not isinstance(private_link, FrontdoorOriginPrivateLinkArgs):
+                private_link = private_link or {}
+                def _setter(key, value):
+                    private_link[key] = value
+                FrontdoorOriginPrivateLinkArgs._configure(_setter, **private_link)
             __props__.__dict__["private_link"] = private_link
             __props__.__dict__["weight"] = weight
         super(FrontdoorOrigin, __self__).__init__(

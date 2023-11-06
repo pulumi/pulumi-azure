@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ZoneVirtualNetworkLinkArgs', 'ZoneVirtualNetworkLink']
@@ -29,15 +29,50 @@ class ZoneVirtualNetworkLinkArgs:
         :param pulumi.Input[bool] registration_enabled: Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled? Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         """
-        pulumi.set(__self__, "private_dns_zone_name", private_dns_zone_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+        ZoneVirtualNetworkLinkArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            private_dns_zone_name=private_dns_zone_name,
+            resource_group_name=resource_group_name,
+            virtual_network_id=virtual_network_id,
+            name=name,
+            registration_enabled=registration_enabled,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             private_dns_zone_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             virtual_network_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             registration_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if private_dns_zone_name is None and 'privateDnsZoneName' in kwargs:
+            private_dns_zone_name = kwargs['privateDnsZoneName']
+        if private_dns_zone_name is None:
+            raise TypeError("Missing 'private_dns_zone_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+        if virtual_network_id is None:
+            raise TypeError("Missing 'virtual_network_id' argument")
+        if registration_enabled is None and 'registrationEnabled' in kwargs:
+            registration_enabled = kwargs['registrationEnabled']
+
+        _setter("private_dns_zone_name", private_dns_zone_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("virtual_network_id", virtual_network_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if registration_enabled is not None:
-            pulumi.set(__self__, "registration_enabled", registration_enabled)
+            _setter("registration_enabled", registration_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="privateDnsZoneName")
@@ -130,18 +165,47 @@ class _ZoneVirtualNetworkLinkState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network that should be linked to the DNS Zone. Changing this forces a new resource to be created.
         """
+        _ZoneVirtualNetworkLinkState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            private_dns_zone_name=private_dns_zone_name,
+            registration_enabled=registration_enabled,
+            resource_group_name=resource_group_name,
+            tags=tags,
+            virtual_network_id=virtual_network_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             private_dns_zone_name: Optional[pulumi.Input[str]] = None,
+             registration_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             virtual_network_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if private_dns_zone_name is None and 'privateDnsZoneName' in kwargs:
+            private_dns_zone_name = kwargs['privateDnsZoneName']
+        if registration_enabled is None and 'registrationEnabled' in kwargs:
+            registration_enabled = kwargs['registrationEnabled']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if virtual_network_id is None and 'virtualNetworkId' in kwargs:
+            virtual_network_id = kwargs['virtualNetworkId']
+
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_dns_zone_name is not None:
-            pulumi.set(__self__, "private_dns_zone_name", private_dns_zone_name)
+            _setter("private_dns_zone_name", private_dns_zone_name)
         if registration_enabled is not None:
-            pulumi.set(__self__, "registration_enabled", registration_enabled)
+            _setter("registration_enabled", registration_enabled)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if virtual_network_id is not None:
-            pulumi.set(__self__, "virtual_network_id", virtual_network_id)
+            _setter("virtual_network_id", virtual_network_id)
 
     @property
     @pulumi.getter
@@ -311,6 +375,10 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ZoneVirtualNetworkLinkArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

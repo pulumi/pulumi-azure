@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ApiReleaseArgs', 'ApiRelease']
@@ -23,11 +23,30 @@ class ApiReleaseArgs:
         :param pulumi.Input[str] name: The name which should be used for this API Management API Release. Changing this forces a new API Management API Release to be created.
         :param pulumi.Input[str] notes: The Release Notes.
         """
-        pulumi.set(__self__, "api_id", api_id)
+        ApiReleaseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            name=name,
+            notes=notes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+        if api_id is None:
+            raise TypeError("Missing 'api_id' argument")
+
+        _setter("api_id", api_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
 
     @property
     @pulumi.getter(name="apiId")
@@ -78,12 +97,29 @@ class _ApiReleaseState:
         :param pulumi.Input[str] name: The name which should be used for this API Management API Release. Changing this forces a new API Management API Release to be created.
         :param pulumi.Input[str] notes: The Release Notes.
         """
+        _ApiReleaseState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_id=api_id,
+            name=name,
+            notes=notes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             notes: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_id is None and 'apiId' in kwargs:
+            api_id = kwargs['apiId']
+
         if api_id is not None:
-            pulumi.set(__self__, "api_id", api_id)
+            _setter("api_id", api_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if notes is not None:
-            pulumi.set(__self__, "notes", notes)
+            _setter("notes", notes)
 
     @property
     @pulumi.getter(name="apiId")
@@ -229,6 +265,10 @@ class ApiRelease(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ApiReleaseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

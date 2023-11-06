@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -49,31 +49,94 @@ class FirewallArgs:
                
                > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku_name", sku_name)
-        pulumi.set(__self__, "sku_tier", sku_tier)
+        FirewallArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            sku_tier=sku_tier,
+            dns_servers=dns_servers,
+            firewall_policy_id=firewall_policy_id,
+            ip_configurations=ip_configurations,
+            location=location,
+            management_ip_configuration=management_ip_configuration,
+            name=name,
+            private_ip_ranges=private_ip_ranges,
+            tags=tags,
+            threat_intel_mode=threat_intel_mode,
+            virtual_hub=virtual_hub,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             sku_tier: Optional[pulumi.Input[str]] = None,
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             firewall_policy_id: Optional[pulumi.Input[str]] = None,
+             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             management_ip_configuration: Optional[pulumi.Input['FirewallManagementIpConfigurationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             threat_intel_mode: Optional[pulumi.Input[str]] = None,
+             virtual_hub: Optional[pulumi.Input['FirewallVirtualHubArgs']] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if sku_name is None:
+            raise TypeError("Missing 'sku_name' argument")
+        if sku_tier is None and 'skuTier' in kwargs:
+            sku_tier = kwargs['skuTier']
+        if sku_tier is None:
+            raise TypeError("Missing 'sku_tier' argument")
+        if dns_servers is None and 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if firewall_policy_id is None and 'firewallPolicyId' in kwargs:
+            firewall_policy_id = kwargs['firewallPolicyId']
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if management_ip_configuration is None and 'managementIpConfiguration' in kwargs:
+            management_ip_configuration = kwargs['managementIpConfiguration']
+        if private_ip_ranges is None and 'privateIpRanges' in kwargs:
+            private_ip_ranges = kwargs['privateIpRanges']
+        if threat_intel_mode is None and 'threatIntelMode' in kwargs:
+            threat_intel_mode = kwargs['threatIntelMode']
+        if virtual_hub is None and 'virtualHub' in kwargs:
+            virtual_hub = kwargs['virtualHub']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku_name", sku_name)
+        _setter("sku_tier", sku_tier)
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if firewall_policy_id is not None:
-            pulumi.set(__self__, "firewall_policy_id", firewall_policy_id)
+            _setter("firewall_policy_id", firewall_policy_id)
         if ip_configurations is not None:
-            pulumi.set(__self__, "ip_configurations", ip_configurations)
+            _setter("ip_configurations", ip_configurations)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if management_ip_configuration is not None:
-            pulumi.set(__self__, "management_ip_configuration", management_ip_configuration)
+            _setter("management_ip_configuration", management_ip_configuration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_ip_ranges is not None:
-            pulumi.set(__self__, "private_ip_ranges", private_ip_ranges)
+            _setter("private_ip_ranges", private_ip_ranges)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if threat_intel_mode is not None:
-            pulumi.set(__self__, "threat_intel_mode", threat_intel_mode)
+            _setter("threat_intel_mode", threat_intel_mode)
         if virtual_hub is not None:
-            pulumi.set(__self__, "virtual_hub", virtual_hub)
+            _setter("virtual_hub", virtual_hub)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -282,34 +345,91 @@ class _FirewallState:
                
                > **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview).
         """
+        _FirewallState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dns_servers=dns_servers,
+            firewall_policy_id=firewall_policy_id,
+            ip_configurations=ip_configurations,
+            location=location,
+            management_ip_configuration=management_ip_configuration,
+            name=name,
+            private_ip_ranges=private_ip_ranges,
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            sku_tier=sku_tier,
+            tags=tags,
+            threat_intel_mode=threat_intel_mode,
+            virtual_hub=virtual_hub,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             firewall_policy_id: Optional[pulumi.Input[str]] = None,
+             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallIpConfigurationArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             management_ip_configuration: Optional[pulumi.Input['FirewallManagementIpConfigurationArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             private_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             sku_tier: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             threat_intel_mode: Optional[pulumi.Input[str]] = None,
+             virtual_hub: Optional[pulumi.Input['FirewallVirtualHubArgs']] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if dns_servers is None and 'dnsServers' in kwargs:
+            dns_servers = kwargs['dnsServers']
+        if firewall_policy_id is None and 'firewallPolicyId' in kwargs:
+            firewall_policy_id = kwargs['firewallPolicyId']
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if management_ip_configuration is None and 'managementIpConfiguration' in kwargs:
+            management_ip_configuration = kwargs['managementIpConfiguration']
+        if private_ip_ranges is None and 'privateIpRanges' in kwargs:
+            private_ip_ranges = kwargs['privateIpRanges']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if sku_tier is None and 'skuTier' in kwargs:
+            sku_tier = kwargs['skuTier']
+        if threat_intel_mode is None and 'threatIntelMode' in kwargs:
+            threat_intel_mode = kwargs['threatIntelMode']
+        if virtual_hub is None and 'virtualHub' in kwargs:
+            virtual_hub = kwargs['virtualHub']
+
         if dns_servers is not None:
-            pulumi.set(__self__, "dns_servers", dns_servers)
+            _setter("dns_servers", dns_servers)
         if firewall_policy_id is not None:
-            pulumi.set(__self__, "firewall_policy_id", firewall_policy_id)
+            _setter("firewall_policy_id", firewall_policy_id)
         if ip_configurations is not None:
-            pulumi.set(__self__, "ip_configurations", ip_configurations)
+            _setter("ip_configurations", ip_configurations)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if management_ip_configuration is not None:
-            pulumi.set(__self__, "management_ip_configuration", management_ip_configuration)
+            _setter("management_ip_configuration", management_ip_configuration)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_ip_ranges is not None:
-            pulumi.set(__self__, "private_ip_ranges", private_ip_ranges)
+            _setter("private_ip_ranges", private_ip_ranges)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
         if sku_tier is not None:
-            pulumi.set(__self__, "sku_tier", sku_tier)
+            _setter("sku_tier", sku_tier)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if threat_intel_mode is not None:
-            pulumi.set(__self__, "threat_intel_mode", threat_intel_mode)
+            _setter("threat_intel_mode", threat_intel_mode)
         if virtual_hub is not None:
-            pulumi.set(__self__, "virtual_hub", virtual_hub)
+            _setter("virtual_hub", virtual_hub)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="dnsServers")
@@ -623,6 +743,10 @@ class Firewall(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FirewallArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -655,6 +779,11 @@ class Firewall(pulumi.CustomResource):
             __props__.__dict__["firewall_policy_id"] = firewall_policy_id
             __props__.__dict__["ip_configurations"] = ip_configurations
             __props__.__dict__["location"] = location
+            if management_ip_configuration is not None and not isinstance(management_ip_configuration, FirewallManagementIpConfigurationArgs):
+                management_ip_configuration = management_ip_configuration or {}
+                def _setter(key, value):
+                    management_ip_configuration[key] = value
+                FirewallManagementIpConfigurationArgs._configure(_setter, **management_ip_configuration)
             __props__.__dict__["management_ip_configuration"] = management_ip_configuration
             __props__.__dict__["name"] = name
             __props__.__dict__["private_ip_ranges"] = private_ip_ranges
@@ -669,6 +798,11 @@ class Firewall(pulumi.CustomResource):
             __props__.__dict__["sku_tier"] = sku_tier
             __props__.__dict__["tags"] = tags
             __props__.__dict__["threat_intel_mode"] = threat_intel_mode
+            if virtual_hub is not None and not isinstance(virtual_hub, FirewallVirtualHubArgs):
+                virtual_hub = virtual_hub or {}
+                def _setter(key, value):
+                    virtual_hub[key] = value
+                FirewallVirtualHubArgs._configure(_setter, **virtual_hub)
             __props__.__dict__["virtual_hub"] = virtual_hub
             __props__.__dict__["zones"] = zones
         super(Firewall, __self__).__init__(

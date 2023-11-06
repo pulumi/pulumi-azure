@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['TriggerHttpRequestArgs', 'TriggerHttpRequest']
@@ -31,14 +31,41 @@ class TriggerHttpRequestArgs:
                
                > **NOTE:** When `relative_path` is set a `method` must also be set.
         """
-        pulumi.set(__self__, "logic_app_id", logic_app_id)
-        pulumi.set(__self__, "schema", schema)
+        TriggerHttpRequestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            logic_app_id=logic_app_id,
+            schema=schema,
+            method=method,
+            name=name,
+            relative_path=relative_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             logic_app_id: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             method: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             relative_path: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if logic_app_id is None and 'logicAppId' in kwargs:
+            logic_app_id = kwargs['logicAppId']
+        if logic_app_id is None:
+            raise TypeError("Missing 'logic_app_id' argument")
+        if schema is None:
+            raise TypeError("Missing 'schema' argument")
+        if relative_path is None and 'relativePath' in kwargs:
+            relative_path = kwargs['relativePath']
+
+        _setter("logic_app_id", logic_app_id)
+        _setter("schema", schema)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if relative_path is not None:
-            pulumi.set(__self__, "relative_path", relative_path)
+            _setter("relative_path", relative_path)
 
     @property
     @pulumi.getter(name="logicAppId")
@@ -127,18 +154,45 @@ class _TriggerHttpRequestState:
                > **NOTE:** When `relative_path` is set a `method` must also be set.
         :param pulumi.Input[str] schema: A JSON Blob defining the Schema of the incoming request. This needs to be valid JSON.
         """
+        _TriggerHttpRequestState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            callback_url=callback_url,
+            logic_app_id=logic_app_id,
+            method=method,
+            name=name,
+            relative_path=relative_path,
+            schema=schema,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             callback_url: Optional[pulumi.Input[str]] = None,
+             logic_app_id: Optional[pulumi.Input[str]] = None,
+             method: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             relative_path: Optional[pulumi.Input[str]] = None,
+             schema: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if callback_url is None and 'callbackUrl' in kwargs:
+            callback_url = kwargs['callbackUrl']
+        if logic_app_id is None and 'logicAppId' in kwargs:
+            logic_app_id = kwargs['logicAppId']
+        if relative_path is None and 'relativePath' in kwargs:
+            relative_path = kwargs['relativePath']
+
         if callback_url is not None:
-            pulumi.set(__self__, "callback_url", callback_url)
+            _setter("callback_url", callback_url)
         if logic_app_id is not None:
-            pulumi.set(__self__, "logic_app_id", logic_app_id)
+            _setter("logic_app_id", logic_app_id)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if relative_path is not None:
-            pulumi.set(__self__, "relative_path", relative_path)
+            _setter("relative_path", relative_path)
         if schema is not None:
-            pulumi.set(__self__, "schema", schema)
+            _setter("schema", schema)
 
     @property
     @pulumi.getter(name="callbackUrl")
@@ -324,6 +378,10 @@ class TriggerHttpRequest(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TriggerHttpRequestArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

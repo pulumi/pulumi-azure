@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,19 +27,60 @@ class NextGenerationFirewallVirtualHubPanoramaArgs:
         """
         The set of arguments for constructing a NextGenerationFirewallVirtualHubPanorama resource.
         """
-        pulumi.set(__self__, "network_profile", network_profile)
-        pulumi.set(__self__, "panorama_base64_config", panorama_base64_config)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        NextGenerationFirewallVirtualHubPanoramaArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            network_profile=network_profile,
+            panorama_base64_config=panorama_base64_config,
+            resource_group_name=resource_group_name,
+            destination_nats=destination_nats,
+            dns_settings=dns_settings,
+            location=location,
+            name=name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             network_profile: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs']] = None,
+             panorama_base64_config: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs']]]] = None,
+             dns_settings: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if network_profile is None and 'networkProfile' in kwargs:
+            network_profile = kwargs['networkProfile']
+        if network_profile is None:
+            raise TypeError("Missing 'network_profile' argument")
+        if panorama_base64_config is None and 'panoramaBase64Config' in kwargs:
+            panorama_base64_config = kwargs['panoramaBase64Config']
+        if panorama_base64_config is None:
+            raise TypeError("Missing 'panorama_base64_config' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if destination_nats is None and 'destinationNats' in kwargs:
+            destination_nats = kwargs['destinationNats']
+        if dns_settings is None and 'dnsSettings' in kwargs:
+            dns_settings = kwargs['dnsSettings']
+
+        _setter("network_profile", network_profile)
+        _setter("panorama_base64_config", panorama_base64_config)
+        _setter("resource_group_name", resource_group_name)
         if destination_nats is not None:
-            pulumi.set(__self__, "destination_nats", destination_nats)
+            _setter("destination_nats", destination_nats)
         if dns_settings is not None:
-            pulumi.set(__self__, "dns_settings", dns_settings)
+            _setter("dns_settings", dns_settings)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="networkProfile")
@@ -129,24 +170,61 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
         """
         Input properties used for looking up and filtering NextGenerationFirewallVirtualHubPanorama resources.
         """
+        _NextGenerationFirewallVirtualHubPanoramaState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_nats=destination_nats,
+            dns_settings=dns_settings,
+            location=location,
+            name=name,
+            network_profile=network_profile,
+            panorama_base64_config=panorama_base64_config,
+            panoramas=panoramas,
+            resource_group_name=resource_group_name,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs']]]] = None,
+             dns_settings: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_profile: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs']] = None,
+             panorama_base64_config: Optional[pulumi.Input[str]] = None,
+             panoramas: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaPanoramaArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if destination_nats is None and 'destinationNats' in kwargs:
+            destination_nats = kwargs['destinationNats']
+        if dns_settings is None and 'dnsSettings' in kwargs:
+            dns_settings = kwargs['dnsSettings']
+        if network_profile is None and 'networkProfile' in kwargs:
+            network_profile = kwargs['networkProfile']
+        if panorama_base64_config is None and 'panoramaBase64Config' in kwargs:
+            panorama_base64_config = kwargs['panoramaBase64Config']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+
         if destination_nats is not None:
-            pulumi.set(__self__, "destination_nats", destination_nats)
+            _setter("destination_nats", destination_nats)
         if dns_settings is not None:
-            pulumi.set(__self__, "dns_settings", dns_settings)
+            _setter("dns_settings", dns_settings)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if panorama_base64_config is not None:
-            pulumi.set(__self__, "panorama_base64_config", panorama_base64_config)
+            _setter("panorama_base64_config", panorama_base64_config)
         if panoramas is not None:
-            pulumi.set(__self__, "panoramas", panoramas)
+            _setter("panoramas", panoramas)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="destinationNats")
@@ -267,6 +345,10 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NextGenerationFirewallVirtualHubPanoramaArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -290,9 +372,19 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
             __props__ = NextGenerationFirewallVirtualHubPanoramaArgs.__new__(NextGenerationFirewallVirtualHubPanoramaArgs)
 
             __props__.__dict__["destination_nats"] = destination_nats
+            if dns_settings is not None and not isinstance(dns_settings, NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs):
+                dns_settings = dns_settings or {}
+                def _setter(key, value):
+                    dns_settings[key] = value
+                NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs._configure(_setter, **dns_settings)
             __props__.__dict__["dns_settings"] = dns_settings
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            if network_profile is not None and not isinstance(network_profile, NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs):
+                network_profile = network_profile or {}
+                def _setter(key, value):
+                    network_profile[key] = value
+                NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs._configure(_setter, **network_profile)
             if network_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'network_profile'")
             __props__.__dict__["network_profile"] = network_profile

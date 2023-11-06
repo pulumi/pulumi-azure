@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OutputSynapseArgs', 'OutputSynapse']
@@ -33,15 +33,58 @@ class OutputSynapseArgs:
         :param pulumi.Input[str] user: The user name that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the Stream Output. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "database", database)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
-        pulumi.set(__self__, "table", table)
-        pulumi.set(__self__, "user", user)
+        OutputSynapseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            password=password,
+            resource_group_name=resource_group_name,
+            server=server,
+            stream_analytics_job_name=stream_analytics_job_name,
+            table=table,
+            user=user,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+             table: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if database is None:
+            raise TypeError("Missing 'database' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if server is None:
+            raise TypeError("Missing 'server' argument")
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+        if stream_analytics_job_name is None:
+            raise TypeError("Missing 'stream_analytics_job_name' argument")
+        if table is None:
+            raise TypeError("Missing 'table' argument")
+        if user is None:
+            raise TypeError("Missing 'user' argument")
+
+        _setter("database", database)
+        _setter("password", password)
+        _setter("resource_group_name", resource_group_name)
+        _setter("server", server)
+        _setter("stream_analytics_job_name", stream_analytics_job_name)
+        _setter("table", table)
+        _setter("user", user)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -162,22 +205,51 @@ class _OutputSynapseState:
         :param pulumi.Input[str] table: The name of the table in the Azure SQL database. Changing this forces a new resource to be created.
         :param pulumi.Input[str] user: The user name that will be used to connect to the Azure SQL database. Changing this forces a new resource to be created.
         """
+        _OutputSynapseState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            database=database,
+            name=name,
+            password=password,
+            resource_group_name=resource_group_name,
+            server=server,
+            stream_analytics_job_name=stream_analytics_job_name,
+            table=table,
+            user=user,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             database: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             server: Optional[pulumi.Input[str]] = None,
+             stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
+             table: Optional[pulumi.Input[str]] = None,
+             user: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if stream_analytics_job_name is None and 'streamAnalyticsJobName' in kwargs:
+            stream_analytics_job_name = kwargs['streamAnalyticsJobName']
+
         if database is not None:
-            pulumi.set(__self__, "database", database)
+            _setter("database", database)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if server is not None:
-            pulumi.set(__self__, "server", server)
+            _setter("server", server)
         if stream_analytics_job_name is not None:
-            pulumi.set(__self__, "stream_analytics_job_name", stream_analytics_job_name)
+            _setter("stream_analytics_job_name", stream_analytics_job_name)
         if table is not None:
-            pulumi.set(__self__, "table", table)
+            _setter("table", table)
         if user is not None:
-            pulumi.set(__self__, "user", user)
+            _setter("user", user)
 
     @property
     @pulumi.getter
@@ -411,6 +483,10 @@ class OutputSynapse(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OutputSynapseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

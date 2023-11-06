@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -66,51 +66,138 @@ class ClusterArgs:
         :param pulumi.Input['ClusterVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
+        ClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            sku=sku,
+            allowed_fqdns=allowed_fqdns,
+            allowed_ip_ranges=allowed_ip_ranges,
+            auto_stop_enabled=auto_stop_enabled,
+            disk_encryption_enabled=disk_encryption_enabled,
+            double_encryption_enabled=double_encryption_enabled,
+            engine=engine,
+            identity=identity,
+            language_extensions=language_extensions,
+            location=location,
+            name=name,
+            optimized_auto_scale=optimized_auto_scale,
+            outbound_network_access_restricted=outbound_network_access_restricted,
+            public_ip_type=public_ip_type,
+            public_network_access_enabled=public_network_access_enabled,
+            purge_enabled=purge_enabled,
+            streaming_ingestion_enabled=streaming_ingestion_enabled,
+            tags=tags,
+            trusted_external_tenants=trusted_external_tenants,
+            virtual_network_configuration=virtual_network_configuration,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['ClusterSkuArgs']] = None,
+             allowed_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             auto_stop_enabled: Optional[pulumi.Input[bool]] = None,
+             disk_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             engine: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ClusterIdentityArgs']] = None,
+             language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             optimized_auto_scale: Optional[pulumi.Input['ClusterOptimizedAutoScaleArgs']] = None,
+             outbound_network_access_restricted: Optional[pulumi.Input[bool]] = None,
+             public_ip_type: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             purge_enabled: Optional[pulumi.Input[bool]] = None,
+             streaming_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             trusted_external_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             virtual_network_configuration: Optional[pulumi.Input['ClusterVirtualNetworkConfigurationArgs']] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if allowed_fqdns is None and 'allowedFqdns' in kwargs:
+            allowed_fqdns = kwargs['allowedFqdns']
+        if allowed_ip_ranges is None and 'allowedIpRanges' in kwargs:
+            allowed_ip_ranges = kwargs['allowedIpRanges']
+        if auto_stop_enabled is None and 'autoStopEnabled' in kwargs:
+            auto_stop_enabled = kwargs['autoStopEnabled']
+        if disk_encryption_enabled is None and 'diskEncryptionEnabled' in kwargs:
+            disk_encryption_enabled = kwargs['diskEncryptionEnabled']
+        if double_encryption_enabled is None and 'doubleEncryptionEnabled' in kwargs:
+            double_encryption_enabled = kwargs['doubleEncryptionEnabled']
+        if language_extensions is None and 'languageExtensions' in kwargs:
+            language_extensions = kwargs['languageExtensions']
+        if optimized_auto_scale is None and 'optimizedAutoScale' in kwargs:
+            optimized_auto_scale = kwargs['optimizedAutoScale']
+        if outbound_network_access_restricted is None and 'outboundNetworkAccessRestricted' in kwargs:
+            outbound_network_access_restricted = kwargs['outboundNetworkAccessRestricted']
+        if public_ip_type is None and 'publicIpType' in kwargs:
+            public_ip_type = kwargs['publicIpType']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if purge_enabled is None and 'purgeEnabled' in kwargs:
+            purge_enabled = kwargs['purgeEnabled']
+        if streaming_ingestion_enabled is None and 'streamingIngestionEnabled' in kwargs:
+            streaming_ingestion_enabled = kwargs['streamingIngestionEnabled']
+        if trusted_external_tenants is None and 'trustedExternalTenants' in kwargs:
+            trusted_external_tenants = kwargs['trustedExternalTenants']
+        if virtual_network_configuration is None and 'virtualNetworkConfiguration' in kwargs:
+            virtual_network_configuration = kwargs['virtualNetworkConfiguration']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
         if allowed_fqdns is not None:
-            pulumi.set(__self__, "allowed_fqdns", allowed_fqdns)
+            _setter("allowed_fqdns", allowed_fqdns)
         if allowed_ip_ranges is not None:
-            pulumi.set(__self__, "allowed_ip_ranges", allowed_ip_ranges)
+            _setter("allowed_ip_ranges", allowed_ip_ranges)
         if auto_stop_enabled is not None:
-            pulumi.set(__self__, "auto_stop_enabled", auto_stop_enabled)
+            _setter("auto_stop_enabled", auto_stop_enabled)
         if disk_encryption_enabled is not None:
-            pulumi.set(__self__, "disk_encryption_enabled", disk_encryption_enabled)
+            _setter("disk_encryption_enabled", disk_encryption_enabled)
         if double_encryption_enabled is not None:
-            pulumi.set(__self__, "double_encryption_enabled", double_encryption_enabled)
+            _setter("double_encryption_enabled", double_encryption_enabled)
         if engine is not None:
             warnings.warn("""This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""", DeprecationWarning)
             pulumi.log.warn("""engine is deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""")
         if engine is not None:
-            pulumi.set(__self__, "engine", engine)
+            _setter("engine", engine)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if language_extensions is not None:
-            pulumi.set(__self__, "language_extensions", language_extensions)
+            _setter("language_extensions", language_extensions)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if optimized_auto_scale is not None:
-            pulumi.set(__self__, "optimized_auto_scale", optimized_auto_scale)
+            _setter("optimized_auto_scale", optimized_auto_scale)
         if outbound_network_access_restricted is not None:
-            pulumi.set(__self__, "outbound_network_access_restricted", outbound_network_access_restricted)
+            _setter("outbound_network_access_restricted", outbound_network_access_restricted)
         if public_ip_type is not None:
-            pulumi.set(__self__, "public_ip_type", public_ip_type)
+            _setter("public_ip_type", public_ip_type)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if purge_enabled is not None:
-            pulumi.set(__self__, "purge_enabled", purge_enabled)
+            _setter("purge_enabled", purge_enabled)
         if streaming_ingestion_enabled is not None:
-            pulumi.set(__self__, "streaming_ingestion_enabled", streaming_ingestion_enabled)
+            _setter("streaming_ingestion_enabled", streaming_ingestion_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if trusted_external_tenants is not None:
-            pulumi.set(__self__, "trusted_external_tenants", trusted_external_tenants)
+            _setter("trusted_external_tenants", trusted_external_tenants)
         if virtual_network_configuration is not None:
-            pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
+            _setter("virtual_network_configuration", virtual_network_configuration)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -438,57 +525,146 @@ class _ClusterState:
         :param pulumi.Input['ClusterVirtualNetworkConfigurationArgs'] virtual_network_configuration: A `virtual_network_configuration` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
         """
+        _ClusterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_fqdns=allowed_fqdns,
+            allowed_ip_ranges=allowed_ip_ranges,
+            auto_stop_enabled=auto_stop_enabled,
+            data_ingestion_uri=data_ingestion_uri,
+            disk_encryption_enabled=disk_encryption_enabled,
+            double_encryption_enabled=double_encryption_enabled,
+            engine=engine,
+            identity=identity,
+            language_extensions=language_extensions,
+            location=location,
+            name=name,
+            optimized_auto_scale=optimized_auto_scale,
+            outbound_network_access_restricted=outbound_network_access_restricted,
+            public_ip_type=public_ip_type,
+            public_network_access_enabled=public_network_access_enabled,
+            purge_enabled=purge_enabled,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            streaming_ingestion_enabled=streaming_ingestion_enabled,
+            tags=tags,
+            trusted_external_tenants=trusted_external_tenants,
+            uri=uri,
+            virtual_network_configuration=virtual_network_configuration,
+            zones=zones,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             allowed_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             auto_stop_enabled: Optional[pulumi.Input[bool]] = None,
+             data_ingestion_uri: Optional[pulumi.Input[str]] = None,
+             disk_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             double_encryption_enabled: Optional[pulumi.Input[bool]] = None,
+             engine: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ClusterIdentityArgs']] = None,
+             language_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             optimized_auto_scale: Optional[pulumi.Input['ClusterOptimizedAutoScaleArgs']] = None,
+             outbound_network_access_restricted: Optional[pulumi.Input[bool]] = None,
+             public_ip_type: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             purge_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input['ClusterSkuArgs']] = None,
+             streaming_ingestion_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             trusted_external_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             virtual_network_configuration: Optional[pulumi.Input['ClusterVirtualNetworkConfigurationArgs']] = None,
+             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allowed_fqdns is None and 'allowedFqdns' in kwargs:
+            allowed_fqdns = kwargs['allowedFqdns']
+        if allowed_ip_ranges is None and 'allowedIpRanges' in kwargs:
+            allowed_ip_ranges = kwargs['allowedIpRanges']
+        if auto_stop_enabled is None and 'autoStopEnabled' in kwargs:
+            auto_stop_enabled = kwargs['autoStopEnabled']
+        if data_ingestion_uri is None and 'dataIngestionUri' in kwargs:
+            data_ingestion_uri = kwargs['dataIngestionUri']
+        if disk_encryption_enabled is None and 'diskEncryptionEnabled' in kwargs:
+            disk_encryption_enabled = kwargs['diskEncryptionEnabled']
+        if double_encryption_enabled is None and 'doubleEncryptionEnabled' in kwargs:
+            double_encryption_enabled = kwargs['doubleEncryptionEnabled']
+        if language_extensions is None and 'languageExtensions' in kwargs:
+            language_extensions = kwargs['languageExtensions']
+        if optimized_auto_scale is None and 'optimizedAutoScale' in kwargs:
+            optimized_auto_scale = kwargs['optimizedAutoScale']
+        if outbound_network_access_restricted is None and 'outboundNetworkAccessRestricted' in kwargs:
+            outbound_network_access_restricted = kwargs['outboundNetworkAccessRestricted']
+        if public_ip_type is None and 'publicIpType' in kwargs:
+            public_ip_type = kwargs['publicIpType']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if purge_enabled is None and 'purgeEnabled' in kwargs:
+            purge_enabled = kwargs['purgeEnabled']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if streaming_ingestion_enabled is None and 'streamingIngestionEnabled' in kwargs:
+            streaming_ingestion_enabled = kwargs['streamingIngestionEnabled']
+        if trusted_external_tenants is None and 'trustedExternalTenants' in kwargs:
+            trusted_external_tenants = kwargs['trustedExternalTenants']
+        if virtual_network_configuration is None and 'virtualNetworkConfiguration' in kwargs:
+            virtual_network_configuration = kwargs['virtualNetworkConfiguration']
+
         if allowed_fqdns is not None:
-            pulumi.set(__self__, "allowed_fqdns", allowed_fqdns)
+            _setter("allowed_fqdns", allowed_fqdns)
         if allowed_ip_ranges is not None:
-            pulumi.set(__self__, "allowed_ip_ranges", allowed_ip_ranges)
+            _setter("allowed_ip_ranges", allowed_ip_ranges)
         if auto_stop_enabled is not None:
-            pulumi.set(__self__, "auto_stop_enabled", auto_stop_enabled)
+            _setter("auto_stop_enabled", auto_stop_enabled)
         if data_ingestion_uri is not None:
-            pulumi.set(__self__, "data_ingestion_uri", data_ingestion_uri)
+            _setter("data_ingestion_uri", data_ingestion_uri)
         if disk_encryption_enabled is not None:
-            pulumi.set(__self__, "disk_encryption_enabled", disk_encryption_enabled)
+            _setter("disk_encryption_enabled", disk_encryption_enabled)
         if double_encryption_enabled is not None:
-            pulumi.set(__self__, "double_encryption_enabled", double_encryption_enabled)
+            _setter("double_encryption_enabled", double_encryption_enabled)
         if engine is not None:
             warnings.warn("""This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""", DeprecationWarning)
             pulumi.log.warn("""engine is deprecated: This property has been deprecated as it will no longer be supported by the API. It will be removed in a future version of the provider.""")
         if engine is not None:
-            pulumi.set(__self__, "engine", engine)
+            _setter("engine", engine)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if language_extensions is not None:
-            pulumi.set(__self__, "language_extensions", language_extensions)
+            _setter("language_extensions", language_extensions)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if optimized_auto_scale is not None:
-            pulumi.set(__self__, "optimized_auto_scale", optimized_auto_scale)
+            _setter("optimized_auto_scale", optimized_auto_scale)
         if outbound_network_access_restricted is not None:
-            pulumi.set(__self__, "outbound_network_access_restricted", outbound_network_access_restricted)
+            _setter("outbound_network_access_restricted", outbound_network_access_restricted)
         if public_ip_type is not None:
-            pulumi.set(__self__, "public_ip_type", public_ip_type)
+            _setter("public_ip_type", public_ip_type)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if purge_enabled is not None:
-            pulumi.set(__self__, "purge_enabled", purge_enabled)
+            _setter("purge_enabled", purge_enabled)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if streaming_ingestion_enabled is not None:
-            pulumi.set(__self__, "streaming_ingestion_enabled", streaming_ingestion_enabled)
+            _setter("streaming_ingestion_enabled", streaming_ingestion_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if trusted_external_tenants is not None:
-            pulumi.set(__self__, "trusted_external_tenants", trusted_external_tenants)
+            _setter("trusted_external_tenants", trusted_external_tenants)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
         if virtual_network_configuration is not None:
-            pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
+            _setter("virtual_network_configuration", virtual_network_configuration)
         if zones is not None:
-            pulumi.set(__self__, "zones", zones)
+            _setter("zones", zones)
 
     @property
     @pulumi.getter(name="allowedFqdns")
@@ -915,6 +1091,10 @@ class Cluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -957,10 +1137,20 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["disk_encryption_enabled"] = disk_encryption_enabled
             __props__.__dict__["double_encryption_enabled"] = double_encryption_enabled
             __props__.__dict__["engine"] = engine
+            if identity is not None and not isinstance(identity, ClusterIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ClusterIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["language_extensions"] = language_extensions
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            if optimized_auto_scale is not None and not isinstance(optimized_auto_scale, ClusterOptimizedAutoScaleArgs):
+                optimized_auto_scale = optimized_auto_scale or {}
+                def _setter(key, value):
+                    optimized_auto_scale[key] = value
+                ClusterOptimizedAutoScaleArgs._configure(_setter, **optimized_auto_scale)
             __props__.__dict__["optimized_auto_scale"] = optimized_auto_scale
             __props__.__dict__["outbound_network_access_restricted"] = outbound_network_access_restricted
             __props__.__dict__["public_ip_type"] = public_ip_type
@@ -969,12 +1159,22 @@ class Cluster(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if sku is not None and not isinstance(sku, ClusterSkuArgs):
+                sku = sku or {}
+                def _setter(key, value):
+                    sku[key] = value
+                ClusterSkuArgs._configure(_setter, **sku)
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["streaming_ingestion_enabled"] = streaming_ingestion_enabled
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trusted_external_tenants"] = trusted_external_tenants
+            if virtual_network_configuration is not None and not isinstance(virtual_network_configuration, ClusterVirtualNetworkConfigurationArgs):
+                virtual_network_configuration = virtual_network_configuration or {}
+                def _setter(key, value):
+                    virtual_network_configuration[key] = value
+                ClusterVirtualNetworkConfigurationArgs._configure(_setter, **virtual_network_configuration)
             __props__.__dict__["virtual_network_configuration"] = virtual_network_configuration
             __props__.__dict__["zones"] = zones
             __props__.__dict__["data_ingestion_uri"] = None

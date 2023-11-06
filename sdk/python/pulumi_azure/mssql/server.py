@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -59,34 +59,97 @@ class ServerArgs:
                
                > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "version", version)
+        ServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            version=version,
+            administrator_login=administrator_login,
+            administrator_login_password=administrator_login_password,
+            azuread_administrator=azuread_administrator,
+            connection_policy=connection_policy,
+            identity=identity,
+            location=location,
+            minimum_tls_version=minimum_tls_version,
+            name=name,
+            outbound_network_restriction_enabled=outbound_network_restriction_enabled,
+            primary_user_assigned_identity_id=primary_user_assigned_identity_id,
+            public_network_access_enabled=public_network_access_enabled,
+            tags=tags,
+            transparent_data_encryption_key_vault_key_id=transparent_data_encryption_key_vault_key_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             administrator_login: Optional[pulumi.Input[str]] = None,
+             administrator_login_password: Optional[pulumi.Input[str]] = None,
+             azuread_administrator: Optional[pulumi.Input['ServerAzureadAdministratorArgs']] = None,
+             connection_policy: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             minimum_tls_version: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             outbound_network_restriction_enabled: Optional[pulumi.Input[bool]] = None,
+             primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transparent_data_encryption_key_vault_key_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if administrator_login is None and 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if azuread_administrator is None and 'azureadAdministrator' in kwargs:
+            azuread_administrator = kwargs['azureadAdministrator']
+        if connection_policy is None and 'connectionPolicy' in kwargs:
+            connection_policy = kwargs['connectionPolicy']
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if outbound_network_restriction_enabled is None and 'outboundNetworkRestrictionEnabled' in kwargs:
+            outbound_network_restriction_enabled = kwargs['outboundNetworkRestrictionEnabled']
+        if primary_user_assigned_identity_id is None and 'primaryUserAssignedIdentityId' in kwargs:
+            primary_user_assigned_identity_id = kwargs['primaryUserAssignedIdentityId']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if transparent_data_encryption_key_vault_key_id is None and 'transparentDataEncryptionKeyVaultKeyId' in kwargs:
+            transparent_data_encryption_key_vault_key_id = kwargs['transparentDataEncryptionKeyVaultKeyId']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("version", version)
         if administrator_login is not None:
-            pulumi.set(__self__, "administrator_login", administrator_login)
+            _setter("administrator_login", administrator_login)
         if administrator_login_password is not None:
-            pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+            _setter("administrator_login_password", administrator_login_password)
         if azuread_administrator is not None:
-            pulumi.set(__self__, "azuread_administrator", azuread_administrator)
+            _setter("azuread_administrator", azuread_administrator)
         if connection_policy is not None:
-            pulumi.set(__self__, "connection_policy", connection_policy)
+            _setter("connection_policy", connection_policy)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if minimum_tls_version is not None:
-            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+            _setter("minimum_tls_version", minimum_tls_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if outbound_network_restriction_enabled is not None:
-            pulumi.set(__self__, "outbound_network_restriction_enabled", outbound_network_restriction_enabled)
+            _setter("outbound_network_restriction_enabled", outbound_network_restriction_enabled)
         if primary_user_assigned_identity_id is not None:
-            pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
+            _setter("primary_user_assigned_identity_id", primary_user_assigned_identity_id)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if transparent_data_encryption_key_vault_key_id is not None:
-            pulumi.set(__self__, "transparent_data_encryption_key_vault_key_id", transparent_data_encryption_key_vault_key_id)
+            _setter("transparent_data_encryption_key_vault_key_id", transparent_data_encryption_key_vault_key_id)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -329,40 +392,107 @@ class _ServerState:
                > **NOTE:** When using a firewall with a `Key Vault`, you must enable the option `Allow trusted Microsoft services to bypass the firewall`.
         :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         """
+        _ServerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrator_login=administrator_login,
+            administrator_login_password=administrator_login_password,
+            azuread_administrator=azuread_administrator,
+            connection_policy=connection_policy,
+            fully_qualified_domain_name=fully_qualified_domain_name,
+            identity=identity,
+            location=location,
+            minimum_tls_version=minimum_tls_version,
+            name=name,
+            outbound_network_restriction_enabled=outbound_network_restriction_enabled,
+            primary_user_assigned_identity_id=primary_user_assigned_identity_id,
+            public_network_access_enabled=public_network_access_enabled,
+            resource_group_name=resource_group_name,
+            restorable_dropped_database_ids=restorable_dropped_database_ids,
+            tags=tags,
+            transparent_data_encryption_key_vault_key_id=transparent_data_encryption_key_vault_key_id,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrator_login: Optional[pulumi.Input[str]] = None,
+             administrator_login_password: Optional[pulumi.Input[str]] = None,
+             azuread_administrator: Optional[pulumi.Input['ServerAzureadAdministratorArgs']] = None,
+             connection_policy: Optional[pulumi.Input[str]] = None,
+             fully_qualified_domain_name: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             minimum_tls_version: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             outbound_network_restriction_enabled: Optional[pulumi.Input[bool]] = None,
+             primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             restorable_dropped_database_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             transparent_data_encryption_key_vault_key_id: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if administrator_login is None and 'administratorLogin' in kwargs:
+            administrator_login = kwargs['administratorLogin']
+        if administrator_login_password is None and 'administratorLoginPassword' in kwargs:
+            administrator_login_password = kwargs['administratorLoginPassword']
+        if azuread_administrator is None and 'azureadAdministrator' in kwargs:
+            azuread_administrator = kwargs['azureadAdministrator']
+        if connection_policy is None and 'connectionPolicy' in kwargs:
+            connection_policy = kwargs['connectionPolicy']
+        if fully_qualified_domain_name is None and 'fullyQualifiedDomainName' in kwargs:
+            fully_qualified_domain_name = kwargs['fullyQualifiedDomainName']
+        if minimum_tls_version is None and 'minimumTlsVersion' in kwargs:
+            minimum_tls_version = kwargs['minimumTlsVersion']
+        if outbound_network_restriction_enabled is None and 'outboundNetworkRestrictionEnabled' in kwargs:
+            outbound_network_restriction_enabled = kwargs['outboundNetworkRestrictionEnabled']
+        if primary_user_assigned_identity_id is None and 'primaryUserAssignedIdentityId' in kwargs:
+            primary_user_assigned_identity_id = kwargs['primaryUserAssignedIdentityId']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if restorable_dropped_database_ids is None and 'restorableDroppedDatabaseIds' in kwargs:
+            restorable_dropped_database_ids = kwargs['restorableDroppedDatabaseIds']
+        if transparent_data_encryption_key_vault_key_id is None and 'transparentDataEncryptionKeyVaultKeyId' in kwargs:
+            transparent_data_encryption_key_vault_key_id = kwargs['transparentDataEncryptionKeyVaultKeyId']
+
         if administrator_login is not None:
-            pulumi.set(__self__, "administrator_login", administrator_login)
+            _setter("administrator_login", administrator_login)
         if administrator_login_password is not None:
-            pulumi.set(__self__, "administrator_login_password", administrator_login_password)
+            _setter("administrator_login_password", administrator_login_password)
         if azuread_administrator is not None:
-            pulumi.set(__self__, "azuread_administrator", azuread_administrator)
+            _setter("azuread_administrator", azuread_administrator)
         if connection_policy is not None:
-            pulumi.set(__self__, "connection_policy", connection_policy)
+            _setter("connection_policy", connection_policy)
         if fully_qualified_domain_name is not None:
-            pulumi.set(__self__, "fully_qualified_domain_name", fully_qualified_domain_name)
+            _setter("fully_qualified_domain_name", fully_qualified_domain_name)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if minimum_tls_version is not None:
-            pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+            _setter("minimum_tls_version", minimum_tls_version)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if outbound_network_restriction_enabled is not None:
-            pulumi.set(__self__, "outbound_network_restriction_enabled", outbound_network_restriction_enabled)
+            _setter("outbound_network_restriction_enabled", outbound_network_restriction_enabled)
         if primary_user_assigned_identity_id is not None:
-            pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
+            _setter("primary_user_assigned_identity_id", primary_user_assigned_identity_id)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if restorable_dropped_database_ids is not None:
-            pulumi.set(__self__, "restorable_dropped_database_ids", restorable_dropped_database_ids)
+            _setter("restorable_dropped_database_ids", restorable_dropped_database_ids)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if transparent_data_encryption_key_vault_key_id is not None:
-            pulumi.set(__self__, "transparent_data_encryption_key_vault_key_id", transparent_data_encryption_key_vault_key_id)
+            _setter("transparent_data_encryption_key_vault_key_id", transparent_data_encryption_key_vault_key_id)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="administratorLogin")
@@ -856,6 +986,10 @@ class Server(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -887,8 +1021,18 @@ class Server(pulumi.CustomResource):
 
             __props__.__dict__["administrator_login"] = administrator_login
             __props__.__dict__["administrator_login_password"] = None if administrator_login_password is None else pulumi.Output.secret(administrator_login_password)
+            if azuread_administrator is not None and not isinstance(azuread_administrator, ServerAzureadAdministratorArgs):
+                azuread_administrator = azuread_administrator or {}
+                def _setter(key, value):
+                    azuread_administrator[key] = value
+                ServerAzureadAdministratorArgs._configure(_setter, **azuread_administrator)
             __props__.__dict__["azuread_administrator"] = azuread_administrator
             __props__.__dict__["connection_policy"] = connection_policy
+            if identity is not None and not isinstance(identity, ServerIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                ServerIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_tls_version"] = minimum_tls_version

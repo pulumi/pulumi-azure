@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -197,125 +197,354 @@ class KubernetesClusterArgs:
                
                > **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
         """
-        pulumi.set(__self__, "default_node_pool", default_node_pool)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        KubernetesClusterArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_node_pool=default_node_pool,
+            resource_group_name=resource_group_name,
+            aci_connector_linux=aci_connector_linux,
+            api_server_access_profile=api_server_access_profile,
+            api_server_authorized_ip_ranges=api_server_authorized_ip_ranges,
+            auto_scaler_profile=auto_scaler_profile,
+            automatic_channel_upgrade=automatic_channel_upgrade,
+            azure_active_directory_role_based_access_control=azure_active_directory_role_based_access_control,
+            azure_policy_enabled=azure_policy_enabled,
+            confidential_computing=confidential_computing,
+            custom_ca_trust_certificates_base64s=custom_ca_trust_certificates_base64s,
+            disk_encryption_set_id=disk_encryption_set_id,
+            dns_prefix=dns_prefix,
+            dns_prefix_private_cluster=dns_prefix_private_cluster,
+            edge_zone=edge_zone,
+            enable_pod_security_policy=enable_pod_security_policy,
+            http_application_routing_enabled=http_application_routing_enabled,
+            http_proxy_config=http_proxy_config,
+            identity=identity,
+            image_cleaner_enabled=image_cleaner_enabled,
+            image_cleaner_interval_hours=image_cleaner_interval_hours,
+            ingress_application_gateway=ingress_application_gateway,
+            key_management_service=key_management_service,
+            key_vault_secrets_provider=key_vault_secrets_provider,
+            kubelet_identity=kubelet_identity,
+            kubernetes_version=kubernetes_version,
+            linux_profile=linux_profile,
+            local_account_disabled=local_account_disabled,
+            location=location,
+            maintenance_window=maintenance_window,
+            maintenance_window_auto_upgrade=maintenance_window_auto_upgrade,
+            maintenance_window_node_os=maintenance_window_node_os,
+            microsoft_defender=microsoft_defender,
+            monitor_metrics=monitor_metrics,
+            name=name,
+            network_profile=network_profile,
+            node_os_channel_upgrade=node_os_channel_upgrade,
+            node_resource_group=node_resource_group,
+            oidc_issuer_enabled=oidc_issuer_enabled,
+            oms_agent=oms_agent,
+            open_service_mesh_enabled=open_service_mesh_enabled,
+            private_cluster_enabled=private_cluster_enabled,
+            private_cluster_public_fqdn_enabled=private_cluster_public_fqdn_enabled,
+            private_dns_zone_id=private_dns_zone_id,
+            public_network_access_enabled=public_network_access_enabled,
+            role_based_access_control_enabled=role_based_access_control_enabled,
+            run_command_enabled=run_command_enabled,
+            service_mesh_profile=service_mesh_profile,
+            service_principal=service_principal,
+            sku_tier=sku_tier,
+            storage_profile=storage_profile,
+            tags=tags,
+            web_app_routing=web_app_routing,
+            windows_profile=windows_profile,
+            workload_autoscaler_profile=workload_autoscaler_profile,
+            workload_identity_enabled=workload_identity_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_node_pool: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             aci_connector_linux: Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArgs']] = None,
+             api_server_access_profile: Optional[pulumi.Input['KubernetesClusterApiServerAccessProfileArgs']] = None,
+             api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             auto_scaler_profile: Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArgs']] = None,
+             automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
+             azure_active_directory_role_based_access_control: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] = None,
+             azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
+             confidential_computing: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']] = None,
+             custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+             dns_prefix: Optional[pulumi.Input[str]] = None,
+             dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
+             edge_zone: Optional[pulumi.Input[str]] = None,
+             enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
+             http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
+             http_proxy_config: Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArgs']] = None,
+             identity: Optional[pulumi.Input['KubernetesClusterIdentityArgs']] = None,
+             image_cleaner_enabled: Optional[pulumi.Input[bool]] = None,
+             image_cleaner_interval_hours: Optional[pulumi.Input[int]] = None,
+             ingress_application_gateway: Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs']] = None,
+             key_management_service: Optional[pulumi.Input['KubernetesClusterKeyManagementServiceArgs']] = None,
+             key_vault_secrets_provider: Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs']] = None,
+             kubelet_identity: Optional[pulumi.Input['KubernetesClusterKubeletIdentityArgs']] = None,
+             kubernetes_version: Optional[pulumi.Input[str]] = None,
+             linux_profile: Optional[pulumi.Input['KubernetesClusterLinuxProfileArgs']] = None,
+             local_account_disabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maintenance_window: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArgs']] = None,
+             maintenance_window_auto_upgrade: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']] = None,
+             maintenance_window_node_os: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArgs']] = None,
+             microsoft_defender: Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArgs']] = None,
+             monitor_metrics: Optional[pulumi.Input['KubernetesClusterMonitorMetricsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
+             node_os_channel_upgrade: Optional[pulumi.Input[str]] = None,
+             node_resource_group: Optional[pulumi.Input[str]] = None,
+             oidc_issuer_enabled: Optional[pulumi.Input[bool]] = None,
+             oms_agent: Optional[pulumi.Input['KubernetesClusterOmsAgentArgs']] = None,
+             open_service_mesh_enabled: Optional[pulumi.Input[bool]] = None,
+             private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
+             private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
+             private_dns_zone_id: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
+             run_command_enabled: Optional[pulumi.Input[bool]] = None,
+             service_mesh_profile: Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArgs']] = None,
+             service_principal: Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']] = None,
+             sku_tier: Optional[pulumi.Input[str]] = None,
+             storage_profile: Optional[pulumi.Input['KubernetesClusterStorageProfileArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             web_app_routing: Optional[pulumi.Input['KubernetesClusterWebAppRoutingArgs']] = None,
+             windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']] = None,
+             workload_autoscaler_profile: Optional[pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs']] = None,
+             workload_identity_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if default_node_pool is None and 'defaultNodePool' in kwargs:
+            default_node_pool = kwargs['defaultNodePool']
+        if default_node_pool is None:
+            raise TypeError("Missing 'default_node_pool' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if aci_connector_linux is None and 'aciConnectorLinux' in kwargs:
+            aci_connector_linux = kwargs['aciConnectorLinux']
+        if api_server_access_profile is None and 'apiServerAccessProfile' in kwargs:
+            api_server_access_profile = kwargs['apiServerAccessProfile']
+        if api_server_authorized_ip_ranges is None and 'apiServerAuthorizedIpRanges' in kwargs:
+            api_server_authorized_ip_ranges = kwargs['apiServerAuthorizedIpRanges']
+        if auto_scaler_profile is None and 'autoScalerProfile' in kwargs:
+            auto_scaler_profile = kwargs['autoScalerProfile']
+        if automatic_channel_upgrade is None and 'automaticChannelUpgrade' in kwargs:
+            automatic_channel_upgrade = kwargs['automaticChannelUpgrade']
+        if azure_active_directory_role_based_access_control is None and 'azureActiveDirectoryRoleBasedAccessControl' in kwargs:
+            azure_active_directory_role_based_access_control = kwargs['azureActiveDirectoryRoleBasedAccessControl']
+        if azure_policy_enabled is None and 'azurePolicyEnabled' in kwargs:
+            azure_policy_enabled = kwargs['azurePolicyEnabled']
+        if confidential_computing is None and 'confidentialComputing' in kwargs:
+            confidential_computing = kwargs['confidentialComputing']
+        if custom_ca_trust_certificates_base64s is None and 'customCaTrustCertificatesBase64s' in kwargs:
+            custom_ca_trust_certificates_base64s = kwargs['customCaTrustCertificatesBase64s']
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if dns_prefix is None and 'dnsPrefix' in kwargs:
+            dns_prefix = kwargs['dnsPrefix']
+        if dns_prefix_private_cluster is None and 'dnsPrefixPrivateCluster' in kwargs:
+            dns_prefix_private_cluster = kwargs['dnsPrefixPrivateCluster']
+        if edge_zone is None and 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if enable_pod_security_policy is None and 'enablePodSecurityPolicy' in kwargs:
+            enable_pod_security_policy = kwargs['enablePodSecurityPolicy']
+        if http_application_routing_enabled is None and 'httpApplicationRoutingEnabled' in kwargs:
+            http_application_routing_enabled = kwargs['httpApplicationRoutingEnabled']
+        if http_proxy_config is None and 'httpProxyConfig' in kwargs:
+            http_proxy_config = kwargs['httpProxyConfig']
+        if image_cleaner_enabled is None and 'imageCleanerEnabled' in kwargs:
+            image_cleaner_enabled = kwargs['imageCleanerEnabled']
+        if image_cleaner_interval_hours is None and 'imageCleanerIntervalHours' in kwargs:
+            image_cleaner_interval_hours = kwargs['imageCleanerIntervalHours']
+        if ingress_application_gateway is None and 'ingressApplicationGateway' in kwargs:
+            ingress_application_gateway = kwargs['ingressApplicationGateway']
+        if key_management_service is None and 'keyManagementService' in kwargs:
+            key_management_service = kwargs['keyManagementService']
+        if key_vault_secrets_provider is None and 'keyVaultSecretsProvider' in kwargs:
+            key_vault_secrets_provider = kwargs['keyVaultSecretsProvider']
+        if kubelet_identity is None and 'kubeletIdentity' in kwargs:
+            kubelet_identity = kwargs['kubeletIdentity']
+        if kubernetes_version is None and 'kubernetesVersion' in kwargs:
+            kubernetes_version = kwargs['kubernetesVersion']
+        if linux_profile is None and 'linuxProfile' in kwargs:
+            linux_profile = kwargs['linuxProfile']
+        if local_account_disabled is None and 'localAccountDisabled' in kwargs:
+            local_account_disabled = kwargs['localAccountDisabled']
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if maintenance_window_auto_upgrade is None and 'maintenanceWindowAutoUpgrade' in kwargs:
+            maintenance_window_auto_upgrade = kwargs['maintenanceWindowAutoUpgrade']
+        if maintenance_window_node_os is None and 'maintenanceWindowNodeOs' in kwargs:
+            maintenance_window_node_os = kwargs['maintenanceWindowNodeOs']
+        if microsoft_defender is None and 'microsoftDefender' in kwargs:
+            microsoft_defender = kwargs['microsoftDefender']
+        if monitor_metrics is None and 'monitorMetrics' in kwargs:
+            monitor_metrics = kwargs['monitorMetrics']
+        if network_profile is None and 'networkProfile' in kwargs:
+            network_profile = kwargs['networkProfile']
+        if node_os_channel_upgrade is None and 'nodeOsChannelUpgrade' in kwargs:
+            node_os_channel_upgrade = kwargs['nodeOsChannelUpgrade']
+        if node_resource_group is None and 'nodeResourceGroup' in kwargs:
+            node_resource_group = kwargs['nodeResourceGroup']
+        if oidc_issuer_enabled is None and 'oidcIssuerEnabled' in kwargs:
+            oidc_issuer_enabled = kwargs['oidcIssuerEnabled']
+        if oms_agent is None and 'omsAgent' in kwargs:
+            oms_agent = kwargs['omsAgent']
+        if open_service_mesh_enabled is None and 'openServiceMeshEnabled' in kwargs:
+            open_service_mesh_enabled = kwargs['openServiceMeshEnabled']
+        if private_cluster_enabled is None and 'privateClusterEnabled' in kwargs:
+            private_cluster_enabled = kwargs['privateClusterEnabled']
+        if private_cluster_public_fqdn_enabled is None and 'privateClusterPublicFqdnEnabled' in kwargs:
+            private_cluster_public_fqdn_enabled = kwargs['privateClusterPublicFqdnEnabled']
+        if private_dns_zone_id is None and 'privateDnsZoneId' in kwargs:
+            private_dns_zone_id = kwargs['privateDnsZoneId']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if role_based_access_control_enabled is None and 'roleBasedAccessControlEnabled' in kwargs:
+            role_based_access_control_enabled = kwargs['roleBasedAccessControlEnabled']
+        if run_command_enabled is None and 'runCommandEnabled' in kwargs:
+            run_command_enabled = kwargs['runCommandEnabled']
+        if service_mesh_profile is None and 'serviceMeshProfile' in kwargs:
+            service_mesh_profile = kwargs['serviceMeshProfile']
+        if service_principal is None and 'servicePrincipal' in kwargs:
+            service_principal = kwargs['servicePrincipal']
+        if sku_tier is None and 'skuTier' in kwargs:
+            sku_tier = kwargs['skuTier']
+        if storage_profile is None and 'storageProfile' in kwargs:
+            storage_profile = kwargs['storageProfile']
+        if web_app_routing is None and 'webAppRouting' in kwargs:
+            web_app_routing = kwargs['webAppRouting']
+        if windows_profile is None and 'windowsProfile' in kwargs:
+            windows_profile = kwargs['windowsProfile']
+        if workload_autoscaler_profile is None and 'workloadAutoscalerProfile' in kwargs:
+            workload_autoscaler_profile = kwargs['workloadAutoscalerProfile']
+        if workload_identity_enabled is None and 'workloadIdentityEnabled' in kwargs:
+            workload_identity_enabled = kwargs['workloadIdentityEnabled']
+
+        _setter("default_node_pool", default_node_pool)
+        _setter("resource_group_name", resource_group_name)
         if aci_connector_linux is not None:
-            pulumi.set(__self__, "aci_connector_linux", aci_connector_linux)
+            _setter("aci_connector_linux", aci_connector_linux)
         if api_server_access_profile is not None:
-            pulumi.set(__self__, "api_server_access_profile", api_server_access_profile)
+            _setter("api_server_access_profile", api_server_access_profile)
         if api_server_authorized_ip_ranges is not None:
             warnings.warn("""This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""", DeprecationWarning)
             pulumi.log.warn("""api_server_authorized_ip_ranges is deprecated: This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""")
         if api_server_authorized_ip_ranges is not None:
-            pulumi.set(__self__, "api_server_authorized_ip_ranges", api_server_authorized_ip_ranges)
+            _setter("api_server_authorized_ip_ranges", api_server_authorized_ip_ranges)
         if auto_scaler_profile is not None:
-            pulumi.set(__self__, "auto_scaler_profile", auto_scaler_profile)
+            _setter("auto_scaler_profile", auto_scaler_profile)
         if automatic_channel_upgrade is not None:
-            pulumi.set(__self__, "automatic_channel_upgrade", automatic_channel_upgrade)
+            _setter("automatic_channel_upgrade", automatic_channel_upgrade)
         if azure_active_directory_role_based_access_control is not None:
-            pulumi.set(__self__, "azure_active_directory_role_based_access_control", azure_active_directory_role_based_access_control)
+            _setter("azure_active_directory_role_based_access_control", azure_active_directory_role_based_access_control)
         if azure_policy_enabled is not None:
-            pulumi.set(__self__, "azure_policy_enabled", azure_policy_enabled)
+            _setter("azure_policy_enabled", azure_policy_enabled)
         if confidential_computing is not None:
-            pulumi.set(__self__, "confidential_computing", confidential_computing)
+            _setter("confidential_computing", confidential_computing)
         if custom_ca_trust_certificates_base64s is not None:
-            pulumi.set(__self__, "custom_ca_trust_certificates_base64s", custom_ca_trust_certificates_base64s)
+            _setter("custom_ca_trust_certificates_base64s", custom_ca_trust_certificates_base64s)
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
         if dns_prefix is not None:
-            pulumi.set(__self__, "dns_prefix", dns_prefix)
+            _setter("dns_prefix", dns_prefix)
         if dns_prefix_private_cluster is not None:
-            pulumi.set(__self__, "dns_prefix_private_cluster", dns_prefix_private_cluster)
+            _setter("dns_prefix_private_cluster", dns_prefix_private_cluster)
         if edge_zone is not None:
-            pulumi.set(__self__, "edge_zone", edge_zone)
+            _setter("edge_zone", edge_zone)
         if enable_pod_security_policy is not None:
             warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""", DeprecationWarning)
             pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""")
         if enable_pod_security_policy is not None:
-            pulumi.set(__self__, "enable_pod_security_policy", enable_pod_security_policy)
+            _setter("enable_pod_security_policy", enable_pod_security_policy)
         if http_application_routing_enabled is not None:
-            pulumi.set(__self__, "http_application_routing_enabled", http_application_routing_enabled)
+            _setter("http_application_routing_enabled", http_application_routing_enabled)
         if http_proxy_config is not None:
-            pulumi.set(__self__, "http_proxy_config", http_proxy_config)
+            _setter("http_proxy_config", http_proxy_config)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if image_cleaner_enabled is not None:
-            pulumi.set(__self__, "image_cleaner_enabled", image_cleaner_enabled)
+            _setter("image_cleaner_enabled", image_cleaner_enabled)
         if image_cleaner_interval_hours is not None:
-            pulumi.set(__self__, "image_cleaner_interval_hours", image_cleaner_interval_hours)
+            _setter("image_cleaner_interval_hours", image_cleaner_interval_hours)
         if ingress_application_gateway is not None:
-            pulumi.set(__self__, "ingress_application_gateway", ingress_application_gateway)
+            _setter("ingress_application_gateway", ingress_application_gateway)
         if key_management_service is not None:
-            pulumi.set(__self__, "key_management_service", key_management_service)
+            _setter("key_management_service", key_management_service)
         if key_vault_secrets_provider is not None:
-            pulumi.set(__self__, "key_vault_secrets_provider", key_vault_secrets_provider)
+            _setter("key_vault_secrets_provider", key_vault_secrets_provider)
         if kubelet_identity is not None:
-            pulumi.set(__self__, "kubelet_identity", kubelet_identity)
+            _setter("kubelet_identity", kubelet_identity)
         if kubernetes_version is not None:
-            pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+            _setter("kubernetes_version", kubernetes_version)
         if linux_profile is not None:
-            pulumi.set(__self__, "linux_profile", linux_profile)
+            _setter("linux_profile", linux_profile)
         if local_account_disabled is not None:
-            pulumi.set(__self__, "local_account_disabled", local_account_disabled)
+            _setter("local_account_disabled", local_account_disabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maintenance_window is not None:
-            pulumi.set(__self__, "maintenance_window", maintenance_window)
+            _setter("maintenance_window", maintenance_window)
         if maintenance_window_auto_upgrade is not None:
-            pulumi.set(__self__, "maintenance_window_auto_upgrade", maintenance_window_auto_upgrade)
+            _setter("maintenance_window_auto_upgrade", maintenance_window_auto_upgrade)
         if maintenance_window_node_os is not None:
-            pulumi.set(__self__, "maintenance_window_node_os", maintenance_window_node_os)
+            _setter("maintenance_window_node_os", maintenance_window_node_os)
         if microsoft_defender is not None:
-            pulumi.set(__self__, "microsoft_defender", microsoft_defender)
+            _setter("microsoft_defender", microsoft_defender)
         if monitor_metrics is not None:
-            pulumi.set(__self__, "monitor_metrics", monitor_metrics)
+            _setter("monitor_metrics", monitor_metrics)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if node_os_channel_upgrade is not None:
-            pulumi.set(__self__, "node_os_channel_upgrade", node_os_channel_upgrade)
+            _setter("node_os_channel_upgrade", node_os_channel_upgrade)
         if node_resource_group is not None:
-            pulumi.set(__self__, "node_resource_group", node_resource_group)
+            _setter("node_resource_group", node_resource_group)
         if oidc_issuer_enabled is not None:
-            pulumi.set(__self__, "oidc_issuer_enabled", oidc_issuer_enabled)
+            _setter("oidc_issuer_enabled", oidc_issuer_enabled)
         if oms_agent is not None:
-            pulumi.set(__self__, "oms_agent", oms_agent)
+            _setter("oms_agent", oms_agent)
         if open_service_mesh_enabled is not None:
-            pulumi.set(__self__, "open_service_mesh_enabled", open_service_mesh_enabled)
+            _setter("open_service_mesh_enabled", open_service_mesh_enabled)
         if private_cluster_enabled is not None:
-            pulumi.set(__self__, "private_cluster_enabled", private_cluster_enabled)
+            _setter("private_cluster_enabled", private_cluster_enabled)
         if private_cluster_public_fqdn_enabled is not None:
-            pulumi.set(__self__, "private_cluster_public_fqdn_enabled", private_cluster_public_fqdn_enabled)
+            _setter("private_cluster_public_fqdn_enabled", private_cluster_public_fqdn_enabled)
         if private_dns_zone_id is not None:
-            pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
+            _setter("private_dns_zone_id", private_dns_zone_id)
         if public_network_access_enabled is not None:
             warnings.warn("""`public_network_access_enabled` is currently not functional and is not be passed to the API""", DeprecationWarning)
             pulumi.log.warn("""public_network_access_enabled is deprecated: `public_network_access_enabled` is currently not functional and is not be passed to the API""")
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if role_based_access_control_enabled is not None:
-            pulumi.set(__self__, "role_based_access_control_enabled", role_based_access_control_enabled)
+            _setter("role_based_access_control_enabled", role_based_access_control_enabled)
         if run_command_enabled is not None:
-            pulumi.set(__self__, "run_command_enabled", run_command_enabled)
+            _setter("run_command_enabled", run_command_enabled)
         if service_mesh_profile is not None:
-            pulumi.set(__self__, "service_mesh_profile", service_mesh_profile)
+            _setter("service_mesh_profile", service_mesh_profile)
         if service_principal is not None:
-            pulumi.set(__self__, "service_principal", service_principal)
+            _setter("service_principal", service_principal)
         if sku_tier is not None:
-            pulumi.set(__self__, "sku_tier", sku_tier)
+            _setter("sku_tier", sku_tier)
         if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
+            _setter("storage_profile", storage_profile)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if web_app_routing is not None:
-            pulumi.set(__self__, "web_app_routing", web_app_routing)
+            _setter("web_app_routing", web_app_routing)
         if windows_profile is not None:
-            pulumi.set(__self__, "windows_profile", windows_profile)
+            _setter("windows_profile", windows_profile)
         if workload_autoscaler_profile is not None:
-            pulumi.set(__self__, "workload_autoscaler_profile", workload_autoscaler_profile)
+            _setter("workload_autoscaler_profile", workload_autoscaler_profile)
         if workload_identity_enabled is not None:
-            pulumi.set(__self__, "workload_identity_enabled", workload_identity_enabled)
+            _setter("workload_identity_enabled", workload_identity_enabled)
 
     @property
     @pulumi.getter(name="defaultNodePool")
@@ -1265,147 +1494,410 @@ class _KubernetesClusterState:
                
                > **Note:** Enabling this option will allocate Workload Identity resources to the `kube-system` namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment.
         """
+        _KubernetesClusterState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            aci_connector_linux=aci_connector_linux,
+            api_server_access_profile=api_server_access_profile,
+            api_server_authorized_ip_ranges=api_server_authorized_ip_ranges,
+            auto_scaler_profile=auto_scaler_profile,
+            automatic_channel_upgrade=automatic_channel_upgrade,
+            azure_active_directory_role_based_access_control=azure_active_directory_role_based_access_control,
+            azure_policy_enabled=azure_policy_enabled,
+            confidential_computing=confidential_computing,
+            custom_ca_trust_certificates_base64s=custom_ca_trust_certificates_base64s,
+            default_node_pool=default_node_pool,
+            disk_encryption_set_id=disk_encryption_set_id,
+            dns_prefix=dns_prefix,
+            dns_prefix_private_cluster=dns_prefix_private_cluster,
+            edge_zone=edge_zone,
+            enable_pod_security_policy=enable_pod_security_policy,
+            fqdn=fqdn,
+            http_application_routing_enabled=http_application_routing_enabled,
+            http_application_routing_zone_name=http_application_routing_zone_name,
+            http_proxy_config=http_proxy_config,
+            identity=identity,
+            image_cleaner_enabled=image_cleaner_enabled,
+            image_cleaner_interval_hours=image_cleaner_interval_hours,
+            ingress_application_gateway=ingress_application_gateway,
+            key_management_service=key_management_service,
+            key_vault_secrets_provider=key_vault_secrets_provider,
+            kube_admin_config_raw=kube_admin_config_raw,
+            kube_admin_configs=kube_admin_configs,
+            kube_config_raw=kube_config_raw,
+            kube_configs=kube_configs,
+            kubelet_identity=kubelet_identity,
+            kubernetes_version=kubernetes_version,
+            linux_profile=linux_profile,
+            local_account_disabled=local_account_disabled,
+            location=location,
+            maintenance_window=maintenance_window,
+            maintenance_window_auto_upgrade=maintenance_window_auto_upgrade,
+            maintenance_window_node_os=maintenance_window_node_os,
+            microsoft_defender=microsoft_defender,
+            monitor_metrics=monitor_metrics,
+            name=name,
+            network_profile=network_profile,
+            node_os_channel_upgrade=node_os_channel_upgrade,
+            node_resource_group=node_resource_group,
+            node_resource_group_id=node_resource_group_id,
+            oidc_issuer_enabled=oidc_issuer_enabled,
+            oidc_issuer_url=oidc_issuer_url,
+            oms_agent=oms_agent,
+            open_service_mesh_enabled=open_service_mesh_enabled,
+            portal_fqdn=portal_fqdn,
+            private_cluster_enabled=private_cluster_enabled,
+            private_cluster_public_fqdn_enabled=private_cluster_public_fqdn_enabled,
+            private_dns_zone_id=private_dns_zone_id,
+            private_fqdn=private_fqdn,
+            public_network_access_enabled=public_network_access_enabled,
+            resource_group_name=resource_group_name,
+            role_based_access_control_enabled=role_based_access_control_enabled,
+            run_command_enabled=run_command_enabled,
+            service_mesh_profile=service_mesh_profile,
+            service_principal=service_principal,
+            sku_tier=sku_tier,
+            storage_profile=storage_profile,
+            tags=tags,
+            web_app_routing=web_app_routing,
+            windows_profile=windows_profile,
+            workload_autoscaler_profile=workload_autoscaler_profile,
+            workload_identity_enabled=workload_identity_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             aci_connector_linux: Optional[pulumi.Input['KubernetesClusterAciConnectorLinuxArgs']] = None,
+             api_server_access_profile: Optional[pulumi.Input['KubernetesClusterApiServerAccessProfileArgs']] = None,
+             api_server_authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             auto_scaler_profile: Optional[pulumi.Input['KubernetesClusterAutoScalerProfileArgs']] = None,
+             automatic_channel_upgrade: Optional[pulumi.Input[str]] = None,
+             azure_active_directory_role_based_access_control: Optional[pulumi.Input['KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs']] = None,
+             azure_policy_enabled: Optional[pulumi.Input[bool]] = None,
+             confidential_computing: Optional[pulumi.Input['KubernetesClusterConfidentialComputingArgs']] = None,
+             custom_ca_trust_certificates_base64s: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             default_node_pool: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolArgs']] = None,
+             disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
+             dns_prefix: Optional[pulumi.Input[str]] = None,
+             dns_prefix_private_cluster: Optional[pulumi.Input[str]] = None,
+             edge_zone: Optional[pulumi.Input[str]] = None,
+             enable_pod_security_policy: Optional[pulumi.Input[bool]] = None,
+             fqdn: Optional[pulumi.Input[str]] = None,
+             http_application_routing_enabled: Optional[pulumi.Input[bool]] = None,
+             http_application_routing_zone_name: Optional[pulumi.Input[str]] = None,
+             http_proxy_config: Optional[pulumi.Input['KubernetesClusterHttpProxyConfigArgs']] = None,
+             identity: Optional[pulumi.Input['KubernetesClusterIdentityArgs']] = None,
+             image_cleaner_enabled: Optional[pulumi.Input[bool]] = None,
+             image_cleaner_interval_hours: Optional[pulumi.Input[int]] = None,
+             ingress_application_gateway: Optional[pulumi.Input['KubernetesClusterIngressApplicationGatewayArgs']] = None,
+             key_management_service: Optional[pulumi.Input['KubernetesClusterKeyManagementServiceArgs']] = None,
+             key_vault_secrets_provider: Optional[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderArgs']] = None,
+             kube_admin_config_raw: Optional[pulumi.Input[str]] = None,
+             kube_admin_configs: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeAdminConfigArgs']]]] = None,
+             kube_config_raw: Optional[pulumi.Input[str]] = None,
+             kube_configs: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKubeConfigArgs']]]] = None,
+             kubelet_identity: Optional[pulumi.Input['KubernetesClusterKubeletIdentityArgs']] = None,
+             kubernetes_version: Optional[pulumi.Input[str]] = None,
+             linux_profile: Optional[pulumi.Input['KubernetesClusterLinuxProfileArgs']] = None,
+             local_account_disabled: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             maintenance_window: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowArgs']] = None,
+             maintenance_window_auto_upgrade: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeArgs']] = None,
+             maintenance_window_node_os: Optional[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsArgs']] = None,
+             microsoft_defender: Optional[pulumi.Input['KubernetesClusterMicrosoftDefenderArgs']] = None,
+             monitor_metrics: Optional[pulumi.Input['KubernetesClusterMonitorMetricsArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileArgs']] = None,
+             node_os_channel_upgrade: Optional[pulumi.Input[str]] = None,
+             node_resource_group: Optional[pulumi.Input[str]] = None,
+             node_resource_group_id: Optional[pulumi.Input[str]] = None,
+             oidc_issuer_enabled: Optional[pulumi.Input[bool]] = None,
+             oidc_issuer_url: Optional[pulumi.Input[str]] = None,
+             oms_agent: Optional[pulumi.Input['KubernetesClusterOmsAgentArgs']] = None,
+             open_service_mesh_enabled: Optional[pulumi.Input[bool]] = None,
+             portal_fqdn: Optional[pulumi.Input[str]] = None,
+             private_cluster_enabled: Optional[pulumi.Input[bool]] = None,
+             private_cluster_public_fqdn_enabled: Optional[pulumi.Input[bool]] = None,
+             private_dns_zone_id: Optional[pulumi.Input[str]] = None,
+             private_fqdn: Optional[pulumi.Input[str]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             role_based_access_control_enabled: Optional[pulumi.Input[bool]] = None,
+             run_command_enabled: Optional[pulumi.Input[bool]] = None,
+             service_mesh_profile: Optional[pulumi.Input['KubernetesClusterServiceMeshProfileArgs']] = None,
+             service_principal: Optional[pulumi.Input['KubernetesClusterServicePrincipalArgs']] = None,
+             sku_tier: Optional[pulumi.Input[str]] = None,
+             storage_profile: Optional[pulumi.Input['KubernetesClusterStorageProfileArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             web_app_routing: Optional[pulumi.Input['KubernetesClusterWebAppRoutingArgs']] = None,
+             windows_profile: Optional[pulumi.Input['KubernetesClusterWindowsProfileArgs']] = None,
+             workload_autoscaler_profile: Optional[pulumi.Input['KubernetesClusterWorkloadAutoscalerProfileArgs']] = None,
+             workload_identity_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if aci_connector_linux is None and 'aciConnectorLinux' in kwargs:
+            aci_connector_linux = kwargs['aciConnectorLinux']
+        if api_server_access_profile is None and 'apiServerAccessProfile' in kwargs:
+            api_server_access_profile = kwargs['apiServerAccessProfile']
+        if api_server_authorized_ip_ranges is None and 'apiServerAuthorizedIpRanges' in kwargs:
+            api_server_authorized_ip_ranges = kwargs['apiServerAuthorizedIpRanges']
+        if auto_scaler_profile is None and 'autoScalerProfile' in kwargs:
+            auto_scaler_profile = kwargs['autoScalerProfile']
+        if automatic_channel_upgrade is None and 'automaticChannelUpgrade' in kwargs:
+            automatic_channel_upgrade = kwargs['automaticChannelUpgrade']
+        if azure_active_directory_role_based_access_control is None and 'azureActiveDirectoryRoleBasedAccessControl' in kwargs:
+            azure_active_directory_role_based_access_control = kwargs['azureActiveDirectoryRoleBasedAccessControl']
+        if azure_policy_enabled is None and 'azurePolicyEnabled' in kwargs:
+            azure_policy_enabled = kwargs['azurePolicyEnabled']
+        if confidential_computing is None and 'confidentialComputing' in kwargs:
+            confidential_computing = kwargs['confidentialComputing']
+        if custom_ca_trust_certificates_base64s is None and 'customCaTrustCertificatesBase64s' in kwargs:
+            custom_ca_trust_certificates_base64s = kwargs['customCaTrustCertificatesBase64s']
+        if default_node_pool is None and 'defaultNodePool' in kwargs:
+            default_node_pool = kwargs['defaultNodePool']
+        if disk_encryption_set_id is None and 'diskEncryptionSetId' in kwargs:
+            disk_encryption_set_id = kwargs['diskEncryptionSetId']
+        if dns_prefix is None and 'dnsPrefix' in kwargs:
+            dns_prefix = kwargs['dnsPrefix']
+        if dns_prefix_private_cluster is None and 'dnsPrefixPrivateCluster' in kwargs:
+            dns_prefix_private_cluster = kwargs['dnsPrefixPrivateCluster']
+        if edge_zone is None and 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if enable_pod_security_policy is None and 'enablePodSecurityPolicy' in kwargs:
+            enable_pod_security_policy = kwargs['enablePodSecurityPolicy']
+        if http_application_routing_enabled is None and 'httpApplicationRoutingEnabled' in kwargs:
+            http_application_routing_enabled = kwargs['httpApplicationRoutingEnabled']
+        if http_application_routing_zone_name is None and 'httpApplicationRoutingZoneName' in kwargs:
+            http_application_routing_zone_name = kwargs['httpApplicationRoutingZoneName']
+        if http_proxy_config is None and 'httpProxyConfig' in kwargs:
+            http_proxy_config = kwargs['httpProxyConfig']
+        if image_cleaner_enabled is None and 'imageCleanerEnabled' in kwargs:
+            image_cleaner_enabled = kwargs['imageCleanerEnabled']
+        if image_cleaner_interval_hours is None and 'imageCleanerIntervalHours' in kwargs:
+            image_cleaner_interval_hours = kwargs['imageCleanerIntervalHours']
+        if ingress_application_gateway is None and 'ingressApplicationGateway' in kwargs:
+            ingress_application_gateway = kwargs['ingressApplicationGateway']
+        if key_management_service is None and 'keyManagementService' in kwargs:
+            key_management_service = kwargs['keyManagementService']
+        if key_vault_secrets_provider is None and 'keyVaultSecretsProvider' in kwargs:
+            key_vault_secrets_provider = kwargs['keyVaultSecretsProvider']
+        if kube_admin_config_raw is None and 'kubeAdminConfigRaw' in kwargs:
+            kube_admin_config_raw = kwargs['kubeAdminConfigRaw']
+        if kube_admin_configs is None and 'kubeAdminConfigs' in kwargs:
+            kube_admin_configs = kwargs['kubeAdminConfigs']
+        if kube_config_raw is None and 'kubeConfigRaw' in kwargs:
+            kube_config_raw = kwargs['kubeConfigRaw']
+        if kube_configs is None and 'kubeConfigs' in kwargs:
+            kube_configs = kwargs['kubeConfigs']
+        if kubelet_identity is None and 'kubeletIdentity' in kwargs:
+            kubelet_identity = kwargs['kubeletIdentity']
+        if kubernetes_version is None and 'kubernetesVersion' in kwargs:
+            kubernetes_version = kwargs['kubernetesVersion']
+        if linux_profile is None and 'linuxProfile' in kwargs:
+            linux_profile = kwargs['linuxProfile']
+        if local_account_disabled is None and 'localAccountDisabled' in kwargs:
+            local_account_disabled = kwargs['localAccountDisabled']
+        if maintenance_window is None and 'maintenanceWindow' in kwargs:
+            maintenance_window = kwargs['maintenanceWindow']
+        if maintenance_window_auto_upgrade is None and 'maintenanceWindowAutoUpgrade' in kwargs:
+            maintenance_window_auto_upgrade = kwargs['maintenanceWindowAutoUpgrade']
+        if maintenance_window_node_os is None and 'maintenanceWindowNodeOs' in kwargs:
+            maintenance_window_node_os = kwargs['maintenanceWindowNodeOs']
+        if microsoft_defender is None and 'microsoftDefender' in kwargs:
+            microsoft_defender = kwargs['microsoftDefender']
+        if monitor_metrics is None and 'monitorMetrics' in kwargs:
+            monitor_metrics = kwargs['monitorMetrics']
+        if network_profile is None and 'networkProfile' in kwargs:
+            network_profile = kwargs['networkProfile']
+        if node_os_channel_upgrade is None and 'nodeOsChannelUpgrade' in kwargs:
+            node_os_channel_upgrade = kwargs['nodeOsChannelUpgrade']
+        if node_resource_group is None and 'nodeResourceGroup' in kwargs:
+            node_resource_group = kwargs['nodeResourceGroup']
+        if node_resource_group_id is None and 'nodeResourceGroupId' in kwargs:
+            node_resource_group_id = kwargs['nodeResourceGroupId']
+        if oidc_issuer_enabled is None and 'oidcIssuerEnabled' in kwargs:
+            oidc_issuer_enabled = kwargs['oidcIssuerEnabled']
+        if oidc_issuer_url is None and 'oidcIssuerUrl' in kwargs:
+            oidc_issuer_url = kwargs['oidcIssuerUrl']
+        if oms_agent is None and 'omsAgent' in kwargs:
+            oms_agent = kwargs['omsAgent']
+        if open_service_mesh_enabled is None and 'openServiceMeshEnabled' in kwargs:
+            open_service_mesh_enabled = kwargs['openServiceMeshEnabled']
+        if portal_fqdn is None and 'portalFqdn' in kwargs:
+            portal_fqdn = kwargs['portalFqdn']
+        if private_cluster_enabled is None and 'privateClusterEnabled' in kwargs:
+            private_cluster_enabled = kwargs['privateClusterEnabled']
+        if private_cluster_public_fqdn_enabled is None and 'privateClusterPublicFqdnEnabled' in kwargs:
+            private_cluster_public_fqdn_enabled = kwargs['privateClusterPublicFqdnEnabled']
+        if private_dns_zone_id is None and 'privateDnsZoneId' in kwargs:
+            private_dns_zone_id = kwargs['privateDnsZoneId']
+        if private_fqdn is None and 'privateFqdn' in kwargs:
+            private_fqdn = kwargs['privateFqdn']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if role_based_access_control_enabled is None and 'roleBasedAccessControlEnabled' in kwargs:
+            role_based_access_control_enabled = kwargs['roleBasedAccessControlEnabled']
+        if run_command_enabled is None and 'runCommandEnabled' in kwargs:
+            run_command_enabled = kwargs['runCommandEnabled']
+        if service_mesh_profile is None and 'serviceMeshProfile' in kwargs:
+            service_mesh_profile = kwargs['serviceMeshProfile']
+        if service_principal is None and 'servicePrincipal' in kwargs:
+            service_principal = kwargs['servicePrincipal']
+        if sku_tier is None and 'skuTier' in kwargs:
+            sku_tier = kwargs['skuTier']
+        if storage_profile is None and 'storageProfile' in kwargs:
+            storage_profile = kwargs['storageProfile']
+        if web_app_routing is None and 'webAppRouting' in kwargs:
+            web_app_routing = kwargs['webAppRouting']
+        if windows_profile is None and 'windowsProfile' in kwargs:
+            windows_profile = kwargs['windowsProfile']
+        if workload_autoscaler_profile is None and 'workloadAutoscalerProfile' in kwargs:
+            workload_autoscaler_profile = kwargs['workloadAutoscalerProfile']
+        if workload_identity_enabled is None and 'workloadIdentityEnabled' in kwargs:
+            workload_identity_enabled = kwargs['workloadIdentityEnabled']
+
         if aci_connector_linux is not None:
-            pulumi.set(__self__, "aci_connector_linux", aci_connector_linux)
+            _setter("aci_connector_linux", aci_connector_linux)
         if api_server_access_profile is not None:
-            pulumi.set(__self__, "api_server_access_profile", api_server_access_profile)
+            _setter("api_server_access_profile", api_server_access_profile)
         if api_server_authorized_ip_ranges is not None:
             warnings.warn("""This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""", DeprecationWarning)
             pulumi.log.warn("""api_server_authorized_ip_ranges is deprecated: This property has been renamed to `authorized_ip_ranges` within the `api_server_access_profile` block and will be removed in v4.0 of the provider""")
         if api_server_authorized_ip_ranges is not None:
-            pulumi.set(__self__, "api_server_authorized_ip_ranges", api_server_authorized_ip_ranges)
+            _setter("api_server_authorized_ip_ranges", api_server_authorized_ip_ranges)
         if auto_scaler_profile is not None:
-            pulumi.set(__self__, "auto_scaler_profile", auto_scaler_profile)
+            _setter("auto_scaler_profile", auto_scaler_profile)
         if automatic_channel_upgrade is not None:
-            pulumi.set(__self__, "automatic_channel_upgrade", automatic_channel_upgrade)
+            _setter("automatic_channel_upgrade", automatic_channel_upgrade)
         if azure_active_directory_role_based_access_control is not None:
-            pulumi.set(__self__, "azure_active_directory_role_based_access_control", azure_active_directory_role_based_access_control)
+            _setter("azure_active_directory_role_based_access_control", azure_active_directory_role_based_access_control)
         if azure_policy_enabled is not None:
-            pulumi.set(__self__, "azure_policy_enabled", azure_policy_enabled)
+            _setter("azure_policy_enabled", azure_policy_enabled)
         if confidential_computing is not None:
-            pulumi.set(__self__, "confidential_computing", confidential_computing)
+            _setter("confidential_computing", confidential_computing)
         if custom_ca_trust_certificates_base64s is not None:
-            pulumi.set(__self__, "custom_ca_trust_certificates_base64s", custom_ca_trust_certificates_base64s)
+            _setter("custom_ca_trust_certificates_base64s", custom_ca_trust_certificates_base64s)
         if default_node_pool is not None:
-            pulumi.set(__self__, "default_node_pool", default_node_pool)
+            _setter("default_node_pool", default_node_pool)
         if disk_encryption_set_id is not None:
-            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+            _setter("disk_encryption_set_id", disk_encryption_set_id)
         if dns_prefix is not None:
-            pulumi.set(__self__, "dns_prefix", dns_prefix)
+            _setter("dns_prefix", dns_prefix)
         if dns_prefix_private_cluster is not None:
-            pulumi.set(__self__, "dns_prefix_private_cluster", dns_prefix_private_cluster)
+            _setter("dns_prefix_private_cluster", dns_prefix_private_cluster)
         if edge_zone is not None:
-            pulumi.set(__self__, "edge_zone", edge_zone)
+            _setter("edge_zone", edge_zone)
         if enable_pod_security_policy is not None:
             warnings.warn("""The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""", DeprecationWarning)
             pulumi.log.warn("""enable_pod_security_policy is deprecated: The AKS API has removed support for this field on 2020-10-15 and is no longer possible to configure this the Pod Security Policy.""")
         if enable_pod_security_policy is not None:
-            pulumi.set(__self__, "enable_pod_security_policy", enable_pod_security_policy)
+            _setter("enable_pod_security_policy", enable_pod_security_policy)
         if fqdn is not None:
-            pulumi.set(__self__, "fqdn", fqdn)
+            _setter("fqdn", fqdn)
         if http_application_routing_enabled is not None:
-            pulumi.set(__self__, "http_application_routing_enabled", http_application_routing_enabled)
+            _setter("http_application_routing_enabled", http_application_routing_enabled)
         if http_application_routing_zone_name is not None:
-            pulumi.set(__self__, "http_application_routing_zone_name", http_application_routing_zone_name)
+            _setter("http_application_routing_zone_name", http_application_routing_zone_name)
         if http_proxy_config is not None:
-            pulumi.set(__self__, "http_proxy_config", http_proxy_config)
+            _setter("http_proxy_config", http_proxy_config)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if image_cleaner_enabled is not None:
-            pulumi.set(__self__, "image_cleaner_enabled", image_cleaner_enabled)
+            _setter("image_cleaner_enabled", image_cleaner_enabled)
         if image_cleaner_interval_hours is not None:
-            pulumi.set(__self__, "image_cleaner_interval_hours", image_cleaner_interval_hours)
+            _setter("image_cleaner_interval_hours", image_cleaner_interval_hours)
         if ingress_application_gateway is not None:
-            pulumi.set(__self__, "ingress_application_gateway", ingress_application_gateway)
+            _setter("ingress_application_gateway", ingress_application_gateway)
         if key_management_service is not None:
-            pulumi.set(__self__, "key_management_service", key_management_service)
+            _setter("key_management_service", key_management_service)
         if key_vault_secrets_provider is not None:
-            pulumi.set(__self__, "key_vault_secrets_provider", key_vault_secrets_provider)
+            _setter("key_vault_secrets_provider", key_vault_secrets_provider)
         if kube_admin_config_raw is not None:
-            pulumi.set(__self__, "kube_admin_config_raw", kube_admin_config_raw)
+            _setter("kube_admin_config_raw", kube_admin_config_raw)
         if kube_admin_configs is not None:
-            pulumi.set(__self__, "kube_admin_configs", kube_admin_configs)
+            _setter("kube_admin_configs", kube_admin_configs)
         if kube_config_raw is not None:
-            pulumi.set(__self__, "kube_config_raw", kube_config_raw)
+            _setter("kube_config_raw", kube_config_raw)
         if kube_configs is not None:
-            pulumi.set(__self__, "kube_configs", kube_configs)
+            _setter("kube_configs", kube_configs)
         if kubelet_identity is not None:
-            pulumi.set(__self__, "kubelet_identity", kubelet_identity)
+            _setter("kubelet_identity", kubelet_identity)
         if kubernetes_version is not None:
-            pulumi.set(__self__, "kubernetes_version", kubernetes_version)
+            _setter("kubernetes_version", kubernetes_version)
         if linux_profile is not None:
-            pulumi.set(__self__, "linux_profile", linux_profile)
+            _setter("linux_profile", linux_profile)
         if local_account_disabled is not None:
-            pulumi.set(__self__, "local_account_disabled", local_account_disabled)
+            _setter("local_account_disabled", local_account_disabled)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if maintenance_window is not None:
-            pulumi.set(__self__, "maintenance_window", maintenance_window)
+            _setter("maintenance_window", maintenance_window)
         if maintenance_window_auto_upgrade is not None:
-            pulumi.set(__self__, "maintenance_window_auto_upgrade", maintenance_window_auto_upgrade)
+            _setter("maintenance_window_auto_upgrade", maintenance_window_auto_upgrade)
         if maintenance_window_node_os is not None:
-            pulumi.set(__self__, "maintenance_window_node_os", maintenance_window_node_os)
+            _setter("maintenance_window_node_os", maintenance_window_node_os)
         if microsoft_defender is not None:
-            pulumi.set(__self__, "microsoft_defender", microsoft_defender)
+            _setter("microsoft_defender", microsoft_defender)
         if monitor_metrics is not None:
-            pulumi.set(__self__, "monitor_metrics", monitor_metrics)
+            _setter("monitor_metrics", monitor_metrics)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network_profile is not None:
-            pulumi.set(__self__, "network_profile", network_profile)
+            _setter("network_profile", network_profile)
         if node_os_channel_upgrade is not None:
-            pulumi.set(__self__, "node_os_channel_upgrade", node_os_channel_upgrade)
+            _setter("node_os_channel_upgrade", node_os_channel_upgrade)
         if node_resource_group is not None:
-            pulumi.set(__self__, "node_resource_group", node_resource_group)
+            _setter("node_resource_group", node_resource_group)
         if node_resource_group_id is not None:
-            pulumi.set(__self__, "node_resource_group_id", node_resource_group_id)
+            _setter("node_resource_group_id", node_resource_group_id)
         if oidc_issuer_enabled is not None:
-            pulumi.set(__self__, "oidc_issuer_enabled", oidc_issuer_enabled)
+            _setter("oidc_issuer_enabled", oidc_issuer_enabled)
         if oidc_issuer_url is not None:
-            pulumi.set(__self__, "oidc_issuer_url", oidc_issuer_url)
+            _setter("oidc_issuer_url", oidc_issuer_url)
         if oms_agent is not None:
-            pulumi.set(__self__, "oms_agent", oms_agent)
+            _setter("oms_agent", oms_agent)
         if open_service_mesh_enabled is not None:
-            pulumi.set(__self__, "open_service_mesh_enabled", open_service_mesh_enabled)
+            _setter("open_service_mesh_enabled", open_service_mesh_enabled)
         if portal_fqdn is not None:
-            pulumi.set(__self__, "portal_fqdn", portal_fqdn)
+            _setter("portal_fqdn", portal_fqdn)
         if private_cluster_enabled is not None:
-            pulumi.set(__self__, "private_cluster_enabled", private_cluster_enabled)
+            _setter("private_cluster_enabled", private_cluster_enabled)
         if private_cluster_public_fqdn_enabled is not None:
-            pulumi.set(__self__, "private_cluster_public_fqdn_enabled", private_cluster_public_fqdn_enabled)
+            _setter("private_cluster_public_fqdn_enabled", private_cluster_public_fqdn_enabled)
         if private_dns_zone_id is not None:
-            pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
+            _setter("private_dns_zone_id", private_dns_zone_id)
         if private_fqdn is not None:
-            pulumi.set(__self__, "private_fqdn", private_fqdn)
+            _setter("private_fqdn", private_fqdn)
         if public_network_access_enabled is not None:
             warnings.warn("""`public_network_access_enabled` is currently not functional and is not be passed to the API""", DeprecationWarning)
             pulumi.log.warn("""public_network_access_enabled is deprecated: `public_network_access_enabled` is currently not functional and is not be passed to the API""")
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if role_based_access_control_enabled is not None:
-            pulumi.set(__self__, "role_based_access_control_enabled", role_based_access_control_enabled)
+            _setter("role_based_access_control_enabled", role_based_access_control_enabled)
         if run_command_enabled is not None:
-            pulumi.set(__self__, "run_command_enabled", run_command_enabled)
+            _setter("run_command_enabled", run_command_enabled)
         if service_mesh_profile is not None:
-            pulumi.set(__self__, "service_mesh_profile", service_mesh_profile)
+            _setter("service_mesh_profile", service_mesh_profile)
         if service_principal is not None:
-            pulumi.set(__self__, "service_principal", service_principal)
+            _setter("service_principal", service_principal)
         if sku_tier is not None:
-            pulumi.set(__self__, "sku_tier", sku_tier)
+            _setter("sku_tier", sku_tier)
         if storage_profile is not None:
-            pulumi.set(__self__, "storage_profile", storage_profile)
+            _setter("storage_profile", storage_profile)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if web_app_routing is not None:
-            pulumi.set(__self__, "web_app_routing", web_app_routing)
+            _setter("web_app_routing", web_app_routing)
         if windows_profile is not None:
-            pulumi.set(__self__, "windows_profile", windows_profile)
+            _setter("windows_profile", windows_profile)
         if workload_autoscaler_profile is not None:
-            pulumi.set(__self__, "workload_autoscaler_profile", workload_autoscaler_profile)
+            _setter("workload_autoscaler_profile", workload_autoscaler_profile)
         if workload_identity_enabled is not None:
-            pulumi.set(__self__, "workload_identity_enabled", workload_identity_enabled)
+            _setter("workload_identity_enabled", workload_identity_enabled)
 
     @property
     @pulumi.getter(name="aciConnectorLinux")
@@ -2552,6 +3044,10 @@ class KubernetesCluster(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            KubernetesClusterArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -2622,15 +3118,45 @@ class KubernetesCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = KubernetesClusterArgs.__new__(KubernetesClusterArgs)
 
+            if aci_connector_linux is not None and not isinstance(aci_connector_linux, KubernetesClusterAciConnectorLinuxArgs):
+                aci_connector_linux = aci_connector_linux or {}
+                def _setter(key, value):
+                    aci_connector_linux[key] = value
+                KubernetesClusterAciConnectorLinuxArgs._configure(_setter, **aci_connector_linux)
             __props__.__dict__["aci_connector_linux"] = aci_connector_linux
+            if api_server_access_profile is not None and not isinstance(api_server_access_profile, KubernetesClusterApiServerAccessProfileArgs):
+                api_server_access_profile = api_server_access_profile or {}
+                def _setter(key, value):
+                    api_server_access_profile[key] = value
+                KubernetesClusterApiServerAccessProfileArgs._configure(_setter, **api_server_access_profile)
             __props__.__dict__["api_server_access_profile"] = api_server_access_profile
             __props__.__dict__["api_server_authorized_ip_ranges"] = api_server_authorized_ip_ranges
+            if auto_scaler_profile is not None and not isinstance(auto_scaler_profile, KubernetesClusterAutoScalerProfileArgs):
+                auto_scaler_profile = auto_scaler_profile or {}
+                def _setter(key, value):
+                    auto_scaler_profile[key] = value
+                KubernetesClusterAutoScalerProfileArgs._configure(_setter, **auto_scaler_profile)
             __props__.__dict__["auto_scaler_profile"] = auto_scaler_profile
             __props__.__dict__["automatic_channel_upgrade"] = automatic_channel_upgrade
+            if azure_active_directory_role_based_access_control is not None and not isinstance(azure_active_directory_role_based_access_control, KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs):
+                azure_active_directory_role_based_access_control = azure_active_directory_role_based_access_control or {}
+                def _setter(key, value):
+                    azure_active_directory_role_based_access_control[key] = value
+                KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs._configure(_setter, **azure_active_directory_role_based_access_control)
             __props__.__dict__["azure_active_directory_role_based_access_control"] = azure_active_directory_role_based_access_control
             __props__.__dict__["azure_policy_enabled"] = azure_policy_enabled
+            if confidential_computing is not None and not isinstance(confidential_computing, KubernetesClusterConfidentialComputingArgs):
+                confidential_computing = confidential_computing or {}
+                def _setter(key, value):
+                    confidential_computing[key] = value
+                KubernetesClusterConfidentialComputingArgs._configure(_setter, **confidential_computing)
             __props__.__dict__["confidential_computing"] = confidential_computing
             __props__.__dict__["custom_ca_trust_certificates_base64s"] = custom_ca_trust_certificates_base64s
+            if default_node_pool is not None and not isinstance(default_node_pool, KubernetesClusterDefaultNodePoolArgs):
+                default_node_pool = default_node_pool or {}
+                def _setter(key, value):
+                    default_node_pool[key] = value
+                KubernetesClusterDefaultNodePoolArgs._configure(_setter, **default_node_pool)
             if default_node_pool is None and not opts.urn:
                 raise TypeError("Missing required property 'default_node_pool'")
             __props__.__dict__["default_node_pool"] = default_node_pool
@@ -2640,28 +3166,98 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["edge_zone"] = edge_zone
             __props__.__dict__["enable_pod_security_policy"] = enable_pod_security_policy
             __props__.__dict__["http_application_routing_enabled"] = http_application_routing_enabled
+            if http_proxy_config is not None and not isinstance(http_proxy_config, KubernetesClusterHttpProxyConfigArgs):
+                http_proxy_config = http_proxy_config or {}
+                def _setter(key, value):
+                    http_proxy_config[key] = value
+                KubernetesClusterHttpProxyConfigArgs._configure(_setter, **http_proxy_config)
             __props__.__dict__["http_proxy_config"] = http_proxy_config
+            if identity is not None and not isinstance(identity, KubernetesClusterIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                KubernetesClusterIdentityArgs._configure(_setter, **identity)
             __props__.__dict__["identity"] = identity
             __props__.__dict__["image_cleaner_enabled"] = image_cleaner_enabled
             __props__.__dict__["image_cleaner_interval_hours"] = image_cleaner_interval_hours
+            if ingress_application_gateway is not None and not isinstance(ingress_application_gateway, KubernetesClusterIngressApplicationGatewayArgs):
+                ingress_application_gateway = ingress_application_gateway or {}
+                def _setter(key, value):
+                    ingress_application_gateway[key] = value
+                KubernetesClusterIngressApplicationGatewayArgs._configure(_setter, **ingress_application_gateway)
             __props__.__dict__["ingress_application_gateway"] = ingress_application_gateway
+            if key_management_service is not None and not isinstance(key_management_service, KubernetesClusterKeyManagementServiceArgs):
+                key_management_service = key_management_service or {}
+                def _setter(key, value):
+                    key_management_service[key] = value
+                KubernetesClusterKeyManagementServiceArgs._configure(_setter, **key_management_service)
             __props__.__dict__["key_management_service"] = key_management_service
+            if key_vault_secrets_provider is not None and not isinstance(key_vault_secrets_provider, KubernetesClusterKeyVaultSecretsProviderArgs):
+                key_vault_secrets_provider = key_vault_secrets_provider or {}
+                def _setter(key, value):
+                    key_vault_secrets_provider[key] = value
+                KubernetesClusterKeyVaultSecretsProviderArgs._configure(_setter, **key_vault_secrets_provider)
             __props__.__dict__["key_vault_secrets_provider"] = key_vault_secrets_provider
+            if kubelet_identity is not None and not isinstance(kubelet_identity, KubernetesClusterKubeletIdentityArgs):
+                kubelet_identity = kubelet_identity or {}
+                def _setter(key, value):
+                    kubelet_identity[key] = value
+                KubernetesClusterKubeletIdentityArgs._configure(_setter, **kubelet_identity)
             __props__.__dict__["kubelet_identity"] = kubelet_identity
             __props__.__dict__["kubernetes_version"] = kubernetes_version
+            if linux_profile is not None and not isinstance(linux_profile, KubernetesClusterLinuxProfileArgs):
+                linux_profile = linux_profile or {}
+                def _setter(key, value):
+                    linux_profile[key] = value
+                KubernetesClusterLinuxProfileArgs._configure(_setter, **linux_profile)
             __props__.__dict__["linux_profile"] = linux_profile
             __props__.__dict__["local_account_disabled"] = local_account_disabled
             __props__.__dict__["location"] = location
+            if maintenance_window is not None and not isinstance(maintenance_window, KubernetesClusterMaintenanceWindowArgs):
+                maintenance_window = maintenance_window or {}
+                def _setter(key, value):
+                    maintenance_window[key] = value
+                KubernetesClusterMaintenanceWindowArgs._configure(_setter, **maintenance_window)
             __props__.__dict__["maintenance_window"] = maintenance_window
+            if maintenance_window_auto_upgrade is not None and not isinstance(maintenance_window_auto_upgrade, KubernetesClusterMaintenanceWindowAutoUpgradeArgs):
+                maintenance_window_auto_upgrade = maintenance_window_auto_upgrade or {}
+                def _setter(key, value):
+                    maintenance_window_auto_upgrade[key] = value
+                KubernetesClusterMaintenanceWindowAutoUpgradeArgs._configure(_setter, **maintenance_window_auto_upgrade)
             __props__.__dict__["maintenance_window_auto_upgrade"] = maintenance_window_auto_upgrade
+            if maintenance_window_node_os is not None and not isinstance(maintenance_window_node_os, KubernetesClusterMaintenanceWindowNodeOsArgs):
+                maintenance_window_node_os = maintenance_window_node_os or {}
+                def _setter(key, value):
+                    maintenance_window_node_os[key] = value
+                KubernetesClusterMaintenanceWindowNodeOsArgs._configure(_setter, **maintenance_window_node_os)
             __props__.__dict__["maintenance_window_node_os"] = maintenance_window_node_os
+            if microsoft_defender is not None and not isinstance(microsoft_defender, KubernetesClusterMicrosoftDefenderArgs):
+                microsoft_defender = microsoft_defender or {}
+                def _setter(key, value):
+                    microsoft_defender[key] = value
+                KubernetesClusterMicrosoftDefenderArgs._configure(_setter, **microsoft_defender)
             __props__.__dict__["microsoft_defender"] = microsoft_defender
+            if monitor_metrics is not None and not isinstance(monitor_metrics, KubernetesClusterMonitorMetricsArgs):
+                monitor_metrics = monitor_metrics or {}
+                def _setter(key, value):
+                    monitor_metrics[key] = value
+                KubernetesClusterMonitorMetricsArgs._configure(_setter, **monitor_metrics)
             __props__.__dict__["monitor_metrics"] = monitor_metrics
             __props__.__dict__["name"] = name
+            if network_profile is not None and not isinstance(network_profile, KubernetesClusterNetworkProfileArgs):
+                network_profile = network_profile or {}
+                def _setter(key, value):
+                    network_profile[key] = value
+                KubernetesClusterNetworkProfileArgs._configure(_setter, **network_profile)
             __props__.__dict__["network_profile"] = network_profile
             __props__.__dict__["node_os_channel_upgrade"] = node_os_channel_upgrade
             __props__.__dict__["node_resource_group"] = node_resource_group
             __props__.__dict__["oidc_issuer_enabled"] = oidc_issuer_enabled
+            if oms_agent is not None and not isinstance(oms_agent, KubernetesClusterOmsAgentArgs):
+                oms_agent = oms_agent or {}
+                def _setter(key, value):
+                    oms_agent[key] = value
+                KubernetesClusterOmsAgentArgs._configure(_setter, **oms_agent)
             __props__.__dict__["oms_agent"] = oms_agent
             __props__.__dict__["open_service_mesh_enabled"] = open_service_mesh_enabled
             __props__.__dict__["private_cluster_enabled"] = private_cluster_enabled
@@ -2673,13 +3269,43 @@ class KubernetesCluster(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["role_based_access_control_enabled"] = role_based_access_control_enabled
             __props__.__dict__["run_command_enabled"] = run_command_enabled
+            if service_mesh_profile is not None and not isinstance(service_mesh_profile, KubernetesClusterServiceMeshProfileArgs):
+                service_mesh_profile = service_mesh_profile or {}
+                def _setter(key, value):
+                    service_mesh_profile[key] = value
+                KubernetesClusterServiceMeshProfileArgs._configure(_setter, **service_mesh_profile)
             __props__.__dict__["service_mesh_profile"] = service_mesh_profile
+            if service_principal is not None and not isinstance(service_principal, KubernetesClusterServicePrincipalArgs):
+                service_principal = service_principal or {}
+                def _setter(key, value):
+                    service_principal[key] = value
+                KubernetesClusterServicePrincipalArgs._configure(_setter, **service_principal)
             __props__.__dict__["service_principal"] = service_principal
             __props__.__dict__["sku_tier"] = sku_tier
+            if storage_profile is not None and not isinstance(storage_profile, KubernetesClusterStorageProfileArgs):
+                storage_profile = storage_profile or {}
+                def _setter(key, value):
+                    storage_profile[key] = value
+                KubernetesClusterStorageProfileArgs._configure(_setter, **storage_profile)
             __props__.__dict__["storage_profile"] = storage_profile
             __props__.__dict__["tags"] = tags
+            if web_app_routing is not None and not isinstance(web_app_routing, KubernetesClusterWebAppRoutingArgs):
+                web_app_routing = web_app_routing or {}
+                def _setter(key, value):
+                    web_app_routing[key] = value
+                KubernetesClusterWebAppRoutingArgs._configure(_setter, **web_app_routing)
             __props__.__dict__["web_app_routing"] = web_app_routing
+            if windows_profile is not None and not isinstance(windows_profile, KubernetesClusterWindowsProfileArgs):
+                windows_profile = windows_profile or {}
+                def _setter(key, value):
+                    windows_profile[key] = value
+                KubernetesClusterWindowsProfileArgs._configure(_setter, **windows_profile)
             __props__.__dict__["windows_profile"] = windows_profile
+            if workload_autoscaler_profile is not None and not isinstance(workload_autoscaler_profile, KubernetesClusterWorkloadAutoscalerProfileArgs):
+                workload_autoscaler_profile = workload_autoscaler_profile or {}
+                def _setter(key, value):
+                    workload_autoscaler_profile[key] = value
+                KubernetesClusterWorkloadAutoscalerProfileArgs._configure(_setter, **workload_autoscaler_profile)
             __props__.__dict__["workload_autoscaler_profile"] = workload_autoscaler_profile
             __props__.__dict__["workload_identity_enabled"] = workload_identity_enabled
             __props__.__dict__["fqdn"] = None

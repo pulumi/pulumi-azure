@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -61,32 +61,103 @@ class SharedImageVersionArgs:
                > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A collection of tags which should be applied to this resource.
         """
-        pulumi.set(__self__, "gallery_name", gallery_name)
-        pulumi.set(__self__, "image_name", image_name)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "target_regions", target_regions)
+        SharedImageVersionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gallery_name=gallery_name,
+            image_name=image_name,
+            resource_group_name=resource_group_name,
+            target_regions=target_regions,
+            blob_uri=blob_uri,
+            deletion_of_replicated_locations_enabled=deletion_of_replicated_locations_enabled,
+            end_of_life_date=end_of_life_date,
+            exclude_from_latest=exclude_from_latest,
+            location=location,
+            managed_image_id=managed_image_id,
+            name=name,
+            os_disk_snapshot_id=os_disk_snapshot_id,
+            replication_mode=replication_mode,
+            storage_account_id=storage_account_id,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gallery_name: Optional[pulumi.Input[str]] = None,
+             image_name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]]] = None,
+             blob_uri: Optional[pulumi.Input[str]] = None,
+             deletion_of_replicated_locations_enabled: Optional[pulumi.Input[bool]] = None,
+             end_of_life_date: Optional[pulumi.Input[str]] = None,
+             exclude_from_latest: Optional[pulumi.Input[bool]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_image_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             os_disk_snapshot_id: Optional[pulumi.Input[str]] = None,
+             replication_mode: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if gallery_name is None and 'galleryName' in kwargs:
+            gallery_name = kwargs['galleryName']
+        if gallery_name is None:
+            raise TypeError("Missing 'gallery_name' argument")
+        if image_name is None and 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if image_name is None:
+            raise TypeError("Missing 'image_name' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if target_regions is None and 'targetRegions' in kwargs:
+            target_regions = kwargs['targetRegions']
+        if target_regions is None:
+            raise TypeError("Missing 'target_regions' argument")
+        if blob_uri is None and 'blobUri' in kwargs:
+            blob_uri = kwargs['blobUri']
+        if deletion_of_replicated_locations_enabled is None and 'deletionOfReplicatedLocationsEnabled' in kwargs:
+            deletion_of_replicated_locations_enabled = kwargs['deletionOfReplicatedLocationsEnabled']
+        if end_of_life_date is None and 'endOfLifeDate' in kwargs:
+            end_of_life_date = kwargs['endOfLifeDate']
+        if exclude_from_latest is None and 'excludeFromLatest' in kwargs:
+            exclude_from_latest = kwargs['excludeFromLatest']
+        if managed_image_id is None and 'managedImageId' in kwargs:
+            managed_image_id = kwargs['managedImageId']
+        if os_disk_snapshot_id is None and 'osDiskSnapshotId' in kwargs:
+            os_disk_snapshot_id = kwargs['osDiskSnapshotId']
+        if replication_mode is None and 'replicationMode' in kwargs:
+            replication_mode = kwargs['replicationMode']
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+
+        _setter("gallery_name", gallery_name)
+        _setter("image_name", image_name)
+        _setter("resource_group_name", resource_group_name)
+        _setter("target_regions", target_regions)
         if blob_uri is not None:
-            pulumi.set(__self__, "blob_uri", blob_uri)
+            _setter("blob_uri", blob_uri)
         if deletion_of_replicated_locations_enabled is not None:
-            pulumi.set(__self__, "deletion_of_replicated_locations_enabled", deletion_of_replicated_locations_enabled)
+            _setter("deletion_of_replicated_locations_enabled", deletion_of_replicated_locations_enabled)
         if end_of_life_date is not None:
-            pulumi.set(__self__, "end_of_life_date", end_of_life_date)
+            _setter("end_of_life_date", end_of_life_date)
         if exclude_from_latest is not None:
-            pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
+            _setter("exclude_from_latest", exclude_from_latest)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_image_id is not None:
-            pulumi.set(__self__, "managed_image_id", managed_image_id)
+            _setter("managed_image_id", managed_image_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if os_disk_snapshot_id is not None:
-            pulumi.set(__self__, "os_disk_snapshot_id", os_disk_snapshot_id)
+            _setter("os_disk_snapshot_id", os_disk_snapshot_id)
         if replication_mode is not None:
-            pulumi.set(__self__, "replication_mode", replication_mode)
+            _setter("replication_mode", replication_mode)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="galleryName")
@@ -329,36 +400,99 @@ class _SharedImageVersionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A collection of tags which should be applied to this resource.
         :param pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]] target_regions: One or more `target_region` blocks as documented below.
         """
+        _SharedImageVersionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blob_uri=blob_uri,
+            deletion_of_replicated_locations_enabled=deletion_of_replicated_locations_enabled,
+            end_of_life_date=end_of_life_date,
+            exclude_from_latest=exclude_from_latest,
+            gallery_name=gallery_name,
+            image_name=image_name,
+            location=location,
+            managed_image_id=managed_image_id,
+            name=name,
+            os_disk_snapshot_id=os_disk_snapshot_id,
+            replication_mode=replication_mode,
+            resource_group_name=resource_group_name,
+            storage_account_id=storage_account_id,
+            tags=tags,
+            target_regions=target_regions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blob_uri: Optional[pulumi.Input[str]] = None,
+             deletion_of_replicated_locations_enabled: Optional[pulumi.Input[bool]] = None,
+             end_of_life_date: Optional[pulumi.Input[str]] = None,
+             exclude_from_latest: Optional[pulumi.Input[bool]] = None,
+             gallery_name: Optional[pulumi.Input[str]] = None,
+             image_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             managed_image_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             os_disk_snapshot_id: Optional[pulumi.Input[str]] = None,
+             replication_mode: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if blob_uri is None and 'blobUri' in kwargs:
+            blob_uri = kwargs['blobUri']
+        if deletion_of_replicated_locations_enabled is None and 'deletionOfReplicatedLocationsEnabled' in kwargs:
+            deletion_of_replicated_locations_enabled = kwargs['deletionOfReplicatedLocationsEnabled']
+        if end_of_life_date is None and 'endOfLifeDate' in kwargs:
+            end_of_life_date = kwargs['endOfLifeDate']
+        if exclude_from_latest is None and 'excludeFromLatest' in kwargs:
+            exclude_from_latest = kwargs['excludeFromLatest']
+        if gallery_name is None and 'galleryName' in kwargs:
+            gallery_name = kwargs['galleryName']
+        if image_name is None and 'imageName' in kwargs:
+            image_name = kwargs['imageName']
+        if managed_image_id is None and 'managedImageId' in kwargs:
+            managed_image_id = kwargs['managedImageId']
+        if os_disk_snapshot_id is None and 'osDiskSnapshotId' in kwargs:
+            os_disk_snapshot_id = kwargs['osDiskSnapshotId']
+        if replication_mode is None and 'replicationMode' in kwargs:
+            replication_mode = kwargs['replicationMode']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if target_regions is None and 'targetRegions' in kwargs:
+            target_regions = kwargs['targetRegions']
+
         if blob_uri is not None:
-            pulumi.set(__self__, "blob_uri", blob_uri)
+            _setter("blob_uri", blob_uri)
         if deletion_of_replicated_locations_enabled is not None:
-            pulumi.set(__self__, "deletion_of_replicated_locations_enabled", deletion_of_replicated_locations_enabled)
+            _setter("deletion_of_replicated_locations_enabled", deletion_of_replicated_locations_enabled)
         if end_of_life_date is not None:
-            pulumi.set(__self__, "end_of_life_date", end_of_life_date)
+            _setter("end_of_life_date", end_of_life_date)
         if exclude_from_latest is not None:
-            pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
+            _setter("exclude_from_latest", exclude_from_latest)
         if gallery_name is not None:
-            pulumi.set(__self__, "gallery_name", gallery_name)
+            _setter("gallery_name", gallery_name)
         if image_name is not None:
-            pulumi.set(__self__, "image_name", image_name)
+            _setter("image_name", image_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if managed_image_id is not None:
-            pulumi.set(__self__, "managed_image_id", managed_image_id)
+            _setter("managed_image_id", managed_image_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if os_disk_snapshot_id is not None:
-            pulumi.set(__self__, "os_disk_snapshot_id", os_disk_snapshot_id)
+            _setter("os_disk_snapshot_id", os_disk_snapshot_id)
         if replication_mode is not None:
-            pulumi.set(__self__, "replication_mode", replication_mode)
+            _setter("replication_mode", replication_mode)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if target_regions is not None:
-            pulumi.set(__self__, "target_regions", target_regions)
+            _setter("target_regions", target_regions)
 
     @property
     @pulumi.getter(name="blobUri")
@@ -690,6 +824,10 @@ class SharedImageVersion(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SharedImageVersionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

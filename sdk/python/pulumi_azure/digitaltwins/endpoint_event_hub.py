@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['EndpointEventHubArgs', 'EndpointEventHub']
@@ -27,13 +27,46 @@ class EndpointEventHubArgs:
         :param pulumi.Input[str] dead_letter_storage_secret: The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
         :param pulumi.Input[str] name: The name which should be used for this Digital Twins Event Hub Endpoint. Changing this forces a new Digital Twins Event Hub Endpoint to be created.
         """
-        pulumi.set(__self__, "digital_twins_id", digital_twins_id)
-        pulumi.set(__self__, "eventhub_primary_connection_string", eventhub_primary_connection_string)
-        pulumi.set(__self__, "eventhub_secondary_connection_string", eventhub_secondary_connection_string)
+        EndpointEventHubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            digital_twins_id=digital_twins_id,
+            eventhub_primary_connection_string=eventhub_primary_connection_string,
+            eventhub_secondary_connection_string=eventhub_secondary_connection_string,
+            dead_letter_storage_secret=dead_letter_storage_secret,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             digital_twins_id: Optional[pulumi.Input[str]] = None,
+             eventhub_primary_connection_string: Optional[pulumi.Input[str]] = None,
+             eventhub_secondary_connection_string: Optional[pulumi.Input[str]] = None,
+             dead_letter_storage_secret: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if digital_twins_id is None and 'digitalTwinsId' in kwargs:
+            digital_twins_id = kwargs['digitalTwinsId']
+        if digital_twins_id is None:
+            raise TypeError("Missing 'digital_twins_id' argument")
+        if eventhub_primary_connection_string is None and 'eventhubPrimaryConnectionString' in kwargs:
+            eventhub_primary_connection_string = kwargs['eventhubPrimaryConnectionString']
+        if eventhub_primary_connection_string is None:
+            raise TypeError("Missing 'eventhub_primary_connection_string' argument")
+        if eventhub_secondary_connection_string is None and 'eventhubSecondaryConnectionString' in kwargs:
+            eventhub_secondary_connection_string = kwargs['eventhubSecondaryConnectionString']
+        if eventhub_secondary_connection_string is None:
+            raise TypeError("Missing 'eventhub_secondary_connection_string' argument")
+        if dead_letter_storage_secret is None and 'deadLetterStorageSecret' in kwargs:
+            dead_letter_storage_secret = kwargs['deadLetterStorageSecret']
+
+        _setter("digital_twins_id", digital_twins_id)
+        _setter("eventhub_primary_connection_string", eventhub_primary_connection_string)
+        _setter("eventhub_secondary_connection_string", eventhub_secondary_connection_string)
         if dead_letter_storage_secret is not None:
-            pulumi.set(__self__, "dead_letter_storage_secret", dead_letter_storage_secret)
+            _setter("dead_letter_storage_secret", dead_letter_storage_secret)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="digitalTwinsId")
@@ -112,16 +145,43 @@ class _EndpointEventHubState:
         :param pulumi.Input[str] eventhub_secondary_connection_string: The secondary connection string of the Event Hub Authorization Rule with a minimum of `send` permission.
         :param pulumi.Input[str] name: The name which should be used for this Digital Twins Event Hub Endpoint. Changing this forces a new Digital Twins Event Hub Endpoint to be created.
         """
+        _EndpointEventHubState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            dead_letter_storage_secret=dead_letter_storage_secret,
+            digital_twins_id=digital_twins_id,
+            eventhub_primary_connection_string=eventhub_primary_connection_string,
+            eventhub_secondary_connection_string=eventhub_secondary_connection_string,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             dead_letter_storage_secret: Optional[pulumi.Input[str]] = None,
+             digital_twins_id: Optional[pulumi.Input[str]] = None,
+             eventhub_primary_connection_string: Optional[pulumi.Input[str]] = None,
+             eventhub_secondary_connection_string: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if dead_letter_storage_secret is None and 'deadLetterStorageSecret' in kwargs:
+            dead_letter_storage_secret = kwargs['deadLetterStorageSecret']
+        if digital_twins_id is None and 'digitalTwinsId' in kwargs:
+            digital_twins_id = kwargs['digitalTwinsId']
+        if eventhub_primary_connection_string is None and 'eventhubPrimaryConnectionString' in kwargs:
+            eventhub_primary_connection_string = kwargs['eventhubPrimaryConnectionString']
+        if eventhub_secondary_connection_string is None and 'eventhubSecondaryConnectionString' in kwargs:
+            eventhub_secondary_connection_string = kwargs['eventhubSecondaryConnectionString']
+
         if dead_letter_storage_secret is not None:
-            pulumi.set(__self__, "dead_letter_storage_secret", dead_letter_storage_secret)
+            _setter("dead_letter_storage_secret", dead_letter_storage_secret)
         if digital_twins_id is not None:
-            pulumi.set(__self__, "digital_twins_id", digital_twins_id)
+            _setter("digital_twins_id", digital_twins_id)
         if eventhub_primary_connection_string is not None:
-            pulumi.set(__self__, "eventhub_primary_connection_string", eventhub_primary_connection_string)
+            _setter("eventhub_primary_connection_string", eventhub_primary_connection_string)
         if eventhub_secondary_connection_string is not None:
-            pulumi.set(__self__, "eventhub_secondary_connection_string", eventhub_secondary_connection_string)
+            _setter("eventhub_secondary_connection_string", eventhub_secondary_connection_string)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="deadLetterStorageSecret")
@@ -305,6 +365,10 @@ class EndpointEventHub(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EndpointEventHubArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

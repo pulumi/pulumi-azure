@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SpringCloudCertificateArgs', 'SpringCloudCertificate']
@@ -29,16 +29,51 @@ class SpringCloudCertificateArgs:
         :param pulumi.Input[str] key_vault_certificate_id: Specifies the ID of the Key Vault Certificate resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Certificate. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
+        SpringCloudCertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            certificate_content=certificate_content,
+            exclude_private_key=exclude_private_key,
+            key_vault_certificate_id=key_vault_certificate_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             certificate_content: Optional[pulumi.Input[str]] = None,
+             exclude_private_key: Optional[pulumi.Input[bool]] = None,
+             key_vault_certificate_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+        if service_name is None:
+            raise TypeError("Missing 'service_name' argument")
+        if certificate_content is None and 'certificateContent' in kwargs:
+            certificate_content = kwargs['certificateContent']
+        if exclude_private_key is None and 'excludePrivateKey' in kwargs:
+            exclude_private_key = kwargs['excludePrivateKey']
+        if key_vault_certificate_id is None and 'keyVaultCertificateId' in kwargs:
+            key_vault_certificate_id = kwargs['keyVaultCertificateId']
+
+        _setter("resource_group_name", resource_group_name)
+        _setter("service_name", service_name)
         if certificate_content is not None:
-            pulumi.set(__self__, "certificate_content", certificate_content)
+            _setter("certificate_content", certificate_content)
         if exclude_private_key is not None:
-            pulumi.set(__self__, "exclude_private_key", exclude_private_key)
+            _setter("exclude_private_key", exclude_private_key)
         if key_vault_certificate_id is not None:
-            pulumi.set(__self__, "key_vault_certificate_id", key_vault_certificate_id)
+            _setter("key_vault_certificate_id", key_vault_certificate_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -133,20 +168,53 @@ class _SpringCloudCertificateState:
         :param pulumi.Input[str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] thumbprint: The thumbprint of the Spring Cloud certificate.
         """
+        _SpringCloudCertificateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            certificate_content=certificate_content,
+            exclude_private_key=exclude_private_key,
+            key_vault_certificate_id=key_vault_certificate_id,
+            name=name,
+            resource_group_name=resource_group_name,
+            service_name=service_name,
+            thumbprint=thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             certificate_content: Optional[pulumi.Input[str]] = None,
+             exclude_private_key: Optional[pulumi.Input[bool]] = None,
+             key_vault_certificate_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             service_name: Optional[pulumi.Input[str]] = None,
+             thumbprint: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if certificate_content is None and 'certificateContent' in kwargs:
+            certificate_content = kwargs['certificateContent']
+        if exclude_private_key is None and 'excludePrivateKey' in kwargs:
+            exclude_private_key = kwargs['excludePrivateKey']
+        if key_vault_certificate_id is None and 'keyVaultCertificateId' in kwargs:
+            key_vault_certificate_id = kwargs['keyVaultCertificateId']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if service_name is None and 'serviceName' in kwargs:
+            service_name = kwargs['serviceName']
+
         if certificate_content is not None:
-            pulumi.set(__self__, "certificate_content", certificate_content)
+            _setter("certificate_content", certificate_content)
         if exclude_private_key is not None:
-            pulumi.set(__self__, "exclude_private_key", exclude_private_key)
+            _setter("exclude_private_key", exclude_private_key)
         if key_vault_certificate_id is not None:
-            pulumi.set(__self__, "key_vault_certificate_id", key_vault_certificate_id)
+            _setter("key_vault_certificate_id", key_vault_certificate_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if service_name is not None:
-            pulumi.set(__self__, "service_name", service_name)
+            _setter("service_name", service_name)
         if thumbprint is not None:
-            pulumi.set(__self__, "thumbprint", thumbprint)
+            _setter("thumbprint", thumbprint)
 
     @property
     @pulumi.getter(name="certificateContent")
@@ -464,6 +532,10 @@ class SpringCloudCertificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SpringCloudCertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

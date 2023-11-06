@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -37,21 +37,64 @@ class PolicySetDefinitionArgs:
         :param pulumi.Input[str] parameters: Parameters for the policy set definition. This field is a JSON object that allows you to parameterize your policy definition.
         :param pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]] policy_definition_groups: One or more `policy_definition_group` blocks as defined below.
         """
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "policy_definition_references", policy_definition_references)
-        pulumi.set(__self__, "policy_type", policy_type)
+        PolicySetDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            policy_definition_references=policy_definition_references,
+            policy_type=policy_type,
+            description=description,
+            management_group_id=management_group_id,
+            metadata=metadata,
+            name=name,
+            parameters=parameters,
+            policy_definition_groups=policy_definition_groups,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[pulumi.Input[str]] = None,
+             policy_definition_references: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]] = None,
+             policy_type: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             management_group_id: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[str]] = None,
+             policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if policy_definition_references is None and 'policyDefinitionReferences' in kwargs:
+            policy_definition_references = kwargs['policyDefinitionReferences']
+        if policy_definition_references is None:
+            raise TypeError("Missing 'policy_definition_references' argument")
+        if policy_type is None and 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+        if policy_type is None:
+            raise TypeError("Missing 'policy_type' argument")
+        if management_group_id is None and 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if policy_definition_groups is None and 'policyDefinitionGroups' in kwargs:
+            policy_definition_groups = kwargs['policyDefinitionGroups']
+
+        _setter("display_name", display_name)
+        _setter("policy_definition_references", policy_definition_references)
+        _setter("policy_type", policy_type)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if management_group_id is not None:
-            pulumi.set(__self__, "management_group_id", management_group_id)
+            _setter("management_group_id", management_group_id)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if policy_definition_groups is not None:
-            pulumi.set(__self__, "policy_definition_groups", policy_definition_groups)
+            _setter("policy_definition_groups", policy_definition_groups)
 
     @property
     @pulumi.getter(name="displayName")
@@ -186,24 +229,61 @@ class _PolicySetDefinitionState:
         :param pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]] policy_definition_references: One or more `policy_definition_reference` blocks as defined below.
         :param pulumi.Input[str] policy_type: The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created.
         """
+        _PolicySetDefinitionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            display_name=display_name,
+            management_group_id=management_group_id,
+            metadata=metadata,
+            name=name,
+            parameters=parameters,
+            policy_definition_groups=policy_definition_groups,
+            policy_definition_references=policy_definition_references,
+            policy_type=policy_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             management_group_id: Optional[pulumi.Input[str]] = None,
+             metadata: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[str]] = None,
+             policy_definition_groups: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionGroupArgs']]]] = None,
+             policy_definition_references: Optional[pulumi.Input[Sequence[pulumi.Input['PolicySetDefinitionPolicyDefinitionReferenceArgs']]]] = None,
+             policy_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if management_group_id is None and 'managementGroupId' in kwargs:
+            management_group_id = kwargs['managementGroupId']
+        if policy_definition_groups is None and 'policyDefinitionGroups' in kwargs:
+            policy_definition_groups = kwargs['policyDefinitionGroups']
+        if policy_definition_references is None and 'policyDefinitionReferences' in kwargs:
+            policy_definition_references = kwargs['policyDefinitionReferences']
+        if policy_type is None and 'policyType' in kwargs:
+            policy_type = kwargs['policyType']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if management_group_id is not None:
-            pulumi.set(__self__, "management_group_id", management_group_id)
+            _setter("management_group_id", management_group_id)
         if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
+            _setter("metadata", metadata)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if policy_definition_groups is not None:
-            pulumi.set(__self__, "policy_definition_groups", policy_definition_groups)
+            _setter("policy_definition_groups", policy_definition_groups)
         if policy_definition_references is not None:
-            pulumi.set(__self__, "policy_definition_references", policy_definition_references)
+            _setter("policy_definition_references", policy_definition_references)
         if policy_type is not None:
-            pulumi.set(__self__, "policy_type", policy_type)
+            _setter("policy_type", policy_type)
 
     @property
     @pulumi.getter
@@ -457,6 +537,10 @@ class PolicySetDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PolicySetDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

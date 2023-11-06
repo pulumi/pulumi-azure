@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,27 +41,74 @@ class LinkedServiceSqlServerArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service SQL Server.
         :param pulumi.Input[str] user_name: The on-premises Windows authentication user name.
         """
-        pulumi.set(__self__, "data_factory_id", data_factory_id)
+        LinkedServiceSqlServerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            data_factory_id=data_factory_id,
+            additional_properties=additional_properties,
+            annotations=annotations,
+            connection_string=connection_string,
+            description=description,
+            integration_runtime_name=integration_runtime_name,
+            key_vault_connection_string=key_vault_connection_string,
+            key_vault_password=key_vault_password,
+            name=name,
+            parameters=parameters,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             connection_string: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             integration_runtime_name: Optional[pulumi.Input[str]] = None,
+             key_vault_connection_string: Optional[pulumi.Input['LinkedServiceSqlServerKeyVaultConnectionStringArgs']] = None,
+             key_vault_password: Optional[pulumi.Input['LinkedServiceSqlServerKeyVaultPasswordArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if data_factory_id is None:
+            raise TypeError("Missing 'data_factory_id' argument")
+        if additional_properties is None and 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if connection_string is None and 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if key_vault_connection_string is None and 'keyVaultConnectionString' in kwargs:
+            key_vault_connection_string = kwargs['keyVaultConnectionString']
+        if key_vault_password is None and 'keyVaultPassword' in kwargs:
+            key_vault_password = kwargs['keyVaultPassword']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
+        _setter("data_factory_id", data_factory_id)
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if integration_runtime_name is not None:
-            pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
+            _setter("integration_runtime_name", integration_runtime_name)
         if key_vault_connection_string is not None:
-            pulumi.set(__self__, "key_vault_connection_string", key_vault_connection_string)
+            _setter("key_vault_connection_string", key_vault_connection_string)
         if key_vault_password is not None:
-            pulumi.set(__self__, "key_vault_password", key_vault_password)
+            _setter("key_vault_password", key_vault_password)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="dataFactoryId")
@@ -224,28 +271,73 @@ class _LinkedServiceSqlServerState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service SQL Server.
         :param pulumi.Input[str] user_name: The on-premises Windows authentication user name.
         """
+        _LinkedServiceSqlServerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            additional_properties=additional_properties,
+            annotations=annotations,
+            connection_string=connection_string,
+            data_factory_id=data_factory_id,
+            description=description,
+            integration_runtime_name=integration_runtime_name,
+            key_vault_connection_string=key_vault_connection_string,
+            key_vault_password=key_vault_password,
+            name=name,
+            parameters=parameters,
+            user_name=user_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             connection_string: Optional[pulumi.Input[str]] = None,
+             data_factory_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             integration_runtime_name: Optional[pulumi.Input[str]] = None,
+             key_vault_connection_string: Optional[pulumi.Input['LinkedServiceSqlServerKeyVaultConnectionStringArgs']] = None,
+             key_vault_password: Optional[pulumi.Input['LinkedServiceSqlServerKeyVaultPasswordArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             user_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if additional_properties is None and 'additionalProperties' in kwargs:
+            additional_properties = kwargs['additionalProperties']
+        if connection_string is None and 'connectionString' in kwargs:
+            connection_string = kwargs['connectionString']
+        if data_factory_id is None and 'dataFactoryId' in kwargs:
+            data_factory_id = kwargs['dataFactoryId']
+        if integration_runtime_name is None and 'integrationRuntimeName' in kwargs:
+            integration_runtime_name = kwargs['integrationRuntimeName']
+        if key_vault_connection_string is None and 'keyVaultConnectionString' in kwargs:
+            key_vault_connection_string = kwargs['keyVaultConnectionString']
+        if key_vault_password is None and 'keyVaultPassword' in kwargs:
+            key_vault_password = kwargs['keyVaultPassword']
+        if user_name is None and 'userName' in kwargs:
+            user_name = kwargs['userName']
+
         if additional_properties is not None:
-            pulumi.set(__self__, "additional_properties", additional_properties)
+            _setter("additional_properties", additional_properties)
         if annotations is not None:
-            pulumi.set(__self__, "annotations", annotations)
+            _setter("annotations", annotations)
         if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
+            _setter("connection_string", connection_string)
         if data_factory_id is not None:
-            pulumi.set(__self__, "data_factory_id", data_factory_id)
+            _setter("data_factory_id", data_factory_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if integration_runtime_name is not None:
-            pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
+            _setter("integration_runtime_name", integration_runtime_name)
         if key_vault_connection_string is not None:
-            pulumi.set(__self__, "key_vault_connection_string", key_vault_connection_string)
+            _setter("key_vault_connection_string", key_vault_connection_string)
         if key_vault_password is not None:
-            pulumi.set(__self__, "key_vault_password", key_vault_password)
+            _setter("key_vault_password", key_vault_password)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if user_name is not None:
-            pulumi.set(__self__, "user_name", user_name)
+            _setter("user_name", user_name)
 
     @property
     @pulumi.getter(name="additionalProperties")
@@ -533,6 +625,10 @@ class LinkedServiceSqlServer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            LinkedServiceSqlServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -566,7 +662,17 @@ class LinkedServiceSqlServer(pulumi.CustomResource):
             __props__.__dict__["data_factory_id"] = data_factory_id
             __props__.__dict__["description"] = description
             __props__.__dict__["integration_runtime_name"] = integration_runtime_name
+            if key_vault_connection_string is not None and not isinstance(key_vault_connection_string, LinkedServiceSqlServerKeyVaultConnectionStringArgs):
+                key_vault_connection_string = key_vault_connection_string or {}
+                def _setter(key, value):
+                    key_vault_connection_string[key] = value
+                LinkedServiceSqlServerKeyVaultConnectionStringArgs._configure(_setter, **key_vault_connection_string)
             __props__.__dict__["key_vault_connection_string"] = key_vault_connection_string
+            if key_vault_password is not None and not isinstance(key_vault_password, LinkedServiceSqlServerKeyVaultPasswordArgs):
+                key_vault_password = key_vault_password or {}
+                def _setter(key, value):
+                    key_vault_password[key] = value
+                LinkedServiceSqlServerKeyVaultPasswordArgs._configure(_setter, **key_vault_password)
             __props__.__dict__["key_vault_password"] = key_vault_password
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NamespaceDisasterRecoveryConfigArgs', 'NamespaceDisasterRecoveryConfig']
@@ -25,12 +25,39 @@ class NamespaceDisasterRecoveryConfigArgs:
         :param pulumi.Input[str] alias_authorization_rule_id: The Shared access policies used to access the connection string for the alias.
         :param pulumi.Input[str] name: Specifies the name of the Disaster Recovery Config. This is the alias DNS name that will be created. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "partner_namespace_id", partner_namespace_id)
-        pulumi.set(__self__, "primary_namespace_id", primary_namespace_id)
+        NamespaceDisasterRecoveryConfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            partner_namespace_id=partner_namespace_id,
+            primary_namespace_id=primary_namespace_id,
+            alias_authorization_rule_id=alias_authorization_rule_id,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             partner_namespace_id: Optional[pulumi.Input[str]] = None,
+             primary_namespace_id: Optional[pulumi.Input[str]] = None,
+             alias_authorization_rule_id: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if partner_namespace_id is None and 'partnerNamespaceId' in kwargs:
+            partner_namespace_id = kwargs['partnerNamespaceId']
+        if partner_namespace_id is None:
+            raise TypeError("Missing 'partner_namespace_id' argument")
+        if primary_namespace_id is None and 'primaryNamespaceId' in kwargs:
+            primary_namespace_id = kwargs['primaryNamespaceId']
+        if primary_namespace_id is None:
+            raise TypeError("Missing 'primary_namespace_id' argument")
+        if alias_authorization_rule_id is None and 'aliasAuthorizationRuleId' in kwargs:
+            alias_authorization_rule_id = kwargs['aliasAuthorizationRuleId']
+
+        _setter("partner_namespace_id", partner_namespace_id)
+        _setter("primary_namespace_id", primary_namespace_id)
         if alias_authorization_rule_id is not None:
-            pulumi.set(__self__, "alias_authorization_rule_id", alias_authorization_rule_id)
+            _setter("alias_authorization_rule_id", alias_authorization_rule_id)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="partnerNamespaceId")
@@ -103,22 +130,61 @@ class _NamespaceDisasterRecoveryConfigState:
         :param pulumi.Input[str] primary_namespace_id: The ID of the primary Service Bus Namespace to replicate. Changing this forces a new resource to be created.
         :param pulumi.Input[str] secondary_connection_string_alias: The alias Secondary Connection String for the ServiceBus Namespace
         """
+        _NamespaceDisasterRecoveryConfigState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alias_authorization_rule_id=alias_authorization_rule_id,
+            default_primary_key=default_primary_key,
+            default_secondary_key=default_secondary_key,
+            name=name,
+            partner_namespace_id=partner_namespace_id,
+            primary_connection_string_alias=primary_connection_string_alias,
+            primary_namespace_id=primary_namespace_id,
+            secondary_connection_string_alias=secondary_connection_string_alias,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alias_authorization_rule_id: Optional[pulumi.Input[str]] = None,
+             default_primary_key: Optional[pulumi.Input[str]] = None,
+             default_secondary_key: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             partner_namespace_id: Optional[pulumi.Input[str]] = None,
+             primary_connection_string_alias: Optional[pulumi.Input[str]] = None,
+             primary_namespace_id: Optional[pulumi.Input[str]] = None,
+             secondary_connection_string_alias: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if alias_authorization_rule_id is None and 'aliasAuthorizationRuleId' in kwargs:
+            alias_authorization_rule_id = kwargs['aliasAuthorizationRuleId']
+        if default_primary_key is None and 'defaultPrimaryKey' in kwargs:
+            default_primary_key = kwargs['defaultPrimaryKey']
+        if default_secondary_key is None and 'defaultSecondaryKey' in kwargs:
+            default_secondary_key = kwargs['defaultSecondaryKey']
+        if partner_namespace_id is None and 'partnerNamespaceId' in kwargs:
+            partner_namespace_id = kwargs['partnerNamespaceId']
+        if primary_connection_string_alias is None and 'primaryConnectionStringAlias' in kwargs:
+            primary_connection_string_alias = kwargs['primaryConnectionStringAlias']
+        if primary_namespace_id is None and 'primaryNamespaceId' in kwargs:
+            primary_namespace_id = kwargs['primaryNamespaceId']
+        if secondary_connection_string_alias is None and 'secondaryConnectionStringAlias' in kwargs:
+            secondary_connection_string_alias = kwargs['secondaryConnectionStringAlias']
+
         if alias_authorization_rule_id is not None:
-            pulumi.set(__self__, "alias_authorization_rule_id", alias_authorization_rule_id)
+            _setter("alias_authorization_rule_id", alias_authorization_rule_id)
         if default_primary_key is not None:
-            pulumi.set(__self__, "default_primary_key", default_primary_key)
+            _setter("default_primary_key", default_primary_key)
         if default_secondary_key is not None:
-            pulumi.set(__self__, "default_secondary_key", default_secondary_key)
+            _setter("default_secondary_key", default_secondary_key)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if partner_namespace_id is not None:
-            pulumi.set(__self__, "partner_namespace_id", partner_namespace_id)
+            _setter("partner_namespace_id", partner_namespace_id)
         if primary_connection_string_alias is not None:
-            pulumi.set(__self__, "primary_connection_string_alias", primary_connection_string_alias)
+            _setter("primary_connection_string_alias", primary_connection_string_alias)
         if primary_namespace_id is not None:
-            pulumi.set(__self__, "primary_namespace_id", primary_namespace_id)
+            _setter("primary_namespace_id", primary_namespace_id)
         if secondary_connection_string_alias is not None:
-            pulumi.set(__self__, "secondary_connection_string_alias", secondary_connection_string_alias)
+            _setter("secondary_connection_string_alias", secondary_connection_string_alias)
 
     @property
     @pulumi.getter(name="aliasAuthorizationRuleId")
@@ -332,6 +398,10 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NamespaceDisasterRecoveryConfigArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

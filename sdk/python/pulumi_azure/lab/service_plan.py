@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,24 +41,69 @@ class ServicePlanArgs:
         :param pulumi.Input['ServicePlanSupportArgs'] support: A `support` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Lab Service Plan.
         """
-        pulumi.set(__self__, "allowed_regions", allowed_regions)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
+        ServicePlanArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_regions=allowed_regions,
+            resource_group_name=resource_group_name,
+            default_auto_shutdown=default_auto_shutdown,
+            default_connection=default_connection,
+            default_network_subnet_id=default_network_subnet_id,
+            location=location,
+            name=name,
+            shared_gallery_id=shared_gallery_id,
+            support=support,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             default_auto_shutdown: Optional[pulumi.Input['ServicePlanDefaultAutoShutdownArgs']] = None,
+             default_connection: Optional[pulumi.Input['ServicePlanDefaultConnectionArgs']] = None,
+             default_network_subnet_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             shared_gallery_id: Optional[pulumi.Input[str]] = None,
+             support: Optional[pulumi.Input['ServicePlanSupportArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allowed_regions is None and 'allowedRegions' in kwargs:
+            allowed_regions = kwargs['allowedRegions']
+        if allowed_regions is None:
+            raise TypeError("Missing 'allowed_regions' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if default_auto_shutdown is None and 'defaultAutoShutdown' in kwargs:
+            default_auto_shutdown = kwargs['defaultAutoShutdown']
+        if default_connection is None and 'defaultConnection' in kwargs:
+            default_connection = kwargs['defaultConnection']
+        if default_network_subnet_id is None and 'defaultNetworkSubnetId' in kwargs:
+            default_network_subnet_id = kwargs['defaultNetworkSubnetId']
+        if shared_gallery_id is None and 'sharedGalleryId' in kwargs:
+            shared_gallery_id = kwargs['sharedGalleryId']
+
+        _setter("allowed_regions", allowed_regions)
+        _setter("resource_group_name", resource_group_name)
         if default_auto_shutdown is not None:
-            pulumi.set(__self__, "default_auto_shutdown", default_auto_shutdown)
+            _setter("default_auto_shutdown", default_auto_shutdown)
         if default_connection is not None:
-            pulumi.set(__self__, "default_connection", default_connection)
+            _setter("default_connection", default_connection)
         if default_network_subnet_id is not None:
-            pulumi.set(__self__, "default_network_subnet_id", default_network_subnet_id)
+            _setter("default_network_subnet_id", default_network_subnet_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if shared_gallery_id is not None:
-            pulumi.set(__self__, "shared_gallery_id", shared_gallery_id)
+            _setter("shared_gallery_id", shared_gallery_id)
         if support is not None:
-            pulumi.set(__self__, "support", support)
+            _setter("support", support)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="allowedRegions")
@@ -211,26 +256,67 @@ class _ServicePlanState:
         :param pulumi.Input['ServicePlanSupportArgs'] support: A `support` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Lab Service Plan.
         """
+        _ServicePlanState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_regions=allowed_regions,
+            default_auto_shutdown=default_auto_shutdown,
+            default_connection=default_connection,
+            default_network_subnet_id=default_network_subnet_id,
+            location=location,
+            name=name,
+            resource_group_name=resource_group_name,
+            shared_gallery_id=shared_gallery_id,
+            support=support,
+            tags=tags,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_regions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             default_auto_shutdown: Optional[pulumi.Input['ServicePlanDefaultAutoShutdownArgs']] = None,
+             default_connection: Optional[pulumi.Input['ServicePlanDefaultConnectionArgs']] = None,
+             default_network_subnet_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             shared_gallery_id: Optional[pulumi.Input[str]] = None,
+             support: Optional[pulumi.Input['ServicePlanSupportArgs']] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allowed_regions is None and 'allowedRegions' in kwargs:
+            allowed_regions = kwargs['allowedRegions']
+        if default_auto_shutdown is None and 'defaultAutoShutdown' in kwargs:
+            default_auto_shutdown = kwargs['defaultAutoShutdown']
+        if default_connection is None and 'defaultConnection' in kwargs:
+            default_connection = kwargs['defaultConnection']
+        if default_network_subnet_id is None and 'defaultNetworkSubnetId' in kwargs:
+            default_network_subnet_id = kwargs['defaultNetworkSubnetId']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if shared_gallery_id is None and 'sharedGalleryId' in kwargs:
+            shared_gallery_id = kwargs['sharedGalleryId']
+
         if allowed_regions is not None:
-            pulumi.set(__self__, "allowed_regions", allowed_regions)
+            _setter("allowed_regions", allowed_regions)
         if default_auto_shutdown is not None:
-            pulumi.set(__self__, "default_auto_shutdown", default_auto_shutdown)
+            _setter("default_auto_shutdown", default_auto_shutdown)
         if default_connection is not None:
-            pulumi.set(__self__, "default_connection", default_connection)
+            _setter("default_connection", default_connection)
         if default_network_subnet_id is not None:
-            pulumi.set(__self__, "default_network_subnet_id", default_network_subnet_id)
+            _setter("default_network_subnet_id", default_network_subnet_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if shared_gallery_id is not None:
-            pulumi.set(__self__, "shared_gallery_id", shared_gallery_id)
+            _setter("shared_gallery_id", shared_gallery_id)
         if support is not None:
-            pulumi.set(__self__, "support", support)
+            _setter("support", support)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
 
     @property
     @pulumi.getter(name="allowedRegions")
@@ -454,6 +540,10 @@ class ServicePlan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServicePlanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -481,7 +571,17 @@ class ServicePlan(pulumi.CustomResource):
             if allowed_regions is None and not opts.urn:
                 raise TypeError("Missing required property 'allowed_regions'")
             __props__.__dict__["allowed_regions"] = allowed_regions
+            if default_auto_shutdown is not None and not isinstance(default_auto_shutdown, ServicePlanDefaultAutoShutdownArgs):
+                default_auto_shutdown = default_auto_shutdown or {}
+                def _setter(key, value):
+                    default_auto_shutdown[key] = value
+                ServicePlanDefaultAutoShutdownArgs._configure(_setter, **default_auto_shutdown)
             __props__.__dict__["default_auto_shutdown"] = default_auto_shutdown
+            if default_connection is not None and not isinstance(default_connection, ServicePlanDefaultConnectionArgs):
+                default_connection = default_connection or {}
+                def _setter(key, value):
+                    default_connection[key] = value
+                ServicePlanDefaultConnectionArgs._configure(_setter, **default_connection)
             __props__.__dict__["default_connection"] = default_connection
             __props__.__dict__["default_network_subnet_id"] = default_network_subnet_id
             __props__.__dict__["location"] = location
@@ -490,6 +590,11 @@ class ServicePlan(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["shared_gallery_id"] = shared_gallery_id
+            if support is not None and not isinstance(support, ServicePlanSupportArgs):
+                support = support or {}
+                def _setter(key, value):
+                    support[key] = value
+                ServicePlanSupportArgs._configure(_setter, **support)
             __props__.__dict__["support"] = support
             __props__.__dict__["tags"] = tags
         super(ServicePlan, __self__).__init__(

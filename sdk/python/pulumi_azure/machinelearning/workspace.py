@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -63,42 +63,125 @@ class WorkspaceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] v1_legacy_mode_enabled: Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
         """
-        pulumi.set(__self__, "application_insights_id", application_insights_id)
-        pulumi.set(__self__, "identity", identity)
-        pulumi.set(__self__, "key_vault_id", key_vault_id)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
+        WorkspaceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_insights_id=application_insights_id,
+            identity=identity,
+            key_vault_id=key_vault_id,
+            resource_group_name=resource_group_name,
+            storage_account_id=storage_account_id,
+            container_registry_id=container_registry_id,
+            description=description,
+            encryption=encryption,
+            friendly_name=friendly_name,
+            high_business_impact=high_business_impact,
+            image_build_compute_name=image_build_compute_name,
+            location=location,
+            name=name,
+            primary_user_assigned_identity=primary_user_assigned_identity,
+            public_access_behind_virtual_network_enabled=public_access_behind_virtual_network_enabled,
+            public_network_access_enabled=public_network_access_enabled,
+            sku_name=sku_name,
+            tags=tags,
+            v1_legacy_mode_enabled=v1_legacy_mode_enabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_insights_id: Optional[pulumi.Input[str]] = None,
+             identity: Optional[pulumi.Input['WorkspaceIdentityArgs']] = None,
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             container_registry_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             encryption: Optional[pulumi.Input['WorkspaceEncryptionArgs']] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             high_business_impact: Optional[pulumi.Input[bool]] = None,
+             image_build_compute_name: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
+             public_access_behind_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             v1_legacy_mode_enabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
+            application_insights_id = kwargs['applicationInsightsId']
+        if application_insights_id is None:
+            raise TypeError("Missing 'application_insights_id' argument")
+        if identity is None:
+            raise TypeError("Missing 'identity' argument")
+        if key_vault_id is None and 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if key_vault_id is None:
+            raise TypeError("Missing 'key_vault_id' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if storage_account_id is None:
+            raise TypeError("Missing 'storage_account_id' argument")
+        if container_registry_id is None and 'containerRegistryId' in kwargs:
+            container_registry_id = kwargs['containerRegistryId']
+        if friendly_name is None and 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if high_business_impact is None and 'highBusinessImpact' in kwargs:
+            high_business_impact = kwargs['highBusinessImpact']
+        if image_build_compute_name is None and 'imageBuildComputeName' in kwargs:
+            image_build_compute_name = kwargs['imageBuildComputeName']
+        if primary_user_assigned_identity is None and 'primaryUserAssignedIdentity' in kwargs:
+            primary_user_assigned_identity = kwargs['primaryUserAssignedIdentity']
+        if public_access_behind_virtual_network_enabled is None and 'publicAccessBehindVirtualNetworkEnabled' in kwargs:
+            public_access_behind_virtual_network_enabled = kwargs['publicAccessBehindVirtualNetworkEnabled']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if v1_legacy_mode_enabled is None and 'v1LegacyModeEnabled' in kwargs:
+            v1_legacy_mode_enabled = kwargs['v1LegacyModeEnabled']
+
+        _setter("application_insights_id", application_insights_id)
+        _setter("identity", identity)
+        _setter("key_vault_id", key_vault_id)
+        _setter("resource_group_name", resource_group_name)
+        _setter("storage_account_id", storage_account_id)
         if container_registry_id is not None:
-            pulumi.set(__self__, "container_registry_id", container_registry_id)
+            _setter("container_registry_id", container_registry_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if high_business_impact is not None:
-            pulumi.set(__self__, "high_business_impact", high_business_impact)
+            _setter("high_business_impact", high_business_impact)
         if image_build_compute_name is not None:
-            pulumi.set(__self__, "image_build_compute_name", image_build_compute_name)
+            _setter("image_build_compute_name", image_build_compute_name)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if primary_user_assigned_identity is not None:
-            pulumi.set(__self__, "primary_user_assigned_identity", primary_user_assigned_identity)
+            _setter("primary_user_assigned_identity", primary_user_assigned_identity)
         if public_access_behind_virtual_network_enabled is not None:
             warnings.warn("""`public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
             pulumi.log.warn("""public_access_behind_virtual_network_enabled is deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
         if public_access_behind_virtual_network_enabled is not None:
-            pulumi.set(__self__, "public_access_behind_virtual_network_enabled", public_access_behind_virtual_network_enabled)
+            _setter("public_access_behind_virtual_network_enabled", public_access_behind_virtual_network_enabled)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if v1_legacy_mode_enabled is not None:
-            pulumi.set(__self__, "v1_legacy_mode_enabled", v1_legacy_mode_enabled)
+            _setter("v1_legacy_mode_enabled", v1_legacy_mode_enabled)
 
     @property
     @pulumi.getter(name="applicationInsightsId")
@@ -392,51 +475,132 @@ class _WorkspaceState:
         :param pulumi.Input[bool] v1_legacy_mode_enabled: Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
         :param pulumi.Input[str] workspace_id: The immutable id associated with this workspace.
         """
+        _WorkspaceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_insights_id=application_insights_id,
+            container_registry_id=container_registry_id,
+            description=description,
+            discovery_url=discovery_url,
+            encryption=encryption,
+            friendly_name=friendly_name,
+            high_business_impact=high_business_impact,
+            identity=identity,
+            image_build_compute_name=image_build_compute_name,
+            key_vault_id=key_vault_id,
+            location=location,
+            name=name,
+            primary_user_assigned_identity=primary_user_assigned_identity,
+            public_access_behind_virtual_network_enabled=public_access_behind_virtual_network_enabled,
+            public_network_access_enabled=public_network_access_enabled,
+            resource_group_name=resource_group_name,
+            sku_name=sku_name,
+            storage_account_id=storage_account_id,
+            tags=tags,
+            v1_legacy_mode_enabled=v1_legacy_mode_enabled,
+            workspace_id=workspace_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_insights_id: Optional[pulumi.Input[str]] = None,
+             container_registry_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             discovery_url: Optional[pulumi.Input[str]] = None,
+             encryption: Optional[pulumi.Input['WorkspaceEncryptionArgs']] = None,
+             friendly_name: Optional[pulumi.Input[str]] = None,
+             high_business_impact: Optional[pulumi.Input[bool]] = None,
+             identity: Optional[pulumi.Input['WorkspaceIdentityArgs']] = None,
+             image_build_compute_name: Optional[pulumi.Input[str]] = None,
+             key_vault_id: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
+             public_access_behind_virtual_network_enabled: Optional[pulumi.Input[bool]] = None,
+             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku_name: Optional[pulumi.Input[str]] = None,
+             storage_account_id: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             v1_legacy_mode_enabled: Optional[pulumi.Input[bool]] = None,
+             workspace_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if application_insights_id is None and 'applicationInsightsId' in kwargs:
+            application_insights_id = kwargs['applicationInsightsId']
+        if container_registry_id is None and 'containerRegistryId' in kwargs:
+            container_registry_id = kwargs['containerRegistryId']
+        if discovery_url is None and 'discoveryUrl' in kwargs:
+            discovery_url = kwargs['discoveryUrl']
+        if friendly_name is None and 'friendlyName' in kwargs:
+            friendly_name = kwargs['friendlyName']
+        if high_business_impact is None and 'highBusinessImpact' in kwargs:
+            high_business_impact = kwargs['highBusinessImpact']
+        if image_build_compute_name is None and 'imageBuildComputeName' in kwargs:
+            image_build_compute_name = kwargs['imageBuildComputeName']
+        if key_vault_id is None and 'keyVaultId' in kwargs:
+            key_vault_id = kwargs['keyVaultId']
+        if primary_user_assigned_identity is None and 'primaryUserAssignedIdentity' in kwargs:
+            primary_user_assigned_identity = kwargs['primaryUserAssignedIdentity']
+        if public_access_behind_virtual_network_enabled is None and 'publicAccessBehindVirtualNetworkEnabled' in kwargs:
+            public_access_behind_virtual_network_enabled = kwargs['publicAccessBehindVirtualNetworkEnabled']
+        if public_network_access_enabled is None and 'publicNetworkAccessEnabled' in kwargs:
+            public_network_access_enabled = kwargs['publicNetworkAccessEnabled']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if sku_name is None and 'skuName' in kwargs:
+            sku_name = kwargs['skuName']
+        if storage_account_id is None and 'storageAccountId' in kwargs:
+            storage_account_id = kwargs['storageAccountId']
+        if v1_legacy_mode_enabled is None and 'v1LegacyModeEnabled' in kwargs:
+            v1_legacy_mode_enabled = kwargs['v1LegacyModeEnabled']
+        if workspace_id is None and 'workspaceId' in kwargs:
+            workspace_id = kwargs['workspaceId']
+
         if application_insights_id is not None:
-            pulumi.set(__self__, "application_insights_id", application_insights_id)
+            _setter("application_insights_id", application_insights_id)
         if container_registry_id is not None:
-            pulumi.set(__self__, "container_registry_id", container_registry_id)
+            _setter("container_registry_id", container_registry_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if discovery_url is not None:
-            pulumi.set(__self__, "discovery_url", discovery_url)
+            _setter("discovery_url", discovery_url)
         if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
+            _setter("encryption", encryption)
         if friendly_name is not None:
-            pulumi.set(__self__, "friendly_name", friendly_name)
+            _setter("friendly_name", friendly_name)
         if high_business_impact is not None:
-            pulumi.set(__self__, "high_business_impact", high_business_impact)
+            _setter("high_business_impact", high_business_impact)
         if identity is not None:
-            pulumi.set(__self__, "identity", identity)
+            _setter("identity", identity)
         if image_build_compute_name is not None:
-            pulumi.set(__self__, "image_build_compute_name", image_build_compute_name)
+            _setter("image_build_compute_name", image_build_compute_name)
         if key_vault_id is not None:
-            pulumi.set(__self__, "key_vault_id", key_vault_id)
+            _setter("key_vault_id", key_vault_id)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if primary_user_assigned_identity is not None:
-            pulumi.set(__self__, "primary_user_assigned_identity", primary_user_assigned_identity)
+            _setter("primary_user_assigned_identity", primary_user_assigned_identity)
         if public_access_behind_virtual_network_enabled is not None:
             warnings.warn("""`public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""", DeprecationWarning)
             pulumi.log.warn("""public_access_behind_virtual_network_enabled is deprecated: `public_access_behind_virtual_network_enabled` will be removed in favour of the property `public_network_access_enabled` in version 4.0 of the AzureRM Provider.""")
         if public_access_behind_virtual_network_enabled is not None:
-            pulumi.set(__self__, "public_access_behind_virtual_network_enabled", public_access_behind_virtual_network_enabled)
+            _setter("public_access_behind_virtual_network_enabled", public_access_behind_virtual_network_enabled)
         if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
+            _setter("public_network_access_enabled", public_network_access_enabled)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sku_name is not None:
-            pulumi.set(__self__, "sku_name", sku_name)
+            _setter("sku_name", sku_name)
         if storage_account_id is not None:
-            pulumi.set(__self__, "storage_account_id", storage_account_id)
+            _setter("storage_account_id", storage_account_id)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if v1_legacy_mode_enabled is not None:
-            pulumi.set(__self__, "v1_legacy_mode_enabled", v1_legacy_mode_enabled)
+            _setter("v1_legacy_mode_enabled", v1_legacy_mode_enabled)
         if workspace_id is not None:
-            pulumi.set(__self__, "workspace_id", workspace_id)
+            _setter("workspace_id", workspace_id)
 
     @property
     @pulumi.getter(name="applicationInsightsId")
@@ -1249,6 +1413,10 @@ class Workspace(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkspaceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1287,9 +1455,19 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["application_insights_id"] = application_insights_id
             __props__.__dict__["container_registry_id"] = container_registry_id
             __props__.__dict__["description"] = description
+            if encryption is not None and not isinstance(encryption, WorkspaceEncryptionArgs):
+                encryption = encryption or {}
+                def _setter(key, value):
+                    encryption[key] = value
+                WorkspaceEncryptionArgs._configure(_setter, **encryption)
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["friendly_name"] = friendly_name
             __props__.__dict__["high_business_impact"] = high_business_impact
+            if identity is not None and not isinstance(identity, WorkspaceIdentityArgs):
+                identity = identity or {}
+                def _setter(key, value):
+                    identity[key] = value
+                WorkspaceIdentityArgs._configure(_setter, **identity)
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity

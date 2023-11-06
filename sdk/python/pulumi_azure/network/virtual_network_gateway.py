@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -62,36 +62,109 @@ class VirtualNetworkGatewayArgs:
         :param pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs'] vpn_client_configuration: A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "ip_configurations", ip_configurations)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sku", sku)
-        pulumi.set(__self__, "type", type)
+        VirtualNetworkGatewayArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip_configurations=ip_configurations,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            type=type,
+            active_active=active_active,
+            bgp_settings=bgp_settings,
+            custom_route=custom_route,
+            default_local_network_gateway_id=default_local_network_gateway_id,
+            edge_zone=edge_zone,
+            enable_bgp=enable_bgp,
+            generation=generation,
+            location=location,
+            name=name,
+            private_ip_address_enabled=private_ip_address_enabled,
+            tags=tags,
+            vpn_client_configuration=vpn_client_configuration,
+            vpn_type=vpn_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayIpConfigurationArgs']]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             active_active: Optional[pulumi.Input[bool]] = None,
+             bgp_settings: Optional[pulumi.Input['VirtualNetworkGatewayBgpSettingsArgs']] = None,
+             custom_route: Optional[pulumi.Input['VirtualNetworkGatewayCustomRouteArgs']] = None,
+             default_local_network_gateway_id: Optional[pulumi.Input[str]] = None,
+             edge_zone: Optional[pulumi.Input[str]] = None,
+             enable_bgp: Optional[pulumi.Input[bool]] = None,
+             generation: Optional[pulumi.Input[str]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             private_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             vpn_client_configuration: Optional[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs']] = None,
+             vpn_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if ip_configurations is None:
+            raise TypeError("Missing 'ip_configurations' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if sku is None:
+            raise TypeError("Missing 'sku' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if active_active is None and 'activeActive' in kwargs:
+            active_active = kwargs['activeActive']
+        if bgp_settings is None and 'bgpSettings' in kwargs:
+            bgp_settings = kwargs['bgpSettings']
+        if custom_route is None and 'customRoute' in kwargs:
+            custom_route = kwargs['customRoute']
+        if default_local_network_gateway_id is None and 'defaultLocalNetworkGatewayId' in kwargs:
+            default_local_network_gateway_id = kwargs['defaultLocalNetworkGatewayId']
+        if edge_zone is None and 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if enable_bgp is None and 'enableBgp' in kwargs:
+            enable_bgp = kwargs['enableBgp']
+        if private_ip_address_enabled is None and 'privateIpAddressEnabled' in kwargs:
+            private_ip_address_enabled = kwargs['privateIpAddressEnabled']
+        if vpn_client_configuration is None and 'vpnClientConfiguration' in kwargs:
+            vpn_client_configuration = kwargs['vpnClientConfiguration']
+        if vpn_type is None and 'vpnType' in kwargs:
+            vpn_type = kwargs['vpnType']
+
+        _setter("ip_configurations", ip_configurations)
+        _setter("resource_group_name", resource_group_name)
+        _setter("sku", sku)
+        _setter("type", type)
         if active_active is not None:
-            pulumi.set(__self__, "active_active", active_active)
+            _setter("active_active", active_active)
         if bgp_settings is not None:
-            pulumi.set(__self__, "bgp_settings", bgp_settings)
+            _setter("bgp_settings", bgp_settings)
         if custom_route is not None:
-            pulumi.set(__self__, "custom_route", custom_route)
+            _setter("custom_route", custom_route)
         if default_local_network_gateway_id is not None:
-            pulumi.set(__self__, "default_local_network_gateway_id", default_local_network_gateway_id)
+            _setter("default_local_network_gateway_id", default_local_network_gateway_id)
         if edge_zone is not None:
-            pulumi.set(__self__, "edge_zone", edge_zone)
+            _setter("edge_zone", edge_zone)
         if enable_bgp is not None:
-            pulumi.set(__self__, "enable_bgp", enable_bgp)
+            _setter("enable_bgp", enable_bgp)
         if generation is not None:
-            pulumi.set(__self__, "generation", generation)
+            _setter("generation", generation)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_ip_address_enabled is not None:
-            pulumi.set(__self__, "private_ip_address_enabled", private_ip_address_enabled)
+            _setter("private_ip_address_enabled", private_ip_address_enabled)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if vpn_client_configuration is not None:
-            pulumi.set(__self__, "vpn_client_configuration", vpn_client_configuration)
+            _setter("vpn_client_configuration", vpn_client_configuration)
         if vpn_type is not None:
-            pulumi.set(__self__, "vpn_type", vpn_type)
+            _setter("vpn_type", vpn_type)
 
     @property
     @pulumi.getter(name="ipConfigurations")
@@ -356,40 +429,105 @@ class _VirtualNetworkGatewayState:
         :param pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs'] vpn_client_configuration: A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections.
         :param pulumi.Input[str] vpn_type: The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created.
         """
+        _VirtualNetworkGatewayState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            active_active=active_active,
+            bgp_settings=bgp_settings,
+            custom_route=custom_route,
+            default_local_network_gateway_id=default_local_network_gateway_id,
+            edge_zone=edge_zone,
+            enable_bgp=enable_bgp,
+            generation=generation,
+            ip_configurations=ip_configurations,
+            location=location,
+            name=name,
+            private_ip_address_enabled=private_ip_address_enabled,
+            resource_group_name=resource_group_name,
+            sku=sku,
+            tags=tags,
+            type=type,
+            vpn_client_configuration=vpn_client_configuration,
+            vpn_type=vpn_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             active_active: Optional[pulumi.Input[bool]] = None,
+             bgp_settings: Optional[pulumi.Input['VirtualNetworkGatewayBgpSettingsArgs']] = None,
+             custom_route: Optional[pulumi.Input['VirtualNetworkGatewayCustomRouteArgs']] = None,
+             default_local_network_gateway_id: Optional[pulumi.Input[str]] = None,
+             edge_zone: Optional[pulumi.Input[str]] = None,
+             enable_bgp: Optional[pulumi.Input[bool]] = None,
+             generation: Optional[pulumi.Input[str]] = None,
+             ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayIpConfigurationArgs']]]] = None,
+             location: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             private_ip_address_enabled: Optional[pulumi.Input[bool]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             sku: Optional[pulumi.Input[str]] = None,
+             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             vpn_client_configuration: Optional[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationArgs']] = None,
+             vpn_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if active_active is None and 'activeActive' in kwargs:
+            active_active = kwargs['activeActive']
+        if bgp_settings is None and 'bgpSettings' in kwargs:
+            bgp_settings = kwargs['bgpSettings']
+        if custom_route is None and 'customRoute' in kwargs:
+            custom_route = kwargs['customRoute']
+        if default_local_network_gateway_id is None and 'defaultLocalNetworkGatewayId' in kwargs:
+            default_local_network_gateway_id = kwargs['defaultLocalNetworkGatewayId']
+        if edge_zone is None and 'edgeZone' in kwargs:
+            edge_zone = kwargs['edgeZone']
+        if enable_bgp is None and 'enableBgp' in kwargs:
+            enable_bgp = kwargs['enableBgp']
+        if ip_configurations is None and 'ipConfigurations' in kwargs:
+            ip_configurations = kwargs['ipConfigurations']
+        if private_ip_address_enabled is None and 'privateIpAddressEnabled' in kwargs:
+            private_ip_address_enabled = kwargs['privateIpAddressEnabled']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if vpn_client_configuration is None and 'vpnClientConfiguration' in kwargs:
+            vpn_client_configuration = kwargs['vpnClientConfiguration']
+        if vpn_type is None and 'vpnType' in kwargs:
+            vpn_type = kwargs['vpnType']
+
         if active_active is not None:
-            pulumi.set(__self__, "active_active", active_active)
+            _setter("active_active", active_active)
         if bgp_settings is not None:
-            pulumi.set(__self__, "bgp_settings", bgp_settings)
+            _setter("bgp_settings", bgp_settings)
         if custom_route is not None:
-            pulumi.set(__self__, "custom_route", custom_route)
+            _setter("custom_route", custom_route)
         if default_local_network_gateway_id is not None:
-            pulumi.set(__self__, "default_local_network_gateway_id", default_local_network_gateway_id)
+            _setter("default_local_network_gateway_id", default_local_network_gateway_id)
         if edge_zone is not None:
-            pulumi.set(__self__, "edge_zone", edge_zone)
+            _setter("edge_zone", edge_zone)
         if enable_bgp is not None:
-            pulumi.set(__self__, "enable_bgp", enable_bgp)
+            _setter("enable_bgp", enable_bgp)
         if generation is not None:
-            pulumi.set(__self__, "generation", generation)
+            _setter("generation", generation)
         if ip_configurations is not None:
-            pulumi.set(__self__, "ip_configurations", ip_configurations)
+            _setter("ip_configurations", ip_configurations)
         if location is not None:
-            pulumi.set(__self__, "location", location)
+            _setter("location", location)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if private_ip_address_enabled is not None:
-            pulumi.set(__self__, "private_ip_address_enabled", private_ip_address_enabled)
+            _setter("private_ip_address_enabled", private_ip_address_enabled)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if sku is not None:
-            pulumi.set(__self__, "sku", sku)
+            _setter("sku", sku)
         if tags is not None:
-            pulumi.set(__self__, "tags", tags)
+            _setter("tags", tags)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if vpn_client_configuration is not None:
-            pulumi.set(__self__, "vpn_client_configuration", vpn_client_configuration)
+            _setter("vpn_client_configuration", vpn_client_configuration)
         if vpn_type is not None:
-            pulumi.set(__self__, "vpn_type", vpn_type)
+            _setter("vpn_type", vpn_type)
 
     @property
     @pulumi.getter(name="activeActive")
@@ -831,6 +969,10 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualNetworkGatewayArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -863,7 +1005,17 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__ = VirtualNetworkGatewayArgs.__new__(VirtualNetworkGatewayArgs)
 
             __props__.__dict__["active_active"] = active_active
+            if bgp_settings is not None and not isinstance(bgp_settings, VirtualNetworkGatewayBgpSettingsArgs):
+                bgp_settings = bgp_settings or {}
+                def _setter(key, value):
+                    bgp_settings[key] = value
+                VirtualNetworkGatewayBgpSettingsArgs._configure(_setter, **bgp_settings)
             __props__.__dict__["bgp_settings"] = bgp_settings
+            if custom_route is not None and not isinstance(custom_route, VirtualNetworkGatewayCustomRouteArgs):
+                custom_route = custom_route or {}
+                def _setter(key, value):
+                    custom_route[key] = value
+                VirtualNetworkGatewayCustomRouteArgs._configure(_setter, **custom_route)
             __props__.__dict__["custom_route"] = custom_route
             __props__.__dict__["default_local_network_gateway_id"] = default_local_network_gateway_id
             __props__.__dict__["edge_zone"] = edge_zone
@@ -885,6 +1037,11 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            if vpn_client_configuration is not None and not isinstance(vpn_client_configuration, VirtualNetworkGatewayVpnClientConfigurationArgs):
+                vpn_client_configuration = vpn_client_configuration or {}
+                def _setter(key, value):
+                    vpn_client_configuration[key] = value
+                VirtualNetworkGatewayVpnClientConfigurationArgs._configure(_setter, **vpn_client_configuration)
             __props__.__dict__["vpn_client_configuration"] = vpn_client_configuration
             __props__.__dict__["vpn_type"] = vpn_type
         super(VirtualNetworkGateway, __self__).__init__(

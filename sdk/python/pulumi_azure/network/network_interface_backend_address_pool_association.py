@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NetworkInterfaceBackendAddressPoolAssociationArgs', 'NetworkInterfaceBackendAddressPoolAssociation']
@@ -23,9 +23,36 @@ class NetworkInterfaceBackendAddressPoolAssociationArgs:
         :param pulumi.Input[str] ip_configuration_name: The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "backend_address_pool_id", backend_address_pool_id)
-        pulumi.set(__self__, "ip_configuration_name", ip_configuration_name)
-        pulumi.set(__self__, "network_interface_id", network_interface_id)
+        NetworkInterfaceBackendAddressPoolAssociationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_address_pool_id=backend_address_pool_id,
+            ip_configuration_name=ip_configuration_name,
+            network_interface_id=network_interface_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_address_pool_id: Optional[pulumi.Input[str]] = None,
+             ip_configuration_name: Optional[pulumi.Input[str]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if backend_address_pool_id is None and 'backendAddressPoolId' in kwargs:
+            backend_address_pool_id = kwargs['backendAddressPoolId']
+        if backend_address_pool_id is None:
+            raise TypeError("Missing 'backend_address_pool_id' argument")
+        if ip_configuration_name is None and 'ipConfigurationName' in kwargs:
+            ip_configuration_name = kwargs['ipConfigurationName']
+        if ip_configuration_name is None:
+            raise TypeError("Missing 'ip_configuration_name' argument")
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+        if network_interface_id is None:
+            raise TypeError("Missing 'network_interface_id' argument")
+
+        _setter("backend_address_pool_id", backend_address_pool_id)
+        _setter("ip_configuration_name", ip_configuration_name)
+        _setter("network_interface_id", network_interface_id)
 
     @property
     @pulumi.getter(name="backendAddressPoolId")
@@ -76,12 +103,33 @@ class _NetworkInterfaceBackendAddressPoolAssociationState:
         :param pulumi.Input[str] ip_configuration_name: The Name of the IP Configuration within the Network Interface which should be connected to the Backend Address Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_interface_id: The ID of the Network Interface. Changing this forces a new resource to be created.
         """
+        _NetworkInterfaceBackendAddressPoolAssociationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            backend_address_pool_id=backend_address_pool_id,
+            ip_configuration_name=ip_configuration_name,
+            network_interface_id=network_interface_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             backend_address_pool_id: Optional[pulumi.Input[str]] = None,
+             ip_configuration_name: Optional[pulumi.Input[str]] = None,
+             network_interface_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if backend_address_pool_id is None and 'backendAddressPoolId' in kwargs:
+            backend_address_pool_id = kwargs['backendAddressPoolId']
+        if ip_configuration_name is None and 'ipConfigurationName' in kwargs:
+            ip_configuration_name = kwargs['ipConfigurationName']
+        if network_interface_id is None and 'networkInterfaceId' in kwargs:
+            network_interface_id = kwargs['networkInterfaceId']
+
         if backend_address_pool_id is not None:
-            pulumi.set(__self__, "backend_address_pool_id", backend_address_pool_id)
+            _setter("backend_address_pool_id", backend_address_pool_id)
         if ip_configuration_name is not None:
-            pulumi.set(__self__, "ip_configuration_name", ip_configuration_name)
+            _setter("ip_configuration_name", ip_configuration_name)
         if network_interface_id is not None:
-            pulumi.set(__self__, "network_interface_id", network_interface_id)
+            _setter("network_interface_id", network_interface_id)
 
     @property
     @pulumi.getter(name="backendAddressPoolId")
@@ -255,6 +303,10 @@ class NetworkInterfaceBackendAddressPoolAssociation(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetworkInterfaceBackendAddressPoolAssociationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

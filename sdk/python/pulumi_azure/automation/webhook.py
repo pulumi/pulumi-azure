@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['WebhookArgs', 'Webhook']
@@ -35,20 +35,65 @@ class WebhookArgs:
         :param pulumi.Input[str] run_on_worker_group: Name of the hybrid worker group the Webhook job will run on.
         :param pulumi.Input[str] uri: URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "expiry_time", expiry_time)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "runbook_name", runbook_name)
+        WebhookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            expiry_time=expiry_time,
+            resource_group_name=resource_group_name,
+            runbook_name=runbook_name,
+            enabled=enabled,
+            name=name,
+            parameters=parameters,
+            run_on_worker_group=run_on_worker_group,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             expiry_time: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             runbook_name: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             run_on_worker_group: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if automation_account_name is None and 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if automation_account_name is None:
+            raise TypeError("Missing 'automation_account_name' argument")
+        if expiry_time is None and 'expiryTime' in kwargs:
+            expiry_time = kwargs['expiryTime']
+        if expiry_time is None:
+            raise TypeError("Missing 'expiry_time' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if runbook_name is None and 'runbookName' in kwargs:
+            runbook_name = kwargs['runbookName']
+        if runbook_name is None:
+            raise TypeError("Missing 'runbook_name' argument")
+        if run_on_worker_group is None and 'runOnWorkerGroup' in kwargs:
+            run_on_worker_group = kwargs['runOnWorkerGroup']
+
+        _setter("automation_account_name", automation_account_name)
+        _setter("expiry_time", expiry_time)
+        _setter("resource_group_name", resource_group_name)
+        _setter("runbook_name", runbook_name)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if run_on_worker_group is not None:
-            pulumi.set(__self__, "run_on_worker_group", run_on_worker_group)
+            _setter("run_on_worker_group", run_on_worker_group)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -183,24 +228,61 @@ class _WebhookState:
         :param pulumi.Input[str] runbook_name: Name of the Automation Runbook to execute by Webhook.
         :param pulumi.Input[str] uri: URI to initiate the webhook. Can be generated using [Generate URI API](https://docs.microsoft.com/rest/api/automation/webhook/generate-uri). By default, new URI is generated on each new resource creation. Changing this forces a new resource to be created.
         """
+        _WebhookState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            automation_account_name=automation_account_name,
+            enabled=enabled,
+            expiry_time=expiry_time,
+            name=name,
+            parameters=parameters,
+            resource_group_name=resource_group_name,
+            run_on_worker_group=run_on_worker_group,
+            runbook_name=runbook_name,
+            uri=uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             automation_account_name: Optional[pulumi.Input[str]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             expiry_time: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             run_on_worker_group: Optional[pulumi.Input[str]] = None,
+             runbook_name: Optional[pulumi.Input[str]] = None,
+             uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if automation_account_name is None and 'automationAccountName' in kwargs:
+            automation_account_name = kwargs['automationAccountName']
+        if expiry_time is None and 'expiryTime' in kwargs:
+            expiry_time = kwargs['expiryTime']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if run_on_worker_group is None and 'runOnWorkerGroup' in kwargs:
+            run_on_worker_group = kwargs['runOnWorkerGroup']
+        if runbook_name is None and 'runbookName' in kwargs:
+            runbook_name = kwargs['runbookName']
+
         if automation_account_name is not None:
-            pulumi.set(__self__, "automation_account_name", automation_account_name)
+            _setter("automation_account_name", automation_account_name)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if expiry_time is not None:
-            pulumi.set(__self__, "expiry_time", expiry_time)
+            _setter("expiry_time", expiry_time)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if run_on_worker_group is not None:
-            pulumi.set(__self__, "run_on_worker_group", run_on_worker_group)
+            _setter("run_on_worker_group", run_on_worker_group)
         if runbook_name is not None:
-            pulumi.set(__self__, "runbook_name", runbook_name)
+            _setter("runbook_name", runbook_name)
         if uri is not None:
-            pulumi.set(__self__, "uri", uri)
+            _setter("uri", uri)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -442,6 +524,10 @@ class Webhook(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WebhookArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

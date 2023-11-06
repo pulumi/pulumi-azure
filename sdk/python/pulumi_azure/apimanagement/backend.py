@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -43,26 +43,75 @@ class BackendArgs:
         :param pulumi.Input[str] title: The title of the backend.
         :param pulumi.Input['BackendTlsArgs'] tls: A `tls` block as documented below.
         """
-        pulumi.set(__self__, "api_management_name", api_management_name)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "url", url)
+        BackendArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_name=api_management_name,
+            protocol=protocol,
+            resource_group_name=resource_group_name,
+            url=url,
+            credentials=credentials,
+            description=description,
+            name=name,
+            proxy=proxy,
+            resource_id=resource_id,
+            service_fabric_cluster=service_fabric_cluster,
+            title=title,
+            tls=tls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['BackendCredentialsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             proxy: Optional[pulumi.Input['BackendProxyArgs']] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             service_fabric_cluster: Optional[pulumi.Input['BackendServiceFabricClusterArgs']] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             tls: Optional[pulumi.Input['BackendTlsArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_management_name is None and 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if api_management_name is None:
+            raise TypeError("Missing 'api_management_name' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_group_name is None:
+            raise TypeError("Missing 'resource_group_name' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if service_fabric_cluster is None and 'serviceFabricCluster' in kwargs:
+            service_fabric_cluster = kwargs['serviceFabricCluster']
+
+        _setter("api_management_name", api_management_name)
+        _setter("protocol", protocol)
+        _setter("resource_group_name", resource_group_name)
+        _setter("url", url)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if proxy is not None:
-            pulumi.set(__self__, "proxy", proxy)
+            _setter("proxy", proxy)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if service_fabric_cluster is not None:
-            pulumi.set(__self__, "service_fabric_cluster", service_fabric_cluster)
+            _setter("service_fabric_cluster", service_fabric_cluster)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if tls is not None:
-            pulumi.set(__self__, "tls", tls)
+            _setter("tls", tls)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -239,30 +288,71 @@ class _BackendState:
         :param pulumi.Input['BackendTlsArgs'] tls: A `tls` block as documented below.
         :param pulumi.Input[str] url: The URL of the backend host.
         """
+        _BackendState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            api_management_name=api_management_name,
+            credentials=credentials,
+            description=description,
+            name=name,
+            protocol=protocol,
+            proxy=proxy,
+            resource_group_name=resource_group_name,
+            resource_id=resource_id,
+            service_fabric_cluster=service_fabric_cluster,
+            title=title,
+            tls=tls,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             api_management_name: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['BackendCredentialsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             proxy: Optional[pulumi.Input['BackendProxyArgs']] = None,
+             resource_group_name: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             service_fabric_cluster: Optional[pulumi.Input['BackendServiceFabricClusterArgs']] = None,
+             title: Optional[pulumi.Input[str]] = None,
+             tls: Optional[pulumi.Input['BackendTlsArgs']] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if api_management_name is None and 'apiManagementName' in kwargs:
+            api_management_name = kwargs['apiManagementName']
+        if resource_group_name is None and 'resourceGroupName' in kwargs:
+            resource_group_name = kwargs['resourceGroupName']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if service_fabric_cluster is None and 'serviceFabricCluster' in kwargs:
+            service_fabric_cluster = kwargs['serviceFabricCluster']
+
         if api_management_name is not None:
-            pulumi.set(__self__, "api_management_name", api_management_name)
+            _setter("api_management_name", api_management_name)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if proxy is not None:
-            pulumi.set(__self__, "proxy", proxy)
+            _setter("proxy", proxy)
         if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
+            _setter("resource_group_name", resource_group_name)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if service_fabric_cluster is not None:
-            pulumi.set(__self__, "service_fabric_cluster", service_fabric_cluster)
+            _setter("service_fabric_cluster", service_fabric_cluster)
         if title is not None:
-            pulumi.set(__self__, "title", title)
+            _setter("title", title)
         if tls is not None:
-            pulumi.set(__self__, "tls", tls)
+            _setter("tls", tls)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="apiManagementName")
@@ -520,6 +610,10 @@ class Backend(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BackendArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -549,19 +643,39 @@ class Backend(pulumi.CustomResource):
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")
             __props__.__dict__["api_management_name"] = api_management_name
+            if credentials is not None and not isinstance(credentials, BackendCredentialsArgs):
+                credentials = credentials or {}
+                def _setter(key, value):
+                    credentials[key] = value
+                BackendCredentialsArgs._configure(_setter, **credentials)
             __props__.__dict__["credentials"] = credentials
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
+            if proxy is not None and not isinstance(proxy, BackendProxyArgs):
+                proxy = proxy or {}
+                def _setter(key, value):
+                    proxy[key] = value
+                BackendProxyArgs._configure(_setter, **proxy)
             __props__.__dict__["proxy"] = proxy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_id"] = resource_id
+            if service_fabric_cluster is not None and not isinstance(service_fabric_cluster, BackendServiceFabricClusterArgs):
+                service_fabric_cluster = service_fabric_cluster or {}
+                def _setter(key, value):
+                    service_fabric_cluster[key] = value
+                BackendServiceFabricClusterArgs._configure(_setter, **service_fabric_cluster)
             __props__.__dict__["service_fabric_cluster"] = service_fabric_cluster
             __props__.__dict__["title"] = title
+            if tls is not None and not isinstance(tls, BackendTlsArgs):
+                tls = tls or {}
+                def _setter(key, value):
+                    tls[key] = value
+                BackendTlsArgs._configure(_setter, **tls)
             __props__.__dict__["tls"] = tls
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
