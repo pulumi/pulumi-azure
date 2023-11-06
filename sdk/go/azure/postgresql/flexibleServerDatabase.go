@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a PostgreSQL Flexible Server Database.
@@ -188,12 +187,6 @@ func (i *FlexibleServerDatabase) ToFlexibleServerDatabaseOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerDatabaseOutput)
 }
 
-func (i *FlexibleServerDatabase) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServerDatabase] {
-	return pulumix.Output[*FlexibleServerDatabase]{
-		OutputState: i.ToFlexibleServerDatabaseOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FlexibleServerDatabaseArrayInput is an input type that accepts FlexibleServerDatabaseArray and FlexibleServerDatabaseArrayOutput values.
 // You can construct a concrete instance of `FlexibleServerDatabaseArrayInput` via:
 //
@@ -217,12 +210,6 @@ func (i FlexibleServerDatabaseArray) ToFlexibleServerDatabaseArrayOutput() Flexi
 
 func (i FlexibleServerDatabaseArray) ToFlexibleServerDatabaseArrayOutputWithContext(ctx context.Context) FlexibleServerDatabaseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerDatabaseArrayOutput)
-}
-
-func (i FlexibleServerDatabaseArray) ToOutput(ctx context.Context) pulumix.Output[[]*FlexibleServerDatabase] {
-	return pulumix.Output[[]*FlexibleServerDatabase]{
-		OutputState: i.ToFlexibleServerDatabaseArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FlexibleServerDatabaseMapInput is an input type that accepts FlexibleServerDatabaseMap and FlexibleServerDatabaseMapOutput values.
@@ -250,12 +237,6 @@ func (i FlexibleServerDatabaseMap) ToFlexibleServerDatabaseMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerDatabaseMapOutput)
 }
 
-func (i FlexibleServerDatabaseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlexibleServerDatabase] {
-	return pulumix.Output[map[string]*FlexibleServerDatabase]{
-		OutputState: i.ToFlexibleServerDatabaseMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlexibleServerDatabaseOutput struct{ *pulumi.OutputState }
 
 func (FlexibleServerDatabaseOutput) ElementType() reflect.Type {
@@ -268,12 +249,6 @@ func (o FlexibleServerDatabaseOutput) ToFlexibleServerDatabaseOutput() FlexibleS
 
 func (o FlexibleServerDatabaseOutput) ToFlexibleServerDatabaseOutputWithContext(ctx context.Context) FlexibleServerDatabaseOutput {
 	return o
-}
-
-func (o FlexibleServerDatabaseOutput) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServerDatabase] {
-	return pulumix.Output[*FlexibleServerDatabase]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Charset for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Charset](https://www.postgresql.org/docs/current/static/multibyte.html). Defaults to `UTF8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created.
@@ -310,12 +285,6 @@ func (o FlexibleServerDatabaseArrayOutput) ToFlexibleServerDatabaseArrayOutputWi
 	return o
 }
 
-func (o FlexibleServerDatabaseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FlexibleServerDatabase] {
-	return pulumix.Output[[]*FlexibleServerDatabase]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlexibleServerDatabaseArrayOutput) Index(i pulumi.IntInput) FlexibleServerDatabaseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FlexibleServerDatabase {
 		return vs[0].([]*FlexibleServerDatabase)[vs[1].(int)]
@@ -334,12 +303,6 @@ func (o FlexibleServerDatabaseMapOutput) ToFlexibleServerDatabaseMapOutput() Fle
 
 func (o FlexibleServerDatabaseMapOutput) ToFlexibleServerDatabaseMapOutputWithContext(ctx context.Context) FlexibleServerDatabaseMapOutput {
 	return o
-}
-
-func (o FlexibleServerDatabaseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlexibleServerDatabase] {
-	return pulumix.Output[map[string]*FlexibleServerDatabase]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlexibleServerDatabaseMapOutput) MapIndex(k pulumi.StringInput) FlexibleServerDatabaseOutput {

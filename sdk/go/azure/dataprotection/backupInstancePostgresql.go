@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Backup Instance to back up PostgreSQL.
@@ -340,12 +339,6 @@ func (i *BackupInstancePostgresql) ToBackupInstancePostgresqlOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(BackupInstancePostgresqlOutput)
 }
 
-func (i *BackupInstancePostgresql) ToOutput(ctx context.Context) pulumix.Output[*BackupInstancePostgresql] {
-	return pulumix.Output[*BackupInstancePostgresql]{
-		OutputState: i.ToBackupInstancePostgresqlOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BackupInstancePostgresqlArrayInput is an input type that accepts BackupInstancePostgresqlArray and BackupInstancePostgresqlArrayOutput values.
 // You can construct a concrete instance of `BackupInstancePostgresqlArrayInput` via:
 //
@@ -369,12 +362,6 @@ func (i BackupInstancePostgresqlArray) ToBackupInstancePostgresqlArrayOutput() B
 
 func (i BackupInstancePostgresqlArray) ToBackupInstancePostgresqlArrayOutputWithContext(ctx context.Context) BackupInstancePostgresqlArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BackupInstancePostgresqlArrayOutput)
-}
-
-func (i BackupInstancePostgresqlArray) ToOutput(ctx context.Context) pulumix.Output[[]*BackupInstancePostgresql] {
-	return pulumix.Output[[]*BackupInstancePostgresql]{
-		OutputState: i.ToBackupInstancePostgresqlArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BackupInstancePostgresqlMapInput is an input type that accepts BackupInstancePostgresqlMap and BackupInstancePostgresqlMapOutput values.
@@ -402,12 +389,6 @@ func (i BackupInstancePostgresqlMap) ToBackupInstancePostgresqlMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(BackupInstancePostgresqlMapOutput)
 }
 
-func (i BackupInstancePostgresqlMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BackupInstancePostgresql] {
-	return pulumix.Output[map[string]*BackupInstancePostgresql]{
-		OutputState: i.ToBackupInstancePostgresqlMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BackupInstancePostgresqlOutput struct{ *pulumi.OutputState }
 
 func (BackupInstancePostgresqlOutput) ElementType() reflect.Type {
@@ -420,12 +401,6 @@ func (o BackupInstancePostgresqlOutput) ToBackupInstancePostgresqlOutput() Backu
 
 func (o BackupInstancePostgresqlOutput) ToBackupInstancePostgresqlOutputWithContext(ctx context.Context) BackupInstancePostgresqlOutput {
 	return o
-}
-
-func (o BackupInstancePostgresqlOutput) ToOutput(ctx context.Context) pulumix.Output[*BackupInstancePostgresql] {
-	return pulumix.Output[*BackupInstancePostgresql]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Backup Policy.
@@ -472,12 +447,6 @@ func (o BackupInstancePostgresqlArrayOutput) ToBackupInstancePostgresqlArrayOutp
 	return o
 }
 
-func (o BackupInstancePostgresqlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BackupInstancePostgresql] {
-	return pulumix.Output[[]*BackupInstancePostgresql]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BackupInstancePostgresqlArrayOutput) Index(i pulumi.IntInput) BackupInstancePostgresqlOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BackupInstancePostgresql {
 		return vs[0].([]*BackupInstancePostgresql)[vs[1].(int)]
@@ -496,12 +465,6 @@ func (o BackupInstancePostgresqlMapOutput) ToBackupInstancePostgresqlMapOutput()
 
 func (o BackupInstancePostgresqlMapOutput) ToBackupInstancePostgresqlMapOutputWithContext(ctx context.Context) BackupInstancePostgresqlMapOutput {
 	return o
-}
-
-func (o BackupInstancePostgresqlMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BackupInstancePostgresql] {
-	return pulumix.Output[map[string]*BackupInstancePostgresql]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BackupInstancePostgresqlMapOutput) MapIndex(k pulumi.StringInput) BackupInstancePostgresqlOutput {

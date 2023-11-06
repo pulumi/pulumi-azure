@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an ExpressRoute circuit.
@@ -318,12 +317,6 @@ func (i *ExpressRouteCircuit) ToExpressRouteCircuitOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitOutput)
 }
 
-func (i *ExpressRouteCircuit) ToOutput(ctx context.Context) pulumix.Output[*ExpressRouteCircuit] {
-	return pulumix.Output[*ExpressRouteCircuit]{
-		OutputState: i.ToExpressRouteCircuitOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ExpressRouteCircuitArrayInput is an input type that accepts ExpressRouteCircuitArray and ExpressRouteCircuitArrayOutput values.
 // You can construct a concrete instance of `ExpressRouteCircuitArrayInput` via:
 //
@@ -347,12 +340,6 @@ func (i ExpressRouteCircuitArray) ToExpressRouteCircuitArrayOutput() ExpressRout
 
 func (i ExpressRouteCircuitArray) ToExpressRouteCircuitArrayOutputWithContext(ctx context.Context) ExpressRouteCircuitArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitArrayOutput)
-}
-
-func (i ExpressRouteCircuitArray) ToOutput(ctx context.Context) pulumix.Output[[]*ExpressRouteCircuit] {
-	return pulumix.Output[[]*ExpressRouteCircuit]{
-		OutputState: i.ToExpressRouteCircuitArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ExpressRouteCircuitMapInput is an input type that accepts ExpressRouteCircuitMap and ExpressRouteCircuitMapOutput values.
@@ -380,12 +367,6 @@ func (i ExpressRouteCircuitMap) ToExpressRouteCircuitMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRouteCircuitMapOutput)
 }
 
-func (i ExpressRouteCircuitMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExpressRouteCircuit] {
-	return pulumix.Output[map[string]*ExpressRouteCircuit]{
-		OutputState: i.ToExpressRouteCircuitMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ExpressRouteCircuitOutput struct{ *pulumi.OutputState }
 
 func (ExpressRouteCircuitOutput) ElementType() reflect.Type {
@@ -398,12 +379,6 @@ func (o ExpressRouteCircuitOutput) ToExpressRouteCircuitOutput() ExpressRouteCir
 
 func (o ExpressRouteCircuitOutput) ToExpressRouteCircuitOutputWithContext(ctx context.Context) ExpressRouteCircuitOutput {
 	return o
-}
-
-func (o ExpressRouteCircuitOutput) ToOutput(ctx context.Context) pulumix.Output[*ExpressRouteCircuit] {
-	return pulumix.Output[*ExpressRouteCircuit]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Allow the circuit to interact with classic (RDFE) resources. Defaults to `false`.
@@ -496,12 +471,6 @@ func (o ExpressRouteCircuitArrayOutput) ToExpressRouteCircuitArrayOutputWithCont
 	return o
 }
 
-func (o ExpressRouteCircuitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ExpressRouteCircuit] {
-	return pulumix.Output[[]*ExpressRouteCircuit]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ExpressRouteCircuitArrayOutput) Index(i pulumi.IntInput) ExpressRouteCircuitOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExpressRouteCircuit {
 		return vs[0].([]*ExpressRouteCircuit)[vs[1].(int)]
@@ -520,12 +489,6 @@ func (o ExpressRouteCircuitMapOutput) ToExpressRouteCircuitMapOutput() ExpressRo
 
 func (o ExpressRouteCircuitMapOutput) ToExpressRouteCircuitMapOutputWithContext(ctx context.Context) ExpressRouteCircuitMapOutput {
 	return o
-}
-
-func (o ExpressRouteCircuitMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExpressRouteCircuit] {
-	return pulumix.Output[map[string]*ExpressRouteCircuit]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ExpressRouteCircuitMapOutput) MapIndex(k pulumi.StringInput) ExpressRouteCircuitOutput {

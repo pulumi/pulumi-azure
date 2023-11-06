@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Traffic Manager Profile.
@@ -128,12 +127,6 @@ func (o LookupTrafficManagerProfileResultOutput) ToLookupTrafficManagerProfileRe
 
 func (o LookupTrafficManagerProfileResultOutput) ToLookupTrafficManagerProfileResultOutputWithContext(ctx context.Context) LookupTrafficManagerProfileResultOutput {
 	return o
-}
-
-func (o LookupTrafficManagerProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTrafficManagerProfileResult] {
-	return pulumix.Output[LookupTrafficManagerProfileResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // This block specifies the DNS configuration of the Profile.

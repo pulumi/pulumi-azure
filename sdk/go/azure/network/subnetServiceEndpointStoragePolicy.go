@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Subnet Service Endpoint Storage Policy.
@@ -151,12 +150,6 @@ func (i *SubnetServiceEndpointStoragePolicy) ToSubnetServiceEndpointStoragePolic
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetServiceEndpointStoragePolicyOutput)
 }
 
-func (i *SubnetServiceEndpointStoragePolicy) ToOutput(ctx context.Context) pulumix.Output[*SubnetServiceEndpointStoragePolicy] {
-	return pulumix.Output[*SubnetServiceEndpointStoragePolicy]{
-		OutputState: i.ToSubnetServiceEndpointStoragePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SubnetServiceEndpointStoragePolicyArrayInput is an input type that accepts SubnetServiceEndpointStoragePolicyArray and SubnetServiceEndpointStoragePolicyArrayOutput values.
 // You can construct a concrete instance of `SubnetServiceEndpointStoragePolicyArrayInput` via:
 //
@@ -180,12 +173,6 @@ func (i SubnetServiceEndpointStoragePolicyArray) ToSubnetServiceEndpointStorageP
 
 func (i SubnetServiceEndpointStoragePolicyArray) ToSubnetServiceEndpointStoragePolicyArrayOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetServiceEndpointStoragePolicyArrayOutput)
-}
-
-func (i SubnetServiceEndpointStoragePolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*SubnetServiceEndpointStoragePolicy] {
-	return pulumix.Output[[]*SubnetServiceEndpointStoragePolicy]{
-		OutputState: i.ToSubnetServiceEndpointStoragePolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SubnetServiceEndpointStoragePolicyMapInput is an input type that accepts SubnetServiceEndpointStoragePolicyMap and SubnetServiceEndpointStoragePolicyMapOutput values.
@@ -213,12 +200,6 @@ func (i SubnetServiceEndpointStoragePolicyMap) ToSubnetServiceEndpointStoragePol
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetServiceEndpointStoragePolicyMapOutput)
 }
 
-func (i SubnetServiceEndpointStoragePolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubnetServiceEndpointStoragePolicy] {
-	return pulumix.Output[map[string]*SubnetServiceEndpointStoragePolicy]{
-		OutputState: i.ToSubnetServiceEndpointStoragePolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SubnetServiceEndpointStoragePolicyOutput struct{ *pulumi.OutputState }
 
 func (SubnetServiceEndpointStoragePolicyOutput) ElementType() reflect.Type {
@@ -231,12 +212,6 @@ func (o SubnetServiceEndpointStoragePolicyOutput) ToSubnetServiceEndpointStorage
 
 func (o SubnetServiceEndpointStoragePolicyOutput) ToSubnetServiceEndpointStoragePolicyOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyOutput {
 	return o
-}
-
-func (o SubnetServiceEndpointStoragePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*SubnetServiceEndpointStoragePolicy] {
-	return pulumix.Output[*SubnetServiceEndpointStoragePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `definition` block as defined below
@@ -280,12 +255,6 @@ func (o SubnetServiceEndpointStoragePolicyArrayOutput) ToSubnetServiceEndpointSt
 	return o
 }
 
-func (o SubnetServiceEndpointStoragePolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SubnetServiceEndpointStoragePolicy] {
-	return pulumix.Output[[]*SubnetServiceEndpointStoragePolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SubnetServiceEndpointStoragePolicyArrayOutput) Index(i pulumi.IntInput) SubnetServiceEndpointStoragePolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SubnetServiceEndpointStoragePolicy {
 		return vs[0].([]*SubnetServiceEndpointStoragePolicy)[vs[1].(int)]
@@ -304,12 +273,6 @@ func (o SubnetServiceEndpointStoragePolicyMapOutput) ToSubnetServiceEndpointStor
 
 func (o SubnetServiceEndpointStoragePolicyMapOutput) ToSubnetServiceEndpointStoragePolicyMapOutputWithContext(ctx context.Context) SubnetServiceEndpointStoragePolicyMapOutput {
 	return o
-}
-
-func (o SubnetServiceEndpointStoragePolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubnetServiceEndpointStoragePolicy] {
-	return pulumix.Output[map[string]*SubnetServiceEndpointStoragePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SubnetServiceEndpointStoragePolicyMapOutput) MapIndex(k pulumi.StringInput) SubnetServiceEndpointStoragePolicyOutput {

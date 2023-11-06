@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i ProviderPolicyArgs) ToProviderPolicyOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderPolicyOutput)
 }
 
-func (i ProviderPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ProviderPolicy] {
-	return pulumix.Output[ProviderPolicy]{
-		OutputState: i.ToProviderPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProviderPolicyArrayInput is an input type that accepts ProviderPolicyArray and ProviderPolicyArrayOutput values.
 // You can construct a concrete instance of `ProviderPolicyArrayInput` via:
 //
@@ -78,12 +71,6 @@ func (i ProviderPolicyArray) ToProviderPolicyArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ProviderPolicyArrayOutput)
 }
 
-func (i ProviderPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]ProviderPolicy] {
-	return pulumix.Output[[]ProviderPolicy]{
-		OutputState: i.ToProviderPolicyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProviderPolicyOutput struct{ *pulumi.OutputState }
 
 func (ProviderPolicyOutput) ElementType() reflect.Type {
@@ -96,12 +83,6 @@ func (o ProviderPolicyOutput) ToProviderPolicyOutput() ProviderPolicyOutput {
 
 func (o ProviderPolicyOutput) ToProviderPolicyOutputWithContext(ctx context.Context) ProviderPolicyOutput {
 	return o
-}
-
-func (o ProviderPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ProviderPolicy] {
-	return pulumix.Output[ProviderPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProviderPolicyOutput) Data() pulumi.StringPtrOutput {
@@ -124,12 +105,6 @@ func (o ProviderPolicyArrayOutput) ToProviderPolicyArrayOutput() ProviderPolicyA
 
 func (o ProviderPolicyArrayOutput) ToProviderPolicyArrayOutputWithContext(ctx context.Context) ProviderPolicyArrayOutput {
 	return o
-}
-
-func (o ProviderPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProviderPolicy] {
-	return pulumix.Output[[]ProviderPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProviderPolicyArrayOutput) Index(i pulumi.IntInput) ProviderPolicyOutput {

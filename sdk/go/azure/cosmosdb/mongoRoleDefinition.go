@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Cosmos DB Mongo Role Definition.
@@ -221,12 +220,6 @@ func (i *MongoRoleDefinition) ToMongoRoleDefinitionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(MongoRoleDefinitionOutput)
 }
 
-func (i *MongoRoleDefinition) ToOutput(ctx context.Context) pulumix.Output[*MongoRoleDefinition] {
-	return pulumix.Output[*MongoRoleDefinition]{
-		OutputState: i.ToMongoRoleDefinitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MongoRoleDefinitionArrayInput is an input type that accepts MongoRoleDefinitionArray and MongoRoleDefinitionArrayOutput values.
 // You can construct a concrete instance of `MongoRoleDefinitionArrayInput` via:
 //
@@ -250,12 +243,6 @@ func (i MongoRoleDefinitionArray) ToMongoRoleDefinitionArrayOutput() MongoRoleDe
 
 func (i MongoRoleDefinitionArray) ToMongoRoleDefinitionArrayOutputWithContext(ctx context.Context) MongoRoleDefinitionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MongoRoleDefinitionArrayOutput)
-}
-
-func (i MongoRoleDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]*MongoRoleDefinition] {
-	return pulumix.Output[[]*MongoRoleDefinition]{
-		OutputState: i.ToMongoRoleDefinitionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MongoRoleDefinitionMapInput is an input type that accepts MongoRoleDefinitionMap and MongoRoleDefinitionMapOutput values.
@@ -283,12 +270,6 @@ func (i MongoRoleDefinitionMap) ToMongoRoleDefinitionMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(MongoRoleDefinitionMapOutput)
 }
 
-func (i MongoRoleDefinitionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MongoRoleDefinition] {
-	return pulumix.Output[map[string]*MongoRoleDefinition]{
-		OutputState: i.ToMongoRoleDefinitionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MongoRoleDefinitionOutput struct{ *pulumi.OutputState }
 
 func (MongoRoleDefinitionOutput) ElementType() reflect.Type {
@@ -301,12 +282,6 @@ func (o MongoRoleDefinitionOutput) ToMongoRoleDefinitionOutput() MongoRoleDefini
 
 func (o MongoRoleDefinitionOutput) ToMongoRoleDefinitionOutputWithContext(ctx context.Context) MongoRoleDefinitionOutput {
 	return o
-}
-
-func (o MongoRoleDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*MongoRoleDefinition] {
-	return pulumix.Output[*MongoRoleDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The resource ID of the Mongo DB. Changing this forces a new resource to be created.
@@ -345,12 +320,6 @@ func (o MongoRoleDefinitionArrayOutput) ToMongoRoleDefinitionArrayOutputWithCont
 	return o
 }
 
-func (o MongoRoleDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MongoRoleDefinition] {
-	return pulumix.Output[[]*MongoRoleDefinition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MongoRoleDefinitionArrayOutput) Index(i pulumi.IntInput) MongoRoleDefinitionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MongoRoleDefinition {
 		return vs[0].([]*MongoRoleDefinition)[vs[1].(int)]
@@ -369,12 +338,6 @@ func (o MongoRoleDefinitionMapOutput) ToMongoRoleDefinitionMapOutput() MongoRole
 
 func (o MongoRoleDefinitionMapOutput) ToMongoRoleDefinitionMapOutputWithContext(ctx context.Context) MongoRoleDefinitionMapOutput {
 	return o
-}
-
-func (o MongoRoleDefinitionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MongoRoleDefinition] {
-	return pulumix.Output[map[string]*MongoRoleDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MongoRoleDefinitionMapOutput) MapIndex(k pulumi.StringInput) MongoRoleDefinitionOutput {

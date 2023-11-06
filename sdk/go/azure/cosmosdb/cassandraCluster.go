@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Cassandra Cluster.
@@ -358,12 +357,6 @@ func (i *CassandraCluster) ToCassandraClusterOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraClusterOutput)
 }
 
-func (i *CassandraCluster) ToOutput(ctx context.Context) pulumix.Output[*CassandraCluster] {
-	return pulumix.Output[*CassandraCluster]{
-		OutputState: i.ToCassandraClusterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CassandraClusterArrayInput is an input type that accepts CassandraClusterArray and CassandraClusterArrayOutput values.
 // You can construct a concrete instance of `CassandraClusterArrayInput` via:
 //
@@ -387,12 +380,6 @@ func (i CassandraClusterArray) ToCassandraClusterArrayOutput() CassandraClusterA
 
 func (i CassandraClusterArray) ToCassandraClusterArrayOutputWithContext(ctx context.Context) CassandraClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraClusterArrayOutput)
-}
-
-func (i CassandraClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*CassandraCluster] {
-	return pulumix.Output[[]*CassandraCluster]{
-		OutputState: i.ToCassandraClusterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CassandraClusterMapInput is an input type that accepts CassandraClusterMap and CassandraClusterMapOutput values.
@@ -420,12 +407,6 @@ func (i CassandraClusterMap) ToCassandraClusterMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraClusterMapOutput)
 }
 
-func (i CassandraClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CassandraCluster] {
-	return pulumix.Output[map[string]*CassandraCluster]{
-		OutputState: i.ToCassandraClusterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CassandraClusterOutput struct{ *pulumi.OutputState }
 
 func (CassandraClusterOutput) ElementType() reflect.Type {
@@ -438,12 +419,6 @@ func (o CassandraClusterOutput) ToCassandraClusterOutput() CassandraClusterOutpu
 
 func (o CassandraClusterOutput) ToCassandraClusterOutputWithContext(ctx context.Context) CassandraClusterOutput {
 	return o
-}
-
-func (o CassandraClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*CassandraCluster] {
-	return pulumix.Output[*CassandraCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The authentication method that is used to authenticate clients. Possible values are `None` and `Cassandra`. Defaults to `Cassandra`.
@@ -532,12 +507,6 @@ func (o CassandraClusterArrayOutput) ToCassandraClusterArrayOutputWithContext(ct
 	return o
 }
 
-func (o CassandraClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CassandraCluster] {
-	return pulumix.Output[[]*CassandraCluster]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CassandraClusterArrayOutput) Index(i pulumi.IntInput) CassandraClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CassandraCluster {
 		return vs[0].([]*CassandraCluster)[vs[1].(int)]
@@ -556,12 +525,6 @@ func (o CassandraClusterMapOutput) ToCassandraClusterMapOutput() CassandraCluste
 
 func (o CassandraClusterMapOutput) ToCassandraClusterMapOutputWithContext(ctx context.Context) CassandraClusterMapOutput {
 	return o
-}
-
-func (o CassandraClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CassandraCluster] {
-	return pulumix.Output[map[string]*CassandraCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CassandraClusterMapOutput) MapIndex(k pulumi.StringInput) CassandraClusterOutput {

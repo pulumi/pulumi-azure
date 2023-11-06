@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Flowlet Data Flow inside an Azure Data Factory.
@@ -409,12 +408,6 @@ func (i *FlowletDataFlow) ToFlowletDataFlowOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowOutput)
 }
 
-func (i *FlowletDataFlow) ToOutput(ctx context.Context) pulumix.Output[*FlowletDataFlow] {
-	return pulumix.Output[*FlowletDataFlow]{
-		OutputState: i.ToFlowletDataFlowOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FlowletDataFlowArrayInput is an input type that accepts FlowletDataFlowArray and FlowletDataFlowArrayOutput values.
 // You can construct a concrete instance of `FlowletDataFlowArrayInput` via:
 //
@@ -438,12 +431,6 @@ func (i FlowletDataFlowArray) ToFlowletDataFlowArrayOutput() FlowletDataFlowArra
 
 func (i FlowletDataFlowArray) ToFlowletDataFlowArrayOutputWithContext(ctx context.Context) FlowletDataFlowArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowArrayOutput)
-}
-
-func (i FlowletDataFlowArray) ToOutput(ctx context.Context) pulumix.Output[[]*FlowletDataFlow] {
-	return pulumix.Output[[]*FlowletDataFlow]{
-		OutputState: i.ToFlowletDataFlowArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FlowletDataFlowMapInput is an input type that accepts FlowletDataFlowMap and FlowletDataFlowMapOutput values.
@@ -471,12 +458,6 @@ func (i FlowletDataFlowMap) ToFlowletDataFlowMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(FlowletDataFlowMapOutput)
 }
 
-func (i FlowletDataFlowMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlowletDataFlow] {
-	return pulumix.Output[map[string]*FlowletDataFlow]{
-		OutputState: i.ToFlowletDataFlowMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlowletDataFlowOutput struct{ *pulumi.OutputState }
 
 func (FlowletDataFlowOutput) ElementType() reflect.Type {
@@ -489,12 +470,6 @@ func (o FlowletDataFlowOutput) ToFlowletDataFlowOutput() FlowletDataFlowOutput {
 
 func (o FlowletDataFlowOutput) ToFlowletDataFlowOutputWithContext(ctx context.Context) FlowletDataFlowOutput {
 	return o
-}
-
-func (o FlowletDataFlowOutput) ToOutput(ctx context.Context) pulumix.Output[*FlowletDataFlow] {
-	return pulumix.Output[*FlowletDataFlow]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of tags that can be used for describing the Data Factory Flowlet Data Flow.
@@ -561,12 +536,6 @@ func (o FlowletDataFlowArrayOutput) ToFlowletDataFlowArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o FlowletDataFlowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FlowletDataFlow] {
-	return pulumix.Output[[]*FlowletDataFlow]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlowletDataFlowArrayOutput) Index(i pulumi.IntInput) FlowletDataFlowOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FlowletDataFlow {
 		return vs[0].([]*FlowletDataFlow)[vs[1].(int)]
@@ -585,12 +554,6 @@ func (o FlowletDataFlowMapOutput) ToFlowletDataFlowMapOutput() FlowletDataFlowMa
 
 func (o FlowletDataFlowMapOutput) ToFlowletDataFlowMapOutputWithContext(ctx context.Context) FlowletDataFlowMapOutput {
 	return o
-}
-
-func (o FlowletDataFlowMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlowletDataFlow] {
-	return pulumix.Output[map[string]*FlowletDataFlow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlowletDataFlowMapOutput) MapIndex(k pulumi.StringInput) FlowletDataFlowOutput {

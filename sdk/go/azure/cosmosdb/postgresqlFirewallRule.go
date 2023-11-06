@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Cosmos DB for PostgreSQL Firewall Rule.
@@ -193,12 +192,6 @@ func (i *PostgresqlFirewallRule) ToPostgresqlFirewallRuleOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(PostgresqlFirewallRuleOutput)
 }
 
-func (i *PostgresqlFirewallRule) ToOutput(ctx context.Context) pulumix.Output[*PostgresqlFirewallRule] {
-	return pulumix.Output[*PostgresqlFirewallRule]{
-		OutputState: i.ToPostgresqlFirewallRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PostgresqlFirewallRuleArrayInput is an input type that accepts PostgresqlFirewallRuleArray and PostgresqlFirewallRuleArrayOutput values.
 // You can construct a concrete instance of `PostgresqlFirewallRuleArrayInput` via:
 //
@@ -222,12 +215,6 @@ func (i PostgresqlFirewallRuleArray) ToPostgresqlFirewallRuleArrayOutput() Postg
 
 func (i PostgresqlFirewallRuleArray) ToPostgresqlFirewallRuleArrayOutputWithContext(ctx context.Context) PostgresqlFirewallRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PostgresqlFirewallRuleArrayOutput)
-}
-
-func (i PostgresqlFirewallRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*PostgresqlFirewallRule] {
-	return pulumix.Output[[]*PostgresqlFirewallRule]{
-		OutputState: i.ToPostgresqlFirewallRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PostgresqlFirewallRuleMapInput is an input type that accepts PostgresqlFirewallRuleMap and PostgresqlFirewallRuleMapOutput values.
@@ -255,12 +242,6 @@ func (i PostgresqlFirewallRuleMap) ToPostgresqlFirewallRuleMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(PostgresqlFirewallRuleMapOutput)
 }
 
-func (i PostgresqlFirewallRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PostgresqlFirewallRule] {
-	return pulumix.Output[map[string]*PostgresqlFirewallRule]{
-		OutputState: i.ToPostgresqlFirewallRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PostgresqlFirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (PostgresqlFirewallRuleOutput) ElementType() reflect.Type {
@@ -273,12 +254,6 @@ func (o PostgresqlFirewallRuleOutput) ToPostgresqlFirewallRuleOutput() Postgresq
 
 func (o PostgresqlFirewallRuleOutput) ToPostgresqlFirewallRuleOutputWithContext(ctx context.Context) PostgresqlFirewallRuleOutput {
 	return o
-}
-
-func (o PostgresqlFirewallRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*PostgresqlFirewallRule] {
-	return pulumix.Output[*PostgresqlFirewallRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The resource ID of the Azure Cosmos DB for PostgreSQL Cluster. Changing this forces a new resource to be created.
@@ -315,12 +290,6 @@ func (o PostgresqlFirewallRuleArrayOutput) ToPostgresqlFirewallRuleArrayOutputWi
 	return o
 }
 
-func (o PostgresqlFirewallRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PostgresqlFirewallRule] {
-	return pulumix.Output[[]*PostgresqlFirewallRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PostgresqlFirewallRuleArrayOutput) Index(i pulumi.IntInput) PostgresqlFirewallRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PostgresqlFirewallRule {
 		return vs[0].([]*PostgresqlFirewallRule)[vs[1].(int)]
@@ -339,12 +308,6 @@ func (o PostgresqlFirewallRuleMapOutput) ToPostgresqlFirewallRuleMapOutput() Pos
 
 func (o PostgresqlFirewallRuleMapOutput) ToPostgresqlFirewallRuleMapOutputWithContext(ctx context.Context) PostgresqlFirewallRuleMapOutput {
 	return o
-}
-
-func (o PostgresqlFirewallRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PostgresqlFirewallRule] {
-	return pulumix.Output[map[string]*PostgresqlFirewallRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PostgresqlFirewallRuleMapOutput) MapIndex(k pulumi.StringInput) PostgresqlFirewallRuleOutput {

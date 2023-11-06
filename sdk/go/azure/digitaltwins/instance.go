@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Digital Twins instance.
@@ -194,12 +193,6 @@ func (i *Instance) ToInstanceOutputWithContext(ctx context.Context) InstanceOutp
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceOutput)
 }
 
-func (i *Instance) ToOutput(ctx context.Context) pulumix.Output[*Instance] {
-	return pulumix.Output[*Instance]{
-		OutputState: i.ToInstanceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InstanceArrayInput is an input type that accepts InstanceArray and InstanceArrayOutput values.
 // You can construct a concrete instance of `InstanceArrayInput` via:
 //
@@ -223,12 +216,6 @@ func (i InstanceArray) ToInstanceArrayOutput() InstanceArrayOutput {
 
 func (i InstanceArray) ToInstanceArrayOutputWithContext(ctx context.Context) InstanceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceArrayOutput)
-}
-
-func (i InstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]*Instance] {
-	return pulumix.Output[[]*Instance]{
-		OutputState: i.ToInstanceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // InstanceMapInput is an input type that accepts InstanceMap and InstanceMapOutput values.
@@ -256,12 +243,6 @@ func (i InstanceMap) ToInstanceMapOutputWithContext(ctx context.Context) Instanc
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceMapOutput)
 }
 
-func (i InstanceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Instance] {
-	return pulumix.Output[map[string]*Instance]{
-		OutputState: i.ToInstanceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceOutput struct{ *pulumi.OutputState }
 
 func (InstanceOutput) ElementType() reflect.Type {
@@ -274,12 +255,6 @@ func (o InstanceOutput) ToInstanceOutput() InstanceOutput {
 
 func (o InstanceOutput) ToInstanceOutputWithContext(ctx context.Context) InstanceOutput {
 	return o
-}
-
-func (o InstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*Instance] {
-	return pulumix.Output[*Instance]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The API endpoint to work with this Digital Twins instance.
@@ -326,12 +301,6 @@ func (o InstanceArrayOutput) ToInstanceArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o InstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Instance] {
-	return pulumix.Output[[]*Instance]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InstanceArrayOutput) Index(i pulumi.IntInput) InstanceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Instance {
 		return vs[0].([]*Instance)[vs[1].(int)]
@@ -350,12 +319,6 @@ func (o InstanceMapOutput) ToInstanceMapOutput() InstanceMapOutput {
 
 func (o InstanceMapOutput) ToInstanceMapOutputWithContext(ctx context.Context) InstanceMapOutput {
 	return o
-}
-
-func (o InstanceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Instance] {
-	return pulumix.Output[map[string]*Instance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceMapOutput) MapIndex(k pulumi.StringInput) InstanceOutput {

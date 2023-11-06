@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Blueprint Published Version
@@ -127,12 +126,6 @@ func (o GetPublishedVersionResultOutput) ToGetPublishedVersionResultOutput() Get
 
 func (o GetPublishedVersionResultOutput) ToGetPublishedVersionResultOutputWithContext(ctx context.Context) GetPublishedVersionResultOutput {
 	return o
-}
-
-func (o GetPublishedVersionResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPublishedVersionResult] {
-	return pulumix.Output[GetPublishedVersionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPublishedVersionResultOutput) BlueprintName() pulumi.StringOutput {

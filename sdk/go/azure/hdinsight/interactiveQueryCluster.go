@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a HDInsight Interactive Query Cluster.
@@ -423,12 +422,6 @@ func (i *InteractiveQueryCluster) ToInteractiveQueryClusterOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterOutput)
 }
 
-func (i *InteractiveQueryCluster) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryCluster] {
-	return pulumix.Output[*InteractiveQueryCluster]{
-		OutputState: i.ToInteractiveQueryClusterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InteractiveQueryClusterArrayInput is an input type that accepts InteractiveQueryClusterArray and InteractiveQueryClusterArrayOutput values.
 // You can construct a concrete instance of `InteractiveQueryClusterArrayInput` via:
 //
@@ -452,12 +445,6 @@ func (i InteractiveQueryClusterArray) ToInteractiveQueryClusterArrayOutput() Int
 
 func (i InteractiveQueryClusterArray) ToInteractiveQueryClusterArrayOutputWithContext(ctx context.Context) InteractiveQueryClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterArrayOutput)
-}
-
-func (i InteractiveQueryClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*InteractiveQueryCluster] {
-	return pulumix.Output[[]*InteractiveQueryCluster]{
-		OutputState: i.ToInteractiveQueryClusterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // InteractiveQueryClusterMapInput is an input type that accepts InteractiveQueryClusterMap and InteractiveQueryClusterMapOutput values.
@@ -485,12 +472,6 @@ func (i InteractiveQueryClusterMap) ToInteractiveQueryClusterMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(InteractiveQueryClusterMapOutput)
 }
 
-func (i InteractiveQueryClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InteractiveQueryCluster] {
-	return pulumix.Output[map[string]*InteractiveQueryCluster]{
-		OutputState: i.ToInteractiveQueryClusterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InteractiveQueryClusterOutput struct{ *pulumi.OutputState }
 
 func (InteractiveQueryClusterOutput) ElementType() reflect.Type {
@@ -503,12 +484,6 @@ func (o InteractiveQueryClusterOutput) ToInteractiveQueryClusterOutput() Interac
 
 func (o InteractiveQueryClusterOutput) ToInteractiveQueryClusterOutputWithContext(ctx context.Context) InteractiveQueryClusterOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*InteractiveQueryCluster] {
-	return pulumix.Output[*InteractiveQueryCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -649,12 +624,6 @@ func (o InteractiveQueryClusterArrayOutput) ToInteractiveQueryClusterArrayOutput
 	return o
 }
 
-func (o InteractiveQueryClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InteractiveQueryCluster] {
-	return pulumix.Output[[]*InteractiveQueryCluster]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InteractiveQueryClusterArrayOutput) Index(i pulumi.IntInput) InteractiveQueryClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InteractiveQueryCluster {
 		return vs[0].([]*InteractiveQueryCluster)[vs[1].(int)]
@@ -673,12 +642,6 @@ func (o InteractiveQueryClusterMapOutput) ToInteractiveQueryClusterMapOutput() I
 
 func (o InteractiveQueryClusterMapOutput) ToInteractiveQueryClusterMapOutputWithContext(ctx context.Context) InteractiveQueryClusterMapOutput {
 	return o
-}
-
-func (o InteractiveQueryClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InteractiveQueryCluster] {
-	return pulumix.Output[map[string]*InteractiveQueryCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InteractiveQueryClusterMapOutput) MapIndex(k pulumi.StringInput) InteractiveQueryClusterOutput {

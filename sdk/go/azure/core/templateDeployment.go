@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a template deployment of resources
@@ -276,12 +275,6 @@ func (i *TemplateDeployment) ToTemplateDeploymentOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateDeploymentOutput)
 }
 
-func (i *TemplateDeployment) ToOutput(ctx context.Context) pulumix.Output[*TemplateDeployment] {
-	return pulumix.Output[*TemplateDeployment]{
-		OutputState: i.ToTemplateDeploymentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TemplateDeploymentArrayInput is an input type that accepts TemplateDeploymentArray and TemplateDeploymentArrayOutput values.
 // You can construct a concrete instance of `TemplateDeploymentArrayInput` via:
 //
@@ -305,12 +298,6 @@ func (i TemplateDeploymentArray) ToTemplateDeploymentArrayOutput() TemplateDeplo
 
 func (i TemplateDeploymentArray) ToTemplateDeploymentArrayOutputWithContext(ctx context.Context) TemplateDeploymentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateDeploymentArrayOutput)
-}
-
-func (i TemplateDeploymentArray) ToOutput(ctx context.Context) pulumix.Output[[]*TemplateDeployment] {
-	return pulumix.Output[[]*TemplateDeployment]{
-		OutputState: i.ToTemplateDeploymentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TemplateDeploymentMapInput is an input type that accepts TemplateDeploymentMap and TemplateDeploymentMapOutput values.
@@ -338,12 +325,6 @@ func (i TemplateDeploymentMap) ToTemplateDeploymentMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateDeploymentMapOutput)
 }
 
-func (i TemplateDeploymentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TemplateDeployment] {
-	return pulumix.Output[map[string]*TemplateDeployment]{
-		OutputState: i.ToTemplateDeploymentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TemplateDeploymentOutput struct{ *pulumi.OutputState }
 
 func (TemplateDeploymentOutput) ElementType() reflect.Type {
@@ -356,12 +337,6 @@ func (o TemplateDeploymentOutput) ToTemplateDeploymentOutput() TemplateDeploymen
 
 func (o TemplateDeploymentOutput) ToTemplateDeploymentOutputWithContext(ctx context.Context) TemplateDeploymentOutput {
 	return o
-}
-
-func (o TemplateDeploymentOutput) ToOutput(ctx context.Context) pulumix.Output[*TemplateDeployment] {
-	return pulumix.Output[*TemplateDeployment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the mode that is used to deploy resources. This value could be either `Incremental` or `Complete`.
@@ -415,12 +390,6 @@ func (o TemplateDeploymentArrayOutput) ToTemplateDeploymentArrayOutputWithContex
 	return o
 }
 
-func (o TemplateDeploymentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TemplateDeployment] {
-	return pulumix.Output[[]*TemplateDeployment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TemplateDeploymentArrayOutput) Index(i pulumi.IntInput) TemplateDeploymentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TemplateDeployment {
 		return vs[0].([]*TemplateDeployment)[vs[1].(int)]
@@ -439,12 +408,6 @@ func (o TemplateDeploymentMapOutput) ToTemplateDeploymentMapOutput() TemplateDep
 
 func (o TemplateDeploymentMapOutput) ToTemplateDeploymentMapOutputWithContext(ctx context.Context) TemplateDeploymentMapOutput {
 	return o
-}
-
-func (o TemplateDeploymentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TemplateDeployment] {
-	return pulumix.Output[map[string]*TemplateDeployment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TemplateDeploymentMapOutput) MapIndex(k pulumi.StringInput) TemplateDeploymentOutput {

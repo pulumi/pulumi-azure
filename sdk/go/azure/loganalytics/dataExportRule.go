@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Log Analytics Data Export Rule.
@@ -235,12 +234,6 @@ func (i *DataExportRule) ToDataExportRuleOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(DataExportRuleOutput)
 }
 
-func (i *DataExportRule) ToOutput(ctx context.Context) pulumix.Output[*DataExportRule] {
-	return pulumix.Output[*DataExportRule]{
-		OutputState: i.ToDataExportRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataExportRuleArrayInput is an input type that accepts DataExportRuleArray and DataExportRuleArrayOutput values.
 // You can construct a concrete instance of `DataExportRuleArrayInput` via:
 //
@@ -264,12 +257,6 @@ func (i DataExportRuleArray) ToDataExportRuleArrayOutput() DataExportRuleArrayOu
 
 func (i DataExportRuleArray) ToDataExportRuleArrayOutputWithContext(ctx context.Context) DataExportRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataExportRuleArrayOutput)
-}
-
-func (i DataExportRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataExportRule] {
-	return pulumix.Output[[]*DataExportRule]{
-		OutputState: i.ToDataExportRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataExportRuleMapInput is an input type that accepts DataExportRuleMap and DataExportRuleMapOutput values.
@@ -297,12 +284,6 @@ func (i DataExportRuleMap) ToDataExportRuleMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DataExportRuleMapOutput)
 }
 
-func (i DataExportRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataExportRule] {
-	return pulumix.Output[map[string]*DataExportRule]{
-		OutputState: i.ToDataExportRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataExportRuleOutput struct{ *pulumi.OutputState }
 
 func (DataExportRuleOutput) ElementType() reflect.Type {
@@ -315,12 +296,6 @@ func (o DataExportRuleOutput) ToDataExportRuleOutput() DataExportRuleOutput {
 
 func (o DataExportRuleOutput) ToDataExportRuleOutputWithContext(ctx context.Context) DataExportRuleOutput {
 	return o
-}
-
-func (o DataExportRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*DataExportRule] {
-	return pulumix.Output[*DataExportRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The destination resource ID. It should be a storage account, an event hub namespace or an event hub. If the destination is an event hub namespace, an event hub would be created for each table automatically.
@@ -372,12 +347,6 @@ func (o DataExportRuleArrayOutput) ToDataExportRuleArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o DataExportRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataExportRule] {
-	return pulumix.Output[[]*DataExportRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataExportRuleArrayOutput) Index(i pulumi.IntInput) DataExportRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataExportRule {
 		return vs[0].([]*DataExportRule)[vs[1].(int)]
@@ -396,12 +365,6 @@ func (o DataExportRuleMapOutput) ToDataExportRuleMapOutput() DataExportRuleMapOu
 
 func (o DataExportRuleMapOutput) ToDataExportRuleMapOutputWithContext(ctx context.Context) DataExportRuleMapOutput {
 	return o
-}
-
-func (o DataExportRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataExportRule] {
-	return pulumix.Output[map[string]*DataExportRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataExportRuleMapOutput) MapIndex(k pulumi.StringInput) DataExportRuleOutput {

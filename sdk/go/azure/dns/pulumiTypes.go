@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i CaaRecordRecordArgs) ToCaaRecordRecordOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(CaaRecordRecordOutput)
 }
 
-func (i CaaRecordRecordArgs) ToOutput(ctx context.Context) pulumix.Output[CaaRecordRecord] {
-	return pulumix.Output[CaaRecordRecord]{
-		OutputState: i.ToCaaRecordRecordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CaaRecordRecordArrayInput is an input type that accepts CaaRecordRecordArray and CaaRecordRecordArrayOutput values.
 // You can construct a concrete instance of `CaaRecordRecordArrayInput` via:
 //
@@ -86,12 +79,6 @@ func (i CaaRecordRecordArray) ToCaaRecordRecordArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CaaRecordRecordArrayOutput)
 }
 
-func (i CaaRecordRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]CaaRecordRecord] {
-	return pulumix.Output[[]CaaRecordRecord]{
-		OutputState: i.ToCaaRecordRecordArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CaaRecordRecordOutput struct{ *pulumi.OutputState }
 
 func (CaaRecordRecordOutput) ElementType() reflect.Type {
@@ -104,12 +91,6 @@ func (o CaaRecordRecordOutput) ToCaaRecordRecordOutput() CaaRecordRecordOutput {
 
 func (o CaaRecordRecordOutput) ToCaaRecordRecordOutputWithContext(ctx context.Context) CaaRecordRecordOutput {
 	return o
-}
-
-func (o CaaRecordRecordOutput) ToOutput(ctx context.Context) pulumix.Output[CaaRecordRecord] {
-	return pulumix.Output[CaaRecordRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
@@ -139,12 +120,6 @@ func (o CaaRecordRecordArrayOutput) ToCaaRecordRecordArrayOutput() CaaRecordReco
 
 func (o CaaRecordRecordArrayOutput) ToCaaRecordRecordArrayOutputWithContext(ctx context.Context) CaaRecordRecordArrayOutput {
 	return o
-}
-
-func (o CaaRecordRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]CaaRecordRecord] {
-	return pulumix.Output[[]CaaRecordRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CaaRecordRecordArrayOutput) Index(i pulumi.IntInput) CaaRecordRecordOutput {
@@ -190,12 +165,6 @@ func (i MxRecordRecordArgs) ToMxRecordRecordOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(MxRecordRecordOutput)
 }
 
-func (i MxRecordRecordArgs) ToOutput(ctx context.Context) pulumix.Output[MxRecordRecord] {
-	return pulumix.Output[MxRecordRecord]{
-		OutputState: i.ToMxRecordRecordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MxRecordRecordArrayInput is an input type that accepts MxRecordRecordArray and MxRecordRecordArrayOutput values.
 // You can construct a concrete instance of `MxRecordRecordArrayInput` via:
 //
@@ -221,12 +190,6 @@ func (i MxRecordRecordArray) ToMxRecordRecordArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(MxRecordRecordArrayOutput)
 }
 
-func (i MxRecordRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]MxRecordRecord] {
-	return pulumix.Output[[]MxRecordRecord]{
-		OutputState: i.ToMxRecordRecordArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MxRecordRecordOutput struct{ *pulumi.OutputState }
 
 func (MxRecordRecordOutput) ElementType() reflect.Type {
@@ -239,12 +202,6 @@ func (o MxRecordRecordOutput) ToMxRecordRecordOutput() MxRecordRecordOutput {
 
 func (o MxRecordRecordOutput) ToMxRecordRecordOutputWithContext(ctx context.Context) MxRecordRecordOutput {
 	return o
-}
-
-func (o MxRecordRecordOutput) ToOutput(ctx context.Context) pulumix.Output[MxRecordRecord] {
-	return pulumix.Output[MxRecordRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The mail server responsible for the domain covered by the MX record.
@@ -269,12 +226,6 @@ func (o MxRecordRecordArrayOutput) ToMxRecordRecordArrayOutput() MxRecordRecordA
 
 func (o MxRecordRecordArrayOutput) ToMxRecordRecordArrayOutputWithContext(ctx context.Context) MxRecordRecordArrayOutput {
 	return o
-}
-
-func (o MxRecordRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]MxRecordRecord] {
-	return pulumix.Output[[]MxRecordRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MxRecordRecordArrayOutput) Index(i pulumi.IntInput) MxRecordRecordOutput {
@@ -328,12 +279,6 @@ func (i SrvRecordRecordArgs) ToSrvRecordRecordOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(SrvRecordRecordOutput)
 }
 
-func (i SrvRecordRecordArgs) ToOutput(ctx context.Context) pulumix.Output[SrvRecordRecord] {
-	return pulumix.Output[SrvRecordRecord]{
-		OutputState: i.ToSrvRecordRecordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SrvRecordRecordArrayInput is an input type that accepts SrvRecordRecordArray and SrvRecordRecordArrayOutput values.
 // You can construct a concrete instance of `SrvRecordRecordArrayInput` via:
 //
@@ -359,12 +304,6 @@ func (i SrvRecordRecordArray) ToSrvRecordRecordArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SrvRecordRecordArrayOutput)
 }
 
-func (i SrvRecordRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]SrvRecordRecord] {
-	return pulumix.Output[[]SrvRecordRecord]{
-		OutputState: i.ToSrvRecordRecordArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SrvRecordRecordOutput struct{ *pulumi.OutputState }
 
 func (SrvRecordRecordOutput) ElementType() reflect.Type {
@@ -377,12 +316,6 @@ func (o SrvRecordRecordOutput) ToSrvRecordRecordOutput() SrvRecordRecordOutput {
 
 func (o SrvRecordRecordOutput) ToSrvRecordRecordOutputWithContext(ctx context.Context) SrvRecordRecordOutput {
 	return o
-}
-
-func (o SrvRecordRecordOutput) ToOutput(ctx context.Context) pulumix.Output[SrvRecordRecord] {
-	return pulumix.Output[SrvRecordRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Port the service is listening on.
@@ -417,12 +350,6 @@ func (o SrvRecordRecordArrayOutput) ToSrvRecordRecordArrayOutput() SrvRecordReco
 
 func (o SrvRecordRecordArrayOutput) ToSrvRecordRecordArrayOutputWithContext(ctx context.Context) SrvRecordRecordArrayOutput {
 	return o
-}
-
-func (o SrvRecordRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SrvRecordRecord] {
-	return pulumix.Output[[]SrvRecordRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SrvRecordRecordArrayOutput) Index(i pulumi.IntInput) SrvRecordRecordOutput {
@@ -464,12 +391,6 @@ func (i TxtRecordRecordArgs) ToTxtRecordRecordOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordRecordOutput)
 }
 
-func (i TxtRecordRecordArgs) ToOutput(ctx context.Context) pulumix.Output[TxtRecordRecord] {
-	return pulumix.Output[TxtRecordRecord]{
-		OutputState: i.ToTxtRecordRecordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TxtRecordRecordArrayInput is an input type that accepts TxtRecordRecordArray and TxtRecordRecordArrayOutput values.
 // You can construct a concrete instance of `TxtRecordRecordArrayInput` via:
 //
@@ -495,12 +416,6 @@ func (i TxtRecordRecordArray) ToTxtRecordRecordArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(TxtRecordRecordArrayOutput)
 }
 
-func (i TxtRecordRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]TxtRecordRecord] {
-	return pulumix.Output[[]TxtRecordRecord]{
-		OutputState: i.ToTxtRecordRecordArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TxtRecordRecordOutput struct{ *pulumi.OutputState }
 
 func (TxtRecordRecordOutput) ElementType() reflect.Type {
@@ -513,12 +428,6 @@ func (o TxtRecordRecordOutput) ToTxtRecordRecordOutput() TxtRecordRecordOutput {
 
 func (o TxtRecordRecordOutput) ToTxtRecordRecordOutputWithContext(ctx context.Context) TxtRecordRecordOutput {
 	return o
-}
-
-func (o TxtRecordRecordOutput) ToOutput(ctx context.Context) pulumix.Output[TxtRecordRecord] {
-	return pulumix.Output[TxtRecordRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The value of the record. Max length: 1024 characters
@@ -538,12 +447,6 @@ func (o TxtRecordRecordArrayOutput) ToTxtRecordRecordArrayOutput() TxtRecordReco
 
 func (o TxtRecordRecordArrayOutput) ToTxtRecordRecordArrayOutputWithContext(ctx context.Context) TxtRecordRecordArrayOutput {
 	return o
-}
-
-func (o TxtRecordRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TxtRecordRecord] {
-	return pulumix.Output[[]TxtRecordRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TxtRecordRecordArrayOutput) Index(i pulumi.IntInput) TxtRecordRecordOutput {
@@ -619,12 +522,6 @@ func (i ZoneSoaRecordArgs) ToZoneSoaRecordOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneSoaRecordOutput)
 }
 
-func (i ZoneSoaRecordArgs) ToOutput(ctx context.Context) pulumix.Output[ZoneSoaRecord] {
-	return pulumix.Output[ZoneSoaRecord]{
-		OutputState: i.ToZoneSoaRecordOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ZoneSoaRecordArgs) ToZoneSoaRecordPtrOutput() ZoneSoaRecordPtrOutput {
 	return i.ToZoneSoaRecordPtrOutputWithContext(context.Background())
 }
@@ -666,12 +563,6 @@ func (i *zoneSoaRecordPtrType) ToZoneSoaRecordPtrOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneSoaRecordPtrOutput)
 }
 
-func (i *zoneSoaRecordPtrType) ToOutput(ctx context.Context) pulumix.Output[*ZoneSoaRecord] {
-	return pulumix.Output[*ZoneSoaRecord]{
-		OutputState: i.ToZoneSoaRecordPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ZoneSoaRecordOutput struct{ *pulumi.OutputState }
 
 func (ZoneSoaRecordOutput) ElementType() reflect.Type {
@@ -694,12 +585,6 @@ func (o ZoneSoaRecordOutput) ToZoneSoaRecordPtrOutputWithContext(ctx context.Con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ZoneSoaRecord) *ZoneSoaRecord {
 		return &v
 	}).(ZoneSoaRecordPtrOutput)
-}
-
-func (o ZoneSoaRecordOutput) ToOutput(ctx context.Context) pulumix.Output[ZoneSoaRecord] {
-	return pulumix.Output[ZoneSoaRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The email contact for the SOA record.
@@ -763,12 +648,6 @@ func (o ZoneSoaRecordPtrOutput) ToZoneSoaRecordPtrOutput() ZoneSoaRecordPtrOutpu
 
 func (o ZoneSoaRecordPtrOutput) ToZoneSoaRecordPtrOutputWithContext(ctx context.Context) ZoneSoaRecordPtrOutput {
 	return o
-}
-
-func (o ZoneSoaRecordPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ZoneSoaRecord] {
-	return pulumix.Output[*ZoneSoaRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ZoneSoaRecordPtrOutput) Elem() ZoneSoaRecordOutput {
@@ -921,12 +800,6 @@ func (i GetCAARecordRecordArgs) ToGetCAARecordRecordOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetCAARecordRecordOutput)
 }
 
-func (i GetCAARecordRecordArgs) ToOutput(ctx context.Context) pulumix.Output[GetCAARecordRecord] {
-	return pulumix.Output[GetCAARecordRecord]{
-		OutputState: i.ToGetCAARecordRecordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetCAARecordRecordArrayInput is an input type that accepts GetCAARecordRecordArray and GetCAARecordRecordArrayOutput values.
 // You can construct a concrete instance of `GetCAARecordRecordArrayInput` via:
 //
@@ -952,12 +825,6 @@ func (i GetCAARecordRecordArray) ToGetCAARecordRecordArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetCAARecordRecordArrayOutput)
 }
 
-func (i GetCAARecordRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]GetCAARecordRecord] {
-	return pulumix.Output[[]GetCAARecordRecord]{
-		OutputState: i.ToGetCAARecordRecordArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetCAARecordRecordOutput struct{ *pulumi.OutputState }
 
 func (GetCAARecordRecordOutput) ElementType() reflect.Type {
@@ -970,12 +837,6 @@ func (o GetCAARecordRecordOutput) ToGetCAARecordRecordOutput() GetCAARecordRecor
 
 func (o GetCAARecordRecordOutput) ToGetCAARecordRecordOutputWithContext(ctx context.Context) GetCAARecordRecordOutput {
 	return o
-}
-
-func (o GetCAARecordRecordOutput) ToOutput(ctx context.Context) pulumix.Output[GetCAARecordRecord] {
-	return pulumix.Output[GetCAARecordRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Extensible CAA flags, currently only 1 is implemented to set the issuer critical flag.
@@ -1005,12 +866,6 @@ func (o GetCAARecordRecordArrayOutput) ToGetCAARecordRecordArrayOutput() GetCAAR
 
 func (o GetCAARecordRecordArrayOutput) ToGetCAARecordRecordArrayOutputWithContext(ctx context.Context) GetCAARecordRecordArrayOutput {
 	return o
-}
-
-func (o GetCAARecordRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetCAARecordRecord] {
-	return pulumix.Output[[]GetCAARecordRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetCAARecordRecordArrayOutput) Index(i pulumi.IntInput) GetCAARecordRecordOutput {
@@ -1056,12 +911,6 @@ func (i GetMxRecordRecordArgs) ToGetMxRecordRecordOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetMxRecordRecordOutput)
 }
 
-func (i GetMxRecordRecordArgs) ToOutput(ctx context.Context) pulumix.Output[GetMxRecordRecord] {
-	return pulumix.Output[GetMxRecordRecord]{
-		OutputState: i.ToGetMxRecordRecordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetMxRecordRecordArrayInput is an input type that accepts GetMxRecordRecordArray and GetMxRecordRecordArrayOutput values.
 // You can construct a concrete instance of `GetMxRecordRecordArrayInput` via:
 //
@@ -1087,12 +936,6 @@ func (i GetMxRecordRecordArray) ToGetMxRecordRecordArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetMxRecordRecordArrayOutput)
 }
 
-func (i GetMxRecordRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]GetMxRecordRecord] {
-	return pulumix.Output[[]GetMxRecordRecord]{
-		OutputState: i.ToGetMxRecordRecordArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetMxRecordRecordOutput struct{ *pulumi.OutputState }
 
 func (GetMxRecordRecordOutput) ElementType() reflect.Type {
@@ -1105,12 +948,6 @@ func (o GetMxRecordRecordOutput) ToGetMxRecordRecordOutput() GetMxRecordRecordOu
 
 func (o GetMxRecordRecordOutput) ToGetMxRecordRecordOutputWithContext(ctx context.Context) GetMxRecordRecordOutput {
 	return o
-}
-
-func (o GetMxRecordRecordOutput) ToOutput(ctx context.Context) pulumix.Output[GetMxRecordRecord] {
-	return pulumix.Output[GetMxRecordRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The mail server responsible for the domain covered by the MX record.
@@ -1135,12 +972,6 @@ func (o GetMxRecordRecordArrayOutput) ToGetMxRecordRecordArrayOutput() GetMxReco
 
 func (o GetMxRecordRecordArrayOutput) ToGetMxRecordRecordArrayOutputWithContext(ctx context.Context) GetMxRecordRecordArrayOutput {
 	return o
-}
-
-func (o GetMxRecordRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetMxRecordRecord] {
-	return pulumix.Output[[]GetMxRecordRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetMxRecordRecordArrayOutput) Index(i pulumi.IntInput) GetMxRecordRecordOutput {
@@ -1194,12 +1025,6 @@ func (i GetSrvRecordRecordArgs) ToGetSrvRecordRecordOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetSrvRecordRecordOutput)
 }
 
-func (i GetSrvRecordRecordArgs) ToOutput(ctx context.Context) pulumix.Output[GetSrvRecordRecord] {
-	return pulumix.Output[GetSrvRecordRecord]{
-		OutputState: i.ToGetSrvRecordRecordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetSrvRecordRecordArrayInput is an input type that accepts GetSrvRecordRecordArray and GetSrvRecordRecordArrayOutput values.
 // You can construct a concrete instance of `GetSrvRecordRecordArrayInput` via:
 //
@@ -1225,12 +1050,6 @@ func (i GetSrvRecordRecordArray) ToGetSrvRecordRecordArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetSrvRecordRecordArrayOutput)
 }
 
-func (i GetSrvRecordRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]GetSrvRecordRecord] {
-	return pulumix.Output[[]GetSrvRecordRecord]{
-		OutputState: i.ToGetSrvRecordRecordArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetSrvRecordRecordOutput struct{ *pulumi.OutputState }
 
 func (GetSrvRecordRecordOutput) ElementType() reflect.Type {
@@ -1243,12 +1062,6 @@ func (o GetSrvRecordRecordOutput) ToGetSrvRecordRecordOutput() GetSrvRecordRecor
 
 func (o GetSrvRecordRecordOutput) ToGetSrvRecordRecordOutputWithContext(ctx context.Context) GetSrvRecordRecordOutput {
 	return o
-}
-
-func (o GetSrvRecordRecordOutput) ToOutput(ctx context.Context) pulumix.Output[GetSrvRecordRecord] {
-	return pulumix.Output[GetSrvRecordRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Port the service is listening on.
@@ -1283,12 +1096,6 @@ func (o GetSrvRecordRecordArrayOutput) ToGetSrvRecordRecordArrayOutput() GetSrvR
 
 func (o GetSrvRecordRecordArrayOutput) ToGetSrvRecordRecordArrayOutputWithContext(ctx context.Context) GetSrvRecordRecordArrayOutput {
 	return o
-}
-
-func (o GetSrvRecordRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetSrvRecordRecord] {
-	return pulumix.Output[[]GetSrvRecordRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetSrvRecordRecordArrayOutput) Index(i pulumi.IntInput) GetSrvRecordRecordOutput {
@@ -1330,12 +1137,6 @@ func (i GetTxtRecordRecordArgs) ToGetTxtRecordRecordOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetTxtRecordRecordOutput)
 }
 
-func (i GetTxtRecordRecordArgs) ToOutput(ctx context.Context) pulumix.Output[GetTxtRecordRecord] {
-	return pulumix.Output[GetTxtRecordRecord]{
-		OutputState: i.ToGetTxtRecordRecordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetTxtRecordRecordArrayInput is an input type that accepts GetTxtRecordRecordArray and GetTxtRecordRecordArrayOutput values.
 // You can construct a concrete instance of `GetTxtRecordRecordArrayInput` via:
 //
@@ -1361,12 +1162,6 @@ func (i GetTxtRecordRecordArray) ToGetTxtRecordRecordArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetTxtRecordRecordArrayOutput)
 }
 
-func (i GetTxtRecordRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]GetTxtRecordRecord] {
-	return pulumix.Output[[]GetTxtRecordRecord]{
-		OutputState: i.ToGetTxtRecordRecordArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetTxtRecordRecordOutput struct{ *pulumi.OutputState }
 
 func (GetTxtRecordRecordOutput) ElementType() reflect.Type {
@@ -1379,12 +1174,6 @@ func (o GetTxtRecordRecordOutput) ToGetTxtRecordRecordOutput() GetTxtRecordRecor
 
 func (o GetTxtRecordRecordOutput) ToGetTxtRecordRecordOutputWithContext(ctx context.Context) GetTxtRecordRecordOutput {
 	return o
-}
-
-func (o GetTxtRecordRecordOutput) ToOutput(ctx context.Context) pulumix.Output[GetTxtRecordRecord] {
-	return pulumix.Output[GetTxtRecordRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The value of the record. Max length: 1024 characters
@@ -1404,12 +1193,6 @@ func (o GetTxtRecordRecordArrayOutput) ToGetTxtRecordRecordArrayOutput() GetTxtR
 
 func (o GetTxtRecordRecordArrayOutput) ToGetTxtRecordRecordArrayOutputWithContext(ctx context.Context) GetTxtRecordRecordArrayOutput {
 	return o
-}
-
-func (o GetTxtRecordRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetTxtRecordRecord] {
-	return pulumix.Output[[]GetTxtRecordRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetTxtRecordRecordArrayOutput) Index(i pulumi.IntInput) GetTxtRecordRecordOutput {

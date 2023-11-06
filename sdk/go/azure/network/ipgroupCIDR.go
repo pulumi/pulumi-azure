@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages IP Group CIDR records.
@@ -169,12 +168,6 @@ func (i *IPGroupCIDR) ToIPGroupCIDROutputWithContext(ctx context.Context) IPGrou
 	return pulumi.ToOutputWithContext(ctx, i).(IPGroupCIDROutput)
 }
 
-func (i *IPGroupCIDR) ToOutput(ctx context.Context) pulumix.Output[*IPGroupCIDR] {
-	return pulumix.Output[*IPGroupCIDR]{
-		OutputState: i.ToIPGroupCIDROutputWithContext(ctx).OutputState,
-	}
-}
-
 // IPGroupCIDRArrayInput is an input type that accepts IPGroupCIDRArray and IPGroupCIDRArrayOutput values.
 // You can construct a concrete instance of `IPGroupCIDRArrayInput` via:
 //
@@ -198,12 +191,6 @@ func (i IPGroupCIDRArray) ToIPGroupCIDRArrayOutput() IPGroupCIDRArrayOutput {
 
 func (i IPGroupCIDRArray) ToIPGroupCIDRArrayOutputWithContext(ctx context.Context) IPGroupCIDRArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IPGroupCIDRArrayOutput)
-}
-
-func (i IPGroupCIDRArray) ToOutput(ctx context.Context) pulumix.Output[[]*IPGroupCIDR] {
-	return pulumix.Output[[]*IPGroupCIDR]{
-		OutputState: i.ToIPGroupCIDRArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IPGroupCIDRMapInput is an input type that accepts IPGroupCIDRMap and IPGroupCIDRMapOutput values.
@@ -231,12 +218,6 @@ func (i IPGroupCIDRMap) ToIPGroupCIDRMapOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, i).(IPGroupCIDRMapOutput)
 }
 
-func (i IPGroupCIDRMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IPGroupCIDR] {
-	return pulumix.Output[map[string]*IPGroupCIDR]{
-		OutputState: i.ToIPGroupCIDRMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IPGroupCIDROutput struct{ *pulumi.OutputState }
 
 func (IPGroupCIDROutput) ElementType() reflect.Type {
@@ -249,12 +230,6 @@ func (o IPGroupCIDROutput) ToIPGroupCIDROutput() IPGroupCIDROutput {
 
 func (o IPGroupCIDROutput) ToIPGroupCIDROutputWithContext(ctx context.Context) IPGroupCIDROutput {
 	return o
-}
-
-func (o IPGroupCIDROutput) ToOutput(ctx context.Context) pulumix.Output[*IPGroupCIDR] {
-	return pulumix.Output[*IPGroupCIDR]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IPGroupCIDROutput) Cidr() pulumi.StringOutput {
@@ -281,12 +256,6 @@ func (o IPGroupCIDRArrayOutput) ToIPGroupCIDRArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o IPGroupCIDRArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IPGroupCIDR] {
-	return pulumix.Output[[]*IPGroupCIDR]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IPGroupCIDRArrayOutput) Index(i pulumi.IntInput) IPGroupCIDROutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IPGroupCIDR {
 		return vs[0].([]*IPGroupCIDR)[vs[1].(int)]
@@ -305,12 +274,6 @@ func (o IPGroupCIDRMapOutput) ToIPGroupCIDRMapOutput() IPGroupCIDRMapOutput {
 
 func (o IPGroupCIDRMapOutput) ToIPGroupCIDRMapOutputWithContext(ctx context.Context) IPGroupCIDRMapOutput {
 	return o
-}
-
-func (o IPGroupCIDRMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IPGroupCIDR] {
-	return pulumix.Output[map[string]*IPGroupCIDR]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IPGroupCIDRMapOutput) MapIndex(k pulumi.StringInput) IPGroupCIDROutput {

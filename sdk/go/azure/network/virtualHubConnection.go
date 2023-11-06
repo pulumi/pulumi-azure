@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Connection for a Virtual Hub.
@@ -214,12 +213,6 @@ func (i *VirtualHubConnection) ToVirtualHubConnectionOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubConnectionOutput)
 }
 
-func (i *VirtualHubConnection) ToOutput(ctx context.Context) pulumix.Output[*VirtualHubConnection] {
-	return pulumix.Output[*VirtualHubConnection]{
-		OutputState: i.ToVirtualHubConnectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualHubConnectionArrayInput is an input type that accepts VirtualHubConnectionArray and VirtualHubConnectionArrayOutput values.
 // You can construct a concrete instance of `VirtualHubConnectionArrayInput` via:
 //
@@ -243,12 +236,6 @@ func (i VirtualHubConnectionArray) ToVirtualHubConnectionArrayOutput() VirtualHu
 
 func (i VirtualHubConnectionArray) ToVirtualHubConnectionArrayOutputWithContext(ctx context.Context) VirtualHubConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubConnectionArrayOutput)
-}
-
-func (i VirtualHubConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualHubConnection] {
-	return pulumix.Output[[]*VirtualHubConnection]{
-		OutputState: i.ToVirtualHubConnectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualHubConnectionMapInput is an input type that accepts VirtualHubConnectionMap and VirtualHubConnectionMapOutput values.
@@ -276,12 +263,6 @@ func (i VirtualHubConnectionMap) ToVirtualHubConnectionMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubConnectionMapOutput)
 }
 
-func (i VirtualHubConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualHubConnection] {
-	return pulumix.Output[map[string]*VirtualHubConnection]{
-		OutputState: i.ToVirtualHubConnectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualHubConnectionOutput struct{ *pulumi.OutputState }
 
 func (VirtualHubConnectionOutput) ElementType() reflect.Type {
@@ -294,12 +275,6 @@ func (o VirtualHubConnectionOutput) ToVirtualHubConnectionOutput() VirtualHubCon
 
 func (o VirtualHubConnectionOutput) ToVirtualHubConnectionOutputWithContext(ctx context.Context) VirtualHubConnectionOutput {
 	return o
-}
-
-func (o VirtualHubConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualHubConnection] {
-	return pulumix.Output[*VirtualHubConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
@@ -341,12 +316,6 @@ func (o VirtualHubConnectionArrayOutput) ToVirtualHubConnectionArrayOutputWithCo
 	return o
 }
 
-func (o VirtualHubConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualHubConnection] {
-	return pulumix.Output[[]*VirtualHubConnection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualHubConnectionArrayOutput) Index(i pulumi.IntInput) VirtualHubConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualHubConnection {
 		return vs[0].([]*VirtualHubConnection)[vs[1].(int)]
@@ -365,12 +334,6 @@ func (o VirtualHubConnectionMapOutput) ToVirtualHubConnectionMapOutput() Virtual
 
 func (o VirtualHubConnectionMapOutput) ToVirtualHubConnectionMapOutputWithContext(ctx context.Context) VirtualHubConnectionMapOutput {
 	return o
-}
-
-func (o VirtualHubConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualHubConnection] {
-	return pulumix.Output[map[string]*VirtualHubConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualHubConnectionMapOutput) MapIndex(k pulumi.StringInput) VirtualHubConnectionOutput {

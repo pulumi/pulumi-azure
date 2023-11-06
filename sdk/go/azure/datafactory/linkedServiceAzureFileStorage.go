@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linked Service (connection) between a SFTP Server and Azure Data Factory.
@@ -303,12 +302,6 @@ func (i *LinkedServiceAzureFileStorage) ToLinkedServiceAzureFileStorageOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureFileStorageOutput)
 }
 
-func (i *LinkedServiceAzureFileStorage) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceAzureFileStorage] {
-	return pulumix.Output[*LinkedServiceAzureFileStorage]{
-		OutputState: i.ToLinkedServiceAzureFileStorageOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinkedServiceAzureFileStorageArrayInput is an input type that accepts LinkedServiceAzureFileStorageArray and LinkedServiceAzureFileStorageArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureFileStorageArrayInput` via:
 //
@@ -332,12 +325,6 @@ func (i LinkedServiceAzureFileStorageArray) ToLinkedServiceAzureFileStorageArray
 
 func (i LinkedServiceAzureFileStorageArray) ToLinkedServiceAzureFileStorageArrayOutputWithContext(ctx context.Context) LinkedServiceAzureFileStorageArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureFileStorageArrayOutput)
-}
-
-func (i LinkedServiceAzureFileStorageArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceAzureFileStorage] {
-	return pulumix.Output[[]*LinkedServiceAzureFileStorage]{
-		OutputState: i.ToLinkedServiceAzureFileStorageArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinkedServiceAzureFileStorageMapInput is an input type that accepts LinkedServiceAzureFileStorageMap and LinkedServiceAzureFileStorageMapOutput values.
@@ -365,12 +352,6 @@ func (i LinkedServiceAzureFileStorageMap) ToLinkedServiceAzureFileStorageMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureFileStorageMapOutput)
 }
 
-func (i LinkedServiceAzureFileStorageMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceAzureFileStorage] {
-	return pulumix.Output[map[string]*LinkedServiceAzureFileStorage]{
-		OutputState: i.ToLinkedServiceAzureFileStorageMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkedServiceAzureFileStorageOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureFileStorageOutput) ElementType() reflect.Type {
@@ -383,12 +364,6 @@ func (o LinkedServiceAzureFileStorageOutput) ToLinkedServiceAzureFileStorageOutp
 
 func (o LinkedServiceAzureFileStorageOutput) ToLinkedServiceAzureFileStorageOutputWithContext(ctx context.Context) LinkedServiceAzureFileStorageOutput {
 	return o
-}
-
-func (o LinkedServiceAzureFileStorageOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceAzureFileStorage] {
-	return pulumix.Output[*LinkedServiceAzureFileStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service.
@@ -474,12 +449,6 @@ func (o LinkedServiceAzureFileStorageArrayOutput) ToLinkedServiceAzureFileStorag
 	return o
 }
 
-func (o LinkedServiceAzureFileStorageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceAzureFileStorage] {
-	return pulumix.Output[[]*LinkedServiceAzureFileStorage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinkedServiceAzureFileStorageArrayOutput) Index(i pulumi.IntInput) LinkedServiceAzureFileStorageOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceAzureFileStorage {
 		return vs[0].([]*LinkedServiceAzureFileStorage)[vs[1].(int)]
@@ -498,12 +467,6 @@ func (o LinkedServiceAzureFileStorageMapOutput) ToLinkedServiceAzureFileStorageM
 
 func (o LinkedServiceAzureFileStorageMapOutput) ToLinkedServiceAzureFileStorageMapOutputWithContext(ctx context.Context) LinkedServiceAzureFileStorageMapOutput {
 	return o
-}
-
-func (o LinkedServiceAzureFileStorageMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceAzureFileStorage] {
-	return pulumix.Output[map[string]*LinkedServiceAzureFileStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkedServiceAzureFileStorageMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceAzureFileStorageOutput {

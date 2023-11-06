@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Custom Domain for a CDN Endpoint.
@@ -251,12 +250,6 @@ func (i *EndpointCustomDomain) ToEndpointCustomDomainOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointCustomDomainOutput)
 }
 
-func (i *EndpointCustomDomain) ToOutput(ctx context.Context) pulumix.Output[*EndpointCustomDomain] {
-	return pulumix.Output[*EndpointCustomDomain]{
-		OutputState: i.ToEndpointCustomDomainOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EndpointCustomDomainArrayInput is an input type that accepts EndpointCustomDomainArray and EndpointCustomDomainArrayOutput values.
 // You can construct a concrete instance of `EndpointCustomDomainArrayInput` via:
 //
@@ -280,12 +273,6 @@ func (i EndpointCustomDomainArray) ToEndpointCustomDomainArrayOutput() EndpointC
 
 func (i EndpointCustomDomainArray) ToEndpointCustomDomainArrayOutputWithContext(ctx context.Context) EndpointCustomDomainArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointCustomDomainArrayOutput)
-}
-
-func (i EndpointCustomDomainArray) ToOutput(ctx context.Context) pulumix.Output[[]*EndpointCustomDomain] {
-	return pulumix.Output[[]*EndpointCustomDomain]{
-		OutputState: i.ToEndpointCustomDomainArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EndpointCustomDomainMapInput is an input type that accepts EndpointCustomDomainMap and EndpointCustomDomainMapOutput values.
@@ -313,12 +300,6 @@ func (i EndpointCustomDomainMap) ToEndpointCustomDomainMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointCustomDomainMapOutput)
 }
 
-func (i EndpointCustomDomainMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EndpointCustomDomain] {
-	return pulumix.Output[map[string]*EndpointCustomDomain]{
-		OutputState: i.ToEndpointCustomDomainMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointCustomDomainOutput struct{ *pulumi.OutputState }
 
 func (EndpointCustomDomainOutput) ElementType() reflect.Type {
@@ -331,12 +312,6 @@ func (o EndpointCustomDomainOutput) ToEndpointCustomDomainOutput() EndpointCusto
 
 func (o EndpointCustomDomainOutput) ToEndpointCustomDomainOutputWithContext(ctx context.Context) EndpointCustomDomainOutput {
 	return o
-}
-
-func (o EndpointCustomDomainOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointCustomDomain] {
-	return pulumix.Output[*EndpointCustomDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the CDN Endpoint. Changing this forces a new CDN Endpoint Custom Domain to be created.
@@ -380,12 +355,6 @@ func (o EndpointCustomDomainArrayOutput) ToEndpointCustomDomainArrayOutputWithCo
 	return o
 }
 
-func (o EndpointCustomDomainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EndpointCustomDomain] {
-	return pulumix.Output[[]*EndpointCustomDomain]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EndpointCustomDomainArrayOutput) Index(i pulumi.IntInput) EndpointCustomDomainOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EndpointCustomDomain {
 		return vs[0].([]*EndpointCustomDomain)[vs[1].(int)]
@@ -404,12 +373,6 @@ func (o EndpointCustomDomainMapOutput) ToEndpointCustomDomainMapOutput() Endpoin
 
 func (o EndpointCustomDomainMapOutput) ToEndpointCustomDomainMapOutputWithContext(ctx context.Context) EndpointCustomDomainMapOutput {
 	return o
-}
-
-func (o EndpointCustomDomainMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EndpointCustomDomain] {
-	return pulumix.Output[map[string]*EndpointCustomDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointCustomDomainMapOutput) MapIndex(k pulumi.StringInput) EndpointCustomDomainOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages Security Center Automation and Continuous Export. This resource supports three types of destination in the `action`, Logic Apps, Log Analytics and Event Hubs
@@ -297,12 +296,6 @@ func (i *Automation) ToAutomationOutputWithContext(ctx context.Context) Automati
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationOutput)
 }
 
-func (i *Automation) ToOutput(ctx context.Context) pulumix.Output[*Automation] {
-	return pulumix.Output[*Automation]{
-		OutputState: i.ToAutomationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutomationArrayInput is an input type that accepts AutomationArray and AutomationArrayOutput values.
 // You can construct a concrete instance of `AutomationArrayInput` via:
 //
@@ -326,12 +319,6 @@ func (i AutomationArray) ToAutomationArrayOutput() AutomationArrayOutput {
 
 func (i AutomationArray) ToAutomationArrayOutputWithContext(ctx context.Context) AutomationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationArrayOutput)
-}
-
-func (i AutomationArray) ToOutput(ctx context.Context) pulumix.Output[[]*Automation] {
-	return pulumix.Output[[]*Automation]{
-		OutputState: i.ToAutomationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AutomationMapInput is an input type that accepts AutomationMap and AutomationMapOutput values.
@@ -359,12 +346,6 @@ func (i AutomationMap) ToAutomationMapOutputWithContext(ctx context.Context) Aut
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationMapOutput)
 }
 
-func (i AutomationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Automation] {
-	return pulumix.Output[map[string]*Automation]{
-		OutputState: i.ToAutomationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutomationOutput struct{ *pulumi.OutputState }
 
 func (AutomationOutput) ElementType() reflect.Type {
@@ -377,12 +358,6 @@ func (o AutomationOutput) ToAutomationOutput() AutomationOutput {
 
 func (o AutomationOutput) ToAutomationOutputWithContext(ctx context.Context) AutomationOutput {
 	return o
-}
-
-func (o AutomationOutput) ToOutput(ctx context.Context) pulumix.Output[*Automation] {
-	return pulumix.Output[*Automation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `action` blocks as defined below. An `action` tells this automation where the data is to be sent to upon being evaluated by the rules in the `source`.
@@ -444,12 +419,6 @@ func (o AutomationArrayOutput) ToAutomationArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o AutomationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Automation] {
-	return pulumix.Output[[]*Automation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutomationArrayOutput) Index(i pulumi.IntInput) AutomationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Automation {
 		return vs[0].([]*Automation)[vs[1].(int)]
@@ -468,12 +437,6 @@ func (o AutomationMapOutput) ToAutomationMapOutput() AutomationMapOutput {
 
 func (o AutomationMapOutput) ToAutomationMapOutputWithContext(ctx context.Context) AutomationMapOutput {
 	return o
-}
-
-func (o AutomationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Automation] {
-	return pulumix.Output[map[string]*Automation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationMapOutput) MapIndex(k pulumi.StringInput) AutomationOutput {
