@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
@@ -203,12 +202,6 @@ func (i *UserAssignedIdentity) ToUserAssignedIdentityOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityOutput)
 }
 
-func (i *UserAssignedIdentity) ToOutput(ctx context.Context) pulumix.Output[*UserAssignedIdentity] {
-	return pulumix.Output[*UserAssignedIdentity]{
-		OutputState: i.ToUserAssignedIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // UserAssignedIdentityArrayInput is an input type that accepts UserAssignedIdentityArray and UserAssignedIdentityArrayOutput values.
 // You can construct a concrete instance of `UserAssignedIdentityArrayInput` via:
 //
@@ -232,12 +225,6 @@ func (i UserAssignedIdentityArray) ToUserAssignedIdentityArrayOutput() UserAssig
 
 func (i UserAssignedIdentityArray) ToUserAssignedIdentityArrayOutputWithContext(ctx context.Context) UserAssignedIdentityArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityArrayOutput)
-}
-
-func (i UserAssignedIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]*UserAssignedIdentity] {
-	return pulumix.Output[[]*UserAssignedIdentity]{
-		OutputState: i.ToUserAssignedIdentityArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UserAssignedIdentityMapInput is an input type that accepts UserAssignedIdentityMap and UserAssignedIdentityMapOutput values.
@@ -265,12 +252,6 @@ func (i UserAssignedIdentityMap) ToUserAssignedIdentityMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(UserAssignedIdentityMapOutput)
 }
 
-func (i UserAssignedIdentityMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserAssignedIdentity] {
-	return pulumix.Output[map[string]*UserAssignedIdentity]{
-		OutputState: i.ToUserAssignedIdentityMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type UserAssignedIdentityOutput struct{ *pulumi.OutputState }
 
 func (UserAssignedIdentityOutput) ElementType() reflect.Type {
@@ -283,12 +264,6 @@ func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutput() UserAssignedI
 
 func (o UserAssignedIdentityOutput) ToUserAssignedIdentityOutputWithContext(ctx context.Context) UserAssignedIdentityOutput {
 	return o
-}
-
-func (o UserAssignedIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[*UserAssignedIdentity] {
-	return pulumix.Output[*UserAssignedIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the app associated with the Identity.
@@ -340,12 +315,6 @@ func (o UserAssignedIdentityArrayOutput) ToUserAssignedIdentityArrayOutputWithCo
 	return o
 }
 
-func (o UserAssignedIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*UserAssignedIdentity] {
-	return pulumix.Output[[]*UserAssignedIdentity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o UserAssignedIdentityArrayOutput) Index(i pulumi.IntInput) UserAssignedIdentityOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserAssignedIdentity {
 		return vs[0].([]*UserAssignedIdentity)[vs[1].(int)]
@@ -364,12 +333,6 @@ func (o UserAssignedIdentityMapOutput) ToUserAssignedIdentityMapOutput() UserAss
 
 func (o UserAssignedIdentityMapOutput) ToUserAssignedIdentityMapOutputWithContext(ctx context.Context) UserAssignedIdentityMapOutput {
 	return o
-}
-
-func (o UserAssignedIdentityMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*UserAssignedIdentity] {
-	return pulumix.Output[map[string]*UserAssignedIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o UserAssignedIdentityMapOutput) MapIndex(k pulumi.StringInput) UserAssignedIdentityOutput {

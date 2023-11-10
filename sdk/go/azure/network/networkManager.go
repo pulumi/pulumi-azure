@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Network Managers.
@@ -234,12 +233,6 @@ func (i *NetworkManager) ToNetworkManagerOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerOutput)
 }
 
-func (i *NetworkManager) ToOutput(ctx context.Context) pulumix.Output[*NetworkManager] {
-	return pulumix.Output[*NetworkManager]{
-		OutputState: i.ToNetworkManagerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkManagerArrayInput is an input type that accepts NetworkManagerArray and NetworkManagerArrayOutput values.
 // You can construct a concrete instance of `NetworkManagerArrayInput` via:
 //
@@ -263,12 +256,6 @@ func (i NetworkManagerArray) ToNetworkManagerArrayOutput() NetworkManagerArrayOu
 
 func (i NetworkManagerArray) ToNetworkManagerArrayOutputWithContext(ctx context.Context) NetworkManagerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerArrayOutput)
-}
-
-func (i NetworkManagerArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkManager] {
-	return pulumix.Output[[]*NetworkManager]{
-		OutputState: i.ToNetworkManagerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NetworkManagerMapInput is an input type that accepts NetworkManagerMap and NetworkManagerMapOutput values.
@@ -296,12 +283,6 @@ func (i NetworkManagerMap) ToNetworkManagerMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerMapOutput)
 }
 
-func (i NetworkManagerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkManager] {
-	return pulumix.Output[map[string]*NetworkManager]{
-		OutputState: i.ToNetworkManagerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkManagerOutput struct{ *pulumi.OutputState }
 
 func (NetworkManagerOutput) ElementType() reflect.Type {
@@ -314,12 +295,6 @@ func (o NetworkManagerOutput) ToNetworkManagerOutput() NetworkManagerOutput {
 
 func (o NetworkManagerOutput) ToNetworkManagerOutputWithContext(ctx context.Context) NetworkManagerOutput {
 	return o
-}
-
-func (o NetworkManagerOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkManager] {
-	return pulumix.Output[*NetworkManager]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `crossTenantScopes` block as defined below.
@@ -376,12 +351,6 @@ func (o NetworkManagerArrayOutput) ToNetworkManagerArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o NetworkManagerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkManager] {
-	return pulumix.Output[[]*NetworkManager]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkManagerArrayOutput) Index(i pulumi.IntInput) NetworkManagerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkManager {
 		return vs[0].([]*NetworkManager)[vs[1].(int)]
@@ -400,12 +369,6 @@ func (o NetworkManagerMapOutput) ToNetworkManagerMapOutput() NetworkManagerMapOu
 
 func (o NetworkManagerMapOutput) ToNetworkManagerMapOutputWithContext(ctx context.Context) NetworkManagerMapOutput {
 	return o
-}
-
-func (o NetworkManagerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkManager] {
-	return pulumix.Output[map[string]*NetworkManager]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkManagerMapOutput) MapIndex(k pulumi.StringInput) NetworkManagerOutput {

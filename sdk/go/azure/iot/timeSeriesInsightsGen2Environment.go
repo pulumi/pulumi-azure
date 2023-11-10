@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure IoT Time Series Insights Gen2 Environment.
@@ -249,12 +248,6 @@ func (i *TimeSeriesInsightsGen2Environment) ToTimeSeriesInsightsGen2EnvironmentO
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsGen2EnvironmentOutput)
 }
 
-func (i *TimeSeriesInsightsGen2Environment) ToOutput(ctx context.Context) pulumix.Output[*TimeSeriesInsightsGen2Environment] {
-	return pulumix.Output[*TimeSeriesInsightsGen2Environment]{
-		OutputState: i.ToTimeSeriesInsightsGen2EnvironmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TimeSeriesInsightsGen2EnvironmentArrayInput is an input type that accepts TimeSeriesInsightsGen2EnvironmentArray and TimeSeriesInsightsGen2EnvironmentArrayOutput values.
 // You can construct a concrete instance of `TimeSeriesInsightsGen2EnvironmentArrayInput` via:
 //
@@ -278,12 +271,6 @@ func (i TimeSeriesInsightsGen2EnvironmentArray) ToTimeSeriesInsightsGen2Environm
 
 func (i TimeSeriesInsightsGen2EnvironmentArray) ToTimeSeriesInsightsGen2EnvironmentArrayOutputWithContext(ctx context.Context) TimeSeriesInsightsGen2EnvironmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsGen2EnvironmentArrayOutput)
-}
-
-func (i TimeSeriesInsightsGen2EnvironmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*TimeSeriesInsightsGen2Environment] {
-	return pulumix.Output[[]*TimeSeriesInsightsGen2Environment]{
-		OutputState: i.ToTimeSeriesInsightsGen2EnvironmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TimeSeriesInsightsGen2EnvironmentMapInput is an input type that accepts TimeSeriesInsightsGen2EnvironmentMap and TimeSeriesInsightsGen2EnvironmentMapOutput values.
@@ -311,12 +298,6 @@ func (i TimeSeriesInsightsGen2EnvironmentMap) ToTimeSeriesInsightsGen2Environmen
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesInsightsGen2EnvironmentMapOutput)
 }
 
-func (i TimeSeriesInsightsGen2EnvironmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TimeSeriesInsightsGen2Environment] {
-	return pulumix.Output[map[string]*TimeSeriesInsightsGen2Environment]{
-		OutputState: i.ToTimeSeriesInsightsGen2EnvironmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TimeSeriesInsightsGen2EnvironmentOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesInsightsGen2EnvironmentOutput) ElementType() reflect.Type {
@@ -329,12 +310,6 @@ func (o TimeSeriesInsightsGen2EnvironmentOutput) ToTimeSeriesInsightsGen2Environ
 
 func (o TimeSeriesInsightsGen2EnvironmentOutput) ToTimeSeriesInsightsGen2EnvironmentOutputWithContext(ctx context.Context) TimeSeriesInsightsGen2EnvironmentOutput {
 	return o
-}
-
-func (o TimeSeriesInsightsGen2EnvironmentOutput) ToOutput(ctx context.Context) pulumix.Output[*TimeSeriesInsightsGen2Environment] {
-	return pulumix.Output[*TimeSeriesInsightsGen2Environment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The FQDN used to access the environment data.
@@ -398,12 +373,6 @@ func (o TimeSeriesInsightsGen2EnvironmentArrayOutput) ToTimeSeriesInsightsGen2En
 	return o
 }
 
-func (o TimeSeriesInsightsGen2EnvironmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TimeSeriesInsightsGen2Environment] {
-	return pulumix.Output[[]*TimeSeriesInsightsGen2Environment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TimeSeriesInsightsGen2EnvironmentArrayOutput) Index(i pulumi.IntInput) TimeSeriesInsightsGen2EnvironmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TimeSeriesInsightsGen2Environment {
 		return vs[0].([]*TimeSeriesInsightsGen2Environment)[vs[1].(int)]
@@ -422,12 +391,6 @@ func (o TimeSeriesInsightsGen2EnvironmentMapOutput) ToTimeSeriesInsightsGen2Envi
 
 func (o TimeSeriesInsightsGen2EnvironmentMapOutput) ToTimeSeriesInsightsGen2EnvironmentMapOutputWithContext(ctx context.Context) TimeSeriesInsightsGen2EnvironmentMapOutput {
 	return o
-}
-
-func (o TimeSeriesInsightsGen2EnvironmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TimeSeriesInsightsGen2Environment] {
-	return pulumix.Output[map[string]*TimeSeriesInsightsGen2Environment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TimeSeriesInsightsGen2EnvironmentMapOutput) MapIndex(k pulumi.StringInput) TimeSeriesInsightsGen2EnvironmentOutput {

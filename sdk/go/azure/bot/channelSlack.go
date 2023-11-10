@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Slack integration for a Bot Channel
@@ -261,12 +260,6 @@ func (i *ChannelSlack) ToChannelSlackOutputWithContext(ctx context.Context) Chan
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelSlackOutput)
 }
 
-func (i *ChannelSlack) ToOutput(ctx context.Context) pulumix.Output[*ChannelSlack] {
-	return pulumix.Output[*ChannelSlack]{
-		OutputState: i.ToChannelSlackOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelSlackArrayInput is an input type that accepts ChannelSlackArray and ChannelSlackArrayOutput values.
 // You can construct a concrete instance of `ChannelSlackArrayInput` via:
 //
@@ -290,12 +283,6 @@ func (i ChannelSlackArray) ToChannelSlackArrayOutput() ChannelSlackArrayOutput {
 
 func (i ChannelSlackArray) ToChannelSlackArrayOutputWithContext(ctx context.Context) ChannelSlackArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelSlackArrayOutput)
-}
-
-func (i ChannelSlackArray) ToOutput(ctx context.Context) pulumix.Output[[]*ChannelSlack] {
-	return pulumix.Output[[]*ChannelSlack]{
-		OutputState: i.ToChannelSlackArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ChannelSlackMapInput is an input type that accepts ChannelSlackMap and ChannelSlackMapOutput values.
@@ -323,12 +310,6 @@ func (i ChannelSlackMap) ToChannelSlackMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelSlackMapOutput)
 }
 
-func (i ChannelSlackMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ChannelSlack] {
-	return pulumix.Output[map[string]*ChannelSlack]{
-		OutputState: i.ToChannelSlackMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelSlackOutput struct{ *pulumi.OutputState }
 
 func (ChannelSlackOutput) ElementType() reflect.Type {
@@ -341,12 +322,6 @@ func (o ChannelSlackOutput) ToChannelSlackOutput() ChannelSlackOutput {
 
 func (o ChannelSlackOutput) ToChannelSlackOutputWithContext(ctx context.Context) ChannelSlackOutput {
 	return o
-}
-
-func (o ChannelSlackOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelSlack] {
-	return pulumix.Output[*ChannelSlack]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -403,12 +378,6 @@ func (o ChannelSlackArrayOutput) ToChannelSlackArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o ChannelSlackArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ChannelSlack] {
-	return pulumix.Output[[]*ChannelSlack]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelSlackArrayOutput) Index(i pulumi.IntInput) ChannelSlackOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ChannelSlack {
 		return vs[0].([]*ChannelSlack)[vs[1].(int)]
@@ -427,12 +396,6 @@ func (o ChannelSlackMapOutput) ToChannelSlackMapOutput() ChannelSlackMapOutput {
 
 func (o ChannelSlackMapOutput) ToChannelSlackMapOutputWithContext(ctx context.Context) ChannelSlackMapOutput {
 	return o
-}
-
-func (o ChannelSlackMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ChannelSlack] {
-	return pulumix.Output[map[string]*ChannelSlack]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelSlackMapOutput) MapIndex(k pulumi.StringInput) ChannelSlackOutput {

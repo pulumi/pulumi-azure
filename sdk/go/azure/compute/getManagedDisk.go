@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Managed Disk.
@@ -136,12 +135,6 @@ func (o LookupManagedDiskResultOutput) ToLookupManagedDiskResultOutput() LookupM
 
 func (o LookupManagedDiskResultOutput) ToLookupManagedDiskResultOutputWithContext(ctx context.Context) LookupManagedDiskResultOutput {
 	return o
-}
-
-func (o LookupManagedDiskResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupManagedDiskResult] {
-	return pulumix.Output[LookupManagedDiskResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupManagedDiskResultOutput) CreateOption() pulumi.StringOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -59,12 +58,6 @@ func (i DefinitionAuthorizationArgs) ToDefinitionAuthorizationOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DefinitionAuthorizationOutput)
 }
 
-func (i DefinitionAuthorizationArgs) ToOutput(ctx context.Context) pulumix.Output[DefinitionAuthorization] {
-	return pulumix.Output[DefinitionAuthorization]{
-		OutputState: i.ToDefinitionAuthorizationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DefinitionAuthorizationArrayInput is an input type that accepts DefinitionAuthorizationArray and DefinitionAuthorizationArrayOutput values.
 // You can construct a concrete instance of `DefinitionAuthorizationArrayInput` via:
 //
@@ -90,12 +83,6 @@ func (i DefinitionAuthorizationArray) ToDefinitionAuthorizationArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DefinitionAuthorizationArrayOutput)
 }
 
-func (i DefinitionAuthorizationArray) ToOutput(ctx context.Context) pulumix.Output[[]DefinitionAuthorization] {
-	return pulumix.Output[[]DefinitionAuthorization]{
-		OutputState: i.ToDefinitionAuthorizationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DefinitionAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (DefinitionAuthorizationOutput) ElementType() reflect.Type {
@@ -108,12 +95,6 @@ func (o DefinitionAuthorizationOutput) ToDefinitionAuthorizationOutput() Definit
 
 func (o DefinitionAuthorizationOutput) ToDefinitionAuthorizationOutputWithContext(ctx context.Context) DefinitionAuthorizationOutput {
 	return o
-}
-
-func (o DefinitionAuthorizationOutput) ToOutput(ctx context.Context) pulumix.Output[DefinitionAuthorization] {
-	return pulumix.Output[DefinitionAuthorization]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The set of role definition ids which define all the permissions that the principal id can assign.
@@ -148,12 +129,6 @@ func (o DefinitionAuthorizationArrayOutput) ToDefinitionAuthorizationArrayOutput
 
 func (o DefinitionAuthorizationArrayOutput) ToDefinitionAuthorizationArrayOutputWithContext(ctx context.Context) DefinitionAuthorizationArrayOutput {
 	return o
-}
-
-func (o DefinitionAuthorizationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DefinitionAuthorization] {
-	return pulumix.Output[[]DefinitionAuthorization]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DefinitionAuthorizationArrayOutput) Index(i pulumi.IntInput) DefinitionAuthorizationOutput {
@@ -207,12 +182,6 @@ func (i DefinitionEligibleAuthorizationArgs) ToDefinitionEligibleAuthorizationOu
 	return pulumi.ToOutputWithContext(ctx, i).(DefinitionEligibleAuthorizationOutput)
 }
 
-func (i DefinitionEligibleAuthorizationArgs) ToOutput(ctx context.Context) pulumix.Output[DefinitionEligibleAuthorization] {
-	return pulumix.Output[DefinitionEligibleAuthorization]{
-		OutputState: i.ToDefinitionEligibleAuthorizationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DefinitionEligibleAuthorizationArrayInput is an input type that accepts DefinitionEligibleAuthorizationArray and DefinitionEligibleAuthorizationArrayOutput values.
 // You can construct a concrete instance of `DefinitionEligibleAuthorizationArrayInput` via:
 //
@@ -238,12 +207,6 @@ func (i DefinitionEligibleAuthorizationArray) ToDefinitionEligibleAuthorizationA
 	return pulumi.ToOutputWithContext(ctx, i).(DefinitionEligibleAuthorizationArrayOutput)
 }
 
-func (i DefinitionEligibleAuthorizationArray) ToOutput(ctx context.Context) pulumix.Output[[]DefinitionEligibleAuthorization] {
-	return pulumix.Output[[]DefinitionEligibleAuthorization]{
-		OutputState: i.ToDefinitionEligibleAuthorizationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DefinitionEligibleAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (DefinitionEligibleAuthorizationOutput) ElementType() reflect.Type {
@@ -256,12 +219,6 @@ func (o DefinitionEligibleAuthorizationOutput) ToDefinitionEligibleAuthorization
 
 func (o DefinitionEligibleAuthorizationOutput) ToDefinitionEligibleAuthorizationOutputWithContext(ctx context.Context) DefinitionEligibleAuthorizationOutput {
 	return o
-}
-
-func (o DefinitionEligibleAuthorizationOutput) ToOutput(ctx context.Context) pulumix.Output[DefinitionEligibleAuthorization] {
-	return pulumix.Output[DefinitionEligibleAuthorization]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `justInTimeAccessPolicy` block as defined below.
@@ -298,12 +255,6 @@ func (o DefinitionEligibleAuthorizationArrayOutput) ToDefinitionEligibleAuthoriz
 
 func (o DefinitionEligibleAuthorizationArrayOutput) ToDefinitionEligibleAuthorizationArrayOutputWithContext(ctx context.Context) DefinitionEligibleAuthorizationArrayOutput {
 	return o
-}
-
-func (o DefinitionEligibleAuthorizationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DefinitionEligibleAuthorization] {
-	return pulumix.Output[[]DefinitionEligibleAuthorization]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DefinitionEligibleAuthorizationArrayOutput) Index(i pulumi.IntInput) DefinitionEligibleAuthorizationOutput {
@@ -357,12 +308,6 @@ func (i DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs) ToDefinitionE
 	return pulumi.ToOutputWithContext(ctx, i).(DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput)
 }
 
-func (i DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[DefinitionEligibleAuthorizationJustInTimeAccessPolicy] {
-	return pulumix.Output[DefinitionEligibleAuthorizationJustInTimeAccessPolicy]{
-		OutputState: i.ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput() DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput {
 	return i.ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutputWithContext(context.Background())
 }
@@ -404,12 +349,6 @@ func (i *definitionEligibleAuthorizationJustInTimeAccessPolicyPtrType) ToDefinit
 	return pulumi.ToOutputWithContext(ctx, i).(DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput)
 }
 
-func (i *definitionEligibleAuthorizationJustInTimeAccessPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*DefinitionEligibleAuthorizationJustInTimeAccessPolicy] {
-	return pulumix.Output[*DefinitionEligibleAuthorizationJustInTimeAccessPolicy]{
-		OutputState: i.ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput) ElementType() reflect.Type {
@@ -432,12 +371,6 @@ func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput) ToDefinitio
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefinitionEligibleAuthorizationJustInTimeAccessPolicy) *DefinitionEligibleAuthorizationJustInTimeAccessPolicy {
 		return &v
 	}).(DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput)
-}
-
-func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[DefinitionEligibleAuthorizationJustInTimeAccessPolicy] {
-	return pulumix.Output[DefinitionEligibleAuthorizationJustInTimeAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `approver` block as defined below.
@@ -475,12 +408,6 @@ func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput) ToDefini
 
 func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutputWithContext(ctx context.Context) DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput {
 	return o
-}
-
-func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DefinitionEligibleAuthorizationJustInTimeAccessPolicy] {
-	return pulumix.Output[*DefinitionEligibleAuthorizationJustInTimeAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyPtrOutput) Elem() DefinitionEligibleAuthorizationJustInTimeAccessPolicyOutput {
@@ -562,12 +489,6 @@ func (i DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs) ToDef
 	return pulumi.ToOutputWithContext(ctx, i).(DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput)
 }
 
-func (i DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs) ToOutput(ctx context.Context) pulumix.Output[DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover] {
-	return pulumix.Output[DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover]{
-		OutputState: i.ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayInput is an input type that accepts DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArray and DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput values.
 // You can construct a concrete instance of `DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayInput` via:
 //
@@ -593,12 +514,6 @@ func (i DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArray) ToDe
 	return pulumi.ToOutputWithContext(ctx, i).(DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput)
 }
 
-func (i DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArray) ToOutput(ctx context.Context) pulumix.Output[[]DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover] {
-	return pulumix.Output[[]DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover]{
-		OutputState: i.ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput struct{ *pulumi.OutputState }
 
 func (DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput) ElementType() reflect.Type {
@@ -611,12 +526,6 @@ func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput) ToD
 
 func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutputWithContext(ctx context.Context) DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput {
 	return o
-}
-
-func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput) ToOutput(ctx context.Context) pulumix.Output[DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover] {
-	return pulumix.Output[DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The display name of the Azure Active Directory Principal for the approver.
@@ -643,12 +552,6 @@ func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput
 
 func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput) ToDefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutputWithContext(ctx context.Context) DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput {
 	return o
-}
-
-func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover] {
-	return pulumix.Output[[]DefinitionEligibleAuthorizationJustInTimeAccessPolicyApprover]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrayOutput) Index(i pulumi.IntInput) DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverOutput {
@@ -702,12 +605,6 @@ func (i DefinitionPlanArgs) ToDefinitionPlanOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(DefinitionPlanOutput)
 }
 
-func (i DefinitionPlanArgs) ToOutput(ctx context.Context) pulumix.Output[DefinitionPlan] {
-	return pulumix.Output[DefinitionPlan]{
-		OutputState: i.ToDefinitionPlanOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DefinitionPlanArgs) ToDefinitionPlanPtrOutput() DefinitionPlanPtrOutput {
 	return i.ToDefinitionPlanPtrOutputWithContext(context.Background())
 }
@@ -749,12 +646,6 @@ func (i *definitionPlanPtrType) ToDefinitionPlanPtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DefinitionPlanPtrOutput)
 }
 
-func (i *definitionPlanPtrType) ToOutput(ctx context.Context) pulumix.Output[*DefinitionPlan] {
-	return pulumix.Output[*DefinitionPlan]{
-		OutputState: i.ToDefinitionPlanPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DefinitionPlanOutput struct{ *pulumi.OutputState }
 
 func (DefinitionPlanOutput) ElementType() reflect.Type {
@@ -777,12 +668,6 @@ func (o DefinitionPlanOutput) ToDefinitionPlanPtrOutputWithContext(ctx context.C
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefinitionPlan) *DefinitionPlan {
 		return &v
 	}).(DefinitionPlanPtrOutput)
-}
-
-func (o DefinitionPlanOutput) ToOutput(ctx context.Context) pulumix.Output[DefinitionPlan] {
-	return pulumix.Output[DefinitionPlan]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The plan name of the marketplace offer.
@@ -817,12 +702,6 @@ func (o DefinitionPlanPtrOutput) ToDefinitionPlanPtrOutput() DefinitionPlanPtrOu
 
 func (o DefinitionPlanPtrOutput) ToDefinitionPlanPtrOutputWithContext(ctx context.Context) DefinitionPlanPtrOutput {
 	return o
-}
-
-func (o DefinitionPlanPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DefinitionPlan] {
-	return pulumix.Output[*DefinitionPlan]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DefinitionPlanPtrOutput) Elem() DefinitionPlanOutput {

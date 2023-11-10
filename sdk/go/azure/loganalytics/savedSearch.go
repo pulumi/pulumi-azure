@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Log Analytics (formally Operational Insights) Saved Search.
@@ -236,12 +235,6 @@ func (i *SavedSearch) ToSavedSearchOutputWithContext(ctx context.Context) SavedS
 	return pulumi.ToOutputWithContext(ctx, i).(SavedSearchOutput)
 }
 
-func (i *SavedSearch) ToOutput(ctx context.Context) pulumix.Output[*SavedSearch] {
-	return pulumix.Output[*SavedSearch]{
-		OutputState: i.ToSavedSearchOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SavedSearchArrayInput is an input type that accepts SavedSearchArray and SavedSearchArrayOutput values.
 // You can construct a concrete instance of `SavedSearchArrayInput` via:
 //
@@ -265,12 +258,6 @@ func (i SavedSearchArray) ToSavedSearchArrayOutput() SavedSearchArrayOutput {
 
 func (i SavedSearchArray) ToSavedSearchArrayOutputWithContext(ctx context.Context) SavedSearchArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SavedSearchArrayOutput)
-}
-
-func (i SavedSearchArray) ToOutput(ctx context.Context) pulumix.Output[[]*SavedSearch] {
-	return pulumix.Output[[]*SavedSearch]{
-		OutputState: i.ToSavedSearchArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SavedSearchMapInput is an input type that accepts SavedSearchMap and SavedSearchMapOutput values.
@@ -298,12 +285,6 @@ func (i SavedSearchMap) ToSavedSearchMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(SavedSearchMapOutput)
 }
 
-func (i SavedSearchMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SavedSearch] {
-	return pulumix.Output[map[string]*SavedSearch]{
-		OutputState: i.ToSavedSearchMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SavedSearchOutput struct{ *pulumi.OutputState }
 
 func (SavedSearchOutput) ElementType() reflect.Type {
@@ -316,12 +297,6 @@ func (o SavedSearchOutput) ToSavedSearchOutput() SavedSearchOutput {
 
 func (o SavedSearchOutput) ToSavedSearchOutputWithContext(ctx context.Context) SavedSearchOutput {
 	return o
-}
-
-func (o SavedSearchOutput) ToOutput(ctx context.Context) pulumix.Output[*SavedSearch] {
-	return pulumix.Output[*SavedSearch]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The category that the Saved Search will be listed under. Changing this forces a new resource to be created.
@@ -378,12 +353,6 @@ func (o SavedSearchArrayOutput) ToSavedSearchArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o SavedSearchArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SavedSearch] {
-	return pulumix.Output[[]*SavedSearch]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SavedSearchArrayOutput) Index(i pulumi.IntInput) SavedSearchOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SavedSearch {
 		return vs[0].([]*SavedSearch)[vs[1].(int)]
@@ -402,12 +371,6 @@ func (o SavedSearchMapOutput) ToSavedSearchMapOutput() SavedSearchMapOutput {
 
 func (o SavedSearchMapOutput) ToSavedSearchMapOutputWithContext(ctx context.Context) SavedSearchMapOutput {
 	return o
-}
-
-func (o SavedSearchMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SavedSearch] {
-	return pulumix.Output[map[string]*SavedSearch]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SavedSearchMapOutput) MapIndex(k pulumi.StringInput) SavedSearchOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an IotHub Device Provisioning Service Shared Access Policy
@@ -302,12 +301,6 @@ func (i *DpsSharedAccessPolicy) ToDpsSharedAccessPolicyOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DpsSharedAccessPolicyOutput)
 }
 
-func (i *DpsSharedAccessPolicy) ToOutput(ctx context.Context) pulumix.Output[*DpsSharedAccessPolicy] {
-	return pulumix.Output[*DpsSharedAccessPolicy]{
-		OutputState: i.ToDpsSharedAccessPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DpsSharedAccessPolicyArrayInput is an input type that accepts DpsSharedAccessPolicyArray and DpsSharedAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `DpsSharedAccessPolicyArrayInput` via:
 //
@@ -331,12 +324,6 @@ func (i DpsSharedAccessPolicyArray) ToDpsSharedAccessPolicyArrayOutput() DpsShar
 
 func (i DpsSharedAccessPolicyArray) ToDpsSharedAccessPolicyArrayOutputWithContext(ctx context.Context) DpsSharedAccessPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DpsSharedAccessPolicyArrayOutput)
-}
-
-func (i DpsSharedAccessPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*DpsSharedAccessPolicy] {
-	return pulumix.Output[[]*DpsSharedAccessPolicy]{
-		OutputState: i.ToDpsSharedAccessPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DpsSharedAccessPolicyMapInput is an input type that accepts DpsSharedAccessPolicyMap and DpsSharedAccessPolicyMapOutput values.
@@ -364,12 +351,6 @@ func (i DpsSharedAccessPolicyMap) ToDpsSharedAccessPolicyMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DpsSharedAccessPolicyMapOutput)
 }
 
-func (i DpsSharedAccessPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DpsSharedAccessPolicy] {
-	return pulumix.Output[map[string]*DpsSharedAccessPolicy]{
-		OutputState: i.ToDpsSharedAccessPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DpsSharedAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (DpsSharedAccessPolicyOutput) ElementType() reflect.Type {
@@ -382,12 +363,6 @@ func (o DpsSharedAccessPolicyOutput) ToDpsSharedAccessPolicyOutput() DpsSharedAc
 
 func (o DpsSharedAccessPolicyOutput) ToDpsSharedAccessPolicyOutputWithContext(ctx context.Context) DpsSharedAccessPolicyOutput {
 	return o
-}
-
-func (o DpsSharedAccessPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*DpsSharedAccessPolicy] {
-	return pulumix.Output[*DpsSharedAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Adds `EnrollmentRead` permission to this Shared Access Account. It allows read access to enrollment data.
@@ -472,12 +447,6 @@ func (o DpsSharedAccessPolicyArrayOutput) ToDpsSharedAccessPolicyArrayOutputWith
 	return o
 }
 
-func (o DpsSharedAccessPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DpsSharedAccessPolicy] {
-	return pulumix.Output[[]*DpsSharedAccessPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DpsSharedAccessPolicyArrayOutput) Index(i pulumi.IntInput) DpsSharedAccessPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DpsSharedAccessPolicy {
 		return vs[0].([]*DpsSharedAccessPolicy)[vs[1].(int)]
@@ -496,12 +465,6 @@ func (o DpsSharedAccessPolicyMapOutput) ToDpsSharedAccessPolicyMapOutput() DpsSh
 
 func (o DpsSharedAccessPolicyMapOutput) ToDpsSharedAccessPolicyMapOutputWithContext(ctx context.Context) DpsSharedAccessPolicyMapOutput {
 	return o
-}
-
-func (o DpsSharedAccessPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DpsSharedAccessPolicy] {
-	return pulumix.Output[map[string]*DpsSharedAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DpsSharedAccessPolicyMapOutput) MapIndex(k pulumi.StringInput) DpsSharedAccessPolicyOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -67,12 +66,6 @@ func (i ServicesCommunicationsGatewayServiceLocationArgs) ToServicesCommunicatio
 	return pulumi.ToOutputWithContext(ctx, i).(ServicesCommunicationsGatewayServiceLocationOutput)
 }
 
-func (i ServicesCommunicationsGatewayServiceLocationArgs) ToOutput(ctx context.Context) pulumix.Output[ServicesCommunicationsGatewayServiceLocation] {
-	return pulumix.Output[ServicesCommunicationsGatewayServiceLocation]{
-		OutputState: i.ToServicesCommunicationsGatewayServiceLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServicesCommunicationsGatewayServiceLocationArrayInput is an input type that accepts ServicesCommunicationsGatewayServiceLocationArray and ServicesCommunicationsGatewayServiceLocationArrayOutput values.
 // You can construct a concrete instance of `ServicesCommunicationsGatewayServiceLocationArrayInput` via:
 //
@@ -98,12 +91,6 @@ func (i ServicesCommunicationsGatewayServiceLocationArray) ToServicesCommunicati
 	return pulumi.ToOutputWithContext(ctx, i).(ServicesCommunicationsGatewayServiceLocationArrayOutput)
 }
 
-func (i ServicesCommunicationsGatewayServiceLocationArray) ToOutput(ctx context.Context) pulumix.Output[[]ServicesCommunicationsGatewayServiceLocation] {
-	return pulumix.Output[[]ServicesCommunicationsGatewayServiceLocation]{
-		OutputState: i.ToServicesCommunicationsGatewayServiceLocationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServicesCommunicationsGatewayServiceLocationOutput struct{ *pulumi.OutputState }
 
 func (ServicesCommunicationsGatewayServiceLocationOutput) ElementType() reflect.Type {
@@ -116,12 +103,6 @@ func (o ServicesCommunicationsGatewayServiceLocationOutput) ToServicesCommunicat
 
 func (o ServicesCommunicationsGatewayServiceLocationOutput) ToServicesCommunicationsGatewayServiceLocationOutputWithContext(ctx context.Context) ServicesCommunicationsGatewayServiceLocationOutput {
 	return o
-}
-
-func (o ServicesCommunicationsGatewayServiceLocationOutput) ToOutput(ctx context.Context) pulumix.Output[ServicesCommunicationsGatewayServiceLocation] {
-	return pulumix.Output[ServicesCommunicationsGatewayServiceLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the allowed source IP address or CIDR ranges for media.
@@ -167,12 +148,6 @@ func (o ServicesCommunicationsGatewayServiceLocationArrayOutput) ToServicesCommu
 
 func (o ServicesCommunicationsGatewayServiceLocationArrayOutput) ToServicesCommunicationsGatewayServiceLocationArrayOutputWithContext(ctx context.Context) ServicesCommunicationsGatewayServiceLocationArrayOutput {
 	return o
-}
-
-func (o ServicesCommunicationsGatewayServiceLocationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServicesCommunicationsGatewayServiceLocation] {
-	return pulumix.Output[[]ServicesCommunicationsGatewayServiceLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServicesCommunicationsGatewayServiceLocationArrayOutput) Index(i pulumi.IntInput) ServicesCommunicationsGatewayServiceLocationOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Disaster Recovery Config for an Event Hub Namespace.
@@ -198,12 +197,6 @@ func (i *EventhubNamespaceDisasterRecoveryConfig) ToEventhubNamespaceDisasterRec
 	return pulumi.ToOutputWithContext(ctx, i).(EventhubNamespaceDisasterRecoveryConfigOutput)
 }
 
-func (i *EventhubNamespaceDisasterRecoveryConfig) ToOutput(ctx context.Context) pulumix.Output[*EventhubNamespaceDisasterRecoveryConfig] {
-	return pulumix.Output[*EventhubNamespaceDisasterRecoveryConfig]{
-		OutputState: i.ToEventhubNamespaceDisasterRecoveryConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventhubNamespaceDisasterRecoveryConfigArrayInput is an input type that accepts EventhubNamespaceDisasterRecoveryConfigArray and EventhubNamespaceDisasterRecoveryConfigArrayOutput values.
 // You can construct a concrete instance of `EventhubNamespaceDisasterRecoveryConfigArrayInput` via:
 //
@@ -227,12 +220,6 @@ func (i EventhubNamespaceDisasterRecoveryConfigArray) ToEventhubNamespaceDisaste
 
 func (i EventhubNamespaceDisasterRecoveryConfigArray) ToEventhubNamespaceDisasterRecoveryConfigArrayOutputWithContext(ctx context.Context) EventhubNamespaceDisasterRecoveryConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventhubNamespaceDisasterRecoveryConfigArrayOutput)
-}
-
-func (i EventhubNamespaceDisasterRecoveryConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventhubNamespaceDisasterRecoveryConfig] {
-	return pulumix.Output[[]*EventhubNamespaceDisasterRecoveryConfig]{
-		OutputState: i.ToEventhubNamespaceDisasterRecoveryConfigArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EventhubNamespaceDisasterRecoveryConfigMapInput is an input type that accepts EventhubNamespaceDisasterRecoveryConfigMap and EventhubNamespaceDisasterRecoveryConfigMapOutput values.
@@ -260,12 +247,6 @@ func (i EventhubNamespaceDisasterRecoveryConfigMap) ToEventhubNamespaceDisasterR
 	return pulumi.ToOutputWithContext(ctx, i).(EventhubNamespaceDisasterRecoveryConfigMapOutput)
 }
 
-func (i EventhubNamespaceDisasterRecoveryConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventhubNamespaceDisasterRecoveryConfig] {
-	return pulumix.Output[map[string]*EventhubNamespaceDisasterRecoveryConfig]{
-		OutputState: i.ToEventhubNamespaceDisasterRecoveryConfigMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventhubNamespaceDisasterRecoveryConfigOutput struct{ *pulumi.OutputState }
 
 func (EventhubNamespaceDisasterRecoveryConfigOutput) ElementType() reflect.Type {
@@ -278,12 +259,6 @@ func (o EventhubNamespaceDisasterRecoveryConfigOutput) ToEventhubNamespaceDisast
 
 func (o EventhubNamespaceDisasterRecoveryConfigOutput) ToEventhubNamespaceDisasterRecoveryConfigOutputWithContext(ctx context.Context) EventhubNamespaceDisasterRecoveryConfigOutput {
 	return o
-}
-
-func (o EventhubNamespaceDisasterRecoveryConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*EventhubNamespaceDisasterRecoveryConfig] {
-	return pulumix.Output[*EventhubNamespaceDisasterRecoveryConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the Disaster Recovery Config. Changing this forces a new resource to be created.
@@ -320,12 +295,6 @@ func (o EventhubNamespaceDisasterRecoveryConfigArrayOutput) ToEventhubNamespaceD
 	return o
 }
 
-func (o EventhubNamespaceDisasterRecoveryConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventhubNamespaceDisasterRecoveryConfig] {
-	return pulumix.Output[[]*EventhubNamespaceDisasterRecoveryConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventhubNamespaceDisasterRecoveryConfigArrayOutput) Index(i pulumi.IntInput) EventhubNamespaceDisasterRecoveryConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventhubNamespaceDisasterRecoveryConfig {
 		return vs[0].([]*EventhubNamespaceDisasterRecoveryConfig)[vs[1].(int)]
@@ -344,12 +313,6 @@ func (o EventhubNamespaceDisasterRecoveryConfigMapOutput) ToEventhubNamespaceDis
 
 func (o EventhubNamespaceDisasterRecoveryConfigMapOutput) ToEventhubNamespaceDisasterRecoveryConfigMapOutputWithContext(ctx context.Context) EventhubNamespaceDisasterRecoveryConfigMapOutput {
 	return o
-}
-
-func (o EventhubNamespaceDisasterRecoveryConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventhubNamespaceDisasterRecoveryConfig] {
-	return pulumix.Output[map[string]*EventhubNamespaceDisasterRecoveryConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventhubNamespaceDisasterRecoveryConfigMapOutput) MapIndex(k pulumi.StringInput) EventhubNamespaceDisasterRecoveryConfigOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i BackendAddressPoolAddressInboundNatRulePortMappingArgs) ToBackendAddress
 	return pulumi.ToOutputWithContext(ctx, i).(BackendAddressPoolAddressInboundNatRulePortMappingOutput)
 }
 
-func (i BackendAddressPoolAddressInboundNatRulePortMappingArgs) ToOutput(ctx context.Context) pulumix.Output[BackendAddressPoolAddressInboundNatRulePortMapping] {
-	return pulumix.Output[BackendAddressPoolAddressInboundNatRulePortMapping]{
-		OutputState: i.ToBackendAddressPoolAddressInboundNatRulePortMappingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BackendAddressPoolAddressInboundNatRulePortMappingArrayInput is an input type that accepts BackendAddressPoolAddressInboundNatRulePortMappingArray and BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput values.
 // You can construct a concrete instance of `BackendAddressPoolAddressInboundNatRulePortMappingArrayInput` via:
 //
@@ -86,12 +79,6 @@ func (i BackendAddressPoolAddressInboundNatRulePortMappingArray) ToBackendAddres
 	return pulumi.ToOutputWithContext(ctx, i).(BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput)
 }
 
-func (i BackendAddressPoolAddressInboundNatRulePortMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]BackendAddressPoolAddressInboundNatRulePortMapping] {
-	return pulumix.Output[[]BackendAddressPoolAddressInboundNatRulePortMapping]{
-		OutputState: i.ToBackendAddressPoolAddressInboundNatRulePortMappingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BackendAddressPoolAddressInboundNatRulePortMappingOutput struct{ *pulumi.OutputState }
 
 func (BackendAddressPoolAddressInboundNatRulePortMappingOutput) ElementType() reflect.Type {
@@ -104,12 +91,6 @@ func (o BackendAddressPoolAddressInboundNatRulePortMappingOutput) ToBackendAddre
 
 func (o BackendAddressPoolAddressInboundNatRulePortMappingOutput) ToBackendAddressPoolAddressInboundNatRulePortMappingOutputWithContext(ctx context.Context) BackendAddressPoolAddressInboundNatRulePortMappingOutput {
 	return o
-}
-
-func (o BackendAddressPoolAddressInboundNatRulePortMappingOutput) ToOutput(ctx context.Context) pulumix.Output[BackendAddressPoolAddressInboundNatRulePortMapping] {
-	return pulumix.Output[BackendAddressPoolAddressInboundNatRulePortMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Backend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
@@ -139,12 +120,6 @@ func (o BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput) ToBackend
 
 func (o BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput) ToBackendAddressPoolAddressInboundNatRulePortMappingArrayOutputWithContext(ctx context.Context) BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput {
 	return o
-}
-
-func (o BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BackendAddressPoolAddressInboundNatRulePortMapping] {
-	return pulumix.Output[[]BackendAddressPoolAddressInboundNatRulePortMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BackendAddressPoolAddressInboundNatRulePortMappingArrayOutput) Index(i pulumi.IntInput) BackendAddressPoolAddressInboundNatRulePortMappingOutput {
@@ -198,12 +173,6 @@ func (i BackendAddressPoolTunnelInterfaceArgs) ToBackendAddressPoolTunnelInterfa
 	return pulumi.ToOutputWithContext(ctx, i).(BackendAddressPoolTunnelInterfaceOutput)
 }
 
-func (i BackendAddressPoolTunnelInterfaceArgs) ToOutput(ctx context.Context) pulumix.Output[BackendAddressPoolTunnelInterface] {
-	return pulumix.Output[BackendAddressPoolTunnelInterface]{
-		OutputState: i.ToBackendAddressPoolTunnelInterfaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BackendAddressPoolTunnelInterfaceArrayInput is an input type that accepts BackendAddressPoolTunnelInterfaceArray and BackendAddressPoolTunnelInterfaceArrayOutput values.
 // You can construct a concrete instance of `BackendAddressPoolTunnelInterfaceArrayInput` via:
 //
@@ -229,12 +198,6 @@ func (i BackendAddressPoolTunnelInterfaceArray) ToBackendAddressPoolTunnelInterf
 	return pulumi.ToOutputWithContext(ctx, i).(BackendAddressPoolTunnelInterfaceArrayOutput)
 }
 
-func (i BackendAddressPoolTunnelInterfaceArray) ToOutput(ctx context.Context) pulumix.Output[[]BackendAddressPoolTunnelInterface] {
-	return pulumix.Output[[]BackendAddressPoolTunnelInterface]{
-		OutputState: i.ToBackendAddressPoolTunnelInterfaceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BackendAddressPoolTunnelInterfaceOutput struct{ *pulumi.OutputState }
 
 func (BackendAddressPoolTunnelInterfaceOutput) ElementType() reflect.Type {
@@ -247,12 +210,6 @@ func (o BackendAddressPoolTunnelInterfaceOutput) ToBackendAddressPoolTunnelInter
 
 func (o BackendAddressPoolTunnelInterfaceOutput) ToBackendAddressPoolTunnelInterfaceOutputWithContext(ctx context.Context) BackendAddressPoolTunnelInterfaceOutput {
 	return o
-}
-
-func (o BackendAddressPoolTunnelInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[BackendAddressPoolTunnelInterface] {
-	return pulumix.Output[BackendAddressPoolTunnelInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The unique identifier of this Gateway Lodbalancer Tunnel Interface.
@@ -287,12 +244,6 @@ func (o BackendAddressPoolTunnelInterfaceArrayOutput) ToBackendAddressPoolTunnel
 
 func (o BackendAddressPoolTunnelInterfaceArrayOutput) ToBackendAddressPoolTunnelInterfaceArrayOutputWithContext(ctx context.Context) BackendAddressPoolTunnelInterfaceArrayOutput {
 	return o
-}
-
-func (o BackendAddressPoolTunnelInterfaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BackendAddressPoolTunnelInterface] {
-	return pulumix.Output[[]BackendAddressPoolTunnelInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BackendAddressPoolTunnelInterfaceArrayOutput) Index(i pulumi.IntInput) BackendAddressPoolTunnelInterfaceOutput {
@@ -386,12 +337,6 @@ func (i LoadBalancerFrontendIpConfigurationArgs) ToLoadBalancerFrontendIpConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIpConfigurationOutput)
 }
 
-func (i LoadBalancerFrontendIpConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[LoadBalancerFrontendIpConfiguration] {
-	return pulumix.Output[LoadBalancerFrontendIpConfiguration]{
-		OutputState: i.ToLoadBalancerFrontendIpConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LoadBalancerFrontendIpConfigurationArrayInput is an input type that accepts LoadBalancerFrontendIpConfigurationArray and LoadBalancerFrontendIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `LoadBalancerFrontendIpConfigurationArrayInput` via:
 //
@@ -417,12 +362,6 @@ func (i LoadBalancerFrontendIpConfigurationArray) ToLoadBalancerFrontendIpConfig
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerFrontendIpConfigurationArrayOutput)
 }
 
-func (i LoadBalancerFrontendIpConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]LoadBalancerFrontendIpConfiguration] {
-	return pulumix.Output[[]LoadBalancerFrontendIpConfiguration]{
-		OutputState: i.ToLoadBalancerFrontendIpConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LoadBalancerFrontendIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerFrontendIpConfigurationOutput) ElementType() reflect.Type {
@@ -435,12 +374,6 @@ func (o LoadBalancerFrontendIpConfigurationOutput) ToLoadBalancerFrontendIpConfi
 
 func (o LoadBalancerFrontendIpConfigurationOutput) ToLoadBalancerFrontendIpConfigurationOutputWithContext(ctx context.Context) LoadBalancerFrontendIpConfigurationOutput {
 	return o
-}
-
-func (o LoadBalancerFrontendIpConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[LoadBalancerFrontendIpConfiguration] {
-	return pulumix.Output[LoadBalancerFrontendIpConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
@@ -526,12 +459,6 @@ func (o LoadBalancerFrontendIpConfigurationArrayOutput) ToLoadBalancerFrontendIp
 	return o
 }
 
-func (o LoadBalancerFrontendIpConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]LoadBalancerFrontendIpConfiguration] {
-	return pulumix.Output[[]LoadBalancerFrontendIpConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LoadBalancerFrontendIpConfigurationArrayOutput) Index(i pulumi.IntInput) LoadBalancerFrontendIpConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoadBalancerFrontendIpConfiguration {
 		return vs[0].([]LoadBalancerFrontendIpConfiguration)[vs[1].(int)]
@@ -575,12 +502,6 @@ func (i OutboundRuleFrontendIpConfigurationArgs) ToOutboundRuleFrontendIpConfigu
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundRuleFrontendIpConfigurationOutput)
 }
 
-func (i OutboundRuleFrontendIpConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[OutboundRuleFrontendIpConfiguration] {
-	return pulumix.Output[OutboundRuleFrontendIpConfiguration]{
-		OutputState: i.ToOutboundRuleFrontendIpConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OutboundRuleFrontendIpConfigurationArrayInput is an input type that accepts OutboundRuleFrontendIpConfigurationArray and OutboundRuleFrontendIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `OutboundRuleFrontendIpConfigurationArrayInput` via:
 //
@@ -606,12 +527,6 @@ func (i OutboundRuleFrontendIpConfigurationArray) ToOutboundRuleFrontendIpConfig
 	return pulumi.ToOutputWithContext(ctx, i).(OutboundRuleFrontendIpConfigurationArrayOutput)
 }
 
-func (i OutboundRuleFrontendIpConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]OutboundRuleFrontendIpConfiguration] {
-	return pulumix.Output[[]OutboundRuleFrontendIpConfiguration]{
-		OutputState: i.ToOutboundRuleFrontendIpConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OutboundRuleFrontendIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (OutboundRuleFrontendIpConfigurationOutput) ElementType() reflect.Type {
@@ -624,12 +539,6 @@ func (o OutboundRuleFrontendIpConfigurationOutput) ToOutboundRuleFrontendIpConfi
 
 func (o OutboundRuleFrontendIpConfigurationOutput) ToOutboundRuleFrontendIpConfigurationOutputWithContext(ctx context.Context) OutboundRuleFrontendIpConfigurationOutput {
 	return o
-}
-
-func (o OutboundRuleFrontendIpConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[OutboundRuleFrontendIpConfiguration] {
-	return pulumix.Output[OutboundRuleFrontendIpConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Load Balancer Outbound Rule.
@@ -654,12 +563,6 @@ func (o OutboundRuleFrontendIpConfigurationArrayOutput) ToOutboundRuleFrontendIp
 
 func (o OutboundRuleFrontendIpConfigurationArrayOutput) ToOutboundRuleFrontendIpConfigurationArrayOutputWithContext(ctx context.Context) OutboundRuleFrontendIpConfigurationArrayOutput {
 	return o
-}
-
-func (o OutboundRuleFrontendIpConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OutboundRuleFrontendIpConfiguration] {
-	return pulumix.Output[[]OutboundRuleFrontendIpConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OutboundRuleFrontendIpConfigurationArrayOutput) Index(i pulumi.IntInput) OutboundRuleFrontendIpConfigurationOutput {
@@ -713,12 +616,6 @@ func (i GetBackendAddressPoolBackendAddressArgs) ToGetBackendAddressPoolBackendA
 	return pulumi.ToOutputWithContext(ctx, i).(GetBackendAddressPoolBackendAddressOutput)
 }
 
-func (i GetBackendAddressPoolBackendAddressArgs) ToOutput(ctx context.Context) pulumix.Output[GetBackendAddressPoolBackendAddress] {
-	return pulumix.Output[GetBackendAddressPoolBackendAddress]{
-		OutputState: i.ToGetBackendAddressPoolBackendAddressOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetBackendAddressPoolBackendAddressArrayInput is an input type that accepts GetBackendAddressPoolBackendAddressArray and GetBackendAddressPoolBackendAddressArrayOutput values.
 // You can construct a concrete instance of `GetBackendAddressPoolBackendAddressArrayInput` via:
 //
@@ -744,12 +641,6 @@ func (i GetBackendAddressPoolBackendAddressArray) ToGetBackendAddressPoolBackend
 	return pulumi.ToOutputWithContext(ctx, i).(GetBackendAddressPoolBackendAddressArrayOutput)
 }
 
-func (i GetBackendAddressPoolBackendAddressArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBackendAddressPoolBackendAddress] {
-	return pulumix.Output[[]GetBackendAddressPoolBackendAddress]{
-		OutputState: i.ToGetBackendAddressPoolBackendAddressArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetBackendAddressPoolBackendAddressOutput struct{ *pulumi.OutputState }
 
 func (GetBackendAddressPoolBackendAddressOutput) ElementType() reflect.Type {
@@ -762,12 +653,6 @@ func (o GetBackendAddressPoolBackendAddressOutput) ToGetBackendAddressPoolBacken
 
 func (o GetBackendAddressPoolBackendAddressOutput) ToGetBackendAddressPoolBackendAddressOutputWithContext(ctx context.Context) GetBackendAddressPoolBackendAddressOutput {
 	return o
-}
-
-func (o GetBackendAddressPoolBackendAddressOutput) ToOutput(ctx context.Context) pulumix.Output[GetBackendAddressPoolBackendAddress] {
-	return pulumix.Output[GetBackendAddressPoolBackendAddress]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of `inboundNatRulePortMapping` block as defined below.
@@ -804,12 +689,6 @@ func (o GetBackendAddressPoolBackendAddressArrayOutput) ToGetBackendAddressPoolB
 
 func (o GetBackendAddressPoolBackendAddressArrayOutput) ToGetBackendAddressPoolBackendAddressArrayOutputWithContext(ctx context.Context) GetBackendAddressPoolBackendAddressArrayOutput {
 	return o
-}
-
-func (o GetBackendAddressPoolBackendAddressArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBackendAddressPoolBackendAddress] {
-	return pulumix.Output[[]GetBackendAddressPoolBackendAddress]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetBackendAddressPoolBackendAddressArrayOutput) Index(i pulumi.IntInput) GetBackendAddressPoolBackendAddressOutput {
@@ -859,12 +738,6 @@ func (i GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArgs) ToGetB
 	return pulumi.ToOutputWithContext(ctx, i).(GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput)
 }
 
-func (i GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArgs) ToOutput(ctx context.Context) pulumix.Output[GetBackendAddressPoolBackendAddressInboundNatRulePortMapping] {
-	return pulumix.Output[GetBackendAddressPoolBackendAddressInboundNatRulePortMapping]{
-		OutputState: i.ToGetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayInput is an input type that accepts GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArray and GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput values.
 // You can construct a concrete instance of `GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayInput` via:
 //
@@ -890,12 +763,6 @@ func (i GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArray) ToGet
 	return pulumi.ToOutputWithContext(ctx, i).(GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput)
 }
 
-func (i GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBackendAddressPoolBackendAddressInboundNatRulePortMapping] {
-	return pulumix.Output[[]GetBackendAddressPoolBackendAddressInboundNatRulePortMapping]{
-		OutputState: i.ToGetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput struct{ *pulumi.OutputState }
 
 func (GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput) ElementType() reflect.Type {
@@ -908,12 +775,6 @@ func (o GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput) ToGe
 
 func (o GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput) ToGetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutputWithContext(ctx context.Context) GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput {
 	return o
-}
-
-func (o GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput) ToOutput(ctx context.Context) pulumix.Output[GetBackendAddressPoolBackendAddressInboundNatRulePortMapping] {
-	return pulumix.Output[GetBackendAddressPoolBackendAddressInboundNatRulePortMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Backend Port of the Load Balancing Inbound NAT Rules associated with this Backend Address Pool Address.
@@ -945,12 +806,6 @@ func (o GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput)
 
 func (o GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput) ToGetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutputWithContext(ctx context.Context) GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput {
 	return o
-}
-
-func (o GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBackendAddressPoolBackendAddressInboundNatRulePortMapping] {
-	return pulumix.Output[[]GetBackendAddressPoolBackendAddressInboundNatRulePortMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrayOutput) Index(i pulumi.IntInput) GetBackendAddressPoolBackendAddressInboundNatRulePortMappingOutput {
@@ -992,12 +847,6 @@ func (i GetBackendAddressPoolBackendIpConfigurationArgs) ToGetBackendAddressPool
 	return pulumi.ToOutputWithContext(ctx, i).(GetBackendAddressPoolBackendIpConfigurationOutput)
 }
 
-func (i GetBackendAddressPoolBackendIpConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetBackendAddressPoolBackendIpConfiguration] {
-	return pulumix.Output[GetBackendAddressPoolBackendIpConfiguration]{
-		OutputState: i.ToGetBackendAddressPoolBackendIpConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetBackendAddressPoolBackendIpConfigurationArrayInput is an input type that accepts GetBackendAddressPoolBackendIpConfigurationArray and GetBackendAddressPoolBackendIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetBackendAddressPoolBackendIpConfigurationArrayInput` via:
 //
@@ -1023,12 +872,6 @@ func (i GetBackendAddressPoolBackendIpConfigurationArray) ToGetBackendAddressPoo
 	return pulumi.ToOutputWithContext(ctx, i).(GetBackendAddressPoolBackendIpConfigurationArrayOutput)
 }
 
-func (i GetBackendAddressPoolBackendIpConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBackendAddressPoolBackendIpConfiguration] {
-	return pulumix.Output[[]GetBackendAddressPoolBackendIpConfiguration]{
-		OutputState: i.ToGetBackendAddressPoolBackendIpConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetBackendAddressPoolBackendIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetBackendAddressPoolBackendIpConfigurationOutput) ElementType() reflect.Type {
@@ -1041,12 +884,6 @@ func (o GetBackendAddressPoolBackendIpConfigurationOutput) ToGetBackendAddressPo
 
 func (o GetBackendAddressPoolBackendIpConfigurationOutput) ToGetBackendAddressPoolBackendIpConfigurationOutputWithContext(ctx context.Context) GetBackendAddressPoolBackendIpConfigurationOutput {
 	return o
-}
-
-func (o GetBackendAddressPoolBackendIpConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetBackendAddressPoolBackendIpConfiguration] {
-	return pulumix.Output[GetBackendAddressPoolBackendIpConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Backend Address Pool.
@@ -1066,12 +903,6 @@ func (o GetBackendAddressPoolBackendIpConfigurationArrayOutput) ToGetBackendAddr
 
 func (o GetBackendAddressPoolBackendIpConfigurationArrayOutput) ToGetBackendAddressPoolBackendIpConfigurationArrayOutputWithContext(ctx context.Context) GetBackendAddressPoolBackendIpConfigurationArrayOutput {
 	return o
-}
-
-func (o GetBackendAddressPoolBackendIpConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBackendAddressPoolBackendIpConfiguration] {
-	return pulumix.Output[[]GetBackendAddressPoolBackendIpConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetBackendAddressPoolBackendIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetBackendAddressPoolBackendIpConfigurationOutput {
@@ -1141,12 +972,6 @@ func (i GetLBFrontendIpConfigurationArgs) ToGetLBFrontendIpConfigurationOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetLBFrontendIpConfigurationOutput)
 }
 
-func (i GetLBFrontendIpConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetLBFrontendIpConfiguration] {
-	return pulumix.Output[GetLBFrontendIpConfiguration]{
-		OutputState: i.ToGetLBFrontendIpConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetLBFrontendIpConfigurationArrayInput is an input type that accepts GetLBFrontendIpConfigurationArray and GetLBFrontendIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetLBFrontendIpConfigurationArrayInput` via:
 //
@@ -1172,12 +997,6 @@ func (i GetLBFrontendIpConfigurationArray) ToGetLBFrontendIpConfigurationArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetLBFrontendIpConfigurationArrayOutput)
 }
 
-func (i GetLBFrontendIpConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetLBFrontendIpConfiguration] {
-	return pulumix.Output[[]GetLBFrontendIpConfiguration]{
-		OutputState: i.ToGetLBFrontendIpConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetLBFrontendIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetLBFrontendIpConfigurationOutput) ElementType() reflect.Type {
@@ -1190,12 +1009,6 @@ func (o GetLBFrontendIpConfigurationOutput) ToGetLBFrontendIpConfigurationOutput
 
 func (o GetLBFrontendIpConfigurationOutput) ToGetLBFrontendIpConfigurationOutputWithContext(ctx context.Context) GetLBFrontendIpConfigurationOutput {
 	return o
-}
-
-func (o GetLBFrontendIpConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetLBFrontendIpConfiguration] {
-	return pulumix.Output[GetLBFrontendIpConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The id of the Frontend IP Configuration.
@@ -1252,12 +1065,6 @@ func (o GetLBFrontendIpConfigurationArrayOutput) ToGetLBFrontendIpConfigurationA
 	return o
 }
 
-func (o GetLBFrontendIpConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetLBFrontendIpConfiguration] {
-	return pulumix.Output[[]GetLBFrontendIpConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetLBFrontendIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetLBFrontendIpConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLBFrontendIpConfiguration {
 		return vs[0].([]GetLBFrontendIpConfiguration)[vs[1].(int)]
@@ -1301,12 +1108,6 @@ func (i GetLBOutboundRuleFrontendIpConfigurationArgs) ToGetLBOutboundRuleFronten
 	return pulumi.ToOutputWithContext(ctx, i).(GetLBOutboundRuleFrontendIpConfigurationOutput)
 }
 
-func (i GetLBOutboundRuleFrontendIpConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[GetLBOutboundRuleFrontendIpConfiguration] {
-	return pulumix.Output[GetLBOutboundRuleFrontendIpConfiguration]{
-		OutputState: i.ToGetLBOutboundRuleFrontendIpConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetLBOutboundRuleFrontendIpConfigurationArrayInput is an input type that accepts GetLBOutboundRuleFrontendIpConfigurationArray and GetLBOutboundRuleFrontendIpConfigurationArrayOutput values.
 // You can construct a concrete instance of `GetLBOutboundRuleFrontendIpConfigurationArrayInput` via:
 //
@@ -1332,12 +1133,6 @@ func (i GetLBOutboundRuleFrontendIpConfigurationArray) ToGetLBOutboundRuleFronte
 	return pulumi.ToOutputWithContext(ctx, i).(GetLBOutboundRuleFrontendIpConfigurationArrayOutput)
 }
 
-func (i GetLBOutboundRuleFrontendIpConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetLBOutboundRuleFrontendIpConfiguration] {
-	return pulumix.Output[[]GetLBOutboundRuleFrontendIpConfiguration]{
-		OutputState: i.ToGetLBOutboundRuleFrontendIpConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetLBOutboundRuleFrontendIpConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetLBOutboundRuleFrontendIpConfigurationOutput) ElementType() reflect.Type {
@@ -1350,12 +1145,6 @@ func (o GetLBOutboundRuleFrontendIpConfigurationOutput) ToGetLBOutboundRuleFront
 
 func (o GetLBOutboundRuleFrontendIpConfigurationOutput) ToGetLBOutboundRuleFrontendIpConfigurationOutputWithContext(ctx context.Context) GetLBOutboundRuleFrontendIpConfigurationOutput {
 	return o
-}
-
-func (o GetLBOutboundRuleFrontendIpConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[GetLBOutboundRuleFrontendIpConfiguration] {
-	return pulumix.Output[GetLBOutboundRuleFrontendIpConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Frontend IP Configuration.
@@ -1380,12 +1169,6 @@ func (o GetLBOutboundRuleFrontendIpConfigurationArrayOutput) ToGetLBOutboundRule
 
 func (o GetLBOutboundRuleFrontendIpConfigurationArrayOutput) ToGetLBOutboundRuleFrontendIpConfigurationArrayOutputWithContext(ctx context.Context) GetLBOutboundRuleFrontendIpConfigurationArrayOutput {
 	return o
-}
-
-func (o GetLBOutboundRuleFrontendIpConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetLBOutboundRuleFrontendIpConfiguration] {
-	return pulumix.Output[[]GetLBOutboundRuleFrontendIpConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetLBOutboundRuleFrontendIpConfigurationArrayOutput) Index(i pulumi.IntInput) GetLBOutboundRuleFrontendIpConfigurationOutput {

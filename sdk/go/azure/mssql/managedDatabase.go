@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure SQL Azure Managed Database for a SQL Managed Instance.
@@ -209,12 +208,6 @@ func (i *ManagedDatabase) ToManagedDatabaseOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabaseOutput)
 }
 
-func (i *ManagedDatabase) ToOutput(ctx context.Context) pulumix.Output[*ManagedDatabase] {
-	return pulumix.Output[*ManagedDatabase]{
-		OutputState: i.ToManagedDatabaseOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ManagedDatabaseArrayInput is an input type that accepts ManagedDatabaseArray and ManagedDatabaseArrayOutput values.
 // You can construct a concrete instance of `ManagedDatabaseArrayInput` via:
 //
@@ -238,12 +231,6 @@ func (i ManagedDatabaseArray) ToManagedDatabaseArrayOutput() ManagedDatabaseArra
 
 func (i ManagedDatabaseArray) ToManagedDatabaseArrayOutputWithContext(ctx context.Context) ManagedDatabaseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabaseArrayOutput)
-}
-
-func (i ManagedDatabaseArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedDatabase] {
-	return pulumix.Output[[]*ManagedDatabase]{
-		OutputState: i.ToManagedDatabaseArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ManagedDatabaseMapInput is an input type that accepts ManagedDatabaseMap and ManagedDatabaseMapOutput values.
@@ -271,12 +258,6 @@ func (i ManagedDatabaseMap) ToManagedDatabaseMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDatabaseMapOutput)
 }
 
-func (i ManagedDatabaseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedDatabase] {
-	return pulumix.Output[map[string]*ManagedDatabase]{
-		OutputState: i.ToManagedDatabaseMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedDatabaseOutput struct{ *pulumi.OutputState }
 
 func (ManagedDatabaseOutput) ElementType() reflect.Type {
@@ -289,12 +270,6 @@ func (o ManagedDatabaseOutput) ToManagedDatabaseOutput() ManagedDatabaseOutput {
 
 func (o ManagedDatabaseOutput) ToManagedDatabaseOutputWithContext(ctx context.Context) ManagedDatabaseOutput {
 	return o
-}
-
-func (o ManagedDatabaseOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedDatabase] {
-	return pulumix.Output[*ManagedDatabase]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `longTermRetentionPolicy` block as defined below.
@@ -333,12 +308,6 @@ func (o ManagedDatabaseArrayOutput) ToManagedDatabaseArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o ManagedDatabaseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedDatabase] {
-	return pulumix.Output[[]*ManagedDatabase]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ManagedDatabaseArrayOutput) Index(i pulumi.IntInput) ManagedDatabaseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedDatabase {
 		return vs[0].([]*ManagedDatabase)[vs[1].(int)]
@@ -357,12 +326,6 @@ func (o ManagedDatabaseMapOutput) ToManagedDatabaseMapOutput() ManagedDatabaseMa
 
 func (o ManagedDatabaseMapOutput) ToManagedDatabaseMapOutputWithContext(ctx context.Context) ManagedDatabaseMapOutput {
 	return o
-}
-
-func (o ManagedDatabaseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedDatabase] {
-	return pulumix.Output[map[string]*ManagedDatabase]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedDatabaseMapOutput) MapIndex(k pulumi.StringInput) ManagedDatabaseOutput {

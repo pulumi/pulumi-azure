@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Bgp Connection for a Route Server
@@ -225,12 +224,6 @@ func (i *RouteServerBgpConnection) ToRouteServerBgpConnectionOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(RouteServerBgpConnectionOutput)
 }
 
-func (i *RouteServerBgpConnection) ToOutput(ctx context.Context) pulumix.Output[*RouteServerBgpConnection] {
-	return pulumix.Output[*RouteServerBgpConnection]{
-		OutputState: i.ToRouteServerBgpConnectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RouteServerBgpConnectionArrayInput is an input type that accepts RouteServerBgpConnectionArray and RouteServerBgpConnectionArrayOutput values.
 // You can construct a concrete instance of `RouteServerBgpConnectionArrayInput` via:
 //
@@ -254,12 +247,6 @@ func (i RouteServerBgpConnectionArray) ToRouteServerBgpConnectionArrayOutput() R
 
 func (i RouteServerBgpConnectionArray) ToRouteServerBgpConnectionArrayOutputWithContext(ctx context.Context) RouteServerBgpConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteServerBgpConnectionArrayOutput)
-}
-
-func (i RouteServerBgpConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*RouteServerBgpConnection] {
-	return pulumix.Output[[]*RouteServerBgpConnection]{
-		OutputState: i.ToRouteServerBgpConnectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RouteServerBgpConnectionMapInput is an input type that accepts RouteServerBgpConnectionMap and RouteServerBgpConnectionMapOutput values.
@@ -287,12 +274,6 @@ func (i RouteServerBgpConnectionMap) ToRouteServerBgpConnectionMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RouteServerBgpConnectionMapOutput)
 }
 
-func (i RouteServerBgpConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RouteServerBgpConnection] {
-	return pulumix.Output[map[string]*RouteServerBgpConnection]{
-		OutputState: i.ToRouteServerBgpConnectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RouteServerBgpConnectionOutput struct{ *pulumi.OutputState }
 
 func (RouteServerBgpConnectionOutput) ElementType() reflect.Type {
@@ -305,12 +286,6 @@ func (o RouteServerBgpConnectionOutput) ToRouteServerBgpConnectionOutput() Route
 
 func (o RouteServerBgpConnectionOutput) ToRouteServerBgpConnectionOutputWithContext(ctx context.Context) RouteServerBgpConnectionOutput {
 	return o
-}
-
-func (o RouteServerBgpConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteServerBgpConnection] {
-	return pulumix.Output[*RouteServerBgpConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name which should be used for this Route Server Bgp Connection. Changing this forces a new resource to be created.
@@ -347,12 +322,6 @@ func (o RouteServerBgpConnectionArrayOutput) ToRouteServerBgpConnectionArrayOutp
 	return o
 }
 
-func (o RouteServerBgpConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RouteServerBgpConnection] {
-	return pulumix.Output[[]*RouteServerBgpConnection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RouteServerBgpConnectionArrayOutput) Index(i pulumi.IntInput) RouteServerBgpConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RouteServerBgpConnection {
 		return vs[0].([]*RouteServerBgpConnection)[vs[1].(int)]
@@ -371,12 +340,6 @@ func (o RouteServerBgpConnectionMapOutput) ToRouteServerBgpConnectionMapOutput()
 
 func (o RouteServerBgpConnectionMapOutput) ToRouteServerBgpConnectionMapOutputWithContext(ctx context.Context) RouteServerBgpConnectionMapOutput {
 	return o
-}
-
-func (o RouteServerBgpConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RouteServerBgpConnection] {
-	return pulumix.Output[map[string]*RouteServerBgpConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RouteServerBgpConnectionMapOutput) MapIndex(k pulumi.StringInput) RouteServerBgpConnectionOutput {

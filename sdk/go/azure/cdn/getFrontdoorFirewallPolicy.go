@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Front Door (standard/premium) Firewall Policy.
@@ -114,12 +113,6 @@ func (o LookupFrontdoorFirewallPolicyResultOutput) ToLookupFrontdoorFirewallPoli
 
 func (o LookupFrontdoorFirewallPolicyResultOutput) ToLookupFrontdoorFirewallPolicyResultOutputWithContext(ctx context.Context) LookupFrontdoorFirewallPolicyResultOutput {
 	return o
-}
-
-func (o LookupFrontdoorFirewallPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFrontdoorFirewallPolicyResult] {
-	return pulumix.Output[LookupFrontdoorFirewallPolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The enabled state of the Front Door Firewall Policy.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Application Gateway for Containers (ALB).
@@ -181,12 +180,6 @@ func (i *LicationLoadBalancer) ToLicationLoadBalancerOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LicationLoadBalancerOutput)
 }
 
-func (i *LicationLoadBalancer) ToOutput(ctx context.Context) pulumix.Output[*LicationLoadBalancer] {
-	return pulumix.Output[*LicationLoadBalancer]{
-		OutputState: i.ToLicationLoadBalancerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LicationLoadBalancerArrayInput is an input type that accepts LicationLoadBalancerArray and LicationLoadBalancerArrayOutput values.
 // You can construct a concrete instance of `LicationLoadBalancerArrayInput` via:
 //
@@ -210,12 +203,6 @@ func (i LicationLoadBalancerArray) ToLicationLoadBalancerArrayOutput() LicationL
 
 func (i LicationLoadBalancerArray) ToLicationLoadBalancerArrayOutputWithContext(ctx context.Context) LicationLoadBalancerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LicationLoadBalancerArrayOutput)
-}
-
-func (i LicationLoadBalancerArray) ToOutput(ctx context.Context) pulumix.Output[[]*LicationLoadBalancer] {
-	return pulumix.Output[[]*LicationLoadBalancer]{
-		OutputState: i.ToLicationLoadBalancerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LicationLoadBalancerMapInput is an input type that accepts LicationLoadBalancerMap and LicationLoadBalancerMapOutput values.
@@ -243,12 +230,6 @@ func (i LicationLoadBalancerMap) ToLicationLoadBalancerMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LicationLoadBalancerMapOutput)
 }
 
-func (i LicationLoadBalancerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LicationLoadBalancer] {
-	return pulumix.Output[map[string]*LicationLoadBalancer]{
-		OutputState: i.ToLicationLoadBalancerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LicationLoadBalancerOutput struct{ *pulumi.OutputState }
 
 func (LicationLoadBalancerOutput) ElementType() reflect.Type {
@@ -261,12 +242,6 @@ func (o LicationLoadBalancerOutput) ToLicationLoadBalancerOutput() LicationLoadB
 
 func (o LicationLoadBalancerOutput) ToLicationLoadBalancerOutputWithContext(ctx context.Context) LicationLoadBalancerOutput {
 	return o
-}
-
-func (o LicationLoadBalancerOutput) ToOutput(ctx context.Context) pulumix.Output[*LicationLoadBalancer] {
-	return pulumix.Output[*LicationLoadBalancer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Azure Region where the Application Gateway for Containers (ALB) should exist. Changing this forces a new resource to be created.
@@ -308,12 +283,6 @@ func (o LicationLoadBalancerArrayOutput) ToLicationLoadBalancerArrayOutputWithCo
 	return o
 }
 
-func (o LicationLoadBalancerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LicationLoadBalancer] {
-	return pulumix.Output[[]*LicationLoadBalancer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LicationLoadBalancerArrayOutput) Index(i pulumi.IntInput) LicationLoadBalancerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LicationLoadBalancer {
 		return vs[0].([]*LicationLoadBalancer)[vs[1].(int)]
@@ -332,12 +301,6 @@ func (o LicationLoadBalancerMapOutput) ToLicationLoadBalancerMapOutput() Licatio
 
 func (o LicationLoadBalancerMapOutput) ToLicationLoadBalancerMapOutputWithContext(ctx context.Context) LicationLoadBalancerMapOutput {
 	return o
-}
-
-func (o LicationLoadBalancerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LicationLoadBalancer] {
-	return pulumix.Output[map[string]*LicationLoadBalancer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LicationLoadBalancerMapOutput) MapIndex(k pulumi.StringInput) LicationLoadBalancerOutput {

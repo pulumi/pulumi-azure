@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a HPC Cache Access Policy.
@@ -204,12 +203,6 @@ func (i *CacheAccessPolicy) ToCacheAccessPolicyOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(CacheAccessPolicyOutput)
 }
 
-func (i *CacheAccessPolicy) ToOutput(ctx context.Context) pulumix.Output[*CacheAccessPolicy] {
-	return pulumix.Output[*CacheAccessPolicy]{
-		OutputState: i.ToCacheAccessPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CacheAccessPolicyArrayInput is an input type that accepts CacheAccessPolicyArray and CacheAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `CacheAccessPolicyArrayInput` via:
 //
@@ -233,12 +226,6 @@ func (i CacheAccessPolicyArray) ToCacheAccessPolicyArrayOutput() CacheAccessPoli
 
 func (i CacheAccessPolicyArray) ToCacheAccessPolicyArrayOutputWithContext(ctx context.Context) CacheAccessPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CacheAccessPolicyArrayOutput)
-}
-
-func (i CacheAccessPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*CacheAccessPolicy] {
-	return pulumix.Output[[]*CacheAccessPolicy]{
-		OutputState: i.ToCacheAccessPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CacheAccessPolicyMapInput is an input type that accepts CacheAccessPolicyMap and CacheAccessPolicyMapOutput values.
@@ -266,12 +253,6 @@ func (i CacheAccessPolicyMap) ToCacheAccessPolicyMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CacheAccessPolicyMapOutput)
 }
 
-func (i CacheAccessPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CacheAccessPolicy] {
-	return pulumix.Output[map[string]*CacheAccessPolicy]{
-		OutputState: i.ToCacheAccessPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CacheAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (CacheAccessPolicyOutput) ElementType() reflect.Type {
@@ -284,12 +265,6 @@ func (o CacheAccessPolicyOutput) ToCacheAccessPolicyOutput() CacheAccessPolicyOu
 
 func (o CacheAccessPolicyOutput) ToCacheAccessPolicyOutputWithContext(ctx context.Context) CacheAccessPolicyOutput {
 	return o
-}
-
-func (o CacheAccessPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*CacheAccessPolicy] {
-	return pulumix.Output[*CacheAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Up to three `accessRule` blocks as defined below.
@@ -321,12 +296,6 @@ func (o CacheAccessPolicyArrayOutput) ToCacheAccessPolicyArrayOutputWithContext(
 	return o
 }
 
-func (o CacheAccessPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CacheAccessPolicy] {
-	return pulumix.Output[[]*CacheAccessPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CacheAccessPolicyArrayOutput) Index(i pulumi.IntInput) CacheAccessPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CacheAccessPolicy {
 		return vs[0].([]*CacheAccessPolicy)[vs[1].(int)]
@@ -345,12 +314,6 @@ func (o CacheAccessPolicyMapOutput) ToCacheAccessPolicyMapOutput() CacheAccessPo
 
 func (o CacheAccessPolicyMapOutput) ToCacheAccessPolicyMapOutputWithContext(ctx context.Context) CacheAccessPolicyMapOutput {
 	return o
-}
-
-func (o CacheAccessPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CacheAccessPolicy] {
-	return pulumix.Output[map[string]*CacheAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CacheAccessPolicyMapOutput) MapIndex(k pulumi.StringInput) CacheAccessPolicyOutput {
