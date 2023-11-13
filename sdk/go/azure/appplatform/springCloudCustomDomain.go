@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Spring Cloud Custom Domain.
@@ -141,12 +140,6 @@ func (i *SpringCloudCustomDomain) ToSpringCloudCustomDomainOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomDomainOutput)
 }
 
-func (i *SpringCloudCustomDomain) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudCustomDomain] {
-	return pulumix.Output[*SpringCloudCustomDomain]{
-		OutputState: i.ToSpringCloudCustomDomainOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SpringCloudCustomDomainArrayInput is an input type that accepts SpringCloudCustomDomainArray and SpringCloudCustomDomainArrayOutput values.
 // You can construct a concrete instance of `SpringCloudCustomDomainArrayInput` via:
 //
@@ -170,12 +163,6 @@ func (i SpringCloudCustomDomainArray) ToSpringCloudCustomDomainArrayOutput() Spr
 
 func (i SpringCloudCustomDomainArray) ToSpringCloudCustomDomainArrayOutputWithContext(ctx context.Context) SpringCloudCustomDomainArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomDomainArrayOutput)
-}
-
-func (i SpringCloudCustomDomainArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudCustomDomain] {
-	return pulumix.Output[[]*SpringCloudCustomDomain]{
-		OutputState: i.ToSpringCloudCustomDomainArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SpringCloudCustomDomainMapInput is an input type that accepts SpringCloudCustomDomainMap and SpringCloudCustomDomainMapOutput values.
@@ -203,12 +190,6 @@ func (i SpringCloudCustomDomainMap) ToSpringCloudCustomDomainMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomDomainMapOutput)
 }
 
-func (i SpringCloudCustomDomainMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudCustomDomain] {
-	return pulumix.Output[map[string]*SpringCloudCustomDomain]{
-		OutputState: i.ToSpringCloudCustomDomainMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SpringCloudCustomDomainOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudCustomDomainOutput) ElementType() reflect.Type {
@@ -221,12 +202,6 @@ func (o SpringCloudCustomDomainOutput) ToSpringCloudCustomDomainOutput() SpringC
 
 func (o SpringCloudCustomDomainOutput) ToSpringCloudCustomDomainOutputWithContext(ctx context.Context) SpringCloudCustomDomainOutput {
 	return o
-}
-
-func (o SpringCloudCustomDomainOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudCustomDomain] {
-	return pulumix.Output[*SpringCloudCustomDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the Spring Cloud Certificate that binds to the Spring Cloud Custom Domain. Required when `thumbprint` is specified
@@ -263,12 +238,6 @@ func (o SpringCloudCustomDomainArrayOutput) ToSpringCloudCustomDomainArrayOutput
 	return o
 }
 
-func (o SpringCloudCustomDomainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudCustomDomain] {
-	return pulumix.Output[[]*SpringCloudCustomDomain]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SpringCloudCustomDomainArrayOutput) Index(i pulumi.IntInput) SpringCloudCustomDomainOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudCustomDomain {
 		return vs[0].([]*SpringCloudCustomDomain)[vs[1].(int)]
@@ -287,12 +256,6 @@ func (o SpringCloudCustomDomainMapOutput) ToSpringCloudCustomDomainMapOutput() S
 
 func (o SpringCloudCustomDomainMapOutput) ToSpringCloudCustomDomainMapOutputWithContext(ctx context.Context) SpringCloudCustomDomainMapOutput {
 	return o
-}
-
-func (o SpringCloudCustomDomainMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudCustomDomain] {
-	return pulumix.Output[map[string]*SpringCloudCustomDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SpringCloudCustomDomainMapOutput) MapIndex(k pulumi.StringInput) SpringCloudCustomDomainOutput {

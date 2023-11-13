@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Synapse Private Link Hub.
@@ -168,12 +167,6 @@ func (i *PrivateLinkHub) ToPrivateLinkHubOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkHubOutput)
 }
 
-func (i *PrivateLinkHub) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkHub] {
-	return pulumix.Output[*PrivateLinkHub]{
-		OutputState: i.ToPrivateLinkHubOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PrivateLinkHubArrayInput is an input type that accepts PrivateLinkHubArray and PrivateLinkHubArrayOutput values.
 // You can construct a concrete instance of `PrivateLinkHubArrayInput` via:
 //
@@ -197,12 +190,6 @@ func (i PrivateLinkHubArray) ToPrivateLinkHubArrayOutput() PrivateLinkHubArrayOu
 
 func (i PrivateLinkHubArray) ToPrivateLinkHubArrayOutputWithContext(ctx context.Context) PrivateLinkHubArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkHubArrayOutput)
-}
-
-func (i PrivateLinkHubArray) ToOutput(ctx context.Context) pulumix.Output[[]*PrivateLinkHub] {
-	return pulumix.Output[[]*PrivateLinkHub]{
-		OutputState: i.ToPrivateLinkHubArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PrivateLinkHubMapInput is an input type that accepts PrivateLinkHubMap and PrivateLinkHubMapOutput values.
@@ -230,12 +217,6 @@ func (i PrivateLinkHubMap) ToPrivateLinkHubMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkHubMapOutput)
 }
 
-func (i PrivateLinkHubMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrivateLinkHub] {
-	return pulumix.Output[map[string]*PrivateLinkHub]{
-		OutputState: i.ToPrivateLinkHubMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrivateLinkHubOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkHubOutput) ElementType() reflect.Type {
@@ -248,12 +229,6 @@ func (o PrivateLinkHubOutput) ToPrivateLinkHubOutput() PrivateLinkHubOutput {
 
 func (o PrivateLinkHubOutput) ToPrivateLinkHubOutputWithContext(ctx context.Context) PrivateLinkHubOutput {
 	return o
-}
-
-func (o PrivateLinkHubOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkHub] {
-	return pulumix.Output[*PrivateLinkHub]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Azure location where the Synapse Private Link Hub exists. Changing this forces a new resource to be created.
@@ -290,12 +265,6 @@ func (o PrivateLinkHubArrayOutput) ToPrivateLinkHubArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o PrivateLinkHubArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PrivateLinkHub] {
-	return pulumix.Output[[]*PrivateLinkHub]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PrivateLinkHubArrayOutput) Index(i pulumi.IntInput) PrivateLinkHubOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PrivateLinkHub {
 		return vs[0].([]*PrivateLinkHub)[vs[1].(int)]
@@ -314,12 +283,6 @@ func (o PrivateLinkHubMapOutput) ToPrivateLinkHubMapOutput() PrivateLinkHubMapOu
 
 func (o PrivateLinkHubMapOutput) ToPrivateLinkHubMapOutputWithContext(ctx context.Context) PrivateLinkHubMapOutput {
 	return o
-}
-
-func (o PrivateLinkHubMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrivateLinkHub] {
-	return pulumix.Output[map[string]*PrivateLinkHub]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrivateLinkHubMapOutput) MapIndex(k pulumi.StringInput) PrivateLinkHubOutput {

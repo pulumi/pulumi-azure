@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Sentinel Metadata.
@@ -378,12 +377,6 @@ func (i *Metadata) ToMetadataOutputWithContext(ctx context.Context) MetadataOutp
 	return pulumi.ToOutputWithContext(ctx, i).(MetadataOutput)
 }
 
-func (i *Metadata) ToOutput(ctx context.Context) pulumix.Output[*Metadata] {
-	return pulumix.Output[*Metadata]{
-		OutputState: i.ToMetadataOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MetadataArrayInput is an input type that accepts MetadataArray and MetadataArrayOutput values.
 // You can construct a concrete instance of `MetadataArrayInput` via:
 //
@@ -407,12 +400,6 @@ func (i MetadataArray) ToMetadataArrayOutput() MetadataArrayOutput {
 
 func (i MetadataArray) ToMetadataArrayOutputWithContext(ctx context.Context) MetadataArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MetadataArrayOutput)
-}
-
-func (i MetadataArray) ToOutput(ctx context.Context) pulumix.Output[[]*Metadata] {
-	return pulumix.Output[[]*Metadata]{
-		OutputState: i.ToMetadataArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MetadataMapInput is an input type that accepts MetadataMap and MetadataMapOutput values.
@@ -440,12 +427,6 @@ func (i MetadataMap) ToMetadataMapOutputWithContext(ctx context.Context) Metadat
 	return pulumi.ToOutputWithContext(ctx, i).(MetadataMapOutput)
 }
 
-func (i MetadataMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Metadata] {
-	return pulumix.Output[map[string]*Metadata]{
-		OutputState: i.ToMetadataMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MetadataOutput struct{ *pulumi.OutputState }
 
 func (MetadataOutput) ElementType() reflect.Type {
@@ -458,12 +439,6 @@ func (o MetadataOutput) ToMetadataOutput() MetadataOutput {
 
 func (o MetadataOutput) ToMetadataOutputWithContext(ctx context.Context) MetadataOutput {
 	return o
-}
-
-func (o MetadataOutput) ToOutput(ctx context.Context) pulumix.Output[*Metadata] {
-	return pulumix.Output[*Metadata]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `author` blocks as defined below.
@@ -583,12 +558,6 @@ func (o MetadataArrayOutput) ToMetadataArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o MetadataArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Metadata] {
-	return pulumix.Output[[]*Metadata]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MetadataArrayOutput) Index(i pulumi.IntInput) MetadataOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Metadata {
 		return vs[0].([]*Metadata)[vs[1].(int)]
@@ -607,12 +576,6 @@ func (o MetadataMapOutput) ToMetadataMapOutput() MetadataMapOutput {
 
 func (o MetadataMapOutput) ToMetadataMapOutputWithContext(ctx context.Context) MetadataMapOutput {
 	return o
-}
-
-func (o MetadataMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Metadata] {
-	return pulumix.Output[map[string]*Metadata]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MetadataMapOutput) MapIndex(k pulumi.StringInput) MetadataOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Disk SAS Token.
@@ -213,12 +212,6 @@ func (i *ManagedDiskSasToken) ToManagedDiskSasTokenOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskSasTokenOutput)
 }
 
-func (i *ManagedDiskSasToken) ToOutput(ctx context.Context) pulumix.Output[*ManagedDiskSasToken] {
-	return pulumix.Output[*ManagedDiskSasToken]{
-		OutputState: i.ToManagedDiskSasTokenOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ManagedDiskSasTokenArrayInput is an input type that accepts ManagedDiskSasTokenArray and ManagedDiskSasTokenArrayOutput values.
 // You can construct a concrete instance of `ManagedDiskSasTokenArrayInput` via:
 //
@@ -242,12 +235,6 @@ func (i ManagedDiskSasTokenArray) ToManagedDiskSasTokenArrayOutput() ManagedDisk
 
 func (i ManagedDiskSasTokenArray) ToManagedDiskSasTokenArrayOutputWithContext(ctx context.Context) ManagedDiskSasTokenArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskSasTokenArrayOutput)
-}
-
-func (i ManagedDiskSasTokenArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedDiskSasToken] {
-	return pulumix.Output[[]*ManagedDiskSasToken]{
-		OutputState: i.ToManagedDiskSasTokenArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ManagedDiskSasTokenMapInput is an input type that accepts ManagedDiskSasTokenMap and ManagedDiskSasTokenMapOutput values.
@@ -275,12 +262,6 @@ func (i ManagedDiskSasTokenMap) ToManagedDiskSasTokenMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedDiskSasTokenMapOutput)
 }
 
-func (i ManagedDiskSasTokenMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedDiskSasToken] {
-	return pulumix.Output[map[string]*ManagedDiskSasToken]{
-		OutputState: i.ToManagedDiskSasTokenMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedDiskSasTokenOutput struct{ *pulumi.OutputState }
 
 func (ManagedDiskSasTokenOutput) ElementType() reflect.Type {
@@ -293,12 +274,6 @@ func (o ManagedDiskSasTokenOutput) ToManagedDiskSasTokenOutput() ManagedDiskSasT
 
 func (o ManagedDiskSasTokenOutput) ToManagedDiskSasTokenOutputWithContext(ctx context.Context) ManagedDiskSasTokenOutput {
 	return o
-}
-
-func (o ManagedDiskSasTokenOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedDiskSasToken] {
-	return pulumix.Output[*ManagedDiskSasToken]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created.
@@ -338,12 +313,6 @@ func (o ManagedDiskSasTokenArrayOutput) ToManagedDiskSasTokenArrayOutputWithCont
 	return o
 }
 
-func (o ManagedDiskSasTokenArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedDiskSasToken] {
-	return pulumix.Output[[]*ManagedDiskSasToken]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ManagedDiskSasTokenArrayOutput) Index(i pulumi.IntInput) ManagedDiskSasTokenOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedDiskSasToken {
 		return vs[0].([]*ManagedDiskSasToken)[vs[1].(int)]
@@ -362,12 +331,6 @@ func (o ManagedDiskSasTokenMapOutput) ToManagedDiskSasTokenMapOutput() ManagedDi
 
 func (o ManagedDiskSasTokenMapOutput) ToManagedDiskSasTokenMapOutputWithContext(ctx context.Context) ManagedDiskSasTokenMapOutput {
 	return o
-}
-
-func (o ManagedDiskSasTokenMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedDiskSasToken] {
-	return pulumix.Output[map[string]*ManagedDiskSasToken]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedDiskSasTokenMapOutput) MapIndex(k pulumi.StringInput) ManagedDiskSasTokenOutput {

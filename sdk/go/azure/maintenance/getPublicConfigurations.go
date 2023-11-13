@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about existing Public Maintenance Configurations.
@@ -115,12 +114,6 @@ func (o GetPublicConfigurationsResultOutput) ToGetPublicConfigurationsResultOutp
 
 func (o GetPublicConfigurationsResultOutput) ToGetPublicConfigurationsResultOutputWithContext(ctx context.Context) GetPublicConfigurationsResultOutput {
 	return o
-}
-
-func (o GetPublicConfigurationsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPublicConfigurationsResult] {
-	return pulumix.Output[GetPublicConfigurationsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `configs` block as defined below.

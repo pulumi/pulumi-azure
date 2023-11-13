@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Windows Function App.
@@ -577,12 +576,6 @@ func (i *WindowsFunctionApp) ToWindowsFunctionAppOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsFunctionAppOutput)
 }
 
-func (i *WindowsFunctionApp) ToOutput(ctx context.Context) pulumix.Output[*WindowsFunctionApp] {
-	return pulumix.Output[*WindowsFunctionApp]{
-		OutputState: i.ToWindowsFunctionAppOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WindowsFunctionAppArrayInput is an input type that accepts WindowsFunctionAppArray and WindowsFunctionAppArrayOutput values.
 // You can construct a concrete instance of `WindowsFunctionAppArrayInput` via:
 //
@@ -606,12 +599,6 @@ func (i WindowsFunctionAppArray) ToWindowsFunctionAppArrayOutput() WindowsFuncti
 
 func (i WindowsFunctionAppArray) ToWindowsFunctionAppArrayOutputWithContext(ctx context.Context) WindowsFunctionAppArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsFunctionAppArrayOutput)
-}
-
-func (i WindowsFunctionAppArray) ToOutput(ctx context.Context) pulumix.Output[[]*WindowsFunctionApp] {
-	return pulumix.Output[[]*WindowsFunctionApp]{
-		OutputState: i.ToWindowsFunctionAppArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // WindowsFunctionAppMapInput is an input type that accepts WindowsFunctionAppMap and WindowsFunctionAppMapOutput values.
@@ -639,12 +626,6 @@ func (i WindowsFunctionAppMap) ToWindowsFunctionAppMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(WindowsFunctionAppMapOutput)
 }
 
-func (i WindowsFunctionAppMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WindowsFunctionApp] {
-	return pulumix.Output[map[string]*WindowsFunctionApp]{
-		OutputState: i.ToWindowsFunctionAppMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WindowsFunctionAppOutput struct{ *pulumi.OutputState }
 
 func (WindowsFunctionAppOutput) ElementType() reflect.Type {
@@ -657,12 +638,6 @@ func (o WindowsFunctionAppOutput) ToWindowsFunctionAppOutput() WindowsFunctionAp
 
 func (o WindowsFunctionAppOutput) ToWindowsFunctionAppOutputWithContext(ctx context.Context) WindowsFunctionAppOutput {
 	return o
-}
-
-func (o WindowsFunctionAppOutput) ToOutput(ctx context.Context) pulumix.Output[*WindowsFunctionApp] {
-	return pulumix.Output[*WindowsFunctionApp]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of key-value pairs for [App
@@ -887,12 +862,6 @@ func (o WindowsFunctionAppArrayOutput) ToWindowsFunctionAppArrayOutputWithContex
 	return o
 }
 
-func (o WindowsFunctionAppArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WindowsFunctionApp] {
-	return pulumix.Output[[]*WindowsFunctionApp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WindowsFunctionAppArrayOutput) Index(i pulumi.IntInput) WindowsFunctionAppOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WindowsFunctionApp {
 		return vs[0].([]*WindowsFunctionApp)[vs[1].(int)]
@@ -911,12 +880,6 @@ func (o WindowsFunctionAppMapOutput) ToWindowsFunctionAppMapOutput() WindowsFunc
 
 func (o WindowsFunctionAppMapOutput) ToWindowsFunctionAppMapOutputWithContext(ctx context.Context) WindowsFunctionAppMapOutput {
 	return o
-}
-
-func (o WindowsFunctionAppMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WindowsFunctionApp] {
-	return pulumix.Output[map[string]*WindowsFunctionApp]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WindowsFunctionAppMapOutput) MapIndex(k pulumi.StringInput) WindowsFunctionAppOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Key Vault Certificate.
@@ -480,12 +479,6 @@ func (i *Certifiate) ToCertifiateOutputWithContext(ctx context.Context) Certifia
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateOutput)
 }
 
-func (i *Certifiate) ToOutput(ctx context.Context) pulumix.Output[*Certifiate] {
-	return pulumix.Output[*Certifiate]{
-		OutputState: i.ToCertifiateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertifiateArrayInput is an input type that accepts CertifiateArray and CertifiateArrayOutput values.
 // You can construct a concrete instance of `CertifiateArrayInput` via:
 //
@@ -509,12 +502,6 @@ func (i CertifiateArray) ToCertifiateArrayOutput() CertifiateArrayOutput {
 
 func (i CertifiateArray) ToCertifiateArrayOutputWithContext(ctx context.Context) CertifiateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateArrayOutput)
-}
-
-func (i CertifiateArray) ToOutput(ctx context.Context) pulumix.Output[[]*Certifiate] {
-	return pulumix.Output[[]*Certifiate]{
-		OutputState: i.ToCertifiateArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CertifiateMapInput is an input type that accepts CertifiateMap and CertifiateMapOutput values.
@@ -542,12 +529,6 @@ func (i CertifiateMap) ToCertifiateMapOutputWithContext(ctx context.Context) Cer
 	return pulumi.ToOutputWithContext(ctx, i).(CertifiateMapOutput)
 }
 
-func (i CertifiateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Certifiate] {
-	return pulumix.Output[map[string]*Certifiate]{
-		OutputState: i.ToCertifiateMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertifiateOutput struct{ *pulumi.OutputState }
 
 func (CertifiateOutput) ElementType() reflect.Type {
@@ -560,12 +541,6 @@ func (o CertifiateOutput) ToCertifiateOutput() CertifiateOutput {
 
 func (o CertifiateOutput) ToCertifiateOutputWithContext(ctx context.Context) CertifiateOutput {
 	return o
-}
-
-func (o CertifiateOutput) ToOutput(ctx context.Context) pulumix.Output[*Certifiate] {
-	return pulumix.Output[*Certifiate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
@@ -659,12 +634,6 @@ func (o CertifiateArrayOutput) ToCertifiateArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o CertifiateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Certifiate] {
-	return pulumix.Output[[]*Certifiate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertifiateArrayOutput) Index(i pulumi.IntInput) CertifiateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Certifiate {
 		return vs[0].([]*Certifiate)[vs[1].(int)]
@@ -683,12 +652,6 @@ func (o CertifiateMapOutput) ToCertifiateMapOutput() CertifiateMapOutput {
 
 func (o CertifiateMapOutput) ToCertifiateMapOutputWithContext(ctx context.Context) CertifiateMapOutput {
 	return o
-}
-
-func (o CertifiateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Certifiate] {
-	return pulumix.Output[map[string]*Certifiate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertifiateMapOutput) MapIndex(k pulumi.StringInput) CertifiateOutput {

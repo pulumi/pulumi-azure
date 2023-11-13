@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Allows you to set a user or group as the AD administrator for an Azure SQL server.
@@ -226,12 +225,6 @@ func (i *ActiveDirectoryAdministrator) ToActiveDirectoryAdministratorOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryAdministratorOutput)
 }
 
-func (i *ActiveDirectoryAdministrator) ToOutput(ctx context.Context) pulumix.Output[*ActiveDirectoryAdministrator] {
-	return pulumix.Output[*ActiveDirectoryAdministrator]{
-		OutputState: i.ToActiveDirectoryAdministratorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActiveDirectoryAdministratorArrayInput is an input type that accepts ActiveDirectoryAdministratorArray and ActiveDirectoryAdministratorArrayOutput values.
 // You can construct a concrete instance of `ActiveDirectoryAdministratorArrayInput` via:
 //
@@ -255,12 +248,6 @@ func (i ActiveDirectoryAdministratorArray) ToActiveDirectoryAdministratorArrayOu
 
 func (i ActiveDirectoryAdministratorArray) ToActiveDirectoryAdministratorArrayOutputWithContext(ctx context.Context) ActiveDirectoryAdministratorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryAdministratorArrayOutput)
-}
-
-func (i ActiveDirectoryAdministratorArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActiveDirectoryAdministrator] {
-	return pulumix.Output[[]*ActiveDirectoryAdministrator]{
-		OutputState: i.ToActiveDirectoryAdministratorArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ActiveDirectoryAdministratorMapInput is an input type that accepts ActiveDirectoryAdministratorMap and ActiveDirectoryAdministratorMapOutput values.
@@ -288,12 +275,6 @@ func (i ActiveDirectoryAdministratorMap) ToActiveDirectoryAdministratorMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveDirectoryAdministratorMapOutput)
 }
 
-func (i ActiveDirectoryAdministratorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActiveDirectoryAdministrator] {
-	return pulumix.Output[map[string]*ActiveDirectoryAdministrator]{
-		OutputState: i.ToActiveDirectoryAdministratorMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActiveDirectoryAdministratorOutput struct{ *pulumi.OutputState }
 
 func (ActiveDirectoryAdministratorOutput) ElementType() reflect.Type {
@@ -306,12 +287,6 @@ func (o ActiveDirectoryAdministratorOutput) ToActiveDirectoryAdministratorOutput
 
 func (o ActiveDirectoryAdministratorOutput) ToActiveDirectoryAdministratorOutputWithContext(ctx context.Context) ActiveDirectoryAdministratorOutput {
 	return o
-}
-
-func (o ActiveDirectoryAdministratorOutput) ToOutput(ctx context.Context) pulumix.Output[*ActiveDirectoryAdministrator] {
-	return pulumix.Output[*ActiveDirectoryAdministrator]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`).
@@ -358,12 +333,6 @@ func (o ActiveDirectoryAdministratorArrayOutput) ToActiveDirectoryAdministratorA
 	return o
 }
 
-func (o ActiveDirectoryAdministratorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActiveDirectoryAdministrator] {
-	return pulumix.Output[[]*ActiveDirectoryAdministrator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ActiveDirectoryAdministratorArrayOutput) Index(i pulumi.IntInput) ActiveDirectoryAdministratorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActiveDirectoryAdministrator {
 		return vs[0].([]*ActiveDirectoryAdministrator)[vs[1].(int)]
@@ -382,12 +351,6 @@ func (o ActiveDirectoryAdministratorMapOutput) ToActiveDirectoryAdministratorMap
 
 func (o ActiveDirectoryAdministratorMapOutput) ToActiveDirectoryAdministratorMapOutputWithContext(ctx context.Context) ActiveDirectoryAdministratorMapOutput {
 	return o
-}
-
-func (o ActiveDirectoryAdministratorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActiveDirectoryAdministrator] {
-	return pulumix.Output[map[string]*ActiveDirectoryAdministrator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActiveDirectoryAdministratorMapOutput) MapIndex(k pulumi.StringInput) ActiveDirectoryAdministratorOutput {

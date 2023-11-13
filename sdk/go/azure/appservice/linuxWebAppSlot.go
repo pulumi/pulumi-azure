@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linux Web App Slot.
@@ -451,12 +450,6 @@ func (i *LinuxWebAppSlot) ToLinuxWebAppSlotOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxWebAppSlotOutput)
 }
 
-func (i *LinuxWebAppSlot) ToOutput(ctx context.Context) pulumix.Output[*LinuxWebAppSlot] {
-	return pulumix.Output[*LinuxWebAppSlot]{
-		OutputState: i.ToLinuxWebAppSlotOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinuxWebAppSlotArrayInput is an input type that accepts LinuxWebAppSlotArray and LinuxWebAppSlotArrayOutput values.
 // You can construct a concrete instance of `LinuxWebAppSlotArrayInput` via:
 //
@@ -480,12 +473,6 @@ func (i LinuxWebAppSlotArray) ToLinuxWebAppSlotArrayOutput() LinuxWebAppSlotArra
 
 func (i LinuxWebAppSlotArray) ToLinuxWebAppSlotArrayOutputWithContext(ctx context.Context) LinuxWebAppSlotArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxWebAppSlotArrayOutput)
-}
-
-func (i LinuxWebAppSlotArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinuxWebAppSlot] {
-	return pulumix.Output[[]*LinuxWebAppSlot]{
-		OutputState: i.ToLinuxWebAppSlotArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinuxWebAppSlotMapInput is an input type that accepts LinuxWebAppSlotMap and LinuxWebAppSlotMapOutput values.
@@ -513,12 +500,6 @@ func (i LinuxWebAppSlotMap) ToLinuxWebAppSlotMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxWebAppSlotMapOutput)
 }
 
-func (i LinuxWebAppSlotMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinuxWebAppSlot] {
-	return pulumix.Output[map[string]*LinuxWebAppSlot]{
-		OutputState: i.ToLinuxWebAppSlotMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinuxWebAppSlotOutput struct{ *pulumi.OutputState }
 
 func (LinuxWebAppSlotOutput) ElementType() reflect.Type {
@@ -531,12 +512,6 @@ func (o LinuxWebAppSlotOutput) ToLinuxWebAppSlotOutput() LinuxWebAppSlotOutput {
 
 func (o LinuxWebAppSlotOutput) ToLinuxWebAppSlotOutputWithContext(ctx context.Context) LinuxWebAppSlotOutput {
 	return o
-}
-
-func (o LinuxWebAppSlotOutput) ToOutput(ctx context.Context) pulumix.Output[*LinuxWebAppSlot] {
-	return pulumix.Output[*LinuxWebAppSlot]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `appMetadata` block as defined below.
@@ -718,12 +693,6 @@ func (o LinuxWebAppSlotArrayOutput) ToLinuxWebAppSlotArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o LinuxWebAppSlotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinuxWebAppSlot] {
-	return pulumix.Output[[]*LinuxWebAppSlot]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinuxWebAppSlotArrayOutput) Index(i pulumi.IntInput) LinuxWebAppSlotOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinuxWebAppSlot {
 		return vs[0].([]*LinuxWebAppSlot)[vs[1].(int)]
@@ -742,12 +711,6 @@ func (o LinuxWebAppSlotMapOutput) ToLinuxWebAppSlotMapOutput() LinuxWebAppSlotMa
 
 func (o LinuxWebAppSlotMapOutput) ToLinuxWebAppSlotMapOutputWithContext(ctx context.Context) LinuxWebAppSlotMapOutput {
 	return o
-}
-
-func (o LinuxWebAppSlotMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinuxWebAppSlot] {
-	return pulumix.Output[map[string]*LinuxWebAppSlot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinuxWebAppSlotMapOutput) MapIndex(k pulumi.StringInput) LinuxWebAppSlotOutput {

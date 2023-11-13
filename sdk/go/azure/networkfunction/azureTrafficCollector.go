@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Network Function Azure Traffic Collector.
@@ -190,12 +189,6 @@ func (i *AzureTrafficCollector) ToAzureTrafficCollectorOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AzureTrafficCollectorOutput)
 }
 
-func (i *AzureTrafficCollector) ToOutput(ctx context.Context) pulumix.Output[*AzureTrafficCollector] {
-	return pulumix.Output[*AzureTrafficCollector]{
-		OutputState: i.ToAzureTrafficCollectorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AzureTrafficCollectorArrayInput is an input type that accepts AzureTrafficCollectorArray and AzureTrafficCollectorArrayOutput values.
 // You can construct a concrete instance of `AzureTrafficCollectorArrayInput` via:
 //
@@ -219,12 +212,6 @@ func (i AzureTrafficCollectorArray) ToAzureTrafficCollectorArrayOutput() AzureTr
 
 func (i AzureTrafficCollectorArray) ToAzureTrafficCollectorArrayOutputWithContext(ctx context.Context) AzureTrafficCollectorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AzureTrafficCollectorArrayOutput)
-}
-
-func (i AzureTrafficCollectorArray) ToOutput(ctx context.Context) pulumix.Output[[]*AzureTrafficCollector] {
-	return pulumix.Output[[]*AzureTrafficCollector]{
-		OutputState: i.ToAzureTrafficCollectorArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AzureTrafficCollectorMapInput is an input type that accepts AzureTrafficCollectorMap and AzureTrafficCollectorMapOutput values.
@@ -252,12 +239,6 @@ func (i AzureTrafficCollectorMap) ToAzureTrafficCollectorMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AzureTrafficCollectorMapOutput)
 }
 
-func (i AzureTrafficCollectorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AzureTrafficCollector] {
-	return pulumix.Output[map[string]*AzureTrafficCollector]{
-		OutputState: i.ToAzureTrafficCollectorMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AzureTrafficCollectorOutput struct{ *pulumi.OutputState }
 
 func (AzureTrafficCollectorOutput) ElementType() reflect.Type {
@@ -270,12 +251,6 @@ func (o AzureTrafficCollectorOutput) ToAzureTrafficCollectorOutput() AzureTraffi
 
 func (o AzureTrafficCollectorOutput) ToAzureTrafficCollectorOutputWithContext(ctx context.Context) AzureTrafficCollectorOutput {
 	return o
-}
-
-func (o AzureTrafficCollectorOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureTrafficCollector] {
-	return pulumix.Output[*AzureTrafficCollector]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The list of Resource IDs of collector policies.
@@ -322,12 +297,6 @@ func (o AzureTrafficCollectorArrayOutput) ToAzureTrafficCollectorArrayOutputWith
 	return o
 }
 
-func (o AzureTrafficCollectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AzureTrafficCollector] {
-	return pulumix.Output[[]*AzureTrafficCollector]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AzureTrafficCollectorArrayOutput) Index(i pulumi.IntInput) AzureTrafficCollectorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AzureTrafficCollector {
 		return vs[0].([]*AzureTrafficCollector)[vs[1].(int)]
@@ -346,12 +315,6 @@ func (o AzureTrafficCollectorMapOutput) ToAzureTrafficCollectorMapOutput() Azure
 
 func (o AzureTrafficCollectorMapOutput) ToAzureTrafficCollectorMapOutputWithContext(ctx context.Context) AzureTrafficCollectorMapOutput {
 	return o
-}
-
-func (o AzureTrafficCollectorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AzureTrafficCollector] {
-	return pulumix.Output[map[string]*AzureTrafficCollector]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AzureTrafficCollectorMapOutput) MapIndex(k pulumi.StringInput) AzureTrafficCollectorOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EventHub Namespace.
@@ -348,12 +347,6 @@ func (i *EventHubNamespace) ToEventHubNamespaceOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceOutput)
 }
 
-func (i *EventHubNamespace) ToOutput(ctx context.Context) pulumix.Output[*EventHubNamespace] {
-	return pulumix.Output[*EventHubNamespace]{
-		OutputState: i.ToEventHubNamespaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventHubNamespaceArrayInput is an input type that accepts EventHubNamespaceArray and EventHubNamespaceArrayOutput values.
 // You can construct a concrete instance of `EventHubNamespaceArrayInput` via:
 //
@@ -377,12 +370,6 @@ func (i EventHubNamespaceArray) ToEventHubNamespaceArrayOutput() EventHubNamespa
 
 func (i EventHubNamespaceArray) ToEventHubNamespaceArrayOutputWithContext(ctx context.Context) EventHubNamespaceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceArrayOutput)
-}
-
-func (i EventHubNamespaceArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventHubNamespace] {
-	return pulumix.Output[[]*EventHubNamespace]{
-		OutputState: i.ToEventHubNamespaceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EventHubNamespaceMapInput is an input type that accepts EventHubNamespaceMap and EventHubNamespaceMapOutput values.
@@ -410,12 +397,6 @@ func (i EventHubNamespaceMap) ToEventHubNamespaceMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubNamespaceMapOutput)
 }
 
-func (i EventHubNamespaceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventHubNamespace] {
-	return pulumix.Output[map[string]*EventHubNamespace]{
-		OutputState: i.ToEventHubNamespaceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventHubNamespaceOutput struct{ *pulumi.OutputState }
 
 func (EventHubNamespaceOutput) ElementType() reflect.Type {
@@ -428,12 +409,6 @@ func (o EventHubNamespaceOutput) ToEventHubNamespaceOutput() EventHubNamespaceOu
 
 func (o EventHubNamespaceOutput) ToEventHubNamespaceOutputWithContext(ctx context.Context) EventHubNamespaceOutput {
 	return o
-}
-
-func (o EventHubNamespaceOutput) ToOutput(ctx context.Context) pulumix.Output[*EventHubNamespace] {
-	return pulumix.Output[*EventHubNamespace]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Is Auto Inflate enabled for the EventHub Namespace?
@@ -557,12 +532,6 @@ func (o EventHubNamespaceArrayOutput) ToEventHubNamespaceArrayOutputWithContext(
 	return o
 }
 
-func (o EventHubNamespaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventHubNamespace] {
-	return pulumix.Output[[]*EventHubNamespace]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventHubNamespaceArrayOutput) Index(i pulumi.IntInput) EventHubNamespaceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventHubNamespace {
 		return vs[0].([]*EventHubNamespace)[vs[1].(int)]
@@ -581,12 +550,6 @@ func (o EventHubNamespaceMapOutput) ToEventHubNamespaceMapOutput() EventHubNames
 
 func (o EventHubNamespaceMapOutput) ToEventHubNamespaceMapOutputWithContext(ctx context.Context) EventHubNamespaceMapOutput {
 	return o
-}
-
-func (o EventHubNamespaceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventHubNamespace] {
-	return pulumix.Output[map[string]*EventHubNamespace]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventHubNamespaceMapOutput) MapIndex(k pulumi.StringInput) EventHubNamespaceOutput {

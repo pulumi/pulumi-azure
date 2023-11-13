@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Office ATP Data Connector.
@@ -189,12 +188,6 @@ func (i *DataConnectorOfficeAtp) ToDataConnectorOfficeAtpOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorOfficeAtpOutput)
 }
 
-func (i *DataConnectorOfficeAtp) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorOfficeAtp] {
-	return pulumix.Output[*DataConnectorOfficeAtp]{
-		OutputState: i.ToDataConnectorOfficeAtpOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataConnectorOfficeAtpArrayInput is an input type that accepts DataConnectorOfficeAtpArray and DataConnectorOfficeAtpArrayOutput values.
 // You can construct a concrete instance of `DataConnectorOfficeAtpArrayInput` via:
 //
@@ -218,12 +211,6 @@ func (i DataConnectorOfficeAtpArray) ToDataConnectorOfficeAtpArrayOutput() DataC
 
 func (i DataConnectorOfficeAtpArray) ToDataConnectorOfficeAtpArrayOutputWithContext(ctx context.Context) DataConnectorOfficeAtpArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorOfficeAtpArrayOutput)
-}
-
-func (i DataConnectorOfficeAtpArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorOfficeAtp] {
-	return pulumix.Output[[]*DataConnectorOfficeAtp]{
-		OutputState: i.ToDataConnectorOfficeAtpArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataConnectorOfficeAtpMapInput is an input type that accepts DataConnectorOfficeAtpMap and DataConnectorOfficeAtpMapOutput values.
@@ -251,12 +238,6 @@ func (i DataConnectorOfficeAtpMap) ToDataConnectorOfficeAtpMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorOfficeAtpMapOutput)
 }
 
-func (i DataConnectorOfficeAtpMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorOfficeAtp] {
-	return pulumix.Output[map[string]*DataConnectorOfficeAtp]{
-		OutputState: i.ToDataConnectorOfficeAtpMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataConnectorOfficeAtpOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorOfficeAtpOutput) ElementType() reflect.Type {
@@ -269,12 +250,6 @@ func (o DataConnectorOfficeAtpOutput) ToDataConnectorOfficeAtpOutput() DataConne
 
 func (o DataConnectorOfficeAtpOutput) ToDataConnectorOfficeAtpOutputWithContext(ctx context.Context) DataConnectorOfficeAtpOutput {
 	return o
-}
-
-func (o DataConnectorOfficeAtpOutput) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorOfficeAtp] {
-	return pulumix.Output[*DataConnectorOfficeAtp]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Log Analytics Workspace that this Office ATP Data Connector resides in. Changing this forces a new Office ATP Data Connector to be created.
@@ -308,12 +283,6 @@ func (o DataConnectorOfficeAtpArrayOutput) ToDataConnectorOfficeAtpArrayOutputWi
 	return o
 }
 
-func (o DataConnectorOfficeAtpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorOfficeAtp] {
-	return pulumix.Output[[]*DataConnectorOfficeAtp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataConnectorOfficeAtpArrayOutput) Index(i pulumi.IntInput) DataConnectorOfficeAtpOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorOfficeAtp {
 		return vs[0].([]*DataConnectorOfficeAtp)[vs[1].(int)]
@@ -332,12 +301,6 @@ func (o DataConnectorOfficeAtpMapOutput) ToDataConnectorOfficeAtpMapOutput() Dat
 
 func (o DataConnectorOfficeAtpMapOutput) ToDataConnectorOfficeAtpMapOutputWithContext(ctx context.Context) DataConnectorOfficeAtpMapOutput {
 	return o
-}
-
-func (o DataConnectorOfficeAtpMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorOfficeAtp] {
-	return pulumix.Output[map[string]*DataConnectorOfficeAtp]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataConnectorOfficeAtpMapOutput) MapIndex(k pulumi.StringInput) DataConnectorOfficeAtpOutput {

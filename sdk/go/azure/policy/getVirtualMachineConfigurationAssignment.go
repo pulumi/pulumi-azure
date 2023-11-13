@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Guest Configuration Policy.
@@ -123,12 +122,6 @@ func (o LookupVirtualMachineConfigurationAssignmentResultOutput) ToLookupVirtual
 
 func (o LookupVirtualMachineConfigurationAssignmentResultOutput) ToLookupVirtualMachineConfigurationAssignmentResultOutputWithContext(ctx context.Context) LookupVirtualMachineConfigurationAssignmentResultOutput {
 	return o
-}
-
-func (o LookupVirtualMachineConfigurationAssignmentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualMachineConfigurationAssignmentResult] {
-	return pulumix.Output[LookupVirtualMachineConfigurationAssignmentResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Combined hash of the configuration package and parameters.

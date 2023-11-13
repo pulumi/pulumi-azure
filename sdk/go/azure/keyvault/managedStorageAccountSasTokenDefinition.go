@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Key Vault Managed Storage Account SAS Definition.
@@ -296,12 +295,6 @@ func (i *ManagedStorageAccountSasTokenDefinition) ToManagedStorageAccountSasToke
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedStorageAccountSasTokenDefinitionOutput)
 }
 
-func (i *ManagedStorageAccountSasTokenDefinition) ToOutput(ctx context.Context) pulumix.Output[*ManagedStorageAccountSasTokenDefinition] {
-	return pulumix.Output[*ManagedStorageAccountSasTokenDefinition]{
-		OutputState: i.ToManagedStorageAccountSasTokenDefinitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ManagedStorageAccountSasTokenDefinitionArrayInput is an input type that accepts ManagedStorageAccountSasTokenDefinitionArray and ManagedStorageAccountSasTokenDefinitionArrayOutput values.
 // You can construct a concrete instance of `ManagedStorageAccountSasTokenDefinitionArrayInput` via:
 //
@@ -325,12 +318,6 @@ func (i ManagedStorageAccountSasTokenDefinitionArray) ToManagedStorageAccountSas
 
 func (i ManagedStorageAccountSasTokenDefinitionArray) ToManagedStorageAccountSasTokenDefinitionArrayOutputWithContext(ctx context.Context) ManagedStorageAccountSasTokenDefinitionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedStorageAccountSasTokenDefinitionArrayOutput)
-}
-
-func (i ManagedStorageAccountSasTokenDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedStorageAccountSasTokenDefinition] {
-	return pulumix.Output[[]*ManagedStorageAccountSasTokenDefinition]{
-		OutputState: i.ToManagedStorageAccountSasTokenDefinitionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ManagedStorageAccountSasTokenDefinitionMapInput is an input type that accepts ManagedStorageAccountSasTokenDefinitionMap and ManagedStorageAccountSasTokenDefinitionMapOutput values.
@@ -358,12 +345,6 @@ func (i ManagedStorageAccountSasTokenDefinitionMap) ToManagedStorageAccountSasTo
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedStorageAccountSasTokenDefinitionMapOutput)
 }
 
-func (i ManagedStorageAccountSasTokenDefinitionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedStorageAccountSasTokenDefinition] {
-	return pulumix.Output[map[string]*ManagedStorageAccountSasTokenDefinition]{
-		OutputState: i.ToManagedStorageAccountSasTokenDefinitionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedStorageAccountSasTokenDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ManagedStorageAccountSasTokenDefinitionOutput) ElementType() reflect.Type {
@@ -376,12 +357,6 @@ func (o ManagedStorageAccountSasTokenDefinitionOutput) ToManagedStorageAccountSa
 
 func (o ManagedStorageAccountSasTokenDefinitionOutput) ToManagedStorageAccountSasTokenDefinitionOutputWithContext(ctx context.Context) ManagedStorageAccountSasTokenDefinitionOutput {
 	return o
-}
-
-func (o ManagedStorageAccountSasTokenDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedStorageAccountSasTokenDefinition] {
-	return pulumix.Output[*ManagedStorageAccountSasTokenDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Managed Storage Account.
@@ -433,12 +408,6 @@ func (o ManagedStorageAccountSasTokenDefinitionArrayOutput) ToManagedStorageAcco
 	return o
 }
 
-func (o ManagedStorageAccountSasTokenDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedStorageAccountSasTokenDefinition] {
-	return pulumix.Output[[]*ManagedStorageAccountSasTokenDefinition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ManagedStorageAccountSasTokenDefinitionArrayOutput) Index(i pulumi.IntInput) ManagedStorageAccountSasTokenDefinitionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedStorageAccountSasTokenDefinition {
 		return vs[0].([]*ManagedStorageAccountSasTokenDefinition)[vs[1].(int)]
@@ -457,12 +426,6 @@ func (o ManagedStorageAccountSasTokenDefinitionMapOutput) ToManagedStorageAccoun
 
 func (o ManagedStorageAccountSasTokenDefinitionMapOutput) ToManagedStorageAccountSasTokenDefinitionMapOutputWithContext(ctx context.Context) ManagedStorageAccountSasTokenDefinitionMapOutput {
 	return o
-}
-
-func (o ManagedStorageAccountSasTokenDefinitionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedStorageAccountSasTokenDefinition] {
-	return pulumix.Output[map[string]*ManagedStorageAccountSasTokenDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedStorageAccountSasTokenDefinitionMapOutput) MapIndex(k pulumi.StringInput) ManagedStorageAccountSasTokenDefinitionOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Network Manager Admin Rule Collection.
@@ -213,12 +212,6 @@ func (i *NetworkManagerAdminRuleCollection) ToNetworkManagerAdminRuleCollectionO
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerAdminRuleCollectionOutput)
 }
 
-func (i *NetworkManagerAdminRuleCollection) ToOutput(ctx context.Context) pulumix.Output[*NetworkManagerAdminRuleCollection] {
-	return pulumix.Output[*NetworkManagerAdminRuleCollection]{
-		OutputState: i.ToNetworkManagerAdminRuleCollectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkManagerAdminRuleCollectionArrayInput is an input type that accepts NetworkManagerAdminRuleCollectionArray and NetworkManagerAdminRuleCollectionArrayOutput values.
 // You can construct a concrete instance of `NetworkManagerAdminRuleCollectionArrayInput` via:
 //
@@ -242,12 +235,6 @@ func (i NetworkManagerAdminRuleCollectionArray) ToNetworkManagerAdminRuleCollect
 
 func (i NetworkManagerAdminRuleCollectionArray) ToNetworkManagerAdminRuleCollectionArrayOutputWithContext(ctx context.Context) NetworkManagerAdminRuleCollectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerAdminRuleCollectionArrayOutput)
-}
-
-func (i NetworkManagerAdminRuleCollectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkManagerAdminRuleCollection] {
-	return pulumix.Output[[]*NetworkManagerAdminRuleCollection]{
-		OutputState: i.ToNetworkManagerAdminRuleCollectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NetworkManagerAdminRuleCollectionMapInput is an input type that accepts NetworkManagerAdminRuleCollectionMap and NetworkManagerAdminRuleCollectionMapOutput values.
@@ -275,12 +262,6 @@ func (i NetworkManagerAdminRuleCollectionMap) ToNetworkManagerAdminRuleCollectio
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerAdminRuleCollectionMapOutput)
 }
 
-func (i NetworkManagerAdminRuleCollectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkManagerAdminRuleCollection] {
-	return pulumix.Output[map[string]*NetworkManagerAdminRuleCollection]{
-		OutputState: i.ToNetworkManagerAdminRuleCollectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkManagerAdminRuleCollectionOutput struct{ *pulumi.OutputState }
 
 func (NetworkManagerAdminRuleCollectionOutput) ElementType() reflect.Type {
@@ -293,12 +274,6 @@ func (o NetworkManagerAdminRuleCollectionOutput) ToNetworkManagerAdminRuleCollec
 
 func (o NetworkManagerAdminRuleCollectionOutput) ToNetworkManagerAdminRuleCollectionOutputWithContext(ctx context.Context) NetworkManagerAdminRuleCollectionOutput {
 	return o
-}
-
-func (o NetworkManagerAdminRuleCollectionOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkManagerAdminRuleCollection] {
-	return pulumix.Output[*NetworkManagerAdminRuleCollection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description of the Network Manager Admin Rule Collection.
@@ -335,12 +310,6 @@ func (o NetworkManagerAdminRuleCollectionArrayOutput) ToNetworkManagerAdminRuleC
 	return o
 }
 
-func (o NetworkManagerAdminRuleCollectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkManagerAdminRuleCollection] {
-	return pulumix.Output[[]*NetworkManagerAdminRuleCollection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkManagerAdminRuleCollectionArrayOutput) Index(i pulumi.IntInput) NetworkManagerAdminRuleCollectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkManagerAdminRuleCollection {
 		return vs[0].([]*NetworkManagerAdminRuleCollection)[vs[1].(int)]
@@ -359,12 +328,6 @@ func (o NetworkManagerAdminRuleCollectionMapOutput) ToNetworkManagerAdminRuleCol
 
 func (o NetworkManagerAdminRuleCollectionMapOutput) ToNetworkManagerAdminRuleCollectionMapOutputWithContext(ctx context.Context) NetworkManagerAdminRuleCollectionMapOutput {
 	return o
-}
-
-func (o NetworkManagerAdminRuleCollectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkManagerAdminRuleCollection] {
-	return pulumix.Output[map[string]*NetworkManagerAdminRuleCollection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkManagerAdminRuleCollectionMapOutput) MapIndex(k pulumi.StringInput) NetworkManagerAdminRuleCollectionOutput {

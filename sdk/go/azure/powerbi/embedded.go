@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a PowerBI Embedded.
@@ -215,12 +214,6 @@ func (i *Embedded) ToEmbeddedOutputWithContext(ctx context.Context) EmbeddedOutp
 	return pulumi.ToOutputWithContext(ctx, i).(EmbeddedOutput)
 }
 
-func (i *Embedded) ToOutput(ctx context.Context) pulumix.Output[*Embedded] {
-	return pulumix.Output[*Embedded]{
-		OutputState: i.ToEmbeddedOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EmbeddedArrayInput is an input type that accepts EmbeddedArray and EmbeddedArrayOutput values.
 // You can construct a concrete instance of `EmbeddedArrayInput` via:
 //
@@ -244,12 +237,6 @@ func (i EmbeddedArray) ToEmbeddedArrayOutput() EmbeddedArrayOutput {
 
 func (i EmbeddedArray) ToEmbeddedArrayOutputWithContext(ctx context.Context) EmbeddedArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EmbeddedArrayOutput)
-}
-
-func (i EmbeddedArray) ToOutput(ctx context.Context) pulumix.Output[[]*Embedded] {
-	return pulumix.Output[[]*Embedded]{
-		OutputState: i.ToEmbeddedArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EmbeddedMapInput is an input type that accepts EmbeddedMap and EmbeddedMapOutput values.
@@ -277,12 +264,6 @@ func (i EmbeddedMap) ToEmbeddedMapOutputWithContext(ctx context.Context) Embedde
 	return pulumi.ToOutputWithContext(ctx, i).(EmbeddedMapOutput)
 }
 
-func (i EmbeddedMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Embedded] {
-	return pulumix.Output[map[string]*Embedded]{
-		OutputState: i.ToEmbeddedMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EmbeddedOutput struct{ *pulumi.OutputState }
 
 func (EmbeddedOutput) ElementType() reflect.Type {
@@ -295,12 +276,6 @@ func (o EmbeddedOutput) ToEmbeddedOutput() EmbeddedOutput {
 
 func (o EmbeddedOutput) ToEmbeddedOutputWithContext(ctx context.Context) EmbeddedOutput {
 	return o
-}
-
-func (o EmbeddedOutput) ToOutput(ctx context.Context) pulumix.Output[*Embedded] {
-	return pulumix.Output[*Embedded]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A set of administrator user identities, which manages the Power BI Embedded and must be a member user or a service principal in your AAD tenant.
@@ -352,12 +327,6 @@ func (o EmbeddedArrayOutput) ToEmbeddedArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o EmbeddedArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Embedded] {
-	return pulumix.Output[[]*Embedded]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EmbeddedArrayOutput) Index(i pulumi.IntInput) EmbeddedOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Embedded {
 		return vs[0].([]*Embedded)[vs[1].(int)]
@@ -376,12 +345,6 @@ func (o EmbeddedMapOutput) ToEmbeddedMapOutput() EmbeddedMapOutput {
 
 func (o EmbeddedMapOutput) ToEmbeddedMapOutputWithContext(ctx context.Context) EmbeddedMapOutput {
 	return o
-}
-
-func (o EmbeddedMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Embedded] {
-	return pulumix.Output[map[string]*Embedded]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EmbeddedMapOutput) MapIndex(k pulumi.StringInput) EmbeddedOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure JSON Dataset inside an Azure Data Factory.
@@ -299,12 +298,6 @@ func (i *DatasetJson) ToDatasetJsonOutputWithContext(ctx context.Context) Datase
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetJsonOutput)
 }
 
-func (i *DatasetJson) ToOutput(ctx context.Context) pulumix.Output[*DatasetJson] {
-	return pulumix.Output[*DatasetJson]{
-		OutputState: i.ToDatasetJsonOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DatasetJsonArrayInput is an input type that accepts DatasetJsonArray and DatasetJsonArrayOutput values.
 // You can construct a concrete instance of `DatasetJsonArrayInput` via:
 //
@@ -328,12 +321,6 @@ func (i DatasetJsonArray) ToDatasetJsonArrayOutput() DatasetJsonArrayOutput {
 
 func (i DatasetJsonArray) ToDatasetJsonArrayOutputWithContext(ctx context.Context) DatasetJsonArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetJsonArrayOutput)
-}
-
-func (i DatasetJsonArray) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetJson] {
-	return pulumix.Output[[]*DatasetJson]{
-		OutputState: i.ToDatasetJsonArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DatasetJsonMapInput is an input type that accepts DatasetJsonMap and DatasetJsonMapOutput values.
@@ -361,12 +348,6 @@ func (i DatasetJsonMap) ToDatasetJsonMapOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetJsonMapOutput)
 }
 
-func (i DatasetJsonMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetJson] {
-	return pulumix.Output[map[string]*DatasetJson]{
-		OutputState: i.ToDatasetJsonMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DatasetJsonOutput struct{ *pulumi.OutputState }
 
 func (DatasetJsonOutput) ElementType() reflect.Type {
@@ -379,12 +360,6 @@ func (o DatasetJsonOutput) ToDatasetJsonOutput() DatasetJsonOutput {
 
 func (o DatasetJsonOutput) ToDatasetJsonOutputWithContext(ctx context.Context) DatasetJsonOutput {
 	return o
-}
-
-func (o DatasetJsonOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetJson] {
-	return pulumix.Output[*DatasetJson]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of additional properties to associate with the Data Factory Dataset.
@@ -465,12 +440,6 @@ func (o DatasetJsonArrayOutput) ToDatasetJsonArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o DatasetJsonArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetJson] {
-	return pulumix.Output[[]*DatasetJson]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetJsonArrayOutput) Index(i pulumi.IntInput) DatasetJsonOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetJson {
 		return vs[0].([]*DatasetJson)[vs[1].(int)]
@@ -489,12 +458,6 @@ func (o DatasetJsonMapOutput) ToDatasetJsonMapOutput() DatasetJsonMapOutput {
 
 func (o DatasetJsonMapOutput) ToDatasetJsonMapOutputWithContext(ctx context.Context) DatasetJsonMapOutput {
 	return o
-}
-
-func (o DatasetJsonMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetJson] {
-	return pulumix.Output[map[string]*DatasetJson]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatasetJsonMapOutput) MapIndex(k pulumi.StringInput) DatasetJsonOutput {

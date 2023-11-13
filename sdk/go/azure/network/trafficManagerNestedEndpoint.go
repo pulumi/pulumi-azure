@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Nested Endpoint within a Traffic Manager Profile.
@@ -331,12 +330,6 @@ func (i *TrafficManagerNestedEndpoint) ToTrafficManagerNestedEndpointOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerNestedEndpointOutput)
 }
 
-func (i *TrafficManagerNestedEndpoint) ToOutput(ctx context.Context) pulumix.Output[*TrafficManagerNestedEndpoint] {
-	return pulumix.Output[*TrafficManagerNestedEndpoint]{
-		OutputState: i.ToTrafficManagerNestedEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TrafficManagerNestedEndpointArrayInput is an input type that accepts TrafficManagerNestedEndpointArray and TrafficManagerNestedEndpointArrayOutput values.
 // You can construct a concrete instance of `TrafficManagerNestedEndpointArrayInput` via:
 //
@@ -360,12 +353,6 @@ func (i TrafficManagerNestedEndpointArray) ToTrafficManagerNestedEndpointArrayOu
 
 func (i TrafficManagerNestedEndpointArray) ToTrafficManagerNestedEndpointArrayOutputWithContext(ctx context.Context) TrafficManagerNestedEndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerNestedEndpointArrayOutput)
-}
-
-func (i TrafficManagerNestedEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*TrafficManagerNestedEndpoint] {
-	return pulumix.Output[[]*TrafficManagerNestedEndpoint]{
-		OutputState: i.ToTrafficManagerNestedEndpointArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TrafficManagerNestedEndpointMapInput is an input type that accepts TrafficManagerNestedEndpointMap and TrafficManagerNestedEndpointMapOutput values.
@@ -393,12 +380,6 @@ func (i TrafficManagerNestedEndpointMap) ToTrafficManagerNestedEndpointMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerNestedEndpointMapOutput)
 }
 
-func (i TrafficManagerNestedEndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrafficManagerNestedEndpoint] {
-	return pulumix.Output[map[string]*TrafficManagerNestedEndpoint]{
-		OutputState: i.ToTrafficManagerNestedEndpointMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrafficManagerNestedEndpointOutput struct{ *pulumi.OutputState }
 
 func (TrafficManagerNestedEndpointOutput) ElementType() reflect.Type {
@@ -411,12 +392,6 @@ func (o TrafficManagerNestedEndpointOutput) ToTrafficManagerNestedEndpointOutput
 
 func (o TrafficManagerNestedEndpointOutput) ToTrafficManagerNestedEndpointOutputWithContext(ctx context.Context) TrafficManagerNestedEndpointOutput {
 	return o
-}
-
-func (o TrafficManagerNestedEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*TrafficManagerNestedEndpoint] {
-	return pulumix.Output[*TrafficManagerNestedEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `customHeader` blocks as defined below.
@@ -502,12 +477,6 @@ func (o TrafficManagerNestedEndpointArrayOutput) ToTrafficManagerNestedEndpointA
 	return o
 }
 
-func (o TrafficManagerNestedEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TrafficManagerNestedEndpoint] {
-	return pulumix.Output[[]*TrafficManagerNestedEndpoint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TrafficManagerNestedEndpointArrayOutput) Index(i pulumi.IntInput) TrafficManagerNestedEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TrafficManagerNestedEndpoint {
 		return vs[0].([]*TrafficManagerNestedEndpoint)[vs[1].(int)]
@@ -526,12 +495,6 @@ func (o TrafficManagerNestedEndpointMapOutput) ToTrafficManagerNestedEndpointMap
 
 func (o TrafficManagerNestedEndpointMapOutput) ToTrafficManagerNestedEndpointMapOutputWithContext(ctx context.Context) TrafficManagerNestedEndpointMapOutput {
 	return o
-}
-
-func (o TrafficManagerNestedEndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrafficManagerNestedEndpoint] {
-	return pulumix.Output[map[string]*TrafficManagerNestedEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrafficManagerNestedEndpointMapOutput) MapIndex(k pulumi.StringInput) TrafficManagerNestedEndpointOutput {
