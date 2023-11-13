@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i ConfigurationInstallPatchesArgs) ToConfigurationInstallPatchesOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationInstallPatchesOutput)
 }
 
-func (i ConfigurationInstallPatchesArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationInstallPatches] {
-	return pulumix.Output[ConfigurationInstallPatches]{
-		OutputState: i.ToConfigurationInstallPatchesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationInstallPatchesArgs) ToConfigurationInstallPatchesPtrOutput() ConfigurationInstallPatchesPtrOutput {
 	return i.ToConfigurationInstallPatchesPtrOutputWithContext(context.Background())
 }
@@ -102,12 +95,6 @@ func (i *configurationInstallPatchesPtrType) ToConfigurationInstallPatchesPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationInstallPatchesPtrOutput)
 }
 
-func (i *configurationInstallPatchesPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationInstallPatches] {
-	return pulumix.Output[*ConfigurationInstallPatches]{
-		OutputState: i.ToConfigurationInstallPatchesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationInstallPatchesOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationInstallPatchesOutput) ElementType() reflect.Type {
@@ -130,12 +117,6 @@ func (o ConfigurationInstallPatchesOutput) ToConfigurationInstallPatchesPtrOutpu
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationInstallPatches) *ConfigurationInstallPatches {
 		return &v
 	}).(ConfigurationInstallPatchesPtrOutput)
-}
-
-func (o ConfigurationInstallPatchesOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationInstallPatches] {
-	return pulumix.Output[ConfigurationInstallPatches]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
@@ -165,12 +146,6 @@ func (o ConfigurationInstallPatchesPtrOutput) ToConfigurationInstallPatchesPtrOu
 
 func (o ConfigurationInstallPatchesPtrOutput) ToConfigurationInstallPatchesPtrOutputWithContext(ctx context.Context) ConfigurationInstallPatchesPtrOutput {
 	return o
-}
-
-func (o ConfigurationInstallPatchesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationInstallPatches] {
-	return pulumix.Output[*ConfigurationInstallPatches]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationInstallPatchesPtrOutput) Elem() ConfigurationInstallPatchesOutput {
@@ -254,12 +229,6 @@ func (i ConfigurationInstallPatchesLinuxArgs) ToConfigurationInstallPatchesLinux
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationInstallPatchesLinuxOutput)
 }
 
-func (i ConfigurationInstallPatchesLinuxArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationInstallPatchesLinux] {
-	return pulumix.Output[ConfigurationInstallPatchesLinux]{
-		OutputState: i.ToConfigurationInstallPatchesLinuxOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigurationInstallPatchesLinuxArrayInput is an input type that accepts ConfigurationInstallPatchesLinuxArray and ConfigurationInstallPatchesLinuxArrayOutput values.
 // You can construct a concrete instance of `ConfigurationInstallPatchesLinuxArrayInput` via:
 //
@@ -285,12 +254,6 @@ func (i ConfigurationInstallPatchesLinuxArray) ToConfigurationInstallPatchesLinu
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationInstallPatchesLinuxArrayOutput)
 }
 
-func (i ConfigurationInstallPatchesLinuxArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationInstallPatchesLinux] {
-	return pulumix.Output[[]ConfigurationInstallPatchesLinux]{
-		OutputState: i.ToConfigurationInstallPatchesLinuxArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationInstallPatchesLinuxOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationInstallPatchesLinuxOutput) ElementType() reflect.Type {
@@ -303,12 +266,6 @@ func (o ConfigurationInstallPatchesLinuxOutput) ToConfigurationInstallPatchesLin
 
 func (o ConfigurationInstallPatchesLinuxOutput) ToConfigurationInstallPatchesLinuxOutputWithContext(ctx context.Context) ConfigurationInstallPatchesLinuxOutput {
 	return o
-}
-
-func (o ConfigurationInstallPatchesLinuxOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationInstallPatchesLinux] {
-	return pulumix.Output[ConfigurationInstallPatchesLinux]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of Classification category of patches to be patched. Possible values are `Critical`, `Security` and `Other`.
@@ -338,12 +295,6 @@ func (o ConfigurationInstallPatchesLinuxArrayOutput) ToConfigurationInstallPatch
 
 func (o ConfigurationInstallPatchesLinuxArrayOutput) ToConfigurationInstallPatchesLinuxArrayOutputWithContext(ctx context.Context) ConfigurationInstallPatchesLinuxArrayOutput {
 	return o
-}
-
-func (o ConfigurationInstallPatchesLinuxArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationInstallPatchesLinux] {
-	return pulumix.Output[[]ConfigurationInstallPatchesLinux]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationInstallPatchesLinuxArrayOutput) Index(i pulumi.IntInput) ConfigurationInstallPatchesLinuxOutput {
@@ -393,12 +344,6 @@ func (i ConfigurationInstallPatchesWindowArgs) ToConfigurationInstallPatchesWind
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationInstallPatchesWindowOutput)
 }
 
-func (i ConfigurationInstallPatchesWindowArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationInstallPatchesWindow] {
-	return pulumix.Output[ConfigurationInstallPatchesWindow]{
-		OutputState: i.ToConfigurationInstallPatchesWindowOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigurationInstallPatchesWindowArrayInput is an input type that accepts ConfigurationInstallPatchesWindowArray and ConfigurationInstallPatchesWindowArrayOutput values.
 // You can construct a concrete instance of `ConfigurationInstallPatchesWindowArrayInput` via:
 //
@@ -424,12 +369,6 @@ func (i ConfigurationInstallPatchesWindowArray) ToConfigurationInstallPatchesWin
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationInstallPatchesWindowArrayOutput)
 }
 
-func (i ConfigurationInstallPatchesWindowArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationInstallPatchesWindow] {
-	return pulumix.Output[[]ConfigurationInstallPatchesWindow]{
-		OutputState: i.ToConfigurationInstallPatchesWindowArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationInstallPatchesWindowOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationInstallPatchesWindowOutput) ElementType() reflect.Type {
@@ -442,12 +381,6 @@ func (o ConfigurationInstallPatchesWindowOutput) ToConfigurationInstallPatchesWi
 
 func (o ConfigurationInstallPatchesWindowOutput) ToConfigurationInstallPatchesWindowOutputWithContext(ctx context.Context) ConfigurationInstallPatchesWindowOutput {
 	return o
-}
-
-func (o ConfigurationInstallPatchesWindowOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationInstallPatchesWindow] {
-	return pulumix.Output[ConfigurationInstallPatchesWindow]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of Classification category of patches to be patched. Possible values are `Critical`, `Security`, `UpdateRollup`, `FeaturePack`, `ServicePack`, `Definition`, `Tools` and `Updates`.
@@ -477,12 +410,6 @@ func (o ConfigurationInstallPatchesWindowArrayOutput) ToConfigurationInstallPatc
 
 func (o ConfigurationInstallPatchesWindowArrayOutput) ToConfigurationInstallPatchesWindowArrayOutputWithContext(ctx context.Context) ConfigurationInstallPatchesWindowArrayOutput {
 	return o
-}
-
-func (o ConfigurationInstallPatchesWindowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationInstallPatchesWindow] {
-	return pulumix.Output[[]ConfigurationInstallPatchesWindow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationInstallPatchesWindowArrayOutput) Index(i pulumi.IntInput) ConfigurationInstallPatchesWindowOutput {
@@ -540,12 +467,6 @@ func (i ConfigurationWindowArgs) ToConfigurationWindowOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationWindowOutput)
 }
 
-func (i ConfigurationWindowArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationWindow] {
-	return pulumix.Output[ConfigurationWindow]{
-		OutputState: i.ToConfigurationWindowOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationWindowArgs) ToConfigurationWindowPtrOutput() ConfigurationWindowPtrOutput {
 	return i.ToConfigurationWindowPtrOutputWithContext(context.Background())
 }
@@ -587,12 +508,6 @@ func (i *configurationWindowPtrType) ToConfigurationWindowPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationWindowPtrOutput)
 }
 
-func (i *configurationWindowPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationWindow] {
-	return pulumix.Output[*ConfigurationWindow]{
-		OutputState: i.ToConfigurationWindowPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationWindowOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationWindowOutput) ElementType() reflect.Type {
@@ -615,12 +530,6 @@ func (o ConfigurationWindowOutput) ToConfigurationWindowPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationWindow) *ConfigurationWindow {
 		return &v
 	}).(ConfigurationWindowPtrOutput)
-}
-
-func (o ConfigurationWindowOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationWindow] {
-	return pulumix.Output[ConfigurationWindow]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The duration of the maintenance window in HH:mm format.
@@ -660,12 +569,6 @@ func (o ConfigurationWindowPtrOutput) ToConfigurationWindowPtrOutput() Configura
 
 func (o ConfigurationWindowPtrOutput) ToConfigurationWindowPtrOutputWithContext(ctx context.Context) ConfigurationWindowPtrOutput {
 	return o
-}
-
-func (o ConfigurationWindowPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationWindow] {
-	return pulumix.Output[*ConfigurationWindow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationWindowPtrOutput) Elem() ConfigurationWindowOutput {
@@ -769,12 +672,6 @@ func (i GetConfigurationInstallPatchArgs) ToGetConfigurationInstallPatchOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationInstallPatchOutput)
 }
 
-func (i GetConfigurationInstallPatchArgs) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationInstallPatch] {
-	return pulumix.Output[GetConfigurationInstallPatch]{
-		OutputState: i.ToGetConfigurationInstallPatchOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConfigurationInstallPatchArrayInput is an input type that accepts GetConfigurationInstallPatchArray and GetConfigurationInstallPatchArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationInstallPatchArrayInput` via:
 //
@@ -800,12 +697,6 @@ func (i GetConfigurationInstallPatchArray) ToGetConfigurationInstallPatchArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationInstallPatchArrayOutput)
 }
 
-func (i GetConfigurationInstallPatchArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationInstallPatch] {
-	return pulumix.Output[[]GetConfigurationInstallPatch]{
-		OutputState: i.ToGetConfigurationInstallPatchArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConfigurationInstallPatchOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationInstallPatchOutput) ElementType() reflect.Type {
@@ -818,12 +709,6 @@ func (o GetConfigurationInstallPatchOutput) ToGetConfigurationInstallPatchOutput
 
 func (o GetConfigurationInstallPatchOutput) ToGetConfigurationInstallPatchOutputWithContext(ctx context.Context) GetConfigurationInstallPatchOutput {
 	return o
-}
-
-func (o GetConfigurationInstallPatchOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationInstallPatch] {
-	return pulumix.Output[GetConfigurationInstallPatch]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `linux` block as defined below.
@@ -853,12 +738,6 @@ func (o GetConfigurationInstallPatchArrayOutput) ToGetConfigurationInstallPatchA
 
 func (o GetConfigurationInstallPatchArrayOutput) ToGetConfigurationInstallPatchArrayOutputWithContext(ctx context.Context) GetConfigurationInstallPatchArrayOutput {
 	return o
-}
-
-func (o GetConfigurationInstallPatchArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationInstallPatch] {
-	return pulumix.Output[[]GetConfigurationInstallPatch]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationInstallPatchArrayOutput) Index(i pulumi.IntInput) GetConfigurationInstallPatchOutput {
@@ -908,12 +787,6 @@ func (i GetConfigurationInstallPatchLinuxArgs) ToGetConfigurationInstallPatchLin
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationInstallPatchLinuxOutput)
 }
 
-func (i GetConfigurationInstallPatchLinuxArgs) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationInstallPatchLinux] {
-	return pulumix.Output[GetConfigurationInstallPatchLinux]{
-		OutputState: i.ToGetConfigurationInstallPatchLinuxOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConfigurationInstallPatchLinuxArrayInput is an input type that accepts GetConfigurationInstallPatchLinuxArray and GetConfigurationInstallPatchLinuxArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationInstallPatchLinuxArrayInput` via:
 //
@@ -939,12 +812,6 @@ func (i GetConfigurationInstallPatchLinuxArray) ToGetConfigurationInstallPatchLi
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationInstallPatchLinuxArrayOutput)
 }
 
-func (i GetConfigurationInstallPatchLinuxArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationInstallPatchLinux] {
-	return pulumix.Output[[]GetConfigurationInstallPatchLinux]{
-		OutputState: i.ToGetConfigurationInstallPatchLinuxArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConfigurationInstallPatchLinuxOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationInstallPatchLinuxOutput) ElementType() reflect.Type {
@@ -957,12 +824,6 @@ func (o GetConfigurationInstallPatchLinuxOutput) ToGetConfigurationInstallPatchL
 
 func (o GetConfigurationInstallPatchLinuxOutput) ToGetConfigurationInstallPatchLinuxOutputWithContext(ctx context.Context) GetConfigurationInstallPatchLinuxOutput {
 	return o
-}
-
-func (o GetConfigurationInstallPatchLinuxOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationInstallPatchLinux] {
-	return pulumix.Output[GetConfigurationInstallPatchLinux]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of Classification category of patches to be patched.
@@ -992,12 +853,6 @@ func (o GetConfigurationInstallPatchLinuxArrayOutput) ToGetConfigurationInstallP
 
 func (o GetConfigurationInstallPatchLinuxArrayOutput) ToGetConfigurationInstallPatchLinuxArrayOutputWithContext(ctx context.Context) GetConfigurationInstallPatchLinuxArrayOutput {
 	return o
-}
-
-func (o GetConfigurationInstallPatchLinuxArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationInstallPatchLinux] {
-	return pulumix.Output[[]GetConfigurationInstallPatchLinux]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationInstallPatchLinuxArrayOutput) Index(i pulumi.IntInput) GetConfigurationInstallPatchLinuxOutput {
@@ -1047,12 +902,6 @@ func (i GetConfigurationInstallPatchWindowArgs) ToGetConfigurationInstallPatchWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationInstallPatchWindowOutput)
 }
 
-func (i GetConfigurationInstallPatchWindowArgs) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationInstallPatchWindow] {
-	return pulumix.Output[GetConfigurationInstallPatchWindow]{
-		OutputState: i.ToGetConfigurationInstallPatchWindowOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConfigurationInstallPatchWindowArrayInput is an input type that accepts GetConfigurationInstallPatchWindowArray and GetConfigurationInstallPatchWindowArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationInstallPatchWindowArrayInput` via:
 //
@@ -1078,12 +927,6 @@ func (i GetConfigurationInstallPatchWindowArray) ToGetConfigurationInstallPatchW
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationInstallPatchWindowArrayOutput)
 }
 
-func (i GetConfigurationInstallPatchWindowArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationInstallPatchWindow] {
-	return pulumix.Output[[]GetConfigurationInstallPatchWindow]{
-		OutputState: i.ToGetConfigurationInstallPatchWindowArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConfigurationInstallPatchWindowOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationInstallPatchWindowOutput) ElementType() reflect.Type {
@@ -1096,12 +939,6 @@ func (o GetConfigurationInstallPatchWindowOutput) ToGetConfigurationInstallPatch
 
 func (o GetConfigurationInstallPatchWindowOutput) ToGetConfigurationInstallPatchWindowOutputWithContext(ctx context.Context) GetConfigurationInstallPatchWindowOutput {
 	return o
-}
-
-func (o GetConfigurationInstallPatchWindowOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationInstallPatchWindow] {
-	return pulumix.Output[GetConfigurationInstallPatchWindow]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of Classification category of patches to be patched.
@@ -1131,12 +968,6 @@ func (o GetConfigurationInstallPatchWindowArrayOutput) ToGetConfigurationInstall
 
 func (o GetConfigurationInstallPatchWindowArrayOutput) ToGetConfigurationInstallPatchWindowArrayOutputWithContext(ctx context.Context) GetConfigurationInstallPatchWindowArrayOutput {
 	return o
-}
-
-func (o GetConfigurationInstallPatchWindowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationInstallPatchWindow] {
-	return pulumix.Output[[]GetConfigurationInstallPatchWindow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationInstallPatchWindowArrayOutput) Index(i pulumi.IntInput) GetConfigurationInstallPatchWindowOutput {
@@ -1194,12 +1025,6 @@ func (i GetConfigurationWindowArgs) ToGetConfigurationWindowOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationWindowOutput)
 }
 
-func (i GetConfigurationWindowArgs) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationWindow] {
-	return pulumix.Output[GetConfigurationWindow]{
-		OutputState: i.ToGetConfigurationWindowOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetConfigurationWindowArrayInput is an input type that accepts GetConfigurationWindowArray and GetConfigurationWindowArrayOutput values.
 // You can construct a concrete instance of `GetConfigurationWindowArrayInput` via:
 //
@@ -1225,12 +1050,6 @@ func (i GetConfigurationWindowArray) ToGetConfigurationWindowArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetConfigurationWindowArrayOutput)
 }
 
-func (i GetConfigurationWindowArray) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationWindow] {
-	return pulumix.Output[[]GetConfigurationWindow]{
-		OutputState: i.ToGetConfigurationWindowArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetConfigurationWindowOutput struct{ *pulumi.OutputState }
 
 func (GetConfigurationWindowOutput) ElementType() reflect.Type {
@@ -1243,12 +1062,6 @@ func (o GetConfigurationWindowOutput) ToGetConfigurationWindowOutput() GetConfig
 
 func (o GetConfigurationWindowOutput) ToGetConfigurationWindowOutputWithContext(ctx context.Context) GetConfigurationWindowOutput {
 	return o
-}
-
-func (o GetConfigurationWindowOutput) ToOutput(ctx context.Context) pulumix.Output[GetConfigurationWindow] {
-	return pulumix.Output[GetConfigurationWindow]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The duration of the maintenance window.
@@ -1288,12 +1101,6 @@ func (o GetConfigurationWindowArrayOutput) ToGetConfigurationWindowArrayOutput()
 
 func (o GetConfigurationWindowArrayOutput) ToGetConfigurationWindowArrayOutputWithContext(ctx context.Context) GetConfigurationWindowArrayOutput {
 	return o
-}
-
-func (o GetConfigurationWindowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetConfigurationWindow] {
-	return pulumix.Output[[]GetConfigurationWindow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetConfigurationWindowArrayOutput) Index(i pulumi.IntInput) GetConfigurationWindowOutput {
@@ -1363,12 +1170,6 @@ func (i GetPublicConfigurationsConfigArgs) ToGetPublicConfigurationsConfigOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetPublicConfigurationsConfigOutput)
 }
 
-func (i GetPublicConfigurationsConfigArgs) ToOutput(ctx context.Context) pulumix.Output[GetPublicConfigurationsConfig] {
-	return pulumix.Output[GetPublicConfigurationsConfig]{
-		OutputState: i.ToGetPublicConfigurationsConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPublicConfigurationsConfigArrayInput is an input type that accepts GetPublicConfigurationsConfigArray and GetPublicConfigurationsConfigArrayOutput values.
 // You can construct a concrete instance of `GetPublicConfigurationsConfigArrayInput` via:
 //
@@ -1394,12 +1195,6 @@ func (i GetPublicConfigurationsConfigArray) ToGetPublicConfigurationsConfigArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetPublicConfigurationsConfigArrayOutput)
 }
 
-func (i GetPublicConfigurationsConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPublicConfigurationsConfig] {
-	return pulumix.Output[[]GetPublicConfigurationsConfig]{
-		OutputState: i.ToGetPublicConfigurationsConfigArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPublicConfigurationsConfigOutput struct{ *pulumi.OutputState }
 
 func (GetPublicConfigurationsConfigOutput) ElementType() reflect.Type {
@@ -1412,12 +1207,6 @@ func (o GetPublicConfigurationsConfigOutput) ToGetPublicConfigurationsConfigOutp
 
 func (o GetPublicConfigurationsConfigOutput) ToGetPublicConfigurationsConfigOutputWithContext(ctx context.Context) GetPublicConfigurationsConfigOutput {
 	return o
-}
-
-func (o GetPublicConfigurationsConfigOutput) ToOutput(ctx context.Context) pulumix.Output[GetPublicConfigurationsConfig] {
-	return pulumix.Output[GetPublicConfigurationsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description of the Public Maintenance Configuration.
@@ -1472,12 +1261,6 @@ func (o GetPublicConfigurationsConfigArrayOutput) ToGetPublicConfigurationsConfi
 
 func (o GetPublicConfigurationsConfigArrayOutput) ToGetPublicConfigurationsConfigArrayOutputWithContext(ctx context.Context) GetPublicConfigurationsConfigArrayOutput {
 	return o
-}
-
-func (o GetPublicConfigurationsConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPublicConfigurationsConfig] {
-	return pulumix.Output[[]GetPublicConfigurationsConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPublicConfigurationsConfigArrayOutput) Index(i pulumi.IntInput) GetPublicConfigurationsConfigOutput {

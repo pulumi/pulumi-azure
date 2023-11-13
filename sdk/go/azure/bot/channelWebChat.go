@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Web Chat integration for a Bot Channel
@@ -227,12 +226,6 @@ func (i *ChannelWebChat) ToChannelWebChatOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelWebChatOutput)
 }
 
-func (i *ChannelWebChat) ToOutput(ctx context.Context) pulumix.Output[*ChannelWebChat] {
-	return pulumix.Output[*ChannelWebChat]{
-		OutputState: i.ToChannelWebChatOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelWebChatArrayInput is an input type that accepts ChannelWebChatArray and ChannelWebChatArrayOutput values.
 // You can construct a concrete instance of `ChannelWebChatArrayInput` via:
 //
@@ -256,12 +249,6 @@ func (i ChannelWebChatArray) ToChannelWebChatArrayOutput() ChannelWebChatArrayOu
 
 func (i ChannelWebChatArray) ToChannelWebChatArrayOutputWithContext(ctx context.Context) ChannelWebChatArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelWebChatArrayOutput)
-}
-
-func (i ChannelWebChatArray) ToOutput(ctx context.Context) pulumix.Output[[]*ChannelWebChat] {
-	return pulumix.Output[[]*ChannelWebChat]{
-		OutputState: i.ToChannelWebChatArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ChannelWebChatMapInput is an input type that accepts ChannelWebChatMap and ChannelWebChatMapOutput values.
@@ -289,12 +276,6 @@ func (i ChannelWebChatMap) ToChannelWebChatMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelWebChatMapOutput)
 }
 
-func (i ChannelWebChatMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ChannelWebChat] {
-	return pulumix.Output[map[string]*ChannelWebChat]{
-		OutputState: i.ToChannelWebChatMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelWebChatOutput struct{ *pulumi.OutputState }
 
 func (ChannelWebChatOutput) ElementType() reflect.Type {
@@ -307,12 +288,6 @@ func (o ChannelWebChatOutput) ToChannelWebChatOutput() ChannelWebChatOutput {
 
 func (o ChannelWebChatOutput) ToChannelWebChatOutputWithContext(ctx context.Context) ChannelWebChatOutput {
 	return o
-}
-
-func (o ChannelWebChatOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelWebChat] {
-	return pulumix.Output[*ChannelWebChat]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -358,12 +333,6 @@ func (o ChannelWebChatArrayOutput) ToChannelWebChatArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o ChannelWebChatArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ChannelWebChat] {
-	return pulumix.Output[[]*ChannelWebChat]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelWebChatArrayOutput) Index(i pulumi.IntInput) ChannelWebChatOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ChannelWebChat {
 		return vs[0].([]*ChannelWebChat)[vs[1].(int)]
@@ -382,12 +351,6 @@ func (o ChannelWebChatMapOutput) ToChannelWebChatMapOutput() ChannelWebChatMapOu
 
 func (o ChannelWebChatMapOutput) ToChannelWebChatMapOutputWithContext(ctx context.Context) ChannelWebChatMapOutput {
 	return o
-}
-
-func (o ChannelWebChatMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ChannelWebChat] {
-	return pulumix.Output[map[string]*ChannelWebChat]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelWebChatMapOutput) MapIndex(k pulumi.StringInput) ChannelWebChatOutput {

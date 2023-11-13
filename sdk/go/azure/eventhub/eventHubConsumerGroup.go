@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Event Hubs Consumer Group as a nested resource within an Event Hub.
@@ -216,12 +215,6 @@ func (i *EventHubConsumerGroup) ToEventHubConsumerGroupOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubConsumerGroupOutput)
 }
 
-func (i *EventHubConsumerGroup) ToOutput(ctx context.Context) pulumix.Output[*EventHubConsumerGroup] {
-	return pulumix.Output[*EventHubConsumerGroup]{
-		OutputState: i.ToEventHubConsumerGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventHubConsumerGroupArrayInput is an input type that accepts EventHubConsumerGroupArray and EventHubConsumerGroupArrayOutput values.
 // You can construct a concrete instance of `EventHubConsumerGroupArrayInput` via:
 //
@@ -245,12 +238,6 @@ func (i EventHubConsumerGroupArray) ToEventHubConsumerGroupArrayOutput() EventHu
 
 func (i EventHubConsumerGroupArray) ToEventHubConsumerGroupArrayOutputWithContext(ctx context.Context) EventHubConsumerGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubConsumerGroupArrayOutput)
-}
-
-func (i EventHubConsumerGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventHubConsumerGroup] {
-	return pulumix.Output[[]*EventHubConsumerGroup]{
-		OutputState: i.ToEventHubConsumerGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EventHubConsumerGroupMapInput is an input type that accepts EventHubConsumerGroupMap and EventHubConsumerGroupMapOutput values.
@@ -278,12 +265,6 @@ func (i EventHubConsumerGroupMap) ToEventHubConsumerGroupMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubConsumerGroupMapOutput)
 }
 
-func (i EventHubConsumerGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventHubConsumerGroup] {
-	return pulumix.Output[map[string]*EventHubConsumerGroup]{
-		OutputState: i.ToEventHubConsumerGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventHubConsumerGroupOutput struct{ *pulumi.OutputState }
 
 func (EventHubConsumerGroupOutput) ElementType() reflect.Type {
@@ -296,12 +277,6 @@ func (o EventHubConsumerGroupOutput) ToEventHubConsumerGroupOutput() EventHubCon
 
 func (o EventHubConsumerGroupOutput) ToEventHubConsumerGroupOutputWithContext(ctx context.Context) EventHubConsumerGroupOutput {
 	return o
-}
-
-func (o EventHubConsumerGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*EventHubConsumerGroup] {
-	return pulumix.Output[*EventHubConsumerGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the EventHub. Changing this forces a new resource to be created.
@@ -343,12 +318,6 @@ func (o EventHubConsumerGroupArrayOutput) ToEventHubConsumerGroupArrayOutputWith
 	return o
 }
 
-func (o EventHubConsumerGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventHubConsumerGroup] {
-	return pulumix.Output[[]*EventHubConsumerGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventHubConsumerGroupArrayOutput) Index(i pulumi.IntInput) EventHubConsumerGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventHubConsumerGroup {
 		return vs[0].([]*EventHubConsumerGroup)[vs[1].(int)]
@@ -367,12 +336,6 @@ func (o EventHubConsumerGroupMapOutput) ToEventHubConsumerGroupMapOutput() Event
 
 func (o EventHubConsumerGroupMapOutput) ToEventHubConsumerGroupMapOutputWithContext(ctx context.Context) EventHubConsumerGroupMapOutput {
 	return o
-}
-
-func (o EventHubConsumerGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventHubConsumerGroup] {
-	return pulumix.Output[map[string]*EventHubConsumerGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventHubConsumerGroupMapOutput) MapIndex(k pulumi.StringInput) EventHubConsumerGroupOutput {

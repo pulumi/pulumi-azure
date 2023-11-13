@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an API Version Set within an API Management Service.
@@ -256,12 +255,6 @@ func (i *ApiVersionSet) ToApiVersionSetOutputWithContext(ctx context.Context) Ap
 	return pulumi.ToOutputWithContext(ctx, i).(ApiVersionSetOutput)
 }
 
-func (i *ApiVersionSet) ToOutput(ctx context.Context) pulumix.Output[*ApiVersionSet] {
-	return pulumix.Output[*ApiVersionSet]{
-		OutputState: i.ToApiVersionSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApiVersionSetArrayInput is an input type that accepts ApiVersionSetArray and ApiVersionSetArrayOutput values.
 // You can construct a concrete instance of `ApiVersionSetArrayInput` via:
 //
@@ -285,12 +278,6 @@ func (i ApiVersionSetArray) ToApiVersionSetArrayOutput() ApiVersionSetArrayOutpu
 
 func (i ApiVersionSetArray) ToApiVersionSetArrayOutputWithContext(ctx context.Context) ApiVersionSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiVersionSetArrayOutput)
-}
-
-func (i ApiVersionSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApiVersionSet] {
-	return pulumix.Output[[]*ApiVersionSet]{
-		OutputState: i.ToApiVersionSetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ApiVersionSetMapInput is an input type that accepts ApiVersionSetMap and ApiVersionSetMapOutput values.
@@ -318,12 +305,6 @@ func (i ApiVersionSetMap) ToApiVersionSetMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ApiVersionSetMapOutput)
 }
 
-func (i ApiVersionSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiVersionSet] {
-	return pulumix.Output[map[string]*ApiVersionSet]{
-		OutputState: i.ToApiVersionSetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApiVersionSetOutput struct{ *pulumi.OutputState }
 
 func (ApiVersionSetOutput) ElementType() reflect.Type {
@@ -336,12 +317,6 @@ func (o ApiVersionSetOutput) ToApiVersionSetOutput() ApiVersionSetOutput {
 
 func (o ApiVersionSetOutput) ToApiVersionSetOutputWithContext(ctx context.Context) ApiVersionSetOutput {
 	return o
-}
-
-func (o ApiVersionSetOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiVersionSet] {
-	return pulumix.Output[*ApiVersionSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the API Management Service in which the API Version Set should exist. May only contain alphanumeric characters and dashes up to 50 characters in length. Changing this forces a new resource to be created.
@@ -402,12 +377,6 @@ func (o ApiVersionSetArrayOutput) ToApiVersionSetArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o ApiVersionSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApiVersionSet] {
-	return pulumix.Output[[]*ApiVersionSet]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApiVersionSetArrayOutput) Index(i pulumi.IntInput) ApiVersionSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApiVersionSet {
 		return vs[0].([]*ApiVersionSet)[vs[1].(int)]
@@ -426,12 +395,6 @@ func (o ApiVersionSetMapOutput) ToApiVersionSetMapOutput() ApiVersionSetMapOutpu
 
 func (o ApiVersionSetMapOutput) ToApiVersionSetMapOutputWithContext(ctx context.Context) ApiVersionSetMapOutput {
 	return o
-}
-
-func (o ApiVersionSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiVersionSet] {
-	return pulumix.Output[map[string]*ApiVersionSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApiVersionSetMapOutput) MapIndex(k pulumi.StringInput) ApiVersionSetOutput {

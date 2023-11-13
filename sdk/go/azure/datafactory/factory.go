@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Data Factory (Version 2).
@@ -265,12 +264,6 @@ func (i *Factory) ToFactoryOutputWithContext(ctx context.Context) FactoryOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(FactoryOutput)
 }
 
-func (i *Factory) ToOutput(ctx context.Context) pulumix.Output[*Factory] {
-	return pulumix.Output[*Factory]{
-		OutputState: i.ToFactoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FactoryArrayInput is an input type that accepts FactoryArray and FactoryArrayOutput values.
 // You can construct a concrete instance of `FactoryArrayInput` via:
 //
@@ -294,12 +287,6 @@ func (i FactoryArray) ToFactoryArrayOutput() FactoryArrayOutput {
 
 func (i FactoryArray) ToFactoryArrayOutputWithContext(ctx context.Context) FactoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FactoryArrayOutput)
-}
-
-func (i FactoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*Factory] {
-	return pulumix.Output[[]*Factory]{
-		OutputState: i.ToFactoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FactoryMapInput is an input type that accepts FactoryMap and FactoryMapOutput values.
@@ -327,12 +314,6 @@ func (i FactoryMap) ToFactoryMapOutputWithContext(ctx context.Context) FactoryMa
 	return pulumi.ToOutputWithContext(ctx, i).(FactoryMapOutput)
 }
 
-func (i FactoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Factory] {
-	return pulumix.Output[map[string]*Factory]{
-		OutputState: i.ToFactoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FactoryOutput struct{ *pulumi.OutputState }
 
 func (FactoryOutput) ElementType() reflect.Type {
@@ -345,12 +326,6 @@ func (o FactoryOutput) ToFactoryOutput() FactoryOutput {
 
 func (o FactoryOutput) ToFactoryOutputWithContext(ctx context.Context) FactoryOutput {
 	return o
-}
-
-func (o FactoryOutput) ToOutput(ctx context.Context) pulumix.Output[*Factory] {
-	return pulumix.Output[*Factory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Azure Key Vault Key ID to be used as the Customer Managed Key (CMK) for double encryption. Required with user assigned identity.
@@ -432,12 +407,6 @@ func (o FactoryArrayOutput) ToFactoryArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o FactoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Factory] {
-	return pulumix.Output[[]*Factory]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FactoryArrayOutput) Index(i pulumi.IntInput) FactoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Factory {
 		return vs[0].([]*Factory)[vs[1].(int)]
@@ -456,12 +425,6 @@ func (o FactoryMapOutput) ToFactoryMapOutput() FactoryMapOutput {
 
 func (o FactoryMapOutput) ToFactoryMapOutputWithContext(ctx context.Context) FactoryMapOutput {
 	return o
-}
-
-func (o FactoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Factory] {
-	return pulumix.Output[map[string]*Factory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FactoryMapOutput) MapIndex(k pulumi.StringInput) FactoryOutput {

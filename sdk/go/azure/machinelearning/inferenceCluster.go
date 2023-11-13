@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Machine Learning Inference Cluster.
@@ -335,12 +334,6 @@ func (i *InferenceCluster) ToInferenceClusterOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(InferenceClusterOutput)
 }
 
-func (i *InferenceCluster) ToOutput(ctx context.Context) pulumix.Output[*InferenceCluster] {
-	return pulumix.Output[*InferenceCluster]{
-		OutputState: i.ToInferenceClusterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // InferenceClusterArrayInput is an input type that accepts InferenceClusterArray and InferenceClusterArrayOutput values.
 // You can construct a concrete instance of `InferenceClusterArrayInput` via:
 //
@@ -364,12 +357,6 @@ func (i InferenceClusterArray) ToInferenceClusterArrayOutput() InferenceClusterA
 
 func (i InferenceClusterArray) ToInferenceClusterArrayOutputWithContext(ctx context.Context) InferenceClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InferenceClusterArrayOutput)
-}
-
-func (i InferenceClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*InferenceCluster] {
-	return pulumix.Output[[]*InferenceCluster]{
-		OutputState: i.ToInferenceClusterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // InferenceClusterMapInput is an input type that accepts InferenceClusterMap and InferenceClusterMapOutput values.
@@ -397,12 +384,6 @@ func (i InferenceClusterMap) ToInferenceClusterMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(InferenceClusterMapOutput)
 }
 
-func (i InferenceClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*InferenceCluster] {
-	return pulumix.Output[map[string]*InferenceCluster]{
-		OutputState: i.ToInferenceClusterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InferenceClusterOutput struct{ *pulumi.OutputState }
 
 func (InferenceClusterOutput) ElementType() reflect.Type {
@@ -415,12 +396,6 @@ func (o InferenceClusterOutput) ToInferenceClusterOutput() InferenceClusterOutpu
 
 func (o InferenceClusterOutput) ToInferenceClusterOutputWithContext(ctx context.Context) InferenceClusterOutput {
 	return o
-}
-
-func (o InferenceClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*InferenceCluster] {
-	return pulumix.Output[*InferenceCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The purpose of the Inference Cluster. Options are `DevTest`, `DenseProd` and `FastProd`. If used for Development or Testing, use `DevTest` here. Default purpose is `FastProd`, which is recommended for production workloads. Changing this forces a new Machine Learning Inference Cluster to be created.
@@ -484,12 +459,6 @@ func (o InferenceClusterArrayOutput) ToInferenceClusterArrayOutputWithContext(ct
 	return o
 }
 
-func (o InferenceClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*InferenceCluster] {
-	return pulumix.Output[[]*InferenceCluster]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o InferenceClusterArrayOutput) Index(i pulumi.IntInput) InferenceClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InferenceCluster {
 		return vs[0].([]*InferenceCluster)[vs[1].(int)]
@@ -508,12 +477,6 @@ func (o InferenceClusterMapOutput) ToInferenceClusterMapOutput() InferenceCluste
 
 func (o InferenceClusterMapOutput) ToInferenceClusterMapOutputWithContext(ctx context.Context) InferenceClusterMapOutput {
 	return o
-}
-
-func (o InferenceClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*InferenceCluster] {
-	return pulumix.Output[map[string]*InferenceCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InferenceClusterMapOutput) MapIndex(k pulumi.StringInput) InferenceClusterOutput {

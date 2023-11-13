@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -63,12 +62,6 @@ func (i InstanceIdentityArgs) ToInstanceIdentityOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceIdentityOutput)
 }
 
-func (i InstanceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[InstanceIdentity] {
-	return pulumix.Output[InstanceIdentity]{
-		OutputState: i.ToInstanceIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i InstanceIdentityArgs) ToInstanceIdentityPtrOutput() InstanceIdentityPtrOutput {
 	return i.ToInstanceIdentityPtrOutputWithContext(context.Background())
 }
@@ -110,12 +103,6 @@ func (i *instanceIdentityPtrType) ToInstanceIdentityPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceIdentityPtrOutput)
 }
 
-func (i *instanceIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*InstanceIdentity] {
-	return pulumix.Output[*InstanceIdentity]{
-		OutputState: i.ToInstanceIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type InstanceIdentityOutput struct{ *pulumi.OutputState }
 
 func (InstanceIdentityOutput) ElementType() reflect.Type {
@@ -138,12 +125,6 @@ func (o InstanceIdentityOutput) ToInstanceIdentityPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceIdentity) *InstanceIdentity {
 		return &v
 	}).(InstanceIdentityPtrOutput)
-}
-
-func (o InstanceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[InstanceIdentity] {
-	return pulumix.Output[InstanceIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of User Assigned Managed Identity IDs to be assigned to this Digital Twins instance.
@@ -180,12 +161,6 @@ func (o InstanceIdentityPtrOutput) ToInstanceIdentityPtrOutput() InstanceIdentit
 
 func (o InstanceIdentityPtrOutput) ToInstanceIdentityPtrOutputWithContext(ctx context.Context) InstanceIdentityPtrOutput {
 	return o
-}
-
-func (o InstanceIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*InstanceIdentity] {
-	return pulumix.Output[*InstanceIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o InstanceIdentityPtrOutput) Elem() InstanceIdentityOutput {

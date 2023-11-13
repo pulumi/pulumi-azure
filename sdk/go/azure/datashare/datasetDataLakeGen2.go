@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Data Share Data Lake Gen2 Dataset.
@@ -260,12 +259,6 @@ func (i *DatasetDataLakeGen2) ToDatasetDataLakeGen2OutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetDataLakeGen2Output)
 }
 
-func (i *DatasetDataLakeGen2) ToOutput(ctx context.Context) pulumix.Output[*DatasetDataLakeGen2] {
-	return pulumix.Output[*DatasetDataLakeGen2]{
-		OutputState: i.ToDatasetDataLakeGen2OutputWithContext(ctx).OutputState,
-	}
-}
-
 // DatasetDataLakeGen2ArrayInput is an input type that accepts DatasetDataLakeGen2Array and DatasetDataLakeGen2ArrayOutput values.
 // You can construct a concrete instance of `DatasetDataLakeGen2ArrayInput` via:
 //
@@ -289,12 +282,6 @@ func (i DatasetDataLakeGen2Array) ToDatasetDataLakeGen2ArrayOutput() DatasetData
 
 func (i DatasetDataLakeGen2Array) ToDatasetDataLakeGen2ArrayOutputWithContext(ctx context.Context) DatasetDataLakeGen2ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetDataLakeGen2ArrayOutput)
-}
-
-func (i DatasetDataLakeGen2Array) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetDataLakeGen2] {
-	return pulumix.Output[[]*DatasetDataLakeGen2]{
-		OutputState: i.ToDatasetDataLakeGen2ArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DatasetDataLakeGen2MapInput is an input type that accepts DatasetDataLakeGen2Map and DatasetDataLakeGen2MapOutput values.
@@ -322,12 +309,6 @@ func (i DatasetDataLakeGen2Map) ToDatasetDataLakeGen2MapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetDataLakeGen2MapOutput)
 }
 
-func (i DatasetDataLakeGen2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetDataLakeGen2] {
-	return pulumix.Output[map[string]*DatasetDataLakeGen2]{
-		OutputState: i.ToDatasetDataLakeGen2MapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DatasetDataLakeGen2Output struct{ *pulumi.OutputState }
 
 func (DatasetDataLakeGen2Output) ElementType() reflect.Type {
@@ -340,12 +321,6 @@ func (o DatasetDataLakeGen2Output) ToDatasetDataLakeGen2Output() DatasetDataLake
 
 func (o DatasetDataLakeGen2Output) ToDatasetDataLakeGen2OutputWithContext(ctx context.Context) DatasetDataLakeGen2Output {
 	return o
-}
-
-func (o DatasetDataLakeGen2Output) ToOutput(ctx context.Context) pulumix.Output[*DatasetDataLakeGen2] {
-	return pulumix.Output[*DatasetDataLakeGen2]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Data Share Dataset.
@@ -397,12 +372,6 @@ func (o DatasetDataLakeGen2ArrayOutput) ToDatasetDataLakeGen2ArrayOutputWithCont
 	return o
 }
 
-func (o DatasetDataLakeGen2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetDataLakeGen2] {
-	return pulumix.Output[[]*DatasetDataLakeGen2]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetDataLakeGen2ArrayOutput) Index(i pulumi.IntInput) DatasetDataLakeGen2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetDataLakeGen2 {
 		return vs[0].([]*DatasetDataLakeGen2)[vs[1].(int)]
@@ -421,12 +390,6 @@ func (o DatasetDataLakeGen2MapOutput) ToDatasetDataLakeGen2MapOutput() DatasetDa
 
 func (o DatasetDataLakeGen2MapOutput) ToDatasetDataLakeGen2MapOutputWithContext(ctx context.Context) DatasetDataLakeGen2MapOutput {
 	return o
-}
-
-func (o DatasetDataLakeGen2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetDataLakeGen2] {
-	return pulumix.Output[map[string]*DatasetDataLakeGen2]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatasetDataLakeGen2MapOutput) MapIndex(k pulumi.StringInput) DatasetDataLakeGen2Output {

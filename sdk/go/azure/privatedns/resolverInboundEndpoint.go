@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Private DNS Resolver Inbound Endpoint.
@@ -237,12 +236,6 @@ func (i *ResolverInboundEndpoint) ToResolverInboundEndpointOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverInboundEndpointOutput)
 }
 
-func (i *ResolverInboundEndpoint) ToOutput(ctx context.Context) pulumix.Output[*ResolverInboundEndpoint] {
-	return pulumix.Output[*ResolverInboundEndpoint]{
-		OutputState: i.ToResolverInboundEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResolverInboundEndpointArrayInput is an input type that accepts ResolverInboundEndpointArray and ResolverInboundEndpointArrayOutput values.
 // You can construct a concrete instance of `ResolverInboundEndpointArrayInput` via:
 //
@@ -266,12 +259,6 @@ func (i ResolverInboundEndpointArray) ToResolverInboundEndpointArrayOutput() Res
 
 func (i ResolverInboundEndpointArray) ToResolverInboundEndpointArrayOutputWithContext(ctx context.Context) ResolverInboundEndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverInboundEndpointArrayOutput)
-}
-
-func (i ResolverInboundEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverInboundEndpoint] {
-	return pulumix.Output[[]*ResolverInboundEndpoint]{
-		OutputState: i.ToResolverInboundEndpointArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ResolverInboundEndpointMapInput is an input type that accepts ResolverInboundEndpointMap and ResolverInboundEndpointMapOutput values.
@@ -299,12 +286,6 @@ func (i ResolverInboundEndpointMap) ToResolverInboundEndpointMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverInboundEndpointMapOutput)
 }
 
-func (i ResolverInboundEndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverInboundEndpoint] {
-	return pulumix.Output[map[string]*ResolverInboundEndpoint]{
-		OutputState: i.ToResolverInboundEndpointMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResolverInboundEndpointOutput struct{ *pulumi.OutputState }
 
 func (ResolverInboundEndpointOutput) ElementType() reflect.Type {
@@ -317,12 +298,6 @@ func (o ResolverInboundEndpointOutput) ToResolverInboundEndpointOutput() Resolve
 
 func (o ResolverInboundEndpointOutput) ToResolverInboundEndpointOutputWithContext(ctx context.Context) ResolverInboundEndpointOutput {
 	return o
-}
-
-func (o ResolverInboundEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverInboundEndpoint] {
-	return pulumix.Output[*ResolverInboundEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Can be specified multiple times to define multiple IP configurations. Each `ipConfigurations` block as defined below.
@@ -366,12 +341,6 @@ func (o ResolverInboundEndpointArrayOutput) ToResolverInboundEndpointArrayOutput
 	return o
 }
 
-func (o ResolverInboundEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverInboundEndpoint] {
-	return pulumix.Output[[]*ResolverInboundEndpoint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResolverInboundEndpointArrayOutput) Index(i pulumi.IntInput) ResolverInboundEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverInboundEndpoint {
 		return vs[0].([]*ResolverInboundEndpoint)[vs[1].(int)]
@@ -390,12 +359,6 @@ func (o ResolverInboundEndpointMapOutput) ToResolverInboundEndpointMapOutput() R
 
 func (o ResolverInboundEndpointMapOutput) ToResolverInboundEndpointMapOutputWithContext(ctx context.Context) ResolverInboundEndpointMapOutput {
 	return o
-}
-
-func (o ResolverInboundEndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverInboundEndpoint] {
-	return pulumix.Output[map[string]*ResolverInboundEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResolverInboundEndpointMapOutput) MapIndex(k pulumi.StringInput) ResolverInboundEndpointOutput {

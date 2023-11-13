@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Associates a NAT Gateway with a Subnet within a Virtual Network.
@@ -185,12 +184,6 @@ func (i *SubnetNatGatewayAssociation) ToSubnetNatGatewayAssociationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetNatGatewayAssociationOutput)
 }
 
-func (i *SubnetNatGatewayAssociation) ToOutput(ctx context.Context) pulumix.Output[*SubnetNatGatewayAssociation] {
-	return pulumix.Output[*SubnetNatGatewayAssociation]{
-		OutputState: i.ToSubnetNatGatewayAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SubnetNatGatewayAssociationArrayInput is an input type that accepts SubnetNatGatewayAssociationArray and SubnetNatGatewayAssociationArrayOutput values.
 // You can construct a concrete instance of `SubnetNatGatewayAssociationArrayInput` via:
 //
@@ -214,12 +207,6 @@ func (i SubnetNatGatewayAssociationArray) ToSubnetNatGatewayAssociationArrayOutp
 
 func (i SubnetNatGatewayAssociationArray) ToSubnetNatGatewayAssociationArrayOutputWithContext(ctx context.Context) SubnetNatGatewayAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetNatGatewayAssociationArrayOutput)
-}
-
-func (i SubnetNatGatewayAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*SubnetNatGatewayAssociation] {
-	return pulumix.Output[[]*SubnetNatGatewayAssociation]{
-		OutputState: i.ToSubnetNatGatewayAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SubnetNatGatewayAssociationMapInput is an input type that accepts SubnetNatGatewayAssociationMap and SubnetNatGatewayAssociationMapOutput values.
@@ -247,12 +234,6 @@ func (i SubnetNatGatewayAssociationMap) ToSubnetNatGatewayAssociationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SubnetNatGatewayAssociationMapOutput)
 }
 
-func (i SubnetNatGatewayAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubnetNatGatewayAssociation] {
-	return pulumix.Output[map[string]*SubnetNatGatewayAssociation]{
-		OutputState: i.ToSubnetNatGatewayAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SubnetNatGatewayAssociationOutput struct{ *pulumi.OutputState }
 
 func (SubnetNatGatewayAssociationOutput) ElementType() reflect.Type {
@@ -265,12 +246,6 @@ func (o SubnetNatGatewayAssociationOutput) ToSubnetNatGatewayAssociationOutput()
 
 func (o SubnetNatGatewayAssociationOutput) ToSubnetNatGatewayAssociationOutputWithContext(ctx context.Context) SubnetNatGatewayAssociationOutput {
 	return o
-}
-
-func (o SubnetNatGatewayAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*SubnetNatGatewayAssociation] {
-	return pulumix.Output[*SubnetNatGatewayAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the NAT Gateway which should be associated with the Subnet. Changing this forces a new resource to be created.
@@ -297,12 +272,6 @@ func (o SubnetNatGatewayAssociationArrayOutput) ToSubnetNatGatewayAssociationArr
 	return o
 }
 
-func (o SubnetNatGatewayAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SubnetNatGatewayAssociation] {
-	return pulumix.Output[[]*SubnetNatGatewayAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SubnetNatGatewayAssociationArrayOutput) Index(i pulumi.IntInput) SubnetNatGatewayAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SubnetNatGatewayAssociation {
 		return vs[0].([]*SubnetNatGatewayAssociation)[vs[1].(int)]
@@ -321,12 +290,6 @@ func (o SubnetNatGatewayAssociationMapOutput) ToSubnetNatGatewayAssociationMapOu
 
 func (o SubnetNatGatewayAssociationMapOutput) ToSubnetNatGatewayAssociationMapOutputWithContext(ctx context.Context) SubnetNatGatewayAssociationMapOutput {
 	return o
-}
-
-func (o SubnetNatGatewayAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubnetNatGatewayAssociation] {
-	return pulumix.Output[map[string]*SubnetNatGatewayAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SubnetNatGatewayAssociationMapOutput) MapIndex(k pulumi.StringInput) SubnetNatGatewayAssociationOutput {

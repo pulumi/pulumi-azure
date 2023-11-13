@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Media Asset Filter.
@@ -259,12 +258,6 @@ func (i *AssetFilter) ToAssetFilterOutputWithContext(ctx context.Context) AssetF
 	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterOutput)
 }
 
-func (i *AssetFilter) ToOutput(ctx context.Context) pulumix.Output[*AssetFilter] {
-	return pulumix.Output[*AssetFilter]{
-		OutputState: i.ToAssetFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssetFilterArrayInput is an input type that accepts AssetFilterArray and AssetFilterArrayOutput values.
 // You can construct a concrete instance of `AssetFilterArrayInput` via:
 //
@@ -288,12 +281,6 @@ func (i AssetFilterArray) ToAssetFilterArrayOutput() AssetFilterArrayOutput {
 
 func (i AssetFilterArray) ToAssetFilterArrayOutputWithContext(ctx context.Context) AssetFilterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterArrayOutput)
-}
-
-func (i AssetFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]*AssetFilter] {
-	return pulumix.Output[[]*AssetFilter]{
-		OutputState: i.ToAssetFilterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AssetFilterMapInput is an input type that accepts AssetFilterMap and AssetFilterMapOutput values.
@@ -321,12 +308,6 @@ func (i AssetFilterMap) ToAssetFilterMapOutputWithContext(ctx context.Context) A
 	return pulumi.ToOutputWithContext(ctx, i).(AssetFilterMapOutput)
 }
 
-func (i AssetFilterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AssetFilter] {
-	return pulumix.Output[map[string]*AssetFilter]{
-		OutputState: i.ToAssetFilterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssetFilterOutput struct{ *pulumi.OutputState }
 
 func (AssetFilterOutput) ElementType() reflect.Type {
@@ -339,12 +320,6 @@ func (o AssetFilterOutput) ToAssetFilterOutput() AssetFilterOutput {
 
 func (o AssetFilterOutput) ToAssetFilterOutputWithContext(ctx context.Context) AssetFilterOutput {
 	return o
-}
-
-func (o AssetFilterOutput) ToOutput(ctx context.Context) pulumix.Output[*AssetFilter] {
-	return pulumix.Output[*AssetFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Asset ID for which the Asset Filter should be created. Changing this forces a new Asset Filter to be created.
@@ -386,12 +361,6 @@ func (o AssetFilterArrayOutput) ToAssetFilterArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o AssetFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AssetFilter] {
-	return pulumix.Output[[]*AssetFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssetFilterArrayOutput) Index(i pulumi.IntInput) AssetFilterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AssetFilter {
 		return vs[0].([]*AssetFilter)[vs[1].(int)]
@@ -410,12 +379,6 @@ func (o AssetFilterMapOutput) ToAssetFilterMapOutput() AssetFilterMapOutput {
 
 func (o AssetFilterMapOutput) ToAssetFilterMapOutputWithContext(ctx context.Context) AssetFilterMapOutput {
 	return o
-}
-
-func (o AssetFilterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AssetFilter] {
-	return pulumix.Output[map[string]*AssetFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssetFilterMapOutput) MapIndex(k pulumi.StringInput) AssetFilterOutput {

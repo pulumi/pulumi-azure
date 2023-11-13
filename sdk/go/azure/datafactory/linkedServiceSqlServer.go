@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linked Service (connection) between a SQL Server and Azure Data Factory.
@@ -317,12 +316,6 @@ func (i *LinkedServiceSqlServer) ToLinkedServiceSqlServerOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSqlServerOutput)
 }
 
-func (i *LinkedServiceSqlServer) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceSqlServer] {
-	return pulumix.Output[*LinkedServiceSqlServer]{
-		OutputState: i.ToLinkedServiceSqlServerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinkedServiceSqlServerArrayInput is an input type that accepts LinkedServiceSqlServerArray and LinkedServiceSqlServerArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceSqlServerArrayInput` via:
 //
@@ -346,12 +339,6 @@ func (i LinkedServiceSqlServerArray) ToLinkedServiceSqlServerArrayOutput() Linke
 
 func (i LinkedServiceSqlServerArray) ToLinkedServiceSqlServerArrayOutputWithContext(ctx context.Context) LinkedServiceSqlServerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSqlServerArrayOutput)
-}
-
-func (i LinkedServiceSqlServerArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceSqlServer] {
-	return pulumix.Output[[]*LinkedServiceSqlServer]{
-		OutputState: i.ToLinkedServiceSqlServerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinkedServiceSqlServerMapInput is an input type that accepts LinkedServiceSqlServerMap and LinkedServiceSqlServerMapOutput values.
@@ -379,12 +366,6 @@ func (i LinkedServiceSqlServerMap) ToLinkedServiceSqlServerMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSqlServerMapOutput)
 }
 
-func (i LinkedServiceSqlServerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceSqlServer] {
-	return pulumix.Output[map[string]*LinkedServiceSqlServer]{
-		OutputState: i.ToLinkedServiceSqlServerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkedServiceSqlServerOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceSqlServerOutput) ElementType() reflect.Type {
@@ -397,12 +378,6 @@ func (o LinkedServiceSqlServerOutput) ToLinkedServiceSqlServerOutput() LinkedSer
 
 func (o LinkedServiceSqlServerOutput) ToLinkedServiceSqlServerOutputWithContext(ctx context.Context) LinkedServiceSqlServerOutput {
 	return o
-}
-
-func (o LinkedServiceSqlServerOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceSqlServer] {
-	return pulumix.Output[*LinkedServiceSqlServer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service SQL Server.
@@ -478,12 +453,6 @@ func (o LinkedServiceSqlServerArrayOutput) ToLinkedServiceSqlServerArrayOutputWi
 	return o
 }
 
-func (o LinkedServiceSqlServerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceSqlServer] {
-	return pulumix.Output[[]*LinkedServiceSqlServer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinkedServiceSqlServerArrayOutput) Index(i pulumi.IntInput) LinkedServiceSqlServerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceSqlServer {
 		return vs[0].([]*LinkedServiceSqlServer)[vs[1].(int)]
@@ -502,12 +471,6 @@ func (o LinkedServiceSqlServerMapOutput) ToLinkedServiceSqlServerMapOutput() Lin
 
 func (o LinkedServiceSqlServerMapOutput) ToLinkedServiceSqlServerMapOutputWithContext(ctx context.Context) LinkedServiceSqlServerMapOutput {
 	return o
-}
-
-func (o LinkedServiceSqlServerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceSqlServer] {
-	return pulumix.Output[map[string]*LinkedServiceSqlServer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkedServiceSqlServerMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceSqlServerOutput {

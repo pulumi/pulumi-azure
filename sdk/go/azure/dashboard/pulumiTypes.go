@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -47,12 +46,6 @@ func (i GrafanaAzureMonitorWorkspaceIntegrationArgs) ToGrafanaAzureMonitorWorksp
 	return pulumi.ToOutputWithContext(ctx, i).(GrafanaAzureMonitorWorkspaceIntegrationOutput)
 }
 
-func (i GrafanaAzureMonitorWorkspaceIntegrationArgs) ToOutput(ctx context.Context) pulumix.Output[GrafanaAzureMonitorWorkspaceIntegration] {
-	return pulumix.Output[GrafanaAzureMonitorWorkspaceIntegration]{
-		OutputState: i.ToGrafanaAzureMonitorWorkspaceIntegrationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GrafanaAzureMonitorWorkspaceIntegrationArrayInput is an input type that accepts GrafanaAzureMonitorWorkspaceIntegrationArray and GrafanaAzureMonitorWorkspaceIntegrationArrayOutput values.
 // You can construct a concrete instance of `GrafanaAzureMonitorWorkspaceIntegrationArrayInput` via:
 //
@@ -78,12 +71,6 @@ func (i GrafanaAzureMonitorWorkspaceIntegrationArray) ToGrafanaAzureMonitorWorks
 	return pulumi.ToOutputWithContext(ctx, i).(GrafanaAzureMonitorWorkspaceIntegrationArrayOutput)
 }
 
-func (i GrafanaAzureMonitorWorkspaceIntegrationArray) ToOutput(ctx context.Context) pulumix.Output[[]GrafanaAzureMonitorWorkspaceIntegration] {
-	return pulumix.Output[[]GrafanaAzureMonitorWorkspaceIntegration]{
-		OutputState: i.ToGrafanaAzureMonitorWorkspaceIntegrationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GrafanaAzureMonitorWorkspaceIntegrationOutput struct{ *pulumi.OutputState }
 
 func (GrafanaAzureMonitorWorkspaceIntegrationOutput) ElementType() reflect.Type {
@@ -96,12 +83,6 @@ func (o GrafanaAzureMonitorWorkspaceIntegrationOutput) ToGrafanaAzureMonitorWork
 
 func (o GrafanaAzureMonitorWorkspaceIntegrationOutput) ToGrafanaAzureMonitorWorkspaceIntegrationOutputWithContext(ctx context.Context) GrafanaAzureMonitorWorkspaceIntegrationOutput {
 	return o
-}
-
-func (o GrafanaAzureMonitorWorkspaceIntegrationOutput) ToOutput(ctx context.Context) pulumix.Output[GrafanaAzureMonitorWorkspaceIntegration] {
-	return pulumix.Output[GrafanaAzureMonitorWorkspaceIntegration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the resource ID of the connected Azure Monitor Workspace.
@@ -121,12 +102,6 @@ func (o GrafanaAzureMonitorWorkspaceIntegrationArrayOutput) ToGrafanaAzureMonito
 
 func (o GrafanaAzureMonitorWorkspaceIntegrationArrayOutput) ToGrafanaAzureMonitorWorkspaceIntegrationArrayOutputWithContext(ctx context.Context) GrafanaAzureMonitorWorkspaceIntegrationArrayOutput {
 	return o
-}
-
-func (o GrafanaAzureMonitorWorkspaceIntegrationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GrafanaAzureMonitorWorkspaceIntegration] {
-	return pulumix.Output[[]GrafanaAzureMonitorWorkspaceIntegration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GrafanaAzureMonitorWorkspaceIntegrationArrayOutput) Index(i pulumi.IntInput) GrafanaAzureMonitorWorkspaceIntegrationOutput {
@@ -180,12 +155,6 @@ func (i GrafanaIdentityArgs) ToGrafanaIdentityOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GrafanaIdentityOutput)
 }
 
-func (i GrafanaIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GrafanaIdentity] {
-	return pulumix.Output[GrafanaIdentity]{
-		OutputState: i.ToGrafanaIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i GrafanaIdentityArgs) ToGrafanaIdentityPtrOutput() GrafanaIdentityPtrOutput {
 	return i.ToGrafanaIdentityPtrOutputWithContext(context.Background())
 }
@@ -227,12 +196,6 @@ func (i *grafanaIdentityPtrType) ToGrafanaIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(GrafanaIdentityPtrOutput)
 }
 
-func (i *grafanaIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*GrafanaIdentity] {
-	return pulumix.Output[*GrafanaIdentity]{
-		OutputState: i.ToGrafanaIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GrafanaIdentityOutput struct{ *pulumi.OutputState }
 
 func (GrafanaIdentityOutput) ElementType() reflect.Type {
@@ -255,12 +218,6 @@ func (o GrafanaIdentityOutput) ToGrafanaIdentityPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GrafanaIdentity) *GrafanaIdentity {
 		return &v
 	}).(GrafanaIdentityPtrOutput)
-}
-
-func (o GrafanaIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GrafanaIdentity] {
-	return pulumix.Output[GrafanaIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the list of User Assigned Managed Service Identity IDs which should be assigned to this Dashboard Grafana.
@@ -295,12 +252,6 @@ func (o GrafanaIdentityPtrOutput) ToGrafanaIdentityPtrOutput() GrafanaIdentityPt
 
 func (o GrafanaIdentityPtrOutput) ToGrafanaIdentityPtrOutputWithContext(ctx context.Context) GrafanaIdentityPtrOutput {
 	return o
-}
-
-func (o GrafanaIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GrafanaIdentity] {
-	return pulumix.Output[*GrafanaIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GrafanaIdentityPtrOutput) Elem() GrafanaIdentityOutput {

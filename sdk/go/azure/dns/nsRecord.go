@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -222,12 +221,6 @@ func (i *NsRecord) ToNsRecordOutputWithContext(ctx context.Context) NsRecordOutp
 	return pulumi.ToOutputWithContext(ctx, i).(NsRecordOutput)
 }
 
-func (i *NsRecord) ToOutput(ctx context.Context) pulumix.Output[*NsRecord] {
-	return pulumix.Output[*NsRecord]{
-		OutputState: i.ToNsRecordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NsRecordArrayInput is an input type that accepts NsRecordArray and NsRecordArrayOutput values.
 // You can construct a concrete instance of `NsRecordArrayInput` via:
 //
@@ -251,12 +244,6 @@ func (i NsRecordArray) ToNsRecordArrayOutput() NsRecordArrayOutput {
 
 func (i NsRecordArray) ToNsRecordArrayOutputWithContext(ctx context.Context) NsRecordArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NsRecordArrayOutput)
-}
-
-func (i NsRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]*NsRecord] {
-	return pulumix.Output[[]*NsRecord]{
-		OutputState: i.ToNsRecordArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NsRecordMapInput is an input type that accepts NsRecordMap and NsRecordMapOutput values.
@@ -284,12 +271,6 @@ func (i NsRecordMap) ToNsRecordMapOutputWithContext(ctx context.Context) NsRecor
 	return pulumi.ToOutputWithContext(ctx, i).(NsRecordMapOutput)
 }
 
-func (i NsRecordMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NsRecord] {
-	return pulumix.Output[map[string]*NsRecord]{
-		OutputState: i.ToNsRecordMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NsRecordOutput struct{ *pulumi.OutputState }
 
 func (NsRecordOutput) ElementType() reflect.Type {
@@ -302,12 +283,6 @@ func (o NsRecordOutput) ToNsRecordOutput() NsRecordOutput {
 
 func (o NsRecordOutput) ToNsRecordOutputWithContext(ctx context.Context) NsRecordOutput {
 	return o
-}
-
-func (o NsRecordOutput) ToOutput(ctx context.Context) pulumix.Output[*NsRecord] {
-	return pulumix.Output[*NsRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The FQDN of the DNS NS Record.
@@ -359,12 +334,6 @@ func (o NsRecordArrayOutput) ToNsRecordArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o NsRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NsRecord] {
-	return pulumix.Output[[]*NsRecord]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NsRecordArrayOutput) Index(i pulumi.IntInput) NsRecordOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NsRecord {
 		return vs[0].([]*NsRecord)[vs[1].(int)]
@@ -383,12 +352,6 @@ func (o NsRecordMapOutput) ToNsRecordMapOutput() NsRecordMapOutput {
 
 func (o NsRecordMapOutput) ToNsRecordMapOutputWithContext(ctx context.Context) NsRecordMapOutput {
 	return o
-}
-
-func (o NsRecordMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NsRecord] {
-	return pulumix.Output[map[string]*NsRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NsRecordMapOutput) MapIndex(k pulumi.StringInput) NsRecordOutput {

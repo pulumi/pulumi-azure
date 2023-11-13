@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linked Service (connection) between a Web Server and Azure Data Factory.
@@ -276,12 +275,6 @@ func (i *LinkedServiceWeb) ToLinkedServiceWebOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceWebOutput)
 }
 
-func (i *LinkedServiceWeb) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceWeb] {
-	return pulumix.Output[*LinkedServiceWeb]{
-		OutputState: i.ToLinkedServiceWebOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinkedServiceWebArrayInput is an input type that accepts LinkedServiceWebArray and LinkedServiceWebArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceWebArrayInput` via:
 //
@@ -305,12 +298,6 @@ func (i LinkedServiceWebArray) ToLinkedServiceWebArrayOutput() LinkedServiceWebA
 
 func (i LinkedServiceWebArray) ToLinkedServiceWebArrayOutputWithContext(ctx context.Context) LinkedServiceWebArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceWebArrayOutput)
-}
-
-func (i LinkedServiceWebArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceWeb] {
-	return pulumix.Output[[]*LinkedServiceWeb]{
-		OutputState: i.ToLinkedServiceWebArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinkedServiceWebMapInput is an input type that accepts LinkedServiceWebMap and LinkedServiceWebMapOutput values.
@@ -338,12 +325,6 @@ func (i LinkedServiceWebMap) ToLinkedServiceWebMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceWebMapOutput)
 }
 
-func (i LinkedServiceWebMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceWeb] {
-	return pulumix.Output[map[string]*LinkedServiceWeb]{
-		OutputState: i.ToLinkedServiceWebMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkedServiceWebOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceWebOutput) ElementType() reflect.Type {
@@ -356,12 +337,6 @@ func (o LinkedServiceWebOutput) ToLinkedServiceWebOutput() LinkedServiceWebOutpu
 
 func (o LinkedServiceWebOutput) ToLinkedServiceWebOutputWithContext(ctx context.Context) LinkedServiceWebOutput {
 	return o
-}
-
-func (o LinkedServiceWebOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceWeb] {
-	return pulumix.Output[*LinkedServiceWeb]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service.
@@ -435,12 +410,6 @@ func (o LinkedServiceWebArrayOutput) ToLinkedServiceWebArrayOutputWithContext(ct
 	return o
 }
 
-func (o LinkedServiceWebArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceWeb] {
-	return pulumix.Output[[]*LinkedServiceWeb]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinkedServiceWebArrayOutput) Index(i pulumi.IntInput) LinkedServiceWebOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceWeb {
 		return vs[0].([]*LinkedServiceWeb)[vs[1].(int)]
@@ -459,12 +428,6 @@ func (o LinkedServiceWebMapOutput) ToLinkedServiceWebMapOutput() LinkedServiceWe
 
 func (o LinkedServiceWebMapOutput) ToLinkedServiceWebMapOutputWithContext(ctx context.Context) LinkedServiceWebMapOutput {
 	return o
-}
-
-func (o LinkedServiceWebMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceWeb] {
-	return pulumix.Output[map[string]*LinkedServiceWeb]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkedServiceWebMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceWebOutput {

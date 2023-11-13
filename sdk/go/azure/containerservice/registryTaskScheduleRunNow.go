@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Runs a Container Registry Task Schedule.
@@ -159,12 +158,6 @@ func (i *RegistryTaskScheduleRunNow) ToRegistryTaskScheduleRunNowOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskScheduleRunNowOutput)
 }
 
-func (i *RegistryTaskScheduleRunNow) ToOutput(ctx context.Context) pulumix.Output[*RegistryTaskScheduleRunNow] {
-	return pulumix.Output[*RegistryTaskScheduleRunNow]{
-		OutputState: i.ToRegistryTaskScheduleRunNowOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RegistryTaskScheduleRunNowArrayInput is an input type that accepts RegistryTaskScheduleRunNowArray and RegistryTaskScheduleRunNowArrayOutput values.
 // You can construct a concrete instance of `RegistryTaskScheduleRunNowArrayInput` via:
 //
@@ -188,12 +181,6 @@ func (i RegistryTaskScheduleRunNowArray) ToRegistryTaskScheduleRunNowArrayOutput
 
 func (i RegistryTaskScheduleRunNowArray) ToRegistryTaskScheduleRunNowArrayOutputWithContext(ctx context.Context) RegistryTaskScheduleRunNowArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskScheduleRunNowArrayOutput)
-}
-
-func (i RegistryTaskScheduleRunNowArray) ToOutput(ctx context.Context) pulumix.Output[[]*RegistryTaskScheduleRunNow] {
-	return pulumix.Output[[]*RegistryTaskScheduleRunNow]{
-		OutputState: i.ToRegistryTaskScheduleRunNowArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RegistryTaskScheduleRunNowMapInput is an input type that accepts RegistryTaskScheduleRunNowMap and RegistryTaskScheduleRunNowMapOutput values.
@@ -221,12 +208,6 @@ func (i RegistryTaskScheduleRunNowMap) ToRegistryTaskScheduleRunNowMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskScheduleRunNowMapOutput)
 }
 
-func (i RegistryTaskScheduleRunNowMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegistryTaskScheduleRunNow] {
-	return pulumix.Output[map[string]*RegistryTaskScheduleRunNow]{
-		OutputState: i.ToRegistryTaskScheduleRunNowMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RegistryTaskScheduleRunNowOutput struct{ *pulumi.OutputState }
 
 func (RegistryTaskScheduleRunNowOutput) ElementType() reflect.Type {
@@ -239,12 +220,6 @@ func (o RegistryTaskScheduleRunNowOutput) ToRegistryTaskScheduleRunNowOutput() R
 
 func (o RegistryTaskScheduleRunNowOutput) ToRegistryTaskScheduleRunNowOutputWithContext(ctx context.Context) RegistryTaskScheduleRunNowOutput {
 	return o
-}
-
-func (o RegistryTaskScheduleRunNowOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryTaskScheduleRunNow] {
-	return pulumix.Output[*RegistryTaskScheduleRunNow]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Container Registry Task that to be scheduled. Changing this forces a new Container Registry Task Schedule to be created.
@@ -266,12 +241,6 @@ func (o RegistryTaskScheduleRunNowArrayOutput) ToRegistryTaskScheduleRunNowArray
 	return o
 }
 
-func (o RegistryTaskScheduleRunNowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RegistryTaskScheduleRunNow] {
-	return pulumix.Output[[]*RegistryTaskScheduleRunNow]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RegistryTaskScheduleRunNowArrayOutput) Index(i pulumi.IntInput) RegistryTaskScheduleRunNowOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RegistryTaskScheduleRunNow {
 		return vs[0].([]*RegistryTaskScheduleRunNow)[vs[1].(int)]
@@ -290,12 +259,6 @@ func (o RegistryTaskScheduleRunNowMapOutput) ToRegistryTaskScheduleRunNowMapOutp
 
 func (o RegistryTaskScheduleRunNowMapOutput) ToRegistryTaskScheduleRunNowMapOutputWithContext(ctx context.Context) RegistryTaskScheduleRunNowMapOutput {
 	return o
-}
-
-func (o RegistryTaskScheduleRunNowMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegistryTaskScheduleRunNow] {
-	return pulumix.Output[map[string]*RegistryTaskScheduleRunNow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RegistryTaskScheduleRunNowMapOutput) MapIndex(k pulumi.StringInput) RegistryTaskScheduleRunNowOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -319,12 +318,6 @@ func (i *Subscription) ToSubscriptionOutputWithContext(ctx context.Context) Subs
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionOutput)
 }
 
-func (i *Subscription) ToOutput(ctx context.Context) pulumix.Output[*Subscription] {
-	return pulumix.Output[*Subscription]{
-		OutputState: i.ToSubscriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SubscriptionArrayInput is an input type that accepts SubscriptionArray and SubscriptionArrayOutput values.
 // You can construct a concrete instance of `SubscriptionArrayInput` via:
 //
@@ -348,12 +341,6 @@ func (i SubscriptionArray) ToSubscriptionArrayOutput() SubscriptionArrayOutput {
 
 func (i SubscriptionArray) ToSubscriptionArrayOutputWithContext(ctx context.Context) SubscriptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionArrayOutput)
-}
-
-func (i SubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*Subscription] {
-	return pulumix.Output[[]*Subscription]{
-		OutputState: i.ToSubscriptionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SubscriptionMapInput is an input type that accepts SubscriptionMap and SubscriptionMapOutput values.
@@ -381,12 +368,6 @@ func (i SubscriptionMap) ToSubscriptionMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionMapOutput)
 }
 
-func (i SubscriptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Subscription] {
-	return pulumix.Output[map[string]*Subscription]{
-		OutputState: i.ToSubscriptionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SubscriptionOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionOutput) ElementType() reflect.Type {
@@ -399,12 +380,6 @@ func (o SubscriptionOutput) ToSubscriptionOutput() SubscriptionOutput {
 
 func (o SubscriptionOutput) ToSubscriptionOutputWithContext(ctx context.Context) SubscriptionOutput {
 	return o
-}
-
-func (o SubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*Subscription] {
-	return pulumix.Output[*Subscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Alias name for the subscription. This provider will generate a new GUID if this is not supplied. Changing this forces a new Subscription to be created.
@@ -460,12 +435,6 @@ func (o SubscriptionArrayOutput) ToSubscriptionArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o SubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Subscription] {
-	return pulumix.Output[[]*Subscription]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SubscriptionArrayOutput) Index(i pulumi.IntInput) SubscriptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Subscription {
 		return vs[0].([]*Subscription)[vs[1].(int)]
@@ -484,12 +453,6 @@ func (o SubscriptionMapOutput) ToSubscriptionMapOutput() SubscriptionMapOutput {
 
 func (o SubscriptionMapOutput) ToSubscriptionMapOutputWithContext(ctx context.Context) SubscriptionMapOutput {
 	return o
-}
-
-func (o SubscriptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Subscription] {
-	return pulumix.Output[map[string]*Subscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SubscriptionMapOutput) MapIndex(k pulumi.StringInput) SubscriptionOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a custom Role Definition, used to assign Roles to Users/Principals. See ['Understand role definitions'](https://docs.microsoft.com/azure/role-based-access-control/role-definitions) in the Azure documentation for more details.
@@ -226,12 +225,6 @@ func (i *RoleDefinition) ToRoleDefinitionOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionOutput)
 }
 
-func (i *RoleDefinition) ToOutput(ctx context.Context) pulumix.Output[*RoleDefinition] {
-	return pulumix.Output[*RoleDefinition]{
-		OutputState: i.ToRoleDefinitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RoleDefinitionArrayInput is an input type that accepts RoleDefinitionArray and RoleDefinitionArrayOutput values.
 // You can construct a concrete instance of `RoleDefinitionArrayInput` via:
 //
@@ -255,12 +248,6 @@ func (i RoleDefinitionArray) ToRoleDefinitionArrayOutput() RoleDefinitionArrayOu
 
 func (i RoleDefinitionArray) ToRoleDefinitionArrayOutputWithContext(ctx context.Context) RoleDefinitionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionArrayOutput)
-}
-
-func (i RoleDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]*RoleDefinition] {
-	return pulumix.Output[[]*RoleDefinition]{
-		OutputState: i.ToRoleDefinitionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RoleDefinitionMapInput is an input type that accepts RoleDefinitionMap and RoleDefinitionMapOutput values.
@@ -288,12 +275,6 @@ func (i RoleDefinitionMap) ToRoleDefinitionMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(RoleDefinitionMapOutput)
 }
 
-func (i RoleDefinitionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RoleDefinition] {
-	return pulumix.Output[map[string]*RoleDefinition]{
-		OutputState: i.ToRoleDefinitionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RoleDefinitionOutput struct{ *pulumi.OutputState }
 
 func (RoleDefinitionOutput) ElementType() reflect.Type {
@@ -306,12 +287,6 @@ func (o RoleDefinitionOutput) ToRoleDefinitionOutput() RoleDefinitionOutput {
 
 func (o RoleDefinitionOutput) ToRoleDefinitionOutputWithContext(ctx context.Context) RoleDefinitionOutput {
 	return o
-}
-
-func (o RoleDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*RoleDefinition] {
-	return pulumix.Output[*RoleDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.
@@ -365,12 +340,6 @@ func (o RoleDefinitionArrayOutput) ToRoleDefinitionArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o RoleDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RoleDefinition] {
-	return pulumix.Output[[]*RoleDefinition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RoleDefinitionArrayOutput) Index(i pulumi.IntInput) RoleDefinitionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RoleDefinition {
 		return vs[0].([]*RoleDefinition)[vs[1].(int)]
@@ -389,12 +358,6 @@ func (o RoleDefinitionMapOutput) ToRoleDefinitionMapOutput() RoleDefinitionMapOu
 
 func (o RoleDefinitionMapOutput) ToRoleDefinitionMapOutputWithContext(ctx context.Context) RoleDefinitionMapOutput {
 	return o
-}
-
-func (o RoleDefinitionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RoleDefinition] {
-	return pulumix.Output[map[string]*RoleDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RoleDefinitionMapOutput) MapIndex(k pulumi.StringInput) RoleDefinitionOutput {

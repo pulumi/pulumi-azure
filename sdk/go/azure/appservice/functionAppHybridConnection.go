@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Function App Hybrid Connection.
@@ -285,12 +284,6 @@ func (i *FunctionAppHybridConnection) ToFunctionAppHybridConnectionOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppHybridConnectionOutput)
 }
 
-func (i *FunctionAppHybridConnection) ToOutput(ctx context.Context) pulumix.Output[*FunctionAppHybridConnection] {
-	return pulumix.Output[*FunctionAppHybridConnection]{
-		OutputState: i.ToFunctionAppHybridConnectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FunctionAppHybridConnectionArrayInput is an input type that accepts FunctionAppHybridConnectionArray and FunctionAppHybridConnectionArrayOutput values.
 // You can construct a concrete instance of `FunctionAppHybridConnectionArrayInput` via:
 //
@@ -314,12 +307,6 @@ func (i FunctionAppHybridConnectionArray) ToFunctionAppHybridConnectionArrayOutp
 
 func (i FunctionAppHybridConnectionArray) ToFunctionAppHybridConnectionArrayOutputWithContext(ctx context.Context) FunctionAppHybridConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppHybridConnectionArrayOutput)
-}
-
-func (i FunctionAppHybridConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*FunctionAppHybridConnection] {
-	return pulumix.Output[[]*FunctionAppHybridConnection]{
-		OutputState: i.ToFunctionAppHybridConnectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FunctionAppHybridConnectionMapInput is an input type that accepts FunctionAppHybridConnectionMap and FunctionAppHybridConnectionMapOutput values.
@@ -347,12 +334,6 @@ func (i FunctionAppHybridConnectionMap) ToFunctionAppHybridConnectionMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionAppHybridConnectionMapOutput)
 }
 
-func (i FunctionAppHybridConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FunctionAppHybridConnection] {
-	return pulumix.Output[map[string]*FunctionAppHybridConnection]{
-		OutputState: i.ToFunctionAppHybridConnectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FunctionAppHybridConnectionOutput struct{ *pulumi.OutputState }
 
 func (FunctionAppHybridConnectionOutput) ElementType() reflect.Type {
@@ -365,12 +346,6 @@ func (o FunctionAppHybridConnectionOutput) ToFunctionAppHybridConnectionOutput()
 
 func (o FunctionAppHybridConnectionOutput) ToFunctionAppHybridConnectionOutputWithContext(ctx context.Context) FunctionAppHybridConnectionOutput {
 	return o
-}
-
-func (o FunctionAppHybridConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*FunctionAppHybridConnection] {
-	return pulumix.Output[*FunctionAppHybridConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Function App for this Hybrid Connection. Changing this forces a new resource to be created.
@@ -437,12 +412,6 @@ func (o FunctionAppHybridConnectionArrayOutput) ToFunctionAppHybridConnectionArr
 	return o
 }
 
-func (o FunctionAppHybridConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FunctionAppHybridConnection] {
-	return pulumix.Output[[]*FunctionAppHybridConnection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FunctionAppHybridConnectionArrayOutput) Index(i pulumi.IntInput) FunctionAppHybridConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FunctionAppHybridConnection {
 		return vs[0].([]*FunctionAppHybridConnection)[vs[1].(int)]
@@ -461,12 +430,6 @@ func (o FunctionAppHybridConnectionMapOutput) ToFunctionAppHybridConnectionMapOu
 
 func (o FunctionAppHybridConnectionMapOutput) ToFunctionAppHybridConnectionMapOutputWithContext(ctx context.Context) FunctionAppHybridConnectionMapOutput {
 	return o
-}
-
-func (o FunctionAppHybridConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FunctionAppHybridConnection] {
-	return pulumix.Output[map[string]*FunctionAppHybridConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FunctionAppHybridConnectionMapOutput) MapIndex(k pulumi.StringInput) FunctionAppHybridConnectionOutput {
