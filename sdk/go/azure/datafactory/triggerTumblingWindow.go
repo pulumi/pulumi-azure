@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Tumbling Window Trigger inside an Azure Data Factory.
@@ -340,12 +339,6 @@ func (i *TriggerTumblingWindow) ToTriggerTumblingWindowOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerTumblingWindowOutput)
 }
 
-func (i *TriggerTumblingWindow) ToOutput(ctx context.Context) pulumix.Output[*TriggerTumblingWindow] {
-	return pulumix.Output[*TriggerTumblingWindow]{
-		OutputState: i.ToTriggerTumblingWindowOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TriggerTumblingWindowArrayInput is an input type that accepts TriggerTumblingWindowArray and TriggerTumblingWindowArrayOutput values.
 // You can construct a concrete instance of `TriggerTumblingWindowArrayInput` via:
 //
@@ -369,12 +362,6 @@ func (i TriggerTumblingWindowArray) ToTriggerTumblingWindowArrayOutput() Trigger
 
 func (i TriggerTumblingWindowArray) ToTriggerTumblingWindowArrayOutputWithContext(ctx context.Context) TriggerTumblingWindowArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerTumblingWindowArrayOutput)
-}
-
-func (i TriggerTumblingWindowArray) ToOutput(ctx context.Context) pulumix.Output[[]*TriggerTumblingWindow] {
-	return pulumix.Output[[]*TriggerTumblingWindow]{
-		OutputState: i.ToTriggerTumblingWindowArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TriggerTumblingWindowMapInput is an input type that accepts TriggerTumblingWindowMap and TriggerTumblingWindowMapOutput values.
@@ -402,12 +389,6 @@ func (i TriggerTumblingWindowMap) ToTriggerTumblingWindowMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerTumblingWindowMapOutput)
 }
 
-func (i TriggerTumblingWindowMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TriggerTumblingWindow] {
-	return pulumix.Output[map[string]*TriggerTumblingWindow]{
-		OutputState: i.ToTriggerTumblingWindowMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TriggerTumblingWindowOutput struct{ *pulumi.OutputState }
 
 func (TriggerTumblingWindowOutput) ElementType() reflect.Type {
@@ -420,12 +401,6 @@ func (o TriggerTumblingWindowOutput) ToTriggerTumblingWindowOutput() TriggerTumb
 
 func (o TriggerTumblingWindowOutput) ToTriggerTumblingWindowOutputWithContext(ctx context.Context) TriggerTumblingWindowOutput {
 	return o
-}
-
-func (o TriggerTumblingWindowOutput) ToOutput(ctx context.Context) pulumix.Output[*TriggerTumblingWindow] {
-	return pulumix.Output[*TriggerTumblingWindow]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies if the Data Factory Tumbling Window Trigger is activated. Defaults to `true`.
@@ -519,12 +494,6 @@ func (o TriggerTumblingWindowArrayOutput) ToTriggerTumblingWindowArrayOutputWith
 	return o
 }
 
-func (o TriggerTumblingWindowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TriggerTumblingWindow] {
-	return pulumix.Output[[]*TriggerTumblingWindow]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TriggerTumblingWindowArrayOutput) Index(i pulumi.IntInput) TriggerTumblingWindowOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TriggerTumblingWindow {
 		return vs[0].([]*TriggerTumblingWindow)[vs[1].(int)]
@@ -543,12 +512,6 @@ func (o TriggerTumblingWindowMapOutput) ToTriggerTumblingWindowMapOutput() Trigg
 
 func (o TriggerTumblingWindowMapOutput) ToTriggerTumblingWindowMapOutputWithContext(ctx context.Context) TriggerTumblingWindowMapOutput {
 	return o
-}
-
-func (o TriggerTumblingWindowMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TriggerTumblingWindow] {
-	return pulumix.Output[map[string]*TriggerTumblingWindow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TriggerTumblingWindowMapOutput) MapIndex(k pulumi.StringInput) TriggerTumblingWindowOutput {

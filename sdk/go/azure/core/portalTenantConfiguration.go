@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages Portal Tenant Configuration.
@@ -155,12 +154,6 @@ func (i *PortalTenantConfiguration) ToPortalTenantConfigurationOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PortalTenantConfigurationOutput)
 }
 
-func (i *PortalTenantConfiguration) ToOutput(ctx context.Context) pulumix.Output[*PortalTenantConfiguration] {
-	return pulumix.Output[*PortalTenantConfiguration]{
-		OutputState: i.ToPortalTenantConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PortalTenantConfigurationArrayInput is an input type that accepts PortalTenantConfigurationArray and PortalTenantConfigurationArrayOutput values.
 // You can construct a concrete instance of `PortalTenantConfigurationArrayInput` via:
 //
@@ -184,12 +177,6 @@ func (i PortalTenantConfigurationArray) ToPortalTenantConfigurationArrayOutput()
 
 func (i PortalTenantConfigurationArray) ToPortalTenantConfigurationArrayOutputWithContext(ctx context.Context) PortalTenantConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PortalTenantConfigurationArrayOutput)
-}
-
-func (i PortalTenantConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*PortalTenantConfiguration] {
-	return pulumix.Output[[]*PortalTenantConfiguration]{
-		OutputState: i.ToPortalTenantConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PortalTenantConfigurationMapInput is an input type that accepts PortalTenantConfigurationMap and PortalTenantConfigurationMapOutput values.
@@ -217,12 +204,6 @@ func (i PortalTenantConfigurationMap) ToPortalTenantConfigurationMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(PortalTenantConfigurationMapOutput)
 }
 
-func (i PortalTenantConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PortalTenantConfiguration] {
-	return pulumix.Output[map[string]*PortalTenantConfiguration]{
-		OutputState: i.ToPortalTenantConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PortalTenantConfigurationOutput struct{ *pulumi.OutputState }
 
 func (PortalTenantConfigurationOutput) ElementType() reflect.Type {
@@ -235,12 +216,6 @@ func (o PortalTenantConfigurationOutput) ToPortalTenantConfigurationOutput() Por
 
 func (o PortalTenantConfigurationOutput) ToPortalTenantConfigurationOutputWithContext(ctx context.Context) PortalTenantConfigurationOutput {
 	return o
-}
-
-func (o PortalTenantConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*PortalTenantConfiguration] {
-	return pulumix.Output[*PortalTenantConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Is the private tile markdown storage which used to display custom dynamic and static content enabled?
@@ -264,12 +239,6 @@ func (o PortalTenantConfigurationArrayOutput) ToPortalTenantConfigurationArrayOu
 	return o
 }
 
-func (o PortalTenantConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PortalTenantConfiguration] {
-	return pulumix.Output[[]*PortalTenantConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PortalTenantConfigurationArrayOutput) Index(i pulumi.IntInput) PortalTenantConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PortalTenantConfiguration {
 		return vs[0].([]*PortalTenantConfiguration)[vs[1].(int)]
@@ -288,12 +257,6 @@ func (o PortalTenantConfigurationMapOutput) ToPortalTenantConfigurationMapOutput
 
 func (o PortalTenantConfigurationMapOutput) ToPortalTenantConfigurationMapOutputWithContext(ctx context.Context) PortalTenantConfigurationMapOutput {
 	return o
-}
-
-func (o PortalTenantConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PortalTenantConfiguration] {
-	return pulumix.Output[map[string]*PortalTenantConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PortalTenantConfigurationMapOutput) MapIndex(k pulumi.StringInput) PortalTenantConfigurationOutput {

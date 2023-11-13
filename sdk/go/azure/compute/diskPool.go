@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Disk Pool.
@@ -253,12 +252,6 @@ func (i *DiskPool) ToDiskPoolOutputWithContext(ctx context.Context) DiskPoolOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolOutput)
 }
 
-func (i *DiskPool) ToOutput(ctx context.Context) pulumix.Output[*DiskPool] {
-	return pulumix.Output[*DiskPool]{
-		OutputState: i.ToDiskPoolOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DiskPoolArrayInput is an input type that accepts DiskPoolArray and DiskPoolArrayOutput values.
 // You can construct a concrete instance of `DiskPoolArrayInput` via:
 //
@@ -282,12 +275,6 @@ func (i DiskPoolArray) ToDiskPoolArrayOutput() DiskPoolArrayOutput {
 
 func (i DiskPoolArray) ToDiskPoolArrayOutputWithContext(ctx context.Context) DiskPoolArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolArrayOutput)
-}
-
-func (i DiskPoolArray) ToOutput(ctx context.Context) pulumix.Output[[]*DiskPool] {
-	return pulumix.Output[[]*DiskPool]{
-		OutputState: i.ToDiskPoolArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DiskPoolMapInput is an input type that accepts DiskPoolMap and DiskPoolMapOutput values.
@@ -315,12 +302,6 @@ func (i DiskPoolMap) ToDiskPoolMapOutputWithContext(ctx context.Context) DiskPoo
 	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolMapOutput)
 }
 
-func (i DiskPoolMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DiskPool] {
-	return pulumix.Output[map[string]*DiskPool]{
-		OutputState: i.ToDiskPoolMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DiskPoolOutput struct{ *pulumi.OutputState }
 
 func (DiskPoolOutput) ElementType() reflect.Type {
@@ -333,12 +314,6 @@ func (o DiskPoolOutput) ToDiskPoolOutput() DiskPoolOutput {
 
 func (o DiskPoolOutput) ToDiskPoolOutputWithContext(ctx context.Context) DiskPoolOutput {
 	return o
-}
-
-func (o DiskPoolOutput) ToOutput(ctx context.Context) pulumix.Output[*DiskPool] {
-	return pulumix.Output[*DiskPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Azure Region where the Disk Pool should exist. Changing this forces a new Disk Pool to be created.
@@ -390,12 +365,6 @@ func (o DiskPoolArrayOutput) ToDiskPoolArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o DiskPoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DiskPool] {
-	return pulumix.Output[[]*DiskPool]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DiskPoolArrayOutput) Index(i pulumi.IntInput) DiskPoolOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DiskPool {
 		return vs[0].([]*DiskPool)[vs[1].(int)]
@@ -414,12 +383,6 @@ func (o DiskPoolMapOutput) ToDiskPoolMapOutput() DiskPoolMapOutput {
 
 func (o DiskPoolMapOutput) ToDiskPoolMapOutputWithContext(ctx context.Context) DiskPoolMapOutput {
 	return o
-}
-
-func (o DiskPoolMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DiskPool] {
-	return pulumix.Output[map[string]*DiskPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DiskPoolMapOutput) MapIndex(k pulumi.StringInput) DiskPoolOutput {

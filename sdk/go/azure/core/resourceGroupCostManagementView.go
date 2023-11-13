@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Cost Management View for a Resource Group.
@@ -265,12 +264,6 @@ func (i *ResourceGroupCostManagementView) ToResourceGroupCostManagementViewOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewOutput)
 }
 
-func (i *ResourceGroupCostManagementView) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroupCostManagementView] {
-	return pulumix.Output[*ResourceGroupCostManagementView]{
-		OutputState: i.ToResourceGroupCostManagementViewOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResourceGroupCostManagementViewArrayInput is an input type that accepts ResourceGroupCostManagementViewArray and ResourceGroupCostManagementViewArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupCostManagementViewArrayInput` via:
 //
@@ -294,12 +287,6 @@ func (i ResourceGroupCostManagementViewArray) ToResourceGroupCostManagementViewA
 
 func (i ResourceGroupCostManagementViewArray) ToResourceGroupCostManagementViewArrayOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewArrayOutput)
-}
-
-func (i ResourceGroupCostManagementViewArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceGroupCostManagementView] {
-	return pulumix.Output[[]*ResourceGroupCostManagementView]{
-		OutputState: i.ToResourceGroupCostManagementViewArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ResourceGroupCostManagementViewMapInput is an input type that accepts ResourceGroupCostManagementViewMap and ResourceGroupCostManagementViewMapOutput values.
@@ -327,12 +314,6 @@ func (i ResourceGroupCostManagementViewMap) ToResourceGroupCostManagementViewMap
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupCostManagementViewMapOutput)
 }
 
-func (i ResourceGroupCostManagementViewMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceGroupCostManagementView] {
-	return pulumix.Output[map[string]*ResourceGroupCostManagementView]{
-		OutputState: i.ToResourceGroupCostManagementViewMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceGroupCostManagementViewOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupCostManagementViewOutput) ElementType() reflect.Type {
@@ -345,12 +326,6 @@ func (o ResourceGroupCostManagementViewOutput) ToResourceGroupCostManagementView
 
 func (o ResourceGroupCostManagementViewOutput) ToResourceGroupCostManagementViewOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewOutput {
 	return o
-}
-
-func (o ResourceGroupCostManagementViewOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroupCostManagementView] {
-	return pulumix.Output[*ResourceGroupCostManagementView]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the costs data in the Cost Management View are accumulated over time. Changing this forces a new Cost Management View for a Resource Group to be created.
@@ -421,12 +396,6 @@ func (o ResourceGroupCostManagementViewArrayOutput) ToResourceGroupCostManagemen
 	return o
 }
 
-func (o ResourceGroupCostManagementViewArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceGroupCostManagementView] {
-	return pulumix.Output[[]*ResourceGroupCostManagementView]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceGroupCostManagementViewArrayOutput) Index(i pulumi.IntInput) ResourceGroupCostManagementViewOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceGroupCostManagementView {
 		return vs[0].([]*ResourceGroupCostManagementView)[vs[1].(int)]
@@ -445,12 +414,6 @@ func (o ResourceGroupCostManagementViewMapOutput) ToResourceGroupCostManagementV
 
 func (o ResourceGroupCostManagementViewMapOutput) ToResourceGroupCostManagementViewMapOutputWithContext(ctx context.Context) ResourceGroupCostManagementViewMapOutput {
 	return o
-}
-
-func (o ResourceGroupCostManagementViewMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceGroupCostManagementView] {
-	return pulumix.Output[map[string]*ResourceGroupCostManagementView]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceGroupCostManagementViewMapOutput) MapIndex(k pulumi.StringInput) ResourceGroupCostManagementViewOutput {

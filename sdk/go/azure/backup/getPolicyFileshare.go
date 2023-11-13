@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing File Share Backup Policy.
@@ -110,12 +109,6 @@ func (o GetPolicyFileshareResultOutput) ToGetPolicyFileshareResultOutput() GetPo
 
 func (o GetPolicyFileshareResultOutput) ToGetPolicyFileshareResultOutputWithContext(ctx context.Context) GetPolicyFileshareResultOutput {
 	return o
-}
-
-func (o GetPolicyFileshareResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPolicyFileshareResult] {
-	return pulumix.Output[GetPolicyFileshareResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

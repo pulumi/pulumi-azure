@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Backup Policy Blob Storage.
@@ -177,12 +176,6 @@ func (i *BackupPolicyBlobStorage) ToBackupPolicyBlobStorageOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyBlobStorageOutput)
 }
 
-func (i *BackupPolicyBlobStorage) ToOutput(ctx context.Context) pulumix.Output[*BackupPolicyBlobStorage] {
-	return pulumix.Output[*BackupPolicyBlobStorage]{
-		OutputState: i.ToBackupPolicyBlobStorageOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BackupPolicyBlobStorageArrayInput is an input type that accepts BackupPolicyBlobStorageArray and BackupPolicyBlobStorageArrayOutput values.
 // You can construct a concrete instance of `BackupPolicyBlobStorageArrayInput` via:
 //
@@ -206,12 +199,6 @@ func (i BackupPolicyBlobStorageArray) ToBackupPolicyBlobStorageArrayOutput() Bac
 
 func (i BackupPolicyBlobStorageArray) ToBackupPolicyBlobStorageArrayOutputWithContext(ctx context.Context) BackupPolicyBlobStorageArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyBlobStorageArrayOutput)
-}
-
-func (i BackupPolicyBlobStorageArray) ToOutput(ctx context.Context) pulumix.Output[[]*BackupPolicyBlobStorage] {
-	return pulumix.Output[[]*BackupPolicyBlobStorage]{
-		OutputState: i.ToBackupPolicyBlobStorageArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BackupPolicyBlobStorageMapInput is an input type that accepts BackupPolicyBlobStorageMap and BackupPolicyBlobStorageMapOutput values.
@@ -239,12 +226,6 @@ func (i BackupPolicyBlobStorageMap) ToBackupPolicyBlobStorageMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyBlobStorageMapOutput)
 }
 
-func (i BackupPolicyBlobStorageMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BackupPolicyBlobStorage] {
-	return pulumix.Output[map[string]*BackupPolicyBlobStorage]{
-		OutputState: i.ToBackupPolicyBlobStorageMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BackupPolicyBlobStorageOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyBlobStorageOutput) ElementType() reflect.Type {
@@ -257,12 +238,6 @@ func (o BackupPolicyBlobStorageOutput) ToBackupPolicyBlobStorageOutput() BackupP
 
 func (o BackupPolicyBlobStorageOutput) ToBackupPolicyBlobStorageOutputWithContext(ctx context.Context) BackupPolicyBlobStorageOutput {
 	return o
-}
-
-func (o BackupPolicyBlobStorageOutput) ToOutput(ctx context.Context) pulumix.Output[*BackupPolicyBlobStorage] {
-	return pulumix.Output[*BackupPolicyBlobStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name which should be used for this Backup Policy Blob Storage. Changing this forces a new Backup Policy Blob Storage to be created.
@@ -294,12 +269,6 @@ func (o BackupPolicyBlobStorageArrayOutput) ToBackupPolicyBlobStorageArrayOutput
 	return o
 }
 
-func (o BackupPolicyBlobStorageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BackupPolicyBlobStorage] {
-	return pulumix.Output[[]*BackupPolicyBlobStorage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BackupPolicyBlobStorageArrayOutput) Index(i pulumi.IntInput) BackupPolicyBlobStorageOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BackupPolicyBlobStorage {
 		return vs[0].([]*BackupPolicyBlobStorage)[vs[1].(int)]
@@ -318,12 +287,6 @@ func (o BackupPolicyBlobStorageMapOutput) ToBackupPolicyBlobStorageMapOutput() B
 
 func (o BackupPolicyBlobStorageMapOutput) ToBackupPolicyBlobStorageMapOutputWithContext(ctx context.Context) BackupPolicyBlobStorageMapOutput {
 	return o
-}
-
-func (o BackupPolicyBlobStorageMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BackupPolicyBlobStorage] {
-	return pulumix.Output[map[string]*BackupPolicyBlobStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BackupPolicyBlobStorageMapOutput) MapIndex(k pulumi.StringInput) BackupPolicyBlobStorageOutput {

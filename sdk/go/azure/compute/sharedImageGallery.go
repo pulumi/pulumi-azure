@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Shared Image Gallery.
@@ -206,12 +205,6 @@ func (i *SharedImageGallery) ToSharedImageGalleryOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(SharedImageGalleryOutput)
 }
 
-func (i *SharedImageGallery) ToOutput(ctx context.Context) pulumix.Output[*SharedImageGallery] {
-	return pulumix.Output[*SharedImageGallery]{
-		OutputState: i.ToSharedImageGalleryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SharedImageGalleryArrayInput is an input type that accepts SharedImageGalleryArray and SharedImageGalleryArrayOutput values.
 // You can construct a concrete instance of `SharedImageGalleryArrayInput` via:
 //
@@ -235,12 +228,6 @@ func (i SharedImageGalleryArray) ToSharedImageGalleryArrayOutput() SharedImageGa
 
 func (i SharedImageGalleryArray) ToSharedImageGalleryArrayOutputWithContext(ctx context.Context) SharedImageGalleryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SharedImageGalleryArrayOutput)
-}
-
-func (i SharedImageGalleryArray) ToOutput(ctx context.Context) pulumix.Output[[]*SharedImageGallery] {
-	return pulumix.Output[[]*SharedImageGallery]{
-		OutputState: i.ToSharedImageGalleryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SharedImageGalleryMapInput is an input type that accepts SharedImageGalleryMap and SharedImageGalleryMapOutput values.
@@ -268,12 +255,6 @@ func (i SharedImageGalleryMap) ToSharedImageGalleryMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SharedImageGalleryMapOutput)
 }
 
-func (i SharedImageGalleryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SharedImageGallery] {
-	return pulumix.Output[map[string]*SharedImageGallery]{
-		OutputState: i.ToSharedImageGalleryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SharedImageGalleryOutput struct{ *pulumi.OutputState }
 
 func (SharedImageGalleryOutput) ElementType() reflect.Type {
@@ -286,12 +267,6 @@ func (o SharedImageGalleryOutput) ToSharedImageGalleryOutput() SharedImageGaller
 
 func (o SharedImageGalleryOutput) ToSharedImageGalleryOutputWithContext(ctx context.Context) SharedImageGalleryOutput {
 	return o
-}
-
-func (o SharedImageGalleryOutput) ToOutput(ctx context.Context) pulumix.Output[*SharedImageGallery] {
-	return pulumix.Output[*SharedImageGallery]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description for this Shared Image Gallery.
@@ -343,12 +318,6 @@ func (o SharedImageGalleryArrayOutput) ToSharedImageGalleryArrayOutputWithContex
 	return o
 }
 
-func (o SharedImageGalleryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SharedImageGallery] {
-	return pulumix.Output[[]*SharedImageGallery]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SharedImageGalleryArrayOutput) Index(i pulumi.IntInput) SharedImageGalleryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SharedImageGallery {
 		return vs[0].([]*SharedImageGallery)[vs[1].(int)]
@@ -367,12 +336,6 @@ func (o SharedImageGalleryMapOutput) ToSharedImageGalleryMapOutput() SharedImage
 
 func (o SharedImageGalleryMapOutput) ToSharedImageGalleryMapOutputWithContext(ctx context.Context) SharedImageGalleryMapOutput {
 	return o
-}
-
-func (o SharedImageGalleryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SharedImageGallery] {
-	return pulumix.Output[map[string]*SharedImageGallery]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SharedImageGalleryMapOutput) MapIndex(k pulumi.StringInput) SharedImageGalleryOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing NAT Gateway.
@@ -101,12 +100,6 @@ func (o LookupNatGatewayResultOutput) ToLookupNatGatewayResultOutput() LookupNat
 
 func (o LookupNatGatewayResultOutput) ToLookupNatGatewayResultOutputWithContext(ctx context.Context) LookupNatGatewayResultOutput {
 	return o
-}
-
-func (o LookupNatGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNatGatewayResult] {
-	return pulumix.Output[LookupNatGatewayResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

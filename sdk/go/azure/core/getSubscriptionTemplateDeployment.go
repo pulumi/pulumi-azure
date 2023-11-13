@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Subscription Template Deployment.
@@ -74,12 +73,6 @@ func (o LookupSubscriptionTemplateDeploymentResultOutput) ToLookupSubscriptionTe
 
 func (o LookupSubscriptionTemplateDeploymentResultOutput) ToLookupSubscriptionTemplateDeploymentResultOutputWithContext(ctx context.Context) LookupSubscriptionTemplateDeploymentResultOutput {
 	return o
-}
-
-func (o LookupSubscriptionTemplateDeploymentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSubscriptionTemplateDeploymentResult] {
-	return pulumix.Output[LookupSubscriptionTemplateDeploymentResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

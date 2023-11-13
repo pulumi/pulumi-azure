@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Email integration for a Bot Channel
@@ -219,12 +218,6 @@ func (i *ChannelEmail) ToChannelEmailOutputWithContext(ctx context.Context) Chan
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelEmailOutput)
 }
 
-func (i *ChannelEmail) ToOutput(ctx context.Context) pulumix.Output[*ChannelEmail] {
-	return pulumix.Output[*ChannelEmail]{
-		OutputState: i.ToChannelEmailOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ChannelEmailArrayInput is an input type that accepts ChannelEmailArray and ChannelEmailArrayOutput values.
 // You can construct a concrete instance of `ChannelEmailArrayInput` via:
 //
@@ -248,12 +241,6 @@ func (i ChannelEmailArray) ToChannelEmailArrayOutput() ChannelEmailArrayOutput {
 
 func (i ChannelEmailArray) ToChannelEmailArrayOutputWithContext(ctx context.Context) ChannelEmailArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelEmailArrayOutput)
-}
-
-func (i ChannelEmailArray) ToOutput(ctx context.Context) pulumix.Output[[]*ChannelEmail] {
-	return pulumix.Output[[]*ChannelEmail]{
-		OutputState: i.ToChannelEmailArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ChannelEmailMapInput is an input type that accepts ChannelEmailMap and ChannelEmailMapOutput values.
@@ -281,12 +268,6 @@ func (i ChannelEmailMap) ToChannelEmailMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ChannelEmailMapOutput)
 }
 
-func (i ChannelEmailMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ChannelEmail] {
-	return pulumix.Output[map[string]*ChannelEmail]{
-		OutputState: i.ToChannelEmailMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ChannelEmailOutput struct{ *pulumi.OutputState }
 
 func (ChannelEmailOutput) ElementType() reflect.Type {
@@ -299,12 +280,6 @@ func (o ChannelEmailOutput) ToChannelEmailOutput() ChannelEmailOutput {
 
 func (o ChannelEmailOutput) ToChannelEmailOutputWithContext(ctx context.Context) ChannelEmailOutput {
 	return o
-}
-
-func (o ChannelEmailOutput) ToOutput(ctx context.Context) pulumix.Output[*ChannelEmail] {
-	return pulumix.Output[*ChannelEmail]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
@@ -346,12 +321,6 @@ func (o ChannelEmailArrayOutput) ToChannelEmailArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o ChannelEmailArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ChannelEmail] {
-	return pulumix.Output[[]*ChannelEmail]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ChannelEmailArrayOutput) Index(i pulumi.IntInput) ChannelEmailOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ChannelEmail {
 		return vs[0].([]*ChannelEmail)[vs[1].(int)]
@@ -370,12 +339,6 @@ func (o ChannelEmailMapOutput) ToChannelEmailMapOutput() ChannelEmailMapOutput {
 
 func (o ChannelEmailMapOutput) ToChannelEmailMapOutputWithContext(ctx context.Context) ChannelEmailMapOutput {
 	return o
-}
-
-func (o ChannelEmailMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ChannelEmail] {
-	return pulumix.Output[map[string]*ChannelEmail]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ChannelEmailMapOutput) MapIndex(k pulumi.StringInput) ChannelEmailOutput {

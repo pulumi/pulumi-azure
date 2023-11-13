@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Gets information about an existing Private DNS Resolver Forwarding Rule.
@@ -112,12 +111,6 @@ func (o LookupResolverForwardingRuleResultOutput) ToLookupResolverForwardingRule
 
 func (o LookupResolverForwardingRuleResultOutput) ToLookupResolverForwardingRuleResultOutputWithContext(ctx context.Context) LookupResolverForwardingRuleResultOutput {
 	return o
-}
-
-func (o LookupResolverForwardingRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResolverForwardingRuleResult] {
-	return pulumix.Output[LookupResolverForwardingRuleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupResolverForwardingRuleResultOutput) DnsForwardingRulesetId() pulumi.StringOutput {

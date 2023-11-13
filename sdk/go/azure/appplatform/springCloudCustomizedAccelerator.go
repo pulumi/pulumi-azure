@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Spring Cloud Customized Accelerator.
@@ -233,12 +232,6 @@ func (i *SpringCloudCustomizedAccelerator) ToSpringCloudCustomizedAcceleratorOut
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomizedAcceleratorOutput)
 }
 
-func (i *SpringCloudCustomizedAccelerator) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudCustomizedAccelerator] {
-	return pulumix.Output[*SpringCloudCustomizedAccelerator]{
-		OutputState: i.ToSpringCloudCustomizedAcceleratorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SpringCloudCustomizedAcceleratorArrayInput is an input type that accepts SpringCloudCustomizedAcceleratorArray and SpringCloudCustomizedAcceleratorArrayOutput values.
 // You can construct a concrete instance of `SpringCloudCustomizedAcceleratorArrayInput` via:
 //
@@ -262,12 +255,6 @@ func (i SpringCloudCustomizedAcceleratorArray) ToSpringCloudCustomizedAccelerato
 
 func (i SpringCloudCustomizedAcceleratorArray) ToSpringCloudCustomizedAcceleratorArrayOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomizedAcceleratorArrayOutput)
-}
-
-func (i SpringCloudCustomizedAcceleratorArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudCustomizedAccelerator] {
-	return pulumix.Output[[]*SpringCloudCustomizedAccelerator]{
-		OutputState: i.ToSpringCloudCustomizedAcceleratorArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SpringCloudCustomizedAcceleratorMapInput is an input type that accepts SpringCloudCustomizedAcceleratorMap and SpringCloudCustomizedAcceleratorMapOutput values.
@@ -295,12 +282,6 @@ func (i SpringCloudCustomizedAcceleratorMap) ToSpringCloudCustomizedAcceleratorM
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudCustomizedAcceleratorMapOutput)
 }
 
-func (i SpringCloudCustomizedAcceleratorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudCustomizedAccelerator] {
-	return pulumix.Output[map[string]*SpringCloudCustomizedAccelerator]{
-		OutputState: i.ToSpringCloudCustomizedAcceleratorMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SpringCloudCustomizedAcceleratorOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudCustomizedAcceleratorOutput) ElementType() reflect.Type {
@@ -313,12 +294,6 @@ func (o SpringCloudCustomizedAcceleratorOutput) ToSpringCloudCustomizedAccelerat
 
 func (o SpringCloudCustomizedAcceleratorOutput) ToSpringCloudCustomizedAcceleratorOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorOutput {
 	return o
-}
-
-func (o SpringCloudCustomizedAcceleratorOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudCustomizedAccelerator] {
-	return pulumix.Output[*SpringCloudCustomizedAccelerator]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of accelerator tags.
@@ -372,12 +347,6 @@ func (o SpringCloudCustomizedAcceleratorArrayOutput) ToSpringCloudCustomizedAcce
 	return o
 }
 
-func (o SpringCloudCustomizedAcceleratorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudCustomizedAccelerator] {
-	return pulumix.Output[[]*SpringCloudCustomizedAccelerator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SpringCloudCustomizedAcceleratorArrayOutput) Index(i pulumi.IntInput) SpringCloudCustomizedAcceleratorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudCustomizedAccelerator {
 		return vs[0].([]*SpringCloudCustomizedAccelerator)[vs[1].(int)]
@@ -396,12 +365,6 @@ func (o SpringCloudCustomizedAcceleratorMapOutput) ToSpringCloudCustomizedAccele
 
 func (o SpringCloudCustomizedAcceleratorMapOutput) ToSpringCloudCustomizedAcceleratorMapOutputWithContext(ctx context.Context) SpringCloudCustomizedAcceleratorMapOutput {
 	return o
-}
-
-func (o SpringCloudCustomizedAcceleratorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudCustomizedAccelerator] {
-	return pulumix.Output[map[string]*SpringCloudCustomizedAccelerator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SpringCloudCustomizedAcceleratorMapOutput) MapIndex(k pulumi.StringInput) SpringCloudCustomizedAcceleratorOutput {

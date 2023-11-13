@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Backup Policy Disk.
@@ -221,12 +220,6 @@ func (i *BackupPolicyDisk) ToBackupPolicyDiskOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyDiskOutput)
 }
 
-func (i *BackupPolicyDisk) ToOutput(ctx context.Context) pulumix.Output[*BackupPolicyDisk] {
-	return pulumix.Output[*BackupPolicyDisk]{
-		OutputState: i.ToBackupPolicyDiskOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BackupPolicyDiskArrayInput is an input type that accepts BackupPolicyDiskArray and BackupPolicyDiskArrayOutput values.
 // You can construct a concrete instance of `BackupPolicyDiskArrayInput` via:
 //
@@ -250,12 +243,6 @@ func (i BackupPolicyDiskArray) ToBackupPolicyDiskArrayOutput() BackupPolicyDiskA
 
 func (i BackupPolicyDiskArray) ToBackupPolicyDiskArrayOutputWithContext(ctx context.Context) BackupPolicyDiskArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyDiskArrayOutput)
-}
-
-func (i BackupPolicyDiskArray) ToOutput(ctx context.Context) pulumix.Output[[]*BackupPolicyDisk] {
-	return pulumix.Output[[]*BackupPolicyDisk]{
-		OutputState: i.ToBackupPolicyDiskArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BackupPolicyDiskMapInput is an input type that accepts BackupPolicyDiskMap and BackupPolicyDiskMapOutput values.
@@ -283,12 +270,6 @@ func (i BackupPolicyDiskMap) ToBackupPolicyDiskMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyDiskMapOutput)
 }
 
-func (i BackupPolicyDiskMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BackupPolicyDisk] {
-	return pulumix.Output[map[string]*BackupPolicyDisk]{
-		OutputState: i.ToBackupPolicyDiskMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BackupPolicyDiskOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyDiskOutput) ElementType() reflect.Type {
@@ -301,12 +282,6 @@ func (o BackupPolicyDiskOutput) ToBackupPolicyDiskOutput() BackupPolicyDiskOutpu
 
 func (o BackupPolicyDiskOutput) ToBackupPolicyDiskOutputWithContext(ctx context.Context) BackupPolicyDiskOutput {
 	return o
-}
-
-func (o BackupPolicyDiskOutput) ToOutput(ctx context.Context) pulumix.Output[*BackupPolicyDisk] {
-	return pulumix.Output[*BackupPolicyDisk]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval . Changing this forces a new Backup Policy Disk to be created.
@@ -348,12 +323,6 @@ func (o BackupPolicyDiskArrayOutput) ToBackupPolicyDiskArrayOutputWithContext(ct
 	return o
 }
 
-func (o BackupPolicyDiskArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BackupPolicyDisk] {
-	return pulumix.Output[[]*BackupPolicyDisk]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BackupPolicyDiskArrayOutput) Index(i pulumi.IntInput) BackupPolicyDiskOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BackupPolicyDisk {
 		return vs[0].([]*BackupPolicyDisk)[vs[1].(int)]
@@ -372,12 +341,6 @@ func (o BackupPolicyDiskMapOutput) ToBackupPolicyDiskMapOutput() BackupPolicyDis
 
 func (o BackupPolicyDiskMapOutput) ToBackupPolicyDiskMapOutputWithContext(ctx context.Context) BackupPolicyDiskMapOutput {
 	return o
-}
-
-func (o BackupPolicyDiskMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BackupPolicyDisk] {
-	return pulumix.Output[map[string]*BackupPolicyDisk]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BackupPolicyDiskMapOutput) MapIndex(k pulumi.StringInput) BackupPolicyDiskOutput {

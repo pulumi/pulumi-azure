@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Healthcare FHIR (Fast Healthcare Interoperability Resources) Service
@@ -320,12 +319,6 @@ func (i *FhirService) ToFhirServiceOutputWithContext(ctx context.Context) FhirSe
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceOutput)
 }
 
-func (i *FhirService) ToOutput(ctx context.Context) pulumix.Output[*FhirService] {
-	return pulumix.Output[*FhirService]{
-		OutputState: i.ToFhirServiceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FhirServiceArrayInput is an input type that accepts FhirServiceArray and FhirServiceArrayOutput values.
 // You can construct a concrete instance of `FhirServiceArrayInput` via:
 //
@@ -349,12 +342,6 @@ func (i FhirServiceArray) ToFhirServiceArrayOutput() FhirServiceArrayOutput {
 
 func (i FhirServiceArray) ToFhirServiceArrayOutputWithContext(ctx context.Context) FhirServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceArrayOutput)
-}
-
-func (i FhirServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*FhirService] {
-	return pulumix.Output[[]*FhirService]{
-		OutputState: i.ToFhirServiceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FhirServiceMapInput is an input type that accepts FhirServiceMap and FhirServiceMapOutput values.
@@ -382,12 +369,6 @@ func (i FhirServiceMap) ToFhirServiceMapOutputWithContext(ctx context.Context) F
 	return pulumi.ToOutputWithContext(ctx, i).(FhirServiceMapOutput)
 }
 
-func (i FhirServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FhirService] {
-	return pulumix.Output[map[string]*FhirService]{
-		OutputState: i.ToFhirServiceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FhirServiceOutput struct{ *pulumi.OutputState }
 
 func (FhirServiceOutput) ElementType() reflect.Type {
@@ -400,12 +381,6 @@ func (o FhirServiceOutput) ToFhirServiceOutput() FhirServiceOutput {
 
 func (o FhirServiceOutput) ToFhirServiceOutputWithContext(ctx context.Context) FhirServiceOutput {
 	return o
-}
-
-func (o FhirServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*FhirService] {
-	return pulumix.Output[*FhirService]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of the access policies of the service instance.
@@ -492,12 +467,6 @@ func (o FhirServiceArrayOutput) ToFhirServiceArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o FhirServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FhirService] {
-	return pulumix.Output[[]*FhirService]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FhirServiceArrayOutput) Index(i pulumi.IntInput) FhirServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FhirService {
 		return vs[0].([]*FhirService)[vs[1].(int)]
@@ -516,12 +485,6 @@ func (o FhirServiceMapOutput) ToFhirServiceMapOutput() FhirServiceMapOutput {
 
 func (o FhirServiceMapOutput) ToFhirServiceMapOutputWithContext(ctx context.Context) FhirServiceMapOutput {
 	return o
-}
-
-func (o FhirServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FhirService] {
-	return pulumix.Output[map[string]*FhirService]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FhirServiceMapOutput) MapIndex(k pulumi.StringInput) FhirServiceOutput {
