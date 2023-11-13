@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an EventGrid System Topic Event Subscription.
@@ -410,12 +409,6 @@ func (i *SystemTopicEventSubscription) ToSystemTopicEventSubscriptionOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionOutput)
 }
 
-func (i *SystemTopicEventSubscription) ToOutput(ctx context.Context) pulumix.Output[*SystemTopicEventSubscription] {
-	return pulumix.Output[*SystemTopicEventSubscription]{
-		OutputState: i.ToSystemTopicEventSubscriptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SystemTopicEventSubscriptionArrayInput is an input type that accepts SystemTopicEventSubscriptionArray and SystemTopicEventSubscriptionArrayOutput values.
 // You can construct a concrete instance of `SystemTopicEventSubscriptionArrayInput` via:
 //
@@ -439,12 +432,6 @@ func (i SystemTopicEventSubscriptionArray) ToSystemTopicEventSubscriptionArrayOu
 
 func (i SystemTopicEventSubscriptionArray) ToSystemTopicEventSubscriptionArrayOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionArrayOutput)
-}
-
-func (i SystemTopicEventSubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*SystemTopicEventSubscription] {
-	return pulumix.Output[[]*SystemTopicEventSubscription]{
-		OutputState: i.ToSystemTopicEventSubscriptionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SystemTopicEventSubscriptionMapInput is an input type that accepts SystemTopicEventSubscriptionMap and SystemTopicEventSubscriptionMapOutput values.
@@ -472,12 +459,6 @@ func (i SystemTopicEventSubscriptionMap) ToSystemTopicEventSubscriptionMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(SystemTopicEventSubscriptionMapOutput)
 }
 
-func (i SystemTopicEventSubscriptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SystemTopicEventSubscription] {
-	return pulumix.Output[map[string]*SystemTopicEventSubscription]{
-		OutputState: i.ToSystemTopicEventSubscriptionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SystemTopicEventSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (SystemTopicEventSubscriptionOutput) ElementType() reflect.Type {
@@ -490,12 +471,6 @@ func (o SystemTopicEventSubscriptionOutput) ToSystemTopicEventSubscriptionOutput
 
 func (o SystemTopicEventSubscriptionOutput) ToSystemTopicEventSubscriptionOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[*SystemTopicEventSubscription] {
-	return pulumix.Output[*SystemTopicEventSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `advancedFilter` block as defined below.
@@ -646,12 +621,6 @@ func (o SystemTopicEventSubscriptionArrayOutput) ToSystemTopicEventSubscriptionA
 	return o
 }
 
-func (o SystemTopicEventSubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SystemTopicEventSubscription] {
-	return pulumix.Output[[]*SystemTopicEventSubscription]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SystemTopicEventSubscriptionArrayOutput) Index(i pulumi.IntInput) SystemTopicEventSubscriptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SystemTopicEventSubscription {
 		return vs[0].([]*SystemTopicEventSubscription)[vs[1].(int)]
@@ -670,12 +639,6 @@ func (o SystemTopicEventSubscriptionMapOutput) ToSystemTopicEventSubscriptionMap
 
 func (o SystemTopicEventSubscriptionMapOutput) ToSystemTopicEventSubscriptionMapOutputWithContext(ctx context.Context) SystemTopicEventSubscriptionMapOutput {
 	return o
-}
-
-func (o SystemTopicEventSubscriptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SystemTopicEventSubscription] {
-	return pulumix.Output[map[string]*SystemTopicEventSubscription]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SystemTopicEventSubscriptionMapOutput) MapIndex(k pulumi.StringInput) SystemTopicEventSubscriptionOutput {

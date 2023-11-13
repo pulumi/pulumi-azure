@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a VPN Site.
@@ -265,12 +264,6 @@ func (i *VpnSite) ToVpnSiteOutputWithContext(ctx context.Context) VpnSiteOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(VpnSiteOutput)
 }
 
-func (i *VpnSite) ToOutput(ctx context.Context) pulumix.Output[*VpnSite] {
-	return pulumix.Output[*VpnSite]{
-		OutputState: i.ToVpnSiteOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VpnSiteArrayInput is an input type that accepts VpnSiteArray and VpnSiteArrayOutput values.
 // You can construct a concrete instance of `VpnSiteArrayInput` via:
 //
@@ -294,12 +287,6 @@ func (i VpnSiteArray) ToVpnSiteArrayOutput() VpnSiteArrayOutput {
 
 func (i VpnSiteArray) ToVpnSiteArrayOutputWithContext(ctx context.Context) VpnSiteArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpnSiteArrayOutput)
-}
-
-func (i VpnSiteArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpnSite] {
-	return pulumix.Output[[]*VpnSite]{
-		OutputState: i.ToVpnSiteArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VpnSiteMapInput is an input type that accepts VpnSiteMap and VpnSiteMapOutput values.
@@ -327,12 +314,6 @@ func (i VpnSiteMap) ToVpnSiteMapOutputWithContext(ctx context.Context) VpnSiteMa
 	return pulumi.ToOutputWithContext(ctx, i).(VpnSiteMapOutput)
 }
 
-func (i VpnSiteMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpnSite] {
-	return pulumix.Output[map[string]*VpnSite]{
-		OutputState: i.ToVpnSiteMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VpnSiteOutput struct{ *pulumi.OutputState }
 
 func (VpnSiteOutput) ElementType() reflect.Type {
@@ -345,12 +326,6 @@ func (o VpnSiteOutput) ToVpnSiteOutput() VpnSiteOutput {
 
 func (o VpnSiteOutput) ToVpnSiteOutputWithContext(ctx context.Context) VpnSiteOutput {
 	return o
-}
-
-func (o VpnSiteOutput) ToOutput(ctx context.Context) pulumix.Output[*VpnSite] {
-	return pulumix.Output[*VpnSite]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site.
@@ -419,12 +394,6 @@ func (o VpnSiteArrayOutput) ToVpnSiteArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o VpnSiteArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpnSite] {
-	return pulumix.Output[[]*VpnSite]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpnSiteArrayOutput) Index(i pulumi.IntInput) VpnSiteOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpnSite {
 		return vs[0].([]*VpnSite)[vs[1].(int)]
@@ -443,12 +412,6 @@ func (o VpnSiteMapOutput) ToVpnSiteMapOutput() VpnSiteMapOutput {
 
 func (o VpnSiteMapOutput) ToVpnSiteMapOutputWithContext(ctx context.Context) VpnSiteMapOutput {
 	return o
-}
-
-func (o VpnSiteMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpnSite] {
-	return pulumix.Output[map[string]*VpnSite]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpnSiteMapOutput) MapIndex(k pulumi.StringInput) VpnSiteOutput {

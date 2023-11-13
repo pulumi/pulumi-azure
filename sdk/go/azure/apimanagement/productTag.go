@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an API Management Product tag
@@ -210,12 +209,6 @@ func (i *ProductTag) ToProductTagOutputWithContext(ctx context.Context) ProductT
 	return pulumi.ToOutputWithContext(ctx, i).(ProductTagOutput)
 }
 
-func (i *ProductTag) ToOutput(ctx context.Context) pulumix.Output[*ProductTag] {
-	return pulumix.Output[*ProductTag]{
-		OutputState: i.ToProductTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProductTagArrayInput is an input type that accepts ProductTagArray and ProductTagArrayOutput values.
 // You can construct a concrete instance of `ProductTagArrayInput` via:
 //
@@ -239,12 +232,6 @@ func (i ProductTagArray) ToProductTagArrayOutput() ProductTagArrayOutput {
 
 func (i ProductTagArray) ToProductTagArrayOutputWithContext(ctx context.Context) ProductTagArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProductTagArrayOutput)
-}
-
-func (i ProductTagArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProductTag] {
-	return pulumix.Output[[]*ProductTag]{
-		OutputState: i.ToProductTagArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ProductTagMapInput is an input type that accepts ProductTagMap and ProductTagMapOutput values.
@@ -272,12 +259,6 @@ func (i ProductTagMap) ToProductTagMapOutputWithContext(ctx context.Context) Pro
 	return pulumi.ToOutputWithContext(ctx, i).(ProductTagMapOutput)
 }
 
-func (i ProductTagMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProductTag] {
-	return pulumix.Output[map[string]*ProductTag]{
-		OutputState: i.ToProductTagMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProductTagOutput struct{ *pulumi.OutputState }
 
 func (ProductTagOutput) ElementType() reflect.Type {
@@ -290,12 +271,6 @@ func (o ProductTagOutput) ToProductTagOutput() ProductTagOutput {
 
 func (o ProductTagOutput) ToProductTagOutputWithContext(ctx context.Context) ProductTagOutput {
 	return o
-}
-
-func (o ProductTagOutput) ToOutput(ctx context.Context) pulumix.Output[*ProductTag] {
-	return pulumix.Output[*ProductTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the API Management Service. Changing this forces a new resource to be created.
@@ -332,12 +307,6 @@ func (o ProductTagArrayOutput) ToProductTagArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ProductTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProductTag] {
-	return pulumix.Output[[]*ProductTag]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProductTagArrayOutput) Index(i pulumi.IntInput) ProductTagOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProductTag {
 		return vs[0].([]*ProductTag)[vs[1].(int)]
@@ -356,12 +325,6 @@ func (o ProductTagMapOutput) ToProductTagMapOutput() ProductTagMapOutput {
 
 func (o ProductTagMapOutput) ToProductTagMapOutputWithContext(ctx context.Context) ProductTagMapOutput {
 	return o
-}
-
-func (o ProductTagMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProductTag] {
-	return pulumix.Output[map[string]*ProductTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProductTagMapOutput) MapIndex(k pulumi.StringInput) ProductTagOutput {

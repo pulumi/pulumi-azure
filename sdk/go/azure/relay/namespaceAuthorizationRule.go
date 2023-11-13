@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Relay Namespace Authorization Rule.
@@ -243,12 +242,6 @@ func (i *NamespaceAuthorizationRule) ToNamespaceAuthorizationRuleOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceAuthorizationRuleOutput)
 }
 
-func (i *NamespaceAuthorizationRule) ToOutput(ctx context.Context) pulumix.Output[*NamespaceAuthorizationRule] {
-	return pulumix.Output[*NamespaceAuthorizationRule]{
-		OutputState: i.ToNamespaceAuthorizationRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NamespaceAuthorizationRuleArrayInput is an input type that accepts NamespaceAuthorizationRuleArray and NamespaceAuthorizationRuleArrayOutput values.
 // You can construct a concrete instance of `NamespaceAuthorizationRuleArrayInput` via:
 //
@@ -272,12 +265,6 @@ func (i NamespaceAuthorizationRuleArray) ToNamespaceAuthorizationRuleArrayOutput
 
 func (i NamespaceAuthorizationRuleArray) ToNamespaceAuthorizationRuleArrayOutputWithContext(ctx context.Context) NamespaceAuthorizationRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceAuthorizationRuleArrayOutput)
-}
-
-func (i NamespaceAuthorizationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*NamespaceAuthorizationRule] {
-	return pulumix.Output[[]*NamespaceAuthorizationRule]{
-		OutputState: i.ToNamespaceAuthorizationRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NamespaceAuthorizationRuleMapInput is an input type that accepts NamespaceAuthorizationRuleMap and NamespaceAuthorizationRuleMapOutput values.
@@ -305,12 +292,6 @@ func (i NamespaceAuthorizationRuleMap) ToNamespaceAuthorizationRuleMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceAuthorizationRuleMapOutput)
 }
 
-func (i NamespaceAuthorizationRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NamespaceAuthorizationRule] {
-	return pulumix.Output[map[string]*NamespaceAuthorizationRule]{
-		OutputState: i.ToNamespaceAuthorizationRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NamespaceAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (NamespaceAuthorizationRuleOutput) ElementType() reflect.Type {
@@ -323,12 +304,6 @@ func (o NamespaceAuthorizationRuleOutput) ToNamespaceAuthorizationRuleOutput() N
 
 func (o NamespaceAuthorizationRuleOutput) ToNamespaceAuthorizationRuleOutputWithContext(ctx context.Context) NamespaceAuthorizationRuleOutput {
 	return o
-}
-
-func (o NamespaceAuthorizationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*NamespaceAuthorizationRule] {
-	return pulumix.Output[*NamespaceAuthorizationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Grants listen access to this Authorization Rule. Defaults to `false`.
@@ -395,12 +370,6 @@ func (o NamespaceAuthorizationRuleArrayOutput) ToNamespaceAuthorizationRuleArray
 	return o
 }
 
-func (o NamespaceAuthorizationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NamespaceAuthorizationRule] {
-	return pulumix.Output[[]*NamespaceAuthorizationRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NamespaceAuthorizationRuleArrayOutput) Index(i pulumi.IntInput) NamespaceAuthorizationRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NamespaceAuthorizationRule {
 		return vs[0].([]*NamespaceAuthorizationRule)[vs[1].(int)]
@@ -419,12 +388,6 @@ func (o NamespaceAuthorizationRuleMapOutput) ToNamespaceAuthorizationRuleMapOutp
 
 func (o NamespaceAuthorizationRuleMapOutput) ToNamespaceAuthorizationRuleMapOutputWithContext(ctx context.Context) NamespaceAuthorizationRuleMapOutput {
 	return o
-}
-
-func (o NamespaceAuthorizationRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NamespaceAuthorizationRule] {
-	return pulumix.Output[map[string]*NamespaceAuthorizationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NamespaceAuthorizationRuleMapOutput) MapIndex(k pulumi.StringInput) NamespaceAuthorizationRuleOutput {

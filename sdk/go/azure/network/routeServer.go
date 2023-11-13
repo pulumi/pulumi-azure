@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Route Server
@@ -279,12 +278,6 @@ func (i *RouteServer) ToRouteServerOutputWithContext(ctx context.Context) RouteS
 	return pulumi.ToOutputWithContext(ctx, i).(RouteServerOutput)
 }
 
-func (i *RouteServer) ToOutput(ctx context.Context) pulumix.Output[*RouteServer] {
-	return pulumix.Output[*RouteServer]{
-		OutputState: i.ToRouteServerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RouteServerArrayInput is an input type that accepts RouteServerArray and RouteServerArrayOutput values.
 // You can construct a concrete instance of `RouteServerArrayInput` via:
 //
@@ -308,12 +301,6 @@ func (i RouteServerArray) ToRouteServerArrayOutput() RouteServerArrayOutput {
 
 func (i RouteServerArray) ToRouteServerArrayOutputWithContext(ctx context.Context) RouteServerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RouteServerArrayOutput)
-}
-
-func (i RouteServerArray) ToOutput(ctx context.Context) pulumix.Output[[]*RouteServer] {
-	return pulumix.Output[[]*RouteServer]{
-		OutputState: i.ToRouteServerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RouteServerMapInput is an input type that accepts RouteServerMap and RouteServerMapOutput values.
@@ -341,12 +328,6 @@ func (i RouteServerMap) ToRouteServerMapOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, i).(RouteServerMapOutput)
 }
 
-func (i RouteServerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RouteServer] {
-	return pulumix.Output[map[string]*RouteServer]{
-		OutputState: i.ToRouteServerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RouteServerOutput struct{ *pulumi.OutputState }
 
 func (RouteServerOutput) ElementType() reflect.Type {
@@ -359,12 +340,6 @@ func (o RouteServerOutput) ToRouteServerOutput() RouteServerOutput {
 
 func (o RouteServerOutput) ToRouteServerOutputWithContext(ctx context.Context) RouteServerOutput {
 	return o
-}
-
-func (o RouteServerOutput) ToOutput(ctx context.Context) pulumix.Output[*RouteServer] {
-	return pulumix.Output[*RouteServer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether to enable route exchange between Azure Route Server and the gateway(s)
@@ -435,12 +410,6 @@ func (o RouteServerArrayOutput) ToRouteServerArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o RouteServerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RouteServer] {
-	return pulumix.Output[[]*RouteServer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RouteServerArrayOutput) Index(i pulumi.IntInput) RouteServerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RouteServer {
 		return vs[0].([]*RouteServer)[vs[1].(int)]
@@ -459,12 +428,6 @@ func (o RouteServerMapOutput) ToRouteServerMapOutput() RouteServerMapOutput {
 
 func (o RouteServerMapOutput) ToRouteServerMapOutputWithContext(ctx context.Context) RouteServerMapOutput {
 	return o
-}
-
-func (o RouteServerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RouteServer] {
-	return pulumix.Output[map[string]*RouteServer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RouteServerMapOutput) MapIndex(k pulumi.StringInput) RouteServerOutput {

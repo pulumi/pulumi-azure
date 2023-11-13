@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing ServiceBus Queue Authorisation Rule within a ServiceBus Queue.
@@ -135,12 +134,6 @@ func (o LookupQueueAuthorizationRuleResultOutput) ToLookupQueueAuthorizationRule
 
 func (o LookupQueueAuthorizationRuleResultOutput) ToLookupQueueAuthorizationRuleResultOutputWithContext(ctx context.Context) LookupQueueAuthorizationRuleResultOutput {
 	return o
-}
-
-func (o LookupQueueAuthorizationRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupQueueAuthorizationRuleResult] {
-	return pulumix.Output[LookupQueueAuthorizationRuleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

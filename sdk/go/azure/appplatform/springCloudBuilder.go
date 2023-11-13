@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Spring Cloud Builder.
@@ -202,12 +201,6 @@ func (i *SpringCloudBuilder) ToSpringCloudBuilderOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudBuilderOutput)
 }
 
-func (i *SpringCloudBuilder) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudBuilder] {
-	return pulumix.Output[*SpringCloudBuilder]{
-		OutputState: i.ToSpringCloudBuilderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SpringCloudBuilderArrayInput is an input type that accepts SpringCloudBuilderArray and SpringCloudBuilderArrayOutput values.
 // You can construct a concrete instance of `SpringCloudBuilderArrayInput` via:
 //
@@ -231,12 +224,6 @@ func (i SpringCloudBuilderArray) ToSpringCloudBuilderArrayOutput() SpringCloudBu
 
 func (i SpringCloudBuilderArray) ToSpringCloudBuilderArrayOutputWithContext(ctx context.Context) SpringCloudBuilderArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudBuilderArrayOutput)
-}
-
-func (i SpringCloudBuilderArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudBuilder] {
-	return pulumix.Output[[]*SpringCloudBuilder]{
-		OutputState: i.ToSpringCloudBuilderArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SpringCloudBuilderMapInput is an input type that accepts SpringCloudBuilderMap and SpringCloudBuilderMapOutput values.
@@ -264,12 +251,6 @@ func (i SpringCloudBuilderMap) ToSpringCloudBuilderMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudBuilderMapOutput)
 }
 
-func (i SpringCloudBuilderMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudBuilder] {
-	return pulumix.Output[map[string]*SpringCloudBuilder]{
-		OutputState: i.ToSpringCloudBuilderMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SpringCloudBuilderOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudBuilderOutput) ElementType() reflect.Type {
@@ -282,12 +263,6 @@ func (o SpringCloudBuilderOutput) ToSpringCloudBuilderOutput() SpringCloudBuilde
 
 func (o SpringCloudBuilderOutput) ToSpringCloudBuilderOutputWithContext(ctx context.Context) SpringCloudBuilderOutput {
 	return o
-}
-
-func (o SpringCloudBuilderOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudBuilder] {
-	return pulumix.Output[*SpringCloudBuilder]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `buildPackGroup` blocks as defined below.
@@ -324,12 +299,6 @@ func (o SpringCloudBuilderArrayOutput) ToSpringCloudBuilderArrayOutputWithContex
 	return o
 }
 
-func (o SpringCloudBuilderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudBuilder] {
-	return pulumix.Output[[]*SpringCloudBuilder]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SpringCloudBuilderArrayOutput) Index(i pulumi.IntInput) SpringCloudBuilderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudBuilder {
 		return vs[0].([]*SpringCloudBuilder)[vs[1].(int)]
@@ -348,12 +317,6 @@ func (o SpringCloudBuilderMapOutput) ToSpringCloudBuilderMapOutput() SpringCloud
 
 func (o SpringCloudBuilderMapOutput) ToSpringCloudBuilderMapOutputWithContext(ctx context.Context) SpringCloudBuilderMapOutput {
 	return o
-}
-
-func (o SpringCloudBuilderMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudBuilder] {
-	return pulumix.Output[map[string]*SpringCloudBuilder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SpringCloudBuilderMapOutput) MapIndex(k pulumi.StringInput) SpringCloudBuilderOutput {

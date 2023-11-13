@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Mobile Network Site.
@@ -202,12 +201,6 @@ func (i *NetworkSite) ToNetworkSiteOutputWithContext(ctx context.Context) Networ
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSiteOutput)
 }
 
-func (i *NetworkSite) ToOutput(ctx context.Context) pulumix.Output[*NetworkSite] {
-	return pulumix.Output[*NetworkSite]{
-		OutputState: i.ToNetworkSiteOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkSiteArrayInput is an input type that accepts NetworkSiteArray and NetworkSiteArrayOutput values.
 // You can construct a concrete instance of `NetworkSiteArrayInput` via:
 //
@@ -231,12 +224,6 @@ func (i NetworkSiteArray) ToNetworkSiteArrayOutput() NetworkSiteArrayOutput {
 
 func (i NetworkSiteArray) ToNetworkSiteArrayOutputWithContext(ctx context.Context) NetworkSiteArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSiteArrayOutput)
-}
-
-func (i NetworkSiteArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkSite] {
-	return pulumix.Output[[]*NetworkSite]{
-		OutputState: i.ToNetworkSiteArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NetworkSiteMapInput is an input type that accepts NetworkSiteMap and NetworkSiteMapOutput values.
@@ -264,12 +251,6 @@ func (i NetworkSiteMap) ToNetworkSiteMapOutputWithContext(ctx context.Context) N
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSiteMapOutput)
 }
 
-func (i NetworkSiteMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkSite] {
-	return pulumix.Output[map[string]*NetworkSite]{
-		OutputState: i.ToNetworkSiteMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkSiteOutput struct{ *pulumi.OutputState }
 
 func (NetworkSiteOutput) ElementType() reflect.Type {
@@ -282,12 +263,6 @@ func (o NetworkSiteOutput) ToNetworkSiteOutput() NetworkSiteOutput {
 
 func (o NetworkSiteOutput) ToNetworkSiteOutputWithContext(ctx context.Context) NetworkSiteOutput {
 	return o
-}
-
-func (o NetworkSiteOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkSite] {
-	return pulumix.Output[*NetworkSite]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Azure Region where the Mobile Network Site should exist. Changing this forces a new Mobile Network Site to be created.
@@ -329,12 +304,6 @@ func (o NetworkSiteArrayOutput) ToNetworkSiteArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o NetworkSiteArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkSite] {
-	return pulumix.Output[[]*NetworkSite]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkSiteArrayOutput) Index(i pulumi.IntInput) NetworkSiteOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkSite {
 		return vs[0].([]*NetworkSite)[vs[1].(int)]
@@ -353,12 +322,6 @@ func (o NetworkSiteMapOutput) ToNetworkSiteMapOutput() NetworkSiteMapOutput {
 
 func (o NetworkSiteMapOutput) ToNetworkSiteMapOutputWithContext(ctx context.Context) NetworkSiteMapOutput {
 	return o
-}
-
-func (o NetworkSiteMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkSite] {
-	return pulumix.Output[map[string]*NetworkSite]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkSiteMapOutput) MapIndex(k pulumi.StringInput) NetworkSiteOutput {

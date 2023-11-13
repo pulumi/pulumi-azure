@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the Link To Default Domain property of a Front Door (standard/premium) Route.
@@ -176,12 +175,6 @@ func (i *FrontdoorRouteDisableLinkToDefaultDomain) ToFrontdoorRouteDisableLinkTo
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRouteDisableLinkToDefaultDomainOutput)
 }
 
-func (i *FrontdoorRouteDisableLinkToDefaultDomain) ToOutput(ctx context.Context) pulumix.Output[*FrontdoorRouteDisableLinkToDefaultDomain] {
-	return pulumix.Output[*FrontdoorRouteDisableLinkToDefaultDomain]{
-		OutputState: i.ToFrontdoorRouteDisableLinkToDefaultDomainOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FrontdoorRouteDisableLinkToDefaultDomainArrayInput is an input type that accepts FrontdoorRouteDisableLinkToDefaultDomainArray and FrontdoorRouteDisableLinkToDefaultDomainArrayOutput values.
 // You can construct a concrete instance of `FrontdoorRouteDisableLinkToDefaultDomainArrayInput` via:
 //
@@ -205,12 +198,6 @@ func (i FrontdoorRouteDisableLinkToDefaultDomainArray) ToFrontdoorRouteDisableLi
 
 func (i FrontdoorRouteDisableLinkToDefaultDomainArray) ToFrontdoorRouteDisableLinkToDefaultDomainArrayOutputWithContext(ctx context.Context) FrontdoorRouteDisableLinkToDefaultDomainArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRouteDisableLinkToDefaultDomainArrayOutput)
-}
-
-func (i FrontdoorRouteDisableLinkToDefaultDomainArray) ToOutput(ctx context.Context) pulumix.Output[[]*FrontdoorRouteDisableLinkToDefaultDomain] {
-	return pulumix.Output[[]*FrontdoorRouteDisableLinkToDefaultDomain]{
-		OutputState: i.ToFrontdoorRouteDisableLinkToDefaultDomainArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FrontdoorRouteDisableLinkToDefaultDomainMapInput is an input type that accepts FrontdoorRouteDisableLinkToDefaultDomainMap and FrontdoorRouteDisableLinkToDefaultDomainMapOutput values.
@@ -238,12 +225,6 @@ func (i FrontdoorRouteDisableLinkToDefaultDomainMap) ToFrontdoorRouteDisableLink
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorRouteDisableLinkToDefaultDomainMapOutput)
 }
 
-func (i FrontdoorRouteDisableLinkToDefaultDomainMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FrontdoorRouteDisableLinkToDefaultDomain] {
-	return pulumix.Output[map[string]*FrontdoorRouteDisableLinkToDefaultDomain]{
-		OutputState: i.ToFrontdoorRouteDisableLinkToDefaultDomainMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FrontdoorRouteDisableLinkToDefaultDomainOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorRouteDisableLinkToDefaultDomainOutput) ElementType() reflect.Type {
@@ -256,12 +237,6 @@ func (o FrontdoorRouteDisableLinkToDefaultDomainOutput) ToFrontdoorRouteDisableL
 
 func (o FrontdoorRouteDisableLinkToDefaultDomainOutput) ToFrontdoorRouteDisableLinkToDefaultDomainOutputWithContext(ctx context.Context) FrontdoorRouteDisableLinkToDefaultDomainOutput {
 	return o
-}
-
-func (o FrontdoorRouteDisableLinkToDefaultDomainOutput) ToOutput(ctx context.Context) pulumix.Output[*FrontdoorRouteDisableLinkToDefaultDomain] {
-	return pulumix.Output[*FrontdoorRouteDisableLinkToDefaultDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route.
@@ -294,12 +269,6 @@ func (o FrontdoorRouteDisableLinkToDefaultDomainArrayOutput) ToFrontdoorRouteDis
 	return o
 }
 
-func (o FrontdoorRouteDisableLinkToDefaultDomainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FrontdoorRouteDisableLinkToDefaultDomain] {
-	return pulumix.Output[[]*FrontdoorRouteDisableLinkToDefaultDomain]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FrontdoorRouteDisableLinkToDefaultDomainArrayOutput) Index(i pulumi.IntInput) FrontdoorRouteDisableLinkToDefaultDomainOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FrontdoorRouteDisableLinkToDefaultDomain {
 		return vs[0].([]*FrontdoorRouteDisableLinkToDefaultDomain)[vs[1].(int)]
@@ -318,12 +287,6 @@ func (o FrontdoorRouteDisableLinkToDefaultDomainMapOutput) ToFrontdoorRouteDisab
 
 func (o FrontdoorRouteDisableLinkToDefaultDomainMapOutput) ToFrontdoorRouteDisableLinkToDefaultDomainMapOutputWithContext(ctx context.Context) FrontdoorRouteDisableLinkToDefaultDomainMapOutput {
 	return o
-}
-
-func (o FrontdoorRouteDisableLinkToDefaultDomainMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FrontdoorRouteDisableLinkToDefaultDomain] {
-	return pulumix.Output[map[string]*FrontdoorRouteDisableLinkToDefaultDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FrontdoorRouteDisableLinkToDefaultDomainMapOutput) MapIndex(k pulumi.StringInput) FrontdoorRouteDisableLinkToDefaultDomainOutput {

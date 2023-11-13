@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Network Security Rule.
@@ -349,12 +348,6 @@ func (i *NetworkSecurityRule) ToNetworkSecurityRuleOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityRuleOutput)
 }
 
-func (i *NetworkSecurityRule) ToOutput(ctx context.Context) pulumix.Output[*NetworkSecurityRule] {
-	return pulumix.Output[*NetworkSecurityRule]{
-		OutputState: i.ToNetworkSecurityRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkSecurityRuleArrayInput is an input type that accepts NetworkSecurityRuleArray and NetworkSecurityRuleArrayOutput values.
 // You can construct a concrete instance of `NetworkSecurityRuleArrayInput` via:
 //
@@ -378,12 +371,6 @@ func (i NetworkSecurityRuleArray) ToNetworkSecurityRuleArrayOutput() NetworkSecu
 
 func (i NetworkSecurityRuleArray) ToNetworkSecurityRuleArrayOutputWithContext(ctx context.Context) NetworkSecurityRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityRuleArrayOutput)
-}
-
-func (i NetworkSecurityRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkSecurityRule] {
-	return pulumix.Output[[]*NetworkSecurityRule]{
-		OutputState: i.ToNetworkSecurityRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NetworkSecurityRuleMapInput is an input type that accepts NetworkSecurityRuleMap and NetworkSecurityRuleMapOutput values.
@@ -411,12 +398,6 @@ func (i NetworkSecurityRuleMap) ToNetworkSecurityRuleMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSecurityRuleMapOutput)
 }
 
-func (i NetworkSecurityRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkSecurityRule] {
-	return pulumix.Output[map[string]*NetworkSecurityRule]{
-		OutputState: i.ToNetworkSecurityRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkSecurityRuleOutput struct{ *pulumi.OutputState }
 
 func (NetworkSecurityRuleOutput) ElementType() reflect.Type {
@@ -429,12 +410,6 @@ func (o NetworkSecurityRuleOutput) ToNetworkSecurityRuleOutput() NetworkSecurity
 
 func (o NetworkSecurityRuleOutput) ToNetworkSecurityRuleOutputWithContext(ctx context.Context) NetworkSecurityRuleOutput {
 	return o
-}
-
-func (o NetworkSecurityRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkSecurityRule] {
-	return pulumix.Output[*NetworkSecurityRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies whether network traffic is allowed or denied. Possible values are `Allow` and `Deny`.
@@ -541,12 +516,6 @@ func (o NetworkSecurityRuleArrayOutput) ToNetworkSecurityRuleArrayOutputWithCont
 	return o
 }
 
-func (o NetworkSecurityRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkSecurityRule] {
-	return pulumix.Output[[]*NetworkSecurityRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkSecurityRuleArrayOutput) Index(i pulumi.IntInput) NetworkSecurityRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkSecurityRule {
 		return vs[0].([]*NetworkSecurityRule)[vs[1].(int)]
@@ -565,12 +534,6 @@ func (o NetworkSecurityRuleMapOutput) ToNetworkSecurityRuleMapOutput() NetworkSe
 
 func (o NetworkSecurityRuleMapOutput) ToNetworkSecurityRuleMapOutputWithContext(ctx context.Context) NetworkSecurityRuleMapOutput {
 	return o
-}
-
-func (o NetworkSecurityRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkSecurityRule] {
-	return pulumix.Output[map[string]*NetworkSecurityRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkSecurityRuleMapOutput) MapIndex(k pulumi.StringInput) NetworkSecurityRuleOutput {

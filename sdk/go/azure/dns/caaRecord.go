@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -240,12 +239,6 @@ func (i *CaaRecord) ToCaaRecordOutputWithContext(ctx context.Context) CaaRecordO
 	return pulumi.ToOutputWithContext(ctx, i).(CaaRecordOutput)
 }
 
-func (i *CaaRecord) ToOutput(ctx context.Context) pulumix.Output[*CaaRecord] {
-	return pulumix.Output[*CaaRecord]{
-		OutputState: i.ToCaaRecordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CaaRecordArrayInput is an input type that accepts CaaRecordArray and CaaRecordArrayOutput values.
 // You can construct a concrete instance of `CaaRecordArrayInput` via:
 //
@@ -269,12 +262,6 @@ func (i CaaRecordArray) ToCaaRecordArrayOutput() CaaRecordArrayOutput {
 
 func (i CaaRecordArray) ToCaaRecordArrayOutputWithContext(ctx context.Context) CaaRecordArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CaaRecordArrayOutput)
-}
-
-func (i CaaRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]*CaaRecord] {
-	return pulumix.Output[[]*CaaRecord]{
-		OutputState: i.ToCaaRecordArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CaaRecordMapInput is an input type that accepts CaaRecordMap and CaaRecordMapOutput values.
@@ -302,12 +289,6 @@ func (i CaaRecordMap) ToCaaRecordMapOutputWithContext(ctx context.Context) CaaRe
 	return pulumi.ToOutputWithContext(ctx, i).(CaaRecordMapOutput)
 }
 
-func (i CaaRecordMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CaaRecord] {
-	return pulumix.Output[map[string]*CaaRecord]{
-		OutputState: i.ToCaaRecordMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CaaRecordOutput struct{ *pulumi.OutputState }
 
 func (CaaRecordOutput) ElementType() reflect.Type {
@@ -320,12 +301,6 @@ func (o CaaRecordOutput) ToCaaRecordOutput() CaaRecordOutput {
 
 func (o CaaRecordOutput) ToCaaRecordOutputWithContext(ctx context.Context) CaaRecordOutput {
 	return o
-}
-
-func (o CaaRecordOutput) ToOutput(ctx context.Context) pulumix.Output[*CaaRecord] {
-	return pulumix.Output[*CaaRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The FQDN of the DNS CAA Record.
@@ -377,12 +352,6 @@ func (o CaaRecordArrayOutput) ToCaaRecordArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o CaaRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CaaRecord] {
-	return pulumix.Output[[]*CaaRecord]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CaaRecordArrayOutput) Index(i pulumi.IntInput) CaaRecordOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CaaRecord {
 		return vs[0].([]*CaaRecord)[vs[1].(int)]
@@ -401,12 +370,6 @@ func (o CaaRecordMapOutput) ToCaaRecordMapOutput() CaaRecordMapOutput {
 
 func (o CaaRecordMapOutput) ToCaaRecordMapOutputWithContext(ctx context.Context) CaaRecordMapOutput {
 	return o
-}
-
-func (o CaaRecordMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CaaRecord] {
-	return pulumix.Output[map[string]*CaaRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CaaRecordMapOutput) MapIndex(k pulumi.StringInput) CaaRecordOutput {

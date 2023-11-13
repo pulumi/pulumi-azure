@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Enables you to manage DNS AAAA Records within Azure Private DNS.
@@ -221,12 +220,6 @@ func (i *AAAARecord) ToAAAARecordOutputWithContext(ctx context.Context) AAAAReco
 	return pulumi.ToOutputWithContext(ctx, i).(AAAARecordOutput)
 }
 
-func (i *AAAARecord) ToOutput(ctx context.Context) pulumix.Output[*AAAARecord] {
-	return pulumix.Output[*AAAARecord]{
-		OutputState: i.ToAAAARecordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AAAARecordArrayInput is an input type that accepts AAAARecordArray and AAAARecordArrayOutput values.
 // You can construct a concrete instance of `AAAARecordArrayInput` via:
 //
@@ -250,12 +243,6 @@ func (i AAAARecordArray) ToAAAARecordArrayOutput() AAAARecordArrayOutput {
 
 func (i AAAARecordArray) ToAAAARecordArrayOutputWithContext(ctx context.Context) AAAARecordArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AAAARecordArrayOutput)
-}
-
-func (i AAAARecordArray) ToOutput(ctx context.Context) pulumix.Output[[]*AAAARecord] {
-	return pulumix.Output[[]*AAAARecord]{
-		OutputState: i.ToAAAARecordArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AAAARecordMapInput is an input type that accepts AAAARecordMap and AAAARecordMapOutput values.
@@ -283,12 +270,6 @@ func (i AAAARecordMap) ToAAAARecordMapOutputWithContext(ctx context.Context) AAA
 	return pulumi.ToOutputWithContext(ctx, i).(AAAARecordMapOutput)
 }
 
-func (i AAAARecordMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AAAARecord] {
-	return pulumix.Output[map[string]*AAAARecord]{
-		OutputState: i.ToAAAARecordMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AAAARecordOutput struct{ *pulumi.OutputState }
 
 func (AAAARecordOutput) ElementType() reflect.Type {
@@ -301,12 +282,6 @@ func (o AAAARecordOutput) ToAAAARecordOutput() AAAARecordOutput {
 
 func (o AAAARecordOutput) ToAAAARecordOutputWithContext(ctx context.Context) AAAARecordOutput {
 	return o
-}
-
-func (o AAAARecordOutput) ToOutput(ctx context.Context) pulumix.Output[*AAAARecord] {
-	return pulumix.Output[*AAAARecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The FQDN of the DNS AAAA Record.
@@ -358,12 +333,6 @@ func (o AAAARecordArrayOutput) ToAAAARecordArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o AAAARecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AAAARecord] {
-	return pulumix.Output[[]*AAAARecord]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AAAARecordArrayOutput) Index(i pulumi.IntInput) AAAARecordOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AAAARecord {
 		return vs[0].([]*AAAARecord)[vs[1].(int)]
@@ -382,12 +351,6 @@ func (o AAAARecordMapOutput) ToAAAARecordMapOutput() AAAARecordMapOutput {
 
 func (o AAAARecordMapOutput) ToAAAARecordMapOutputWithContext(ctx context.Context) AAAARecordMapOutput {
 	return o
-}
-
-func (o AAAARecordMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AAAARecord] {
-	return pulumix.Output[map[string]*AAAARecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AAAARecordMapOutput) MapIndex(k pulumi.StringInput) AAAARecordOutput {

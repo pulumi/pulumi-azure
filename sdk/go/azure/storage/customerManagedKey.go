@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Customer Managed Key for a Storage Account.
@@ -298,12 +297,6 @@ func (i *CustomerManagedKey) ToCustomerManagedKeyOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedKeyOutput)
 }
 
-func (i *CustomerManagedKey) ToOutput(ctx context.Context) pulumix.Output[*CustomerManagedKey] {
-	return pulumix.Output[*CustomerManagedKey]{
-		OutputState: i.ToCustomerManagedKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CustomerManagedKeyArrayInput is an input type that accepts CustomerManagedKeyArray and CustomerManagedKeyArrayOutput values.
 // You can construct a concrete instance of `CustomerManagedKeyArrayInput` via:
 //
@@ -327,12 +320,6 @@ func (i CustomerManagedKeyArray) ToCustomerManagedKeyArrayOutput() CustomerManag
 
 func (i CustomerManagedKeyArray) ToCustomerManagedKeyArrayOutputWithContext(ctx context.Context) CustomerManagedKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedKeyArrayOutput)
-}
-
-func (i CustomerManagedKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomerManagedKey] {
-	return pulumix.Output[[]*CustomerManagedKey]{
-		OutputState: i.ToCustomerManagedKeyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CustomerManagedKeyMapInput is an input type that accepts CustomerManagedKeyMap and CustomerManagedKeyMapOutput values.
@@ -360,12 +347,6 @@ func (i CustomerManagedKeyMap) ToCustomerManagedKeyMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedKeyMapOutput)
 }
 
-func (i CustomerManagedKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomerManagedKey] {
-	return pulumix.Output[map[string]*CustomerManagedKey]{
-		OutputState: i.ToCustomerManagedKeyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CustomerManagedKeyOutput struct{ *pulumi.OutputState }
 
 func (CustomerManagedKeyOutput) ElementType() reflect.Type {
@@ -378,12 +359,6 @@ func (o CustomerManagedKeyOutput) ToCustomerManagedKeyOutput() CustomerManagedKe
 
 func (o CustomerManagedKeyOutput) ToCustomerManagedKeyOutputWithContext(ctx context.Context) CustomerManagedKeyOutput {
 	return o
-}
-
-func (o CustomerManagedKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomerManagedKey] {
-	return pulumix.Output[*CustomerManagedKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Client ID of the multi-tenant application to be used in conjunction with the user-assigned identity for cross-tenant customer-managed-keys server-side encryption on the storage account.
@@ -434,12 +409,6 @@ func (o CustomerManagedKeyArrayOutput) ToCustomerManagedKeyArrayOutputWithContex
 	return o
 }
 
-func (o CustomerManagedKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomerManagedKey] {
-	return pulumix.Output[[]*CustomerManagedKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CustomerManagedKeyArrayOutput) Index(i pulumi.IntInput) CustomerManagedKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomerManagedKey {
 		return vs[0].([]*CustomerManagedKey)[vs[1].(int)]
@@ -458,12 +427,6 @@ func (o CustomerManagedKeyMapOutput) ToCustomerManagedKeyMapOutput() CustomerMan
 
 func (o CustomerManagedKeyMapOutput) ToCustomerManagedKeyMapOutputWithContext(ctx context.Context) CustomerManagedKeyMapOutput {
 	return o
-}
-
-func (o CustomerManagedKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomerManagedKey] {
-	return pulumix.Output[map[string]*CustomerManagedKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CustomerManagedKeyMapOutput) MapIndex(k pulumi.StringInput) CustomerManagedKeyOutput {

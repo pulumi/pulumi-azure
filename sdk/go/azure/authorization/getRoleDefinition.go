@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Role Definition.
@@ -98,12 +97,6 @@ func (o LookupRoleDefinitionResultOutput) ToLookupRoleDefinitionResultOutput() L
 
 func (o LookupRoleDefinitionResultOutput) ToLookupRoleDefinitionResultOutputWithContext(ctx context.Context) LookupRoleDefinitionResultOutput {
 	return o
-}
-
-func (o LookupRoleDefinitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupRoleDefinitionResult] {
-	return pulumix.Output[LookupRoleDefinitionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`.

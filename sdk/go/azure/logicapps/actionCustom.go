@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Custom Action within a Logic App Workflow
@@ -201,12 +200,6 @@ func (i *ActionCustom) ToActionCustomOutputWithContext(ctx context.Context) Acti
 	return pulumi.ToOutputWithContext(ctx, i).(ActionCustomOutput)
 }
 
-func (i *ActionCustom) ToOutput(ctx context.Context) pulumix.Output[*ActionCustom] {
-	return pulumix.Output[*ActionCustom]{
-		OutputState: i.ToActionCustomOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActionCustomArrayInput is an input type that accepts ActionCustomArray and ActionCustomArrayOutput values.
 // You can construct a concrete instance of `ActionCustomArrayInput` via:
 //
@@ -230,12 +223,6 @@ func (i ActionCustomArray) ToActionCustomArrayOutput() ActionCustomArrayOutput {
 
 func (i ActionCustomArray) ToActionCustomArrayOutputWithContext(ctx context.Context) ActionCustomArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionCustomArrayOutput)
-}
-
-func (i ActionCustomArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActionCustom] {
-	return pulumix.Output[[]*ActionCustom]{
-		OutputState: i.ToActionCustomArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ActionCustomMapInput is an input type that accepts ActionCustomMap and ActionCustomMapOutput values.
@@ -263,12 +250,6 @@ func (i ActionCustomMap) ToActionCustomMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ActionCustomMapOutput)
 }
 
-func (i ActionCustomMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionCustom] {
-	return pulumix.Output[map[string]*ActionCustom]{
-		OutputState: i.ToActionCustomMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionCustomOutput struct{ *pulumi.OutputState }
 
 func (ActionCustomOutput) ElementType() reflect.Type {
@@ -281,12 +262,6 @@ func (o ActionCustomOutput) ToActionCustomOutput() ActionCustomOutput {
 
 func (o ActionCustomOutput) ToActionCustomOutputWithContext(ctx context.Context) ActionCustomOutput {
 	return o
-}
-
-func (o ActionCustomOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionCustom] {
-	return pulumix.Output[*ActionCustom]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the JSON Blob defining the Body of this Custom Action.
@@ -320,12 +295,6 @@ func (o ActionCustomArrayOutput) ToActionCustomArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o ActionCustomArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActionCustom] {
-	return pulumix.Output[[]*ActionCustom]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ActionCustomArrayOutput) Index(i pulumi.IntInput) ActionCustomOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionCustom {
 		return vs[0].([]*ActionCustom)[vs[1].(int)]
@@ -344,12 +313,6 @@ func (o ActionCustomMapOutput) ToActionCustomMapOutput() ActionCustomMapOutput {
 
 func (o ActionCustomMapOutput) ToActionCustomMapOutputWithContext(ctx context.Context) ActionCustomMapOutput {
 	return o
-}
-
-func (o ActionCustomMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionCustom] {
-	return pulumix.Output[map[string]*ActionCustom]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionCustomMapOutput) MapIndex(k pulumi.StringInput) ActionCustomOutput {

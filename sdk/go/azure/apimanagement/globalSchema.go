@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Global Schema within an API Management Service.
@@ -230,12 +229,6 @@ func (i *GlobalSchema) ToGlobalSchemaOutputWithContext(ctx context.Context) Glob
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalSchemaOutput)
 }
 
-func (i *GlobalSchema) ToOutput(ctx context.Context) pulumix.Output[*GlobalSchema] {
-	return pulumix.Output[*GlobalSchema]{
-		OutputState: i.ToGlobalSchemaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GlobalSchemaArrayInput is an input type that accepts GlobalSchemaArray and GlobalSchemaArrayOutput values.
 // You can construct a concrete instance of `GlobalSchemaArrayInput` via:
 //
@@ -259,12 +252,6 @@ func (i GlobalSchemaArray) ToGlobalSchemaArrayOutput() GlobalSchemaArrayOutput {
 
 func (i GlobalSchemaArray) ToGlobalSchemaArrayOutputWithContext(ctx context.Context) GlobalSchemaArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalSchemaArrayOutput)
-}
-
-func (i GlobalSchemaArray) ToOutput(ctx context.Context) pulumix.Output[[]*GlobalSchema] {
-	return pulumix.Output[[]*GlobalSchema]{
-		OutputState: i.ToGlobalSchemaArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GlobalSchemaMapInput is an input type that accepts GlobalSchemaMap and GlobalSchemaMapOutput values.
@@ -292,12 +279,6 @@ func (i GlobalSchemaMap) ToGlobalSchemaMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalSchemaMapOutput)
 }
 
-func (i GlobalSchemaMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GlobalSchema] {
-	return pulumix.Output[map[string]*GlobalSchema]{
-		OutputState: i.ToGlobalSchemaMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalSchemaOutput struct{ *pulumi.OutputState }
 
 func (GlobalSchemaOutput) ElementType() reflect.Type {
@@ -310,12 +291,6 @@ func (o GlobalSchemaOutput) ToGlobalSchemaOutput() GlobalSchemaOutput {
 
 func (o GlobalSchemaOutput) ToGlobalSchemaOutputWithContext(ctx context.Context) GlobalSchemaOutput {
 	return o
-}
-
-func (o GlobalSchemaOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalSchema] {
-	return pulumix.Output[*GlobalSchema]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Name of the API Management Service where the API exists. Changing this forces a new resource to be created.
@@ -362,12 +337,6 @@ func (o GlobalSchemaArrayOutput) ToGlobalSchemaArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o GlobalSchemaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GlobalSchema] {
-	return pulumix.Output[[]*GlobalSchema]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalSchemaArrayOutput) Index(i pulumi.IntInput) GlobalSchemaOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GlobalSchema {
 		return vs[0].([]*GlobalSchema)[vs[1].(int)]
@@ -386,12 +355,6 @@ func (o GlobalSchemaMapOutput) ToGlobalSchemaMapOutput() GlobalSchemaMapOutput {
 
 func (o GlobalSchemaMapOutput) ToGlobalSchemaMapOutputWithContext(ctx context.Context) GlobalSchemaMapOutput {
 	return o
-}
-
-func (o GlobalSchemaMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GlobalSchema] {
-	return pulumix.Output[map[string]*GlobalSchema]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalSchemaMapOutput) MapIndex(k pulumi.StringInput) GlobalSchemaOutput {
