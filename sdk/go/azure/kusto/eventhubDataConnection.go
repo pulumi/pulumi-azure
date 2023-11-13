@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Kusto (also known as Azure Data Explorer) EventHub Data Connection
@@ -341,12 +340,6 @@ func (i *EventhubDataConnection) ToEventhubDataConnectionOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(EventhubDataConnectionOutput)
 }
 
-func (i *EventhubDataConnection) ToOutput(ctx context.Context) pulumix.Output[*EventhubDataConnection] {
-	return pulumix.Output[*EventhubDataConnection]{
-		OutputState: i.ToEventhubDataConnectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventhubDataConnectionArrayInput is an input type that accepts EventhubDataConnectionArray and EventhubDataConnectionArrayOutput values.
 // You can construct a concrete instance of `EventhubDataConnectionArrayInput` via:
 //
@@ -370,12 +363,6 @@ func (i EventhubDataConnectionArray) ToEventhubDataConnectionArrayOutput() Event
 
 func (i EventhubDataConnectionArray) ToEventhubDataConnectionArrayOutputWithContext(ctx context.Context) EventhubDataConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventhubDataConnectionArrayOutput)
-}
-
-func (i EventhubDataConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventhubDataConnection] {
-	return pulumix.Output[[]*EventhubDataConnection]{
-		OutputState: i.ToEventhubDataConnectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EventhubDataConnectionMapInput is an input type that accepts EventhubDataConnectionMap and EventhubDataConnectionMapOutput values.
@@ -403,12 +390,6 @@ func (i EventhubDataConnectionMap) ToEventhubDataConnectionMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EventhubDataConnectionMapOutput)
 }
 
-func (i EventhubDataConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventhubDataConnection] {
-	return pulumix.Output[map[string]*EventhubDataConnection]{
-		OutputState: i.ToEventhubDataConnectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventhubDataConnectionOutput struct{ *pulumi.OutputState }
 
 func (EventhubDataConnectionOutput) ElementType() reflect.Type {
@@ -421,12 +402,6 @@ func (o EventhubDataConnectionOutput) ToEventhubDataConnectionOutput() EventhubD
 
 func (o EventhubDataConnectionOutput) ToEventhubDataConnectionOutputWithContext(ctx context.Context) EventhubDataConnectionOutput {
 	return o
-}
-
-func (o EventhubDataConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*EventhubDataConnection] {
-	return pulumix.Output[*EventhubDataConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the Kusto Cluster this data connection will be added to. Changing this forces a new resource to be created.
@@ -513,12 +488,6 @@ func (o EventhubDataConnectionArrayOutput) ToEventhubDataConnectionArrayOutputWi
 	return o
 }
 
-func (o EventhubDataConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventhubDataConnection] {
-	return pulumix.Output[[]*EventhubDataConnection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventhubDataConnectionArrayOutput) Index(i pulumi.IntInput) EventhubDataConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventhubDataConnection {
 		return vs[0].([]*EventhubDataConnection)[vs[1].(int)]
@@ -537,12 +506,6 @@ func (o EventhubDataConnectionMapOutput) ToEventhubDataConnectionMapOutput() Eve
 
 func (o EventhubDataConnectionMapOutput) ToEventhubDataConnectionMapOutputWithContext(ctx context.Context) EventhubDataConnectionMapOutput {
 	return o
-}
-
-func (o EventhubDataConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventhubDataConnection] {
-	return pulumix.Output[map[string]*EventhubDataConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventhubDataConnectionMapOutput) MapIndex(k pulumi.StringInput) EventhubDataConnectionOutput {

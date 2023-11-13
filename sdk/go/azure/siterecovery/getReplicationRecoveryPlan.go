@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information about an Azure Site Recovery Plan within a Recovery Services vault. A recovery plan gathers machines into recovery groups for the purpose of failover.
@@ -122,12 +121,6 @@ func (o LookupReplicationRecoveryPlanResultOutput) ToLookupReplicationRecoveryPl
 
 func (o LookupReplicationRecoveryPlanResultOutput) ToLookupReplicationRecoveryPlanResultOutputWithContext(ctx context.Context) LookupReplicationRecoveryPlanResultOutput {
 	return o
-}
-
-func (o LookupReplicationRecoveryPlanResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupReplicationRecoveryPlanResult] {
-	return pulumix.Output[LookupReplicationRecoveryPlanResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupReplicationRecoveryPlanResultOutput) AzureToAzureSettings() GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput {

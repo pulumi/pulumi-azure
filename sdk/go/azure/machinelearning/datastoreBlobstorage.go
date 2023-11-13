@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Machine Learning Blob Storage DataStore.
@@ -314,12 +313,6 @@ func (i *DatastoreBlobstorage) ToDatastoreBlobstorageOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreBlobstorageOutput)
 }
 
-func (i *DatastoreBlobstorage) ToOutput(ctx context.Context) pulumix.Output[*DatastoreBlobstorage] {
-	return pulumix.Output[*DatastoreBlobstorage]{
-		OutputState: i.ToDatastoreBlobstorageOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DatastoreBlobstorageArrayInput is an input type that accepts DatastoreBlobstorageArray and DatastoreBlobstorageArrayOutput values.
 // You can construct a concrete instance of `DatastoreBlobstorageArrayInput` via:
 //
@@ -343,12 +336,6 @@ func (i DatastoreBlobstorageArray) ToDatastoreBlobstorageArrayOutput() Datastore
 
 func (i DatastoreBlobstorageArray) ToDatastoreBlobstorageArrayOutputWithContext(ctx context.Context) DatastoreBlobstorageArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreBlobstorageArrayOutput)
-}
-
-func (i DatastoreBlobstorageArray) ToOutput(ctx context.Context) pulumix.Output[[]*DatastoreBlobstorage] {
-	return pulumix.Output[[]*DatastoreBlobstorage]{
-		OutputState: i.ToDatastoreBlobstorageArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DatastoreBlobstorageMapInput is an input type that accepts DatastoreBlobstorageMap and DatastoreBlobstorageMapOutput values.
@@ -376,12 +363,6 @@ func (i DatastoreBlobstorageMap) ToDatastoreBlobstorageMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DatastoreBlobstorageMapOutput)
 }
 
-func (i DatastoreBlobstorageMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatastoreBlobstorage] {
-	return pulumix.Output[map[string]*DatastoreBlobstorage]{
-		OutputState: i.ToDatastoreBlobstorageMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DatastoreBlobstorageOutput struct{ *pulumi.OutputState }
 
 func (DatastoreBlobstorageOutput) ElementType() reflect.Type {
@@ -394,12 +375,6 @@ func (o DatastoreBlobstorageOutput) ToDatastoreBlobstorageOutput() DatastoreBlob
 
 func (o DatastoreBlobstorageOutput) ToDatastoreBlobstorageOutputWithContext(ctx context.Context) DatastoreBlobstorageOutput {
 	return o
-}
-
-func (o DatastoreBlobstorageOutput) ToOutput(ctx context.Context) pulumix.Output[*DatastoreBlobstorage] {
-	return pulumix.Output[*DatastoreBlobstorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The access key of the Storage Account. Conflicts with `sharedAccessSignature`.
@@ -465,12 +440,6 @@ func (o DatastoreBlobstorageArrayOutput) ToDatastoreBlobstorageArrayOutputWithCo
 	return o
 }
 
-func (o DatastoreBlobstorageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatastoreBlobstorage] {
-	return pulumix.Output[[]*DatastoreBlobstorage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatastoreBlobstorageArrayOutput) Index(i pulumi.IntInput) DatastoreBlobstorageOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatastoreBlobstorage {
 		return vs[0].([]*DatastoreBlobstorage)[vs[1].(int)]
@@ -489,12 +458,6 @@ func (o DatastoreBlobstorageMapOutput) ToDatastoreBlobstorageMapOutput() Datasto
 
 func (o DatastoreBlobstorageMapOutput) ToDatastoreBlobstorageMapOutputWithContext(ctx context.Context) DatastoreBlobstorageMapOutput {
 	return o
-}
-
-func (o DatastoreBlobstorageMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatastoreBlobstorage] {
-	return pulumix.Output[map[string]*DatastoreBlobstorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatastoreBlobstorageMapOutput) MapIndex(k pulumi.StringInput) DatastoreBlobstorageOutput {

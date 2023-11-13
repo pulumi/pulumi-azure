@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Bot Service.
@@ -376,12 +375,6 @@ func (i *ServiceAzureBot) ToServiceAzureBotOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAzureBotOutput)
 }
 
-func (i *ServiceAzureBot) ToOutput(ctx context.Context) pulumix.Output[*ServiceAzureBot] {
-	return pulumix.Output[*ServiceAzureBot]{
-		OutputState: i.ToServiceAzureBotOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceAzureBotArrayInput is an input type that accepts ServiceAzureBotArray and ServiceAzureBotArrayOutput values.
 // You can construct a concrete instance of `ServiceAzureBotArrayInput` via:
 //
@@ -405,12 +398,6 @@ func (i ServiceAzureBotArray) ToServiceAzureBotArrayOutput() ServiceAzureBotArra
 
 func (i ServiceAzureBotArray) ToServiceAzureBotArrayOutputWithContext(ctx context.Context) ServiceAzureBotArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAzureBotArrayOutput)
-}
-
-func (i ServiceAzureBotArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceAzureBot] {
-	return pulumix.Output[[]*ServiceAzureBot]{
-		OutputState: i.ToServiceAzureBotArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceAzureBotMapInput is an input type that accepts ServiceAzureBotMap and ServiceAzureBotMapOutput values.
@@ -438,12 +425,6 @@ func (i ServiceAzureBotMap) ToServiceAzureBotMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceAzureBotMapOutput)
 }
 
-func (i ServiceAzureBotMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceAzureBot] {
-	return pulumix.Output[map[string]*ServiceAzureBot]{
-		OutputState: i.ToServiceAzureBotMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceAzureBotOutput struct{ *pulumi.OutputState }
 
 func (ServiceAzureBotOutput) ElementType() reflect.Type {
@@ -456,12 +437,6 @@ func (o ServiceAzureBotOutput) ToServiceAzureBotOutput() ServiceAzureBotOutput {
 
 func (o ServiceAzureBotOutput) ToServiceAzureBotOutputWithContext(ctx context.Context) ServiceAzureBotOutput {
 	return o
-}
-
-func (o ServiceAzureBotOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceAzureBot] {
-	return pulumix.Output[*ServiceAzureBot]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Application Insights API Key to associate with this Azure Bot Service.
@@ -573,12 +548,6 @@ func (o ServiceAzureBotArrayOutput) ToServiceAzureBotArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o ServiceAzureBotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceAzureBot] {
-	return pulumix.Output[[]*ServiceAzureBot]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceAzureBotArrayOutput) Index(i pulumi.IntInput) ServiceAzureBotOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceAzureBot {
 		return vs[0].([]*ServiceAzureBot)[vs[1].(int)]
@@ -597,12 +566,6 @@ func (o ServiceAzureBotMapOutput) ToServiceAzureBotMapOutput() ServiceAzureBotMa
 
 func (o ServiceAzureBotMapOutput) ToServiceAzureBotMapOutputWithContext(ctx context.Context) ServiceAzureBotMapOutput {
 	return o
-}
-
-func (o ServiceAzureBotMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceAzureBot] {
-	return pulumix.Output[map[string]*ServiceAzureBot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceAzureBotMapOutput) MapIndex(k pulumi.StringInput) ServiceAzureBotOutput {

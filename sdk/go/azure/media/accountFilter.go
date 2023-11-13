@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Media Services Account Filter.
@@ -265,12 +264,6 @@ func (i *AccountFilter) ToAccountFilterOutputWithContext(ctx context.Context) Ac
 	return pulumi.ToOutputWithContext(ctx, i).(AccountFilterOutput)
 }
 
-func (i *AccountFilter) ToOutput(ctx context.Context) pulumix.Output[*AccountFilter] {
-	return pulumix.Output[*AccountFilter]{
-		OutputState: i.ToAccountFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccountFilterArrayInput is an input type that accepts AccountFilterArray and AccountFilterArrayOutput values.
 // You can construct a concrete instance of `AccountFilterArrayInput` via:
 //
@@ -294,12 +287,6 @@ func (i AccountFilterArray) ToAccountFilterArrayOutput() AccountFilterArrayOutpu
 
 func (i AccountFilterArray) ToAccountFilterArrayOutputWithContext(ctx context.Context) AccountFilterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountFilterArrayOutput)
-}
-
-func (i AccountFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]*AccountFilter] {
-	return pulumix.Output[[]*AccountFilter]{
-		OutputState: i.ToAccountFilterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AccountFilterMapInput is an input type that accepts AccountFilterMap and AccountFilterMapOutput values.
@@ -327,12 +314,6 @@ func (i AccountFilterMap) ToAccountFilterMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(AccountFilterMapOutput)
 }
 
-func (i AccountFilterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountFilter] {
-	return pulumix.Output[map[string]*AccountFilter]{
-		OutputState: i.ToAccountFilterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountFilterOutput struct{ *pulumi.OutputState }
 
 func (AccountFilterOutput) ElementType() reflect.Type {
@@ -345,12 +326,6 @@ func (o AccountFilterOutput) ToAccountFilterOutput() AccountFilterOutput {
 
 func (o AccountFilterOutput) ToAccountFilterOutputWithContext(ctx context.Context) AccountFilterOutput {
 	return o
-}
-
-func (o AccountFilterOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountFilter] {
-	return pulumix.Output[*AccountFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
@@ -397,12 +372,6 @@ func (o AccountFilterArrayOutput) ToAccountFilterArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o AccountFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AccountFilter] {
-	return pulumix.Output[[]*AccountFilter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AccountFilterArrayOutput) Index(i pulumi.IntInput) AccountFilterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AccountFilter {
 		return vs[0].([]*AccountFilter)[vs[1].(int)]
@@ -421,12 +390,6 @@ func (o AccountFilterMapOutput) ToAccountFilterMapOutput() AccountFilterMapOutpu
 
 func (o AccountFilterMapOutput) ToAccountFilterMapOutputWithContext(ctx context.Context) AccountFilterMapOutput {
 	return o
-}
-
-func (o AccountFilterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AccountFilter] {
-	return pulumix.Output[map[string]*AccountFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountFilterMapOutput) MapIndex(k pulumi.StringInput) AccountFilterOutput {

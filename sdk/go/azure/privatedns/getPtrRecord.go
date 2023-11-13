@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -116,12 +115,6 @@ func (o GetPtrRecordResultOutput) ToGetPtrRecordResultOutput() GetPtrRecordResul
 
 func (o GetPtrRecordResultOutput) ToGetPtrRecordResultOutputWithContext(ctx context.Context) GetPtrRecordResultOutput {
 	return o
-}
-
-func (o GetPtrRecordResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPtrRecordResult] {
-	return pulumix.Output[GetPtrRecordResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The FQDN of the Private DNS PTR Record.

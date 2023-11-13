@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a SQL Dedicated Gateway within a Cosmos DB Account.
@@ -190,12 +189,6 @@ func (i *SqlDedicatedGateway) ToSqlDedicatedGatewayOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SqlDedicatedGatewayOutput)
 }
 
-func (i *SqlDedicatedGateway) ToOutput(ctx context.Context) pulumix.Output[*SqlDedicatedGateway] {
-	return pulumix.Output[*SqlDedicatedGateway]{
-		OutputState: i.ToSqlDedicatedGatewayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SqlDedicatedGatewayArrayInput is an input type that accepts SqlDedicatedGatewayArray and SqlDedicatedGatewayArrayOutput values.
 // You can construct a concrete instance of `SqlDedicatedGatewayArrayInput` via:
 //
@@ -219,12 +212,6 @@ func (i SqlDedicatedGatewayArray) ToSqlDedicatedGatewayArrayOutput() SqlDedicate
 
 func (i SqlDedicatedGatewayArray) ToSqlDedicatedGatewayArrayOutputWithContext(ctx context.Context) SqlDedicatedGatewayArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlDedicatedGatewayArrayOutput)
-}
-
-func (i SqlDedicatedGatewayArray) ToOutput(ctx context.Context) pulumix.Output[[]*SqlDedicatedGateway] {
-	return pulumix.Output[[]*SqlDedicatedGateway]{
-		OutputState: i.ToSqlDedicatedGatewayArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SqlDedicatedGatewayMapInput is an input type that accepts SqlDedicatedGatewayMap and SqlDedicatedGatewayMapOutput values.
@@ -252,12 +239,6 @@ func (i SqlDedicatedGatewayMap) ToSqlDedicatedGatewayMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SqlDedicatedGatewayMapOutput)
 }
 
-func (i SqlDedicatedGatewayMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlDedicatedGateway] {
-	return pulumix.Output[map[string]*SqlDedicatedGateway]{
-		OutputState: i.ToSqlDedicatedGatewayMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SqlDedicatedGatewayOutput struct{ *pulumi.OutputState }
 
 func (SqlDedicatedGatewayOutput) ElementType() reflect.Type {
@@ -270,12 +251,6 @@ func (o SqlDedicatedGatewayOutput) ToSqlDedicatedGatewayOutput() SqlDedicatedGat
 
 func (o SqlDedicatedGatewayOutput) ToSqlDedicatedGatewayOutputWithContext(ctx context.Context) SqlDedicatedGatewayOutput {
 	return o
-}
-
-func (o SqlDedicatedGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*SqlDedicatedGateway] {
-	return pulumix.Output[*SqlDedicatedGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The resource ID of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -307,12 +282,6 @@ func (o SqlDedicatedGatewayArrayOutput) ToSqlDedicatedGatewayArrayOutputWithCont
 	return o
 }
 
-func (o SqlDedicatedGatewayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SqlDedicatedGateway] {
-	return pulumix.Output[[]*SqlDedicatedGateway]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SqlDedicatedGatewayArrayOutput) Index(i pulumi.IntInput) SqlDedicatedGatewayOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SqlDedicatedGateway {
 		return vs[0].([]*SqlDedicatedGateway)[vs[1].(int)]
@@ -331,12 +300,6 @@ func (o SqlDedicatedGatewayMapOutput) ToSqlDedicatedGatewayMapOutput() SqlDedica
 
 func (o SqlDedicatedGatewayMapOutput) ToSqlDedicatedGatewayMapOutputWithContext(ctx context.Context) SqlDedicatedGatewayMapOutput {
 	return o
-}
-
-func (o SqlDedicatedGatewayMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlDedicatedGateway] {
-	return pulumix.Output[map[string]*SqlDedicatedGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SqlDedicatedGatewayMapOutput) MapIndex(k pulumi.StringInput) SqlDedicatedGatewayOutput {

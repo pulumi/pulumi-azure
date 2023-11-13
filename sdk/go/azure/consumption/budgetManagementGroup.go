@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Consumption Budget for a Management Group.
@@ -276,12 +275,6 @@ func (i *BudgetManagementGroup) ToBudgetManagementGroupOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupOutput)
 }
 
-func (i *BudgetManagementGroup) ToOutput(ctx context.Context) pulumix.Output[*BudgetManagementGroup] {
-	return pulumix.Output[*BudgetManagementGroup]{
-		OutputState: i.ToBudgetManagementGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BudgetManagementGroupArrayInput is an input type that accepts BudgetManagementGroupArray and BudgetManagementGroupArrayOutput values.
 // You can construct a concrete instance of `BudgetManagementGroupArrayInput` via:
 //
@@ -305,12 +298,6 @@ func (i BudgetManagementGroupArray) ToBudgetManagementGroupArrayOutput() BudgetM
 
 func (i BudgetManagementGroupArray) ToBudgetManagementGroupArrayOutputWithContext(ctx context.Context) BudgetManagementGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupArrayOutput)
-}
-
-func (i BudgetManagementGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*BudgetManagementGroup] {
-	return pulumix.Output[[]*BudgetManagementGroup]{
-		OutputState: i.ToBudgetManagementGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BudgetManagementGroupMapInput is an input type that accepts BudgetManagementGroupMap and BudgetManagementGroupMapOutput values.
@@ -338,12 +325,6 @@ func (i BudgetManagementGroupMap) ToBudgetManagementGroupMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetManagementGroupMapOutput)
 }
 
-func (i BudgetManagementGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BudgetManagementGroup] {
-	return pulumix.Output[map[string]*BudgetManagementGroup]{
-		OutputState: i.ToBudgetManagementGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BudgetManagementGroupOutput struct{ *pulumi.OutputState }
 
 func (BudgetManagementGroupOutput) ElementType() reflect.Type {
@@ -356,12 +337,6 @@ func (o BudgetManagementGroupOutput) ToBudgetManagementGroupOutput() BudgetManag
 
 func (o BudgetManagementGroupOutput) ToBudgetManagementGroupOutputWithContext(ctx context.Context) BudgetManagementGroupOutput {
 	return o
-}
-
-func (o BudgetManagementGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*BudgetManagementGroup] {
-	return pulumix.Output[*BudgetManagementGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The total amount of cost to track with the budget.
@@ -418,12 +393,6 @@ func (o BudgetManagementGroupArrayOutput) ToBudgetManagementGroupArrayOutputWith
 	return o
 }
 
-func (o BudgetManagementGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BudgetManagementGroup] {
-	return pulumix.Output[[]*BudgetManagementGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BudgetManagementGroupArrayOutput) Index(i pulumi.IntInput) BudgetManagementGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BudgetManagementGroup {
 		return vs[0].([]*BudgetManagementGroup)[vs[1].(int)]
@@ -442,12 +411,6 @@ func (o BudgetManagementGroupMapOutput) ToBudgetManagementGroupMapOutput() Budge
 
 func (o BudgetManagementGroupMapOutput) ToBudgetManagementGroupMapOutputWithContext(ctx context.Context) BudgetManagementGroupMapOutput {
 	return o
-}
-
-func (o BudgetManagementGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BudgetManagementGroup] {
-	return pulumix.Output[map[string]*BudgetManagementGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BudgetManagementGroupMapOutput) MapIndex(k pulumi.StringInput) BudgetManagementGroupOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Network Manager Static Member.
@@ -212,12 +211,6 @@ func (i *NetworkManagerStaticMember) ToNetworkManagerStaticMemberOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerStaticMemberOutput)
 }
 
-func (i *NetworkManagerStaticMember) ToOutput(ctx context.Context) pulumix.Output[*NetworkManagerStaticMember] {
-	return pulumix.Output[*NetworkManagerStaticMember]{
-		OutputState: i.ToNetworkManagerStaticMemberOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkManagerStaticMemberArrayInput is an input type that accepts NetworkManagerStaticMemberArray and NetworkManagerStaticMemberArrayOutput values.
 // You can construct a concrete instance of `NetworkManagerStaticMemberArrayInput` via:
 //
@@ -241,12 +234,6 @@ func (i NetworkManagerStaticMemberArray) ToNetworkManagerStaticMemberArrayOutput
 
 func (i NetworkManagerStaticMemberArray) ToNetworkManagerStaticMemberArrayOutputWithContext(ctx context.Context) NetworkManagerStaticMemberArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerStaticMemberArrayOutput)
-}
-
-func (i NetworkManagerStaticMemberArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkManagerStaticMember] {
-	return pulumix.Output[[]*NetworkManagerStaticMember]{
-		OutputState: i.ToNetworkManagerStaticMemberArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NetworkManagerStaticMemberMapInput is an input type that accepts NetworkManagerStaticMemberMap and NetworkManagerStaticMemberMapOutput values.
@@ -274,12 +261,6 @@ func (i NetworkManagerStaticMemberMap) ToNetworkManagerStaticMemberMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerStaticMemberMapOutput)
 }
 
-func (i NetworkManagerStaticMemberMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkManagerStaticMember] {
-	return pulumix.Output[map[string]*NetworkManagerStaticMember]{
-		OutputState: i.ToNetworkManagerStaticMemberMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkManagerStaticMemberOutput struct{ *pulumi.OutputState }
 
 func (NetworkManagerStaticMemberOutput) ElementType() reflect.Type {
@@ -292,12 +273,6 @@ func (o NetworkManagerStaticMemberOutput) ToNetworkManagerStaticMemberOutput() N
 
 func (o NetworkManagerStaticMemberOutput) ToNetworkManagerStaticMemberOutputWithContext(ctx context.Context) NetworkManagerStaticMemberOutput {
 	return o
-}
-
-func (o NetworkManagerStaticMemberOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkManagerStaticMember] {
-	return pulumix.Output[*NetworkManagerStaticMember]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name which should be used for this Network Manager Static Member. Changing this forces a new Network Manager Static Member to be created.
@@ -334,12 +309,6 @@ func (o NetworkManagerStaticMemberArrayOutput) ToNetworkManagerStaticMemberArray
 	return o
 }
 
-func (o NetworkManagerStaticMemberArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkManagerStaticMember] {
-	return pulumix.Output[[]*NetworkManagerStaticMember]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkManagerStaticMemberArrayOutput) Index(i pulumi.IntInput) NetworkManagerStaticMemberOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkManagerStaticMember {
 		return vs[0].([]*NetworkManagerStaticMember)[vs[1].(int)]
@@ -358,12 +327,6 @@ func (o NetworkManagerStaticMemberMapOutput) ToNetworkManagerStaticMemberMapOutp
 
 func (o NetworkManagerStaticMemberMapOutput) ToNetworkManagerStaticMemberMapOutputWithContext(ctx context.Context) NetworkManagerStaticMemberMapOutput {
 	return o
-}
-
-func (o NetworkManagerStaticMemberMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkManagerStaticMember] {
-	return pulumix.Output[map[string]*NetworkManagerStaticMember]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkManagerStaticMemberMapOutput) MapIndex(k pulumi.StringInput) NetworkManagerStaticMemberOutput {

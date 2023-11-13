@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about Service Tags.
@@ -120,12 +119,6 @@ func (o GetServiceTagsResultOutput) ToGetServiceTagsResultOutput() GetServiceTag
 
 func (o GetServiceTagsResultOutput) ToGetServiceTagsResultOutputWithContext(ctx context.Context) GetServiceTagsResultOutput {
 	return o
-}
-
-func (o GetServiceTagsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceTagsResult] {
-	return pulumix.Output[GetServiceTagsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of address prefixes for the service type (and optionally a specific region).

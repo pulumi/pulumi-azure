@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Sets a MySQL Flexible Server Configuration value on a MySQL Flexible Server.
@@ -196,12 +195,6 @@ func (i *FlexibleServerConfiguration) ToFlexibleServerConfigurationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerConfigurationOutput)
 }
 
-func (i *FlexibleServerConfiguration) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServerConfiguration] {
-	return pulumix.Output[*FlexibleServerConfiguration]{
-		OutputState: i.ToFlexibleServerConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FlexibleServerConfigurationArrayInput is an input type that accepts FlexibleServerConfigurationArray and FlexibleServerConfigurationArrayOutput values.
 // You can construct a concrete instance of `FlexibleServerConfigurationArrayInput` via:
 //
@@ -225,12 +218,6 @@ func (i FlexibleServerConfigurationArray) ToFlexibleServerConfigurationArrayOutp
 
 func (i FlexibleServerConfigurationArray) ToFlexibleServerConfigurationArrayOutputWithContext(ctx context.Context) FlexibleServerConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerConfigurationArrayOutput)
-}
-
-func (i FlexibleServerConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*FlexibleServerConfiguration] {
-	return pulumix.Output[[]*FlexibleServerConfiguration]{
-		OutputState: i.ToFlexibleServerConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FlexibleServerConfigurationMapInput is an input type that accepts FlexibleServerConfigurationMap and FlexibleServerConfigurationMapOutput values.
@@ -258,12 +245,6 @@ func (i FlexibleServerConfigurationMap) ToFlexibleServerConfigurationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerConfigurationMapOutput)
 }
 
-func (i FlexibleServerConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlexibleServerConfiguration] {
-	return pulumix.Output[map[string]*FlexibleServerConfiguration]{
-		OutputState: i.ToFlexibleServerConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlexibleServerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FlexibleServerConfigurationOutput) ElementType() reflect.Type {
@@ -276,12 +257,6 @@ func (o FlexibleServerConfigurationOutput) ToFlexibleServerConfigurationOutput()
 
 func (o FlexibleServerConfigurationOutput) ToFlexibleServerConfigurationOutputWithContext(ctx context.Context) FlexibleServerConfigurationOutput {
 	return o
-}
-
-func (o FlexibleServerConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServerConfiguration] {
-	return pulumix.Output[*FlexibleServerConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the MySQL Flexible Server Configuration, which needs [to be a valid MySQL configuration name](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html). Changing this forces a new resource to be created.
@@ -318,12 +293,6 @@ func (o FlexibleServerConfigurationArrayOutput) ToFlexibleServerConfigurationArr
 	return o
 }
 
-func (o FlexibleServerConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FlexibleServerConfiguration] {
-	return pulumix.Output[[]*FlexibleServerConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlexibleServerConfigurationArrayOutput) Index(i pulumi.IntInput) FlexibleServerConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FlexibleServerConfiguration {
 		return vs[0].([]*FlexibleServerConfiguration)[vs[1].(int)]
@@ -342,12 +311,6 @@ func (o FlexibleServerConfigurationMapOutput) ToFlexibleServerConfigurationMapOu
 
 func (o FlexibleServerConfigurationMapOutput) ToFlexibleServerConfigurationMapOutputWithContext(ctx context.Context) FlexibleServerConfigurationMapOutput {
 	return o
-}
-
-func (o FlexibleServerConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlexibleServerConfiguration] {
-	return pulumix.Output[map[string]*FlexibleServerConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlexibleServerConfigurationMapOutput) MapIndex(k pulumi.StringInput) FlexibleServerConfigurationOutput {

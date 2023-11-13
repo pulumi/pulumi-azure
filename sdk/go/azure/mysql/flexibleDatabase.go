@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a MySQL Database within a MySQL Flexible Server
@@ -206,12 +205,6 @@ func (i *FlexibleDatabase) ToFlexibleDatabaseOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleDatabaseOutput)
 }
 
-func (i *FlexibleDatabase) ToOutput(ctx context.Context) pulumix.Output[*FlexibleDatabase] {
-	return pulumix.Output[*FlexibleDatabase]{
-		OutputState: i.ToFlexibleDatabaseOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FlexibleDatabaseArrayInput is an input type that accepts FlexibleDatabaseArray and FlexibleDatabaseArrayOutput values.
 // You can construct a concrete instance of `FlexibleDatabaseArrayInput` via:
 //
@@ -235,12 +228,6 @@ func (i FlexibleDatabaseArray) ToFlexibleDatabaseArrayOutput() FlexibleDatabaseA
 
 func (i FlexibleDatabaseArray) ToFlexibleDatabaseArrayOutputWithContext(ctx context.Context) FlexibleDatabaseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleDatabaseArrayOutput)
-}
-
-func (i FlexibleDatabaseArray) ToOutput(ctx context.Context) pulumix.Output[[]*FlexibleDatabase] {
-	return pulumix.Output[[]*FlexibleDatabase]{
-		OutputState: i.ToFlexibleDatabaseArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FlexibleDatabaseMapInput is an input type that accepts FlexibleDatabaseMap and FlexibleDatabaseMapOutput values.
@@ -268,12 +255,6 @@ func (i FlexibleDatabaseMap) ToFlexibleDatabaseMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleDatabaseMapOutput)
 }
 
-func (i FlexibleDatabaseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlexibleDatabase] {
-	return pulumix.Output[map[string]*FlexibleDatabase]{
-		OutputState: i.ToFlexibleDatabaseMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlexibleDatabaseOutput struct{ *pulumi.OutputState }
 
 func (FlexibleDatabaseOutput) ElementType() reflect.Type {
@@ -286,12 +267,6 @@ func (o FlexibleDatabaseOutput) ToFlexibleDatabaseOutput() FlexibleDatabaseOutpu
 
 func (o FlexibleDatabaseOutput) ToFlexibleDatabaseOutputWithContext(ctx context.Context) FlexibleDatabaseOutput {
 	return o
-}
-
-func (o FlexibleDatabaseOutput) ToOutput(ctx context.Context) pulumix.Output[*FlexibleDatabase] {
-	return pulumix.Output[*FlexibleDatabase]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL Charset](https://dev.mysql.com/doc/refman/5.7/en/charset-charsets.html). Changing this forces a new resource to be created.
@@ -333,12 +308,6 @@ func (o FlexibleDatabaseArrayOutput) ToFlexibleDatabaseArrayOutputWithContext(ct
 	return o
 }
 
-func (o FlexibleDatabaseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FlexibleDatabase] {
-	return pulumix.Output[[]*FlexibleDatabase]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlexibleDatabaseArrayOutput) Index(i pulumi.IntInput) FlexibleDatabaseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FlexibleDatabase {
 		return vs[0].([]*FlexibleDatabase)[vs[1].(int)]
@@ -357,12 +326,6 @@ func (o FlexibleDatabaseMapOutput) ToFlexibleDatabaseMapOutput() FlexibleDatabas
 
 func (o FlexibleDatabaseMapOutput) ToFlexibleDatabaseMapOutputWithContext(ctx context.Context) FlexibleDatabaseMapOutput {
 	return o
-}
-
-func (o FlexibleDatabaseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlexibleDatabase] {
-	return pulumix.Output[map[string]*FlexibleDatabase]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlexibleDatabaseMapOutput) MapIndex(k pulumi.StringInput) FlexibleDatabaseOutput {

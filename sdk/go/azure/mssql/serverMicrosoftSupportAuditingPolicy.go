@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a MS SQL Server Microsoft Support Auditing Policy.
@@ -378,12 +377,6 @@ func (i *ServerMicrosoftSupportAuditingPolicy) ToServerMicrosoftSupportAuditingP
 	return pulumi.ToOutputWithContext(ctx, i).(ServerMicrosoftSupportAuditingPolicyOutput)
 }
 
-func (i *ServerMicrosoftSupportAuditingPolicy) ToOutput(ctx context.Context) pulumix.Output[*ServerMicrosoftSupportAuditingPolicy] {
-	return pulumix.Output[*ServerMicrosoftSupportAuditingPolicy]{
-		OutputState: i.ToServerMicrosoftSupportAuditingPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServerMicrosoftSupportAuditingPolicyArrayInput is an input type that accepts ServerMicrosoftSupportAuditingPolicyArray and ServerMicrosoftSupportAuditingPolicyArrayOutput values.
 // You can construct a concrete instance of `ServerMicrosoftSupportAuditingPolicyArrayInput` via:
 //
@@ -407,12 +400,6 @@ func (i ServerMicrosoftSupportAuditingPolicyArray) ToServerMicrosoftSupportAudit
 
 func (i ServerMicrosoftSupportAuditingPolicyArray) ToServerMicrosoftSupportAuditingPolicyArrayOutputWithContext(ctx context.Context) ServerMicrosoftSupportAuditingPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerMicrosoftSupportAuditingPolicyArrayOutput)
-}
-
-func (i ServerMicrosoftSupportAuditingPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServerMicrosoftSupportAuditingPolicy] {
-	return pulumix.Output[[]*ServerMicrosoftSupportAuditingPolicy]{
-		OutputState: i.ToServerMicrosoftSupportAuditingPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServerMicrosoftSupportAuditingPolicyMapInput is an input type that accepts ServerMicrosoftSupportAuditingPolicyMap and ServerMicrosoftSupportAuditingPolicyMapOutput values.
@@ -440,12 +427,6 @@ func (i ServerMicrosoftSupportAuditingPolicyMap) ToServerMicrosoftSupportAuditin
 	return pulumi.ToOutputWithContext(ctx, i).(ServerMicrosoftSupportAuditingPolicyMapOutput)
 }
 
-func (i ServerMicrosoftSupportAuditingPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerMicrosoftSupportAuditingPolicy] {
-	return pulumix.Output[map[string]*ServerMicrosoftSupportAuditingPolicy]{
-		OutputState: i.ToServerMicrosoftSupportAuditingPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerMicrosoftSupportAuditingPolicyOutput struct{ *pulumi.OutputState }
 
 func (ServerMicrosoftSupportAuditingPolicyOutput) ElementType() reflect.Type {
@@ -458,12 +439,6 @@ func (o ServerMicrosoftSupportAuditingPolicyOutput) ToServerMicrosoftSupportAudi
 
 func (o ServerMicrosoftSupportAuditingPolicyOutput) ToServerMicrosoftSupportAuditingPolicyOutputWithContext(ctx context.Context) ServerMicrosoftSupportAuditingPolicyOutput {
 	return o
-}
-
-func (o ServerMicrosoftSupportAuditingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerMicrosoftSupportAuditingPolicy] {
-	return pulumix.Output[*ServerMicrosoftSupportAuditingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The blob storage endpoint (e.g. https://example.blob.core.windows.net). This blob storage will hold all Microsoft support auditing logs.
@@ -514,12 +489,6 @@ func (o ServerMicrosoftSupportAuditingPolicyArrayOutput) ToServerMicrosoftSuppor
 	return o
 }
 
-func (o ServerMicrosoftSupportAuditingPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServerMicrosoftSupportAuditingPolicy] {
-	return pulumix.Output[[]*ServerMicrosoftSupportAuditingPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServerMicrosoftSupportAuditingPolicyArrayOutput) Index(i pulumi.IntInput) ServerMicrosoftSupportAuditingPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerMicrosoftSupportAuditingPolicy {
 		return vs[0].([]*ServerMicrosoftSupportAuditingPolicy)[vs[1].(int)]
@@ -538,12 +507,6 @@ func (o ServerMicrosoftSupportAuditingPolicyMapOutput) ToServerMicrosoftSupportA
 
 func (o ServerMicrosoftSupportAuditingPolicyMapOutput) ToServerMicrosoftSupportAuditingPolicyMapOutputWithContext(ctx context.Context) ServerMicrosoftSupportAuditingPolicyMapOutput {
 	return o
-}
-
-func (o ServerMicrosoftSupportAuditingPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerMicrosoftSupportAuditingPolicy] {
-	return pulumix.Output[map[string]*ServerMicrosoftSupportAuditingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerMicrosoftSupportAuditingPolicyMapOutput) MapIndex(k pulumi.StringInput) ServerMicrosoftSupportAuditingPolicyOutput {

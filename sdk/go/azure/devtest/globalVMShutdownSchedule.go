@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages automated shutdown schedules for Azure VMs that are not within an Azure DevTest Lab. While this is part of the DevTest Labs service in Azure,
@@ -287,12 +286,6 @@ func (i *GlobalVMShutdownSchedule) ToGlobalVMShutdownScheduleOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalVMShutdownScheduleOutput)
 }
 
-func (i *GlobalVMShutdownSchedule) ToOutput(ctx context.Context) pulumix.Output[*GlobalVMShutdownSchedule] {
-	return pulumix.Output[*GlobalVMShutdownSchedule]{
-		OutputState: i.ToGlobalVMShutdownScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GlobalVMShutdownScheduleArrayInput is an input type that accepts GlobalVMShutdownScheduleArray and GlobalVMShutdownScheduleArrayOutput values.
 // You can construct a concrete instance of `GlobalVMShutdownScheduleArrayInput` via:
 //
@@ -316,12 +309,6 @@ func (i GlobalVMShutdownScheduleArray) ToGlobalVMShutdownScheduleArrayOutput() G
 
 func (i GlobalVMShutdownScheduleArray) ToGlobalVMShutdownScheduleArrayOutputWithContext(ctx context.Context) GlobalVMShutdownScheduleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalVMShutdownScheduleArrayOutput)
-}
-
-func (i GlobalVMShutdownScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]*GlobalVMShutdownSchedule] {
-	return pulumix.Output[[]*GlobalVMShutdownSchedule]{
-		OutputState: i.ToGlobalVMShutdownScheduleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GlobalVMShutdownScheduleMapInput is an input type that accepts GlobalVMShutdownScheduleMap and GlobalVMShutdownScheduleMapOutput values.
@@ -349,12 +336,6 @@ func (i GlobalVMShutdownScheduleMap) ToGlobalVMShutdownScheduleMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GlobalVMShutdownScheduleMapOutput)
 }
 
-func (i GlobalVMShutdownScheduleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GlobalVMShutdownSchedule] {
-	return pulumix.Output[map[string]*GlobalVMShutdownSchedule]{
-		OutputState: i.ToGlobalVMShutdownScheduleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GlobalVMShutdownScheduleOutput struct{ *pulumi.OutputState }
 
 func (GlobalVMShutdownScheduleOutput) ElementType() reflect.Type {
@@ -367,12 +348,6 @@ func (o GlobalVMShutdownScheduleOutput) ToGlobalVMShutdownScheduleOutput() Globa
 
 func (o GlobalVMShutdownScheduleOutput) ToGlobalVMShutdownScheduleOutputWithContext(ctx context.Context) GlobalVMShutdownScheduleOutput {
 	return o
-}
-
-func (o GlobalVMShutdownScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[*GlobalVMShutdownSchedule] {
-	return pulumix.Output[*GlobalVMShutdownSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The time each day when the schedule takes effect. Must match the format HHmm where HH is 00-23 and mm is 00-59 (e.g. 0930, 2300, etc.)
@@ -426,12 +401,6 @@ func (o GlobalVMShutdownScheduleArrayOutput) ToGlobalVMShutdownScheduleArrayOutp
 	return o
 }
 
-func (o GlobalVMShutdownScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GlobalVMShutdownSchedule] {
-	return pulumix.Output[[]*GlobalVMShutdownSchedule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GlobalVMShutdownScheduleArrayOutput) Index(i pulumi.IntInput) GlobalVMShutdownScheduleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GlobalVMShutdownSchedule {
 		return vs[0].([]*GlobalVMShutdownSchedule)[vs[1].(int)]
@@ -450,12 +419,6 @@ func (o GlobalVMShutdownScheduleMapOutput) ToGlobalVMShutdownScheduleMapOutput()
 
 func (o GlobalVMShutdownScheduleMapOutput) ToGlobalVMShutdownScheduleMapOutputWithContext(ctx context.Context) GlobalVMShutdownScheduleMapOutput {
 	return o
-}
-
-func (o GlobalVMShutdownScheduleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GlobalVMShutdownSchedule] {
-	return pulumix.Output[map[string]*GlobalVMShutdownSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GlobalVMShutdownScheduleMapOutput) MapIndex(k pulumi.StringInput) GlobalVMShutdownScheduleOutput {

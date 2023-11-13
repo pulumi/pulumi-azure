@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Federated Identity Credential.
@@ -173,12 +172,6 @@ func (i *FederatedIdentityCredential) ToFederatedIdentityCredentialOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedIdentityCredentialOutput)
 }
 
-func (i *FederatedIdentityCredential) ToOutput(ctx context.Context) pulumix.Output[*FederatedIdentityCredential] {
-	return pulumix.Output[*FederatedIdentityCredential]{
-		OutputState: i.ToFederatedIdentityCredentialOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FederatedIdentityCredentialArrayInput is an input type that accepts FederatedIdentityCredentialArray and FederatedIdentityCredentialArrayOutput values.
 // You can construct a concrete instance of `FederatedIdentityCredentialArrayInput` via:
 //
@@ -202,12 +195,6 @@ func (i FederatedIdentityCredentialArray) ToFederatedIdentityCredentialArrayOutp
 
 func (i FederatedIdentityCredentialArray) ToFederatedIdentityCredentialArrayOutputWithContext(ctx context.Context) FederatedIdentityCredentialArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedIdentityCredentialArrayOutput)
-}
-
-func (i FederatedIdentityCredentialArray) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedIdentityCredential] {
-	return pulumix.Output[[]*FederatedIdentityCredential]{
-		OutputState: i.ToFederatedIdentityCredentialArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FederatedIdentityCredentialMapInput is an input type that accepts FederatedIdentityCredentialMap and FederatedIdentityCredentialMapOutput values.
@@ -235,12 +222,6 @@ func (i FederatedIdentityCredentialMap) ToFederatedIdentityCredentialMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FederatedIdentityCredentialMapOutput)
 }
 
-func (i FederatedIdentityCredentialMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedIdentityCredential] {
-	return pulumix.Output[map[string]*FederatedIdentityCredential]{
-		OutputState: i.ToFederatedIdentityCredentialMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FederatedIdentityCredentialOutput struct{ *pulumi.OutputState }
 
 func (FederatedIdentityCredentialOutput) ElementType() reflect.Type {
@@ -253,12 +234,6 @@ func (o FederatedIdentityCredentialOutput) ToFederatedIdentityCredentialOutput()
 
 func (o FederatedIdentityCredentialOutput) ToFederatedIdentityCredentialOutputWithContext(ctx context.Context) FederatedIdentityCredentialOutput {
 	return o
-}
-
-func (o FederatedIdentityCredentialOutput) ToOutput(ctx context.Context) pulumix.Output[*FederatedIdentityCredential] {
-	return pulumix.Output[*FederatedIdentityCredential]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the audience for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created.
@@ -305,12 +280,6 @@ func (o FederatedIdentityCredentialArrayOutput) ToFederatedIdentityCredentialArr
 	return o
 }
 
-func (o FederatedIdentityCredentialArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FederatedIdentityCredential] {
-	return pulumix.Output[[]*FederatedIdentityCredential]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FederatedIdentityCredentialArrayOutput) Index(i pulumi.IntInput) FederatedIdentityCredentialOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FederatedIdentityCredential {
 		return vs[0].([]*FederatedIdentityCredential)[vs[1].(int)]
@@ -329,12 +298,6 @@ func (o FederatedIdentityCredentialMapOutput) ToFederatedIdentityCredentialMapOu
 
 func (o FederatedIdentityCredentialMapOutput) ToFederatedIdentityCredentialMapOutputWithContext(ctx context.Context) FederatedIdentityCredentialMapOutput {
 	return o
-}
-
-func (o FederatedIdentityCredentialMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FederatedIdentityCredential] {
-	return pulumix.Output[map[string]*FederatedIdentityCredential]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FederatedIdentityCredentialMapOutput) MapIndex(k pulumi.StringInput) FederatedIdentityCredentialOutput {
