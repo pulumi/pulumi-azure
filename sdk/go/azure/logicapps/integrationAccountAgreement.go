@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Logic App Integration Account Agreement.
@@ -312,12 +311,6 @@ func (i *IntegrationAccountAgreement) ToIntegrationAccountAgreementOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementOutput)
 }
 
-func (i *IntegrationAccountAgreement) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountAgreement] {
-	return pulumix.Output[*IntegrationAccountAgreement]{
-		OutputState: i.ToIntegrationAccountAgreementOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationAccountAgreementArrayInput is an input type that accepts IntegrationAccountAgreementArray and IntegrationAccountAgreementArrayOutput values.
 // You can construct a concrete instance of `IntegrationAccountAgreementArrayInput` via:
 //
@@ -341,12 +334,6 @@ func (i IntegrationAccountAgreementArray) ToIntegrationAccountAgreementArrayOutp
 
 func (i IntegrationAccountAgreementArray) ToIntegrationAccountAgreementArrayOutputWithContext(ctx context.Context) IntegrationAccountAgreementArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementArrayOutput)
-}
-
-func (i IntegrationAccountAgreementArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationAccountAgreement] {
-	return pulumix.Output[[]*IntegrationAccountAgreement]{
-		OutputState: i.ToIntegrationAccountAgreementArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IntegrationAccountAgreementMapInput is an input type that accepts IntegrationAccountAgreementMap and IntegrationAccountAgreementMapOutput values.
@@ -374,12 +361,6 @@ func (i IntegrationAccountAgreementMap) ToIntegrationAccountAgreementMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAgreementMapOutput)
 }
 
-func (i IntegrationAccountAgreementMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationAccountAgreement] {
-	return pulumix.Output[map[string]*IntegrationAccountAgreement]{
-		OutputState: i.ToIntegrationAccountAgreementMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationAccountAgreementOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountAgreementOutput) ElementType() reflect.Type {
@@ -392,12 +373,6 @@ func (o IntegrationAccountAgreementOutput) ToIntegrationAccountAgreementOutput()
 
 func (o IntegrationAccountAgreementOutput) ToIntegrationAccountAgreementOutputWithContext(ctx context.Context) IntegrationAccountAgreementOutput {
 	return o
-}
-
-func (o IntegrationAccountAgreementOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountAgreement] {
-	return pulumix.Output[*IntegrationAccountAgreement]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The type of the Logic App Integration Account Agreement. Possible values are `AS2`, `X12` and `Edifact`.
@@ -468,12 +443,6 @@ func (o IntegrationAccountAgreementArrayOutput) ToIntegrationAccountAgreementArr
 	return o
 }
 
-func (o IntegrationAccountAgreementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationAccountAgreement] {
-	return pulumix.Output[[]*IntegrationAccountAgreement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationAccountAgreementArrayOutput) Index(i pulumi.IntInput) IntegrationAccountAgreementOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationAccountAgreement {
 		return vs[0].([]*IntegrationAccountAgreement)[vs[1].(int)]
@@ -492,12 +461,6 @@ func (o IntegrationAccountAgreementMapOutput) ToIntegrationAccountAgreementMapOu
 
 func (o IntegrationAccountAgreementMapOutput) ToIntegrationAccountAgreementMapOutputWithContext(ctx context.Context) IntegrationAccountAgreementMapOutput {
 	return o
-}
-
-func (o IntegrationAccountAgreementMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationAccountAgreement] {
-	return pulumix.Output[map[string]*IntegrationAccountAgreement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationAccountAgreementMapOutput) MapIndex(k pulumi.StringInput) IntegrationAccountAgreementOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Key Vault Managed Hardware Security Module.
@@ -121,12 +120,6 @@ func (o LookupManagedHardwareSecurityModuleResultOutput) ToLookupManagedHardware
 
 func (o LookupManagedHardwareSecurityModuleResultOutput) ToLookupManagedHardwareSecurityModuleResultOutputWithContext(ctx context.Context) LookupManagedHardwareSecurityModuleResultOutput {
 	return o
-}
-
-func (o LookupManagedHardwareSecurityModuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupManagedHardwareSecurityModuleResult] {
-	return pulumix.Output[LookupManagedHardwareSecurityModuleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of administrators object IDs for the key vault Managed Hardware Security Module.

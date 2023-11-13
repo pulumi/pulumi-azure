@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Get information about a Mobile Network Sim Group.
@@ -119,12 +118,6 @@ func (o LookupNetworkSimGroupResultOutput) ToLookupNetworkSimGroupResultOutput()
 
 func (o LookupNetworkSimGroupResultOutput) ToLookupNetworkSimGroupResultOutputWithContext(ctx context.Context) LookupNetworkSimGroupResultOutput {
 	return o
-}
-
-func (o LookupNetworkSimGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkSimGroupResult] {
-	return pulumix.Output[LookupNetworkSimGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A key to encrypt the SIM data that belongs to this SIM group.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linux Function App Slot.
@@ -536,12 +535,6 @@ func (i *LinuxFunctionAppSlot) ToLinuxFunctionAppSlotOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxFunctionAppSlotOutput)
 }
 
-func (i *LinuxFunctionAppSlot) ToOutput(ctx context.Context) pulumix.Output[*LinuxFunctionAppSlot] {
-	return pulumix.Output[*LinuxFunctionAppSlot]{
-		OutputState: i.ToLinuxFunctionAppSlotOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinuxFunctionAppSlotArrayInput is an input type that accepts LinuxFunctionAppSlotArray and LinuxFunctionAppSlotArrayOutput values.
 // You can construct a concrete instance of `LinuxFunctionAppSlotArrayInput` via:
 //
@@ -565,12 +558,6 @@ func (i LinuxFunctionAppSlotArray) ToLinuxFunctionAppSlotArrayOutput() LinuxFunc
 
 func (i LinuxFunctionAppSlotArray) ToLinuxFunctionAppSlotArrayOutputWithContext(ctx context.Context) LinuxFunctionAppSlotArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxFunctionAppSlotArrayOutput)
-}
-
-func (i LinuxFunctionAppSlotArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinuxFunctionAppSlot] {
-	return pulumix.Output[[]*LinuxFunctionAppSlot]{
-		OutputState: i.ToLinuxFunctionAppSlotArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinuxFunctionAppSlotMapInput is an input type that accepts LinuxFunctionAppSlotMap and LinuxFunctionAppSlotMapOutput values.
@@ -598,12 +585,6 @@ func (i LinuxFunctionAppSlotMap) ToLinuxFunctionAppSlotMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LinuxFunctionAppSlotMapOutput)
 }
 
-func (i LinuxFunctionAppSlotMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinuxFunctionAppSlot] {
-	return pulumix.Output[map[string]*LinuxFunctionAppSlot]{
-		OutputState: i.ToLinuxFunctionAppSlotMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinuxFunctionAppSlotOutput struct{ *pulumi.OutputState }
 
 func (LinuxFunctionAppSlotOutput) ElementType() reflect.Type {
@@ -616,12 +597,6 @@ func (o LinuxFunctionAppSlotOutput) ToLinuxFunctionAppSlotOutput() LinuxFunction
 
 func (o LinuxFunctionAppSlotOutput) ToLinuxFunctionAppSlotOutputWithContext(ctx context.Context) LinuxFunctionAppSlotOutput {
 	return o
-}
-
-func (o LinuxFunctionAppSlotOutput) ToOutput(ctx context.Context) pulumix.Output[*LinuxFunctionAppSlot] {
-	return pulumix.Output[*LinuxFunctionAppSlot]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
@@ -830,12 +805,6 @@ func (o LinuxFunctionAppSlotArrayOutput) ToLinuxFunctionAppSlotArrayOutputWithCo
 	return o
 }
 
-func (o LinuxFunctionAppSlotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinuxFunctionAppSlot] {
-	return pulumix.Output[[]*LinuxFunctionAppSlot]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinuxFunctionAppSlotArrayOutput) Index(i pulumi.IntInput) LinuxFunctionAppSlotOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinuxFunctionAppSlot {
 		return vs[0].([]*LinuxFunctionAppSlot)[vs[1].(int)]
@@ -854,12 +823,6 @@ func (o LinuxFunctionAppSlotMapOutput) ToLinuxFunctionAppSlotMapOutput() LinuxFu
 
 func (o LinuxFunctionAppSlotMapOutput) ToLinuxFunctionAppSlotMapOutputWithContext(ctx context.Context) LinuxFunctionAppSlotMapOutput {
 	return o
-}
-
-func (o LinuxFunctionAppSlotMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinuxFunctionAppSlot] {
-	return pulumix.Output[map[string]*LinuxFunctionAppSlot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinuxFunctionAppSlotMapOutput) MapIndex(k pulumi.StringInput) LinuxFunctionAppSlotOutput {

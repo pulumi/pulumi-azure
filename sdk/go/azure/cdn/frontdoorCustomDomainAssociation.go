@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.
@@ -134,12 +133,6 @@ func (i *FrontdoorCustomDomainAssociation) ToFrontdoorCustomDomainAssociationOut
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorCustomDomainAssociationOutput)
 }
 
-func (i *FrontdoorCustomDomainAssociation) ToOutput(ctx context.Context) pulumix.Output[*FrontdoorCustomDomainAssociation] {
-	return pulumix.Output[*FrontdoorCustomDomainAssociation]{
-		OutputState: i.ToFrontdoorCustomDomainAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FrontdoorCustomDomainAssociationArrayInput is an input type that accepts FrontdoorCustomDomainAssociationArray and FrontdoorCustomDomainAssociationArrayOutput values.
 // You can construct a concrete instance of `FrontdoorCustomDomainAssociationArrayInput` via:
 //
@@ -163,12 +156,6 @@ func (i FrontdoorCustomDomainAssociationArray) ToFrontdoorCustomDomainAssociatio
 
 func (i FrontdoorCustomDomainAssociationArray) ToFrontdoorCustomDomainAssociationArrayOutputWithContext(ctx context.Context) FrontdoorCustomDomainAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorCustomDomainAssociationArrayOutput)
-}
-
-func (i FrontdoorCustomDomainAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*FrontdoorCustomDomainAssociation] {
-	return pulumix.Output[[]*FrontdoorCustomDomainAssociation]{
-		OutputState: i.ToFrontdoorCustomDomainAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FrontdoorCustomDomainAssociationMapInput is an input type that accepts FrontdoorCustomDomainAssociationMap and FrontdoorCustomDomainAssociationMapOutput values.
@@ -196,12 +183,6 @@ func (i FrontdoorCustomDomainAssociationMap) ToFrontdoorCustomDomainAssociationM
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorCustomDomainAssociationMapOutput)
 }
 
-func (i FrontdoorCustomDomainAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FrontdoorCustomDomainAssociation] {
-	return pulumix.Output[map[string]*FrontdoorCustomDomainAssociation]{
-		OutputState: i.ToFrontdoorCustomDomainAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FrontdoorCustomDomainAssociationOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorCustomDomainAssociationOutput) ElementType() reflect.Type {
@@ -214,12 +195,6 @@ func (o FrontdoorCustomDomainAssociationOutput) ToFrontdoorCustomDomainAssociati
 
 func (o FrontdoorCustomDomainAssociationOutput) ToFrontdoorCustomDomainAssociationOutputWithContext(ctx context.Context) FrontdoorCustomDomainAssociationOutput {
 	return o
-}
-
-func (o FrontdoorCustomDomainAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*FrontdoorCustomDomainAssociation] {
-	return pulumix.Output[*FrontdoorCustomDomainAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Front Door Custom Domain that should be managed by the association resource. Changing this forces a new association resource to be created.
@@ -248,12 +223,6 @@ func (o FrontdoorCustomDomainAssociationArrayOutput) ToFrontdoorCustomDomainAsso
 	return o
 }
 
-func (o FrontdoorCustomDomainAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FrontdoorCustomDomainAssociation] {
-	return pulumix.Output[[]*FrontdoorCustomDomainAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FrontdoorCustomDomainAssociationArrayOutput) Index(i pulumi.IntInput) FrontdoorCustomDomainAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FrontdoorCustomDomainAssociation {
 		return vs[0].([]*FrontdoorCustomDomainAssociation)[vs[1].(int)]
@@ -272,12 +241,6 @@ func (o FrontdoorCustomDomainAssociationMapOutput) ToFrontdoorCustomDomainAssoci
 
 func (o FrontdoorCustomDomainAssociationMapOutput) ToFrontdoorCustomDomainAssociationMapOutputWithContext(ctx context.Context) FrontdoorCustomDomainAssociationMapOutput {
 	return o
-}
-
-func (o FrontdoorCustomDomainAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FrontdoorCustomDomainAssociation] {
-	return pulumix.Output[map[string]*FrontdoorCustomDomainAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FrontdoorCustomDomainAssociationMapOutput) MapIndex(k pulumi.StringInput) FrontdoorCustomDomainAssociationOutput {

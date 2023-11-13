@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Promotes an App Service Slot to Production within an App Service.
@@ -181,12 +180,6 @@ func (i *ActiveSlot) ToActiveSlotOutputWithContext(ctx context.Context) ActiveSl
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveSlotOutput)
 }
 
-func (i *ActiveSlot) ToOutput(ctx context.Context) pulumix.Output[*ActiveSlot] {
-	return pulumix.Output[*ActiveSlot]{
-		OutputState: i.ToActiveSlotOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActiveSlotArrayInput is an input type that accepts ActiveSlotArray and ActiveSlotArrayOutput values.
 // You can construct a concrete instance of `ActiveSlotArrayInput` via:
 //
@@ -210,12 +203,6 @@ func (i ActiveSlotArray) ToActiveSlotArrayOutput() ActiveSlotArrayOutput {
 
 func (i ActiveSlotArray) ToActiveSlotArrayOutputWithContext(ctx context.Context) ActiveSlotArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveSlotArrayOutput)
-}
-
-func (i ActiveSlotArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActiveSlot] {
-	return pulumix.Output[[]*ActiveSlot]{
-		OutputState: i.ToActiveSlotArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ActiveSlotMapInput is an input type that accepts ActiveSlotMap and ActiveSlotMapOutput values.
@@ -243,12 +230,6 @@ func (i ActiveSlotMap) ToActiveSlotMapOutputWithContext(ctx context.Context) Act
 	return pulumi.ToOutputWithContext(ctx, i).(ActiveSlotMapOutput)
 }
 
-func (i ActiveSlotMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActiveSlot] {
-	return pulumix.Output[map[string]*ActiveSlot]{
-		OutputState: i.ToActiveSlotMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActiveSlotOutput struct{ *pulumi.OutputState }
 
 func (ActiveSlotOutput) ElementType() reflect.Type {
@@ -261,12 +242,6 @@ func (o ActiveSlotOutput) ToActiveSlotOutput() ActiveSlotOutput {
 
 func (o ActiveSlotOutput) ToActiveSlotOutputWithContext(ctx context.Context) ActiveSlotOutput {
 	return o
-}
-
-func (o ActiveSlotOutput) ToOutput(ctx context.Context) pulumix.Output[*ActiveSlot] {
-	return pulumix.Output[*ActiveSlot]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the App Service within which the Slot exists. Changing this forces a new resource to be created.
@@ -298,12 +273,6 @@ func (o ActiveSlotArrayOutput) ToActiveSlotArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ActiveSlotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActiveSlot] {
-	return pulumix.Output[[]*ActiveSlot]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ActiveSlotArrayOutput) Index(i pulumi.IntInput) ActiveSlotOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActiveSlot {
 		return vs[0].([]*ActiveSlot)[vs[1].(int)]
@@ -322,12 +291,6 @@ func (o ActiveSlotMapOutput) ToActiveSlotMapOutput() ActiveSlotMapOutput {
 
 func (o ActiveSlotMapOutput) ToActiveSlotMapOutputWithContext(ctx context.Context) ActiveSlotMapOutput {
 	return o
-}
-
-func (o ActiveSlotMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActiveSlot] {
-	return pulumix.Output[map[string]*ActiveSlot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActiveSlotMapOutput) MapIndex(k pulumi.StringInput) ActiveSlotOutput {

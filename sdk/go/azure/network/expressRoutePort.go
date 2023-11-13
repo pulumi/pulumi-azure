@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Express Route Port.
@@ -275,12 +274,6 @@ func (i *ExpressRoutePort) ToExpressRoutePortOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRoutePortOutput)
 }
 
-func (i *ExpressRoutePort) ToOutput(ctx context.Context) pulumix.Output[*ExpressRoutePort] {
-	return pulumix.Output[*ExpressRoutePort]{
-		OutputState: i.ToExpressRoutePortOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ExpressRoutePortArrayInput is an input type that accepts ExpressRoutePortArray and ExpressRoutePortArrayOutput values.
 // You can construct a concrete instance of `ExpressRoutePortArrayInput` via:
 //
@@ -304,12 +297,6 @@ func (i ExpressRoutePortArray) ToExpressRoutePortArrayOutput() ExpressRoutePortA
 
 func (i ExpressRoutePortArray) ToExpressRoutePortArrayOutputWithContext(ctx context.Context) ExpressRoutePortArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRoutePortArrayOutput)
-}
-
-func (i ExpressRoutePortArray) ToOutput(ctx context.Context) pulumix.Output[[]*ExpressRoutePort] {
-	return pulumix.Output[[]*ExpressRoutePort]{
-		OutputState: i.ToExpressRoutePortArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ExpressRoutePortMapInput is an input type that accepts ExpressRoutePortMap and ExpressRoutePortMapOutput values.
@@ -337,12 +324,6 @@ func (i ExpressRoutePortMap) ToExpressRoutePortMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRoutePortMapOutput)
 }
 
-func (i ExpressRoutePortMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExpressRoutePort] {
-	return pulumix.Output[map[string]*ExpressRoutePort]{
-		OutputState: i.ToExpressRoutePortMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ExpressRoutePortOutput struct{ *pulumi.OutputState }
 
 func (ExpressRoutePortOutput) ElementType() reflect.Type {
@@ -355,12 +336,6 @@ func (o ExpressRoutePortOutput) ToExpressRoutePortOutput() ExpressRoutePortOutpu
 
 func (o ExpressRoutePortOutput) ToExpressRoutePortOutputWithContext(ctx context.Context) ExpressRoutePortOutput {
 	return o
-}
-
-func (o ExpressRoutePortOutput) ToOutput(ctx context.Context) pulumix.Output[*ExpressRoutePort] {
-	return pulumix.Output[*ExpressRoutePort]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Bandwidth of the Express Route Port in Gbps. Changing this forces a new Express Route Port to be created.
@@ -447,12 +422,6 @@ func (o ExpressRoutePortArrayOutput) ToExpressRoutePortArrayOutputWithContext(ct
 	return o
 }
 
-func (o ExpressRoutePortArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ExpressRoutePort] {
-	return pulumix.Output[[]*ExpressRoutePort]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ExpressRoutePortArrayOutput) Index(i pulumi.IntInput) ExpressRoutePortOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExpressRoutePort {
 		return vs[0].([]*ExpressRoutePort)[vs[1].(int)]
@@ -471,12 +440,6 @@ func (o ExpressRoutePortMapOutput) ToExpressRoutePortMapOutput() ExpressRoutePor
 
 func (o ExpressRoutePortMapOutput) ToExpressRoutePortMapOutputWithContext(ctx context.Context) ExpressRoutePortMapOutput {
 	return o
-}
-
-func (o ExpressRoutePortMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExpressRoutePort] {
-	return pulumix.Output[map[string]*ExpressRoutePort]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ExpressRoutePortMapOutput) MapIndex(k pulumi.StringInput) ExpressRoutePortOutput {

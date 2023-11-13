@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Virtual Hub Route Table.
@@ -245,12 +244,6 @@ func (i *VirtualHubRouteTable) ToVirtualHubRouteTableOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubRouteTableOutput)
 }
 
-func (i *VirtualHubRouteTable) ToOutput(ctx context.Context) pulumix.Output[*VirtualHubRouteTable] {
-	return pulumix.Output[*VirtualHubRouteTable]{
-		OutputState: i.ToVirtualHubRouteTableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualHubRouteTableArrayInput is an input type that accepts VirtualHubRouteTableArray and VirtualHubRouteTableArrayOutput values.
 // You can construct a concrete instance of `VirtualHubRouteTableArrayInput` via:
 //
@@ -274,12 +267,6 @@ func (i VirtualHubRouteTableArray) ToVirtualHubRouteTableArrayOutput() VirtualHu
 
 func (i VirtualHubRouteTableArray) ToVirtualHubRouteTableArrayOutputWithContext(ctx context.Context) VirtualHubRouteTableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubRouteTableArrayOutput)
-}
-
-func (i VirtualHubRouteTableArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualHubRouteTable] {
-	return pulumix.Output[[]*VirtualHubRouteTable]{
-		OutputState: i.ToVirtualHubRouteTableArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualHubRouteTableMapInput is an input type that accepts VirtualHubRouteTableMap and VirtualHubRouteTableMapOutput values.
@@ -307,12 +294,6 @@ func (i VirtualHubRouteTableMap) ToVirtualHubRouteTableMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubRouteTableMapOutput)
 }
 
-func (i VirtualHubRouteTableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualHubRouteTable] {
-	return pulumix.Output[map[string]*VirtualHubRouteTable]{
-		OutputState: i.ToVirtualHubRouteTableMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualHubRouteTableOutput struct{ *pulumi.OutputState }
 
 func (VirtualHubRouteTableOutput) ElementType() reflect.Type {
@@ -325,12 +306,6 @@ func (o VirtualHubRouteTableOutput) ToVirtualHubRouteTableOutput() VirtualHubRou
 
 func (o VirtualHubRouteTableOutput) ToVirtualHubRouteTableOutputWithContext(ctx context.Context) VirtualHubRouteTableOutput {
 	return o
-}
-
-func (o VirtualHubRouteTableOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualHubRouteTable] {
-	return pulumix.Output[*VirtualHubRouteTable]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of labels associated with this route table.
@@ -367,12 +342,6 @@ func (o VirtualHubRouteTableArrayOutput) ToVirtualHubRouteTableArrayOutputWithCo
 	return o
 }
 
-func (o VirtualHubRouteTableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualHubRouteTable] {
-	return pulumix.Output[[]*VirtualHubRouteTable]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualHubRouteTableArrayOutput) Index(i pulumi.IntInput) VirtualHubRouteTableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualHubRouteTable {
 		return vs[0].([]*VirtualHubRouteTable)[vs[1].(int)]
@@ -391,12 +360,6 @@ func (o VirtualHubRouteTableMapOutput) ToVirtualHubRouteTableMapOutput() Virtual
 
 func (o VirtualHubRouteTableMapOutput) ToVirtualHubRouteTableMapOutputWithContext(ctx context.Context) VirtualHubRouteTableMapOutput {
 	return o
-}
-
-func (o VirtualHubRouteTableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualHubRouteTable] {
-	return pulumix.Output[map[string]*VirtualHubRouteTable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualHubRouteTableMapOutput) MapIndex(k pulumi.StringInput) VirtualHubRouteTableOutput {

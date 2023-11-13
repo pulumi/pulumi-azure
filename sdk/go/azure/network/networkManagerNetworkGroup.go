@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Network Manager Network Group.
@@ -185,12 +184,6 @@ func (i *NetworkManagerNetworkGroup) ToNetworkManagerNetworkGroupOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerNetworkGroupOutput)
 }
 
-func (i *NetworkManagerNetworkGroup) ToOutput(ctx context.Context) pulumix.Output[*NetworkManagerNetworkGroup] {
-	return pulumix.Output[*NetworkManagerNetworkGroup]{
-		OutputState: i.ToNetworkManagerNetworkGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkManagerNetworkGroupArrayInput is an input type that accepts NetworkManagerNetworkGroupArray and NetworkManagerNetworkGroupArrayOutput values.
 // You can construct a concrete instance of `NetworkManagerNetworkGroupArrayInput` via:
 //
@@ -214,12 +207,6 @@ func (i NetworkManagerNetworkGroupArray) ToNetworkManagerNetworkGroupArrayOutput
 
 func (i NetworkManagerNetworkGroupArray) ToNetworkManagerNetworkGroupArrayOutputWithContext(ctx context.Context) NetworkManagerNetworkGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerNetworkGroupArrayOutput)
-}
-
-func (i NetworkManagerNetworkGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkManagerNetworkGroup] {
-	return pulumix.Output[[]*NetworkManagerNetworkGroup]{
-		OutputState: i.ToNetworkManagerNetworkGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NetworkManagerNetworkGroupMapInput is an input type that accepts NetworkManagerNetworkGroupMap and NetworkManagerNetworkGroupMapOutput values.
@@ -247,12 +234,6 @@ func (i NetworkManagerNetworkGroupMap) ToNetworkManagerNetworkGroupMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerNetworkGroupMapOutput)
 }
 
-func (i NetworkManagerNetworkGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkManagerNetworkGroup] {
-	return pulumix.Output[map[string]*NetworkManagerNetworkGroup]{
-		OutputState: i.ToNetworkManagerNetworkGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkManagerNetworkGroupOutput struct{ *pulumi.OutputState }
 
 func (NetworkManagerNetworkGroupOutput) ElementType() reflect.Type {
@@ -265,12 +246,6 @@ func (o NetworkManagerNetworkGroupOutput) ToNetworkManagerNetworkGroupOutput() N
 
 func (o NetworkManagerNetworkGroupOutput) ToNetworkManagerNetworkGroupOutputWithContext(ctx context.Context) NetworkManagerNetworkGroupOutput {
 	return o
-}
-
-func (o NetworkManagerNetworkGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkManagerNetworkGroup] {
-	return pulumix.Output[*NetworkManagerNetworkGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description of the Network Manager Network Group.
@@ -302,12 +277,6 @@ func (o NetworkManagerNetworkGroupArrayOutput) ToNetworkManagerNetworkGroupArray
 	return o
 }
 
-func (o NetworkManagerNetworkGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkManagerNetworkGroup] {
-	return pulumix.Output[[]*NetworkManagerNetworkGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkManagerNetworkGroupArrayOutput) Index(i pulumi.IntInput) NetworkManagerNetworkGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkManagerNetworkGroup {
 		return vs[0].([]*NetworkManagerNetworkGroup)[vs[1].(int)]
@@ -326,12 +295,6 @@ func (o NetworkManagerNetworkGroupMapOutput) ToNetworkManagerNetworkGroupMapOutp
 
 func (o NetworkManagerNetworkGroupMapOutput) ToNetworkManagerNetworkGroupMapOutputWithContext(ctx context.Context) NetworkManagerNetworkGroupMapOutput {
 	return o
-}
-
-func (o NetworkManagerNetworkGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkManagerNetworkGroup] {
-	return pulumix.Output[map[string]*NetworkManagerNetworkGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkManagerNetworkGroupMapOutput) MapIndex(k pulumi.StringInput) NetworkManagerNetworkGroupOutput {

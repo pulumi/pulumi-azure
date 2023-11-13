@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Web App Active Slot.
@@ -186,12 +185,6 @@ func (i *WebAppActiveSlot) ToWebAppActiveSlotOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppActiveSlotOutput)
 }
 
-func (i *WebAppActiveSlot) ToOutput(ctx context.Context) pulumix.Output[*WebAppActiveSlot] {
-	return pulumix.Output[*WebAppActiveSlot]{
-		OutputState: i.ToWebAppActiveSlotOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WebAppActiveSlotArrayInput is an input type that accepts WebAppActiveSlotArray and WebAppActiveSlotArrayOutput values.
 // You can construct a concrete instance of `WebAppActiveSlotArrayInput` via:
 //
@@ -215,12 +208,6 @@ func (i WebAppActiveSlotArray) ToWebAppActiveSlotArrayOutput() WebAppActiveSlotA
 
 func (i WebAppActiveSlotArray) ToWebAppActiveSlotArrayOutputWithContext(ctx context.Context) WebAppActiveSlotArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppActiveSlotArrayOutput)
-}
-
-func (i WebAppActiveSlotArray) ToOutput(ctx context.Context) pulumix.Output[[]*WebAppActiveSlot] {
-	return pulumix.Output[[]*WebAppActiveSlot]{
-		OutputState: i.ToWebAppActiveSlotArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // WebAppActiveSlotMapInput is an input type that accepts WebAppActiveSlotMap and WebAppActiveSlotMapOutput values.
@@ -248,12 +235,6 @@ func (i WebAppActiveSlotMap) ToWebAppActiveSlotMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(WebAppActiveSlotMapOutput)
 }
 
-func (i WebAppActiveSlotMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WebAppActiveSlot] {
-	return pulumix.Output[map[string]*WebAppActiveSlot]{
-		OutputState: i.ToWebAppActiveSlotMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WebAppActiveSlotOutput struct{ *pulumi.OutputState }
 
 func (WebAppActiveSlotOutput) ElementType() reflect.Type {
@@ -266,12 +247,6 @@ func (o WebAppActiveSlotOutput) ToWebAppActiveSlotOutput() WebAppActiveSlotOutpu
 
 func (o WebAppActiveSlotOutput) ToWebAppActiveSlotOutputWithContext(ctx context.Context) WebAppActiveSlotOutput {
 	return o
-}
-
-func (o WebAppActiveSlotOutput) ToOutput(ctx context.Context) pulumix.Output[*WebAppActiveSlot] {
-	return pulumix.Output[*WebAppActiveSlot]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The timestamp of the last successful swap with `Production`.
@@ -303,12 +278,6 @@ func (o WebAppActiveSlotArrayOutput) ToWebAppActiveSlotArrayOutputWithContext(ct
 	return o
 }
 
-func (o WebAppActiveSlotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WebAppActiveSlot] {
-	return pulumix.Output[[]*WebAppActiveSlot]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WebAppActiveSlotArrayOutput) Index(i pulumi.IntInput) WebAppActiveSlotOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WebAppActiveSlot {
 		return vs[0].([]*WebAppActiveSlot)[vs[1].(int)]
@@ -327,12 +296,6 @@ func (o WebAppActiveSlotMapOutput) ToWebAppActiveSlotMapOutput() WebAppActiveSlo
 
 func (o WebAppActiveSlotMapOutput) ToWebAppActiveSlotMapOutputWithContext(ctx context.Context) WebAppActiveSlotMapOutput {
 	return o
-}
-
-func (o WebAppActiveSlotMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WebAppActiveSlot] {
-	return pulumix.Output[map[string]*WebAppActiveSlot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WebAppActiveSlotMapOutput) MapIndex(k pulumi.StringInput) WebAppActiveSlotOutput {

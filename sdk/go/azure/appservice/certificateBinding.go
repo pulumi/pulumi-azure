@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an App Service Certificate Binding.
@@ -155,12 +154,6 @@ func (i *CertificateBinding) ToCertificateBindingOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateBindingOutput)
 }
 
-func (i *CertificateBinding) ToOutput(ctx context.Context) pulumix.Output[*CertificateBinding] {
-	return pulumix.Output[*CertificateBinding]{
-		OutputState: i.ToCertificateBindingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateBindingArrayInput is an input type that accepts CertificateBindingArray and CertificateBindingArrayOutput values.
 // You can construct a concrete instance of `CertificateBindingArrayInput` via:
 //
@@ -184,12 +177,6 @@ func (i CertificateBindingArray) ToCertificateBindingArrayOutput() CertificateBi
 
 func (i CertificateBindingArray) ToCertificateBindingArrayOutputWithContext(ctx context.Context) CertificateBindingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateBindingArrayOutput)
-}
-
-func (i CertificateBindingArray) ToOutput(ctx context.Context) pulumix.Output[[]*CertificateBinding] {
-	return pulumix.Output[[]*CertificateBinding]{
-		OutputState: i.ToCertificateBindingArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CertificateBindingMapInput is an input type that accepts CertificateBindingMap and CertificateBindingMapOutput values.
@@ -217,12 +204,6 @@ func (i CertificateBindingMap) ToCertificateBindingMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateBindingMapOutput)
 }
 
-func (i CertificateBindingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CertificateBinding] {
-	return pulumix.Output[map[string]*CertificateBinding]{
-		OutputState: i.ToCertificateBindingMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateBindingOutput struct{ *pulumi.OutputState }
 
 func (CertificateBindingOutput) ElementType() reflect.Type {
@@ -235,12 +216,6 @@ func (o CertificateBindingOutput) ToCertificateBindingOutput() CertificateBindin
 
 func (o CertificateBindingOutput) ToCertificateBindingOutputWithContext(ctx context.Context) CertificateBindingOutput {
 	return o
-}
-
-func (o CertificateBindingOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateBinding] {
-	return pulumix.Output[*CertificateBinding]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the App Service to which the certificate was bound.
@@ -287,12 +262,6 @@ func (o CertificateBindingArrayOutput) ToCertificateBindingArrayOutputWithContex
 	return o
 }
 
-func (o CertificateBindingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CertificateBinding] {
-	return pulumix.Output[[]*CertificateBinding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertificateBindingArrayOutput) Index(i pulumi.IntInput) CertificateBindingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CertificateBinding {
 		return vs[0].([]*CertificateBinding)[vs[1].(int)]
@@ -311,12 +280,6 @@ func (o CertificateBindingMapOutput) ToCertificateBindingMapOutput() Certificate
 
 func (o CertificateBindingMapOutput) ToCertificateBindingMapOutputWithContext(ctx context.Context) CertificateBindingMapOutput {
 	return o
-}
-
-func (o CertificateBindingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CertificateBinding] {
-	return pulumix.Output[map[string]*CertificateBinding]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateBindingMapOutput) MapIndex(k pulumi.StringInput) CertificateBindingOutput {

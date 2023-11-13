@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -59,12 +58,6 @@ func (i MonitorPlanArgs) ToMonitorPlanOutputWithContext(ctx context.Context) Mon
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorPlanOutput)
 }
 
-func (i MonitorPlanArgs) ToOutput(ctx context.Context) pulumix.Output[MonitorPlan] {
-	return pulumix.Output[MonitorPlan]{
-		OutputState: i.ToMonitorPlanOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MonitorPlanArgs) ToMonitorPlanPtrOutput() MonitorPlanPtrOutput {
 	return i.ToMonitorPlanPtrOutputWithContext(context.Background())
 }
@@ -106,12 +99,6 @@ func (i *monitorPlanPtrType) ToMonitorPlanPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorPlanPtrOutput)
 }
 
-func (i *monitorPlanPtrType) ToOutput(ctx context.Context) pulumix.Output[*MonitorPlan] {
-	return pulumix.Output[*MonitorPlan]{
-		OutputState: i.ToMonitorPlanPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MonitorPlanOutput struct{ *pulumi.OutputState }
 
 func (MonitorPlanOutput) ElementType() reflect.Type {
@@ -134,12 +121,6 @@ func (o MonitorPlanOutput) ToMonitorPlanPtrOutputWithContext(ctx context.Context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorPlan) *MonitorPlan {
 		return &v
 	}).(MonitorPlanPtrOutput)
-}
-
-func (o MonitorPlanOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorPlan] {
-	return pulumix.Output[MonitorPlan]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the billing cycles. Possible values are `MONTHLY`, `WEEKLY` and `YEARLY`. Defaults to `MONTHLY`. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -174,12 +155,6 @@ func (o MonitorPlanPtrOutput) ToMonitorPlanPtrOutput() MonitorPlanPtrOutput {
 
 func (o MonitorPlanPtrOutput) ToMonitorPlanPtrOutputWithContext(ctx context.Context) MonitorPlanPtrOutput {
 	return o
-}
-
-func (o MonitorPlanPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitorPlan] {
-	return pulumix.Output[*MonitorPlan]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitorPlanPtrOutput) Elem() MonitorPlanOutput {
@@ -277,12 +252,6 @@ func (i MonitorUserArgs) ToMonitorUserOutputWithContext(ctx context.Context) Mon
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorUserOutput)
 }
 
-func (i MonitorUserArgs) ToOutput(ctx context.Context) pulumix.Output[MonitorUser] {
-	return pulumix.Output[MonitorUser]{
-		OutputState: i.ToMonitorUserOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i MonitorUserArgs) ToMonitorUserPtrOutput() MonitorUserPtrOutput {
 	return i.ToMonitorUserPtrOutputWithContext(context.Background())
 }
@@ -324,12 +293,6 @@ func (i *monitorUserPtrType) ToMonitorUserPtrOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(MonitorUserPtrOutput)
 }
 
-func (i *monitorUserPtrType) ToOutput(ctx context.Context) pulumix.Output[*MonitorUser] {
-	return pulumix.Output[*MonitorUser]{
-		OutputState: i.ToMonitorUserPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MonitorUserOutput struct{ *pulumi.OutputState }
 
 func (MonitorUserOutput) ElementType() reflect.Type {
@@ -352,12 +315,6 @@ func (o MonitorUserOutput) ToMonitorUserPtrOutputWithContext(ctx context.Context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorUser) *MonitorUser {
 		return &v
 	}).(MonitorUserPtrOutput)
-}
-
-func (o MonitorUserOutput) ToOutput(ctx context.Context) pulumix.Output[MonitorUser] {
-	return pulumix.Output[MonitorUser]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the user Email. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -392,12 +349,6 @@ func (o MonitorUserPtrOutput) ToMonitorUserPtrOutput() MonitorUserPtrOutput {
 
 func (o MonitorUserPtrOutput) ToMonitorUserPtrOutputWithContext(ctx context.Context) MonitorUserPtrOutput {
 	return o
-}
-
-func (o MonitorUserPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*MonitorUser] {
-	return pulumix.Output[*MonitorUser]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MonitorUserPtrOutput) Elem() MonitorUserOutput {
@@ -491,12 +442,6 @@ func (i TagRuleLogTagFilterArgs) ToTagRuleLogTagFilterOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TagRuleLogTagFilterOutput)
 }
 
-func (i TagRuleLogTagFilterArgs) ToOutput(ctx context.Context) pulumix.Output[TagRuleLogTagFilter] {
-	return pulumix.Output[TagRuleLogTagFilter]{
-		OutputState: i.ToTagRuleLogTagFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TagRuleLogTagFilterArrayInput is an input type that accepts TagRuleLogTagFilterArray and TagRuleLogTagFilterArrayOutput values.
 // You can construct a concrete instance of `TagRuleLogTagFilterArrayInput` via:
 //
@@ -522,12 +467,6 @@ func (i TagRuleLogTagFilterArray) ToTagRuleLogTagFilterArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TagRuleLogTagFilterArrayOutput)
 }
 
-func (i TagRuleLogTagFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]TagRuleLogTagFilter] {
-	return pulumix.Output[[]TagRuleLogTagFilter]{
-		OutputState: i.ToTagRuleLogTagFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TagRuleLogTagFilterOutput struct{ *pulumi.OutputState }
 
 func (TagRuleLogTagFilterOutput) ElementType() reflect.Type {
@@ -540,12 +479,6 @@ func (o TagRuleLogTagFilterOutput) ToTagRuleLogTagFilterOutput() TagRuleLogTagFi
 
 func (o TagRuleLogTagFilterOutput) ToTagRuleLogTagFilterOutputWithContext(ctx context.Context) TagRuleLogTagFilterOutput {
 	return o
-}
-
-func (o TagRuleLogTagFilterOutput) ToOutput(ctx context.Context) pulumix.Output[TagRuleLogTagFilter] {
-	return pulumix.Output[TagRuleLogTagFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Valid actions for a filtering tag. Possible values are `Exclude` and `Include`. Exclusion takes priority over inclusion.
@@ -575,12 +508,6 @@ func (o TagRuleLogTagFilterArrayOutput) ToTagRuleLogTagFilterArrayOutput() TagRu
 
 func (o TagRuleLogTagFilterArrayOutput) ToTagRuleLogTagFilterArrayOutputWithContext(ctx context.Context) TagRuleLogTagFilterArrayOutput {
 	return o
-}
-
-func (o TagRuleLogTagFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TagRuleLogTagFilter] {
-	return pulumix.Output[[]TagRuleLogTagFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TagRuleLogTagFilterArrayOutput) Index(i pulumi.IntInput) TagRuleLogTagFilterOutput {
@@ -630,12 +557,6 @@ func (i TagRuleMetricTagFilterArgs) ToTagRuleMetricTagFilterOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TagRuleMetricTagFilterOutput)
 }
 
-func (i TagRuleMetricTagFilterArgs) ToOutput(ctx context.Context) pulumix.Output[TagRuleMetricTagFilter] {
-	return pulumix.Output[TagRuleMetricTagFilter]{
-		OutputState: i.ToTagRuleMetricTagFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TagRuleMetricTagFilterArrayInput is an input type that accepts TagRuleMetricTagFilterArray and TagRuleMetricTagFilterArrayOutput values.
 // You can construct a concrete instance of `TagRuleMetricTagFilterArrayInput` via:
 //
@@ -661,12 +582,6 @@ func (i TagRuleMetricTagFilterArray) ToTagRuleMetricTagFilterArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(TagRuleMetricTagFilterArrayOutput)
 }
 
-func (i TagRuleMetricTagFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]TagRuleMetricTagFilter] {
-	return pulumix.Output[[]TagRuleMetricTagFilter]{
-		OutputState: i.ToTagRuleMetricTagFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TagRuleMetricTagFilterOutput struct{ *pulumi.OutputState }
 
 func (TagRuleMetricTagFilterOutput) ElementType() reflect.Type {
@@ -679,12 +594,6 @@ func (o TagRuleMetricTagFilterOutput) ToTagRuleMetricTagFilterOutput() TagRuleMe
 
 func (o TagRuleMetricTagFilterOutput) ToTagRuleMetricTagFilterOutputWithContext(ctx context.Context) TagRuleMetricTagFilterOutput {
 	return o
-}
-
-func (o TagRuleMetricTagFilterOutput) ToOutput(ctx context.Context) pulumix.Output[TagRuleMetricTagFilter] {
-	return pulumix.Output[TagRuleMetricTagFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Valid actions for a filtering tag. Possible values are `Exclude` and `Include`. Exclusion takes priority over inclusion.
@@ -714,12 +623,6 @@ func (o TagRuleMetricTagFilterArrayOutput) ToTagRuleMetricTagFilterArrayOutput()
 
 func (o TagRuleMetricTagFilterArrayOutput) ToTagRuleMetricTagFilterArrayOutputWithContext(ctx context.Context) TagRuleMetricTagFilterArrayOutput {
 	return o
-}
-
-func (o TagRuleMetricTagFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]TagRuleMetricTagFilter] {
-	return pulumix.Output[[]TagRuleMetricTagFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TagRuleMetricTagFilterArrayOutput) Index(i pulumi.IntInput) TagRuleMetricTagFilterOutput {

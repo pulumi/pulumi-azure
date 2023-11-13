@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Sentinel Machine Learning Behavior Analytics Alert Rule.
@@ -193,12 +192,6 @@ func (i *AlertRuleMachineLearningBehaviorAnalytics) ToAlertRuleMachineLearningBe
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleMachineLearningBehaviorAnalyticsOutput)
 }
 
-func (i *AlertRuleMachineLearningBehaviorAnalytics) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleMachineLearningBehaviorAnalytics] {
-	return pulumix.Output[*AlertRuleMachineLearningBehaviorAnalytics]{
-		OutputState: i.ToAlertRuleMachineLearningBehaviorAnalyticsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlertRuleMachineLearningBehaviorAnalyticsArrayInput is an input type that accepts AlertRuleMachineLearningBehaviorAnalyticsArray and AlertRuleMachineLearningBehaviorAnalyticsArrayOutput values.
 // You can construct a concrete instance of `AlertRuleMachineLearningBehaviorAnalyticsArrayInput` via:
 //
@@ -222,12 +215,6 @@ func (i AlertRuleMachineLearningBehaviorAnalyticsArray) ToAlertRuleMachineLearni
 
 func (i AlertRuleMachineLearningBehaviorAnalyticsArray) ToAlertRuleMachineLearningBehaviorAnalyticsArrayOutputWithContext(ctx context.Context) AlertRuleMachineLearningBehaviorAnalyticsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleMachineLearningBehaviorAnalyticsArrayOutput)
-}
-
-func (i AlertRuleMachineLearningBehaviorAnalyticsArray) ToOutput(ctx context.Context) pulumix.Output[[]*AlertRuleMachineLearningBehaviorAnalytics] {
-	return pulumix.Output[[]*AlertRuleMachineLearningBehaviorAnalytics]{
-		OutputState: i.ToAlertRuleMachineLearningBehaviorAnalyticsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AlertRuleMachineLearningBehaviorAnalyticsMapInput is an input type that accepts AlertRuleMachineLearningBehaviorAnalyticsMap and AlertRuleMachineLearningBehaviorAnalyticsMapOutput values.
@@ -255,12 +242,6 @@ func (i AlertRuleMachineLearningBehaviorAnalyticsMap) ToAlertRuleMachineLearning
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleMachineLearningBehaviorAnalyticsMapOutput)
 }
 
-func (i AlertRuleMachineLearningBehaviorAnalyticsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertRuleMachineLearningBehaviorAnalytics] {
-	return pulumix.Output[map[string]*AlertRuleMachineLearningBehaviorAnalytics]{
-		OutputState: i.ToAlertRuleMachineLearningBehaviorAnalyticsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertRuleMachineLearningBehaviorAnalyticsOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleMachineLearningBehaviorAnalyticsOutput) ElementType() reflect.Type {
@@ -273,12 +254,6 @@ func (o AlertRuleMachineLearningBehaviorAnalyticsOutput) ToAlertRuleMachineLearn
 
 func (o AlertRuleMachineLearningBehaviorAnalyticsOutput) ToAlertRuleMachineLearningBehaviorAnalyticsOutputWithContext(ctx context.Context) AlertRuleMachineLearningBehaviorAnalyticsOutput {
 	return o
-}
-
-func (o AlertRuleMachineLearningBehaviorAnalyticsOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleMachineLearningBehaviorAnalytics] {
-	return pulumix.Output[*AlertRuleMachineLearningBehaviorAnalytics]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The GUID of the alert rule template which is used for this Sentinel Machine Learning Behavior Analytics Alert Rule. Changing this forces a new Sentinel Machine Learning Behavior Analytics Alert Rule to be created.
@@ -317,12 +292,6 @@ func (o AlertRuleMachineLearningBehaviorAnalyticsArrayOutput) ToAlertRuleMachine
 	return o
 }
 
-func (o AlertRuleMachineLearningBehaviorAnalyticsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AlertRuleMachineLearningBehaviorAnalytics] {
-	return pulumix.Output[[]*AlertRuleMachineLearningBehaviorAnalytics]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AlertRuleMachineLearningBehaviorAnalyticsArrayOutput) Index(i pulumi.IntInput) AlertRuleMachineLearningBehaviorAnalyticsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlertRuleMachineLearningBehaviorAnalytics {
 		return vs[0].([]*AlertRuleMachineLearningBehaviorAnalytics)[vs[1].(int)]
@@ -341,12 +310,6 @@ func (o AlertRuleMachineLearningBehaviorAnalyticsMapOutput) ToAlertRuleMachineLe
 
 func (o AlertRuleMachineLearningBehaviorAnalyticsMapOutput) ToAlertRuleMachineLearningBehaviorAnalyticsMapOutputWithContext(ctx context.Context) AlertRuleMachineLearningBehaviorAnalyticsMapOutput {
 	return o
-}
-
-func (o AlertRuleMachineLearningBehaviorAnalyticsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertRuleMachineLearningBehaviorAnalytics] {
-	return pulumix.Output[map[string]*AlertRuleMachineLearningBehaviorAnalytics]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertRuleMachineLearningBehaviorAnalyticsMapOutput) MapIndex(k pulumi.StringInput) AlertRuleMachineLearningBehaviorAnalyticsOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
@@ -129,12 +128,6 @@ func (o GetAppServicePlanResultOutput) ToGetAppServicePlanResultOutput() GetAppS
 
 func (o GetAppServicePlanResultOutput) ToGetAppServicePlanResultOutputWithContext(ctx context.Context) GetAppServicePlanResultOutput {
 	return o
-}
-
-func (o GetAppServicePlanResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAppServicePlanResult] {
-	return pulumix.Output[GetAppServicePlanResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the App Service Environment where the App Service Plan is located.
