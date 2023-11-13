@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Resource Group Template Deployment.
@@ -212,12 +211,6 @@ func (i *ResourceGroupTemplateDeployment) ToResourceGroupTemplateDeploymentOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupTemplateDeploymentOutput)
 }
 
-func (i *ResourceGroupTemplateDeployment) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroupTemplateDeployment] {
-	return pulumix.Output[*ResourceGroupTemplateDeployment]{
-		OutputState: i.ToResourceGroupTemplateDeploymentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResourceGroupTemplateDeploymentArrayInput is an input type that accepts ResourceGroupTemplateDeploymentArray and ResourceGroupTemplateDeploymentArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupTemplateDeploymentArrayInput` via:
 //
@@ -241,12 +234,6 @@ func (i ResourceGroupTemplateDeploymentArray) ToResourceGroupTemplateDeploymentA
 
 func (i ResourceGroupTemplateDeploymentArray) ToResourceGroupTemplateDeploymentArrayOutputWithContext(ctx context.Context) ResourceGroupTemplateDeploymentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupTemplateDeploymentArrayOutput)
-}
-
-func (i ResourceGroupTemplateDeploymentArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceGroupTemplateDeployment] {
-	return pulumix.Output[[]*ResourceGroupTemplateDeployment]{
-		OutputState: i.ToResourceGroupTemplateDeploymentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ResourceGroupTemplateDeploymentMapInput is an input type that accepts ResourceGroupTemplateDeploymentMap and ResourceGroupTemplateDeploymentMapOutput values.
@@ -274,12 +261,6 @@ func (i ResourceGroupTemplateDeploymentMap) ToResourceGroupTemplateDeploymentMap
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupTemplateDeploymentMapOutput)
 }
 
-func (i ResourceGroupTemplateDeploymentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceGroupTemplateDeployment] {
-	return pulumix.Output[map[string]*ResourceGroupTemplateDeployment]{
-		OutputState: i.ToResourceGroupTemplateDeploymentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceGroupTemplateDeploymentOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupTemplateDeploymentOutput) ElementType() reflect.Type {
@@ -292,12 +273,6 @@ func (o ResourceGroupTemplateDeploymentOutput) ToResourceGroupTemplateDeployment
 
 func (o ResourceGroupTemplateDeploymentOutput) ToResourceGroupTemplateDeploymentOutputWithContext(ctx context.Context) ResourceGroupTemplateDeploymentOutput {
 	return o
-}
-
-func (o ResourceGroupTemplateDeploymentOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroupTemplateDeployment] {
-	return pulumix.Output[*ResourceGroupTemplateDeployment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
@@ -363,12 +338,6 @@ func (o ResourceGroupTemplateDeploymentArrayOutput) ToResourceGroupTemplateDeplo
 	return o
 }
 
-func (o ResourceGroupTemplateDeploymentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceGroupTemplateDeployment] {
-	return pulumix.Output[[]*ResourceGroupTemplateDeployment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceGroupTemplateDeploymentArrayOutput) Index(i pulumi.IntInput) ResourceGroupTemplateDeploymentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceGroupTemplateDeployment {
 		return vs[0].([]*ResourceGroupTemplateDeployment)[vs[1].(int)]
@@ -387,12 +356,6 @@ func (o ResourceGroupTemplateDeploymentMapOutput) ToResourceGroupTemplateDeploym
 
 func (o ResourceGroupTemplateDeploymentMapOutput) ToResourceGroupTemplateDeploymentMapOutputWithContext(ctx context.Context) ResourceGroupTemplateDeploymentMapOutput {
 	return o
-}
-
-func (o ResourceGroupTemplateDeploymentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceGroupTemplateDeployment] {
-	return pulumix.Output[map[string]*ResourceGroupTemplateDeployment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceGroupTemplateDeploymentMapOutput) MapIndex(k pulumi.StringInput) ResourceGroupTemplateDeploymentOutput {

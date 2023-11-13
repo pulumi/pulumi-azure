@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i ConfigurationConfigFileArgs) ToConfigurationConfigFileOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationConfigFileOutput)
 }
 
-func (i ConfigurationConfigFileArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationConfigFile] {
-	return pulumix.Output[ConfigurationConfigFile]{
-		OutputState: i.ToConfigurationConfigFileOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigurationConfigFileArrayInput is an input type that accepts ConfigurationConfigFileArray and ConfigurationConfigFileArrayOutput values.
 // You can construct a concrete instance of `ConfigurationConfigFileArrayInput` via:
 //
@@ -82,12 +75,6 @@ func (i ConfigurationConfigFileArray) ToConfigurationConfigFileArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationConfigFileArrayOutput)
 }
 
-func (i ConfigurationConfigFileArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationConfigFile] {
-	return pulumix.Output[[]ConfigurationConfigFile]{
-		OutputState: i.ToConfigurationConfigFileArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationConfigFileOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationConfigFileOutput) ElementType() reflect.Type {
@@ -100,12 +87,6 @@ func (o ConfigurationConfigFileOutput) ToConfigurationConfigFileOutput() Configu
 
 func (o ConfigurationConfigFileOutput) ToConfigurationConfigFileOutputWithContext(ctx context.Context) ConfigurationConfigFileOutput {
 	return o
-}
-
-func (o ConfigurationConfigFileOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationConfigFile] {
-	return pulumix.Output[ConfigurationConfigFile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the base-64 encoded contents of this config file.
@@ -130,12 +111,6 @@ func (o ConfigurationConfigFileArrayOutput) ToConfigurationConfigFileArrayOutput
 
 func (o ConfigurationConfigFileArrayOutput) ToConfigurationConfigFileArrayOutputWithContext(ctx context.Context) ConfigurationConfigFileArrayOutput {
 	return o
-}
-
-func (o ConfigurationConfigFileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationConfigFile] {
-	return pulumix.Output[[]ConfigurationConfigFile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationConfigFileArrayOutput) Index(i pulumi.IntInput) ConfigurationConfigFileOutput {
@@ -181,12 +156,6 @@ func (i ConfigurationProtectedFileArgs) ToConfigurationProtectedFileOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProtectedFileOutput)
 }
 
-func (i ConfigurationProtectedFileArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationProtectedFile] {
-	return pulumix.Output[ConfigurationProtectedFile]{
-		OutputState: i.ToConfigurationProtectedFileOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConfigurationProtectedFileArrayInput is an input type that accepts ConfigurationProtectedFileArray and ConfigurationProtectedFileArrayOutput values.
 // You can construct a concrete instance of `ConfigurationProtectedFileArrayInput` via:
 //
@@ -212,12 +181,6 @@ func (i ConfigurationProtectedFileArray) ToConfigurationProtectedFileArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProtectedFileArrayOutput)
 }
 
-func (i ConfigurationProtectedFileArray) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationProtectedFile] {
-	return pulumix.Output[[]ConfigurationProtectedFile]{
-		OutputState: i.ToConfigurationProtectedFileArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationProtectedFileOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProtectedFileOutput) ElementType() reflect.Type {
@@ -230,12 +193,6 @@ func (o ConfigurationProtectedFileOutput) ToConfigurationProtectedFileOutput() C
 
 func (o ConfigurationProtectedFileOutput) ToConfigurationProtectedFileOutputWithContext(ctx context.Context) ConfigurationProtectedFileOutput {
 	return o
-}
-
-func (o ConfigurationProtectedFileOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationProtectedFile] {
-	return pulumix.Output[ConfigurationProtectedFile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the base-64 encoded contents of this config file (Sensitive).
@@ -260,12 +217,6 @@ func (o ConfigurationProtectedFileArrayOutput) ToConfigurationProtectedFileArray
 
 func (o ConfigurationProtectedFileArrayOutput) ToConfigurationProtectedFileArrayOutputWithContext(ctx context.Context) ConfigurationProtectedFileArrayOutput {
 	return o
-}
-
-func (o ConfigurationProtectedFileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ConfigurationProtectedFile] {
-	return pulumix.Output[[]ConfigurationProtectedFile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationProtectedFileArrayOutput) Index(i pulumi.IntInput) ConfigurationProtectedFileOutput {
@@ -315,12 +266,6 @@ func (i DeploymentFrontendPrivateArgs) ToDeploymentFrontendPrivateOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentFrontendPrivateOutput)
 }
 
-func (i DeploymentFrontendPrivateArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentFrontendPrivate] {
-	return pulumix.Output[DeploymentFrontendPrivate]{
-		OutputState: i.ToDeploymentFrontendPrivateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DeploymentFrontendPrivateArrayInput is an input type that accepts DeploymentFrontendPrivateArray and DeploymentFrontendPrivateArrayOutput values.
 // You can construct a concrete instance of `DeploymentFrontendPrivateArrayInput` via:
 //
@@ -346,12 +291,6 @@ func (i DeploymentFrontendPrivateArray) ToDeploymentFrontendPrivateArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentFrontendPrivateArrayOutput)
 }
 
-func (i DeploymentFrontendPrivateArray) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentFrontendPrivate] {
-	return pulumix.Output[[]DeploymentFrontendPrivate]{
-		OutputState: i.ToDeploymentFrontendPrivateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeploymentFrontendPrivateOutput struct{ *pulumi.OutputState }
 
 func (DeploymentFrontendPrivateOutput) ElementType() reflect.Type {
@@ -364,12 +303,6 @@ func (o DeploymentFrontendPrivateOutput) ToDeploymentFrontendPrivateOutput() Dep
 
 func (o DeploymentFrontendPrivateOutput) ToDeploymentFrontendPrivateOutputWithContext(ctx context.Context) DeploymentFrontendPrivateOutput {
 	return o
-}
-
-func (o DeploymentFrontendPrivateOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentFrontendPrivate] {
-	return pulumix.Output[DeploymentFrontendPrivate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specify the methos of allocating the private IP. Possible values are `Static` and `Dynamic`.
@@ -399,12 +332,6 @@ func (o DeploymentFrontendPrivateArrayOutput) ToDeploymentFrontendPrivateArrayOu
 
 func (o DeploymentFrontendPrivateArrayOutput) ToDeploymentFrontendPrivateArrayOutputWithContext(ctx context.Context) DeploymentFrontendPrivateArrayOutput {
 	return o
-}
-
-func (o DeploymentFrontendPrivateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentFrontendPrivate] {
-	return pulumix.Output[[]DeploymentFrontendPrivate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeploymentFrontendPrivateArrayOutput) Index(i pulumi.IntInput) DeploymentFrontendPrivateOutput {
@@ -444,12 +371,6 @@ func (i DeploymentFrontendPublicArgs) ToDeploymentFrontendPublicOutput() Deploym
 
 func (i DeploymentFrontendPublicArgs) ToDeploymentFrontendPublicOutputWithContext(ctx context.Context) DeploymentFrontendPublicOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentFrontendPublicOutput)
-}
-
-func (i DeploymentFrontendPublicArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentFrontendPublic] {
-	return pulumix.Output[DeploymentFrontendPublic]{
-		OutputState: i.ToDeploymentFrontendPublicOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i DeploymentFrontendPublicArgs) ToDeploymentFrontendPublicPtrOutput() DeploymentFrontendPublicPtrOutput {
@@ -493,12 +414,6 @@ func (i *deploymentFrontendPublicPtrType) ToDeploymentFrontendPublicPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentFrontendPublicPtrOutput)
 }
 
-func (i *deploymentFrontendPublicPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentFrontendPublic] {
-	return pulumix.Output[*DeploymentFrontendPublic]{
-		OutputState: i.ToDeploymentFrontendPublicPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeploymentFrontendPublicOutput struct{ *pulumi.OutputState }
 
 func (DeploymentFrontendPublicOutput) ElementType() reflect.Type {
@@ -523,12 +438,6 @@ func (o DeploymentFrontendPublicOutput) ToDeploymentFrontendPublicPtrOutputWithC
 	}).(DeploymentFrontendPublicPtrOutput)
 }
 
-func (o DeploymentFrontendPublicOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentFrontendPublic] {
-	return pulumix.Output[DeploymentFrontendPublic]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies a list of Public IP Resouce ID to this Nginx Deployment.
 func (o DeploymentFrontendPublicOutput) IpAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DeploymentFrontendPublic) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
@@ -546,12 +455,6 @@ func (o DeploymentFrontendPublicPtrOutput) ToDeploymentFrontendPublicPtrOutput()
 
 func (o DeploymentFrontendPublicPtrOutput) ToDeploymentFrontendPublicPtrOutputWithContext(ctx context.Context) DeploymentFrontendPublicPtrOutput {
 	return o
-}
-
-func (o DeploymentFrontendPublicPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentFrontendPublic] {
-	return pulumix.Output[*DeploymentFrontendPublic]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeploymentFrontendPublicPtrOutput) Elem() DeploymentFrontendPublicOutput {
@@ -615,12 +518,6 @@ func (i DeploymentIdentityArgs) ToDeploymentIdentityOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIdentityOutput)
 }
 
-func (i DeploymentIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentIdentity] {
-	return pulumix.Output[DeploymentIdentity]{
-		OutputState: i.ToDeploymentIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DeploymentIdentityArgs) ToDeploymentIdentityPtrOutput() DeploymentIdentityPtrOutput {
 	return i.ToDeploymentIdentityPtrOutputWithContext(context.Background())
 }
@@ -662,12 +559,6 @@ func (i *deploymentIdentityPtrType) ToDeploymentIdentityPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentIdentityPtrOutput)
 }
 
-func (i *deploymentIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*DeploymentIdentity] {
-	return pulumix.Output[*DeploymentIdentity]{
-		OutputState: i.ToDeploymentIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeploymentIdentityOutput struct{ *pulumi.OutputState }
 
 func (DeploymentIdentityOutput) ElementType() reflect.Type {
@@ -690,12 +581,6 @@ func (o DeploymentIdentityOutput) ToDeploymentIdentityPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentIdentity) *DeploymentIdentity {
 		return &v
 	}).(DeploymentIdentityPtrOutput)
-}
-
-func (o DeploymentIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentIdentity] {
-	return pulumix.Output[DeploymentIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of user managed identity ids to be assigned. Required if `type` is `UserAssigned`.
@@ -728,12 +613,6 @@ func (o DeploymentIdentityPtrOutput) ToDeploymentIdentityPtrOutput() DeploymentI
 
 func (o DeploymentIdentityPtrOutput) ToDeploymentIdentityPtrOutputWithContext(ctx context.Context) DeploymentIdentityPtrOutput {
 	return o
-}
-
-func (o DeploymentIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DeploymentIdentity] {
-	return pulumix.Output[*DeploymentIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeploymentIdentityPtrOutput) Elem() DeploymentIdentityOutput {
@@ -821,12 +700,6 @@ func (i DeploymentLoggingStorageAccountArgs) ToDeploymentLoggingStorageAccountOu
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentLoggingStorageAccountOutput)
 }
 
-func (i DeploymentLoggingStorageAccountArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentLoggingStorageAccount] {
-	return pulumix.Output[DeploymentLoggingStorageAccount]{
-		OutputState: i.ToDeploymentLoggingStorageAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DeploymentLoggingStorageAccountArrayInput is an input type that accepts DeploymentLoggingStorageAccountArray and DeploymentLoggingStorageAccountArrayOutput values.
 // You can construct a concrete instance of `DeploymentLoggingStorageAccountArrayInput` via:
 //
@@ -852,12 +725,6 @@ func (i DeploymentLoggingStorageAccountArray) ToDeploymentLoggingStorageAccountA
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentLoggingStorageAccountArrayOutput)
 }
 
-func (i DeploymentLoggingStorageAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentLoggingStorageAccount] {
-	return pulumix.Output[[]DeploymentLoggingStorageAccount]{
-		OutputState: i.ToDeploymentLoggingStorageAccountArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeploymentLoggingStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (DeploymentLoggingStorageAccountOutput) ElementType() reflect.Type {
@@ -870,12 +737,6 @@ func (o DeploymentLoggingStorageAccountOutput) ToDeploymentLoggingStorageAccount
 
 func (o DeploymentLoggingStorageAccountOutput) ToDeploymentLoggingStorageAccountOutputWithContext(ctx context.Context) DeploymentLoggingStorageAccountOutput {
 	return o
-}
-
-func (o DeploymentLoggingStorageAccountOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentLoggingStorageAccount] {
-	return pulumix.Output[DeploymentLoggingStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specify the container name of Stoage Account for logging.
@@ -900,12 +761,6 @@ func (o DeploymentLoggingStorageAccountArrayOutput) ToDeploymentLoggingStorageAc
 
 func (o DeploymentLoggingStorageAccountArrayOutput) ToDeploymentLoggingStorageAccountArrayOutputWithContext(ctx context.Context) DeploymentLoggingStorageAccountArrayOutput {
 	return o
-}
-
-func (o DeploymentLoggingStorageAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentLoggingStorageAccount] {
-	return pulumix.Output[[]DeploymentLoggingStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeploymentLoggingStorageAccountArrayOutput) Index(i pulumi.IntInput) DeploymentLoggingStorageAccountOutput {
@@ -947,12 +802,6 @@ func (i DeploymentNetworkInterfaceArgs) ToDeploymentNetworkInterfaceOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentNetworkInterfaceOutput)
 }
 
-func (i DeploymentNetworkInterfaceArgs) ToOutput(ctx context.Context) pulumix.Output[DeploymentNetworkInterface] {
-	return pulumix.Output[DeploymentNetworkInterface]{
-		OutputState: i.ToDeploymentNetworkInterfaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DeploymentNetworkInterfaceArrayInput is an input type that accepts DeploymentNetworkInterfaceArray and DeploymentNetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `DeploymentNetworkInterfaceArrayInput` via:
 //
@@ -978,12 +827,6 @@ func (i DeploymentNetworkInterfaceArray) ToDeploymentNetworkInterfaceArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentNetworkInterfaceArrayOutput)
 }
 
-func (i DeploymentNetworkInterfaceArray) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentNetworkInterface] {
-	return pulumix.Output[[]DeploymentNetworkInterface]{
-		OutputState: i.ToDeploymentNetworkInterfaceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeploymentNetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (DeploymentNetworkInterfaceOutput) ElementType() reflect.Type {
@@ -996,12 +839,6 @@ func (o DeploymentNetworkInterfaceOutput) ToDeploymentNetworkInterfaceOutput() D
 
 func (o DeploymentNetworkInterfaceOutput) ToDeploymentNetworkInterfaceOutputWithContext(ctx context.Context) DeploymentNetworkInterfaceOutput {
 	return o
-}
-
-func (o DeploymentNetworkInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[DeploymentNetworkInterface] {
-	return pulumix.Output[DeploymentNetworkInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specify The SubNet Resource ID to this Nginx Deployment.
@@ -1021,12 +858,6 @@ func (o DeploymentNetworkInterfaceArrayOutput) ToDeploymentNetworkInterfaceArray
 
 func (o DeploymentNetworkInterfaceArrayOutput) ToDeploymentNetworkInterfaceArrayOutputWithContext(ctx context.Context) DeploymentNetworkInterfaceArrayOutput {
 	return o
-}
-
-func (o DeploymentNetworkInterfaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeploymentNetworkInterface] {
-	return pulumix.Output[[]DeploymentNetworkInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeploymentNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) DeploymentNetworkInterfaceOutput {

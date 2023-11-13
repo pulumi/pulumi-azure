@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
@@ -112,12 +111,6 @@ func (o LookupFrontdoorRuleSetResultOutput) ToLookupFrontdoorRuleSetResultOutput
 
 func (o LookupFrontdoorRuleSetResultOutput) ToLookupFrontdoorRuleSetResultOutputWithContext(ctx context.Context) LookupFrontdoorRuleSetResultOutput {
 	return o
-}
-
-func (o LookupFrontdoorRuleSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFrontdoorRuleSetResult] {
-	return pulumix.Output[LookupFrontdoorRuleSetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Front Door Profile within which this Front Door Rule Set exists.

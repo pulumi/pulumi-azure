@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a HDInsight HBase Cluster.
@@ -413,12 +412,6 @@ func (i *HBaseCluster) ToHBaseClusterOutputWithContext(ctx context.Context) HBas
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterOutput)
 }
 
-func (i *HBaseCluster) ToOutput(ctx context.Context) pulumix.Output[*HBaseCluster] {
-	return pulumix.Output[*HBaseCluster]{
-		OutputState: i.ToHBaseClusterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HBaseClusterArrayInput is an input type that accepts HBaseClusterArray and HBaseClusterArrayOutput values.
 // You can construct a concrete instance of `HBaseClusterArrayInput` via:
 //
@@ -442,12 +435,6 @@ func (i HBaseClusterArray) ToHBaseClusterArrayOutput() HBaseClusterArrayOutput {
 
 func (i HBaseClusterArray) ToHBaseClusterArrayOutputWithContext(ctx context.Context) HBaseClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterArrayOutput)
-}
-
-func (i HBaseClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*HBaseCluster] {
-	return pulumix.Output[[]*HBaseCluster]{
-		OutputState: i.ToHBaseClusterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // HBaseClusterMapInput is an input type that accepts HBaseClusterMap and HBaseClusterMapOutput values.
@@ -475,12 +462,6 @@ func (i HBaseClusterMap) ToHBaseClusterMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(HBaseClusterMapOutput)
 }
 
-func (i HBaseClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HBaseCluster] {
-	return pulumix.Output[map[string]*HBaseCluster]{
-		OutputState: i.ToHBaseClusterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HBaseClusterOutput struct{ *pulumi.OutputState }
 
 func (HBaseClusterOutput) ElementType() reflect.Type {
@@ -493,12 +474,6 @@ func (o HBaseClusterOutput) ToHBaseClusterOutput() HBaseClusterOutput {
 
 func (o HBaseClusterOutput) ToHBaseClusterOutputWithContext(ctx context.Context) HBaseClusterOutput {
 	return o
-}
-
-func (o HBaseClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*HBaseCluster] {
-	return pulumix.Output[*HBaseCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -622,12 +597,6 @@ func (o HBaseClusterArrayOutput) ToHBaseClusterArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o HBaseClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HBaseCluster] {
-	return pulumix.Output[[]*HBaseCluster]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o HBaseClusterArrayOutput) Index(i pulumi.IntInput) HBaseClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HBaseCluster {
 		return vs[0].([]*HBaseCluster)[vs[1].(int)]
@@ -646,12 +615,6 @@ func (o HBaseClusterMapOutput) ToHBaseClusterMapOutput() HBaseClusterMapOutput {
 
 func (o HBaseClusterMapOutput) ToHBaseClusterMapOutputWithContext(ctx context.Context) HBaseClusterMapOutput {
 	return o
-}
-
-func (o HBaseClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HBaseCluster] {
-	return pulumix.Output[map[string]*HBaseCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HBaseClusterMapOutput) MapIndex(k pulumi.StringInput) HBaseClusterOutput {

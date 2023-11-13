@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Container Connected Registry.
@@ -303,12 +302,6 @@ func (i *ConnectedRegistry) ToConnectedRegistryOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectedRegistryOutput)
 }
 
-func (i *ConnectedRegistry) ToOutput(ctx context.Context) pulumix.Output[*ConnectedRegistry] {
-	return pulumix.Output[*ConnectedRegistry]{
-		OutputState: i.ToConnectedRegistryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConnectedRegistryArrayInput is an input type that accepts ConnectedRegistryArray and ConnectedRegistryArrayOutput values.
 // You can construct a concrete instance of `ConnectedRegistryArrayInput` via:
 //
@@ -332,12 +325,6 @@ func (i ConnectedRegistryArray) ToConnectedRegistryArrayOutput() ConnectedRegist
 
 func (i ConnectedRegistryArray) ToConnectedRegistryArrayOutputWithContext(ctx context.Context) ConnectedRegistryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectedRegistryArrayOutput)
-}
-
-func (i ConnectedRegistryArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectedRegistry] {
-	return pulumix.Output[[]*ConnectedRegistry]{
-		OutputState: i.ToConnectedRegistryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ConnectedRegistryMapInput is an input type that accepts ConnectedRegistryMap and ConnectedRegistryMapOutput values.
@@ -365,12 +352,6 @@ func (i ConnectedRegistryMap) ToConnectedRegistryMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectedRegistryMapOutput)
 }
 
-func (i ConnectedRegistryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectedRegistry] {
-	return pulumix.Output[map[string]*ConnectedRegistry]{
-		OutputState: i.ToConnectedRegistryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectedRegistryOutput struct{ *pulumi.OutputState }
 
 func (ConnectedRegistryOutput) ElementType() reflect.Type {
@@ -383,12 +364,6 @@ func (o ConnectedRegistryOutput) ToConnectedRegistryOutput() ConnectedRegistryOu
 
 func (o ConnectedRegistryOutput) ToConnectedRegistryOutputWithContext(ctx context.Context) ConnectedRegistryOutput {
 	return o
-}
-
-func (o ConnectedRegistryOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectedRegistry] {
-	return pulumix.Output[*ConnectedRegistry]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Should the log auditing be enabled?
@@ -467,12 +442,6 @@ func (o ConnectedRegistryArrayOutput) ToConnectedRegistryArrayOutputWithContext(
 	return o
 }
 
-func (o ConnectedRegistryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectedRegistry] {
-	return pulumix.Output[[]*ConnectedRegistry]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectedRegistryArrayOutput) Index(i pulumi.IntInput) ConnectedRegistryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConnectedRegistry {
 		return vs[0].([]*ConnectedRegistry)[vs[1].(int)]
@@ -491,12 +460,6 @@ func (o ConnectedRegistryMapOutput) ToConnectedRegistryMapOutput() ConnectedRegi
 
 func (o ConnectedRegistryMapOutput) ToConnectedRegistryMapOutputWithContext(ctx context.Context) ConnectedRegistryMapOutput {
 	return o
-}
-
-func (o ConnectedRegistryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectedRegistry] {
-	return pulumix.Output[map[string]*ConnectedRegistry]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectedRegistryMapOutput) MapIndex(k pulumi.StringInput) ConnectedRegistryOutput {

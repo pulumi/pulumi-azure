@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Sentinel MS Security Incident Alert Rule.
@@ -273,12 +272,6 @@ func (i *AlertRuleMsSecurityIncident) ToAlertRuleMsSecurityIncidentOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleMsSecurityIncidentOutput)
 }
 
-func (i *AlertRuleMsSecurityIncident) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleMsSecurityIncident] {
-	return pulumix.Output[*AlertRuleMsSecurityIncident]{
-		OutputState: i.ToAlertRuleMsSecurityIncidentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlertRuleMsSecurityIncidentArrayInput is an input type that accepts AlertRuleMsSecurityIncidentArray and AlertRuleMsSecurityIncidentArrayOutput values.
 // You can construct a concrete instance of `AlertRuleMsSecurityIncidentArrayInput` via:
 //
@@ -302,12 +295,6 @@ func (i AlertRuleMsSecurityIncidentArray) ToAlertRuleMsSecurityIncidentArrayOutp
 
 func (i AlertRuleMsSecurityIncidentArray) ToAlertRuleMsSecurityIncidentArrayOutputWithContext(ctx context.Context) AlertRuleMsSecurityIncidentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleMsSecurityIncidentArrayOutput)
-}
-
-func (i AlertRuleMsSecurityIncidentArray) ToOutput(ctx context.Context) pulumix.Output[[]*AlertRuleMsSecurityIncident] {
-	return pulumix.Output[[]*AlertRuleMsSecurityIncident]{
-		OutputState: i.ToAlertRuleMsSecurityIncidentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AlertRuleMsSecurityIncidentMapInput is an input type that accepts AlertRuleMsSecurityIncidentMap and AlertRuleMsSecurityIncidentMapOutput values.
@@ -335,12 +322,6 @@ func (i AlertRuleMsSecurityIncidentMap) ToAlertRuleMsSecurityIncidentMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(AlertRuleMsSecurityIncidentMapOutput)
 }
 
-func (i AlertRuleMsSecurityIncidentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertRuleMsSecurityIncident] {
-	return pulumix.Output[map[string]*AlertRuleMsSecurityIncident]{
-		OutputState: i.ToAlertRuleMsSecurityIncidentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertRuleMsSecurityIncidentOutput struct{ *pulumi.OutputState }
 
 func (AlertRuleMsSecurityIncidentOutput) ElementType() reflect.Type {
@@ -353,12 +334,6 @@ func (o AlertRuleMsSecurityIncidentOutput) ToAlertRuleMsSecurityIncidentOutput()
 
 func (o AlertRuleMsSecurityIncidentOutput) ToAlertRuleMsSecurityIncidentOutputWithContext(ctx context.Context) AlertRuleMsSecurityIncidentOutput {
 	return o
-}
-
-func (o AlertRuleMsSecurityIncidentOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertRuleMsSecurityIncident] {
-	return pulumix.Output[*AlertRuleMsSecurityIncident]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The GUID of the alert rule template which is used to create this Sentinel Scheduled Alert Rule. Changing this forces a new Sentinel MS Security Incident Alert Rule to be created.
@@ -427,12 +402,6 @@ func (o AlertRuleMsSecurityIncidentArrayOutput) ToAlertRuleMsSecurityIncidentArr
 	return o
 }
 
-func (o AlertRuleMsSecurityIncidentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AlertRuleMsSecurityIncident] {
-	return pulumix.Output[[]*AlertRuleMsSecurityIncident]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AlertRuleMsSecurityIncidentArrayOutput) Index(i pulumi.IntInput) AlertRuleMsSecurityIncidentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlertRuleMsSecurityIncident {
 		return vs[0].([]*AlertRuleMsSecurityIncident)[vs[1].(int)]
@@ -451,12 +420,6 @@ func (o AlertRuleMsSecurityIncidentMapOutput) ToAlertRuleMsSecurityIncidentMapOu
 
 func (o AlertRuleMsSecurityIncidentMapOutput) ToAlertRuleMsSecurityIncidentMapOutputWithContext(ctx context.Context) AlertRuleMsSecurityIncidentMapOutput {
 	return o
-}
-
-func (o AlertRuleMsSecurityIncidentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertRuleMsSecurityIncident] {
-	return pulumix.Output[map[string]*AlertRuleMsSecurityIncident]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertRuleMsSecurityIncidentMapOutput) MapIndex(k pulumi.StringInput) AlertRuleMsSecurityIncidentOutput {

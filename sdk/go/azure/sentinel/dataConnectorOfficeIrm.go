@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Office IRM Data Connector.
@@ -189,12 +188,6 @@ func (i *DataConnectorOfficeIrm) ToDataConnectorOfficeIrmOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorOfficeIrmOutput)
 }
 
-func (i *DataConnectorOfficeIrm) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorOfficeIrm] {
-	return pulumix.Output[*DataConnectorOfficeIrm]{
-		OutputState: i.ToDataConnectorOfficeIrmOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataConnectorOfficeIrmArrayInput is an input type that accepts DataConnectorOfficeIrmArray and DataConnectorOfficeIrmArrayOutput values.
 // You can construct a concrete instance of `DataConnectorOfficeIrmArrayInput` via:
 //
@@ -218,12 +211,6 @@ func (i DataConnectorOfficeIrmArray) ToDataConnectorOfficeIrmArrayOutput() DataC
 
 func (i DataConnectorOfficeIrmArray) ToDataConnectorOfficeIrmArrayOutputWithContext(ctx context.Context) DataConnectorOfficeIrmArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorOfficeIrmArrayOutput)
-}
-
-func (i DataConnectorOfficeIrmArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorOfficeIrm] {
-	return pulumix.Output[[]*DataConnectorOfficeIrm]{
-		OutputState: i.ToDataConnectorOfficeIrmArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataConnectorOfficeIrmMapInput is an input type that accepts DataConnectorOfficeIrmMap and DataConnectorOfficeIrmMapOutput values.
@@ -251,12 +238,6 @@ func (i DataConnectorOfficeIrmMap) ToDataConnectorOfficeIrmMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorOfficeIrmMapOutput)
 }
 
-func (i DataConnectorOfficeIrmMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorOfficeIrm] {
-	return pulumix.Output[map[string]*DataConnectorOfficeIrm]{
-		OutputState: i.ToDataConnectorOfficeIrmMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataConnectorOfficeIrmOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorOfficeIrmOutput) ElementType() reflect.Type {
@@ -269,12 +250,6 @@ func (o DataConnectorOfficeIrmOutput) ToDataConnectorOfficeIrmOutput() DataConne
 
 func (o DataConnectorOfficeIrmOutput) ToDataConnectorOfficeIrmOutputWithContext(ctx context.Context) DataConnectorOfficeIrmOutput {
 	return o
-}
-
-func (o DataConnectorOfficeIrmOutput) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorOfficeIrm] {
-	return pulumix.Output[*DataConnectorOfficeIrm]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Log Analytics Workspace that this Office IRM Data Connector resides in. Changing this forces a new Office IRM Data Connector to be created.
@@ -308,12 +283,6 @@ func (o DataConnectorOfficeIrmArrayOutput) ToDataConnectorOfficeIrmArrayOutputWi
 	return o
 }
 
-func (o DataConnectorOfficeIrmArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorOfficeIrm] {
-	return pulumix.Output[[]*DataConnectorOfficeIrm]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataConnectorOfficeIrmArrayOutput) Index(i pulumi.IntInput) DataConnectorOfficeIrmOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorOfficeIrm {
 		return vs[0].([]*DataConnectorOfficeIrm)[vs[1].(int)]
@@ -332,12 +301,6 @@ func (o DataConnectorOfficeIrmMapOutput) ToDataConnectorOfficeIrmMapOutput() Dat
 
 func (o DataConnectorOfficeIrmMapOutput) ToDataConnectorOfficeIrmMapOutputWithContext(ctx context.Context) DataConnectorOfficeIrmMapOutput {
 	return o
-}
-
-func (o DataConnectorOfficeIrmMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorOfficeIrm] {
-	return pulumix.Output[map[string]*DataConnectorOfficeIrm]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataConnectorOfficeIrmMapOutput) MapIndex(k pulumi.StringInput) DataConnectorOfficeIrmOutput {

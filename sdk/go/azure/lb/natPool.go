@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Load Balancer NAT pool.
@@ -297,12 +296,6 @@ func (i *NatPool) ToNatPoolOutputWithContext(ctx context.Context) NatPoolOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(NatPoolOutput)
 }
 
-func (i *NatPool) ToOutput(ctx context.Context) pulumix.Output[*NatPool] {
-	return pulumix.Output[*NatPool]{
-		OutputState: i.ToNatPoolOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NatPoolArrayInput is an input type that accepts NatPoolArray and NatPoolArrayOutput values.
 // You can construct a concrete instance of `NatPoolArrayInput` via:
 //
@@ -326,12 +319,6 @@ func (i NatPoolArray) ToNatPoolArrayOutput() NatPoolArrayOutput {
 
 func (i NatPoolArray) ToNatPoolArrayOutputWithContext(ctx context.Context) NatPoolArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NatPoolArrayOutput)
-}
-
-func (i NatPoolArray) ToOutput(ctx context.Context) pulumix.Output[[]*NatPool] {
-	return pulumix.Output[[]*NatPool]{
-		OutputState: i.ToNatPoolArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NatPoolMapInput is an input type that accepts NatPoolMap and NatPoolMapOutput values.
@@ -359,12 +346,6 @@ func (i NatPoolMap) ToNatPoolMapOutputWithContext(ctx context.Context) NatPoolMa
 	return pulumi.ToOutputWithContext(ctx, i).(NatPoolMapOutput)
 }
 
-func (i NatPoolMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NatPool] {
-	return pulumix.Output[map[string]*NatPool]{
-		OutputState: i.ToNatPoolMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NatPoolOutput struct{ *pulumi.OutputState }
 
 func (NatPoolOutput) ElementType() reflect.Type {
@@ -377,12 +358,6 @@ func (o NatPoolOutput) ToNatPoolOutput() NatPoolOutput {
 
 func (o NatPoolOutput) ToNatPoolOutputWithContext(ctx context.Context) NatPoolOutput {
 	return o
-}
-
-func (o NatPoolOutput) ToOutput(ctx context.Context) pulumix.Output[*NatPool] {
-	return pulumix.Output[*NatPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The port used for the internal endpoint. Possible values range between 1 and 65535, inclusive.
@@ -458,12 +433,6 @@ func (o NatPoolArrayOutput) ToNatPoolArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o NatPoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NatPool] {
-	return pulumix.Output[[]*NatPool]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NatPoolArrayOutput) Index(i pulumi.IntInput) NatPoolOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NatPool {
 		return vs[0].([]*NatPool)[vs[1].(int)]
@@ -482,12 +451,6 @@ func (o NatPoolMapOutput) ToNatPoolMapOutput() NatPoolMapOutput {
 
 func (o NatPoolMapOutput) ToNatPoolMapOutputWithContext(ctx context.Context) NatPoolMapOutput {
 	return o
-}
-
-func (o NatPoolMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NatPool] {
-	return pulumix.Output[map[string]*NatPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NatPoolMapOutput) MapIndex(k pulumi.StringInput) NatPoolOutput {

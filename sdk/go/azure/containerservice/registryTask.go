@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Container Registry Task.
@@ -353,12 +352,6 @@ func (i *RegistryTask) ToRegistryTaskOutputWithContext(ctx context.Context) Regi
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskOutput)
 }
 
-func (i *RegistryTask) ToOutput(ctx context.Context) pulumix.Output[*RegistryTask] {
-	return pulumix.Output[*RegistryTask]{
-		OutputState: i.ToRegistryTaskOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RegistryTaskArrayInput is an input type that accepts RegistryTaskArray and RegistryTaskArrayOutput values.
 // You can construct a concrete instance of `RegistryTaskArrayInput` via:
 //
@@ -382,12 +375,6 @@ func (i RegistryTaskArray) ToRegistryTaskArrayOutput() RegistryTaskArrayOutput {
 
 func (i RegistryTaskArray) ToRegistryTaskArrayOutputWithContext(ctx context.Context) RegistryTaskArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskArrayOutput)
-}
-
-func (i RegistryTaskArray) ToOutput(ctx context.Context) pulumix.Output[[]*RegistryTask] {
-	return pulumix.Output[[]*RegistryTask]{
-		OutputState: i.ToRegistryTaskArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RegistryTaskMapInput is an input type that accepts RegistryTaskMap and RegistryTaskMapOutput values.
@@ -415,12 +402,6 @@ func (i RegistryTaskMap) ToRegistryTaskMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryTaskMapOutput)
 }
 
-func (i RegistryTaskMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegistryTask] {
-	return pulumix.Output[map[string]*RegistryTask]{
-		OutputState: i.ToRegistryTaskMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RegistryTaskOutput struct{ *pulumi.OutputState }
 
 func (RegistryTaskOutput) ElementType() reflect.Type {
@@ -433,12 +414,6 @@ func (o RegistryTaskOutput) ToRegistryTaskOutput() RegistryTaskOutput {
 
 func (o RegistryTaskOutput) ToRegistryTaskOutputWithContext(ctx context.Context) RegistryTaskOutput {
 	return o
-}
-
-func (o RegistryTaskOutput) ToOutput(ctx context.Context) pulumix.Output[*RegistryTask] {
-	return pulumix.Output[*RegistryTask]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the dedicated Container Registry Agent Pool for this Container Registry Task.
@@ -549,12 +524,6 @@ func (o RegistryTaskArrayOutput) ToRegistryTaskArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o RegistryTaskArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RegistryTask] {
-	return pulumix.Output[[]*RegistryTask]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RegistryTaskArrayOutput) Index(i pulumi.IntInput) RegistryTaskOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RegistryTask {
 		return vs[0].([]*RegistryTask)[vs[1].(int)]
@@ -573,12 +542,6 @@ func (o RegistryTaskMapOutput) ToRegistryTaskMapOutput() RegistryTaskMapOutput {
 
 func (o RegistryTaskMapOutput) ToRegistryTaskMapOutputWithContext(ctx context.Context) RegistryTaskMapOutput {
 	return o
-}
-
-func (o RegistryTaskMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RegistryTask] {
-	return pulumix.Output[map[string]*RegistryTask]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RegistryTaskMapOutput) MapIndex(k pulumi.StringInput) RegistryTaskOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Application Insights Standard WebTest.
@@ -305,12 +304,6 @@ func (i *StandardWebTest) ToStandardWebTestOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(StandardWebTestOutput)
 }
 
-func (i *StandardWebTest) ToOutput(ctx context.Context) pulumix.Output[*StandardWebTest] {
-	return pulumix.Output[*StandardWebTest]{
-		OutputState: i.ToStandardWebTestOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StandardWebTestArrayInput is an input type that accepts StandardWebTestArray and StandardWebTestArrayOutput values.
 // You can construct a concrete instance of `StandardWebTestArrayInput` via:
 //
@@ -334,12 +327,6 @@ func (i StandardWebTestArray) ToStandardWebTestArrayOutput() StandardWebTestArra
 
 func (i StandardWebTestArray) ToStandardWebTestArrayOutputWithContext(ctx context.Context) StandardWebTestArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StandardWebTestArrayOutput)
-}
-
-func (i StandardWebTestArray) ToOutput(ctx context.Context) pulumix.Output[[]*StandardWebTest] {
-	return pulumix.Output[[]*StandardWebTest]{
-		OutputState: i.ToStandardWebTestArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // StandardWebTestMapInput is an input type that accepts StandardWebTestMap and StandardWebTestMapOutput values.
@@ -367,12 +354,6 @@ func (i StandardWebTestMap) ToStandardWebTestMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(StandardWebTestMapOutput)
 }
 
-func (i StandardWebTestMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StandardWebTest] {
-	return pulumix.Output[map[string]*StandardWebTest]{
-		OutputState: i.ToStandardWebTestMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StandardWebTestOutput struct{ *pulumi.OutputState }
 
 func (StandardWebTestOutput) ElementType() reflect.Type {
@@ -385,12 +366,6 @@ func (o StandardWebTestOutput) ToStandardWebTestOutput() StandardWebTestOutput {
 
 func (o StandardWebTestOutput) ToStandardWebTestOutputWithContext(ctx context.Context) StandardWebTestOutput {
 	return o
-}
-
-func (o StandardWebTestOutput) ToOutput(ctx context.Context) pulumix.Output[*StandardWebTest] {
-	return pulumix.Output[*StandardWebTest]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Application Insights instance on which the WebTest operates. Changing this forces a new Application Insights Standard WebTest to be created.
@@ -479,12 +454,6 @@ func (o StandardWebTestArrayOutput) ToStandardWebTestArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o StandardWebTestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StandardWebTest] {
-	return pulumix.Output[[]*StandardWebTest]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StandardWebTestArrayOutput) Index(i pulumi.IntInput) StandardWebTestOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StandardWebTest {
 		return vs[0].([]*StandardWebTest)[vs[1].(int)]
@@ -503,12 +472,6 @@ func (o StandardWebTestMapOutput) ToStandardWebTestMapOutput() StandardWebTestMa
 
 func (o StandardWebTestMapOutput) ToStandardWebTestMapOutputWithContext(ctx context.Context) StandardWebTestMapOutput {
 	return o
-}
-
-func (o StandardWebTestMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StandardWebTest] {
-	return pulumix.Output[map[string]*StandardWebTest]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StandardWebTestMapOutput) MapIndex(k pulumi.StringInput) StandardWebTestOutput {

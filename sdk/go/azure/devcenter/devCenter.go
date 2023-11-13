@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
@@ -216,12 +215,6 @@ func (i *DevCenter) ToDevCenterOutputWithContext(ctx context.Context) DevCenterO
 	return pulumi.ToOutputWithContext(ctx, i).(DevCenterOutput)
 }
 
-func (i *DevCenter) ToOutput(ctx context.Context) pulumix.Output[*DevCenter] {
-	return pulumix.Output[*DevCenter]{
-		OutputState: i.ToDevCenterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DevCenterArrayInput is an input type that accepts DevCenterArray and DevCenterArrayOutput values.
 // You can construct a concrete instance of `DevCenterArrayInput` via:
 //
@@ -245,12 +238,6 @@ func (i DevCenterArray) ToDevCenterArrayOutput() DevCenterArrayOutput {
 
 func (i DevCenterArray) ToDevCenterArrayOutputWithContext(ctx context.Context) DevCenterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DevCenterArrayOutput)
-}
-
-func (i DevCenterArray) ToOutput(ctx context.Context) pulumix.Output[[]*DevCenter] {
-	return pulumix.Output[[]*DevCenter]{
-		OutputState: i.ToDevCenterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DevCenterMapInput is an input type that accepts DevCenterMap and DevCenterMapOutput values.
@@ -278,12 +265,6 @@ func (i DevCenterMap) ToDevCenterMapOutputWithContext(ctx context.Context) DevCe
 	return pulumi.ToOutputWithContext(ctx, i).(DevCenterMapOutput)
 }
 
-func (i DevCenterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DevCenter] {
-	return pulumix.Output[map[string]*DevCenter]{
-		OutputState: i.ToDevCenterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DevCenterOutput struct{ *pulumi.OutputState }
 
 func (DevCenterOutput) ElementType() reflect.Type {
@@ -296,12 +277,6 @@ func (o DevCenterOutput) ToDevCenterOutput() DevCenterOutput {
 
 func (o DevCenterOutput) ToDevCenterOutputWithContext(ctx context.Context) DevCenterOutput {
 	return o
-}
-
-func (o DevCenterOutput) ToOutput(ctx context.Context) pulumix.Output[*DevCenter] {
-	return pulumix.Output[*DevCenter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The URI of the Dev Center.
@@ -348,12 +323,6 @@ func (o DevCenterArrayOutput) ToDevCenterArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o DevCenterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DevCenter] {
-	return pulumix.Output[[]*DevCenter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DevCenterArrayOutput) Index(i pulumi.IntInput) DevCenterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DevCenter {
 		return vs[0].([]*DevCenter)[vs[1].(int)]
@@ -372,12 +341,6 @@ func (o DevCenterMapOutput) ToDevCenterMapOutput() DevCenterMapOutput {
 
 func (o DevCenterMapOutput) ToDevCenterMapOutputWithContext(ctx context.Context) DevCenterMapOutput {
 	return o
-}
-
-func (o DevCenterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DevCenter] {
-	return pulumix.Output[map[string]*DevCenter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DevCenterMapOutput) MapIndex(k pulumi.StringInput) DevCenterOutput {

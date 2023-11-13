@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a service connector for spring cloud app.
@@ -275,12 +274,6 @@ func (i *SpringCloudConnection) ToSpringCloudConnectionOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudConnectionOutput)
 }
 
-func (i *SpringCloudConnection) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudConnection] {
-	return pulumix.Output[*SpringCloudConnection]{
-		OutputState: i.ToSpringCloudConnectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SpringCloudConnectionArrayInput is an input type that accepts SpringCloudConnectionArray and SpringCloudConnectionArrayOutput values.
 // You can construct a concrete instance of `SpringCloudConnectionArrayInput` via:
 //
@@ -304,12 +297,6 @@ func (i SpringCloudConnectionArray) ToSpringCloudConnectionArrayOutput() SpringC
 
 func (i SpringCloudConnectionArray) ToSpringCloudConnectionArrayOutputWithContext(ctx context.Context) SpringCloudConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudConnectionArrayOutput)
-}
-
-func (i SpringCloudConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudConnection] {
-	return pulumix.Output[[]*SpringCloudConnection]{
-		OutputState: i.ToSpringCloudConnectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SpringCloudConnectionMapInput is an input type that accepts SpringCloudConnectionMap and SpringCloudConnectionMapOutput values.
@@ -337,12 +324,6 @@ func (i SpringCloudConnectionMap) ToSpringCloudConnectionMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudConnectionMapOutput)
 }
 
-func (i SpringCloudConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudConnection] {
-	return pulumix.Output[map[string]*SpringCloudConnection]{
-		OutputState: i.ToSpringCloudConnectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SpringCloudConnectionOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudConnectionOutput) ElementType() reflect.Type {
@@ -355,12 +336,6 @@ func (o SpringCloudConnectionOutput) ToSpringCloudConnectionOutput() SpringCloud
 
 func (o SpringCloudConnectionOutput) ToSpringCloudConnectionOutputWithContext(ctx context.Context) SpringCloudConnectionOutput {
 	return o
-}
-
-func (o SpringCloudConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudConnection] {
-	return pulumix.Output[*SpringCloudConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The authentication info. An `authentication` block as defined below.
@@ -412,12 +387,6 @@ func (o SpringCloudConnectionArrayOutput) ToSpringCloudConnectionArrayOutputWith
 	return o
 }
 
-func (o SpringCloudConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudConnection] {
-	return pulumix.Output[[]*SpringCloudConnection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SpringCloudConnectionArrayOutput) Index(i pulumi.IntInput) SpringCloudConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudConnection {
 		return vs[0].([]*SpringCloudConnection)[vs[1].(int)]
@@ -436,12 +405,6 @@ func (o SpringCloudConnectionMapOutput) ToSpringCloudConnectionMapOutput() Sprin
 
 func (o SpringCloudConnectionMapOutput) ToSpringCloudConnectionMapOutputWithContext(ctx context.Context) SpringCloudConnectionMapOutput {
 	return o
-}
-
-func (o SpringCloudConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudConnection] {
-	return pulumix.Output[map[string]*SpringCloudConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SpringCloudConnectionMapOutput) MapIndex(k pulumi.StringInput) SpringCloudConnectionOutput {

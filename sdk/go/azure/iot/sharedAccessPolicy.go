@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an IotHub Shared Access Policy
@@ -272,12 +271,6 @@ func (i *SharedAccessPolicy) ToSharedAccessPolicyOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessPolicyOutput)
 }
 
-func (i *SharedAccessPolicy) ToOutput(ctx context.Context) pulumix.Output[*SharedAccessPolicy] {
-	return pulumix.Output[*SharedAccessPolicy]{
-		OutputState: i.ToSharedAccessPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SharedAccessPolicyArrayInput is an input type that accepts SharedAccessPolicyArray and SharedAccessPolicyArrayOutput values.
 // You can construct a concrete instance of `SharedAccessPolicyArrayInput` via:
 //
@@ -301,12 +294,6 @@ func (i SharedAccessPolicyArray) ToSharedAccessPolicyArrayOutput() SharedAccessP
 
 func (i SharedAccessPolicyArray) ToSharedAccessPolicyArrayOutputWithContext(ctx context.Context) SharedAccessPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessPolicyArrayOutput)
-}
-
-func (i SharedAccessPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*SharedAccessPolicy] {
-	return pulumix.Output[[]*SharedAccessPolicy]{
-		OutputState: i.ToSharedAccessPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SharedAccessPolicyMapInput is an input type that accepts SharedAccessPolicyMap and SharedAccessPolicyMapOutput values.
@@ -334,12 +321,6 @@ func (i SharedAccessPolicyMap) ToSharedAccessPolicyMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(SharedAccessPolicyMapOutput)
 }
 
-func (i SharedAccessPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SharedAccessPolicy] {
-	return pulumix.Output[map[string]*SharedAccessPolicy]{
-		OutputState: i.ToSharedAccessPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SharedAccessPolicyOutput struct{ *pulumi.OutputState }
 
 func (SharedAccessPolicyOutput) ElementType() reflect.Type {
@@ -352,12 +333,6 @@ func (o SharedAccessPolicyOutput) ToSharedAccessPolicyOutput() SharedAccessPolic
 
 func (o SharedAccessPolicyOutput) ToSharedAccessPolicyOutputWithContext(ctx context.Context) SharedAccessPolicyOutput {
 	return o
-}
-
-func (o SharedAccessPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*SharedAccessPolicy] {
-	return pulumix.Output[*SharedAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Adds `DeviceConnect` permission to this Shared Access Account. It allows sending and receiving on the device-side endpoints.
@@ -433,12 +408,6 @@ func (o SharedAccessPolicyArrayOutput) ToSharedAccessPolicyArrayOutputWithContex
 	return o
 }
 
-func (o SharedAccessPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SharedAccessPolicy] {
-	return pulumix.Output[[]*SharedAccessPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SharedAccessPolicyArrayOutput) Index(i pulumi.IntInput) SharedAccessPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SharedAccessPolicy {
 		return vs[0].([]*SharedAccessPolicy)[vs[1].(int)]
@@ -457,12 +426,6 @@ func (o SharedAccessPolicyMapOutput) ToSharedAccessPolicyMapOutput() SharedAcces
 
 func (o SharedAccessPolicyMapOutput) ToSharedAccessPolicyMapOutputWithContext(ctx context.Context) SharedAccessPolicyMapOutput {
 	return o
-}
-
-func (o SharedAccessPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SharedAccessPolicy] {
-	return pulumix.Output[map[string]*SharedAccessPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SharedAccessPolicyMapOutput) MapIndex(k pulumi.StringInput) SharedAccessPolicyOutput {

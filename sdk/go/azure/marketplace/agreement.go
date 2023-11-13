@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Allows accepting the Legal Terms for a Marketplace Image.
@@ -171,12 +170,6 @@ func (i *Agreement) ToAgreementOutputWithContext(ctx context.Context) AgreementO
 	return pulumi.ToOutputWithContext(ctx, i).(AgreementOutput)
 }
 
-func (i *Agreement) ToOutput(ctx context.Context) pulumix.Output[*Agreement] {
-	return pulumix.Output[*Agreement]{
-		OutputState: i.ToAgreementOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AgreementArrayInput is an input type that accepts AgreementArray and AgreementArrayOutput values.
 // You can construct a concrete instance of `AgreementArrayInput` via:
 //
@@ -200,12 +193,6 @@ func (i AgreementArray) ToAgreementArrayOutput() AgreementArrayOutput {
 
 func (i AgreementArray) ToAgreementArrayOutputWithContext(ctx context.Context) AgreementArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AgreementArrayOutput)
-}
-
-func (i AgreementArray) ToOutput(ctx context.Context) pulumix.Output[[]*Agreement] {
-	return pulumix.Output[[]*Agreement]{
-		OutputState: i.ToAgreementArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AgreementMapInput is an input type that accepts AgreementMap and AgreementMapOutput values.
@@ -233,12 +220,6 @@ func (i AgreementMap) ToAgreementMapOutputWithContext(ctx context.Context) Agree
 	return pulumi.ToOutputWithContext(ctx, i).(AgreementMapOutput)
 }
 
-func (i AgreementMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Agreement] {
-	return pulumix.Output[map[string]*Agreement]{
-		OutputState: i.ToAgreementMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AgreementOutput struct{ *pulumi.OutputState }
 
 func (AgreementOutput) ElementType() reflect.Type {
@@ -251,12 +232,6 @@ func (o AgreementOutput) ToAgreementOutput() AgreementOutput {
 
 func (o AgreementOutput) ToAgreementOutputWithContext(ctx context.Context) AgreementOutput {
 	return o
-}
-
-func (o AgreementOutput) ToOutput(ctx context.Context) pulumix.Output[*Agreement] {
-	return pulumix.Output[*Agreement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AgreementOutput) LicenseTextLink() pulumi.StringOutput {
@@ -296,12 +271,6 @@ func (o AgreementArrayOutput) ToAgreementArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o AgreementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Agreement] {
-	return pulumix.Output[[]*Agreement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AgreementArrayOutput) Index(i pulumi.IntInput) AgreementOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Agreement {
 		return vs[0].([]*Agreement)[vs[1].(int)]
@@ -320,12 +289,6 @@ func (o AgreementMapOutput) ToAgreementMapOutput() AgreementMapOutput {
 
 func (o AgreementMapOutput) ToAgreementMapOutputWithContext(ctx context.Context) AgreementMapOutput {
 	return o
-}
-
-func (o AgreementMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Agreement] {
-	return pulumix.Output[map[string]*Agreement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AgreementMapOutput) MapIndex(k pulumi.StringInput) AgreementOutput {

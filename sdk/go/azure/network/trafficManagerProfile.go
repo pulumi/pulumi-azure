@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Traffic Manager Profile to which multiple endpoints can be attached.
@@ -281,12 +280,6 @@ func (i *TrafficManagerProfile) ToTrafficManagerProfileOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerProfileOutput)
 }
 
-func (i *TrafficManagerProfile) ToOutput(ctx context.Context) pulumix.Output[*TrafficManagerProfile] {
-	return pulumix.Output[*TrafficManagerProfile]{
-		OutputState: i.ToTrafficManagerProfileOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TrafficManagerProfileArrayInput is an input type that accepts TrafficManagerProfileArray and TrafficManagerProfileArrayOutput values.
 // You can construct a concrete instance of `TrafficManagerProfileArrayInput` via:
 //
@@ -310,12 +303,6 @@ func (i TrafficManagerProfileArray) ToTrafficManagerProfileArrayOutput() Traffic
 
 func (i TrafficManagerProfileArray) ToTrafficManagerProfileArrayOutputWithContext(ctx context.Context) TrafficManagerProfileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerProfileArrayOutput)
-}
-
-func (i TrafficManagerProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]*TrafficManagerProfile] {
-	return pulumix.Output[[]*TrafficManagerProfile]{
-		OutputState: i.ToTrafficManagerProfileArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TrafficManagerProfileMapInput is an input type that accepts TrafficManagerProfileMap and TrafficManagerProfileMapOutput values.
@@ -343,12 +330,6 @@ func (i TrafficManagerProfileMap) ToTrafficManagerProfileMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficManagerProfileMapOutput)
 }
 
-func (i TrafficManagerProfileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrafficManagerProfile] {
-	return pulumix.Output[map[string]*TrafficManagerProfile]{
-		OutputState: i.ToTrafficManagerProfileMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TrafficManagerProfileOutput struct{ *pulumi.OutputState }
 
 func (TrafficManagerProfileOutput) ElementType() reflect.Type {
@@ -361,12 +342,6 @@ func (o TrafficManagerProfileOutput) ToTrafficManagerProfileOutput() TrafficMana
 
 func (o TrafficManagerProfileOutput) ToTrafficManagerProfileOutputWithContext(ctx context.Context) TrafficManagerProfileOutput {
 	return o
-}
-
-func (o TrafficManagerProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*TrafficManagerProfile] {
-	return pulumix.Output[*TrafficManagerProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // This block specifies the DNS configuration of the Profile, it supports the fields documented below.
@@ -435,12 +410,6 @@ func (o TrafficManagerProfileArrayOutput) ToTrafficManagerProfileArrayOutputWith
 	return o
 }
 
-func (o TrafficManagerProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TrafficManagerProfile] {
-	return pulumix.Output[[]*TrafficManagerProfile]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TrafficManagerProfileArrayOutput) Index(i pulumi.IntInput) TrafficManagerProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TrafficManagerProfile {
 		return vs[0].([]*TrafficManagerProfile)[vs[1].(int)]
@@ -459,12 +428,6 @@ func (o TrafficManagerProfileMapOutput) ToTrafficManagerProfileMapOutput() Traff
 
 func (o TrafficManagerProfileMapOutput) ToTrafficManagerProfileMapOutputWithContext(ctx context.Context) TrafficManagerProfileMapOutput {
 	return o
-}
-
-func (o TrafficManagerProfileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrafficManagerProfile] {
-	return pulumix.Output[map[string]*TrafficManagerProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TrafficManagerProfileMapOutput) MapIndex(k pulumi.StringInput) TrafficManagerProfileOutput {
