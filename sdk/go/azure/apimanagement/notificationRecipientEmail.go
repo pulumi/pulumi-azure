@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a API Management Notification Recipient Email.
@@ -182,12 +181,6 @@ func (i *NotificationRecipientEmail) ToNotificationRecipientEmailOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRecipientEmailOutput)
 }
 
-func (i *NotificationRecipientEmail) ToOutput(ctx context.Context) pulumix.Output[*NotificationRecipientEmail] {
-	return pulumix.Output[*NotificationRecipientEmail]{
-		OutputState: i.ToNotificationRecipientEmailOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NotificationRecipientEmailArrayInput is an input type that accepts NotificationRecipientEmailArray and NotificationRecipientEmailArrayOutput values.
 // You can construct a concrete instance of `NotificationRecipientEmailArrayInput` via:
 //
@@ -211,12 +204,6 @@ func (i NotificationRecipientEmailArray) ToNotificationRecipientEmailArrayOutput
 
 func (i NotificationRecipientEmailArray) ToNotificationRecipientEmailArrayOutputWithContext(ctx context.Context) NotificationRecipientEmailArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRecipientEmailArrayOutput)
-}
-
-func (i NotificationRecipientEmailArray) ToOutput(ctx context.Context) pulumix.Output[[]*NotificationRecipientEmail] {
-	return pulumix.Output[[]*NotificationRecipientEmail]{
-		OutputState: i.ToNotificationRecipientEmailArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NotificationRecipientEmailMapInput is an input type that accepts NotificationRecipientEmailMap and NotificationRecipientEmailMapOutput values.
@@ -244,12 +231,6 @@ func (i NotificationRecipientEmailMap) ToNotificationRecipientEmailMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRecipientEmailMapOutput)
 }
 
-func (i NotificationRecipientEmailMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NotificationRecipientEmail] {
-	return pulumix.Output[map[string]*NotificationRecipientEmail]{
-		OutputState: i.ToNotificationRecipientEmailMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NotificationRecipientEmailOutput struct{ *pulumi.OutputState }
 
 func (NotificationRecipientEmailOutput) ElementType() reflect.Type {
@@ -262,12 +243,6 @@ func (o NotificationRecipientEmailOutput) ToNotificationRecipientEmailOutput() N
 
 func (o NotificationRecipientEmailOutput) ToNotificationRecipientEmailOutputWithContext(ctx context.Context) NotificationRecipientEmailOutput {
 	return o
-}
-
-func (o NotificationRecipientEmailOutput) ToOutput(ctx context.Context) pulumix.Output[*NotificationRecipientEmail] {
-	return pulumix.Output[*NotificationRecipientEmail]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the API Management Service from which to create this Notification Recipient Email. Changing this forces a new API Management Notification Recipient Email to be created.
@@ -299,12 +274,6 @@ func (o NotificationRecipientEmailArrayOutput) ToNotificationRecipientEmailArray
 	return o
 }
 
-func (o NotificationRecipientEmailArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NotificationRecipientEmail] {
-	return pulumix.Output[[]*NotificationRecipientEmail]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NotificationRecipientEmailArrayOutput) Index(i pulumi.IntInput) NotificationRecipientEmailOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NotificationRecipientEmail {
 		return vs[0].([]*NotificationRecipientEmail)[vs[1].(int)]
@@ -323,12 +292,6 @@ func (o NotificationRecipientEmailMapOutput) ToNotificationRecipientEmailMapOutp
 
 func (o NotificationRecipientEmailMapOutput) ToNotificationRecipientEmailMapOutputWithContext(ctx context.Context) NotificationRecipientEmailMapOutput {
 	return o
-}
-
-func (o NotificationRecipientEmailMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NotificationRecipientEmail] {
-	return pulumix.Output[map[string]*NotificationRecipientEmail]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NotificationRecipientEmailMapOutput) MapIndex(k pulumi.StringInput) NotificationRecipientEmailOutput {

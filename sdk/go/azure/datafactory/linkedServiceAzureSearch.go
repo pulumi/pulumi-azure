@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linked Service (connection) between Azure Search Service and Azure Data Factory.
@@ -213,12 +212,6 @@ func (i *LinkedServiceAzureSearch) ToLinkedServiceAzureSearchOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureSearchOutput)
 }
 
-func (i *LinkedServiceAzureSearch) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceAzureSearch] {
-	return pulumix.Output[*LinkedServiceAzureSearch]{
-		OutputState: i.ToLinkedServiceAzureSearchOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinkedServiceAzureSearchArrayInput is an input type that accepts LinkedServiceAzureSearchArray and LinkedServiceAzureSearchArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureSearchArrayInput` via:
 //
@@ -242,12 +235,6 @@ func (i LinkedServiceAzureSearchArray) ToLinkedServiceAzureSearchArrayOutput() L
 
 func (i LinkedServiceAzureSearchArray) ToLinkedServiceAzureSearchArrayOutputWithContext(ctx context.Context) LinkedServiceAzureSearchArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureSearchArrayOutput)
-}
-
-func (i LinkedServiceAzureSearchArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceAzureSearch] {
-	return pulumix.Output[[]*LinkedServiceAzureSearch]{
-		OutputState: i.ToLinkedServiceAzureSearchArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinkedServiceAzureSearchMapInput is an input type that accepts LinkedServiceAzureSearchMap and LinkedServiceAzureSearchMapOutput values.
@@ -275,12 +262,6 @@ func (i LinkedServiceAzureSearchMap) ToLinkedServiceAzureSearchMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureSearchMapOutput)
 }
 
-func (i LinkedServiceAzureSearchMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceAzureSearch] {
-	return pulumix.Output[map[string]*LinkedServiceAzureSearch]{
-		OutputState: i.ToLinkedServiceAzureSearchMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkedServiceAzureSearchOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureSearchOutput) ElementType() reflect.Type {
@@ -293,12 +274,6 @@ func (o LinkedServiceAzureSearchOutput) ToLinkedServiceAzureSearchOutput() Linke
 
 func (o LinkedServiceAzureSearchOutput) ToLinkedServiceAzureSearchOutputWithContext(ctx context.Context) LinkedServiceAzureSearchOutput {
 	return o
-}
-
-func (o LinkedServiceAzureSearchOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceAzureSearch] {
-	return pulumix.Output[*LinkedServiceAzureSearch]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service.
@@ -367,12 +342,6 @@ func (o LinkedServiceAzureSearchArrayOutput) ToLinkedServiceAzureSearchArrayOutp
 	return o
 }
 
-func (o LinkedServiceAzureSearchArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceAzureSearch] {
-	return pulumix.Output[[]*LinkedServiceAzureSearch]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinkedServiceAzureSearchArrayOutput) Index(i pulumi.IntInput) LinkedServiceAzureSearchOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceAzureSearch {
 		return vs[0].([]*LinkedServiceAzureSearch)[vs[1].(int)]
@@ -391,12 +360,6 @@ func (o LinkedServiceAzureSearchMapOutput) ToLinkedServiceAzureSearchMapOutput()
 
 func (o LinkedServiceAzureSearchMapOutput) ToLinkedServiceAzureSearchMapOutputWithContext(ctx context.Context) LinkedServiceAzureSearchMapOutput {
 	return o
-}
-
-func (o LinkedServiceAzureSearchMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceAzureSearch] {
-	return pulumix.Output[map[string]*LinkedServiceAzureSearch]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkedServiceAzureSearchMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceAzureSearchOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Snowflake Dataset inside an Azure Data Factory.
@@ -266,12 +265,6 @@ func (i *DatasetSnowflake) ToDatasetSnowflakeOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetSnowflakeOutput)
 }
 
-func (i *DatasetSnowflake) ToOutput(ctx context.Context) pulumix.Output[*DatasetSnowflake] {
-	return pulumix.Output[*DatasetSnowflake]{
-		OutputState: i.ToDatasetSnowflakeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DatasetSnowflakeArrayInput is an input type that accepts DatasetSnowflakeArray and DatasetSnowflakeArrayOutput values.
 // You can construct a concrete instance of `DatasetSnowflakeArrayInput` via:
 //
@@ -295,12 +288,6 @@ func (i DatasetSnowflakeArray) ToDatasetSnowflakeArrayOutput() DatasetSnowflakeA
 
 func (i DatasetSnowflakeArray) ToDatasetSnowflakeArrayOutputWithContext(ctx context.Context) DatasetSnowflakeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetSnowflakeArrayOutput)
-}
-
-func (i DatasetSnowflakeArray) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetSnowflake] {
-	return pulumix.Output[[]*DatasetSnowflake]{
-		OutputState: i.ToDatasetSnowflakeArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DatasetSnowflakeMapInput is an input type that accepts DatasetSnowflakeMap and DatasetSnowflakeMapOutput values.
@@ -328,12 +315,6 @@ func (i DatasetSnowflakeMap) ToDatasetSnowflakeMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetSnowflakeMapOutput)
 }
 
-func (i DatasetSnowflakeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetSnowflake] {
-	return pulumix.Output[map[string]*DatasetSnowflake]{
-		OutputState: i.ToDatasetSnowflakeMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DatasetSnowflakeOutput struct{ *pulumi.OutputState }
 
 func (DatasetSnowflakeOutput) ElementType() reflect.Type {
@@ -346,12 +327,6 @@ func (o DatasetSnowflakeOutput) ToDatasetSnowflakeOutput() DatasetSnowflakeOutpu
 
 func (o DatasetSnowflakeOutput) ToDatasetSnowflakeOutputWithContext(ctx context.Context) DatasetSnowflakeOutput {
 	return o
-}
-
-func (o DatasetSnowflakeOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetSnowflake] {
-	return pulumix.Output[*DatasetSnowflake]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of additional properties to associate with the Data Factory Dataset Snowflake.
@@ -423,12 +398,6 @@ func (o DatasetSnowflakeArrayOutput) ToDatasetSnowflakeArrayOutputWithContext(ct
 	return o
 }
 
-func (o DatasetSnowflakeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetSnowflake] {
-	return pulumix.Output[[]*DatasetSnowflake]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetSnowflakeArrayOutput) Index(i pulumi.IntInput) DatasetSnowflakeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetSnowflake {
 		return vs[0].([]*DatasetSnowflake)[vs[1].(int)]
@@ -447,12 +416,6 @@ func (o DatasetSnowflakeMapOutput) ToDatasetSnowflakeMapOutput() DatasetSnowflak
 
 func (o DatasetSnowflakeMapOutput) ToDatasetSnowflakeMapOutputWithContext(ctx context.Context) DatasetSnowflakeMapOutput {
 	return o
-}
-
-func (o DatasetSnowflakeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetSnowflake] {
-	return pulumix.Output[map[string]*DatasetSnowflake]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatasetSnowflakeMapOutput) MapIndex(k pulumi.StringInput) DatasetSnowflakeOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Network Manager Admin Rule.
@@ -326,12 +325,6 @@ func (i *NetworkManagerAdminRule) ToNetworkManagerAdminRuleOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerAdminRuleOutput)
 }
 
-func (i *NetworkManagerAdminRule) ToOutput(ctx context.Context) pulumix.Output[*NetworkManagerAdminRule] {
-	return pulumix.Output[*NetworkManagerAdminRule]{
-		OutputState: i.ToNetworkManagerAdminRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkManagerAdminRuleArrayInput is an input type that accepts NetworkManagerAdminRuleArray and NetworkManagerAdminRuleArrayOutput values.
 // You can construct a concrete instance of `NetworkManagerAdminRuleArrayInput` via:
 //
@@ -355,12 +348,6 @@ func (i NetworkManagerAdminRuleArray) ToNetworkManagerAdminRuleArrayOutput() Net
 
 func (i NetworkManagerAdminRuleArray) ToNetworkManagerAdminRuleArrayOutputWithContext(ctx context.Context) NetworkManagerAdminRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerAdminRuleArrayOutput)
-}
-
-func (i NetworkManagerAdminRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkManagerAdminRule] {
-	return pulumix.Output[[]*NetworkManagerAdminRule]{
-		OutputState: i.ToNetworkManagerAdminRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NetworkManagerAdminRuleMapInput is an input type that accepts NetworkManagerAdminRuleMap and NetworkManagerAdminRuleMapOutput values.
@@ -388,12 +375,6 @@ func (i NetworkManagerAdminRuleMap) ToNetworkManagerAdminRuleMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerAdminRuleMapOutput)
 }
 
-func (i NetworkManagerAdminRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkManagerAdminRule] {
-	return pulumix.Output[map[string]*NetworkManagerAdminRule]{
-		OutputState: i.ToNetworkManagerAdminRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkManagerAdminRuleOutput struct{ *pulumi.OutputState }
 
 func (NetworkManagerAdminRuleOutput) ElementType() reflect.Type {
@@ -406,12 +387,6 @@ func (o NetworkManagerAdminRuleOutput) ToNetworkManagerAdminRuleOutput() Network
 
 func (o NetworkManagerAdminRuleOutput) ToNetworkManagerAdminRuleOutputWithContext(ctx context.Context) NetworkManagerAdminRuleOutput {
 	return o
-}
-
-func (o NetworkManagerAdminRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkManagerAdminRule] {
-	return pulumix.Output[*NetworkManagerAdminRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the action allowed for this Network Manager Admin Rule. Possible values are `Allow`, `AlwaysAllow`, and `Deny`.
@@ -483,12 +458,6 @@ func (o NetworkManagerAdminRuleArrayOutput) ToNetworkManagerAdminRuleArrayOutput
 	return o
 }
 
-func (o NetworkManagerAdminRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkManagerAdminRule] {
-	return pulumix.Output[[]*NetworkManagerAdminRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkManagerAdminRuleArrayOutput) Index(i pulumi.IntInput) NetworkManagerAdminRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkManagerAdminRule {
 		return vs[0].([]*NetworkManagerAdminRule)[vs[1].(int)]
@@ -507,12 +476,6 @@ func (o NetworkManagerAdminRuleMapOutput) ToNetworkManagerAdminRuleMapOutput() N
 
 func (o NetworkManagerAdminRuleMapOutput) ToNetworkManagerAdminRuleMapOutputWithContext(ctx context.Context) NetworkManagerAdminRuleMapOutput {
 	return o
-}
-
-func (o NetworkManagerAdminRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkManagerAdminRule] {
-	return pulumix.Output[map[string]*NetworkManagerAdminRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkManagerAdminRuleMapOutput) MapIndex(k pulumi.StringInput) NetworkManagerAdminRuleOutput {

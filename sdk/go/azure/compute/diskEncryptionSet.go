@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Disk Encryption Set.
@@ -477,12 +476,6 @@ func (i *DiskEncryptionSet) ToDiskEncryptionSetOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetOutput)
 }
 
-func (i *DiskEncryptionSet) ToOutput(ctx context.Context) pulumix.Output[*DiskEncryptionSet] {
-	return pulumix.Output[*DiskEncryptionSet]{
-		OutputState: i.ToDiskEncryptionSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DiskEncryptionSetArrayInput is an input type that accepts DiskEncryptionSetArray and DiskEncryptionSetArrayOutput values.
 // You can construct a concrete instance of `DiskEncryptionSetArrayInput` via:
 //
@@ -506,12 +499,6 @@ func (i DiskEncryptionSetArray) ToDiskEncryptionSetArrayOutput() DiskEncryptionS
 
 func (i DiskEncryptionSetArray) ToDiskEncryptionSetArrayOutputWithContext(ctx context.Context) DiskEncryptionSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetArrayOutput)
-}
-
-func (i DiskEncryptionSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*DiskEncryptionSet] {
-	return pulumix.Output[[]*DiskEncryptionSet]{
-		OutputState: i.ToDiskEncryptionSetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DiskEncryptionSetMapInput is an input type that accepts DiskEncryptionSetMap and DiskEncryptionSetMapOutput values.
@@ -539,12 +526,6 @@ func (i DiskEncryptionSetMap) ToDiskEncryptionSetMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DiskEncryptionSetMapOutput)
 }
 
-func (i DiskEncryptionSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DiskEncryptionSet] {
-	return pulumix.Output[map[string]*DiskEncryptionSet]{
-		OutputState: i.ToDiskEncryptionSetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DiskEncryptionSetOutput struct{ *pulumi.OutputState }
 
 func (DiskEncryptionSetOutput) ElementType() reflect.Type {
@@ -557,12 +538,6 @@ func (o DiskEncryptionSetOutput) ToDiskEncryptionSetOutput() DiskEncryptionSetOu
 
 func (o DiskEncryptionSetOutput) ToDiskEncryptionSetOutputWithContext(ctx context.Context) DiskEncryptionSetOutput {
 	return o
-}
-
-func (o DiskEncryptionSetOutput) ToOutput(ctx context.Context) pulumix.Output[*DiskEncryptionSet] {
-	return pulumix.Output[*DiskEncryptionSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DiskEncryptionSetOutput) AutoKeyRotationEnabled() pulumi.BoolPtrOutput {
@@ -633,12 +608,6 @@ func (o DiskEncryptionSetArrayOutput) ToDiskEncryptionSetArrayOutputWithContext(
 	return o
 }
 
-func (o DiskEncryptionSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DiskEncryptionSet] {
-	return pulumix.Output[[]*DiskEncryptionSet]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DiskEncryptionSetArrayOutput) Index(i pulumi.IntInput) DiskEncryptionSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DiskEncryptionSet {
 		return vs[0].([]*DiskEncryptionSet)[vs[1].(int)]
@@ -657,12 +626,6 @@ func (o DiskEncryptionSetMapOutput) ToDiskEncryptionSetMapOutput() DiskEncryptio
 
 func (o DiskEncryptionSetMapOutput) ToDiskEncryptionSetMapOutputWithContext(ctx context.Context) DiskEncryptionSetMapOutput {
 	return o
-}
-
-func (o DiskEncryptionSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DiskEncryptionSet] {
-	return pulumix.Output[map[string]*DiskEncryptionSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DiskEncryptionSetMapOutput) MapIndex(k pulumi.StringInput) DiskEncryptionSetOutput {

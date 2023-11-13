@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing VPN Gateway within a Virtual Hub.
@@ -115,12 +114,6 @@ func (o LookupVpnGatewayResultOutput) ToLookupVpnGatewayResultOutput() LookupVpn
 
 func (o LookupVpnGatewayResultOutput) ToLookupVpnGatewayResultOutputWithContext(ctx context.Context) LookupVpnGatewayResultOutput {
 	return o
-}
-
-func (o LookupVpnGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVpnGatewayResult] {
-	return pulumix.Output[LookupVpnGatewayResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `bgpSettings` block as defined below.

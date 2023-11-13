@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Uses this data source to access information about an existing Virtual Hub.
@@ -119,12 +118,6 @@ func (o LookupVirtualHubResultOutput) ToLookupVirtualHubResultOutput() LookupVir
 
 func (o LookupVirtualHubResultOutput) ToLookupVirtualHubResultOutputWithContext(ctx context.Context) LookupVirtualHubResultOutput {
 	return o
-}
-
-func (o LookupVirtualHubResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualHubResult] {
-	return pulumix.Output[LookupVirtualHubResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Address Prefix used for this Virtual Hub.

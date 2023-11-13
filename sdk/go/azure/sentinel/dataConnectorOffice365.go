@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Office 365 Data Connector.
@@ -229,12 +228,6 @@ func (i *DataConnectorOffice365) ToDataConnectorOffice365OutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorOffice365Output)
 }
 
-func (i *DataConnectorOffice365) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorOffice365] {
-	return pulumix.Output[*DataConnectorOffice365]{
-		OutputState: i.ToDataConnectorOffice365OutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataConnectorOffice365ArrayInput is an input type that accepts DataConnectorOffice365Array and DataConnectorOffice365ArrayOutput values.
 // You can construct a concrete instance of `DataConnectorOffice365ArrayInput` via:
 //
@@ -258,12 +251,6 @@ func (i DataConnectorOffice365Array) ToDataConnectorOffice365ArrayOutput() DataC
 
 func (i DataConnectorOffice365Array) ToDataConnectorOffice365ArrayOutputWithContext(ctx context.Context) DataConnectorOffice365ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorOffice365ArrayOutput)
-}
-
-func (i DataConnectorOffice365Array) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorOffice365] {
-	return pulumix.Output[[]*DataConnectorOffice365]{
-		OutputState: i.ToDataConnectorOffice365ArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataConnectorOffice365MapInput is an input type that accepts DataConnectorOffice365Map and DataConnectorOffice365MapOutput values.
@@ -291,12 +278,6 @@ func (i DataConnectorOffice365Map) ToDataConnectorOffice365MapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorOffice365MapOutput)
 }
 
-func (i DataConnectorOffice365Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorOffice365] {
-	return pulumix.Output[map[string]*DataConnectorOffice365]{
-		OutputState: i.ToDataConnectorOffice365MapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataConnectorOffice365Output struct{ *pulumi.OutputState }
 
 func (DataConnectorOffice365Output) ElementType() reflect.Type {
@@ -309,12 +290,6 @@ func (o DataConnectorOffice365Output) ToDataConnectorOffice365Output() DataConne
 
 func (o DataConnectorOffice365Output) ToDataConnectorOffice365OutputWithContext(ctx context.Context) DataConnectorOffice365Output {
 	return o
-}
-
-func (o DataConnectorOffice365Output) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorOffice365] {
-	return pulumix.Output[*DataConnectorOffice365]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Should the Exchange data connector be enabled? Defaults to `true`.
@@ -365,12 +340,6 @@ func (o DataConnectorOffice365ArrayOutput) ToDataConnectorOffice365ArrayOutputWi
 	return o
 }
 
-func (o DataConnectorOffice365ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorOffice365] {
-	return pulumix.Output[[]*DataConnectorOffice365]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataConnectorOffice365ArrayOutput) Index(i pulumi.IntInput) DataConnectorOffice365Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorOffice365 {
 		return vs[0].([]*DataConnectorOffice365)[vs[1].(int)]
@@ -389,12 +358,6 @@ func (o DataConnectorOffice365MapOutput) ToDataConnectorOffice365MapOutput() Dat
 
 func (o DataConnectorOffice365MapOutput) ToDataConnectorOffice365MapOutputWithContext(ctx context.Context) DataConnectorOffice365MapOutput {
 	return o
-}
-
-func (o DataConnectorOffice365MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorOffice365] {
-	return pulumix.Output[map[string]*DataConnectorOffice365]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataConnectorOffice365MapOutput) MapIndex(k pulumi.StringInput) DataConnectorOffice365Output {

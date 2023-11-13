@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -59,12 +58,6 @@ func (i AccountIdentityArgs) ToAccountIdentityOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityOutput)
 }
 
-func (i AccountIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[AccountIdentity] {
-	return pulumix.Output[AccountIdentity]{
-		OutputState: i.ToAccountIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountIdentityArgs) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
 	return i.ToAccountIdentityPtrOutputWithContext(context.Background())
 }
@@ -106,12 +99,6 @@ func (i *accountIdentityPtrType) ToAccountIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityPtrOutput)
 }
 
-func (i *accountIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountIdentity] {
-	return pulumix.Output[*AccountIdentity]{
-		OutputState: i.ToAccountIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountIdentityOutput struct{ *pulumi.OutputState }
 
 func (AccountIdentityOutput) ElementType() reflect.Type {
@@ -134,12 +121,6 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountIdentity) *AccountIdentity {
 		return &v
 	}).(AccountIdentityPtrOutput)
-}
-
-func (o AccountIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[AccountIdentity] {
-	return pulumix.Output[AccountIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Principal ID for the Service Principal associated with the Identity of this Data Share Account.
@@ -171,12 +152,6 @@ func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutput() AccountIdentityPt
 
 func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
 	return o
-}
-
-func (o AccountIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountIdentity] {
-	return pulumix.Output[*AccountIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
@@ -262,12 +237,6 @@ func (i DatasetBlobStorageStorageAccountArgs) ToDatasetBlobStorageStorageAccount
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetBlobStorageStorageAccountOutput)
 }
 
-func (i DatasetBlobStorageStorageAccountArgs) ToOutput(ctx context.Context) pulumix.Output[DatasetBlobStorageStorageAccount] {
-	return pulumix.Output[DatasetBlobStorageStorageAccount]{
-		OutputState: i.ToDatasetBlobStorageStorageAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i DatasetBlobStorageStorageAccountArgs) ToDatasetBlobStorageStorageAccountPtrOutput() DatasetBlobStorageStorageAccountPtrOutput {
 	return i.ToDatasetBlobStorageStorageAccountPtrOutputWithContext(context.Background())
 }
@@ -309,12 +278,6 @@ func (i *datasetBlobStorageStorageAccountPtrType) ToDatasetBlobStorageStorageAcc
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetBlobStorageStorageAccountPtrOutput)
 }
 
-func (i *datasetBlobStorageStorageAccountPtrType) ToOutput(ctx context.Context) pulumix.Output[*DatasetBlobStorageStorageAccount] {
-	return pulumix.Output[*DatasetBlobStorageStorageAccount]{
-		OutputState: i.ToDatasetBlobStorageStorageAccountPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DatasetBlobStorageStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (DatasetBlobStorageStorageAccountOutput) ElementType() reflect.Type {
@@ -337,12 +300,6 @@ func (o DatasetBlobStorageStorageAccountOutput) ToDatasetBlobStorageStorageAccou
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DatasetBlobStorageStorageAccount) *DatasetBlobStorageStorageAccount {
 		return &v
 	}).(DatasetBlobStorageStorageAccountPtrOutput)
-}
-
-func (o DatasetBlobStorageStorageAccountOutput) ToOutput(ctx context.Context) pulumix.Output[DatasetBlobStorageStorageAccount] {
-	return pulumix.Output[DatasetBlobStorageStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the storage account to be shared with the receiver. Changing this forces a new Data Share Blob Storage Dataset to be created.
@@ -372,12 +329,6 @@ func (o DatasetBlobStorageStorageAccountPtrOutput) ToDatasetBlobStorageStorageAc
 
 func (o DatasetBlobStorageStorageAccountPtrOutput) ToDatasetBlobStorageStorageAccountPtrOutputWithContext(ctx context.Context) DatasetBlobStorageStorageAccountPtrOutput {
 	return o
-}
-
-func (o DatasetBlobStorageStorageAccountPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetBlobStorageStorageAccount] {
-	return pulumix.Output[*DatasetBlobStorageStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatasetBlobStorageStorageAccountPtrOutput) Elem() DatasetBlobStorageStorageAccountOutput {
@@ -461,12 +412,6 @@ func (i ShareSnapshotScheduleArgs) ToShareSnapshotScheduleOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ShareSnapshotScheduleOutput)
 }
 
-func (i ShareSnapshotScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[ShareSnapshotSchedule] {
-	return pulumix.Output[ShareSnapshotSchedule]{
-		OutputState: i.ToShareSnapshotScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ShareSnapshotScheduleArgs) ToShareSnapshotSchedulePtrOutput() ShareSnapshotSchedulePtrOutput {
 	return i.ToShareSnapshotSchedulePtrOutputWithContext(context.Background())
 }
@@ -508,12 +453,6 @@ func (i *shareSnapshotSchedulePtrType) ToShareSnapshotSchedulePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ShareSnapshotSchedulePtrOutput)
 }
 
-func (i *shareSnapshotSchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*ShareSnapshotSchedule] {
-	return pulumix.Output[*ShareSnapshotSchedule]{
-		OutputState: i.ToShareSnapshotSchedulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ShareSnapshotScheduleOutput struct{ *pulumi.OutputState }
 
 func (ShareSnapshotScheduleOutput) ElementType() reflect.Type {
@@ -536,12 +475,6 @@ func (o ShareSnapshotScheduleOutput) ToShareSnapshotSchedulePtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ShareSnapshotSchedule) *ShareSnapshotSchedule {
 		return &v
 	}).(ShareSnapshotSchedulePtrOutput)
-}
-
-func (o ShareSnapshotScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[ShareSnapshotSchedule] {
-	return pulumix.Output[ShareSnapshotSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the snapshot schedule.
@@ -571,12 +504,6 @@ func (o ShareSnapshotSchedulePtrOutput) ToShareSnapshotSchedulePtrOutput() Share
 
 func (o ShareSnapshotSchedulePtrOutput) ToShareSnapshotSchedulePtrOutputWithContext(ctx context.Context) ShareSnapshotSchedulePtrOutput {
 	return o
-}
-
-func (o ShareSnapshotSchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ShareSnapshotSchedule] {
-	return pulumix.Output[*ShareSnapshotSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ShareSnapshotSchedulePtrOutput) Elem() ShareSnapshotScheduleOutput {
@@ -660,12 +587,6 @@ func (i GetAccountIdentityArgs) ToGetAccountIdentityOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountIdentityOutput)
 }
 
-func (i GetAccountIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetAccountIdentity] {
-	return pulumix.Output[GetAccountIdentity]{
-		OutputState: i.ToGetAccountIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetAccountIdentityArrayInput is an input type that accepts GetAccountIdentityArray and GetAccountIdentityArrayOutput values.
 // You can construct a concrete instance of `GetAccountIdentityArrayInput` via:
 //
@@ -691,12 +612,6 @@ func (i GetAccountIdentityArray) ToGetAccountIdentityArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetAccountIdentityArrayOutput)
 }
 
-func (i GetAccountIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetAccountIdentity] {
-	return pulumix.Output[[]GetAccountIdentity]{
-		OutputState: i.ToGetAccountIdentityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetAccountIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetAccountIdentityOutput) ElementType() reflect.Type {
@@ -709,12 +624,6 @@ func (o GetAccountIdentityOutput) ToGetAccountIdentityOutput() GetAccountIdentit
 
 func (o GetAccountIdentityOutput) ToGetAccountIdentityOutputWithContext(ctx context.Context) GetAccountIdentityOutput {
 	return o
-}
-
-func (o GetAccountIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetAccountIdentity] {
-	return pulumix.Output[GetAccountIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Principal ID associated with this Managed Service Identity.
@@ -744,12 +653,6 @@ func (o GetAccountIdentityArrayOutput) ToGetAccountIdentityArrayOutput() GetAcco
 
 func (o GetAccountIdentityArrayOutput) ToGetAccountIdentityArrayOutputWithContext(ctx context.Context) GetAccountIdentityArrayOutput {
 	return o
-}
-
-func (o GetAccountIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetAccountIdentity] {
-	return pulumix.Output[[]GetAccountIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAccountIdentityArrayOutput) Index(i pulumi.IntInput) GetAccountIdentityOutput {
@@ -799,12 +702,6 @@ func (i GetDatasetBlobStorageStorageAccountArgs) ToGetDatasetBlobStorageStorageA
 	return pulumi.ToOutputWithContext(ctx, i).(GetDatasetBlobStorageStorageAccountOutput)
 }
 
-func (i GetDatasetBlobStorageStorageAccountArgs) ToOutput(ctx context.Context) pulumix.Output[GetDatasetBlobStorageStorageAccount] {
-	return pulumix.Output[GetDatasetBlobStorageStorageAccount]{
-		OutputState: i.ToGetDatasetBlobStorageStorageAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDatasetBlobStorageStorageAccountArrayInput is an input type that accepts GetDatasetBlobStorageStorageAccountArray and GetDatasetBlobStorageStorageAccountArrayOutput values.
 // You can construct a concrete instance of `GetDatasetBlobStorageStorageAccountArrayInput` via:
 //
@@ -830,12 +727,6 @@ func (i GetDatasetBlobStorageStorageAccountArray) ToGetDatasetBlobStorageStorage
 	return pulumi.ToOutputWithContext(ctx, i).(GetDatasetBlobStorageStorageAccountArrayOutput)
 }
 
-func (i GetDatasetBlobStorageStorageAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDatasetBlobStorageStorageAccount] {
-	return pulumix.Output[[]GetDatasetBlobStorageStorageAccount]{
-		OutputState: i.ToGetDatasetBlobStorageStorageAccountArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDatasetBlobStorageStorageAccountOutput struct{ *pulumi.OutputState }
 
 func (GetDatasetBlobStorageStorageAccountOutput) ElementType() reflect.Type {
@@ -848,12 +739,6 @@ func (o GetDatasetBlobStorageStorageAccountOutput) ToGetDatasetBlobStorageStorag
 
 func (o GetDatasetBlobStorageStorageAccountOutput) ToGetDatasetBlobStorageStorageAccountOutputWithContext(ctx context.Context) GetDatasetBlobStorageStorageAccountOutput {
 	return o
-}
-
-func (o GetDatasetBlobStorageStorageAccountOutput) ToOutput(ctx context.Context) pulumix.Output[GetDatasetBlobStorageStorageAccount] {
-	return pulumix.Output[GetDatasetBlobStorageStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of this Data Share Blob Storage Dataset.
@@ -883,12 +768,6 @@ func (o GetDatasetBlobStorageStorageAccountArrayOutput) ToGetDatasetBlobStorageS
 
 func (o GetDatasetBlobStorageStorageAccountArrayOutput) ToGetDatasetBlobStorageStorageAccountArrayOutputWithContext(ctx context.Context) GetDatasetBlobStorageStorageAccountArrayOutput {
 	return o
-}
-
-func (o GetDatasetBlobStorageStorageAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDatasetBlobStorageStorageAccount] {
-	return pulumix.Output[[]GetDatasetBlobStorageStorageAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDatasetBlobStorageStorageAccountArrayOutput) Index(i pulumi.IntInput) GetDatasetBlobStorageStorageAccountOutput {
@@ -938,12 +817,6 @@ func (i GetShareSnapshotScheduleArgs) ToGetShareSnapshotScheduleOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GetShareSnapshotScheduleOutput)
 }
 
-func (i GetShareSnapshotScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[GetShareSnapshotSchedule] {
-	return pulumix.Output[GetShareSnapshotSchedule]{
-		OutputState: i.ToGetShareSnapshotScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetShareSnapshotScheduleArrayInput is an input type that accepts GetShareSnapshotScheduleArray and GetShareSnapshotScheduleArrayOutput values.
 // You can construct a concrete instance of `GetShareSnapshotScheduleArrayInput` via:
 //
@@ -969,12 +842,6 @@ func (i GetShareSnapshotScheduleArray) ToGetShareSnapshotScheduleArrayOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetShareSnapshotScheduleArrayOutput)
 }
 
-func (i GetShareSnapshotScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetShareSnapshotSchedule] {
-	return pulumix.Output[[]GetShareSnapshotSchedule]{
-		OutputState: i.ToGetShareSnapshotScheduleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetShareSnapshotScheduleOutput struct{ *pulumi.OutputState }
 
 func (GetShareSnapshotScheduleOutput) ElementType() reflect.Type {
@@ -987,12 +854,6 @@ func (o GetShareSnapshotScheduleOutput) ToGetShareSnapshotScheduleOutput() GetSh
 
 func (o GetShareSnapshotScheduleOutput) ToGetShareSnapshotScheduleOutputWithContext(ctx context.Context) GetShareSnapshotScheduleOutput {
 	return o
-}
-
-func (o GetShareSnapshotScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[GetShareSnapshotSchedule] {
-	return pulumix.Output[GetShareSnapshotSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of this Data Share.
@@ -1022,12 +883,6 @@ func (o GetShareSnapshotScheduleArrayOutput) ToGetShareSnapshotScheduleArrayOutp
 
 func (o GetShareSnapshotScheduleArrayOutput) ToGetShareSnapshotScheduleArrayOutputWithContext(ctx context.Context) GetShareSnapshotScheduleArrayOutput {
 	return o
-}
-
-func (o GetShareSnapshotScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetShareSnapshotSchedule] {
-	return pulumix.Output[[]GetShareSnapshotSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetShareSnapshotScheduleArrayOutput) Index(i pulumi.IntInput) GetShareSnapshotScheduleOutput {

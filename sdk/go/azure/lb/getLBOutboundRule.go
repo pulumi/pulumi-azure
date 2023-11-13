@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Load Balancer Outbound Rule.
@@ -118,12 +117,6 @@ func (o GetLBOutboundRuleResultOutput) ToGetLBOutboundRuleResultOutput() GetLBOu
 
 func (o GetLBOutboundRuleResultOutput) ToGetLBOutboundRuleResultOutputWithContext(ctx context.Context) GetLBOutboundRuleResultOutput {
 	return o
-}
-
-func (o GetLBOutboundRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetLBOutboundRuleResult] {
-	return pulumix.Output[GetLBOutboundRuleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The number of outbound ports used for NAT.

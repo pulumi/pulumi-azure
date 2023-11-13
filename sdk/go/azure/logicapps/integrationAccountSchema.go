@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Logic App Integration Account Schema.
@@ -220,12 +219,6 @@ func (i *IntegrationAccountSchema) ToIntegrationAccountSchemaOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSchemaOutput)
 }
 
-func (i *IntegrationAccountSchema) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountSchema] {
-	return pulumix.Output[*IntegrationAccountSchema]{
-		OutputState: i.ToIntegrationAccountSchemaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationAccountSchemaArrayInput is an input type that accepts IntegrationAccountSchemaArray and IntegrationAccountSchemaArrayOutput values.
 // You can construct a concrete instance of `IntegrationAccountSchemaArrayInput` via:
 //
@@ -249,12 +242,6 @@ func (i IntegrationAccountSchemaArray) ToIntegrationAccountSchemaArrayOutput() I
 
 func (i IntegrationAccountSchemaArray) ToIntegrationAccountSchemaArrayOutputWithContext(ctx context.Context) IntegrationAccountSchemaArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSchemaArrayOutput)
-}
-
-func (i IntegrationAccountSchemaArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationAccountSchema] {
-	return pulumix.Output[[]*IntegrationAccountSchema]{
-		OutputState: i.ToIntegrationAccountSchemaArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IntegrationAccountSchemaMapInput is an input type that accepts IntegrationAccountSchemaMap and IntegrationAccountSchemaMapOutput values.
@@ -282,12 +269,6 @@ func (i IntegrationAccountSchemaMap) ToIntegrationAccountSchemaMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountSchemaMapOutput)
 }
 
-func (i IntegrationAccountSchemaMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationAccountSchema] {
-	return pulumix.Output[map[string]*IntegrationAccountSchema]{
-		OutputState: i.ToIntegrationAccountSchemaMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationAccountSchemaOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountSchemaOutput) ElementType() reflect.Type {
@@ -300,12 +281,6 @@ func (o IntegrationAccountSchemaOutput) ToIntegrationAccountSchemaOutput() Integ
 
 func (o IntegrationAccountSchemaOutput) ToIntegrationAccountSchemaOutputWithContext(ctx context.Context) IntegrationAccountSchemaOutput {
 	return o
-}
-
-func (o IntegrationAccountSchemaOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountSchema] {
-	return pulumix.Output[*IntegrationAccountSchema]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The content of the Logic App Integration Account Schema.
@@ -352,12 +327,6 @@ func (o IntegrationAccountSchemaArrayOutput) ToIntegrationAccountSchemaArrayOutp
 	return o
 }
 
-func (o IntegrationAccountSchemaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationAccountSchema] {
-	return pulumix.Output[[]*IntegrationAccountSchema]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationAccountSchemaArrayOutput) Index(i pulumi.IntInput) IntegrationAccountSchemaOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationAccountSchema {
 		return vs[0].([]*IntegrationAccountSchema)[vs[1].(int)]
@@ -376,12 +345,6 @@ func (o IntegrationAccountSchemaMapOutput) ToIntegrationAccountSchemaMapOutput()
 
 func (o IntegrationAccountSchemaMapOutput) ToIntegrationAccountSchemaMapOutputWithContext(ctx context.Context) IntegrationAccountSchemaMapOutput {
 	return o
-}
-
-func (o IntegrationAccountSchemaMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationAccountSchema] {
-	return pulumix.Output[map[string]*IntegrationAccountSchema]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationAccountSchemaMapOutput) MapIndex(k pulumi.StringInput) IntegrationAccountSchemaOutput {

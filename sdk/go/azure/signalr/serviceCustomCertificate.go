@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure SignalR Custom Certificate.
@@ -273,12 +272,6 @@ func (i *ServiceCustomCertificate) ToServiceCustomCertificateOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCustomCertificateOutput)
 }
 
-func (i *ServiceCustomCertificate) ToOutput(ctx context.Context) pulumix.Output[*ServiceCustomCertificate] {
-	return pulumix.Output[*ServiceCustomCertificate]{
-		OutputState: i.ToServiceCustomCertificateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceCustomCertificateArrayInput is an input type that accepts ServiceCustomCertificateArray and ServiceCustomCertificateArrayOutput values.
 // You can construct a concrete instance of `ServiceCustomCertificateArrayInput` via:
 //
@@ -302,12 +295,6 @@ func (i ServiceCustomCertificateArray) ToServiceCustomCertificateArrayOutput() S
 
 func (i ServiceCustomCertificateArray) ToServiceCustomCertificateArrayOutputWithContext(ctx context.Context) ServiceCustomCertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCustomCertificateArrayOutput)
-}
-
-func (i ServiceCustomCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceCustomCertificate] {
-	return pulumix.Output[[]*ServiceCustomCertificate]{
-		OutputState: i.ToServiceCustomCertificateArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceCustomCertificateMapInput is an input type that accepts ServiceCustomCertificateMap and ServiceCustomCertificateMapOutput values.
@@ -335,12 +322,6 @@ func (i ServiceCustomCertificateMap) ToServiceCustomCertificateMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceCustomCertificateMapOutput)
 }
 
-func (i ServiceCustomCertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceCustomCertificate] {
-	return pulumix.Output[map[string]*ServiceCustomCertificate]{
-		OutputState: i.ToServiceCustomCertificateMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceCustomCertificateOutput struct{ *pulumi.OutputState }
 
 func (ServiceCustomCertificateOutput) ElementType() reflect.Type {
@@ -353,12 +334,6 @@ func (o ServiceCustomCertificateOutput) ToServiceCustomCertificateOutput() Servi
 
 func (o ServiceCustomCertificateOutput) ToServiceCustomCertificateOutputWithContext(ctx context.Context) ServiceCustomCertificateOutput {
 	return o
-}
-
-func (o ServiceCustomCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceCustomCertificate] {
-	return pulumix.Output[*ServiceCustomCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The certificate version of the SignalR Custom Certificate service.
@@ -399,12 +374,6 @@ func (o ServiceCustomCertificateArrayOutput) ToServiceCustomCertificateArrayOutp
 	return o
 }
 
-func (o ServiceCustomCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceCustomCertificate] {
-	return pulumix.Output[[]*ServiceCustomCertificate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceCustomCertificateArrayOutput) Index(i pulumi.IntInput) ServiceCustomCertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceCustomCertificate {
 		return vs[0].([]*ServiceCustomCertificate)[vs[1].(int)]
@@ -423,12 +392,6 @@ func (o ServiceCustomCertificateMapOutput) ToServiceCustomCertificateMapOutput()
 
 func (o ServiceCustomCertificateMapOutput) ToServiceCustomCertificateMapOutputWithContext(ctx context.Context) ServiceCustomCertificateMapOutput {
 	return o
-}
-
-func (o ServiceCustomCertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceCustomCertificate] {
-	return pulumix.Output[map[string]*ServiceCustomCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceCustomCertificateMapOutput) MapIndex(k pulumi.StringInput) ServiceCustomCertificateOutput {

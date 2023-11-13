@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to get all variables in an Automation Account.
@@ -119,12 +118,6 @@ func (o GetVariablesResultOutput) ToGetVariablesResultOutput() GetVariablesResul
 
 func (o GetVariablesResultOutput) ToGetVariablesResultOutputWithContext(ctx context.Context) GetVariablesResultOutput {
 	return o
-}
-
-func (o GetVariablesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetVariablesResult] {
-	return pulumix.Output[GetVariablesResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetVariablesResultOutput) AutomationAccountId() pulumi.StringOutput {

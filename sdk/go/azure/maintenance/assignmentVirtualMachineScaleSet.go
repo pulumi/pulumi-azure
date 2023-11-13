@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a maintenance assignment to a virtual machine scale set.
@@ -335,12 +334,6 @@ func (i *AssignmentVirtualMachineScaleSet) ToAssignmentVirtualMachineScaleSetOut
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentVirtualMachineScaleSetOutput)
 }
 
-func (i *AssignmentVirtualMachineScaleSet) ToOutput(ctx context.Context) pulumix.Output[*AssignmentVirtualMachineScaleSet] {
-	return pulumix.Output[*AssignmentVirtualMachineScaleSet]{
-		OutputState: i.ToAssignmentVirtualMachineScaleSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssignmentVirtualMachineScaleSetArrayInput is an input type that accepts AssignmentVirtualMachineScaleSetArray and AssignmentVirtualMachineScaleSetArrayOutput values.
 // You can construct a concrete instance of `AssignmentVirtualMachineScaleSetArrayInput` via:
 //
@@ -364,12 +357,6 @@ func (i AssignmentVirtualMachineScaleSetArray) ToAssignmentVirtualMachineScaleSe
 
 func (i AssignmentVirtualMachineScaleSetArray) ToAssignmentVirtualMachineScaleSetArrayOutputWithContext(ctx context.Context) AssignmentVirtualMachineScaleSetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentVirtualMachineScaleSetArrayOutput)
-}
-
-func (i AssignmentVirtualMachineScaleSetArray) ToOutput(ctx context.Context) pulumix.Output[[]*AssignmentVirtualMachineScaleSet] {
-	return pulumix.Output[[]*AssignmentVirtualMachineScaleSet]{
-		OutputState: i.ToAssignmentVirtualMachineScaleSetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AssignmentVirtualMachineScaleSetMapInput is an input type that accepts AssignmentVirtualMachineScaleSetMap and AssignmentVirtualMachineScaleSetMapOutput values.
@@ -397,12 +384,6 @@ func (i AssignmentVirtualMachineScaleSetMap) ToAssignmentVirtualMachineScaleSetM
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentVirtualMachineScaleSetMapOutput)
 }
 
-func (i AssignmentVirtualMachineScaleSetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AssignmentVirtualMachineScaleSet] {
-	return pulumix.Output[map[string]*AssignmentVirtualMachineScaleSet]{
-		OutputState: i.ToAssignmentVirtualMachineScaleSetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssignmentVirtualMachineScaleSetOutput struct{ *pulumi.OutputState }
 
 func (AssignmentVirtualMachineScaleSetOutput) ElementType() reflect.Type {
@@ -415,12 +396,6 @@ func (o AssignmentVirtualMachineScaleSetOutput) ToAssignmentVirtualMachineScaleS
 
 func (o AssignmentVirtualMachineScaleSetOutput) ToAssignmentVirtualMachineScaleSetOutputWithContext(ctx context.Context) AssignmentVirtualMachineScaleSetOutput {
 	return o
-}
-
-func (o AssignmentVirtualMachineScaleSetOutput) ToOutput(ctx context.Context) pulumix.Output[*AssignmentVirtualMachineScaleSet] {
-	return pulumix.Output[*AssignmentVirtualMachineScaleSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -452,12 +427,6 @@ func (o AssignmentVirtualMachineScaleSetArrayOutput) ToAssignmentVirtualMachineS
 	return o
 }
 
-func (o AssignmentVirtualMachineScaleSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AssignmentVirtualMachineScaleSet] {
-	return pulumix.Output[[]*AssignmentVirtualMachineScaleSet]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssignmentVirtualMachineScaleSetArrayOutput) Index(i pulumi.IntInput) AssignmentVirtualMachineScaleSetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AssignmentVirtualMachineScaleSet {
 		return vs[0].([]*AssignmentVirtualMachineScaleSet)[vs[1].(int)]
@@ -476,12 +445,6 @@ func (o AssignmentVirtualMachineScaleSetMapOutput) ToAssignmentVirtualMachineSca
 
 func (o AssignmentVirtualMachineScaleSetMapOutput) ToAssignmentVirtualMachineScaleSetMapOutputWithContext(ctx context.Context) AssignmentVirtualMachineScaleSetMapOutput {
 	return o
-}
-
-func (o AssignmentVirtualMachineScaleSetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AssignmentVirtualMachineScaleSet] {
-	return pulumix.Output[map[string]*AssignmentVirtualMachineScaleSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssignmentVirtualMachineScaleSetMapOutput) MapIndex(k pulumi.StringInput) AssignmentVirtualMachineScaleSetOutput {

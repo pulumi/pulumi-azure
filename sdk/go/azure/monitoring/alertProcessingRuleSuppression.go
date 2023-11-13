@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Alert Processing Rule which suppress notifications.
@@ -260,12 +259,6 @@ func (i *AlertProcessingRuleSuppression) ToAlertProcessingRuleSuppressionOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionOutput)
 }
 
-func (i *AlertProcessingRuleSuppression) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppression] {
-	return pulumix.Output[*AlertProcessingRuleSuppression]{
-		OutputState: i.ToAlertProcessingRuleSuppressionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AlertProcessingRuleSuppressionArrayInput is an input type that accepts AlertProcessingRuleSuppressionArray and AlertProcessingRuleSuppressionArrayOutput values.
 // You can construct a concrete instance of `AlertProcessingRuleSuppressionArrayInput` via:
 //
@@ -289,12 +282,6 @@ func (i AlertProcessingRuleSuppressionArray) ToAlertProcessingRuleSuppressionArr
 
 func (i AlertProcessingRuleSuppressionArray) ToAlertProcessingRuleSuppressionArrayOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionArrayOutput)
-}
-
-func (i AlertProcessingRuleSuppressionArray) ToOutput(ctx context.Context) pulumix.Output[[]*AlertProcessingRuleSuppression] {
-	return pulumix.Output[[]*AlertProcessingRuleSuppression]{
-		OutputState: i.ToAlertProcessingRuleSuppressionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AlertProcessingRuleSuppressionMapInput is an input type that accepts AlertProcessingRuleSuppressionMap and AlertProcessingRuleSuppressionMapOutput values.
@@ -322,12 +309,6 @@ func (i AlertProcessingRuleSuppressionMap) ToAlertProcessingRuleSuppressionMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(AlertProcessingRuleSuppressionMapOutput)
 }
 
-func (i AlertProcessingRuleSuppressionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertProcessingRuleSuppression] {
-	return pulumix.Output[map[string]*AlertProcessingRuleSuppression]{
-		OutputState: i.ToAlertProcessingRuleSuppressionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AlertProcessingRuleSuppressionOutput struct{ *pulumi.OutputState }
 
 func (AlertProcessingRuleSuppressionOutput) ElementType() reflect.Type {
@@ -340,12 +321,6 @@ func (o AlertProcessingRuleSuppressionOutput) ToAlertProcessingRuleSuppressionOu
 
 func (o AlertProcessingRuleSuppressionOutput) ToAlertProcessingRuleSuppressionOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionOutput {
 	return o
-}
-
-func (o AlertProcessingRuleSuppressionOutput) ToOutput(ctx context.Context) pulumix.Output[*AlertProcessingRuleSuppression] {
-	return pulumix.Output[*AlertProcessingRuleSuppression]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `condition` block as defined below.
@@ -406,12 +381,6 @@ func (o AlertProcessingRuleSuppressionArrayOutput) ToAlertProcessingRuleSuppress
 	return o
 }
 
-func (o AlertProcessingRuleSuppressionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AlertProcessingRuleSuppression] {
-	return pulumix.Output[[]*AlertProcessingRuleSuppression]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AlertProcessingRuleSuppressionArrayOutput) Index(i pulumi.IntInput) AlertProcessingRuleSuppressionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlertProcessingRuleSuppression {
 		return vs[0].([]*AlertProcessingRuleSuppression)[vs[1].(int)]
@@ -430,12 +399,6 @@ func (o AlertProcessingRuleSuppressionMapOutput) ToAlertProcessingRuleSuppressio
 
 func (o AlertProcessingRuleSuppressionMapOutput) ToAlertProcessingRuleSuppressionMapOutputWithContext(ctx context.Context) AlertProcessingRuleSuppressionMapOutput {
 	return o
-}
-
-func (o AlertProcessingRuleSuppressionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AlertProcessingRuleSuppression] {
-	return pulumix.Output[map[string]*AlertProcessingRuleSuppression]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AlertProcessingRuleSuppressionMapOutput) MapIndex(k pulumi.StringInput) AlertProcessingRuleSuppressionOutput {

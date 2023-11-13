@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Container App Environment Certificate.
@@ -194,12 +193,6 @@ func (i *EnvironmentCertificate) ToEnvironmentCertificateOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentCertificateOutput)
 }
 
-func (i *EnvironmentCertificate) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentCertificate] {
-	return pulumix.Output[*EnvironmentCertificate]{
-		OutputState: i.ToEnvironmentCertificateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EnvironmentCertificateArrayInput is an input type that accepts EnvironmentCertificateArray and EnvironmentCertificateArrayOutput values.
 // You can construct a concrete instance of `EnvironmentCertificateArrayInput` via:
 //
@@ -223,12 +216,6 @@ func (i EnvironmentCertificateArray) ToEnvironmentCertificateArrayOutput() Envir
 
 func (i EnvironmentCertificateArray) ToEnvironmentCertificateArrayOutputWithContext(ctx context.Context) EnvironmentCertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentCertificateArrayOutput)
-}
-
-func (i EnvironmentCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*EnvironmentCertificate] {
-	return pulumix.Output[[]*EnvironmentCertificate]{
-		OutputState: i.ToEnvironmentCertificateArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EnvironmentCertificateMapInput is an input type that accepts EnvironmentCertificateMap and EnvironmentCertificateMapOutput values.
@@ -256,12 +243,6 @@ func (i EnvironmentCertificateMap) ToEnvironmentCertificateMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentCertificateMapOutput)
 }
 
-func (i EnvironmentCertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EnvironmentCertificate] {
-	return pulumix.Output[map[string]*EnvironmentCertificate]{
-		OutputState: i.ToEnvironmentCertificateMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentCertificateOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentCertificateOutput) ElementType() reflect.Type {
@@ -274,12 +255,6 @@ func (o EnvironmentCertificateOutput) ToEnvironmentCertificateOutput() Environme
 
 func (o EnvironmentCertificateOutput) ToEnvironmentCertificateOutputWithContext(ctx context.Context) EnvironmentCertificateOutput {
 	return o
-}
-
-func (o EnvironmentCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentCertificate] {
-	return pulumix.Output[*EnvironmentCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Certificate Private Key as a base64 encoded PFX or PEM. Changing this forces a new resource to be created.
@@ -346,12 +321,6 @@ func (o EnvironmentCertificateArrayOutput) ToEnvironmentCertificateArrayOutputWi
 	return o
 }
 
-func (o EnvironmentCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EnvironmentCertificate] {
-	return pulumix.Output[[]*EnvironmentCertificate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentCertificateArrayOutput) Index(i pulumi.IntInput) EnvironmentCertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EnvironmentCertificate {
 		return vs[0].([]*EnvironmentCertificate)[vs[1].(int)]
@@ -370,12 +339,6 @@ func (o EnvironmentCertificateMapOutput) ToEnvironmentCertificateMapOutput() Env
 
 func (o EnvironmentCertificateMapOutput) ToEnvironmentCertificateMapOutputWithContext(ctx context.Context) EnvironmentCertificateMapOutput {
 	return o
-}
-
-func (o EnvironmentCertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EnvironmentCertificate] {
-	return pulumix.Output[map[string]*EnvironmentCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentCertificateMapOutput) MapIndex(k pulumi.StringInput) EnvironmentCertificateOutput {

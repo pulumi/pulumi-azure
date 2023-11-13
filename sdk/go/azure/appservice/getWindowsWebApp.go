@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Windows Web App.
@@ -165,12 +164,6 @@ func (o LookupWindowsWebAppResultOutput) ToLookupWindowsWebAppResultOutput() Loo
 
 func (o LookupWindowsWebAppResultOutput) ToLookupWindowsWebAppResultOutputWithContext(ctx context.Context) LookupWindowsWebAppResultOutput {
 	return o
-}
-
-func (o LookupWindowsWebAppResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupWindowsWebAppResult] {
-	return pulumix.Output[LookupWindowsWebAppResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of key-value pairs of App Settings.

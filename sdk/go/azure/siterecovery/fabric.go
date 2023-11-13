@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Azure Site Recovery Replication Fabric within a Recovery Services vault. Only Azure fabrics are supported at this time. Replication Fabrics serve as a container within an Azure region for other Site Recovery resources such as protection containers, protected items, network mappings.
@@ -194,12 +193,6 @@ func (i *Fabric) ToFabricOutputWithContext(ctx context.Context) FabricOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FabricOutput)
 }
 
-func (i *Fabric) ToOutput(ctx context.Context) pulumix.Output[*Fabric] {
-	return pulumix.Output[*Fabric]{
-		OutputState: i.ToFabricOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FabricArrayInput is an input type that accepts FabricArray and FabricArrayOutput values.
 // You can construct a concrete instance of `FabricArrayInput` via:
 //
@@ -223,12 +216,6 @@ func (i FabricArray) ToFabricArrayOutput() FabricArrayOutput {
 
 func (i FabricArray) ToFabricArrayOutputWithContext(ctx context.Context) FabricArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FabricArrayOutput)
-}
-
-func (i FabricArray) ToOutput(ctx context.Context) pulumix.Output[[]*Fabric] {
-	return pulumix.Output[[]*Fabric]{
-		OutputState: i.ToFabricArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FabricMapInput is an input type that accepts FabricMap and FabricMapOutput values.
@@ -256,12 +243,6 @@ func (i FabricMap) ToFabricMapOutputWithContext(ctx context.Context) FabricMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(FabricMapOutput)
 }
 
-func (i FabricMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Fabric] {
-	return pulumix.Output[map[string]*Fabric]{
-		OutputState: i.ToFabricMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FabricOutput struct{ *pulumi.OutputState }
 
 func (FabricOutput) ElementType() reflect.Type {
@@ -274,12 +255,6 @@ func (o FabricOutput) ToFabricOutput() FabricOutput {
 
 func (o FabricOutput) ToFabricOutputWithContext(ctx context.Context) FabricOutput {
 	return o
-}
-
-func (o FabricOutput) ToOutput(ctx context.Context) pulumix.Output[*Fabric] {
-	return pulumix.Output[*Fabric]{
-		OutputState: o.OutputState,
-	}
 }
 
 // In what region should the fabric be located. Changing this forces a new resource to be created.
@@ -316,12 +291,6 @@ func (o FabricArrayOutput) ToFabricArrayOutputWithContext(ctx context.Context) F
 	return o
 }
 
-func (o FabricArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Fabric] {
-	return pulumix.Output[[]*Fabric]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FabricArrayOutput) Index(i pulumi.IntInput) FabricOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Fabric {
 		return vs[0].([]*Fabric)[vs[1].(int)]
@@ -340,12 +309,6 @@ func (o FabricMapOutput) ToFabricMapOutput() FabricMapOutput {
 
 func (o FabricMapOutput) ToFabricMapOutputWithContext(ctx context.Context) FabricMapOutput {
 	return o
-}
-
-func (o FabricMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Fabric] {
-	return pulumix.Output[map[string]*Fabric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FabricMapOutput) MapIndex(k pulumi.StringInput) FabricOutput {

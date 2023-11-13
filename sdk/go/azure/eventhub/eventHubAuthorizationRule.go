@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Event Hubs authorization Rule within an Event Hub.
@@ -293,12 +292,6 @@ func (i *EventHubAuthorizationRule) ToEventHubAuthorizationRuleOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubAuthorizationRuleOutput)
 }
 
-func (i *EventHubAuthorizationRule) ToOutput(ctx context.Context) pulumix.Output[*EventHubAuthorizationRule] {
-	return pulumix.Output[*EventHubAuthorizationRule]{
-		OutputState: i.ToEventHubAuthorizationRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventHubAuthorizationRuleArrayInput is an input type that accepts EventHubAuthorizationRuleArray and EventHubAuthorizationRuleArrayOutput values.
 // You can construct a concrete instance of `EventHubAuthorizationRuleArrayInput` via:
 //
@@ -322,12 +315,6 @@ func (i EventHubAuthorizationRuleArray) ToEventHubAuthorizationRuleArrayOutput()
 
 func (i EventHubAuthorizationRuleArray) ToEventHubAuthorizationRuleArrayOutputWithContext(ctx context.Context) EventHubAuthorizationRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubAuthorizationRuleArrayOutput)
-}
-
-func (i EventHubAuthorizationRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventHubAuthorizationRule] {
-	return pulumix.Output[[]*EventHubAuthorizationRule]{
-		OutputState: i.ToEventHubAuthorizationRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EventHubAuthorizationRuleMapInput is an input type that accepts EventHubAuthorizationRuleMap and EventHubAuthorizationRuleMapOutput values.
@@ -355,12 +342,6 @@ func (i EventHubAuthorizationRuleMap) ToEventHubAuthorizationRuleMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(EventHubAuthorizationRuleMapOutput)
 }
 
-func (i EventHubAuthorizationRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventHubAuthorizationRule] {
-	return pulumix.Output[map[string]*EventHubAuthorizationRule]{
-		OutputState: i.ToEventHubAuthorizationRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventHubAuthorizationRuleOutput struct{ *pulumi.OutputState }
 
 func (EventHubAuthorizationRuleOutput) ElementType() reflect.Type {
@@ -373,12 +354,6 @@ func (o EventHubAuthorizationRuleOutput) ToEventHubAuthorizationRuleOutput() Eve
 
 func (o EventHubAuthorizationRuleOutput) ToEventHubAuthorizationRuleOutputWithContext(ctx context.Context) EventHubAuthorizationRuleOutput {
 	return o
-}
-
-func (o EventHubAuthorizationRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*EventHubAuthorizationRule] {
-	return pulumix.Output[*EventHubAuthorizationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the EventHub. Changing this forces a new resource to be created.
@@ -462,12 +437,6 @@ func (o EventHubAuthorizationRuleArrayOutput) ToEventHubAuthorizationRuleArrayOu
 	return o
 }
 
-func (o EventHubAuthorizationRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventHubAuthorizationRule] {
-	return pulumix.Output[[]*EventHubAuthorizationRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EventHubAuthorizationRuleArrayOutput) Index(i pulumi.IntInput) EventHubAuthorizationRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventHubAuthorizationRule {
 		return vs[0].([]*EventHubAuthorizationRule)[vs[1].(int)]
@@ -486,12 +455,6 @@ func (o EventHubAuthorizationRuleMapOutput) ToEventHubAuthorizationRuleMapOutput
 
 func (o EventHubAuthorizationRuleMapOutput) ToEventHubAuthorizationRuleMapOutputWithContext(ctx context.Context) EventHubAuthorizationRuleMapOutput {
 	return o
-}
-
-func (o EventHubAuthorizationRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventHubAuthorizationRule] {
-	return pulumix.Output[map[string]*EventHubAuthorizationRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventHubAuthorizationRuleMapOutput) MapIndex(k pulumi.StringInput) EventHubAuthorizationRuleOutput {
