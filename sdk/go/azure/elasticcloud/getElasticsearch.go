@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Elasticsearch resource.
@@ -135,12 +134,6 @@ func (o LookupElasticsearchResultOutput) ToLookupElasticsearchResultOutput() Loo
 
 func (o LookupElasticsearchResultOutput) ToLookupElasticsearchResultOutputWithContext(ctx context.Context) LookupElasticsearchResultOutput {
 	return o
-}
-
-func (o LookupElasticsearchResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupElasticsearchResult] {
-	return pulumix.Output[LookupElasticsearchResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Deployment within Elastic Cloud.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Firewall Rule for a MySQL Flexible Server.
@@ -298,12 +297,6 @@ func (i *FlexibleServerFirewallRule) ToFlexibleServerFirewallRuleOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerFirewallRuleOutput)
 }
 
-func (i *FlexibleServerFirewallRule) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServerFirewallRule] {
-	return pulumix.Output[*FlexibleServerFirewallRule]{
-		OutputState: i.ToFlexibleServerFirewallRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FlexibleServerFirewallRuleArrayInput is an input type that accepts FlexibleServerFirewallRuleArray and FlexibleServerFirewallRuleArrayOutput values.
 // You can construct a concrete instance of `FlexibleServerFirewallRuleArrayInput` via:
 //
@@ -327,12 +320,6 @@ func (i FlexibleServerFirewallRuleArray) ToFlexibleServerFirewallRuleArrayOutput
 
 func (i FlexibleServerFirewallRuleArray) ToFlexibleServerFirewallRuleArrayOutputWithContext(ctx context.Context) FlexibleServerFirewallRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerFirewallRuleArrayOutput)
-}
-
-func (i FlexibleServerFirewallRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*FlexibleServerFirewallRule] {
-	return pulumix.Output[[]*FlexibleServerFirewallRule]{
-		OutputState: i.ToFlexibleServerFirewallRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FlexibleServerFirewallRuleMapInput is an input type that accepts FlexibleServerFirewallRuleMap and FlexibleServerFirewallRuleMapOutput values.
@@ -360,12 +347,6 @@ func (i FlexibleServerFirewallRuleMap) ToFlexibleServerFirewallRuleMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(FlexibleServerFirewallRuleMapOutput)
 }
 
-func (i FlexibleServerFirewallRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlexibleServerFirewallRule] {
-	return pulumix.Output[map[string]*FlexibleServerFirewallRule]{
-		OutputState: i.ToFlexibleServerFirewallRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FlexibleServerFirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (FlexibleServerFirewallRuleOutput) ElementType() reflect.Type {
@@ -378,12 +359,6 @@ func (o FlexibleServerFirewallRuleOutput) ToFlexibleServerFirewallRuleOutput() F
 
 func (o FlexibleServerFirewallRuleOutput) ToFlexibleServerFirewallRuleOutputWithContext(ctx context.Context) FlexibleServerFirewallRuleOutput {
 	return o
-}
-
-func (o FlexibleServerFirewallRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*FlexibleServerFirewallRule] {
-	return pulumix.Output[*FlexibleServerFirewallRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the End IP Address associated with this Firewall Rule.
@@ -427,12 +402,6 @@ func (o FlexibleServerFirewallRuleArrayOutput) ToFlexibleServerFirewallRuleArray
 	return o
 }
 
-func (o FlexibleServerFirewallRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FlexibleServerFirewallRule] {
-	return pulumix.Output[[]*FlexibleServerFirewallRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FlexibleServerFirewallRuleArrayOutput) Index(i pulumi.IntInput) FlexibleServerFirewallRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FlexibleServerFirewallRule {
 		return vs[0].([]*FlexibleServerFirewallRule)[vs[1].(int)]
@@ -451,12 +420,6 @@ func (o FlexibleServerFirewallRuleMapOutput) ToFlexibleServerFirewallRuleMapOutp
 
 func (o FlexibleServerFirewallRuleMapOutput) ToFlexibleServerFirewallRuleMapOutputWithContext(ctx context.Context) FlexibleServerFirewallRuleMapOutput {
 	return o
-}
-
-func (o FlexibleServerFirewallRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FlexibleServerFirewallRule] {
-	return pulumix.Output[map[string]*FlexibleServerFirewallRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FlexibleServerFirewallRuleMapOutput) MapIndex(k pulumi.StringInput) FlexibleServerFirewallRuleOutput {

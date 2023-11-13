@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing App Service.
@@ -143,12 +142,6 @@ func (o LookupAppServiceResultOutput) ToLookupAppServiceResultOutput() LookupApp
 
 func (o LookupAppServiceResultOutput) ToLookupAppServiceResultOutputWithContext(ctx context.Context) LookupAppServiceResultOutput {
 	return o
-}
-
-func (o LookupAppServiceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAppServiceResult] {
-	return pulumix.Output[LookupAppServiceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the App Service Plan within which the App Service exists.

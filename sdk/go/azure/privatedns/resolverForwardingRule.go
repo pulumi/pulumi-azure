@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Private DNS Resolver Forwarding Rule.
@@ -272,12 +271,6 @@ func (i *ResolverForwardingRule) ToResolverForwardingRuleOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverForwardingRuleOutput)
 }
 
-func (i *ResolverForwardingRule) ToOutput(ctx context.Context) pulumix.Output[*ResolverForwardingRule] {
-	return pulumix.Output[*ResolverForwardingRule]{
-		OutputState: i.ToResolverForwardingRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResolverForwardingRuleArrayInput is an input type that accepts ResolverForwardingRuleArray and ResolverForwardingRuleArrayOutput values.
 // You can construct a concrete instance of `ResolverForwardingRuleArrayInput` via:
 //
@@ -301,12 +294,6 @@ func (i ResolverForwardingRuleArray) ToResolverForwardingRuleArrayOutput() Resol
 
 func (i ResolverForwardingRuleArray) ToResolverForwardingRuleArrayOutputWithContext(ctx context.Context) ResolverForwardingRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverForwardingRuleArrayOutput)
-}
-
-func (i ResolverForwardingRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverForwardingRule] {
-	return pulumix.Output[[]*ResolverForwardingRule]{
-		OutputState: i.ToResolverForwardingRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ResolverForwardingRuleMapInput is an input type that accepts ResolverForwardingRuleMap and ResolverForwardingRuleMapOutput values.
@@ -334,12 +321,6 @@ func (i ResolverForwardingRuleMap) ToResolverForwardingRuleMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverForwardingRuleMapOutput)
 }
 
-func (i ResolverForwardingRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverForwardingRule] {
-	return pulumix.Output[map[string]*ResolverForwardingRule]{
-		OutputState: i.ToResolverForwardingRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResolverForwardingRuleOutput struct{ *pulumi.OutputState }
 
 func (ResolverForwardingRuleOutput) ElementType() reflect.Type {
@@ -352,12 +333,6 @@ func (o ResolverForwardingRuleOutput) ToResolverForwardingRuleOutput() ResolverF
 
 func (o ResolverForwardingRuleOutput) ToResolverForwardingRuleOutputWithContext(ctx context.Context) ResolverForwardingRuleOutput {
 	return o
-}
-
-func (o ResolverForwardingRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*ResolverForwardingRule] {
-	return pulumix.Output[*ResolverForwardingRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created.
@@ -406,12 +381,6 @@ func (o ResolverForwardingRuleArrayOutput) ToResolverForwardingRuleArrayOutputWi
 	return o
 }
 
-func (o ResolverForwardingRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResolverForwardingRule] {
-	return pulumix.Output[[]*ResolverForwardingRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResolverForwardingRuleArrayOutput) Index(i pulumi.IntInput) ResolverForwardingRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverForwardingRule {
 		return vs[0].([]*ResolverForwardingRule)[vs[1].(int)]
@@ -430,12 +399,6 @@ func (o ResolverForwardingRuleMapOutput) ToResolverForwardingRuleMapOutput() Res
 
 func (o ResolverForwardingRuleMapOutput) ToResolverForwardingRuleMapOutputWithContext(ctx context.Context) ResolverForwardingRuleMapOutput {
 	return o
-}
-
-func (o ResolverForwardingRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResolverForwardingRule] {
-	return pulumix.Output[map[string]*ResolverForwardingRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResolverForwardingRuleMapOutput) MapIndex(k pulumi.StringInput) ResolverForwardingRuleOutput {

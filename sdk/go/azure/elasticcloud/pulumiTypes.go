@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -59,12 +58,6 @@ func (i ElasticsearchLogsArgs) ToElasticsearchLogsOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticsearchLogsOutput)
 }
 
-func (i ElasticsearchLogsArgs) ToOutput(ctx context.Context) pulumix.Output[ElasticsearchLogs] {
-	return pulumix.Output[ElasticsearchLogs]{
-		OutputState: i.ToElasticsearchLogsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ElasticsearchLogsArgs) ToElasticsearchLogsPtrOutput() ElasticsearchLogsPtrOutput {
 	return i.ToElasticsearchLogsPtrOutputWithContext(context.Background())
 }
@@ -106,12 +99,6 @@ func (i *elasticsearchLogsPtrType) ToElasticsearchLogsPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticsearchLogsPtrOutput)
 }
 
-func (i *elasticsearchLogsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ElasticsearchLogs] {
-	return pulumix.Output[*ElasticsearchLogs]{
-		OutputState: i.ToElasticsearchLogsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ElasticsearchLogsOutput struct{ *pulumi.OutputState }
 
 func (ElasticsearchLogsOutput) ElementType() reflect.Type {
@@ -134,12 +121,6 @@ func (o ElasticsearchLogsOutput) ToElasticsearchLogsPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ElasticsearchLogs) *ElasticsearchLogs {
 		return &v
 	}).(ElasticsearchLogsPtrOutput)
-}
-
-func (o ElasticsearchLogsOutput) ToOutput(ctx context.Context) pulumix.Output[ElasticsearchLogs] {
-	return pulumix.Output[ElasticsearchLogs]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of `filteringTag` blocks as defined above.
@@ -174,12 +155,6 @@ func (o ElasticsearchLogsPtrOutput) ToElasticsearchLogsPtrOutput() Elasticsearch
 
 func (o ElasticsearchLogsPtrOutput) ToElasticsearchLogsPtrOutputWithContext(ctx context.Context) ElasticsearchLogsPtrOutput {
 	return o
-}
-
-func (o ElasticsearchLogsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ElasticsearchLogs] {
-	return pulumix.Output[*ElasticsearchLogs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ElasticsearchLogsPtrOutput) Elem() ElasticsearchLogsOutput {
@@ -273,12 +248,6 @@ func (i ElasticsearchLogsFilteringTagArgs) ToElasticsearchLogsFilteringTagOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticsearchLogsFilteringTagOutput)
 }
 
-func (i ElasticsearchLogsFilteringTagArgs) ToOutput(ctx context.Context) pulumix.Output[ElasticsearchLogsFilteringTag] {
-	return pulumix.Output[ElasticsearchLogsFilteringTag]{
-		OutputState: i.ToElasticsearchLogsFilteringTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ElasticsearchLogsFilteringTagArrayInput is an input type that accepts ElasticsearchLogsFilteringTagArray and ElasticsearchLogsFilteringTagArrayOutput values.
 // You can construct a concrete instance of `ElasticsearchLogsFilteringTagArrayInput` via:
 //
@@ -304,12 +273,6 @@ func (i ElasticsearchLogsFilteringTagArray) ToElasticsearchLogsFilteringTagArray
 	return pulumi.ToOutputWithContext(ctx, i).(ElasticsearchLogsFilteringTagArrayOutput)
 }
 
-func (i ElasticsearchLogsFilteringTagArray) ToOutput(ctx context.Context) pulumix.Output[[]ElasticsearchLogsFilteringTag] {
-	return pulumix.Output[[]ElasticsearchLogsFilteringTag]{
-		OutputState: i.ToElasticsearchLogsFilteringTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ElasticsearchLogsFilteringTagOutput struct{ *pulumi.OutputState }
 
 func (ElasticsearchLogsFilteringTagOutput) ElementType() reflect.Type {
@@ -322,12 +285,6 @@ func (o ElasticsearchLogsFilteringTagOutput) ToElasticsearchLogsFilteringTagOutp
 
 func (o ElasticsearchLogsFilteringTagOutput) ToElasticsearchLogsFilteringTagOutputWithContext(ctx context.Context) ElasticsearchLogsFilteringTagOutput {
 	return o
-}
-
-func (o ElasticsearchLogsFilteringTagOutput) ToOutput(ctx context.Context) pulumix.Output[ElasticsearchLogsFilteringTag] {
-	return pulumix.Output[ElasticsearchLogsFilteringTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the type of action which should be taken when the Tag matches the `name` and `value`. Possible values are `Exclude` and `Include`.
@@ -357,12 +314,6 @@ func (o ElasticsearchLogsFilteringTagArrayOutput) ToElasticsearchLogsFilteringTa
 
 func (o ElasticsearchLogsFilteringTagArrayOutput) ToElasticsearchLogsFilteringTagArrayOutputWithContext(ctx context.Context) ElasticsearchLogsFilteringTagArrayOutput {
 	return o
-}
-
-func (o ElasticsearchLogsFilteringTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ElasticsearchLogsFilteringTag] {
-	return pulumix.Output[[]ElasticsearchLogsFilteringTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ElasticsearchLogsFilteringTagArrayOutput) Index(i pulumi.IntInput) ElasticsearchLogsFilteringTagOutput {
@@ -416,12 +367,6 @@ func (i GetElasticsearchLogArgs) ToGetElasticsearchLogOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(GetElasticsearchLogOutput)
 }
 
-func (i GetElasticsearchLogArgs) ToOutput(ctx context.Context) pulumix.Output[GetElasticsearchLog] {
-	return pulumix.Output[GetElasticsearchLog]{
-		OutputState: i.ToGetElasticsearchLogOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetElasticsearchLogArrayInput is an input type that accepts GetElasticsearchLogArray and GetElasticsearchLogArrayOutput values.
 // You can construct a concrete instance of `GetElasticsearchLogArrayInput` via:
 //
@@ -447,12 +392,6 @@ func (i GetElasticsearchLogArray) ToGetElasticsearchLogArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetElasticsearchLogArrayOutput)
 }
 
-func (i GetElasticsearchLogArray) ToOutput(ctx context.Context) pulumix.Output[[]GetElasticsearchLog] {
-	return pulumix.Output[[]GetElasticsearchLog]{
-		OutputState: i.ToGetElasticsearchLogArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetElasticsearchLogOutput struct{ *pulumi.OutputState }
 
 func (GetElasticsearchLogOutput) ElementType() reflect.Type {
@@ -465,12 +404,6 @@ func (o GetElasticsearchLogOutput) ToGetElasticsearchLogOutput() GetElasticsearc
 
 func (o GetElasticsearchLogOutput) ToGetElasticsearchLogOutputWithContext(ctx context.Context) GetElasticsearchLogOutput {
 	return o
-}
-
-func (o GetElasticsearchLogOutput) ToOutput(ctx context.Context) pulumix.Output[GetElasticsearchLog] {
-	return pulumix.Output[GetElasticsearchLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of `filteringTag` blocks as defined above.
@@ -505,12 +438,6 @@ func (o GetElasticsearchLogArrayOutput) ToGetElasticsearchLogArrayOutput() GetEl
 
 func (o GetElasticsearchLogArrayOutput) ToGetElasticsearchLogArrayOutputWithContext(ctx context.Context) GetElasticsearchLogArrayOutput {
 	return o
-}
-
-func (o GetElasticsearchLogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetElasticsearchLog] {
-	return pulumix.Output[[]GetElasticsearchLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetElasticsearchLogArrayOutput) Index(i pulumi.IntInput) GetElasticsearchLogOutput {
@@ -560,12 +487,6 @@ func (i GetElasticsearchLogFilteringTagArgs) ToGetElasticsearchLogFilteringTagOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetElasticsearchLogFilteringTagOutput)
 }
 
-func (i GetElasticsearchLogFilteringTagArgs) ToOutput(ctx context.Context) pulumix.Output[GetElasticsearchLogFilteringTag] {
-	return pulumix.Output[GetElasticsearchLogFilteringTag]{
-		OutputState: i.ToGetElasticsearchLogFilteringTagOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetElasticsearchLogFilteringTagArrayInput is an input type that accepts GetElasticsearchLogFilteringTagArray and GetElasticsearchLogFilteringTagArrayOutput values.
 // You can construct a concrete instance of `GetElasticsearchLogFilteringTagArrayInput` via:
 //
@@ -591,12 +512,6 @@ func (i GetElasticsearchLogFilteringTagArray) ToGetElasticsearchLogFilteringTagA
 	return pulumi.ToOutputWithContext(ctx, i).(GetElasticsearchLogFilteringTagArrayOutput)
 }
 
-func (i GetElasticsearchLogFilteringTagArray) ToOutput(ctx context.Context) pulumix.Output[[]GetElasticsearchLogFilteringTag] {
-	return pulumix.Output[[]GetElasticsearchLogFilteringTag]{
-		OutputState: i.ToGetElasticsearchLogFilteringTagArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetElasticsearchLogFilteringTagOutput struct{ *pulumi.OutputState }
 
 func (GetElasticsearchLogFilteringTagOutput) ElementType() reflect.Type {
@@ -609,12 +524,6 @@ func (o GetElasticsearchLogFilteringTagOutput) ToGetElasticsearchLogFilteringTag
 
 func (o GetElasticsearchLogFilteringTagOutput) ToGetElasticsearchLogFilteringTagOutputWithContext(ctx context.Context) GetElasticsearchLogFilteringTagOutput {
 	return o
-}
-
-func (o GetElasticsearchLogFilteringTagOutput) ToOutput(ctx context.Context) pulumix.Output[GetElasticsearchLogFilteringTag] {
-	return pulumix.Output[GetElasticsearchLogFilteringTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The type of action which is taken when the Tag matches the `name` and `value`.
@@ -644,12 +553,6 @@ func (o GetElasticsearchLogFilteringTagArrayOutput) ToGetElasticsearchLogFilteri
 
 func (o GetElasticsearchLogFilteringTagArrayOutput) ToGetElasticsearchLogFilteringTagArrayOutputWithContext(ctx context.Context) GetElasticsearchLogFilteringTagArrayOutput {
 	return o
-}
-
-func (o GetElasticsearchLogFilteringTagArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetElasticsearchLogFilteringTag] {
-	return pulumix.Output[[]GetElasticsearchLogFilteringTag]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetElasticsearchLogFilteringTagArrayOutput) Index(i pulumi.IntInput) GetElasticsearchLogFilteringTagOutput {

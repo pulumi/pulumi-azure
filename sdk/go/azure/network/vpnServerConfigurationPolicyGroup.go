@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a VPN Server Configuration Policy Group.
@@ -213,12 +212,6 @@ func (i *VpnServerConfigurationPolicyGroup) ToVpnServerConfigurationPolicyGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationPolicyGroupOutput)
 }
 
-func (i *VpnServerConfigurationPolicyGroup) ToOutput(ctx context.Context) pulumix.Output[*VpnServerConfigurationPolicyGroup] {
-	return pulumix.Output[*VpnServerConfigurationPolicyGroup]{
-		OutputState: i.ToVpnServerConfigurationPolicyGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VpnServerConfigurationPolicyGroupArrayInput is an input type that accepts VpnServerConfigurationPolicyGroupArray and VpnServerConfigurationPolicyGroupArrayOutput values.
 // You can construct a concrete instance of `VpnServerConfigurationPolicyGroupArrayInput` via:
 //
@@ -242,12 +235,6 @@ func (i VpnServerConfigurationPolicyGroupArray) ToVpnServerConfigurationPolicyGr
 
 func (i VpnServerConfigurationPolicyGroupArray) ToVpnServerConfigurationPolicyGroupArrayOutputWithContext(ctx context.Context) VpnServerConfigurationPolicyGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationPolicyGroupArrayOutput)
-}
-
-func (i VpnServerConfigurationPolicyGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*VpnServerConfigurationPolicyGroup] {
-	return pulumix.Output[[]*VpnServerConfigurationPolicyGroup]{
-		OutputState: i.ToVpnServerConfigurationPolicyGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VpnServerConfigurationPolicyGroupMapInput is an input type that accepts VpnServerConfigurationPolicyGroupMap and VpnServerConfigurationPolicyGroupMapOutput values.
@@ -275,12 +262,6 @@ func (i VpnServerConfigurationPolicyGroupMap) ToVpnServerConfigurationPolicyGrou
 	return pulumi.ToOutputWithContext(ctx, i).(VpnServerConfigurationPolicyGroupMapOutput)
 }
 
-func (i VpnServerConfigurationPolicyGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpnServerConfigurationPolicyGroup] {
-	return pulumix.Output[map[string]*VpnServerConfigurationPolicyGroup]{
-		OutputState: i.ToVpnServerConfigurationPolicyGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VpnServerConfigurationPolicyGroupOutput struct{ *pulumi.OutputState }
 
 func (VpnServerConfigurationPolicyGroupOutput) ElementType() reflect.Type {
@@ -293,12 +274,6 @@ func (o VpnServerConfigurationPolicyGroupOutput) ToVpnServerConfigurationPolicyG
 
 func (o VpnServerConfigurationPolicyGroupOutput) ToVpnServerConfigurationPolicyGroupOutputWithContext(ctx context.Context) VpnServerConfigurationPolicyGroupOutput {
 	return o
-}
-
-func (o VpnServerConfigurationPolicyGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*VpnServerConfigurationPolicyGroup] {
-	return pulumix.Output[*VpnServerConfigurationPolicyGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Is this a default VPN Server Configuration Policy Group? Defaults to `false`. Changing this forces a new resource to be created.
@@ -342,12 +317,6 @@ func (o VpnServerConfigurationPolicyGroupArrayOutput) ToVpnServerConfigurationPo
 	return o
 }
 
-func (o VpnServerConfigurationPolicyGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VpnServerConfigurationPolicyGroup] {
-	return pulumix.Output[[]*VpnServerConfigurationPolicyGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VpnServerConfigurationPolicyGroupArrayOutput) Index(i pulumi.IntInput) VpnServerConfigurationPolicyGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpnServerConfigurationPolicyGroup {
 		return vs[0].([]*VpnServerConfigurationPolicyGroup)[vs[1].(int)]
@@ -366,12 +335,6 @@ func (o VpnServerConfigurationPolicyGroupMapOutput) ToVpnServerConfigurationPoli
 
 func (o VpnServerConfigurationPolicyGroupMapOutput) ToVpnServerConfigurationPolicyGroupMapOutputWithContext(ctx context.Context) VpnServerConfigurationPolicyGroupMapOutput {
 	return o
-}
-
-func (o VpnServerConfigurationPolicyGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VpnServerConfigurationPolicyGroup] {
-	return pulumix.Output[map[string]*VpnServerConfigurationPolicyGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VpnServerConfigurationPolicyGroupMapOutput) MapIndex(k pulumi.StringInput) VpnServerConfigurationPolicyGroupOutput {

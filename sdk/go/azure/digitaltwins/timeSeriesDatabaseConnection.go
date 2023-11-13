@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Digital Twins Time Series Database Connection.
@@ -361,12 +360,6 @@ func (i *TimeSeriesDatabaseConnection) ToTimeSeriesDatabaseConnectionOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesDatabaseConnectionOutput)
 }
 
-func (i *TimeSeriesDatabaseConnection) ToOutput(ctx context.Context) pulumix.Output[*TimeSeriesDatabaseConnection] {
-	return pulumix.Output[*TimeSeriesDatabaseConnection]{
-		OutputState: i.ToTimeSeriesDatabaseConnectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TimeSeriesDatabaseConnectionArrayInput is an input type that accepts TimeSeriesDatabaseConnectionArray and TimeSeriesDatabaseConnectionArrayOutput values.
 // You can construct a concrete instance of `TimeSeriesDatabaseConnectionArrayInput` via:
 //
@@ -390,12 +383,6 @@ func (i TimeSeriesDatabaseConnectionArray) ToTimeSeriesDatabaseConnectionArrayOu
 
 func (i TimeSeriesDatabaseConnectionArray) ToTimeSeriesDatabaseConnectionArrayOutputWithContext(ctx context.Context) TimeSeriesDatabaseConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesDatabaseConnectionArrayOutput)
-}
-
-func (i TimeSeriesDatabaseConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*TimeSeriesDatabaseConnection] {
-	return pulumix.Output[[]*TimeSeriesDatabaseConnection]{
-		OutputState: i.ToTimeSeriesDatabaseConnectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TimeSeriesDatabaseConnectionMapInput is an input type that accepts TimeSeriesDatabaseConnectionMap and TimeSeriesDatabaseConnectionMapOutput values.
@@ -423,12 +410,6 @@ func (i TimeSeriesDatabaseConnectionMap) ToTimeSeriesDatabaseConnectionMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(TimeSeriesDatabaseConnectionMapOutput)
 }
 
-func (i TimeSeriesDatabaseConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TimeSeriesDatabaseConnection] {
-	return pulumix.Output[map[string]*TimeSeriesDatabaseConnection]{
-		OutputState: i.ToTimeSeriesDatabaseConnectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TimeSeriesDatabaseConnectionOutput struct{ *pulumi.OutputState }
 
 func (TimeSeriesDatabaseConnectionOutput) ElementType() reflect.Type {
@@ -441,12 +422,6 @@ func (o TimeSeriesDatabaseConnectionOutput) ToTimeSeriesDatabaseConnectionOutput
 
 func (o TimeSeriesDatabaseConnectionOutput) ToTimeSeriesDatabaseConnectionOutputWithContext(ctx context.Context) TimeSeriesDatabaseConnectionOutput {
 	return o
-}
-
-func (o TimeSeriesDatabaseConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*TimeSeriesDatabaseConnection] {
-	return pulumix.Output[*TimeSeriesDatabaseConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Digital Twins. Changing this forces a new resource to be created.
@@ -513,12 +488,6 @@ func (o TimeSeriesDatabaseConnectionArrayOutput) ToTimeSeriesDatabaseConnectionA
 	return o
 }
 
-func (o TimeSeriesDatabaseConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TimeSeriesDatabaseConnection] {
-	return pulumix.Output[[]*TimeSeriesDatabaseConnection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TimeSeriesDatabaseConnectionArrayOutput) Index(i pulumi.IntInput) TimeSeriesDatabaseConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TimeSeriesDatabaseConnection {
 		return vs[0].([]*TimeSeriesDatabaseConnection)[vs[1].(int)]
@@ -537,12 +506,6 @@ func (o TimeSeriesDatabaseConnectionMapOutput) ToTimeSeriesDatabaseConnectionMap
 
 func (o TimeSeriesDatabaseConnectionMapOutput) ToTimeSeriesDatabaseConnectionMapOutputWithContext(ctx context.Context) TimeSeriesDatabaseConnectionMapOutput {
 	return o
-}
-
-func (o TimeSeriesDatabaseConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TimeSeriesDatabaseConnection] {
-	return pulumix.Output[map[string]*TimeSeriesDatabaseConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TimeSeriesDatabaseConnectionMapOutput) MapIndex(k pulumi.StringInput) TimeSeriesDatabaseConnectionOutput {

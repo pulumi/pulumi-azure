@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Tenant Template Deployment.
@@ -74,12 +73,6 @@ func (o LookupTenantTemplateDeploymentResultOutput) ToLookupTenantTemplateDeploy
 
 func (o LookupTenantTemplateDeploymentResultOutput) ToLookupTenantTemplateDeploymentResultOutputWithContext(ctx context.Context) LookupTenantTemplateDeploymentResultOutput {
 	return o
-}
-
-func (o LookupTenantTemplateDeploymentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupTenantTemplateDeploymentResult] {
-	return pulumix.Output[LookupTenantTemplateDeploymentResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

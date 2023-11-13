@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type NextGenerationFirewallVirtualHubPanorama struct {
@@ -139,12 +138,6 @@ func (i *NextGenerationFirewallVirtualHubPanorama) ToNextGenerationFirewallVirtu
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubPanoramaOutput)
 }
 
-func (i *NextGenerationFirewallVirtualHubPanorama) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualHubPanorama] {
-	return pulumix.Output[*NextGenerationFirewallVirtualHubPanorama]{
-		OutputState: i.ToNextGenerationFirewallVirtualHubPanoramaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NextGenerationFirewallVirtualHubPanoramaArrayInput is an input type that accepts NextGenerationFirewallVirtualHubPanoramaArray and NextGenerationFirewallVirtualHubPanoramaArrayOutput values.
 // You can construct a concrete instance of `NextGenerationFirewallVirtualHubPanoramaArrayInput` via:
 //
@@ -168,12 +161,6 @@ func (i NextGenerationFirewallVirtualHubPanoramaArray) ToNextGenerationFirewallV
 
 func (i NextGenerationFirewallVirtualHubPanoramaArray) ToNextGenerationFirewallVirtualHubPanoramaArrayOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubPanoramaArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubPanoramaArrayOutput)
-}
-
-func (i NextGenerationFirewallVirtualHubPanoramaArray) ToOutput(ctx context.Context) pulumix.Output[[]*NextGenerationFirewallVirtualHubPanorama] {
-	return pulumix.Output[[]*NextGenerationFirewallVirtualHubPanorama]{
-		OutputState: i.ToNextGenerationFirewallVirtualHubPanoramaArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NextGenerationFirewallVirtualHubPanoramaMapInput is an input type that accepts NextGenerationFirewallVirtualHubPanoramaMap and NextGenerationFirewallVirtualHubPanoramaMapOutput values.
@@ -201,12 +188,6 @@ func (i NextGenerationFirewallVirtualHubPanoramaMap) ToNextGenerationFirewallVir
 	return pulumi.ToOutputWithContext(ctx, i).(NextGenerationFirewallVirtualHubPanoramaMapOutput)
 }
 
-func (i NextGenerationFirewallVirtualHubPanoramaMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NextGenerationFirewallVirtualHubPanorama] {
-	return pulumix.Output[map[string]*NextGenerationFirewallVirtualHubPanorama]{
-		OutputState: i.ToNextGenerationFirewallVirtualHubPanoramaMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NextGenerationFirewallVirtualHubPanoramaOutput struct{ *pulumi.OutputState }
 
 func (NextGenerationFirewallVirtualHubPanoramaOutput) ElementType() reflect.Type {
@@ -219,12 +200,6 @@ func (o NextGenerationFirewallVirtualHubPanoramaOutput) ToNextGenerationFirewall
 
 func (o NextGenerationFirewallVirtualHubPanoramaOutput) ToNextGenerationFirewallVirtualHubPanoramaOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubPanoramaOutput {
 	return o
-}
-
-func (o NextGenerationFirewallVirtualHubPanoramaOutput) ToOutput(ctx context.Context) pulumix.Output[*NextGenerationFirewallVirtualHubPanorama] {
-	return pulumix.Output[*NextGenerationFirewallVirtualHubPanorama]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NextGenerationFirewallVirtualHubPanoramaOutput) DestinationNats() NextGenerationFirewallVirtualHubPanoramaDestinationNatArrayOutput {
@@ -285,12 +260,6 @@ func (o NextGenerationFirewallVirtualHubPanoramaArrayOutput) ToNextGenerationFir
 	return o
 }
 
-func (o NextGenerationFirewallVirtualHubPanoramaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NextGenerationFirewallVirtualHubPanorama] {
-	return pulumix.Output[[]*NextGenerationFirewallVirtualHubPanorama]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NextGenerationFirewallVirtualHubPanoramaArrayOutput) Index(i pulumi.IntInput) NextGenerationFirewallVirtualHubPanoramaOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NextGenerationFirewallVirtualHubPanorama {
 		return vs[0].([]*NextGenerationFirewallVirtualHubPanorama)[vs[1].(int)]
@@ -309,12 +278,6 @@ func (o NextGenerationFirewallVirtualHubPanoramaMapOutput) ToNextGenerationFirew
 
 func (o NextGenerationFirewallVirtualHubPanoramaMapOutput) ToNextGenerationFirewallVirtualHubPanoramaMapOutputWithContext(ctx context.Context) NextGenerationFirewallVirtualHubPanoramaMapOutput {
 	return o
-}
-
-func (o NextGenerationFirewallVirtualHubPanoramaMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NextGenerationFirewallVirtualHubPanorama] {
-	return pulumix.Output[map[string]*NextGenerationFirewallVirtualHubPanorama]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NextGenerationFirewallVirtualHubPanoramaMapOutput) MapIndex(k pulumi.StringInput) NextGenerationFirewallVirtualHubPanoramaOutput {

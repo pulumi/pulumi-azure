@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an App Service source control token.
@@ -176,12 +175,6 @@ func (i *SourceCodeToken) ToSourceCodeTokenOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(SourceCodeTokenOutput)
 }
 
-func (i *SourceCodeToken) ToOutput(ctx context.Context) pulumix.Output[*SourceCodeToken] {
-	return pulumix.Output[*SourceCodeToken]{
-		OutputState: i.ToSourceCodeTokenOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SourceCodeTokenArrayInput is an input type that accepts SourceCodeTokenArray and SourceCodeTokenArrayOutput values.
 // You can construct a concrete instance of `SourceCodeTokenArrayInput` via:
 //
@@ -205,12 +198,6 @@ func (i SourceCodeTokenArray) ToSourceCodeTokenArrayOutput() SourceCodeTokenArra
 
 func (i SourceCodeTokenArray) ToSourceCodeTokenArrayOutputWithContext(ctx context.Context) SourceCodeTokenArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SourceCodeTokenArrayOutput)
-}
-
-func (i SourceCodeTokenArray) ToOutput(ctx context.Context) pulumix.Output[[]*SourceCodeToken] {
-	return pulumix.Output[[]*SourceCodeToken]{
-		OutputState: i.ToSourceCodeTokenArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SourceCodeTokenMapInput is an input type that accepts SourceCodeTokenMap and SourceCodeTokenMapOutput values.
@@ -238,12 +225,6 @@ func (i SourceCodeTokenMap) ToSourceCodeTokenMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(SourceCodeTokenMapOutput)
 }
 
-func (i SourceCodeTokenMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SourceCodeToken] {
-	return pulumix.Output[map[string]*SourceCodeToken]{
-		OutputState: i.ToSourceCodeTokenMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SourceCodeTokenOutput struct{ *pulumi.OutputState }
 
 func (SourceCodeTokenOutput) ElementType() reflect.Type {
@@ -256,12 +237,6 @@ func (o SourceCodeTokenOutput) ToSourceCodeTokenOutput() SourceCodeTokenOutput {
 
 func (o SourceCodeTokenOutput) ToSourceCodeTokenOutputWithContext(ctx context.Context) SourceCodeTokenOutput {
 	return o
-}
-
-func (o SourceCodeTokenOutput) ToOutput(ctx context.Context) pulumix.Output[*SourceCodeToken] {
-	return pulumix.Output[*SourceCodeToken]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The OAuth access token.
@@ -293,12 +268,6 @@ func (o SourceCodeTokenArrayOutput) ToSourceCodeTokenArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o SourceCodeTokenArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SourceCodeToken] {
-	return pulumix.Output[[]*SourceCodeToken]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SourceCodeTokenArrayOutput) Index(i pulumi.IntInput) SourceCodeTokenOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SourceCodeToken {
 		return vs[0].([]*SourceCodeToken)[vs[1].(int)]
@@ -317,12 +286,6 @@ func (o SourceCodeTokenMapOutput) ToSourceCodeTokenMapOutput() SourceCodeTokenMa
 
 func (o SourceCodeTokenMapOutput) ToSourceCodeTokenMapOutputWithContext(ctx context.Context) SourceCodeTokenMapOutput {
 	return o
-}
-
-func (o SourceCodeTokenMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SourceCodeToken] {
-	return pulumix.Output[map[string]*SourceCodeToken]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SourceCodeTokenMapOutput) MapIndex(k pulumi.StringInput) SourceCodeTokenOutput {
