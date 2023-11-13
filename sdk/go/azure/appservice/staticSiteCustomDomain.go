@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -256,12 +255,6 @@ func (i *StaticSiteCustomDomain) ToStaticSiteCustomDomainOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteCustomDomainOutput)
 }
 
-func (i *StaticSiteCustomDomain) ToOutput(ctx context.Context) pulumix.Output[*StaticSiteCustomDomain] {
-	return pulumix.Output[*StaticSiteCustomDomain]{
-		OutputState: i.ToStaticSiteCustomDomainOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StaticSiteCustomDomainArrayInput is an input type that accepts StaticSiteCustomDomainArray and StaticSiteCustomDomainArrayOutput values.
 // You can construct a concrete instance of `StaticSiteCustomDomainArrayInput` via:
 //
@@ -285,12 +278,6 @@ func (i StaticSiteCustomDomainArray) ToStaticSiteCustomDomainArrayOutput() Stati
 
 func (i StaticSiteCustomDomainArray) ToStaticSiteCustomDomainArrayOutputWithContext(ctx context.Context) StaticSiteCustomDomainArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteCustomDomainArrayOutput)
-}
-
-func (i StaticSiteCustomDomainArray) ToOutput(ctx context.Context) pulumix.Output[[]*StaticSiteCustomDomain] {
-	return pulumix.Output[[]*StaticSiteCustomDomain]{
-		OutputState: i.ToStaticSiteCustomDomainArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // StaticSiteCustomDomainMapInput is an input type that accepts StaticSiteCustomDomainMap and StaticSiteCustomDomainMapOutput values.
@@ -318,12 +305,6 @@ func (i StaticSiteCustomDomainMap) ToStaticSiteCustomDomainMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(StaticSiteCustomDomainMapOutput)
 }
 
-func (i StaticSiteCustomDomainMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StaticSiteCustomDomain] {
-	return pulumix.Output[map[string]*StaticSiteCustomDomain]{
-		OutputState: i.ToStaticSiteCustomDomainMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StaticSiteCustomDomainOutput struct{ *pulumi.OutputState }
 
 func (StaticSiteCustomDomainOutput) ElementType() reflect.Type {
@@ -336,12 +317,6 @@ func (o StaticSiteCustomDomainOutput) ToStaticSiteCustomDomainOutput() StaticSit
 
 func (o StaticSiteCustomDomainOutput) ToStaticSiteCustomDomainOutputWithContext(ctx context.Context) StaticSiteCustomDomainOutput {
 	return o
-}
-
-func (o StaticSiteCustomDomainOutput) ToOutput(ctx context.Context) pulumix.Output[*StaticSiteCustomDomain] {
-	return pulumix.Output[*StaticSiteCustomDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Domain Name which should be associated with this Static Site. Changing this forces a new Static Site Custom Domain to be created.
@@ -378,12 +353,6 @@ func (o StaticSiteCustomDomainArrayOutput) ToStaticSiteCustomDomainArrayOutputWi
 	return o
 }
 
-func (o StaticSiteCustomDomainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StaticSiteCustomDomain] {
-	return pulumix.Output[[]*StaticSiteCustomDomain]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StaticSiteCustomDomainArrayOutput) Index(i pulumi.IntInput) StaticSiteCustomDomainOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StaticSiteCustomDomain {
 		return vs[0].([]*StaticSiteCustomDomain)[vs[1].(int)]
@@ -402,12 +371,6 @@ func (o StaticSiteCustomDomainMapOutput) ToStaticSiteCustomDomainMapOutput() Sta
 
 func (o StaticSiteCustomDomainMapOutput) ToStaticSiteCustomDomainMapOutputWithContext(ctx context.Context) StaticSiteCustomDomainMapOutput {
 	return o
-}
-
-func (o StaticSiteCustomDomainMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StaticSiteCustomDomain] {
-	return pulumix.Output[map[string]*StaticSiteCustomDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StaticSiteCustomDomainMapOutput) MapIndex(k pulumi.StringInput) StaticSiteCustomDomainOutput {

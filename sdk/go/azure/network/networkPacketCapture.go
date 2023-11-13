@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Configures Network Packet Capturing against a Virtual Machine using a Network Watcher.
@@ -347,12 +346,6 @@ func (i *NetworkPacketCapture) ToNetworkPacketCaptureOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCaptureOutput)
 }
 
-func (i *NetworkPacketCapture) ToOutput(ctx context.Context) pulumix.Output[*NetworkPacketCapture] {
-	return pulumix.Output[*NetworkPacketCapture]{
-		OutputState: i.ToNetworkPacketCaptureOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkPacketCaptureArrayInput is an input type that accepts NetworkPacketCaptureArray and NetworkPacketCaptureArrayOutput values.
 // You can construct a concrete instance of `NetworkPacketCaptureArrayInput` via:
 //
@@ -376,12 +369,6 @@ func (i NetworkPacketCaptureArray) ToNetworkPacketCaptureArrayOutput() NetworkPa
 
 func (i NetworkPacketCaptureArray) ToNetworkPacketCaptureArrayOutputWithContext(ctx context.Context) NetworkPacketCaptureArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCaptureArrayOutput)
-}
-
-func (i NetworkPacketCaptureArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkPacketCapture] {
-	return pulumix.Output[[]*NetworkPacketCapture]{
-		OutputState: i.ToNetworkPacketCaptureArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NetworkPacketCaptureMapInput is an input type that accepts NetworkPacketCaptureMap and NetworkPacketCaptureMapOutput values.
@@ -409,12 +396,6 @@ func (i NetworkPacketCaptureMap) ToNetworkPacketCaptureMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkPacketCaptureMapOutput)
 }
 
-func (i NetworkPacketCaptureMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkPacketCapture] {
-	return pulumix.Output[map[string]*NetworkPacketCapture]{
-		OutputState: i.ToNetworkPacketCaptureMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkPacketCaptureOutput struct{ *pulumi.OutputState }
 
 func (NetworkPacketCaptureOutput) ElementType() reflect.Type {
@@ -427,12 +408,6 @@ func (o NetworkPacketCaptureOutput) ToNetworkPacketCaptureOutput() NetworkPacket
 
 func (o NetworkPacketCaptureOutput) ToNetworkPacketCaptureOutputWithContext(ctx context.Context) NetworkPacketCaptureOutput {
 	return o
-}
-
-func (o NetworkPacketCaptureOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkPacketCapture] {
-	return pulumix.Output[*NetworkPacketCapture]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `filter` blocks as defined below. Changing this forces a new resource to be created.
@@ -496,12 +471,6 @@ func (o NetworkPacketCaptureArrayOutput) ToNetworkPacketCaptureArrayOutputWithCo
 	return o
 }
 
-func (o NetworkPacketCaptureArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkPacketCapture] {
-	return pulumix.Output[[]*NetworkPacketCapture]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkPacketCaptureArrayOutput) Index(i pulumi.IntInput) NetworkPacketCaptureOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkPacketCapture {
 		return vs[0].([]*NetworkPacketCapture)[vs[1].(int)]
@@ -520,12 +489,6 @@ func (o NetworkPacketCaptureMapOutput) ToNetworkPacketCaptureMapOutput() Network
 
 func (o NetworkPacketCaptureMapOutput) ToNetworkPacketCaptureMapOutputWithContext(ctx context.Context) NetworkPacketCaptureMapOutput {
 	return o
-}
-
-func (o NetworkPacketCaptureMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkPacketCapture] {
-	return pulumix.Output[map[string]*NetworkPacketCapture]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkPacketCaptureMapOutput) MapIndex(k pulumi.StringInput) NetworkPacketCaptureOutput {

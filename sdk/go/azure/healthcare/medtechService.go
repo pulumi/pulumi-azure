@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Healthcare Med Tech Service.
@@ -278,12 +277,6 @@ func (i *MedtechService) ToMedtechServiceOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(MedtechServiceOutput)
 }
 
-func (i *MedtechService) ToOutput(ctx context.Context) pulumix.Output[*MedtechService] {
-	return pulumix.Output[*MedtechService]{
-		OutputState: i.ToMedtechServiceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MedtechServiceArrayInput is an input type that accepts MedtechServiceArray and MedtechServiceArrayOutput values.
 // You can construct a concrete instance of `MedtechServiceArrayInput` via:
 //
@@ -307,12 +300,6 @@ func (i MedtechServiceArray) ToMedtechServiceArrayOutput() MedtechServiceArrayOu
 
 func (i MedtechServiceArray) ToMedtechServiceArrayOutputWithContext(ctx context.Context) MedtechServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MedtechServiceArrayOutput)
-}
-
-func (i MedtechServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*MedtechService] {
-	return pulumix.Output[[]*MedtechService]{
-		OutputState: i.ToMedtechServiceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MedtechServiceMapInput is an input type that accepts MedtechServiceMap and MedtechServiceMapOutput values.
@@ -340,12 +327,6 @@ func (i MedtechServiceMap) ToMedtechServiceMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(MedtechServiceMapOutput)
 }
 
-func (i MedtechServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MedtechService] {
-	return pulumix.Output[map[string]*MedtechService]{
-		OutputState: i.ToMedtechServiceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MedtechServiceOutput struct{ *pulumi.OutputState }
 
 func (MedtechServiceOutput) ElementType() reflect.Type {
@@ -358,12 +339,6 @@ func (o MedtechServiceOutput) ToMedtechServiceOutput() MedtechServiceOutput {
 
 func (o MedtechServiceOutput) ToMedtechServiceOutputWithContext(ctx context.Context) MedtechServiceOutput {
 	return o
-}
-
-func (o MedtechServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*MedtechService] {
-	return pulumix.Output[*MedtechService]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Device Mappings of the Med Tech Service.
@@ -425,12 +400,6 @@ func (o MedtechServiceArrayOutput) ToMedtechServiceArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o MedtechServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MedtechService] {
-	return pulumix.Output[[]*MedtechService]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MedtechServiceArrayOutput) Index(i pulumi.IntInput) MedtechServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MedtechService {
 		return vs[0].([]*MedtechService)[vs[1].(int)]
@@ -449,12 +418,6 @@ func (o MedtechServiceMapOutput) ToMedtechServiceMapOutput() MedtechServiceMapOu
 
 func (o MedtechServiceMapOutput) ToMedtechServiceMapOutputWithContext(ctx context.Context) MedtechServiceMapOutput {
 	return o
-}
-
-func (o MedtechServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MedtechService] {
-	return pulumix.Output[map[string]*MedtechService]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MedtechServiceMapOutput) MapIndex(k pulumi.StringInput) MedtechServiceOutput {

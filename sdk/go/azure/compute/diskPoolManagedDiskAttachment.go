@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Disk Pool Managed Disk Attachment.
@@ -252,12 +251,6 @@ func (i *DiskPoolManagedDiskAttachment) ToDiskPoolManagedDiskAttachmentOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolManagedDiskAttachmentOutput)
 }
 
-func (i *DiskPoolManagedDiskAttachment) ToOutput(ctx context.Context) pulumix.Output[*DiskPoolManagedDiskAttachment] {
-	return pulumix.Output[*DiskPoolManagedDiskAttachment]{
-		OutputState: i.ToDiskPoolManagedDiskAttachmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DiskPoolManagedDiskAttachmentArrayInput is an input type that accepts DiskPoolManagedDiskAttachmentArray and DiskPoolManagedDiskAttachmentArrayOutput values.
 // You can construct a concrete instance of `DiskPoolManagedDiskAttachmentArrayInput` via:
 //
@@ -281,12 +274,6 @@ func (i DiskPoolManagedDiskAttachmentArray) ToDiskPoolManagedDiskAttachmentArray
 
 func (i DiskPoolManagedDiskAttachmentArray) ToDiskPoolManagedDiskAttachmentArrayOutputWithContext(ctx context.Context) DiskPoolManagedDiskAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolManagedDiskAttachmentArrayOutput)
-}
-
-func (i DiskPoolManagedDiskAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*DiskPoolManagedDiskAttachment] {
-	return pulumix.Output[[]*DiskPoolManagedDiskAttachment]{
-		OutputState: i.ToDiskPoolManagedDiskAttachmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DiskPoolManagedDiskAttachmentMapInput is an input type that accepts DiskPoolManagedDiskAttachmentMap and DiskPoolManagedDiskAttachmentMapOutput values.
@@ -314,12 +301,6 @@ func (i DiskPoolManagedDiskAttachmentMap) ToDiskPoolManagedDiskAttachmentMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DiskPoolManagedDiskAttachmentMapOutput)
 }
 
-func (i DiskPoolManagedDiskAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DiskPoolManagedDiskAttachment] {
-	return pulumix.Output[map[string]*DiskPoolManagedDiskAttachment]{
-		OutputState: i.ToDiskPoolManagedDiskAttachmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DiskPoolManagedDiskAttachmentOutput struct{ *pulumi.OutputState }
 
 func (DiskPoolManagedDiskAttachmentOutput) ElementType() reflect.Type {
@@ -332,12 +313,6 @@ func (o DiskPoolManagedDiskAttachmentOutput) ToDiskPoolManagedDiskAttachmentOutp
 
 func (o DiskPoolManagedDiskAttachmentOutput) ToDiskPoolManagedDiskAttachmentOutputWithContext(ctx context.Context) DiskPoolManagedDiskAttachmentOutput {
 	return o
-}
-
-func (o DiskPoolManagedDiskAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*DiskPoolManagedDiskAttachment] {
-	return pulumix.Output[*DiskPoolManagedDiskAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Disk Pool. Changing this forces a new Disk Pool Managed Disk Attachment to be created.
@@ -364,12 +339,6 @@ func (o DiskPoolManagedDiskAttachmentArrayOutput) ToDiskPoolManagedDiskAttachmen
 	return o
 }
 
-func (o DiskPoolManagedDiskAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DiskPoolManagedDiskAttachment] {
-	return pulumix.Output[[]*DiskPoolManagedDiskAttachment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DiskPoolManagedDiskAttachmentArrayOutput) Index(i pulumi.IntInput) DiskPoolManagedDiskAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DiskPoolManagedDiskAttachment {
 		return vs[0].([]*DiskPoolManagedDiskAttachment)[vs[1].(int)]
@@ -388,12 +357,6 @@ func (o DiskPoolManagedDiskAttachmentMapOutput) ToDiskPoolManagedDiskAttachmentM
 
 func (o DiskPoolManagedDiskAttachmentMapOutput) ToDiskPoolManagedDiskAttachmentMapOutputWithContext(ctx context.Context) DiskPoolManagedDiskAttachmentMapOutput {
 	return o
-}
-
-func (o DiskPoolManagedDiskAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DiskPoolManagedDiskAttachment] {
-	return pulumix.Output[map[string]*DiskPoolManagedDiskAttachment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DiskPoolManagedDiskAttachmentMapOutput) MapIndex(k pulumi.StringInput) DiskPoolManagedDiskAttachmentOutput {

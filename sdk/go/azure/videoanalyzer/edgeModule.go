@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Video Analyzer Edge Module.
@@ -228,12 +227,6 @@ func (i *EdgeModule) ToEdgeModuleOutputWithContext(ctx context.Context) EdgeModu
 	return pulumi.ToOutputWithContext(ctx, i).(EdgeModuleOutput)
 }
 
-func (i *EdgeModule) ToOutput(ctx context.Context) pulumix.Output[*EdgeModule] {
-	return pulumix.Output[*EdgeModule]{
-		OutputState: i.ToEdgeModuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EdgeModuleArrayInput is an input type that accepts EdgeModuleArray and EdgeModuleArrayOutput values.
 // You can construct a concrete instance of `EdgeModuleArrayInput` via:
 //
@@ -257,12 +250,6 @@ func (i EdgeModuleArray) ToEdgeModuleArrayOutput() EdgeModuleArrayOutput {
 
 func (i EdgeModuleArray) ToEdgeModuleArrayOutputWithContext(ctx context.Context) EdgeModuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EdgeModuleArrayOutput)
-}
-
-func (i EdgeModuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*EdgeModule] {
-	return pulumix.Output[[]*EdgeModule]{
-		OutputState: i.ToEdgeModuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EdgeModuleMapInput is an input type that accepts EdgeModuleMap and EdgeModuleMapOutput values.
@@ -290,12 +277,6 @@ func (i EdgeModuleMap) ToEdgeModuleMapOutputWithContext(ctx context.Context) Edg
 	return pulumi.ToOutputWithContext(ctx, i).(EdgeModuleMapOutput)
 }
 
-func (i EdgeModuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EdgeModule] {
-	return pulumix.Output[map[string]*EdgeModule]{
-		OutputState: i.ToEdgeModuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EdgeModuleOutput struct{ *pulumi.OutputState }
 
 func (EdgeModuleOutput) ElementType() reflect.Type {
@@ -308,12 +289,6 @@ func (o EdgeModuleOutput) ToEdgeModuleOutput() EdgeModuleOutput {
 
 func (o EdgeModuleOutput) ToEdgeModuleOutputWithContext(ctx context.Context) EdgeModuleOutput {
 	return o
-}
-
-func (o EdgeModuleOutput) ToOutput(ctx context.Context) pulumix.Output[*EdgeModule] {
-	return pulumix.Output[*EdgeModule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the Video Analyzer Edge Module. Changing this forces a new resource to be created.
@@ -345,12 +320,6 @@ func (o EdgeModuleArrayOutput) ToEdgeModuleArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o EdgeModuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EdgeModule] {
-	return pulumix.Output[[]*EdgeModule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EdgeModuleArrayOutput) Index(i pulumi.IntInput) EdgeModuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EdgeModule {
 		return vs[0].([]*EdgeModule)[vs[1].(int)]
@@ -369,12 +338,6 @@ func (o EdgeModuleMapOutput) ToEdgeModuleMapOutput() EdgeModuleMapOutput {
 
 func (o EdgeModuleMapOutput) ToEdgeModuleMapOutputWithContext(ctx context.Context) EdgeModuleMapOutput {
 	return o
-}
-
-func (o EdgeModuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EdgeModule] {
-	return pulumix.Output[map[string]*EdgeModule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EdgeModuleMapOutput) MapIndex(k pulumi.StringInput) EdgeModuleOutput {

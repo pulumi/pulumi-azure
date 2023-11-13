@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Management Group Template Deployment.
@@ -79,12 +78,6 @@ func (o LookupGroupTemplateDeploymentResultOutput) ToLookupGroupTemplateDeployme
 
 func (o LookupGroupTemplateDeploymentResultOutput) ToLookupGroupTemplateDeploymentResultOutputWithContext(ctx context.Context) LookupGroupTemplateDeploymentResultOutput {
 	return o
-}
-
-func (o LookupGroupTemplateDeploymentResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGroupTemplateDeploymentResult] {
-	return pulumix.Output[LookupGroupTemplateDeploymentResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

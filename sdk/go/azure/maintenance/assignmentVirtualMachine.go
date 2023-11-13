@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a maintenance assignment to virtual machine.
@@ -251,12 +250,6 @@ func (i *AssignmentVirtualMachine) ToAssignmentVirtualMachineOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentVirtualMachineOutput)
 }
 
-func (i *AssignmentVirtualMachine) ToOutput(ctx context.Context) pulumix.Output[*AssignmentVirtualMachine] {
-	return pulumix.Output[*AssignmentVirtualMachine]{
-		OutputState: i.ToAssignmentVirtualMachineOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssignmentVirtualMachineArrayInput is an input type that accepts AssignmentVirtualMachineArray and AssignmentVirtualMachineArrayOutput values.
 // You can construct a concrete instance of `AssignmentVirtualMachineArrayInput` via:
 //
@@ -280,12 +273,6 @@ func (i AssignmentVirtualMachineArray) ToAssignmentVirtualMachineArrayOutput() A
 
 func (i AssignmentVirtualMachineArray) ToAssignmentVirtualMachineArrayOutputWithContext(ctx context.Context) AssignmentVirtualMachineArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentVirtualMachineArrayOutput)
-}
-
-func (i AssignmentVirtualMachineArray) ToOutput(ctx context.Context) pulumix.Output[[]*AssignmentVirtualMachine] {
-	return pulumix.Output[[]*AssignmentVirtualMachine]{
-		OutputState: i.ToAssignmentVirtualMachineArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AssignmentVirtualMachineMapInput is an input type that accepts AssignmentVirtualMachineMap and AssignmentVirtualMachineMapOutput values.
@@ -313,12 +300,6 @@ func (i AssignmentVirtualMachineMap) ToAssignmentVirtualMachineMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentVirtualMachineMapOutput)
 }
 
-func (i AssignmentVirtualMachineMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AssignmentVirtualMachine] {
-	return pulumix.Output[map[string]*AssignmentVirtualMachine]{
-		OutputState: i.ToAssignmentVirtualMachineMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssignmentVirtualMachineOutput struct{ *pulumi.OutputState }
 
 func (AssignmentVirtualMachineOutput) ElementType() reflect.Type {
@@ -331,12 +312,6 @@ func (o AssignmentVirtualMachineOutput) ToAssignmentVirtualMachineOutput() Assig
 
 func (o AssignmentVirtualMachineOutput) ToAssignmentVirtualMachineOutputWithContext(ctx context.Context) AssignmentVirtualMachineOutput {
 	return o
-}
-
-func (o AssignmentVirtualMachineOutput) ToOutput(ctx context.Context) pulumix.Output[*AssignmentVirtualMachine] {
-	return pulumix.Output[*AssignmentVirtualMachine]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -368,12 +343,6 @@ func (o AssignmentVirtualMachineArrayOutput) ToAssignmentVirtualMachineArrayOutp
 	return o
 }
 
-func (o AssignmentVirtualMachineArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AssignmentVirtualMachine] {
-	return pulumix.Output[[]*AssignmentVirtualMachine]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssignmentVirtualMachineArrayOutput) Index(i pulumi.IntInput) AssignmentVirtualMachineOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AssignmentVirtualMachine {
 		return vs[0].([]*AssignmentVirtualMachine)[vs[1].(int)]
@@ -392,12 +361,6 @@ func (o AssignmentVirtualMachineMapOutput) ToAssignmentVirtualMachineMapOutput()
 
 func (o AssignmentVirtualMachineMapOutput) ToAssignmentVirtualMachineMapOutputWithContext(ctx context.Context) AssignmentVirtualMachineMapOutput {
 	return o
-}
-
-func (o AssignmentVirtualMachineMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AssignmentVirtualMachine] {
-	return pulumix.Output[map[string]*AssignmentVirtualMachine]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssignmentVirtualMachineMapOutput) MapIndex(k pulumi.StringInput) AssignmentVirtualMachineOutput {

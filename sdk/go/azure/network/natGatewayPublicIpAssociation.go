@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the association between a NAT Gateway and a Public IP.
@@ -175,12 +174,6 @@ func (i *NatGatewayPublicIpAssociation) ToNatGatewayPublicIpAssociationOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayPublicIpAssociationOutput)
 }
 
-func (i *NatGatewayPublicIpAssociation) ToOutput(ctx context.Context) pulumix.Output[*NatGatewayPublicIpAssociation] {
-	return pulumix.Output[*NatGatewayPublicIpAssociation]{
-		OutputState: i.ToNatGatewayPublicIpAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NatGatewayPublicIpAssociationArrayInput is an input type that accepts NatGatewayPublicIpAssociationArray and NatGatewayPublicIpAssociationArrayOutput values.
 // You can construct a concrete instance of `NatGatewayPublicIpAssociationArrayInput` via:
 //
@@ -204,12 +197,6 @@ func (i NatGatewayPublicIpAssociationArray) ToNatGatewayPublicIpAssociationArray
 
 func (i NatGatewayPublicIpAssociationArray) ToNatGatewayPublicIpAssociationArrayOutputWithContext(ctx context.Context) NatGatewayPublicIpAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayPublicIpAssociationArrayOutput)
-}
-
-func (i NatGatewayPublicIpAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*NatGatewayPublicIpAssociation] {
-	return pulumix.Output[[]*NatGatewayPublicIpAssociation]{
-		OutputState: i.ToNatGatewayPublicIpAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NatGatewayPublicIpAssociationMapInput is an input type that accepts NatGatewayPublicIpAssociationMap and NatGatewayPublicIpAssociationMapOutput values.
@@ -237,12 +224,6 @@ func (i NatGatewayPublicIpAssociationMap) ToNatGatewayPublicIpAssociationMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(NatGatewayPublicIpAssociationMapOutput)
 }
 
-func (i NatGatewayPublicIpAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NatGatewayPublicIpAssociation] {
-	return pulumix.Output[map[string]*NatGatewayPublicIpAssociation]{
-		OutputState: i.ToNatGatewayPublicIpAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NatGatewayPublicIpAssociationOutput struct{ *pulumi.OutputState }
 
 func (NatGatewayPublicIpAssociationOutput) ElementType() reflect.Type {
@@ -255,12 +236,6 @@ func (o NatGatewayPublicIpAssociationOutput) ToNatGatewayPublicIpAssociationOutp
 
 func (o NatGatewayPublicIpAssociationOutput) ToNatGatewayPublicIpAssociationOutputWithContext(ctx context.Context) NatGatewayPublicIpAssociationOutput {
 	return o
-}
-
-func (o NatGatewayPublicIpAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*NatGatewayPublicIpAssociation] {
-	return pulumix.Output[*NatGatewayPublicIpAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the NAT Gateway. Changing this forces a new resource to be created.
@@ -287,12 +262,6 @@ func (o NatGatewayPublicIpAssociationArrayOutput) ToNatGatewayPublicIpAssociatio
 	return o
 }
 
-func (o NatGatewayPublicIpAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NatGatewayPublicIpAssociation] {
-	return pulumix.Output[[]*NatGatewayPublicIpAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NatGatewayPublicIpAssociationArrayOutput) Index(i pulumi.IntInput) NatGatewayPublicIpAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NatGatewayPublicIpAssociation {
 		return vs[0].([]*NatGatewayPublicIpAssociation)[vs[1].(int)]
@@ -311,12 +280,6 @@ func (o NatGatewayPublicIpAssociationMapOutput) ToNatGatewayPublicIpAssociationM
 
 func (o NatGatewayPublicIpAssociationMapOutput) ToNatGatewayPublicIpAssociationMapOutputWithContext(ctx context.Context) NatGatewayPublicIpAssociationMapOutput {
 	return o
-}
-
-func (o NatGatewayPublicIpAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NatGatewayPublicIpAssociation] {
-	return pulumix.Output[map[string]*NatGatewayPublicIpAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NatGatewayPublicIpAssociationMapOutput) MapIndex(k pulumi.StringInput) NatGatewayPublicIpAssociationOutput {

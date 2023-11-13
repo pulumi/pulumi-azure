@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Managed Private Endpoint for a Kusto Cluster.
@@ -243,12 +242,6 @@ func (i *ClusterManagedPrivateEndpoint) ToClusterManagedPrivateEndpointOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterManagedPrivateEndpointOutput)
 }
 
-func (i *ClusterManagedPrivateEndpoint) ToOutput(ctx context.Context) pulumix.Output[*ClusterManagedPrivateEndpoint] {
-	return pulumix.Output[*ClusterManagedPrivateEndpoint]{
-		OutputState: i.ToClusterManagedPrivateEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterManagedPrivateEndpointArrayInput is an input type that accepts ClusterManagedPrivateEndpointArray and ClusterManagedPrivateEndpointArrayOutput values.
 // You can construct a concrete instance of `ClusterManagedPrivateEndpointArrayInput` via:
 //
@@ -272,12 +265,6 @@ func (i ClusterManagedPrivateEndpointArray) ToClusterManagedPrivateEndpointArray
 
 func (i ClusterManagedPrivateEndpointArray) ToClusterManagedPrivateEndpointArrayOutputWithContext(ctx context.Context) ClusterManagedPrivateEndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterManagedPrivateEndpointArrayOutput)
-}
-
-func (i ClusterManagedPrivateEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterManagedPrivateEndpoint] {
-	return pulumix.Output[[]*ClusterManagedPrivateEndpoint]{
-		OutputState: i.ToClusterManagedPrivateEndpointArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ClusterManagedPrivateEndpointMapInput is an input type that accepts ClusterManagedPrivateEndpointMap and ClusterManagedPrivateEndpointMapOutput values.
@@ -305,12 +292,6 @@ func (i ClusterManagedPrivateEndpointMap) ToClusterManagedPrivateEndpointMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterManagedPrivateEndpointMapOutput)
 }
 
-func (i ClusterManagedPrivateEndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterManagedPrivateEndpoint] {
-	return pulumix.Output[map[string]*ClusterManagedPrivateEndpoint]{
-		OutputState: i.ToClusterManagedPrivateEndpointMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterManagedPrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (ClusterManagedPrivateEndpointOutput) ElementType() reflect.Type {
@@ -323,12 +304,6 @@ func (o ClusterManagedPrivateEndpointOutput) ToClusterManagedPrivateEndpointOutp
 
 func (o ClusterManagedPrivateEndpointOutput) ToClusterManagedPrivateEndpointOutputWithContext(ctx context.Context) ClusterManagedPrivateEndpointOutput {
 	return o
-}
-
-func (o ClusterManagedPrivateEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterManagedPrivateEndpoint] {
-	return pulumix.Output[*ClusterManagedPrivateEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Kusto Cluster. Changing this forces a new resource to be created.
@@ -380,12 +355,6 @@ func (o ClusterManagedPrivateEndpointArrayOutput) ToClusterManagedPrivateEndpoin
 	return o
 }
 
-func (o ClusterManagedPrivateEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterManagedPrivateEndpoint] {
-	return pulumix.Output[[]*ClusterManagedPrivateEndpoint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterManagedPrivateEndpointArrayOutput) Index(i pulumi.IntInput) ClusterManagedPrivateEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ClusterManagedPrivateEndpoint {
 		return vs[0].([]*ClusterManagedPrivateEndpoint)[vs[1].(int)]
@@ -404,12 +373,6 @@ func (o ClusterManagedPrivateEndpointMapOutput) ToClusterManagedPrivateEndpointM
 
 func (o ClusterManagedPrivateEndpointMapOutput) ToClusterManagedPrivateEndpointMapOutputWithContext(ctx context.Context) ClusterManagedPrivateEndpointMapOutput {
 	return o
-}
-
-func (o ClusterManagedPrivateEndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterManagedPrivateEndpoint] {
-	return pulumix.Output[map[string]*ClusterManagedPrivateEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterManagedPrivateEndpointMapOutput) MapIndex(k pulumi.StringInput) ClusterManagedPrivateEndpointOutput {

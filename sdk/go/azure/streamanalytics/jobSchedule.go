@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Stream Analytics Job Schedule.
@@ -267,12 +266,6 @@ func (i *JobSchedule) ToJobScheduleOutputWithContext(ctx context.Context) JobSch
 	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleOutput)
 }
 
-func (i *JobSchedule) ToOutput(ctx context.Context) pulumix.Output[*JobSchedule] {
-	return pulumix.Output[*JobSchedule]{
-		OutputState: i.ToJobScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // JobScheduleArrayInput is an input type that accepts JobScheduleArray and JobScheduleArrayOutput values.
 // You can construct a concrete instance of `JobScheduleArrayInput` via:
 //
@@ -296,12 +289,6 @@ func (i JobScheduleArray) ToJobScheduleArrayOutput() JobScheduleArrayOutput {
 
 func (i JobScheduleArray) ToJobScheduleArrayOutputWithContext(ctx context.Context) JobScheduleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleArrayOutput)
-}
-
-func (i JobScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]*JobSchedule] {
-	return pulumix.Output[[]*JobSchedule]{
-		OutputState: i.ToJobScheduleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // JobScheduleMapInput is an input type that accepts JobScheduleMap and JobScheduleMapOutput values.
@@ -329,12 +316,6 @@ func (i JobScheduleMap) ToJobScheduleMapOutputWithContext(ctx context.Context) J
 	return pulumi.ToOutputWithContext(ctx, i).(JobScheduleMapOutput)
 }
 
-func (i JobScheduleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*JobSchedule] {
-	return pulumix.Output[map[string]*JobSchedule]{
-		OutputState: i.ToJobScheduleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type JobScheduleOutput struct{ *pulumi.OutputState }
 
 func (JobScheduleOutput) ElementType() reflect.Type {
@@ -347,12 +328,6 @@ func (o JobScheduleOutput) ToJobScheduleOutput() JobScheduleOutput {
 
 func (o JobScheduleOutput) ToJobScheduleOutputWithContext(ctx context.Context) JobScheduleOutput {
 	return o
-}
-
-func (o JobScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[*JobSchedule] {
-	return pulumix.Output[*JobSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The time at which the Stream Analytics job last produced an output.
@@ -391,12 +366,6 @@ func (o JobScheduleArrayOutput) ToJobScheduleArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o JobScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*JobSchedule] {
-	return pulumix.Output[[]*JobSchedule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o JobScheduleArrayOutput) Index(i pulumi.IntInput) JobScheduleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *JobSchedule {
 		return vs[0].([]*JobSchedule)[vs[1].(int)]
@@ -415,12 +384,6 @@ func (o JobScheduleMapOutput) ToJobScheduleMapOutput() JobScheduleMapOutput {
 
 func (o JobScheduleMapOutput) ToJobScheduleMapOutputWithContext(ctx context.Context) JobScheduleMapOutput {
 	return o
-}
-
-func (o JobScheduleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*JobSchedule] {
-	return pulumix.Output[map[string]*JobSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o JobScheduleMapOutput) MapIndex(k pulumi.StringInput) JobScheduleOutput {

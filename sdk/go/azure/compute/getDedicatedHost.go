@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Dedicated Host.
@@ -115,12 +114,6 @@ func (o LookupDedicatedHostResultOutput) ToLookupDedicatedHostResultOutput() Loo
 
 func (o LookupDedicatedHostResultOutput) ToLookupDedicatedHostResultOutputWithContext(ctx context.Context) LookupDedicatedHostResultOutput {
 	return o
-}
-
-func (o LookupDedicatedHostResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDedicatedHostResult] {
-	return pulumix.Output[LookupDedicatedHostResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupDedicatedHostResultOutput) DedicatedHostGroupName() pulumi.StringOutput {
