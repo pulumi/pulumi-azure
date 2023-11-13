@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Automation Datetime Variable.
@@ -117,12 +116,6 @@ func (o LookupDateTimeVariableResultOutput) ToLookupDateTimeVariableResultOutput
 
 func (o LookupDateTimeVariableResultOutput) ToLookupDateTimeVariableResultOutputWithContext(ctx context.Context) LookupDateTimeVariableResultOutput {
 	return o
-}
-
-func (o LookupDateTimeVariableResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDateTimeVariableResult] {
-	return pulumix.Output[LookupDateTimeVariableResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupDateTimeVariableResultOutput) AutomationAccountName() pulumi.StringOutput {

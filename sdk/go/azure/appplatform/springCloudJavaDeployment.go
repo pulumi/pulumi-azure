@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Spring Cloud Deployment with a Java runtime.
@@ -234,12 +233,6 @@ func (i *SpringCloudJavaDeployment) ToSpringCloudJavaDeploymentOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudJavaDeploymentOutput)
 }
 
-func (i *SpringCloudJavaDeployment) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudJavaDeployment] {
-	return pulumix.Output[*SpringCloudJavaDeployment]{
-		OutputState: i.ToSpringCloudJavaDeploymentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SpringCloudJavaDeploymentArrayInput is an input type that accepts SpringCloudJavaDeploymentArray and SpringCloudJavaDeploymentArrayOutput values.
 // You can construct a concrete instance of `SpringCloudJavaDeploymentArrayInput` via:
 //
@@ -263,12 +256,6 @@ func (i SpringCloudJavaDeploymentArray) ToSpringCloudJavaDeploymentArrayOutput()
 
 func (i SpringCloudJavaDeploymentArray) ToSpringCloudJavaDeploymentArrayOutputWithContext(ctx context.Context) SpringCloudJavaDeploymentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudJavaDeploymentArrayOutput)
-}
-
-func (i SpringCloudJavaDeploymentArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudJavaDeployment] {
-	return pulumix.Output[[]*SpringCloudJavaDeployment]{
-		OutputState: i.ToSpringCloudJavaDeploymentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SpringCloudJavaDeploymentMapInput is an input type that accepts SpringCloudJavaDeploymentMap and SpringCloudJavaDeploymentMapOutput values.
@@ -296,12 +283,6 @@ func (i SpringCloudJavaDeploymentMap) ToSpringCloudJavaDeploymentMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudJavaDeploymentMapOutput)
 }
 
-func (i SpringCloudJavaDeploymentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudJavaDeployment] {
-	return pulumix.Output[map[string]*SpringCloudJavaDeployment]{
-		OutputState: i.ToSpringCloudJavaDeploymentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SpringCloudJavaDeploymentOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudJavaDeploymentOutput) ElementType() reflect.Type {
@@ -314,12 +295,6 @@ func (o SpringCloudJavaDeploymentOutput) ToSpringCloudJavaDeploymentOutput() Spr
 
 func (o SpringCloudJavaDeploymentOutput) ToSpringCloudJavaDeploymentOutputWithContext(ctx context.Context) SpringCloudJavaDeploymentOutput {
 	return o
-}
-
-func (o SpringCloudJavaDeploymentOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudJavaDeployment] {
-	return pulumix.Output[*SpringCloudJavaDeployment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
@@ -371,12 +346,6 @@ func (o SpringCloudJavaDeploymentArrayOutput) ToSpringCloudJavaDeploymentArrayOu
 	return o
 }
 
-func (o SpringCloudJavaDeploymentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudJavaDeployment] {
-	return pulumix.Output[[]*SpringCloudJavaDeployment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SpringCloudJavaDeploymentArrayOutput) Index(i pulumi.IntInput) SpringCloudJavaDeploymentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudJavaDeployment {
 		return vs[0].([]*SpringCloudJavaDeployment)[vs[1].(int)]
@@ -395,12 +364,6 @@ func (o SpringCloudJavaDeploymentMapOutput) ToSpringCloudJavaDeploymentMapOutput
 
 func (o SpringCloudJavaDeploymentMapOutput) ToSpringCloudJavaDeploymentMapOutputWithContext(ctx context.Context) SpringCloudJavaDeploymentMapOutput {
 	return o
-}
-
-func (o SpringCloudJavaDeploymentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudJavaDeployment] {
-	return pulumix.Output[map[string]*SpringCloudJavaDeployment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SpringCloudJavaDeploymentMapOutput) MapIndex(k pulumi.StringInput) SpringCloudJavaDeploymentOutput {

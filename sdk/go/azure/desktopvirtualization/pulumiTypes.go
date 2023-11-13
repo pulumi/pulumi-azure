@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -63,12 +62,6 @@ func (i HostPoolScheduledAgentUpdatesArgs) ToHostPoolScheduledAgentUpdatesOutput
 	return pulumi.ToOutputWithContext(ctx, i).(HostPoolScheduledAgentUpdatesOutput)
 }
 
-func (i HostPoolScheduledAgentUpdatesArgs) ToOutput(ctx context.Context) pulumix.Output[HostPoolScheduledAgentUpdates] {
-	return pulumix.Output[HostPoolScheduledAgentUpdates]{
-		OutputState: i.ToHostPoolScheduledAgentUpdatesOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i HostPoolScheduledAgentUpdatesArgs) ToHostPoolScheduledAgentUpdatesPtrOutput() HostPoolScheduledAgentUpdatesPtrOutput {
 	return i.ToHostPoolScheduledAgentUpdatesPtrOutputWithContext(context.Background())
 }
@@ -110,12 +103,6 @@ func (i *hostPoolScheduledAgentUpdatesPtrType) ToHostPoolScheduledAgentUpdatesPt
 	return pulumi.ToOutputWithContext(ctx, i).(HostPoolScheduledAgentUpdatesPtrOutput)
 }
 
-func (i *hostPoolScheduledAgentUpdatesPtrType) ToOutput(ctx context.Context) pulumix.Output[*HostPoolScheduledAgentUpdates] {
-	return pulumix.Output[*HostPoolScheduledAgentUpdates]{
-		OutputState: i.ToHostPoolScheduledAgentUpdatesPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HostPoolScheduledAgentUpdatesOutput struct{ *pulumi.OutputState }
 
 func (HostPoolScheduledAgentUpdatesOutput) ElementType() reflect.Type {
@@ -138,12 +125,6 @@ func (o HostPoolScheduledAgentUpdatesOutput) ToHostPoolScheduledAgentUpdatesPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v HostPoolScheduledAgentUpdates) *HostPoolScheduledAgentUpdates {
 		return &v
 	}).(HostPoolScheduledAgentUpdatesPtrOutput)
-}
-
-func (o HostPoolScheduledAgentUpdatesOutput) ToOutput(ctx context.Context) pulumix.Output[HostPoolScheduledAgentUpdates] {
-	return pulumix.Output[HostPoolScheduledAgentUpdates]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Enables or disables scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts. If this is enabled then up to two `schedule` blocks must be defined. Default is `false`.
@@ -180,12 +161,6 @@ func (o HostPoolScheduledAgentUpdatesPtrOutput) ToHostPoolScheduledAgentUpdatesP
 
 func (o HostPoolScheduledAgentUpdatesPtrOutput) ToHostPoolScheduledAgentUpdatesPtrOutputWithContext(ctx context.Context) HostPoolScheduledAgentUpdatesPtrOutput {
 	return o
-}
-
-func (o HostPoolScheduledAgentUpdatesPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*HostPoolScheduledAgentUpdates] {
-	return pulumix.Output[*HostPoolScheduledAgentUpdates]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HostPoolScheduledAgentUpdatesPtrOutput) Elem() HostPoolScheduledAgentUpdatesOutput {
@@ -277,12 +252,6 @@ func (i HostPoolScheduledAgentUpdatesScheduleArgs) ToHostPoolScheduledAgentUpdat
 	return pulumi.ToOutputWithContext(ctx, i).(HostPoolScheduledAgentUpdatesScheduleOutput)
 }
 
-func (i HostPoolScheduledAgentUpdatesScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[HostPoolScheduledAgentUpdatesSchedule] {
-	return pulumix.Output[HostPoolScheduledAgentUpdatesSchedule]{
-		OutputState: i.ToHostPoolScheduledAgentUpdatesScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HostPoolScheduledAgentUpdatesScheduleArrayInput is an input type that accepts HostPoolScheduledAgentUpdatesScheduleArray and HostPoolScheduledAgentUpdatesScheduleArrayOutput values.
 // You can construct a concrete instance of `HostPoolScheduledAgentUpdatesScheduleArrayInput` via:
 //
@@ -308,12 +277,6 @@ func (i HostPoolScheduledAgentUpdatesScheduleArray) ToHostPoolScheduledAgentUpda
 	return pulumi.ToOutputWithContext(ctx, i).(HostPoolScheduledAgentUpdatesScheduleArrayOutput)
 }
 
-func (i HostPoolScheduledAgentUpdatesScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]HostPoolScheduledAgentUpdatesSchedule] {
-	return pulumix.Output[[]HostPoolScheduledAgentUpdatesSchedule]{
-		OutputState: i.ToHostPoolScheduledAgentUpdatesScheduleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HostPoolScheduledAgentUpdatesScheduleOutput struct{ *pulumi.OutputState }
 
 func (HostPoolScheduledAgentUpdatesScheduleOutput) ElementType() reflect.Type {
@@ -326,12 +289,6 @@ func (o HostPoolScheduledAgentUpdatesScheduleOutput) ToHostPoolScheduledAgentUpd
 
 func (o HostPoolScheduledAgentUpdatesScheduleOutput) ToHostPoolScheduledAgentUpdatesScheduleOutputWithContext(ctx context.Context) HostPoolScheduledAgentUpdatesScheduleOutput {
 	return o
-}
-
-func (o HostPoolScheduledAgentUpdatesScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[HostPoolScheduledAgentUpdatesSchedule] {
-	return pulumix.Output[HostPoolScheduledAgentUpdatesSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The day of the week on which agent updates should be performed. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
@@ -356,12 +313,6 @@ func (o HostPoolScheduledAgentUpdatesScheduleArrayOutput) ToHostPoolScheduledAge
 
 func (o HostPoolScheduledAgentUpdatesScheduleArrayOutput) ToHostPoolScheduledAgentUpdatesScheduleArrayOutputWithContext(ctx context.Context) HostPoolScheduledAgentUpdatesScheduleArrayOutput {
 	return o
-}
-
-func (o HostPoolScheduledAgentUpdatesScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]HostPoolScheduledAgentUpdatesSchedule] {
-	return pulumix.Output[[]HostPoolScheduledAgentUpdatesSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HostPoolScheduledAgentUpdatesScheduleArrayOutput) Index(i pulumi.IntInput) HostPoolScheduledAgentUpdatesScheduleOutput {
@@ -407,12 +358,6 @@ func (i ScalingPlanHostPoolArgs) ToScalingPlanHostPoolOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanHostPoolOutput)
 }
 
-func (i ScalingPlanHostPoolArgs) ToOutput(ctx context.Context) pulumix.Output[ScalingPlanHostPool] {
-	return pulumix.Output[ScalingPlanHostPool]{
-		OutputState: i.ToScalingPlanHostPoolOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScalingPlanHostPoolArrayInput is an input type that accepts ScalingPlanHostPoolArray and ScalingPlanHostPoolArrayOutput values.
 // You can construct a concrete instance of `ScalingPlanHostPoolArrayInput` via:
 //
@@ -438,12 +383,6 @@ func (i ScalingPlanHostPoolArray) ToScalingPlanHostPoolArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanHostPoolArrayOutput)
 }
 
-func (i ScalingPlanHostPoolArray) ToOutput(ctx context.Context) pulumix.Output[[]ScalingPlanHostPool] {
-	return pulumix.Output[[]ScalingPlanHostPool]{
-		OutputState: i.ToScalingPlanHostPoolArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalingPlanHostPoolOutput struct{ *pulumi.OutputState }
 
 func (ScalingPlanHostPoolOutput) ElementType() reflect.Type {
@@ -456,12 +395,6 @@ func (o ScalingPlanHostPoolOutput) ToScalingPlanHostPoolOutput() ScalingPlanHost
 
 func (o ScalingPlanHostPoolOutput) ToScalingPlanHostPoolOutputWithContext(ctx context.Context) ScalingPlanHostPoolOutput {
 	return o
-}
-
-func (o ScalingPlanHostPoolOutput) ToOutput(ctx context.Context) pulumix.Output[ScalingPlanHostPool] {
-	return pulumix.Output[ScalingPlanHostPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the HostPool to assign the Scaling Plan to.
@@ -486,12 +419,6 @@ func (o ScalingPlanHostPoolArrayOutput) ToScalingPlanHostPoolArrayOutput() Scali
 
 func (o ScalingPlanHostPoolArrayOutput) ToScalingPlanHostPoolArrayOutputWithContext(ctx context.Context) ScalingPlanHostPoolArrayOutput {
 	return o
-}
-
-func (o ScalingPlanHostPoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalingPlanHostPool] {
-	return pulumix.Output[[]ScalingPlanHostPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScalingPlanHostPoolArrayOutput) Index(i pulumi.IntInput) ScalingPlanHostPoolOutput {
@@ -601,12 +528,6 @@ func (i ScalingPlanScheduleArgs) ToScalingPlanScheduleOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanScheduleOutput)
 }
 
-func (i ScalingPlanScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[ScalingPlanSchedule] {
-	return pulumix.Output[ScalingPlanSchedule]{
-		OutputState: i.ToScalingPlanScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScalingPlanScheduleArrayInput is an input type that accepts ScalingPlanScheduleArray and ScalingPlanScheduleArrayOutput values.
 // You can construct a concrete instance of `ScalingPlanScheduleArrayInput` via:
 //
@@ -632,12 +553,6 @@ func (i ScalingPlanScheduleArray) ToScalingPlanScheduleArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanScheduleArrayOutput)
 }
 
-func (i ScalingPlanScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]ScalingPlanSchedule] {
-	return pulumix.Output[[]ScalingPlanSchedule]{
-		OutputState: i.ToScalingPlanScheduleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScalingPlanScheduleOutput struct{ *pulumi.OutputState }
 
 func (ScalingPlanScheduleOutput) ElementType() reflect.Type {
@@ -650,12 +565,6 @@ func (o ScalingPlanScheduleOutput) ToScalingPlanScheduleOutput() ScalingPlanSche
 
 func (o ScalingPlanScheduleOutput) ToScalingPlanScheduleOutputWithContext(ctx context.Context) ScalingPlanScheduleOutput {
 	return o
-}
-
-func (o ScalingPlanScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[ScalingPlanSchedule] {
-	return pulumix.Output[ScalingPlanSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of Days of the Week on which this schedule will be used. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, and `Sunday`
@@ -762,12 +671,6 @@ func (o ScalingPlanScheduleArrayOutput) ToScalingPlanScheduleArrayOutputWithCont
 	return o
 }
 
-func (o ScalingPlanScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ScalingPlanSchedule] {
-	return pulumix.Output[[]ScalingPlanSchedule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScalingPlanScheduleArrayOutput) Index(i pulumi.IntInput) ScalingPlanScheduleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ScalingPlanSchedule {
 		return vs[0].([]ScalingPlanSchedule)[vs[1].(int)]
@@ -819,12 +722,6 @@ func (i GetHostPoolScheduledAgentUpdateArgs) ToGetHostPoolScheduledAgentUpdateOu
 	return pulumi.ToOutputWithContext(ctx, i).(GetHostPoolScheduledAgentUpdateOutput)
 }
 
-func (i GetHostPoolScheduledAgentUpdateArgs) ToOutput(ctx context.Context) pulumix.Output[GetHostPoolScheduledAgentUpdate] {
-	return pulumix.Output[GetHostPoolScheduledAgentUpdate]{
-		OutputState: i.ToGetHostPoolScheduledAgentUpdateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetHostPoolScheduledAgentUpdateArrayInput is an input type that accepts GetHostPoolScheduledAgentUpdateArray and GetHostPoolScheduledAgentUpdateArrayOutput values.
 // You can construct a concrete instance of `GetHostPoolScheduledAgentUpdateArrayInput` via:
 //
@@ -850,12 +747,6 @@ func (i GetHostPoolScheduledAgentUpdateArray) ToGetHostPoolScheduledAgentUpdateA
 	return pulumi.ToOutputWithContext(ctx, i).(GetHostPoolScheduledAgentUpdateArrayOutput)
 }
 
-func (i GetHostPoolScheduledAgentUpdateArray) ToOutput(ctx context.Context) pulumix.Output[[]GetHostPoolScheduledAgentUpdate] {
-	return pulumix.Output[[]GetHostPoolScheduledAgentUpdate]{
-		OutputState: i.ToGetHostPoolScheduledAgentUpdateArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetHostPoolScheduledAgentUpdateOutput struct{ *pulumi.OutputState }
 
 func (GetHostPoolScheduledAgentUpdateOutput) ElementType() reflect.Type {
@@ -868,12 +759,6 @@ func (o GetHostPoolScheduledAgentUpdateOutput) ToGetHostPoolScheduledAgentUpdate
 
 func (o GetHostPoolScheduledAgentUpdateOutput) ToGetHostPoolScheduledAgentUpdateOutputWithContext(ctx context.Context) GetHostPoolScheduledAgentUpdateOutput {
 	return o
-}
-
-func (o GetHostPoolScheduledAgentUpdateOutput) ToOutput(ctx context.Context) pulumix.Output[GetHostPoolScheduledAgentUpdate] {
-	return pulumix.Output[GetHostPoolScheduledAgentUpdate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Are scheduled updates of the AVD agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) enabled on session hosts.
@@ -908,12 +793,6 @@ func (o GetHostPoolScheduledAgentUpdateArrayOutput) ToGetHostPoolScheduledAgentU
 
 func (o GetHostPoolScheduledAgentUpdateArrayOutput) ToGetHostPoolScheduledAgentUpdateArrayOutputWithContext(ctx context.Context) GetHostPoolScheduledAgentUpdateArrayOutput {
 	return o
-}
-
-func (o GetHostPoolScheduledAgentUpdateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetHostPoolScheduledAgentUpdate] {
-	return pulumix.Output[[]GetHostPoolScheduledAgentUpdate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetHostPoolScheduledAgentUpdateArrayOutput) Index(i pulumi.IntInput) GetHostPoolScheduledAgentUpdateOutput {
@@ -959,12 +838,6 @@ func (i GetHostPoolScheduledAgentUpdateScheduleArgs) ToGetHostPoolScheduledAgent
 	return pulumi.ToOutputWithContext(ctx, i).(GetHostPoolScheduledAgentUpdateScheduleOutput)
 }
 
-func (i GetHostPoolScheduledAgentUpdateScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[GetHostPoolScheduledAgentUpdateSchedule] {
-	return pulumix.Output[GetHostPoolScheduledAgentUpdateSchedule]{
-		OutputState: i.ToGetHostPoolScheduledAgentUpdateScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetHostPoolScheduledAgentUpdateScheduleArrayInput is an input type that accepts GetHostPoolScheduledAgentUpdateScheduleArray and GetHostPoolScheduledAgentUpdateScheduleArrayOutput values.
 // You can construct a concrete instance of `GetHostPoolScheduledAgentUpdateScheduleArrayInput` via:
 //
@@ -990,12 +863,6 @@ func (i GetHostPoolScheduledAgentUpdateScheduleArray) ToGetHostPoolScheduledAgen
 	return pulumi.ToOutputWithContext(ctx, i).(GetHostPoolScheduledAgentUpdateScheduleArrayOutput)
 }
 
-func (i GetHostPoolScheduledAgentUpdateScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]GetHostPoolScheduledAgentUpdateSchedule] {
-	return pulumix.Output[[]GetHostPoolScheduledAgentUpdateSchedule]{
-		OutputState: i.ToGetHostPoolScheduledAgentUpdateScheduleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetHostPoolScheduledAgentUpdateScheduleOutput struct{ *pulumi.OutputState }
 
 func (GetHostPoolScheduledAgentUpdateScheduleOutput) ElementType() reflect.Type {
@@ -1008,12 +875,6 @@ func (o GetHostPoolScheduledAgentUpdateScheduleOutput) ToGetHostPoolScheduledAge
 
 func (o GetHostPoolScheduledAgentUpdateScheduleOutput) ToGetHostPoolScheduledAgentUpdateScheduleOutputWithContext(ctx context.Context) GetHostPoolScheduledAgentUpdateScheduleOutput {
 	return o
-}
-
-func (o GetHostPoolScheduledAgentUpdateScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[GetHostPoolScheduledAgentUpdateSchedule] {
-	return pulumix.Output[GetHostPoolScheduledAgentUpdateSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The day of the week on which agent updates should be performed.
@@ -1038,12 +899,6 @@ func (o GetHostPoolScheduledAgentUpdateScheduleArrayOutput) ToGetHostPoolSchedul
 
 func (o GetHostPoolScheduledAgentUpdateScheduleArrayOutput) ToGetHostPoolScheduledAgentUpdateScheduleArrayOutputWithContext(ctx context.Context) GetHostPoolScheduledAgentUpdateScheduleArrayOutput {
 	return o
-}
-
-func (o GetHostPoolScheduledAgentUpdateScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetHostPoolScheduledAgentUpdateSchedule] {
-	return pulumix.Output[[]GetHostPoolScheduledAgentUpdateSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetHostPoolScheduledAgentUpdateScheduleArrayOutput) Index(i pulumi.IntInput) GetHostPoolScheduledAgentUpdateScheduleOutput {

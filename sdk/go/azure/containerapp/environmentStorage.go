@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Container App Environment Storage.
@@ -252,12 +251,6 @@ func (i *EnvironmentStorage) ToEnvironmentStorageOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStorageOutput)
 }
 
-func (i *EnvironmentStorage) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentStorage] {
-	return pulumix.Output[*EnvironmentStorage]{
-		OutputState: i.ToEnvironmentStorageOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EnvironmentStorageArrayInput is an input type that accepts EnvironmentStorageArray and EnvironmentStorageArrayOutput values.
 // You can construct a concrete instance of `EnvironmentStorageArrayInput` via:
 //
@@ -281,12 +274,6 @@ func (i EnvironmentStorageArray) ToEnvironmentStorageArrayOutput() EnvironmentSt
 
 func (i EnvironmentStorageArray) ToEnvironmentStorageArrayOutputWithContext(ctx context.Context) EnvironmentStorageArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStorageArrayOutput)
-}
-
-func (i EnvironmentStorageArray) ToOutput(ctx context.Context) pulumix.Output[[]*EnvironmentStorage] {
-	return pulumix.Output[[]*EnvironmentStorage]{
-		OutputState: i.ToEnvironmentStorageArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EnvironmentStorageMapInput is an input type that accepts EnvironmentStorageMap and EnvironmentStorageMapOutput values.
@@ -314,12 +301,6 @@ func (i EnvironmentStorageMap) ToEnvironmentStorageMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentStorageMapOutput)
 }
 
-func (i EnvironmentStorageMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EnvironmentStorage] {
-	return pulumix.Output[map[string]*EnvironmentStorage]{
-		OutputState: i.ToEnvironmentStorageMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EnvironmentStorageOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentStorageOutput) ElementType() reflect.Type {
@@ -332,12 +313,6 @@ func (o EnvironmentStorageOutput) ToEnvironmentStorageOutput() EnvironmentStorag
 
 func (o EnvironmentStorageOutput) ToEnvironmentStorageOutputWithContext(ctx context.Context) EnvironmentStorageOutput {
 	return o
-}
-
-func (o EnvironmentStorageOutput) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentStorage] {
-	return pulumix.Output[*EnvironmentStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Storage Account Access Key.
@@ -384,12 +359,6 @@ func (o EnvironmentStorageArrayOutput) ToEnvironmentStorageArrayOutputWithContex
 	return o
 }
 
-func (o EnvironmentStorageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EnvironmentStorage] {
-	return pulumix.Output[[]*EnvironmentStorage]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EnvironmentStorageArrayOutput) Index(i pulumi.IntInput) EnvironmentStorageOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EnvironmentStorage {
 		return vs[0].([]*EnvironmentStorage)[vs[1].(int)]
@@ -408,12 +377,6 @@ func (o EnvironmentStorageMapOutput) ToEnvironmentStorageMapOutput() Environment
 
 func (o EnvironmentStorageMapOutput) ToEnvironmentStorageMapOutputWithContext(ctx context.Context) EnvironmentStorageMapOutput {
 	return o
-}
-
-func (o EnvironmentStorageMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EnvironmentStorage] {
-	return pulumix.Output[map[string]*EnvironmentStorage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EnvironmentStorageMapOutput) MapIndex(k pulumi.StringInput) EnvironmentStorageOutput {

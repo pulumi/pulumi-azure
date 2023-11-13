@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Native New Relic Tag Rule.
@@ -238,12 +237,6 @@ func (i *TagRule) ToTagRuleOutputWithContext(ctx context.Context) TagRuleOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(TagRuleOutput)
 }
 
-func (i *TagRule) ToOutput(ctx context.Context) pulumix.Output[*TagRule] {
-	return pulumix.Output[*TagRule]{
-		OutputState: i.ToTagRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TagRuleArrayInput is an input type that accepts TagRuleArray and TagRuleArrayOutput values.
 // You can construct a concrete instance of `TagRuleArrayInput` via:
 //
@@ -267,12 +260,6 @@ func (i TagRuleArray) ToTagRuleArrayOutput() TagRuleArrayOutput {
 
 func (i TagRuleArray) ToTagRuleArrayOutputWithContext(ctx context.Context) TagRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TagRuleArrayOutput)
-}
-
-func (i TagRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*TagRule] {
-	return pulumix.Output[[]*TagRule]{
-		OutputState: i.ToTagRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TagRuleMapInput is an input type that accepts TagRuleMap and TagRuleMapOutput values.
@@ -300,12 +287,6 @@ func (i TagRuleMap) ToTagRuleMapOutputWithContext(ctx context.Context) TagRuleMa
 	return pulumi.ToOutputWithContext(ctx, i).(TagRuleMapOutput)
 }
 
-func (i TagRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TagRule] {
-	return pulumix.Output[map[string]*TagRule]{
-		OutputState: i.ToTagRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TagRuleOutput struct{ *pulumi.OutputState }
 
 func (TagRuleOutput) ElementType() reflect.Type {
@@ -318,12 +299,6 @@ func (o TagRuleOutput) ToTagRuleOutput() TagRuleOutput {
 
 func (o TagRuleOutput) ToTagRuleOutputWithContext(ctx context.Context) TagRuleOutput {
 	return o
-}
-
-func (o TagRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*TagRule] {
-	return pulumix.Output[*TagRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether activity logs from Azure resources should be sent for the Monitor resource. Defaults to `false`.
@@ -375,12 +350,6 @@ func (o TagRuleArrayOutput) ToTagRuleArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o TagRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TagRule] {
-	return pulumix.Output[[]*TagRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TagRuleArrayOutput) Index(i pulumi.IntInput) TagRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TagRule {
 		return vs[0].([]*TagRule)[vs[1].(int)]
@@ -399,12 +368,6 @@ func (o TagRuleMapOutput) ToTagRuleMapOutput() TagRuleMapOutput {
 
 func (o TagRuleMapOutput) ToTagRuleMapOutputWithContext(ctx context.Context) TagRuleMapOutput {
 	return o
-}
-
-func (o TagRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TagRule] {
-	return pulumix.Output[map[string]*TagRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TagRuleMapOutput) MapIndex(k pulumi.StringInput) TagRuleOutput {

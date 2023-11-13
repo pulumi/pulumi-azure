@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Point-to-Site VPN Gateway.
@@ -312,12 +311,6 @@ func (i *PointToPointVpnGateway) ToPointToPointVpnGatewayOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(PointToPointVpnGatewayOutput)
 }
 
-func (i *PointToPointVpnGateway) ToOutput(ctx context.Context) pulumix.Output[*PointToPointVpnGateway] {
-	return pulumix.Output[*PointToPointVpnGateway]{
-		OutputState: i.ToPointToPointVpnGatewayOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PointToPointVpnGatewayArrayInput is an input type that accepts PointToPointVpnGatewayArray and PointToPointVpnGatewayArrayOutput values.
 // You can construct a concrete instance of `PointToPointVpnGatewayArrayInput` via:
 //
@@ -341,12 +334,6 @@ func (i PointToPointVpnGatewayArray) ToPointToPointVpnGatewayArrayOutput() Point
 
 func (i PointToPointVpnGatewayArray) ToPointToPointVpnGatewayArrayOutputWithContext(ctx context.Context) PointToPointVpnGatewayArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PointToPointVpnGatewayArrayOutput)
-}
-
-func (i PointToPointVpnGatewayArray) ToOutput(ctx context.Context) pulumix.Output[[]*PointToPointVpnGateway] {
-	return pulumix.Output[[]*PointToPointVpnGateway]{
-		OutputState: i.ToPointToPointVpnGatewayArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PointToPointVpnGatewayMapInput is an input type that accepts PointToPointVpnGatewayMap and PointToPointVpnGatewayMapOutput values.
@@ -374,12 +361,6 @@ func (i PointToPointVpnGatewayMap) ToPointToPointVpnGatewayMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(PointToPointVpnGatewayMapOutput)
 }
 
-func (i PointToPointVpnGatewayMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PointToPointVpnGateway] {
-	return pulumix.Output[map[string]*PointToPointVpnGateway]{
-		OutputState: i.ToPointToPointVpnGatewayMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PointToPointVpnGatewayOutput struct{ *pulumi.OutputState }
 
 func (PointToPointVpnGatewayOutput) ElementType() reflect.Type {
@@ -392,12 +373,6 @@ func (o PointToPointVpnGatewayOutput) ToPointToPointVpnGatewayOutput() PointToPo
 
 func (o PointToPointVpnGatewayOutput) ToPointToPointVpnGatewayOutputWithContext(ctx context.Context) PointToPointVpnGatewayOutput {
 	return o
-}
-
-func (o PointToPointVpnGatewayOutput) ToOutput(ctx context.Context) pulumix.Output[*PointToPointVpnGateway] {
-	return pulumix.Output[*PointToPointVpnGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `connectionConfiguration` block as defined below.
@@ -466,12 +441,6 @@ func (o PointToPointVpnGatewayArrayOutput) ToPointToPointVpnGatewayArrayOutputWi
 	return o
 }
 
-func (o PointToPointVpnGatewayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PointToPointVpnGateway] {
-	return pulumix.Output[[]*PointToPointVpnGateway]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PointToPointVpnGatewayArrayOutput) Index(i pulumi.IntInput) PointToPointVpnGatewayOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PointToPointVpnGateway {
 		return vs[0].([]*PointToPointVpnGateway)[vs[1].(int)]
@@ -490,12 +459,6 @@ func (o PointToPointVpnGatewayMapOutput) ToPointToPointVpnGatewayMapOutput() Poi
 
 func (o PointToPointVpnGatewayMapOutput) ToPointToPointVpnGatewayMapOutputWithContext(ctx context.Context) PointToPointVpnGatewayMapOutput {
 	return o
-}
-
-func (o PointToPointVpnGatewayMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PointToPointVpnGateway] {
-	return pulumix.Output[map[string]*PointToPointVpnGateway]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PointToPointVpnGatewayMapOutput) MapIndex(k pulumi.StringInput) PointToPointVpnGatewayOutput {

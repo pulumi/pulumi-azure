@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -57,12 +56,6 @@ func (i AnalyticsSolutionPlanArgs) ToAnalyticsSolutionPlanOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsSolutionPlanOutput)
 }
 
-func (i AnalyticsSolutionPlanArgs) ToOutput(ctx context.Context) pulumix.Output[AnalyticsSolutionPlan] {
-	return pulumix.Output[AnalyticsSolutionPlan]{
-		OutputState: i.ToAnalyticsSolutionPlanOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AnalyticsSolutionPlanArgs) ToAnalyticsSolutionPlanPtrOutput() AnalyticsSolutionPlanPtrOutput {
 	return i.ToAnalyticsSolutionPlanPtrOutputWithContext(context.Background())
 }
@@ -104,12 +97,6 @@ func (i *analyticsSolutionPlanPtrType) ToAnalyticsSolutionPlanPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsSolutionPlanPtrOutput)
 }
 
-func (i *analyticsSolutionPlanPtrType) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsSolutionPlan] {
-	return pulumix.Output[*AnalyticsSolutionPlan]{
-		OutputState: i.ToAnalyticsSolutionPlanPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnalyticsSolutionPlanOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsSolutionPlanOutput) ElementType() reflect.Type {
@@ -132,12 +119,6 @@ func (o AnalyticsSolutionPlanOutput) ToAnalyticsSolutionPlanPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnalyticsSolutionPlan) *AnalyticsSolutionPlan {
 		return &v
 	}).(AnalyticsSolutionPlanPtrOutput)
-}
-
-func (o AnalyticsSolutionPlanOutput) ToOutput(ctx context.Context) pulumix.Output[AnalyticsSolutionPlan] {
-	return pulumix.Output[AnalyticsSolutionPlan]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalyticsSolutionPlanOutput) Name() pulumi.StringPtrOutput {
@@ -171,12 +152,6 @@ func (o AnalyticsSolutionPlanPtrOutput) ToAnalyticsSolutionPlanPtrOutput() Analy
 
 func (o AnalyticsSolutionPlanPtrOutput) ToAnalyticsSolutionPlanPtrOutputWithContext(ctx context.Context) AnalyticsSolutionPlanPtrOutput {
 	return o
-}
-
-func (o AnalyticsSolutionPlanPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsSolutionPlan] {
-	return pulumix.Output[*AnalyticsSolutionPlan]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalyticsSolutionPlanPtrOutput) Elem() AnalyticsSolutionPlanOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a string variable in Azure Automation
@@ -207,12 +206,6 @@ func (i *StringVariable) ToStringVariableOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(StringVariableOutput)
 }
 
-func (i *StringVariable) ToOutput(ctx context.Context) pulumix.Output[*StringVariable] {
-	return pulumix.Output[*StringVariable]{
-		OutputState: i.ToStringVariableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StringVariableArrayInput is an input type that accepts StringVariableArray and StringVariableArrayOutput values.
 // You can construct a concrete instance of `StringVariableArrayInput` via:
 //
@@ -236,12 +229,6 @@ func (i StringVariableArray) ToStringVariableArrayOutput() StringVariableArrayOu
 
 func (i StringVariableArray) ToStringVariableArrayOutputWithContext(ctx context.Context) StringVariableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StringVariableArrayOutput)
-}
-
-func (i StringVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]*StringVariable] {
-	return pulumix.Output[[]*StringVariable]{
-		OutputState: i.ToStringVariableArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // StringVariableMapInput is an input type that accepts StringVariableMap and StringVariableMapOutput values.
@@ -269,12 +256,6 @@ func (i StringVariableMap) ToStringVariableMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(StringVariableMapOutput)
 }
 
-func (i StringVariableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StringVariable] {
-	return pulumix.Output[map[string]*StringVariable]{
-		OutputState: i.ToStringVariableMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StringVariableOutput struct{ *pulumi.OutputState }
 
 func (StringVariableOutput) ElementType() reflect.Type {
@@ -287,12 +268,6 @@ func (o StringVariableOutput) ToStringVariableOutput() StringVariableOutput {
 
 func (o StringVariableOutput) ToStringVariableOutputWithContext(ctx context.Context) StringVariableOutput {
 	return o
-}
-
-func (o StringVariableOutput) ToOutput(ctx context.Context) pulumix.Output[*StringVariable] {
-	return pulumix.Output[*StringVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the automation account in which the Variable is created. Changing this forces a new resource to be created.
@@ -339,12 +314,6 @@ func (o StringVariableArrayOutput) ToStringVariableArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o StringVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StringVariable] {
-	return pulumix.Output[[]*StringVariable]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StringVariableArrayOutput) Index(i pulumi.IntInput) StringVariableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StringVariable {
 		return vs[0].([]*StringVariable)[vs[1].(int)]
@@ -363,12 +332,6 @@ func (o StringVariableMapOutput) ToStringVariableMapOutput() StringVariableMapOu
 
 func (o StringVariableMapOutput) ToStringVariableMapOutputWithContext(ctx context.Context) StringVariableMapOutput {
 	return o
-}
-
-func (o StringVariableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StringVariable] {
-	return pulumix.Output[map[string]*StringVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StringVariableMapOutput) MapIndex(k pulumi.StringInput) StringVariableOutput {

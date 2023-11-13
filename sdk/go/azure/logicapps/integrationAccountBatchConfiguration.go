@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Logic App Integration Account Batch Configuration.
@@ -216,12 +215,6 @@ func (i *IntegrationAccountBatchConfiguration) ToIntegrationAccountBatchConfigur
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationOutput)
 }
 
-func (i *IntegrationAccountBatchConfiguration) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountBatchConfiguration] {
-	return pulumix.Output[*IntegrationAccountBatchConfiguration]{
-		OutputState: i.ToIntegrationAccountBatchConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationAccountBatchConfigurationArrayInput is an input type that accepts IntegrationAccountBatchConfigurationArray and IntegrationAccountBatchConfigurationArrayOutput values.
 // You can construct a concrete instance of `IntegrationAccountBatchConfigurationArrayInput` via:
 //
@@ -245,12 +238,6 @@ func (i IntegrationAccountBatchConfigurationArray) ToIntegrationAccountBatchConf
 
 func (i IntegrationAccountBatchConfigurationArray) ToIntegrationAccountBatchConfigurationArrayOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationArrayOutput)
-}
-
-func (i IntegrationAccountBatchConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationAccountBatchConfiguration] {
-	return pulumix.Output[[]*IntegrationAccountBatchConfiguration]{
-		OutputState: i.ToIntegrationAccountBatchConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IntegrationAccountBatchConfigurationMapInput is an input type that accepts IntegrationAccountBatchConfigurationMap and IntegrationAccountBatchConfigurationMapOutput values.
@@ -278,12 +265,6 @@ func (i IntegrationAccountBatchConfigurationMap) ToIntegrationAccountBatchConfig
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountBatchConfigurationMapOutput)
 }
 
-func (i IntegrationAccountBatchConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationAccountBatchConfiguration] {
-	return pulumix.Output[map[string]*IntegrationAccountBatchConfiguration]{
-		OutputState: i.ToIntegrationAccountBatchConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationAccountBatchConfigurationOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountBatchConfigurationOutput) ElementType() reflect.Type {
@@ -296,12 +277,6 @@ func (o IntegrationAccountBatchConfigurationOutput) ToIntegrationAccountBatchCon
 
 func (o IntegrationAccountBatchConfigurationOutput) ToIntegrationAccountBatchConfigurationOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationOutput {
 	return o
-}
-
-func (o IntegrationAccountBatchConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountBatchConfiguration] {
-	return pulumix.Output[*IntegrationAccountBatchConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The batch group name of the Logic App Integration Batch Configuration. Changing this forces a new resource to be created.
@@ -350,12 +325,6 @@ func (o IntegrationAccountBatchConfigurationArrayOutput) ToIntegrationAccountBat
 	return o
 }
 
-func (o IntegrationAccountBatchConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationAccountBatchConfiguration] {
-	return pulumix.Output[[]*IntegrationAccountBatchConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationAccountBatchConfigurationArrayOutput) Index(i pulumi.IntInput) IntegrationAccountBatchConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationAccountBatchConfiguration {
 		return vs[0].([]*IntegrationAccountBatchConfiguration)[vs[1].(int)]
@@ -374,12 +343,6 @@ func (o IntegrationAccountBatchConfigurationMapOutput) ToIntegrationAccountBatch
 
 func (o IntegrationAccountBatchConfigurationMapOutput) ToIntegrationAccountBatchConfigurationMapOutputWithContext(ctx context.Context) IntegrationAccountBatchConfigurationMapOutput {
 	return o
-}
-
-func (o IntegrationAccountBatchConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationAccountBatchConfiguration] {
-	return pulumix.Output[map[string]*IntegrationAccountBatchConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationAccountBatchConfigurationMapOutput) MapIndex(k pulumi.StringInput) IntegrationAccountBatchConfigurationOutput {

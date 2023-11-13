@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about Cosmos DB Restorable Database Accounts.
@@ -108,12 +107,6 @@ func (o GetRestorableDatabaseAccountsResultOutput) ToGetRestorableDatabaseAccoun
 
 func (o GetRestorableDatabaseAccountsResultOutput) ToGetRestorableDatabaseAccountsResultOutputWithContext(ctx context.Context) GetRestorableDatabaseAccountsResultOutput {
 	return o
-}
-
-func (o GetRestorableDatabaseAccountsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRestorableDatabaseAccountsResult] {
-	return pulumix.Output[GetRestorableDatabaseAccountsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `accounts` blocks as defined below.

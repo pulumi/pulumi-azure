@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing User Assigned Identity.
@@ -120,12 +119,6 @@ func (o GetUserAssignedIdentityResultOutput) ToGetUserAssignedIdentityResultOutp
 
 func (o GetUserAssignedIdentityResultOutput) ToGetUserAssignedIdentityResultOutputWithContext(ctx context.Context) GetUserAssignedIdentityResultOutput {
 	return o
-}
-
-func (o GetUserAssignedIdentityResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetUserAssignedIdentityResult] {
-	return pulumix.Output[GetUserAssignedIdentityResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Client ID of the User Assigned Identity.

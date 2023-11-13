@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func LookupNamespaceDisasterRecoveryConfig(ctx *pulumi.Context, args *LookupNamespaceDisasterRecoveryConfigArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceDisasterRecoveryConfigResult, error) {
@@ -92,12 +91,6 @@ func (o LookupNamespaceDisasterRecoveryConfigResultOutput) ToLookupNamespaceDisa
 
 func (o LookupNamespaceDisasterRecoveryConfigResultOutput) ToLookupNamespaceDisasterRecoveryConfigResultOutputWithContext(ctx context.Context) LookupNamespaceDisasterRecoveryConfigResultOutput {
 	return o
-}
-
-func (o LookupNamespaceDisasterRecoveryConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNamespaceDisasterRecoveryConfigResult] {
-	return pulumix.Output[LookupNamespaceDisasterRecoveryConfigResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupNamespaceDisasterRecoveryConfigResultOutput) AliasAuthorizationRuleId() pulumi.StringPtrOutput {

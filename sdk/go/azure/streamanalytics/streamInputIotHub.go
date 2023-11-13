@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Stream Analytics Stream Input IoTHub.
@@ -284,12 +283,6 @@ func (i *StreamInputIotHub) ToStreamInputIotHubOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputIotHubOutput)
 }
 
-func (i *StreamInputIotHub) ToOutput(ctx context.Context) pulumix.Output[*StreamInputIotHub] {
-	return pulumix.Output[*StreamInputIotHub]{
-		OutputState: i.ToStreamInputIotHubOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StreamInputIotHubArrayInput is an input type that accepts StreamInputIotHubArray and StreamInputIotHubArrayOutput values.
 // You can construct a concrete instance of `StreamInputIotHubArrayInput` via:
 //
@@ -313,12 +306,6 @@ func (i StreamInputIotHubArray) ToStreamInputIotHubArrayOutput() StreamInputIotH
 
 func (i StreamInputIotHubArray) ToStreamInputIotHubArrayOutputWithContext(ctx context.Context) StreamInputIotHubArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputIotHubArrayOutput)
-}
-
-func (i StreamInputIotHubArray) ToOutput(ctx context.Context) pulumix.Output[[]*StreamInputIotHub] {
-	return pulumix.Output[[]*StreamInputIotHub]{
-		OutputState: i.ToStreamInputIotHubArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // StreamInputIotHubMapInput is an input type that accepts StreamInputIotHubMap and StreamInputIotHubMapOutput values.
@@ -346,12 +333,6 @@ func (i StreamInputIotHubMap) ToStreamInputIotHubMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputIotHubMapOutput)
 }
 
-func (i StreamInputIotHubMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StreamInputIotHub] {
-	return pulumix.Output[map[string]*StreamInputIotHub]{
-		OutputState: i.ToStreamInputIotHubMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamInputIotHubOutput struct{ *pulumi.OutputState }
 
 func (StreamInputIotHubOutput) ElementType() reflect.Type {
@@ -364,12 +345,6 @@ func (o StreamInputIotHubOutput) ToStreamInputIotHubOutput() StreamInputIotHubOu
 
 func (o StreamInputIotHubOutput) ToStreamInputIotHubOutputWithContext(ctx context.Context) StreamInputIotHubOutput {
 	return o
-}
-
-func (o StreamInputIotHubOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamInputIotHub] {
-	return pulumix.Output[*StreamInputIotHub]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The IoT Hub endpoint to connect to (ie. messages/events, messages/operationsMonitoringEvents, etc.).
@@ -431,12 +406,6 @@ func (o StreamInputIotHubArrayOutput) ToStreamInputIotHubArrayOutputWithContext(
 	return o
 }
 
-func (o StreamInputIotHubArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StreamInputIotHub] {
-	return pulumix.Output[[]*StreamInputIotHub]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StreamInputIotHubArrayOutput) Index(i pulumi.IntInput) StreamInputIotHubOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StreamInputIotHub {
 		return vs[0].([]*StreamInputIotHub)[vs[1].(int)]
@@ -455,12 +424,6 @@ func (o StreamInputIotHubMapOutput) ToStreamInputIotHubMapOutput() StreamInputIo
 
 func (o StreamInputIotHubMapOutput) ToStreamInputIotHubMapOutputWithContext(ctx context.Context) StreamInputIotHubMapOutput {
 	return o
-}
-
-func (o StreamInputIotHubMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StreamInputIotHub] {
-	return pulumix.Output[map[string]*StreamInputIotHub]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamInputIotHubMapOutput) MapIndex(k pulumi.StringInput) StreamInputIotHubOutput {

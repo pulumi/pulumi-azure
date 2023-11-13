@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Office 365 Project Data Connector.
@@ -189,12 +188,6 @@ func (i *DataConnectorOffice365Project) ToDataConnectorOffice365ProjectOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorOffice365ProjectOutput)
 }
 
-func (i *DataConnectorOffice365Project) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorOffice365Project] {
-	return pulumix.Output[*DataConnectorOffice365Project]{
-		OutputState: i.ToDataConnectorOffice365ProjectOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataConnectorOffice365ProjectArrayInput is an input type that accepts DataConnectorOffice365ProjectArray and DataConnectorOffice365ProjectArrayOutput values.
 // You can construct a concrete instance of `DataConnectorOffice365ProjectArrayInput` via:
 //
@@ -218,12 +211,6 @@ func (i DataConnectorOffice365ProjectArray) ToDataConnectorOffice365ProjectArray
 
 func (i DataConnectorOffice365ProjectArray) ToDataConnectorOffice365ProjectArrayOutputWithContext(ctx context.Context) DataConnectorOffice365ProjectArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorOffice365ProjectArrayOutput)
-}
-
-func (i DataConnectorOffice365ProjectArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorOffice365Project] {
-	return pulumix.Output[[]*DataConnectorOffice365Project]{
-		OutputState: i.ToDataConnectorOffice365ProjectArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataConnectorOffice365ProjectMapInput is an input type that accepts DataConnectorOffice365ProjectMap and DataConnectorOffice365ProjectMapOutput values.
@@ -251,12 +238,6 @@ func (i DataConnectorOffice365ProjectMap) ToDataConnectorOffice365ProjectMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorOffice365ProjectMapOutput)
 }
 
-func (i DataConnectorOffice365ProjectMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorOffice365Project] {
-	return pulumix.Output[map[string]*DataConnectorOffice365Project]{
-		OutputState: i.ToDataConnectorOffice365ProjectMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataConnectorOffice365ProjectOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorOffice365ProjectOutput) ElementType() reflect.Type {
@@ -269,12 +250,6 @@ func (o DataConnectorOffice365ProjectOutput) ToDataConnectorOffice365ProjectOutp
 
 func (o DataConnectorOffice365ProjectOutput) ToDataConnectorOffice365ProjectOutputWithContext(ctx context.Context) DataConnectorOffice365ProjectOutput {
 	return o
-}
-
-func (o DataConnectorOffice365ProjectOutput) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorOffice365Project] {
-	return pulumix.Output[*DataConnectorOffice365Project]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Log Analytics Workspace that this Office 365 Project Data Connector resides in. Changing this forces a new Office 365 Project Data Connector to be created.
@@ -308,12 +283,6 @@ func (o DataConnectorOffice365ProjectArrayOutput) ToDataConnectorOffice365Projec
 	return o
 }
 
-func (o DataConnectorOffice365ProjectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorOffice365Project] {
-	return pulumix.Output[[]*DataConnectorOffice365Project]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataConnectorOffice365ProjectArrayOutput) Index(i pulumi.IntInput) DataConnectorOffice365ProjectOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorOffice365Project {
 		return vs[0].([]*DataConnectorOffice365Project)[vs[1].(int)]
@@ -332,12 +301,6 @@ func (o DataConnectorOffice365ProjectMapOutput) ToDataConnectorOffice365ProjectM
 
 func (o DataConnectorOffice365ProjectMapOutput) ToDataConnectorOffice365ProjectMapOutputWithContext(ctx context.Context) DataConnectorOffice365ProjectMapOutput {
 	return o
-}
-
-func (o DataConnectorOffice365ProjectMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorOffice365Project] {
-	return pulumix.Output[map[string]*DataConnectorOffice365Project]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataConnectorOffice365ProjectMapOutput) MapIndex(k pulumi.StringInput) DataConnectorOffice365ProjectOutput {

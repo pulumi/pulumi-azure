@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Uses this data source to access information about an existing Managed API.
@@ -106,12 +105,6 @@ func (o GetManagedApiResultOutput) ToGetManagedApiResultOutput() GetManagedApiRe
 
 func (o GetManagedApiResultOutput) ToGetManagedApiResultOutputWithContext(ctx context.Context) GetManagedApiResultOutput {
 	return o
-}
-
-func (o GetManagedApiResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetManagedApiResult] {
-	return pulumix.Output[GetManagedApiResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

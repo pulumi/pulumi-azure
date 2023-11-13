@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Deprecated: ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.
@@ -170,12 +169,6 @@ func (i *ZipBlob) ToZipBlobOutputWithContext(ctx context.Context) ZipBlobOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(ZipBlobOutput)
 }
 
-func (i *ZipBlob) ToOutput(ctx context.Context) pulumix.Output[*ZipBlob] {
-	return pulumix.Output[*ZipBlob]{
-		OutputState: i.ToZipBlobOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ZipBlobArrayInput is an input type that accepts ZipBlobArray and ZipBlobArrayOutput values.
 // You can construct a concrete instance of `ZipBlobArrayInput` via:
 //
@@ -199,12 +192,6 @@ func (i ZipBlobArray) ToZipBlobArrayOutput() ZipBlobArrayOutput {
 
 func (i ZipBlobArray) ToZipBlobArrayOutputWithContext(ctx context.Context) ZipBlobArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ZipBlobArrayOutput)
-}
-
-func (i ZipBlobArray) ToOutput(ctx context.Context) pulumix.Output[[]*ZipBlob] {
-	return pulumix.Output[[]*ZipBlob]{
-		OutputState: i.ToZipBlobArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ZipBlobMapInput is an input type that accepts ZipBlobMap and ZipBlobMapOutput values.
@@ -232,12 +219,6 @@ func (i ZipBlobMap) ToZipBlobMapOutputWithContext(ctx context.Context) ZipBlobMa
 	return pulumi.ToOutputWithContext(ctx, i).(ZipBlobMapOutput)
 }
 
-func (i ZipBlobMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ZipBlob] {
-	return pulumix.Output[map[string]*ZipBlob]{
-		OutputState: i.ToZipBlobMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ZipBlobOutput struct{ *pulumi.OutputState }
 
 func (ZipBlobOutput) ElementType() reflect.Type {
@@ -250,12 +231,6 @@ func (o ZipBlobOutput) ToZipBlobOutput() ZipBlobOutput {
 
 func (o ZipBlobOutput) ToZipBlobOutputWithContext(ctx context.Context) ZipBlobOutput {
 	return o
-}
-
-func (o ZipBlobOutput) ToOutput(ctx context.Context) pulumix.Output[*ZipBlob] {
-	return pulumix.Output[*ZipBlob]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ZipBlobOutput) AccessTier() pulumi.StringOutput {
@@ -332,12 +307,6 @@ func (o ZipBlobArrayOutput) ToZipBlobArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o ZipBlobArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ZipBlob] {
-	return pulumix.Output[[]*ZipBlob]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ZipBlobArrayOutput) Index(i pulumi.IntInput) ZipBlobOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ZipBlob {
 		return vs[0].([]*ZipBlob)[vs[1].(int)]
@@ -356,12 +325,6 @@ func (o ZipBlobMapOutput) ToZipBlobMapOutput() ZipBlobMapOutput {
 
 func (o ZipBlobMapOutput) ToZipBlobMapOutputWithContext(ctx context.Context) ZipBlobMapOutput {
 	return o
-}
-
-func (o ZipBlobMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ZipBlob] {
-	return pulumix.Output[map[string]*ZipBlob]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ZipBlobMapOutput) MapIndex(k pulumi.StringInput) ZipBlobOutput {

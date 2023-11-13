@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Directory within an Azure Storage File Share.
@@ -194,12 +193,6 @@ func (i *ShareDirectory) ToShareDirectoryOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ShareDirectoryOutput)
 }
 
-func (i *ShareDirectory) ToOutput(ctx context.Context) pulumix.Output[*ShareDirectory] {
-	return pulumix.Output[*ShareDirectory]{
-		OutputState: i.ToShareDirectoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ShareDirectoryArrayInput is an input type that accepts ShareDirectoryArray and ShareDirectoryArrayOutput values.
 // You can construct a concrete instance of `ShareDirectoryArrayInput` via:
 //
@@ -223,12 +216,6 @@ func (i ShareDirectoryArray) ToShareDirectoryArrayOutput() ShareDirectoryArrayOu
 
 func (i ShareDirectoryArray) ToShareDirectoryArrayOutputWithContext(ctx context.Context) ShareDirectoryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ShareDirectoryArrayOutput)
-}
-
-func (i ShareDirectoryArray) ToOutput(ctx context.Context) pulumix.Output[[]*ShareDirectory] {
-	return pulumix.Output[[]*ShareDirectory]{
-		OutputState: i.ToShareDirectoryArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ShareDirectoryMapInput is an input type that accepts ShareDirectoryMap and ShareDirectoryMapOutput values.
@@ -256,12 +243,6 @@ func (i ShareDirectoryMap) ToShareDirectoryMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ShareDirectoryMapOutput)
 }
 
-func (i ShareDirectoryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ShareDirectory] {
-	return pulumix.Output[map[string]*ShareDirectory]{
-		OutputState: i.ToShareDirectoryMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ShareDirectoryOutput struct{ *pulumi.OutputState }
 
 func (ShareDirectoryOutput) ElementType() reflect.Type {
@@ -274,12 +255,6 @@ func (o ShareDirectoryOutput) ToShareDirectoryOutput() ShareDirectoryOutput {
 
 func (o ShareDirectoryOutput) ToShareDirectoryOutputWithContext(ctx context.Context) ShareDirectoryOutput {
 	return o
-}
-
-func (o ShareDirectoryOutput) ToOutput(ctx context.Context) pulumix.Output[*ShareDirectory] {
-	return pulumix.Output[*ShareDirectory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A mapping of metadata to assign to this Directory.
@@ -316,12 +291,6 @@ func (o ShareDirectoryArrayOutput) ToShareDirectoryArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o ShareDirectoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ShareDirectory] {
-	return pulumix.Output[[]*ShareDirectory]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ShareDirectoryArrayOutput) Index(i pulumi.IntInput) ShareDirectoryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ShareDirectory {
 		return vs[0].([]*ShareDirectory)[vs[1].(int)]
@@ -340,12 +309,6 @@ func (o ShareDirectoryMapOutput) ToShareDirectoryMapOutput() ShareDirectoryMapOu
 
 func (o ShareDirectoryMapOutput) ToShareDirectoryMapOutputWithContext(ctx context.Context) ShareDirectoryMapOutput {
 	return o
-}
-
-func (o ShareDirectoryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ShareDirectory] {
-	return pulumix.Output[map[string]*ShareDirectory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ShareDirectoryMapOutput) MapIndex(k pulumi.StringInput) ShareDirectoryOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access endpoint connection information about an existing Private Link Service.
@@ -109,12 +108,6 @@ func (o GetServiceEndpointConnectionsResultOutput) ToGetServiceEndpointConnectio
 
 func (o GetServiceEndpointConnectionsResultOutput) ToGetServiceEndpointConnectionsResultOutputWithContext(ctx context.Context) GetServiceEndpointConnectionsResultOutput {
 	return o
-}
-
-func (o GetServiceEndpointConnectionsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceEndpointConnectionsResult] {
-	return pulumix.Output[GetServiceEndpointConnectionsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

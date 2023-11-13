@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Virtual Network Gateway.
@@ -136,12 +135,6 @@ func (o LookupVirtualNetworkGatewayResultOutput) ToLookupVirtualNetworkGatewayRe
 
 func (o LookupVirtualNetworkGatewayResultOutput) ToLookupVirtualNetworkGatewayResultOutputWithContext(ctx context.Context) LookupVirtualNetworkGatewayResultOutput {
 	return o
-}
-
-func (o LookupVirtualNetworkGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualNetworkGatewayResult] {
-	return pulumix.Output[LookupVirtualNetworkGatewayResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Is this an Active-Active Gateway?
