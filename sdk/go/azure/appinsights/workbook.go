@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Workbook.
@@ -288,12 +287,6 @@ func (i *Workbook) ToWorkbookOutputWithContext(ctx context.Context) WorkbookOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookOutput)
 }
 
-func (i *Workbook) ToOutput(ctx context.Context) pulumix.Output[*Workbook] {
-	return pulumix.Output[*Workbook]{
-		OutputState: i.ToWorkbookOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WorkbookArrayInput is an input type that accepts WorkbookArray and WorkbookArrayOutput values.
 // You can construct a concrete instance of `WorkbookArrayInput` via:
 //
@@ -317,12 +310,6 @@ func (i WorkbookArray) ToWorkbookArrayOutput() WorkbookArrayOutput {
 
 func (i WorkbookArray) ToWorkbookArrayOutputWithContext(ctx context.Context) WorkbookArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookArrayOutput)
-}
-
-func (i WorkbookArray) ToOutput(ctx context.Context) pulumix.Output[[]*Workbook] {
-	return pulumix.Output[[]*Workbook]{
-		OutputState: i.ToWorkbookArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // WorkbookMapInput is an input type that accepts WorkbookMap and WorkbookMapOutput values.
@@ -350,12 +337,6 @@ func (i WorkbookMap) ToWorkbookMapOutputWithContext(ctx context.Context) Workboo
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookMapOutput)
 }
 
-func (i WorkbookMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Workbook] {
-	return pulumix.Output[map[string]*Workbook]{
-		OutputState: i.ToWorkbookMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkbookOutput struct{ *pulumi.OutputState }
 
 func (WorkbookOutput) ElementType() reflect.Type {
@@ -368,12 +349,6 @@ func (o WorkbookOutput) ToWorkbookOutput() WorkbookOutput {
 
 func (o WorkbookOutput) ToWorkbookOutputWithContext(ctx context.Context) WorkbookOutput {
 	return o
-}
-
-func (o WorkbookOutput) ToOutput(ctx context.Context) pulumix.Output[*Workbook] {
-	return pulumix.Output[*Workbook]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `workbook`, `sentinel`. Defaults to `workbook`.
@@ -447,12 +422,6 @@ func (o WorkbookArrayOutput) ToWorkbookArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o WorkbookArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Workbook] {
-	return pulumix.Output[[]*Workbook]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkbookArrayOutput) Index(i pulumi.IntInput) WorkbookOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Workbook {
 		return vs[0].([]*Workbook)[vs[1].(int)]
@@ -471,12 +440,6 @@ func (o WorkbookMapOutput) ToWorkbookMapOutput() WorkbookMapOutput {
 
 func (o WorkbookMapOutput) ToWorkbookMapOutputWithContext(ctx context.Context) WorkbookMapOutput {
 	return o
-}
-
-func (o WorkbookMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Workbook] {
-	return pulumix.Output[map[string]*Workbook]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkbookMapOutput) MapIndex(k pulumi.StringInput) WorkbookOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Application Insights Analytics Item component.
@@ -234,12 +233,6 @@ func (i *AnalyticsItem) ToAnalyticsItemOutputWithContext(ctx context.Context) An
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsItemOutput)
 }
 
-func (i *AnalyticsItem) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsItem] {
-	return pulumix.Output[*AnalyticsItem]{
-		OutputState: i.ToAnalyticsItemOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AnalyticsItemArrayInput is an input type that accepts AnalyticsItemArray and AnalyticsItemArrayOutput values.
 // You can construct a concrete instance of `AnalyticsItemArrayInput` via:
 //
@@ -263,12 +256,6 @@ func (i AnalyticsItemArray) ToAnalyticsItemArrayOutput() AnalyticsItemArrayOutpu
 
 func (i AnalyticsItemArray) ToAnalyticsItemArrayOutputWithContext(ctx context.Context) AnalyticsItemArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsItemArrayOutput)
-}
-
-func (i AnalyticsItemArray) ToOutput(ctx context.Context) pulumix.Output[[]*AnalyticsItem] {
-	return pulumix.Output[[]*AnalyticsItem]{
-		OutputState: i.ToAnalyticsItemArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AnalyticsItemMapInput is an input type that accepts AnalyticsItemMap and AnalyticsItemMapOutput values.
@@ -296,12 +283,6 @@ func (i AnalyticsItemMap) ToAnalyticsItemMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsItemMapOutput)
 }
 
-func (i AnalyticsItemMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AnalyticsItem] {
-	return pulumix.Output[map[string]*AnalyticsItem]{
-		OutputState: i.ToAnalyticsItemMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnalyticsItemOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsItemOutput) ElementType() reflect.Type {
@@ -314,12 +295,6 @@ func (o AnalyticsItemOutput) ToAnalyticsItemOutput() AnalyticsItemOutput {
 
 func (o AnalyticsItemOutput) ToAnalyticsItemOutputWithContext(ctx context.Context) AnalyticsItemOutput {
 	return o
-}
-
-func (o AnalyticsItemOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsItem] {
-	return pulumix.Output[*AnalyticsItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Application Insights component on which the Analytics Item exists. Changing this forces a new resource to be created.
@@ -381,12 +356,6 @@ func (o AnalyticsItemArrayOutput) ToAnalyticsItemArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o AnalyticsItemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AnalyticsItem] {
-	return pulumix.Output[[]*AnalyticsItem]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalyticsItemArrayOutput) Index(i pulumi.IntInput) AnalyticsItemOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AnalyticsItem {
 		return vs[0].([]*AnalyticsItem)[vs[1].(int)]
@@ -405,12 +374,6 @@ func (o AnalyticsItemMapOutput) ToAnalyticsItemMapOutput() AnalyticsItemMapOutpu
 
 func (o AnalyticsItemMapOutput) ToAnalyticsItemMapOutputWithContext(ctx context.Context) AnalyticsItemMapOutput {
 	return o
-}
-
-func (o AnalyticsItemMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AnalyticsItem] {
-	return pulumix.Output[map[string]*AnalyticsItem]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalyticsItemMapOutput) MapIndex(k pulumi.StringInput) AnalyticsItemOutput {

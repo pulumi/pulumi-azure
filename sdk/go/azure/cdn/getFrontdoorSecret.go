@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Front Door (standard/premium) Secret.
@@ -114,12 +113,6 @@ func (o LookupFrontdoorSecretResultOutput) ToLookupFrontdoorSecretResultOutput()
 
 func (o LookupFrontdoorSecretResultOutput) ToLookupFrontdoorSecretResultOutputWithContext(ctx context.Context) LookupFrontdoorSecretResultOutput {
 	return o
-}
-
-func (o LookupFrontdoorSecretResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFrontdoorSecretResult] {
-	return pulumix.Output[LookupFrontdoorSecretResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the ID of the Front Door Profile within which this Front Door Secret exists.

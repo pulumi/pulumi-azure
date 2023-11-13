@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an API Management AAD Identity Provider.
@@ -229,12 +228,6 @@ func (i *IdentityProviderAad) ToIdentityProviderAadOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderAadOutput)
 }
 
-func (i *IdentityProviderAad) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderAad] {
-	return pulumix.Output[*IdentityProviderAad]{
-		OutputState: i.ToIdentityProviderAadOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IdentityProviderAadArrayInput is an input type that accepts IdentityProviderAadArray and IdentityProviderAadArrayOutput values.
 // You can construct a concrete instance of `IdentityProviderAadArrayInput` via:
 //
@@ -258,12 +251,6 @@ func (i IdentityProviderAadArray) ToIdentityProviderAadArrayOutput() IdentityPro
 
 func (i IdentityProviderAadArray) ToIdentityProviderAadArrayOutputWithContext(ctx context.Context) IdentityProviderAadArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderAadArrayOutput)
-}
-
-func (i IdentityProviderAadArray) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityProviderAad] {
-	return pulumix.Output[[]*IdentityProviderAad]{
-		OutputState: i.ToIdentityProviderAadArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IdentityProviderAadMapInput is an input type that accepts IdentityProviderAadMap and IdentityProviderAadMapOutput values.
@@ -291,12 +278,6 @@ func (i IdentityProviderAadMap) ToIdentityProviderAadMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderAadMapOutput)
 }
 
-func (i IdentityProviderAadMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityProviderAad] {
-	return pulumix.Output[map[string]*IdentityProviderAad]{
-		OutputState: i.ToIdentityProviderAadMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IdentityProviderAadOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderAadOutput) ElementType() reflect.Type {
@@ -309,12 +290,6 @@ func (o IdentityProviderAadOutput) ToIdentityProviderAadOutput() IdentityProvide
 
 func (o IdentityProviderAadOutput) ToIdentityProviderAadOutputWithContext(ctx context.Context) IdentityProviderAadOutput {
 	return o
-}
-
-func (o IdentityProviderAadOutput) ToOutput(ctx context.Context) pulumix.Output[*IdentityProviderAad] {
-	return pulumix.Output[*IdentityProviderAad]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of allowed AAD Tenants.
@@ -361,12 +336,6 @@ func (o IdentityProviderAadArrayOutput) ToIdentityProviderAadArrayOutputWithCont
 	return o
 }
 
-func (o IdentityProviderAadArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IdentityProviderAad] {
-	return pulumix.Output[[]*IdentityProviderAad]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IdentityProviderAadArrayOutput) Index(i pulumi.IntInput) IdentityProviderAadOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IdentityProviderAad {
 		return vs[0].([]*IdentityProviderAad)[vs[1].(int)]
@@ -385,12 +354,6 @@ func (o IdentityProviderAadMapOutput) ToIdentityProviderAadMapOutput() IdentityP
 
 func (o IdentityProviderAadMapOutput) ToIdentityProviderAadMapOutputWithContext(ctx context.Context) IdentityProviderAadMapOutput {
 	return o
-}
-
-func (o IdentityProviderAadMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IdentityProviderAad] {
-	return pulumix.Output[map[string]*IdentityProviderAad]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IdentityProviderAadMapOutput) MapIndex(k pulumi.StringInput) IdentityProviderAadOutput {

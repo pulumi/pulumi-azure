@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Virtual Hub Routing Intent.
@@ -205,12 +204,6 @@ func (i *RoutingIntent) ToRoutingIntentOutputWithContext(ctx context.Context) Ro
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingIntentOutput)
 }
 
-func (i *RoutingIntent) ToOutput(ctx context.Context) pulumix.Output[*RoutingIntent] {
-	return pulumix.Output[*RoutingIntent]{
-		OutputState: i.ToRoutingIntentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RoutingIntentArrayInput is an input type that accepts RoutingIntentArray and RoutingIntentArrayOutput values.
 // You can construct a concrete instance of `RoutingIntentArrayInput` via:
 //
@@ -234,12 +227,6 @@ func (i RoutingIntentArray) ToRoutingIntentArrayOutput() RoutingIntentArrayOutpu
 
 func (i RoutingIntentArray) ToRoutingIntentArrayOutputWithContext(ctx context.Context) RoutingIntentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingIntentArrayOutput)
-}
-
-func (i RoutingIntentArray) ToOutput(ctx context.Context) pulumix.Output[[]*RoutingIntent] {
-	return pulumix.Output[[]*RoutingIntent]{
-		OutputState: i.ToRoutingIntentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RoutingIntentMapInput is an input type that accepts RoutingIntentMap and RoutingIntentMapOutput values.
@@ -267,12 +254,6 @@ func (i RoutingIntentMap) ToRoutingIntentMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RoutingIntentMapOutput)
 }
 
-func (i RoutingIntentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RoutingIntent] {
-	return pulumix.Output[map[string]*RoutingIntent]{
-		OutputState: i.ToRoutingIntentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RoutingIntentOutput struct{ *pulumi.OutputState }
 
 func (RoutingIntentOutput) ElementType() reflect.Type {
@@ -285,12 +266,6 @@ func (o RoutingIntentOutput) ToRoutingIntentOutput() RoutingIntentOutput {
 
 func (o RoutingIntentOutput) ToRoutingIntentOutputWithContext(ctx context.Context) RoutingIntentOutput {
 	return o
-}
-
-func (o RoutingIntentOutput) ToOutput(ctx context.Context) pulumix.Output[*RoutingIntent] {
-	return pulumix.Output[*RoutingIntent]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created.
@@ -322,12 +297,6 @@ func (o RoutingIntentArrayOutput) ToRoutingIntentArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o RoutingIntentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RoutingIntent] {
-	return pulumix.Output[[]*RoutingIntent]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RoutingIntentArrayOutput) Index(i pulumi.IntInput) RoutingIntentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RoutingIntent {
 		return vs[0].([]*RoutingIntent)[vs[1].(int)]
@@ -346,12 +315,6 @@ func (o RoutingIntentMapOutput) ToRoutingIntentMapOutput() RoutingIntentMapOutpu
 
 func (o RoutingIntentMapOutput) ToRoutingIntentMapOutputWithContext(ctx context.Context) RoutingIntentMapOutput {
 	return o
-}
-
-func (o RoutingIntentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RoutingIntent] {
-	return pulumix.Output[map[string]*RoutingIntent]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RoutingIntentMapOutput) MapIndex(k pulumi.StringInput) RoutingIntentOutput {

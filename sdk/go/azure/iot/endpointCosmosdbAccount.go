@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an IotHub Cosmos DB Account Endpoint
@@ -364,12 +363,6 @@ func (i *EndpointCosmosdbAccount) ToEndpointCosmosdbAccountOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointCosmosdbAccountOutput)
 }
 
-func (i *EndpointCosmosdbAccount) ToOutput(ctx context.Context) pulumix.Output[*EndpointCosmosdbAccount] {
-	return pulumix.Output[*EndpointCosmosdbAccount]{
-		OutputState: i.ToEndpointCosmosdbAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EndpointCosmosdbAccountArrayInput is an input type that accepts EndpointCosmosdbAccountArray and EndpointCosmosdbAccountArrayOutput values.
 // You can construct a concrete instance of `EndpointCosmosdbAccountArrayInput` via:
 //
@@ -393,12 +386,6 @@ func (i EndpointCosmosdbAccountArray) ToEndpointCosmosdbAccountArrayOutput() End
 
 func (i EndpointCosmosdbAccountArray) ToEndpointCosmosdbAccountArrayOutputWithContext(ctx context.Context) EndpointCosmosdbAccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointCosmosdbAccountArrayOutput)
-}
-
-func (i EndpointCosmosdbAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]*EndpointCosmosdbAccount] {
-	return pulumix.Output[[]*EndpointCosmosdbAccount]{
-		OutputState: i.ToEndpointCosmosdbAccountArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EndpointCosmosdbAccountMapInput is an input type that accepts EndpointCosmosdbAccountMap and EndpointCosmosdbAccountMapOutput values.
@@ -426,12 +413,6 @@ func (i EndpointCosmosdbAccountMap) ToEndpointCosmosdbAccountMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointCosmosdbAccountMapOutput)
 }
 
-func (i EndpointCosmosdbAccountMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EndpointCosmosdbAccount] {
-	return pulumix.Output[map[string]*EndpointCosmosdbAccount]{
-		OutputState: i.ToEndpointCosmosdbAccountMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointCosmosdbAccountOutput struct{ *pulumi.OutputState }
 
 func (EndpointCosmosdbAccountOutput) ElementType() reflect.Type {
@@ -444,12 +425,6 @@ func (o EndpointCosmosdbAccountOutput) ToEndpointCosmosdbAccountOutput() Endpoin
 
 func (o EndpointCosmosdbAccountOutput) ToEndpointCosmosdbAccountOutputWithContext(ctx context.Context) EndpointCosmosdbAccountOutput {
 	return o
-}
-
-func (o EndpointCosmosdbAccountOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointCosmosdbAccount] {
-	return pulumix.Output[*EndpointCosmosdbAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The type used to authenticate against the Cosmos DB Account endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
@@ -532,12 +507,6 @@ func (o EndpointCosmosdbAccountArrayOutput) ToEndpointCosmosdbAccountArrayOutput
 	return o
 }
 
-func (o EndpointCosmosdbAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EndpointCosmosdbAccount] {
-	return pulumix.Output[[]*EndpointCosmosdbAccount]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EndpointCosmosdbAccountArrayOutput) Index(i pulumi.IntInput) EndpointCosmosdbAccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EndpointCosmosdbAccount {
 		return vs[0].([]*EndpointCosmosdbAccount)[vs[1].(int)]
@@ -556,12 +525,6 @@ func (o EndpointCosmosdbAccountMapOutput) ToEndpointCosmosdbAccountMapOutput() E
 
 func (o EndpointCosmosdbAccountMapOutput) ToEndpointCosmosdbAccountMapOutputWithContext(ctx context.Context) EndpointCosmosdbAccountMapOutput {
 	return o
-}
-
-func (o EndpointCosmosdbAccountMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EndpointCosmosdbAccount] {
-	return pulumix.Output[map[string]*EndpointCosmosdbAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointCosmosdbAccountMapOutput) MapIndex(k pulumi.StringInput) EndpointCosmosdbAccountOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Authorization Server within an API Management Service.
@@ -397,12 +396,6 @@ func (i *AuthorizationServer) ToAuthorizationServerOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationServerOutput)
 }
 
-func (i *AuthorizationServer) ToOutput(ctx context.Context) pulumix.Output[*AuthorizationServer] {
-	return pulumix.Output[*AuthorizationServer]{
-		OutputState: i.ToAuthorizationServerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AuthorizationServerArrayInput is an input type that accepts AuthorizationServerArray and AuthorizationServerArrayOutput values.
 // You can construct a concrete instance of `AuthorizationServerArrayInput` via:
 //
@@ -426,12 +419,6 @@ func (i AuthorizationServerArray) ToAuthorizationServerArrayOutput() Authorizati
 
 func (i AuthorizationServerArray) ToAuthorizationServerArrayOutputWithContext(ctx context.Context) AuthorizationServerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationServerArrayOutput)
-}
-
-func (i AuthorizationServerArray) ToOutput(ctx context.Context) pulumix.Output[[]*AuthorizationServer] {
-	return pulumix.Output[[]*AuthorizationServer]{
-		OutputState: i.ToAuthorizationServerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AuthorizationServerMapInput is an input type that accepts AuthorizationServerMap and AuthorizationServerMapOutput values.
@@ -459,12 +446,6 @@ func (i AuthorizationServerMap) ToAuthorizationServerMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AuthorizationServerMapOutput)
 }
 
-func (i AuthorizationServerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AuthorizationServer] {
-	return pulumix.Output[map[string]*AuthorizationServer]{
-		OutputState: i.ToAuthorizationServerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AuthorizationServerOutput struct{ *pulumi.OutputState }
 
 func (AuthorizationServerOutput) ElementType() reflect.Type {
@@ -477,12 +458,6 @@ func (o AuthorizationServerOutput) ToAuthorizationServerOutput() AuthorizationSe
 
 func (o AuthorizationServerOutput) ToAuthorizationServerOutputWithContext(ctx context.Context) AuthorizationServerOutput {
 	return o
-}
-
-func (o AuthorizationServerOutput) ToOutput(ctx context.Context) pulumix.Output[*AuthorizationServer] {
-	return pulumix.Output[*AuthorizationServer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the API Management Service in which this Authorization Server should be created. Changing this forces a new resource to be created.
@@ -602,12 +577,6 @@ func (o AuthorizationServerArrayOutput) ToAuthorizationServerArrayOutputWithCont
 	return o
 }
 
-func (o AuthorizationServerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AuthorizationServer] {
-	return pulumix.Output[[]*AuthorizationServer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AuthorizationServerArrayOutput) Index(i pulumi.IntInput) AuthorizationServerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AuthorizationServer {
 		return vs[0].([]*AuthorizationServer)[vs[1].(int)]
@@ -626,12 +595,6 @@ func (o AuthorizationServerMapOutput) ToAuthorizationServerMapOutput() Authoriza
 
 func (o AuthorizationServerMapOutput) ToAuthorizationServerMapOutputWithContext(ctx context.Context) AuthorizationServerMapOutput {
 	return o
-}
-
-func (o AuthorizationServerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AuthorizationServer] {
-	return pulumix.Output[map[string]*AuthorizationServer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AuthorizationServerMapOutput) MapIndex(k pulumi.StringInput) AuthorizationServerOutput {

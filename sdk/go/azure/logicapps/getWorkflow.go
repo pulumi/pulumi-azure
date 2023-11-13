@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Logic App Workflow.
@@ -129,12 +128,6 @@ func (o LookupWorkflowResultOutput) ToLookupWorkflowResultOutput() LookupWorkflo
 
 func (o LookupWorkflowResultOutput) ToLookupWorkflowResultOutputWithContext(ctx context.Context) LookupWorkflowResultOutput {
 	return o
-}
-
-func (o LookupWorkflowResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupWorkflowResult] {
-	return pulumix.Output[LookupWorkflowResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Access Endpoint for the Logic App Workflow

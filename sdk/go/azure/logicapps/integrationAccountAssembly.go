@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Logic App Integration Account Assembly.
@@ -242,12 +241,6 @@ func (i *IntegrationAccountAssembly) ToIntegrationAccountAssemblyOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAssemblyOutput)
 }
 
-func (i *IntegrationAccountAssembly) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountAssembly] {
-	return pulumix.Output[*IntegrationAccountAssembly]{
-		OutputState: i.ToIntegrationAccountAssemblyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationAccountAssemblyArrayInput is an input type that accepts IntegrationAccountAssemblyArray and IntegrationAccountAssemblyArrayOutput values.
 // You can construct a concrete instance of `IntegrationAccountAssemblyArrayInput` via:
 //
@@ -271,12 +264,6 @@ func (i IntegrationAccountAssemblyArray) ToIntegrationAccountAssemblyArrayOutput
 
 func (i IntegrationAccountAssemblyArray) ToIntegrationAccountAssemblyArrayOutputWithContext(ctx context.Context) IntegrationAccountAssemblyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAssemblyArrayOutput)
-}
-
-func (i IntegrationAccountAssemblyArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationAccountAssembly] {
-	return pulumix.Output[[]*IntegrationAccountAssembly]{
-		OutputState: i.ToIntegrationAccountAssemblyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IntegrationAccountAssemblyMapInput is an input type that accepts IntegrationAccountAssemblyMap and IntegrationAccountAssemblyMapOutput values.
@@ -304,12 +291,6 @@ func (i IntegrationAccountAssemblyMap) ToIntegrationAccountAssemblyMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountAssemblyMapOutput)
 }
 
-func (i IntegrationAccountAssemblyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationAccountAssembly] {
-	return pulumix.Output[map[string]*IntegrationAccountAssembly]{
-		OutputState: i.ToIntegrationAccountAssemblyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationAccountAssemblyOutput struct{ *pulumi.OutputState }
 
 func (IntegrationAccountAssemblyOutput) ElementType() reflect.Type {
@@ -322,12 +303,6 @@ func (o IntegrationAccountAssemblyOutput) ToIntegrationAccountAssemblyOutput() I
 
 func (o IntegrationAccountAssemblyOutput) ToIntegrationAccountAssemblyOutputWithContext(ctx context.Context) IntegrationAccountAssemblyOutput {
 	return o
-}
-
-func (o IntegrationAccountAssemblyOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationAccountAssembly] {
-	return pulumix.Output[*IntegrationAccountAssembly]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Logic App Integration Account Assembly.
@@ -384,12 +359,6 @@ func (o IntegrationAccountAssemblyArrayOutput) ToIntegrationAccountAssemblyArray
 	return o
 }
 
-func (o IntegrationAccountAssemblyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationAccountAssembly] {
-	return pulumix.Output[[]*IntegrationAccountAssembly]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationAccountAssemblyArrayOutput) Index(i pulumi.IntInput) IntegrationAccountAssemblyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationAccountAssembly {
 		return vs[0].([]*IntegrationAccountAssembly)[vs[1].(int)]
@@ -408,12 +377,6 @@ func (o IntegrationAccountAssemblyMapOutput) ToIntegrationAccountAssemblyMapOutp
 
 func (o IntegrationAccountAssemblyMapOutput) ToIntegrationAccountAssemblyMapOutputWithContext(ctx context.Context) IntegrationAccountAssemblyMapOutput {
 	return o
-}
-
-func (o IntegrationAccountAssemblyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationAccountAssembly] {
-	return pulumix.Output[map[string]*IntegrationAccountAssembly]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationAccountAssemblyMapOutput) MapIndex(k pulumi.StringInput) IntegrationAccountAssemblyOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a policy set definition.
@@ -253,12 +252,6 @@ func (i *PolicySetDefinition) ToPolicySetDefinitionOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySetDefinitionOutput)
 }
 
-func (i *PolicySetDefinition) ToOutput(ctx context.Context) pulumix.Output[*PolicySetDefinition] {
-	return pulumix.Output[*PolicySetDefinition]{
-		OutputState: i.ToPolicySetDefinitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PolicySetDefinitionArrayInput is an input type that accepts PolicySetDefinitionArray and PolicySetDefinitionArrayOutput values.
 // You can construct a concrete instance of `PolicySetDefinitionArrayInput` via:
 //
@@ -282,12 +275,6 @@ func (i PolicySetDefinitionArray) ToPolicySetDefinitionArrayOutput() PolicySetDe
 
 func (i PolicySetDefinitionArray) ToPolicySetDefinitionArrayOutputWithContext(ctx context.Context) PolicySetDefinitionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySetDefinitionArrayOutput)
-}
-
-func (i PolicySetDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]*PolicySetDefinition] {
-	return pulumix.Output[[]*PolicySetDefinition]{
-		OutputState: i.ToPolicySetDefinitionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PolicySetDefinitionMapInput is an input type that accepts PolicySetDefinitionMap and PolicySetDefinitionMapOutput values.
@@ -315,12 +302,6 @@ func (i PolicySetDefinitionMap) ToPolicySetDefinitionMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySetDefinitionMapOutput)
 }
 
-func (i PolicySetDefinitionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicySetDefinition] {
-	return pulumix.Output[map[string]*PolicySetDefinition]{
-		OutputState: i.ToPolicySetDefinitionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicySetDefinitionOutput struct{ *pulumi.OutputState }
 
 func (PolicySetDefinitionOutput) ElementType() reflect.Type {
@@ -333,12 +314,6 @@ func (o PolicySetDefinitionOutput) ToPolicySetDefinitionOutput() PolicySetDefini
 
 func (o PolicySetDefinitionOutput) ToPolicySetDefinitionOutputWithContext(ctx context.Context) PolicySetDefinitionOutput {
 	return o
-}
-
-func (o PolicySetDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*PolicySetDefinition] {
-	return pulumix.Output[*PolicySetDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the policy set definition.
@@ -404,12 +379,6 @@ func (o PolicySetDefinitionArrayOutput) ToPolicySetDefinitionArrayOutputWithCont
 	return o
 }
 
-func (o PolicySetDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PolicySetDefinition] {
-	return pulumix.Output[[]*PolicySetDefinition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PolicySetDefinitionArrayOutput) Index(i pulumi.IntInput) PolicySetDefinitionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PolicySetDefinition {
 		return vs[0].([]*PolicySetDefinition)[vs[1].(int)]
@@ -428,12 +397,6 @@ func (o PolicySetDefinitionMapOutput) ToPolicySetDefinitionMapOutput() PolicySet
 
 func (o PolicySetDefinitionMapOutput) ToPolicySetDefinitionMapOutputWithContext(ctx context.Context) PolicySetDefinitionMapOutput {
 	return o
-}
-
-func (o PolicySetDefinitionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PolicySetDefinition] {
-	return pulumix.Output[map[string]*PolicySetDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicySetDefinitionMapOutput) MapIndex(k pulumi.StringInput) PolicySetDefinitionOutput {

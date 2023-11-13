@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linked Service (connection) between Key Vault and Azure Data Factory.
@@ -239,12 +238,6 @@ func (i *LinkedServiceKeyVault) ToLinkedServiceKeyVaultOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceKeyVaultOutput)
 }
 
-func (i *LinkedServiceKeyVault) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceKeyVault] {
-	return pulumix.Output[*LinkedServiceKeyVault]{
-		OutputState: i.ToLinkedServiceKeyVaultOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinkedServiceKeyVaultArrayInput is an input type that accepts LinkedServiceKeyVaultArray and LinkedServiceKeyVaultArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceKeyVaultArrayInput` via:
 //
@@ -268,12 +261,6 @@ func (i LinkedServiceKeyVaultArray) ToLinkedServiceKeyVaultArrayOutput() LinkedS
 
 func (i LinkedServiceKeyVaultArray) ToLinkedServiceKeyVaultArrayOutputWithContext(ctx context.Context) LinkedServiceKeyVaultArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceKeyVaultArrayOutput)
-}
-
-func (i LinkedServiceKeyVaultArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceKeyVault] {
-	return pulumix.Output[[]*LinkedServiceKeyVault]{
-		OutputState: i.ToLinkedServiceKeyVaultArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinkedServiceKeyVaultMapInput is an input type that accepts LinkedServiceKeyVaultMap and LinkedServiceKeyVaultMapOutput values.
@@ -301,12 +288,6 @@ func (i LinkedServiceKeyVaultMap) ToLinkedServiceKeyVaultMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceKeyVaultMapOutput)
 }
 
-func (i LinkedServiceKeyVaultMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceKeyVault] {
-	return pulumix.Output[map[string]*LinkedServiceKeyVault]{
-		OutputState: i.ToLinkedServiceKeyVaultMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkedServiceKeyVaultOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceKeyVaultOutput) ElementType() reflect.Type {
@@ -319,12 +300,6 @@ func (o LinkedServiceKeyVaultOutput) ToLinkedServiceKeyVaultOutput() LinkedServi
 
 func (o LinkedServiceKeyVaultOutput) ToLinkedServiceKeyVaultOutputWithContext(ctx context.Context) LinkedServiceKeyVaultOutput {
 	return o
-}
-
-func (o LinkedServiceKeyVaultOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceKeyVault] {
-	return pulumix.Output[*LinkedServiceKeyVault]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service Key Vault.
@@ -381,12 +356,6 @@ func (o LinkedServiceKeyVaultArrayOutput) ToLinkedServiceKeyVaultArrayOutputWith
 	return o
 }
 
-func (o LinkedServiceKeyVaultArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceKeyVault] {
-	return pulumix.Output[[]*LinkedServiceKeyVault]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinkedServiceKeyVaultArrayOutput) Index(i pulumi.IntInput) LinkedServiceKeyVaultOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceKeyVault {
 		return vs[0].([]*LinkedServiceKeyVault)[vs[1].(int)]
@@ -405,12 +374,6 @@ func (o LinkedServiceKeyVaultMapOutput) ToLinkedServiceKeyVaultMapOutput() Linke
 
 func (o LinkedServiceKeyVaultMapOutput) ToLinkedServiceKeyVaultMapOutputWithContext(ctx context.Context) LinkedServiceKeyVaultMapOutput {
 	return o
-}
-
-func (o LinkedServiceKeyVaultMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceKeyVault] {
-	return pulumix.Output[map[string]*LinkedServiceKeyVault]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkedServiceKeyVaultMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceKeyVaultOutput {

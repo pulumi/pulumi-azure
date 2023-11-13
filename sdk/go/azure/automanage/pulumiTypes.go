@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -67,12 +66,6 @@ func (i ConfigurationAntimalwareArgs) ToConfigurationAntimalwareOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAntimalwareOutput)
 }
 
-func (i ConfigurationAntimalwareArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationAntimalware] {
-	return pulumix.Output[ConfigurationAntimalware]{
-		OutputState: i.ToConfigurationAntimalwareOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationAntimalwareArgs) ToConfigurationAntimalwarePtrOutput() ConfigurationAntimalwarePtrOutput {
 	return i.ToConfigurationAntimalwarePtrOutputWithContext(context.Background())
 }
@@ -114,12 +107,6 @@ func (i *configurationAntimalwarePtrType) ToConfigurationAntimalwarePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAntimalwarePtrOutput)
 }
 
-func (i *configurationAntimalwarePtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationAntimalware] {
-	return pulumix.Output[*ConfigurationAntimalware]{
-		OutputState: i.ToConfigurationAntimalwarePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationAntimalwareOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationAntimalwareOutput) ElementType() reflect.Type {
@@ -142,12 +129,6 @@ func (o ConfigurationAntimalwareOutput) ToConfigurationAntimalwarePtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationAntimalware) *ConfigurationAntimalware {
 		return &v
 	}).(ConfigurationAntimalwarePtrOutput)
-}
-
-func (o ConfigurationAntimalwareOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationAntimalware] {
-	return pulumix.Output[ConfigurationAntimalware]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `exclusions` block as defined below.
@@ -192,12 +173,6 @@ func (o ConfigurationAntimalwarePtrOutput) ToConfigurationAntimalwarePtrOutput()
 
 func (o ConfigurationAntimalwarePtrOutput) ToConfigurationAntimalwarePtrOutputWithContext(ctx context.Context) ConfigurationAntimalwarePtrOutput {
 	return o
-}
-
-func (o ConfigurationAntimalwarePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationAntimalware] {
-	return pulumix.Output[*ConfigurationAntimalware]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationAntimalwarePtrOutput) Elem() ConfigurationAntimalwareOutput {
@@ -311,12 +286,6 @@ func (i ConfigurationAntimalwareExclusionsArgs) ToConfigurationAntimalwareExclus
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAntimalwareExclusionsOutput)
 }
 
-func (i ConfigurationAntimalwareExclusionsArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationAntimalwareExclusions] {
-	return pulumix.Output[ConfigurationAntimalwareExclusions]{
-		OutputState: i.ToConfigurationAntimalwareExclusionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationAntimalwareExclusionsArgs) ToConfigurationAntimalwareExclusionsPtrOutput() ConfigurationAntimalwareExclusionsPtrOutput {
 	return i.ToConfigurationAntimalwareExclusionsPtrOutputWithContext(context.Background())
 }
@@ -358,12 +327,6 @@ func (i *configurationAntimalwareExclusionsPtrType) ToConfigurationAntimalwareEx
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAntimalwareExclusionsPtrOutput)
 }
 
-func (i *configurationAntimalwareExclusionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationAntimalwareExclusions] {
-	return pulumix.Output[*ConfigurationAntimalwareExclusions]{
-		OutputState: i.ToConfigurationAntimalwareExclusionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationAntimalwareExclusionsOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationAntimalwareExclusionsOutput) ElementType() reflect.Type {
@@ -386,12 +349,6 @@ func (o ConfigurationAntimalwareExclusionsOutput) ToConfigurationAntimalwareExcl
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationAntimalwareExclusions) *ConfigurationAntimalwareExclusions {
 		return &v
 	}).(ConfigurationAntimalwareExclusionsPtrOutput)
-}
-
-func (o ConfigurationAntimalwareExclusionsOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationAntimalwareExclusions] {
-	return pulumix.Output[ConfigurationAntimalwareExclusions]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The extensions to exclude from the antimalware scan, separated by `;`. For example `.ext1;.ext2`.
@@ -421,12 +378,6 @@ func (o ConfigurationAntimalwareExclusionsPtrOutput) ToConfigurationAntimalwareE
 
 func (o ConfigurationAntimalwareExclusionsPtrOutput) ToConfigurationAntimalwareExclusionsPtrOutputWithContext(ctx context.Context) ConfigurationAntimalwareExclusionsPtrOutput {
 	return o
-}
-
-func (o ConfigurationAntimalwareExclusionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationAntimalwareExclusions] {
-	return pulumix.Output[*ConfigurationAntimalwareExclusions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationAntimalwareExclusionsPtrOutput) Elem() ConfigurationAntimalwareExclusionsOutput {
@@ -502,12 +453,6 @@ func (i ConfigurationAzureSecurityBaselineArgs) ToConfigurationAzureSecurityBase
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAzureSecurityBaselineOutput)
 }
 
-func (i ConfigurationAzureSecurityBaselineArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationAzureSecurityBaseline] {
-	return pulumix.Output[ConfigurationAzureSecurityBaseline]{
-		OutputState: i.ToConfigurationAzureSecurityBaselineOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationAzureSecurityBaselineArgs) ToConfigurationAzureSecurityBaselinePtrOutput() ConfigurationAzureSecurityBaselinePtrOutput {
 	return i.ToConfigurationAzureSecurityBaselinePtrOutputWithContext(context.Background())
 }
@@ -549,12 +494,6 @@ func (i *configurationAzureSecurityBaselinePtrType) ToConfigurationAzureSecurity
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationAzureSecurityBaselinePtrOutput)
 }
 
-func (i *configurationAzureSecurityBaselinePtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationAzureSecurityBaseline] {
-	return pulumix.Output[*ConfigurationAzureSecurityBaseline]{
-		OutputState: i.ToConfigurationAzureSecurityBaselinePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationAzureSecurityBaselineOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationAzureSecurityBaselineOutput) ElementType() reflect.Type {
@@ -579,12 +518,6 @@ func (o ConfigurationAzureSecurityBaselineOutput) ToConfigurationAzureSecurityBa
 	}).(ConfigurationAzureSecurityBaselinePtrOutput)
 }
 
-func (o ConfigurationAzureSecurityBaselineOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationAzureSecurityBaseline] {
-	return pulumix.Output[ConfigurationAzureSecurityBaseline]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The assignment type of the azure security baseline. Possible values are `ApplyAndAutoCorrect`, `ApplyAndMonitor`, `Audit` and `DeployAndAutoCorrect`. Defaults to `ApplyAndAutoCorrect`.
 func (o ConfigurationAzureSecurityBaselineOutput) AssignmentType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationAzureSecurityBaseline) *string { return v.AssignmentType }).(pulumi.StringPtrOutput)
@@ -602,12 +535,6 @@ func (o ConfigurationAzureSecurityBaselinePtrOutput) ToConfigurationAzureSecurit
 
 func (o ConfigurationAzureSecurityBaselinePtrOutput) ToConfigurationAzureSecurityBaselinePtrOutputWithContext(ctx context.Context) ConfigurationAzureSecurityBaselinePtrOutput {
 	return o
-}
-
-func (o ConfigurationAzureSecurityBaselinePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationAzureSecurityBaseline] {
-	return pulumix.Output[*ConfigurationAzureSecurityBaseline]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationAzureSecurityBaselinePtrOutput) Elem() ConfigurationAzureSecurityBaselineOutput {
@@ -679,12 +606,6 @@ func (i ConfigurationBackupArgs) ToConfigurationBackupOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationBackupOutput)
 }
 
-func (i ConfigurationBackupArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationBackup] {
-	return pulumix.Output[ConfigurationBackup]{
-		OutputState: i.ToConfigurationBackupOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationBackupArgs) ToConfigurationBackupPtrOutput() ConfigurationBackupPtrOutput {
 	return i.ToConfigurationBackupPtrOutputWithContext(context.Background())
 }
@@ -726,12 +647,6 @@ func (i *configurationBackupPtrType) ToConfigurationBackupPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationBackupPtrOutput)
 }
 
-func (i *configurationBackupPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationBackup] {
-	return pulumix.Output[*ConfigurationBackup]{
-		OutputState: i.ToConfigurationBackupPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationBackupOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationBackupOutput) ElementType() reflect.Type {
@@ -754,12 +669,6 @@ func (o ConfigurationBackupOutput) ToConfigurationBackupPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationBackup) *ConfigurationBackup {
 		return &v
 	}).(ConfigurationBackupPtrOutput)
-}
-
-func (o ConfigurationBackupOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationBackup] {
-	return pulumix.Output[ConfigurationBackup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The retention range in days of the backup policy. Defaults to `5`.
@@ -799,12 +708,6 @@ func (o ConfigurationBackupPtrOutput) ToConfigurationBackupPtrOutput() Configura
 
 func (o ConfigurationBackupPtrOutput) ToConfigurationBackupPtrOutputWithContext(ctx context.Context) ConfigurationBackupPtrOutput {
 	return o
-}
-
-func (o ConfigurationBackupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationBackup] {
-	return pulumix.Output[*ConfigurationBackup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationBackupPtrOutput) Elem() ConfigurationBackupOutput {
@@ -908,12 +811,6 @@ func (i ConfigurationBackupRetentionPolicyArgs) ToConfigurationBackupRetentionPo
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationBackupRetentionPolicyOutput)
 }
 
-func (i ConfigurationBackupRetentionPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationBackupRetentionPolicy] {
-	return pulumix.Output[ConfigurationBackupRetentionPolicy]{
-		OutputState: i.ToConfigurationBackupRetentionPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationBackupRetentionPolicyArgs) ToConfigurationBackupRetentionPolicyPtrOutput() ConfigurationBackupRetentionPolicyPtrOutput {
 	return i.ToConfigurationBackupRetentionPolicyPtrOutputWithContext(context.Background())
 }
@@ -955,12 +852,6 @@ func (i *configurationBackupRetentionPolicyPtrType) ToConfigurationBackupRetenti
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationBackupRetentionPolicyPtrOutput)
 }
 
-func (i *configurationBackupRetentionPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationBackupRetentionPolicy] {
-	return pulumix.Output[*ConfigurationBackupRetentionPolicy]{
-		OutputState: i.ToConfigurationBackupRetentionPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationBackupRetentionPolicyOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationBackupRetentionPolicyOutput) ElementType() reflect.Type {
@@ -983,12 +874,6 @@ func (o ConfigurationBackupRetentionPolicyOutput) ToConfigurationBackupRetention
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationBackupRetentionPolicy) *ConfigurationBackupRetentionPolicy {
 		return &v
 	}).(ConfigurationBackupRetentionPolicyPtrOutput)
-}
-
-func (o ConfigurationBackupRetentionPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationBackupRetentionPolicy] {
-	return pulumix.Output[ConfigurationBackupRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `dailySchedule` block as defined below.
@@ -1022,12 +907,6 @@ func (o ConfigurationBackupRetentionPolicyPtrOutput) ToConfigurationBackupRetent
 
 func (o ConfigurationBackupRetentionPolicyPtrOutput) ToConfigurationBackupRetentionPolicyPtrOutputWithContext(ctx context.Context) ConfigurationBackupRetentionPolicyPtrOutput {
 	return o
-}
-
-func (o ConfigurationBackupRetentionPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationBackupRetentionPolicy] {
-	return pulumix.Output[*ConfigurationBackupRetentionPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationBackupRetentionPolicyPtrOutput) Elem() ConfigurationBackupRetentionPolicyOutput {
@@ -1107,12 +986,6 @@ func (i ConfigurationBackupRetentionPolicyDailyScheduleArgs) ToConfigurationBack
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationBackupRetentionPolicyDailyScheduleOutput)
 }
 
-func (i ConfigurationBackupRetentionPolicyDailyScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationBackupRetentionPolicyDailySchedule] {
-	return pulumix.Output[ConfigurationBackupRetentionPolicyDailySchedule]{
-		OutputState: i.ToConfigurationBackupRetentionPolicyDailyScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationBackupRetentionPolicyDailyScheduleArgs) ToConfigurationBackupRetentionPolicyDailySchedulePtrOutput() ConfigurationBackupRetentionPolicyDailySchedulePtrOutput {
 	return i.ToConfigurationBackupRetentionPolicyDailySchedulePtrOutputWithContext(context.Background())
 }
@@ -1154,12 +1027,6 @@ func (i *configurationBackupRetentionPolicyDailySchedulePtrType) ToConfiguration
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationBackupRetentionPolicyDailySchedulePtrOutput)
 }
 
-func (i *configurationBackupRetentionPolicyDailySchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationBackupRetentionPolicyDailySchedule] {
-	return pulumix.Output[*ConfigurationBackupRetentionPolicyDailySchedule]{
-		OutputState: i.ToConfigurationBackupRetentionPolicyDailySchedulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationBackupRetentionPolicyDailyScheduleOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationBackupRetentionPolicyDailyScheduleOutput) ElementType() reflect.Type {
@@ -1182,12 +1049,6 @@ func (o ConfigurationBackupRetentionPolicyDailyScheduleOutput) ToConfigurationBa
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationBackupRetentionPolicyDailySchedule) *ConfigurationBackupRetentionPolicyDailySchedule {
 		return &v
 	}).(ConfigurationBackupRetentionPolicyDailySchedulePtrOutput)
-}
-
-func (o ConfigurationBackupRetentionPolicyDailyScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationBackupRetentionPolicyDailySchedule] {
-	return pulumix.Output[ConfigurationBackupRetentionPolicyDailySchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `retentionDuration` block as defined below.
@@ -1214,12 +1075,6 @@ func (o ConfigurationBackupRetentionPolicyDailySchedulePtrOutput) ToConfiguratio
 
 func (o ConfigurationBackupRetentionPolicyDailySchedulePtrOutput) ToConfigurationBackupRetentionPolicyDailySchedulePtrOutputWithContext(ctx context.Context) ConfigurationBackupRetentionPolicyDailySchedulePtrOutput {
 	return o
-}
-
-func (o ConfigurationBackupRetentionPolicyDailySchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationBackupRetentionPolicyDailySchedule] {
-	return pulumix.Output[*ConfigurationBackupRetentionPolicyDailySchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationBackupRetentionPolicyDailySchedulePtrOutput) Elem() ConfigurationBackupRetentionPolicyDailyScheduleOutput {
@@ -1289,12 +1144,6 @@ func (i ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationOutput)
 }
 
-func (i ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration] {
-	return pulumix.Output[ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration]{
-		OutputState: i.ToConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs) ToConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationPtrOutput() ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationPtrOutput {
 	return i.ToConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationPtrOutputWithContext(context.Background())
 }
@@ -1336,12 +1185,6 @@ func (i *configurationBackupRetentionPolicyDailyScheduleRetentionDurationPtrType
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationPtrOutput)
 }
 
-func (i *configurationBackupRetentionPolicyDailyScheduleRetentionDurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration] {
-	return pulumix.Output[*ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration]{
-		OutputState: i.ToConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationOutput) ElementType() reflect.Type {
@@ -1364,12 +1207,6 @@ func (o ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationOutput) 
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration) *ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration {
 		return &v
 	}).(ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationPtrOutput)
-}
-
-func (o ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration] {
-	return pulumix.Output[ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The count of the retention duration of the backup policy. Valid value inside `dailySchedule` is `7` to `9999` and inside `weeklySchedule` is `1` to `5163`.
@@ -1396,12 +1233,6 @@ func (o ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationPtrOutpu
 
 func (o ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationPtrOutput) ToConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationPtrOutputWithContext(ctx context.Context) ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationPtrOutput {
 	return o
-}
-
-func (o ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration] {
-	return pulumix.Output[*ConfigurationBackupRetentionPolicyDailyScheduleRetentionDuration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationPtrOutput) Elem() ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationOutput {
@@ -1471,12 +1302,6 @@ func (i ConfigurationBackupRetentionPolicyWeeklyScheduleArgs) ToConfigurationBac
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationBackupRetentionPolicyWeeklyScheduleOutput)
 }
 
-func (i ConfigurationBackupRetentionPolicyWeeklyScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationBackupRetentionPolicyWeeklySchedule] {
-	return pulumix.Output[ConfigurationBackupRetentionPolicyWeeklySchedule]{
-		OutputState: i.ToConfigurationBackupRetentionPolicyWeeklyScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationBackupRetentionPolicyWeeklyScheduleArgs) ToConfigurationBackupRetentionPolicyWeeklySchedulePtrOutput() ConfigurationBackupRetentionPolicyWeeklySchedulePtrOutput {
 	return i.ToConfigurationBackupRetentionPolicyWeeklySchedulePtrOutputWithContext(context.Background())
 }
@@ -1518,12 +1343,6 @@ func (i *configurationBackupRetentionPolicyWeeklySchedulePtrType) ToConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationBackupRetentionPolicyWeeklySchedulePtrOutput)
 }
 
-func (i *configurationBackupRetentionPolicyWeeklySchedulePtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationBackupRetentionPolicyWeeklySchedule] {
-	return pulumix.Output[*ConfigurationBackupRetentionPolicyWeeklySchedule]{
-		OutputState: i.ToConfigurationBackupRetentionPolicyWeeklySchedulePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationBackupRetentionPolicyWeeklyScheduleOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationBackupRetentionPolicyWeeklyScheduleOutput) ElementType() reflect.Type {
@@ -1546,12 +1365,6 @@ func (o ConfigurationBackupRetentionPolicyWeeklyScheduleOutput) ToConfigurationB
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationBackupRetentionPolicyWeeklySchedule) *ConfigurationBackupRetentionPolicyWeeklySchedule {
 		return &v
 	}).(ConfigurationBackupRetentionPolicyWeeklySchedulePtrOutput)
-}
-
-func (o ConfigurationBackupRetentionPolicyWeeklyScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationBackupRetentionPolicyWeeklySchedule] {
-	return pulumix.Output[ConfigurationBackupRetentionPolicyWeeklySchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `retentionDuration` block as defined below.
@@ -1578,12 +1391,6 @@ func (o ConfigurationBackupRetentionPolicyWeeklySchedulePtrOutput) ToConfigurati
 
 func (o ConfigurationBackupRetentionPolicyWeeklySchedulePtrOutput) ToConfigurationBackupRetentionPolicyWeeklySchedulePtrOutputWithContext(ctx context.Context) ConfigurationBackupRetentionPolicyWeeklySchedulePtrOutput {
 	return o
-}
-
-func (o ConfigurationBackupRetentionPolicyWeeklySchedulePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationBackupRetentionPolicyWeeklySchedule] {
-	return pulumix.Output[*ConfigurationBackupRetentionPolicyWeeklySchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationBackupRetentionPolicyWeeklySchedulePtrOutput) Elem() ConfigurationBackupRetentionPolicyWeeklyScheduleOutput {
@@ -1653,12 +1460,6 @@ func (i ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs) T
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationOutput)
 }
 
-func (i ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration] {
-	return pulumix.Output[ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration]{
-		OutputState: i.ToConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs) ToConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationPtrOutput() ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationPtrOutput {
 	return i.ToConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationPtrOutputWithContext(context.Background())
 }
@@ -1700,12 +1501,6 @@ func (i *configurationBackupRetentionPolicyWeeklyScheduleRetentionDurationPtrTyp
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationPtrOutput)
 }
 
-func (i *configurationBackupRetentionPolicyWeeklyScheduleRetentionDurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration] {
-	return pulumix.Output[*ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration]{
-		OutputState: i.ToConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationOutput) ElementType() reflect.Type {
@@ -1728,12 +1523,6 @@ func (o ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationOutput)
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration) *ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration {
 		return &v
 	}).(ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationPtrOutput)
-}
-
-func (o ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration] {
-	return pulumix.Output[ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The count of the retention duration of the backup policy. Valid value inside `dailySchedule` is `7` to `9999` and inside `weeklySchedule` is `1` to `5163`.
@@ -1760,12 +1549,6 @@ func (o ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationPtrOutp
 
 func (o ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationPtrOutput) ToConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationPtrOutputWithContext(ctx context.Context) ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationPtrOutput {
 	return o
-}
-
-func (o ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration] {
-	return pulumix.Output[*ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDuration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationPtrOutput) Elem() ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationOutput {
@@ -1843,12 +1626,6 @@ func (i ConfigurationBackupSchedulePolicyArgs) ToConfigurationBackupSchedulePoli
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationBackupSchedulePolicyOutput)
 }
 
-func (i ConfigurationBackupSchedulePolicyArgs) ToOutput(ctx context.Context) pulumix.Output[ConfigurationBackupSchedulePolicy] {
-	return pulumix.Output[ConfigurationBackupSchedulePolicy]{
-		OutputState: i.ToConfigurationBackupSchedulePolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ConfigurationBackupSchedulePolicyArgs) ToConfigurationBackupSchedulePolicyPtrOutput() ConfigurationBackupSchedulePolicyPtrOutput {
 	return i.ToConfigurationBackupSchedulePolicyPtrOutputWithContext(context.Background())
 }
@@ -1890,12 +1667,6 @@ func (i *configurationBackupSchedulePolicyPtrType) ToConfigurationBackupSchedule
 	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationBackupSchedulePolicyPtrOutput)
 }
 
-func (i *configurationBackupSchedulePolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationBackupSchedulePolicy] {
-	return pulumix.Output[*ConfigurationBackupSchedulePolicy]{
-		OutputState: i.ToConfigurationBackupSchedulePolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConfigurationBackupSchedulePolicyOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationBackupSchedulePolicyOutput) ElementType() reflect.Type {
@@ -1918,12 +1689,6 @@ func (o ConfigurationBackupSchedulePolicyOutput) ToConfigurationBackupSchedulePo
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationBackupSchedulePolicy) *ConfigurationBackupSchedulePolicy {
 		return &v
 	}).(ConfigurationBackupSchedulePolicyPtrOutput)
-}
-
-func (o ConfigurationBackupSchedulePolicyOutput) ToOutput(ctx context.Context) pulumix.Output[ConfigurationBackupSchedulePolicy] {
-	return pulumix.Output[ConfigurationBackupSchedulePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The schedule policy type of the backup policy. Possible value is `SimpleSchedulePolicy`.
@@ -1958,12 +1723,6 @@ func (o ConfigurationBackupSchedulePolicyPtrOutput) ToConfigurationBackupSchedul
 
 func (o ConfigurationBackupSchedulePolicyPtrOutput) ToConfigurationBackupSchedulePolicyPtrOutputWithContext(ctx context.Context) ConfigurationBackupSchedulePolicyPtrOutput {
 	return o
-}
-
-func (o ConfigurationBackupSchedulePolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ConfigurationBackupSchedulePolicy] {
-	return pulumix.Output[*ConfigurationBackupSchedulePolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConfigurationBackupSchedulePolicyPtrOutput) Elem() ConfigurationBackupSchedulePolicyOutput {
