@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Synapse Managed Private Endpoint.
@@ -254,12 +253,6 @@ func (i *ManagedPrivateEndpoint) ToManagedPrivateEndpointOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrivateEndpointOutput)
 }
 
-func (i *ManagedPrivateEndpoint) ToOutput(ctx context.Context) pulumix.Output[*ManagedPrivateEndpoint] {
-	return pulumix.Output[*ManagedPrivateEndpoint]{
-		OutputState: i.ToManagedPrivateEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ManagedPrivateEndpointArrayInput is an input type that accepts ManagedPrivateEndpointArray and ManagedPrivateEndpointArrayOutput values.
 // You can construct a concrete instance of `ManagedPrivateEndpointArrayInput` via:
 //
@@ -283,12 +276,6 @@ func (i ManagedPrivateEndpointArray) ToManagedPrivateEndpointArrayOutput() Manag
 
 func (i ManagedPrivateEndpointArray) ToManagedPrivateEndpointArrayOutputWithContext(ctx context.Context) ManagedPrivateEndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrivateEndpointArrayOutput)
-}
-
-func (i ManagedPrivateEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedPrivateEndpoint] {
-	return pulumix.Output[[]*ManagedPrivateEndpoint]{
-		OutputState: i.ToManagedPrivateEndpointArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ManagedPrivateEndpointMapInput is an input type that accepts ManagedPrivateEndpointMap and ManagedPrivateEndpointMapOutput values.
@@ -316,12 +303,6 @@ func (i ManagedPrivateEndpointMap) ToManagedPrivateEndpointMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ManagedPrivateEndpointMapOutput)
 }
 
-func (i ManagedPrivateEndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedPrivateEndpoint] {
-	return pulumix.Output[map[string]*ManagedPrivateEndpoint]{
-		OutputState: i.ToManagedPrivateEndpointMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManagedPrivateEndpointOutput struct{ *pulumi.OutputState }
 
 func (ManagedPrivateEndpointOutput) ElementType() reflect.Type {
@@ -334,12 +315,6 @@ func (o ManagedPrivateEndpointOutput) ToManagedPrivateEndpointOutput() ManagedPr
 
 func (o ManagedPrivateEndpointOutput) ToManagedPrivateEndpointOutputWithContext(ctx context.Context) ManagedPrivateEndpointOutput {
 	return o
-}
-
-func (o ManagedPrivateEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*ManagedPrivateEndpoint] {
-	return pulumix.Output[*ManagedPrivateEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
@@ -380,12 +355,6 @@ func (o ManagedPrivateEndpointArrayOutput) ToManagedPrivateEndpointArrayOutputWi
 	return o
 }
 
-func (o ManagedPrivateEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManagedPrivateEndpoint] {
-	return pulumix.Output[[]*ManagedPrivateEndpoint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ManagedPrivateEndpointArrayOutput) Index(i pulumi.IntInput) ManagedPrivateEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManagedPrivateEndpoint {
 		return vs[0].([]*ManagedPrivateEndpoint)[vs[1].(int)]
@@ -404,12 +373,6 @@ func (o ManagedPrivateEndpointMapOutput) ToManagedPrivateEndpointMapOutput() Man
 
 func (o ManagedPrivateEndpointMapOutput) ToManagedPrivateEndpointMapOutputWithContext(ctx context.Context) ManagedPrivateEndpointMapOutput {
 	return o
-}
-
-func (o ManagedPrivateEndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManagedPrivateEndpoint] {
-	return pulumix.Output[map[string]*ManagedPrivateEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManagedPrivateEndpointMapOutput) MapIndex(k pulumi.StringInput) ManagedPrivateEndpointOutput {

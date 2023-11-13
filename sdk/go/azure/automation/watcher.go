@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Automation Wacher.
@@ -290,12 +289,6 @@ func (i *Watcher) ToWatcherOutputWithContext(ctx context.Context) WatcherOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(WatcherOutput)
 }
 
-func (i *Watcher) ToOutput(ctx context.Context) pulumix.Output[*Watcher] {
-	return pulumix.Output[*Watcher]{
-		OutputState: i.ToWatcherOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WatcherArrayInput is an input type that accepts WatcherArray and WatcherArrayOutput values.
 // You can construct a concrete instance of `WatcherArrayInput` via:
 //
@@ -319,12 +312,6 @@ func (i WatcherArray) ToWatcherArrayOutput() WatcherArrayOutput {
 
 func (i WatcherArray) ToWatcherArrayOutputWithContext(ctx context.Context) WatcherArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WatcherArrayOutput)
-}
-
-func (i WatcherArray) ToOutput(ctx context.Context) pulumix.Output[[]*Watcher] {
-	return pulumix.Output[[]*Watcher]{
-		OutputState: i.ToWatcherArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // WatcherMapInput is an input type that accepts WatcherMap and WatcherMapOutput values.
@@ -352,12 +339,6 @@ func (i WatcherMap) ToWatcherMapOutputWithContext(ctx context.Context) WatcherMa
 	return pulumi.ToOutputWithContext(ctx, i).(WatcherMapOutput)
 }
 
-func (i WatcherMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Watcher] {
-	return pulumix.Output[map[string]*Watcher]{
-		OutputState: i.ToWatcherMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WatcherOutput struct{ *pulumi.OutputState }
 
 func (WatcherOutput) ElementType() reflect.Type {
@@ -370,12 +351,6 @@ func (o WatcherOutput) ToWatcherOutput() WatcherOutput {
 
 func (o WatcherOutput) ToWatcherOutputWithContext(ctx context.Context) WatcherOutput {
 	return o
-}
-
-func (o WatcherOutput) ToOutput(ctx context.Context) pulumix.Output[*Watcher] {
-	return pulumix.Output[*Watcher]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of Automation Account to manage this Watcher. Changing this forces a new Watcher to be created.
@@ -447,12 +422,6 @@ func (o WatcherArrayOutput) ToWatcherArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o WatcherArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Watcher] {
-	return pulumix.Output[[]*Watcher]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WatcherArrayOutput) Index(i pulumi.IntInput) WatcherOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Watcher {
 		return vs[0].([]*Watcher)[vs[1].(int)]
@@ -471,12 +440,6 @@ func (o WatcherMapOutput) ToWatcherMapOutput() WatcherMapOutput {
 
 func (o WatcherMapOutput) ToWatcherMapOutputWithContext(ctx context.Context) WatcherMapOutput {
 	return o
-}
-
-func (o WatcherMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Watcher] {
-	return pulumix.Output[map[string]*Watcher]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WatcherMapOutput) MapIndex(k pulumi.StringInput) WatcherOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an HTTP Action within a Logic App Workflow
@@ -239,12 +238,6 @@ func (i *ActionHttp) ToActionHttpOutputWithContext(ctx context.Context) ActionHt
 	return pulumi.ToOutputWithContext(ctx, i).(ActionHttpOutput)
 }
 
-func (i *ActionHttp) ToOutput(ctx context.Context) pulumix.Output[*ActionHttp] {
-	return pulumix.Output[*ActionHttp]{
-		OutputState: i.ToActionHttpOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ActionHttpArrayInput is an input type that accepts ActionHttpArray and ActionHttpArrayOutput values.
 // You can construct a concrete instance of `ActionHttpArrayInput` via:
 //
@@ -268,12 +261,6 @@ func (i ActionHttpArray) ToActionHttpArrayOutput() ActionHttpArrayOutput {
 
 func (i ActionHttpArray) ToActionHttpArrayOutputWithContext(ctx context.Context) ActionHttpArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ActionHttpArrayOutput)
-}
-
-func (i ActionHttpArray) ToOutput(ctx context.Context) pulumix.Output[[]*ActionHttp] {
-	return pulumix.Output[[]*ActionHttp]{
-		OutputState: i.ToActionHttpArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ActionHttpMapInput is an input type that accepts ActionHttpMap and ActionHttpMapOutput values.
@@ -301,12 +288,6 @@ func (i ActionHttpMap) ToActionHttpMapOutputWithContext(ctx context.Context) Act
 	return pulumi.ToOutputWithContext(ctx, i).(ActionHttpMapOutput)
 }
 
-func (i ActionHttpMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionHttp] {
-	return pulumix.Output[map[string]*ActionHttp]{
-		OutputState: i.ToActionHttpMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ActionHttpOutput struct{ *pulumi.OutputState }
 
 func (ActionHttpOutput) ElementType() reflect.Type {
@@ -319,12 +300,6 @@ func (o ActionHttpOutput) ToActionHttpOutput() ActionHttpOutput {
 
 func (o ActionHttpOutput) ToActionHttpOutputWithContext(ctx context.Context) ActionHttpOutput {
 	return o
-}
-
-func (o ActionHttpOutput) ToOutput(ctx context.Context) pulumix.Output[*ActionHttp] {
-	return pulumix.Output[*ActionHttp]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the HTTP Body that should be sent to the `uri` when this HTTP Action is triggered.
@@ -383,12 +358,6 @@ func (o ActionHttpArrayOutput) ToActionHttpArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ActionHttpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ActionHttp] {
-	return pulumix.Output[[]*ActionHttp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ActionHttpArrayOutput) Index(i pulumi.IntInput) ActionHttpOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ActionHttp {
 		return vs[0].([]*ActionHttp)[vs[1].(int)]
@@ -407,12 +376,6 @@ func (o ActionHttpMapOutput) ToActionHttpMapOutput() ActionHttpMapOutput {
 
 func (o ActionHttpMapOutput) ToActionHttpMapOutputWithContext(ctx context.Context) ActionHttpMapOutput {
 	return o
-}
-
-func (o ActionHttpMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ActionHttp] {
-	return pulumix.Output[map[string]*ActionHttp]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ActionHttpMapOutput) MapIndex(k pulumi.StringInput) ActionHttpOutput {

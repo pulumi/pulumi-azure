@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Logic App Integration Account.
@@ -111,12 +110,6 @@ func (o LookupIntegrationAccountResultOutput) ToLookupIntegrationAccountResultOu
 
 func (o LookupIntegrationAccountResultOutput) ToLookupIntegrationAccountResultOutputWithContext(ctx context.Context) LookupIntegrationAccountResultOutput {
 	return o
-}
-
-func (o LookupIntegrationAccountResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupIntegrationAccountResult] {
-	return pulumix.Output[LookupIntegrationAccountResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Enables you to manage Private DNS zone Virtual Network Links. These Links enable DNS resolution and registration inside Azure Virtual Networks using Azure Private DNS.
@@ -219,12 +218,6 @@ func (i *ZoneVirtualNetworkLink) ToZoneVirtualNetworkLinkOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneVirtualNetworkLinkOutput)
 }
 
-func (i *ZoneVirtualNetworkLink) ToOutput(ctx context.Context) pulumix.Output[*ZoneVirtualNetworkLink] {
-	return pulumix.Output[*ZoneVirtualNetworkLink]{
-		OutputState: i.ToZoneVirtualNetworkLinkOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ZoneVirtualNetworkLinkArrayInput is an input type that accepts ZoneVirtualNetworkLinkArray and ZoneVirtualNetworkLinkArrayOutput values.
 // You can construct a concrete instance of `ZoneVirtualNetworkLinkArrayInput` via:
 //
@@ -248,12 +241,6 @@ func (i ZoneVirtualNetworkLinkArray) ToZoneVirtualNetworkLinkArrayOutput() ZoneV
 
 func (i ZoneVirtualNetworkLinkArray) ToZoneVirtualNetworkLinkArrayOutputWithContext(ctx context.Context) ZoneVirtualNetworkLinkArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneVirtualNetworkLinkArrayOutput)
-}
-
-func (i ZoneVirtualNetworkLinkArray) ToOutput(ctx context.Context) pulumix.Output[[]*ZoneVirtualNetworkLink] {
-	return pulumix.Output[[]*ZoneVirtualNetworkLink]{
-		OutputState: i.ToZoneVirtualNetworkLinkArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ZoneVirtualNetworkLinkMapInput is an input type that accepts ZoneVirtualNetworkLinkMap and ZoneVirtualNetworkLinkMapOutput values.
@@ -281,12 +268,6 @@ func (i ZoneVirtualNetworkLinkMap) ToZoneVirtualNetworkLinkMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ZoneVirtualNetworkLinkMapOutput)
 }
 
-func (i ZoneVirtualNetworkLinkMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ZoneVirtualNetworkLink] {
-	return pulumix.Output[map[string]*ZoneVirtualNetworkLink]{
-		OutputState: i.ToZoneVirtualNetworkLinkMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ZoneVirtualNetworkLinkOutput struct{ *pulumi.OutputState }
 
 func (ZoneVirtualNetworkLinkOutput) ElementType() reflect.Type {
@@ -299,12 +280,6 @@ func (o ZoneVirtualNetworkLinkOutput) ToZoneVirtualNetworkLinkOutput() ZoneVirtu
 
 func (o ZoneVirtualNetworkLinkOutput) ToZoneVirtualNetworkLinkOutputWithContext(ctx context.Context) ZoneVirtualNetworkLinkOutput {
 	return o
-}
-
-func (o ZoneVirtualNetworkLinkOutput) ToOutput(ctx context.Context) pulumix.Output[*ZoneVirtualNetworkLink] {
-	return pulumix.Output[*ZoneVirtualNetworkLink]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Private DNS Zone Virtual Network Link. Changing this forces a new resource to be created.
@@ -351,12 +326,6 @@ func (o ZoneVirtualNetworkLinkArrayOutput) ToZoneVirtualNetworkLinkArrayOutputWi
 	return o
 }
 
-func (o ZoneVirtualNetworkLinkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ZoneVirtualNetworkLink] {
-	return pulumix.Output[[]*ZoneVirtualNetworkLink]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ZoneVirtualNetworkLinkArrayOutput) Index(i pulumi.IntInput) ZoneVirtualNetworkLinkOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ZoneVirtualNetworkLink {
 		return vs[0].([]*ZoneVirtualNetworkLink)[vs[1].(int)]
@@ -375,12 +344,6 @@ func (o ZoneVirtualNetworkLinkMapOutput) ToZoneVirtualNetworkLinkMapOutput() Zon
 
 func (o ZoneVirtualNetworkLinkMapOutput) ToZoneVirtualNetworkLinkMapOutputWithContext(ctx context.Context) ZoneVirtualNetworkLinkMapOutput {
 	return o
-}
-
-func (o ZoneVirtualNetworkLinkMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ZoneVirtualNetworkLink] {
-	return pulumix.Output[map[string]*ZoneVirtualNetworkLink]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ZoneVirtualNetworkLinkMapOutput) MapIndex(k pulumi.StringInput) ZoneVirtualNetworkLinkOutput {

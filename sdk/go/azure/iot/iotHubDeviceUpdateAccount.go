@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an IoT Hub Device Update Account.
@@ -217,12 +216,6 @@ func (i *IotHubDeviceUpdateAccount) ToIotHubDeviceUpdateAccountOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDeviceUpdateAccountOutput)
 }
 
-func (i *IotHubDeviceUpdateAccount) ToOutput(ctx context.Context) pulumix.Output[*IotHubDeviceUpdateAccount] {
-	return pulumix.Output[*IotHubDeviceUpdateAccount]{
-		OutputState: i.ToIotHubDeviceUpdateAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IotHubDeviceUpdateAccountArrayInput is an input type that accepts IotHubDeviceUpdateAccountArray and IotHubDeviceUpdateAccountArrayOutput values.
 // You can construct a concrete instance of `IotHubDeviceUpdateAccountArrayInput` via:
 //
@@ -246,12 +239,6 @@ func (i IotHubDeviceUpdateAccountArray) ToIotHubDeviceUpdateAccountArrayOutput()
 
 func (i IotHubDeviceUpdateAccountArray) ToIotHubDeviceUpdateAccountArrayOutputWithContext(ctx context.Context) IotHubDeviceUpdateAccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDeviceUpdateAccountArrayOutput)
-}
-
-func (i IotHubDeviceUpdateAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]*IotHubDeviceUpdateAccount] {
-	return pulumix.Output[[]*IotHubDeviceUpdateAccount]{
-		OutputState: i.ToIotHubDeviceUpdateAccountArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IotHubDeviceUpdateAccountMapInput is an input type that accepts IotHubDeviceUpdateAccountMap and IotHubDeviceUpdateAccountMapOutput values.
@@ -279,12 +266,6 @@ func (i IotHubDeviceUpdateAccountMap) ToIotHubDeviceUpdateAccountMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDeviceUpdateAccountMapOutput)
 }
 
-func (i IotHubDeviceUpdateAccountMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IotHubDeviceUpdateAccount] {
-	return pulumix.Output[map[string]*IotHubDeviceUpdateAccount]{
-		OutputState: i.ToIotHubDeviceUpdateAccountMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IotHubDeviceUpdateAccountOutput struct{ *pulumi.OutputState }
 
 func (IotHubDeviceUpdateAccountOutput) ElementType() reflect.Type {
@@ -297,12 +278,6 @@ func (o IotHubDeviceUpdateAccountOutput) ToIotHubDeviceUpdateAccountOutput() Iot
 
 func (o IotHubDeviceUpdateAccountOutput) ToIotHubDeviceUpdateAccountOutputWithContext(ctx context.Context) IotHubDeviceUpdateAccountOutput {
 	return o
-}
-
-func (o IotHubDeviceUpdateAccountOutput) ToOutput(ctx context.Context) pulumix.Output[*IotHubDeviceUpdateAccount] {
-	return pulumix.Output[*IotHubDeviceUpdateAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The API host name of the IoT Hub Device Update Account.
@@ -359,12 +334,6 @@ func (o IotHubDeviceUpdateAccountArrayOutput) ToIotHubDeviceUpdateAccountArrayOu
 	return o
 }
 
-func (o IotHubDeviceUpdateAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IotHubDeviceUpdateAccount] {
-	return pulumix.Output[[]*IotHubDeviceUpdateAccount]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IotHubDeviceUpdateAccountArrayOutput) Index(i pulumi.IntInput) IotHubDeviceUpdateAccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IotHubDeviceUpdateAccount {
 		return vs[0].([]*IotHubDeviceUpdateAccount)[vs[1].(int)]
@@ -383,12 +352,6 @@ func (o IotHubDeviceUpdateAccountMapOutput) ToIotHubDeviceUpdateAccountMapOutput
 
 func (o IotHubDeviceUpdateAccountMapOutput) ToIotHubDeviceUpdateAccountMapOutputWithContext(ctx context.Context) IotHubDeviceUpdateAccountMapOutput {
 	return o
-}
-
-func (o IotHubDeviceUpdateAccountMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IotHubDeviceUpdateAccount] {
-	return pulumix.Output[map[string]*IotHubDeviceUpdateAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IotHubDeviceUpdateAccountMapOutput) MapIndex(k pulumi.StringInput) IotHubDeviceUpdateAccountOutput {

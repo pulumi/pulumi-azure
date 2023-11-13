@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Azure Blueprint Definition
@@ -130,12 +129,6 @@ func (o GetDefinitionResultOutput) ToGetDefinitionResultOutput() GetDefinitionRe
 
 func (o GetDefinitionResultOutput) ToGetDefinitionResultOutputWithContext(ctx context.Context) GetDefinitionResultOutput {
 	return o
-}
-
-func (o GetDefinitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetDefinitionResult] {
-	return pulumix.Output[GetDefinitionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of the Blueprint Definition.

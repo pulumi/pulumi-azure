@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Spring Cloud Gateway Custom Domain.
@@ -180,12 +179,6 @@ func (i *SpringCloudGatewayCustomDomain) ToSpringCloudGatewayCustomDomainOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayCustomDomainOutput)
 }
 
-func (i *SpringCloudGatewayCustomDomain) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudGatewayCustomDomain] {
-	return pulumix.Output[*SpringCloudGatewayCustomDomain]{
-		OutputState: i.ToSpringCloudGatewayCustomDomainOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SpringCloudGatewayCustomDomainArrayInput is an input type that accepts SpringCloudGatewayCustomDomainArray and SpringCloudGatewayCustomDomainArrayOutput values.
 // You can construct a concrete instance of `SpringCloudGatewayCustomDomainArrayInput` via:
 //
@@ -209,12 +202,6 @@ func (i SpringCloudGatewayCustomDomainArray) ToSpringCloudGatewayCustomDomainArr
 
 func (i SpringCloudGatewayCustomDomainArray) ToSpringCloudGatewayCustomDomainArrayOutputWithContext(ctx context.Context) SpringCloudGatewayCustomDomainArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayCustomDomainArrayOutput)
-}
-
-func (i SpringCloudGatewayCustomDomainArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudGatewayCustomDomain] {
-	return pulumix.Output[[]*SpringCloudGatewayCustomDomain]{
-		OutputState: i.ToSpringCloudGatewayCustomDomainArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SpringCloudGatewayCustomDomainMapInput is an input type that accepts SpringCloudGatewayCustomDomainMap and SpringCloudGatewayCustomDomainMapOutput values.
@@ -242,12 +229,6 @@ func (i SpringCloudGatewayCustomDomainMap) ToSpringCloudGatewayCustomDomainMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayCustomDomainMapOutput)
 }
 
-func (i SpringCloudGatewayCustomDomainMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudGatewayCustomDomain] {
-	return pulumix.Output[map[string]*SpringCloudGatewayCustomDomain]{
-		OutputState: i.ToSpringCloudGatewayCustomDomainMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SpringCloudGatewayCustomDomainOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudGatewayCustomDomainOutput) ElementType() reflect.Type {
@@ -260,12 +241,6 @@ func (o SpringCloudGatewayCustomDomainOutput) ToSpringCloudGatewayCustomDomainOu
 
 func (o SpringCloudGatewayCustomDomainOutput) ToSpringCloudGatewayCustomDomainOutputWithContext(ctx context.Context) SpringCloudGatewayCustomDomainOutput {
 	return o
-}
-
-func (o SpringCloudGatewayCustomDomainOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudGatewayCustomDomain] {
-	return pulumix.Output[*SpringCloudGatewayCustomDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name which should be used for this Spring Cloud Gateway Custom Domain. Changing this forces a new Spring Cloud Gateway Custom Domain to be created.
@@ -297,12 +272,6 @@ func (o SpringCloudGatewayCustomDomainArrayOutput) ToSpringCloudGatewayCustomDom
 	return o
 }
 
-func (o SpringCloudGatewayCustomDomainArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudGatewayCustomDomain] {
-	return pulumix.Output[[]*SpringCloudGatewayCustomDomain]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SpringCloudGatewayCustomDomainArrayOutput) Index(i pulumi.IntInput) SpringCloudGatewayCustomDomainOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudGatewayCustomDomain {
 		return vs[0].([]*SpringCloudGatewayCustomDomain)[vs[1].(int)]
@@ -321,12 +290,6 @@ func (o SpringCloudGatewayCustomDomainMapOutput) ToSpringCloudGatewayCustomDomai
 
 func (o SpringCloudGatewayCustomDomainMapOutput) ToSpringCloudGatewayCustomDomainMapOutputWithContext(ctx context.Context) SpringCloudGatewayCustomDomainMapOutput {
 	return o
-}
-
-func (o SpringCloudGatewayCustomDomainMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudGatewayCustomDomain] {
-	return pulumix.Output[map[string]*SpringCloudGatewayCustomDomain]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SpringCloudGatewayCustomDomainMapOutput) MapIndex(k pulumi.StringInput) SpringCloudGatewayCustomDomainOutput {

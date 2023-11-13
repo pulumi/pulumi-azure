@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Iot Data Connector.
@@ -179,12 +178,6 @@ func (i *DataConnectorIot) ToDataConnectorIotOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorIotOutput)
 }
 
-func (i *DataConnectorIot) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorIot] {
-	return pulumix.Output[*DataConnectorIot]{
-		OutputState: i.ToDataConnectorIotOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataConnectorIotArrayInput is an input type that accepts DataConnectorIotArray and DataConnectorIotArrayOutput values.
 // You can construct a concrete instance of `DataConnectorIotArrayInput` via:
 //
@@ -208,12 +201,6 @@ func (i DataConnectorIotArray) ToDataConnectorIotArrayOutput() DataConnectorIotA
 
 func (i DataConnectorIotArray) ToDataConnectorIotArrayOutputWithContext(ctx context.Context) DataConnectorIotArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorIotArrayOutput)
-}
-
-func (i DataConnectorIotArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorIot] {
-	return pulumix.Output[[]*DataConnectorIot]{
-		OutputState: i.ToDataConnectorIotArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataConnectorIotMapInput is an input type that accepts DataConnectorIotMap and DataConnectorIotMapOutput values.
@@ -241,12 +228,6 @@ func (i DataConnectorIotMap) ToDataConnectorIotMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorIotMapOutput)
 }
 
-func (i DataConnectorIotMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorIot] {
-	return pulumix.Output[map[string]*DataConnectorIot]{
-		OutputState: i.ToDataConnectorIotMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataConnectorIotOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorIotOutput) ElementType() reflect.Type {
@@ -259,12 +240,6 @@ func (o DataConnectorIotOutput) ToDataConnectorIotOutput() DataConnectorIotOutpu
 
 func (o DataConnectorIotOutput) ToDataConnectorIotOutputWithContext(ctx context.Context) DataConnectorIotOutput {
 	return o
-}
-
-func (o DataConnectorIotOutput) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorIot] {
-	return pulumix.Output[*DataConnectorIot]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Log Analytics Workspace that this Iot Data Connector resides in. Changing this forces a new Iot Data Connector to be created.
@@ -296,12 +271,6 @@ func (o DataConnectorIotArrayOutput) ToDataConnectorIotArrayOutputWithContext(ct
 	return o
 }
 
-func (o DataConnectorIotArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorIot] {
-	return pulumix.Output[[]*DataConnectorIot]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataConnectorIotArrayOutput) Index(i pulumi.IntInput) DataConnectorIotOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorIot {
 		return vs[0].([]*DataConnectorIot)[vs[1].(int)]
@@ -320,12 +289,6 @@ func (o DataConnectorIotMapOutput) ToDataConnectorIotMapOutput() DataConnectorIo
 
 func (o DataConnectorIotMapOutput) ToDataConnectorIotMapOutputWithContext(ctx context.Context) DataConnectorIotMapOutput {
 	return o
-}
-
-func (o DataConnectorIotMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorIot] {
-	return pulumix.Output[map[string]*DataConnectorIot]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataConnectorIotMapOutput) MapIndex(k pulumi.StringInput) DataConnectorIotOutput {

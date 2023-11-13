@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
@@ -261,12 +260,6 @@ func (i *ClusterTrustedAccessRoleBinding) ToClusterTrustedAccessRoleBindingOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterTrustedAccessRoleBindingOutput)
 }
 
-func (i *ClusterTrustedAccessRoleBinding) ToOutput(ctx context.Context) pulumix.Output[*ClusterTrustedAccessRoleBinding] {
-	return pulumix.Output[*ClusterTrustedAccessRoleBinding]{
-		OutputState: i.ToClusterTrustedAccessRoleBindingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ClusterTrustedAccessRoleBindingArrayInput is an input type that accepts ClusterTrustedAccessRoleBindingArray and ClusterTrustedAccessRoleBindingArrayOutput values.
 // You can construct a concrete instance of `ClusterTrustedAccessRoleBindingArrayInput` via:
 //
@@ -290,12 +283,6 @@ func (i ClusterTrustedAccessRoleBindingArray) ToClusterTrustedAccessRoleBindingA
 
 func (i ClusterTrustedAccessRoleBindingArray) ToClusterTrustedAccessRoleBindingArrayOutputWithContext(ctx context.Context) ClusterTrustedAccessRoleBindingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterTrustedAccessRoleBindingArrayOutput)
-}
-
-func (i ClusterTrustedAccessRoleBindingArray) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterTrustedAccessRoleBinding] {
-	return pulumix.Output[[]*ClusterTrustedAccessRoleBinding]{
-		OutputState: i.ToClusterTrustedAccessRoleBindingArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ClusterTrustedAccessRoleBindingMapInput is an input type that accepts ClusterTrustedAccessRoleBindingMap and ClusterTrustedAccessRoleBindingMapOutput values.
@@ -323,12 +310,6 @@ func (i ClusterTrustedAccessRoleBindingMap) ToClusterTrustedAccessRoleBindingMap
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterTrustedAccessRoleBindingMapOutput)
 }
 
-func (i ClusterTrustedAccessRoleBindingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterTrustedAccessRoleBinding] {
-	return pulumix.Output[map[string]*ClusterTrustedAccessRoleBinding]{
-		OutputState: i.ToClusterTrustedAccessRoleBindingMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ClusterTrustedAccessRoleBindingOutput struct{ *pulumi.OutputState }
 
 func (ClusterTrustedAccessRoleBindingOutput) ElementType() reflect.Type {
@@ -341,12 +322,6 @@ func (o ClusterTrustedAccessRoleBindingOutput) ToClusterTrustedAccessRoleBinding
 
 func (o ClusterTrustedAccessRoleBindingOutput) ToClusterTrustedAccessRoleBindingOutputWithContext(ctx context.Context) ClusterTrustedAccessRoleBindingOutput {
 	return o
-}
-
-func (o ClusterTrustedAccessRoleBindingOutput) ToOutput(ctx context.Context) pulumix.Output[*ClusterTrustedAccessRoleBinding] {
-	return pulumix.Output[*ClusterTrustedAccessRoleBinding]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Kubernetes Cluster Id within which this Kubernetes Cluster Trusted Access Role Binding should exist. Changing this forces a new Kubernetes Cluster Trusted Access Role Binding to be created.
@@ -383,12 +358,6 @@ func (o ClusterTrustedAccessRoleBindingArrayOutput) ToClusterTrustedAccessRoleBi
 	return o
 }
 
-func (o ClusterTrustedAccessRoleBindingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ClusterTrustedAccessRoleBinding] {
-	return pulumix.Output[[]*ClusterTrustedAccessRoleBinding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ClusterTrustedAccessRoleBindingArrayOutput) Index(i pulumi.IntInput) ClusterTrustedAccessRoleBindingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ClusterTrustedAccessRoleBinding {
 		return vs[0].([]*ClusterTrustedAccessRoleBinding)[vs[1].(int)]
@@ -407,12 +376,6 @@ func (o ClusterTrustedAccessRoleBindingMapOutput) ToClusterTrustedAccessRoleBind
 
 func (o ClusterTrustedAccessRoleBindingMapOutput) ToClusterTrustedAccessRoleBindingMapOutputWithContext(ctx context.Context) ClusterTrustedAccessRoleBindingMapOutput {
 	return o
-}
-
-func (o ClusterTrustedAccessRoleBindingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ClusterTrustedAccessRoleBinding] {
-	return pulumix.Output[map[string]*ClusterTrustedAccessRoleBinding]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ClusterTrustedAccessRoleBindingMapOutput) MapIndex(k pulumi.StringInput) ClusterTrustedAccessRoleBindingOutput {

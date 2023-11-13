@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Storage Mover Job Definition.
@@ -297,12 +296,6 @@ func (i *MoverJobDefinition) ToMoverJobDefinitionOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(MoverJobDefinitionOutput)
 }
 
-func (i *MoverJobDefinition) ToOutput(ctx context.Context) pulumix.Output[*MoverJobDefinition] {
-	return pulumix.Output[*MoverJobDefinition]{
-		OutputState: i.ToMoverJobDefinitionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MoverJobDefinitionArrayInput is an input type that accepts MoverJobDefinitionArray and MoverJobDefinitionArrayOutput values.
 // You can construct a concrete instance of `MoverJobDefinitionArrayInput` via:
 //
@@ -326,12 +319,6 @@ func (i MoverJobDefinitionArray) ToMoverJobDefinitionArrayOutput() MoverJobDefin
 
 func (i MoverJobDefinitionArray) ToMoverJobDefinitionArrayOutputWithContext(ctx context.Context) MoverJobDefinitionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MoverJobDefinitionArrayOutput)
-}
-
-func (i MoverJobDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]*MoverJobDefinition] {
-	return pulumix.Output[[]*MoverJobDefinition]{
-		OutputState: i.ToMoverJobDefinitionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MoverJobDefinitionMapInput is an input type that accepts MoverJobDefinitionMap and MoverJobDefinitionMapOutput values.
@@ -359,12 +346,6 @@ func (i MoverJobDefinitionMap) ToMoverJobDefinitionMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(MoverJobDefinitionMapOutput)
 }
 
-func (i MoverJobDefinitionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MoverJobDefinition] {
-	return pulumix.Output[map[string]*MoverJobDefinition]{
-		OutputState: i.ToMoverJobDefinitionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MoverJobDefinitionOutput struct{ *pulumi.OutputState }
 
 func (MoverJobDefinitionOutput) ElementType() reflect.Type {
@@ -377,12 +358,6 @@ func (o MoverJobDefinitionOutput) ToMoverJobDefinitionOutput() MoverJobDefinitio
 
 func (o MoverJobDefinitionOutput) ToMoverJobDefinitionOutputWithContext(ctx context.Context) MoverJobDefinitionOutput {
 	return o
-}
-
-func (o MoverJobDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*MoverJobDefinition] {
-	return pulumix.Output[*MoverJobDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the Storage Mover Agent to assign for new Job Runs of this Storage Mover Job Definition.
@@ -444,12 +419,6 @@ func (o MoverJobDefinitionArrayOutput) ToMoverJobDefinitionArrayOutputWithContex
 	return o
 }
 
-func (o MoverJobDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MoverJobDefinition] {
-	return pulumix.Output[[]*MoverJobDefinition]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MoverJobDefinitionArrayOutput) Index(i pulumi.IntInput) MoverJobDefinitionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MoverJobDefinition {
 		return vs[0].([]*MoverJobDefinition)[vs[1].(int)]
@@ -468,12 +437,6 @@ func (o MoverJobDefinitionMapOutput) ToMoverJobDefinitionMapOutput() MoverJobDef
 
 func (o MoverJobDefinitionMapOutput) ToMoverJobDefinitionMapOutputWithContext(ctx context.Context) MoverJobDefinitionMapOutput {
 	return o
-}
-
-func (o MoverJobDefinitionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MoverJobDefinition] {
-	return pulumix.Output[map[string]*MoverJobDefinition]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MoverJobDefinitionMapOutput) MapIndex(k pulumi.StringInput) MoverJobDefinitionOutput {

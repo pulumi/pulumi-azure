@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Spring Cloud Service.
@@ -116,12 +115,6 @@ func (o LookupSpringCloudServiceResultOutput) ToLookupSpringCloudServiceResultOu
 
 func (o LookupSpringCloudServiceResultOutput) ToLookupSpringCloudServiceResultOutputWithContext(ctx context.Context) LookupSpringCloudServiceResultOutput {
 	return o
-}
-
-func (o LookupSpringCloudServiceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSpringCloudServiceResult] {
-	return pulumix.Output[LookupSpringCloudServiceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `configServerGitSetting` block as defined below.

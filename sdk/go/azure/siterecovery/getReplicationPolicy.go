@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Azure Site Recovery replication policy.
@@ -114,12 +113,6 @@ func (o LookupReplicationPolicyResultOutput) ToLookupReplicationPolicyResultOutp
 
 func (o LookupReplicationPolicyResultOutput) ToLookupReplicationPolicyResultOutputWithContext(ctx context.Context) LookupReplicationPolicyResultOutput {
 	return o
-}
-
-func (o LookupReplicationPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupReplicationPolicyResult] {
-	return pulumix.Output[LookupReplicationPolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the frequency (in minutes) at which to create application consistent recovery.

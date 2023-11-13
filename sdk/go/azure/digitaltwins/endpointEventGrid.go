@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Digital Twins Event Grid Endpoint.
@@ -221,12 +220,6 @@ func (i *EndpointEventGrid) ToEndpointEventGridOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointEventGridOutput)
 }
 
-func (i *EndpointEventGrid) ToOutput(ctx context.Context) pulumix.Output[*EndpointEventGrid] {
-	return pulumix.Output[*EndpointEventGrid]{
-		OutputState: i.ToEndpointEventGridOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EndpointEventGridArrayInput is an input type that accepts EndpointEventGridArray and EndpointEventGridArrayOutput values.
 // You can construct a concrete instance of `EndpointEventGridArrayInput` via:
 //
@@ -250,12 +243,6 @@ func (i EndpointEventGridArray) ToEndpointEventGridArrayOutput() EndpointEventGr
 
 func (i EndpointEventGridArray) ToEndpointEventGridArrayOutputWithContext(ctx context.Context) EndpointEventGridArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointEventGridArrayOutput)
-}
-
-func (i EndpointEventGridArray) ToOutput(ctx context.Context) pulumix.Output[[]*EndpointEventGrid] {
-	return pulumix.Output[[]*EndpointEventGrid]{
-		OutputState: i.ToEndpointEventGridArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EndpointEventGridMapInput is an input type that accepts EndpointEventGridMap and EndpointEventGridMapOutput values.
@@ -283,12 +270,6 @@ func (i EndpointEventGridMap) ToEndpointEventGridMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointEventGridMapOutput)
 }
 
-func (i EndpointEventGridMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EndpointEventGrid] {
-	return pulumix.Output[map[string]*EndpointEventGrid]{
-		OutputState: i.ToEndpointEventGridMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointEventGridOutput struct{ *pulumi.OutputState }
 
 func (EndpointEventGridOutput) ElementType() reflect.Type {
@@ -301,12 +282,6 @@ func (o EndpointEventGridOutput) ToEndpointEventGridOutput() EndpointEventGridOu
 
 func (o EndpointEventGridOutput) ToEndpointEventGridOutputWithContext(ctx context.Context) EndpointEventGridOutput {
 	return o
-}
-
-func (o EndpointEventGridOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointEventGrid] {
-	return pulumix.Output[*EndpointEventGrid]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The storage secret of the dead-lettering, whose format is `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`. When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account.
@@ -353,12 +328,6 @@ func (o EndpointEventGridArrayOutput) ToEndpointEventGridArrayOutputWithContext(
 	return o
 }
 
-func (o EndpointEventGridArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EndpointEventGrid] {
-	return pulumix.Output[[]*EndpointEventGrid]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EndpointEventGridArrayOutput) Index(i pulumi.IntInput) EndpointEventGridOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EndpointEventGrid {
 		return vs[0].([]*EndpointEventGrid)[vs[1].(int)]
@@ -377,12 +346,6 @@ func (o EndpointEventGridMapOutput) ToEndpointEventGridMapOutput() EndpointEvent
 
 func (o EndpointEventGridMapOutput) ToEndpointEventGridMapOutputWithContext(ctx context.Context) EndpointEventGridMapOutput {
 	return o
-}
-
-func (o EndpointEventGridMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EndpointEventGrid] {
-	return pulumix.Output[map[string]*EndpointEventGrid]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointEventGridMapOutput) MapIndex(k pulumi.StringInput) EndpointEventGridOutput {

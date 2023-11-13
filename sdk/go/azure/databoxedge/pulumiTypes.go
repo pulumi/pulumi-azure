@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -87,12 +86,6 @@ func (i DeviceDevicePropertyArgs) ToDeviceDevicePropertyOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceDevicePropertyOutput)
 }
 
-func (i DeviceDevicePropertyArgs) ToOutput(ctx context.Context) pulumix.Output[DeviceDeviceProperty] {
-	return pulumix.Output[DeviceDeviceProperty]{
-		OutputState: i.ToDeviceDevicePropertyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DeviceDevicePropertyArrayInput is an input type that accepts DeviceDevicePropertyArray and DeviceDevicePropertyArrayOutput values.
 // You can construct a concrete instance of `DeviceDevicePropertyArrayInput` via:
 //
@@ -118,12 +111,6 @@ func (i DeviceDevicePropertyArray) ToDeviceDevicePropertyArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceDevicePropertyArrayOutput)
 }
 
-func (i DeviceDevicePropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]DeviceDeviceProperty] {
-	return pulumix.Output[[]DeviceDeviceProperty]{
-		OutputState: i.ToDeviceDevicePropertyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeviceDevicePropertyOutput struct{ *pulumi.OutputState }
 
 func (DeviceDevicePropertyOutput) ElementType() reflect.Type {
@@ -136,12 +123,6 @@ func (o DeviceDevicePropertyOutput) ToDeviceDevicePropertyOutput() DeviceDeviceP
 
 func (o DeviceDevicePropertyOutput) ToDeviceDevicePropertyOutputWithContext(ctx context.Context) DeviceDevicePropertyOutput {
 	return o
-}
-
-func (o DeviceDevicePropertyOutput) ToOutput(ctx context.Context) pulumix.Output[DeviceDeviceProperty] {
-	return pulumix.Output[DeviceDeviceProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Data Box Edge/Gateway device local capacity in MB.
@@ -213,12 +194,6 @@ func (o DeviceDevicePropertyArrayOutput) ToDeviceDevicePropertyArrayOutputWithCo
 	return o
 }
 
-func (o DeviceDevicePropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeviceDeviceProperty] {
-	return pulumix.Output[[]DeviceDeviceProperty]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeviceDevicePropertyArrayOutput) Index(i pulumi.IntInput) DeviceDevicePropertyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeviceDeviceProperty {
 		return vs[0].([]DeviceDeviceProperty)[vs[1].(int)]
@@ -270,12 +245,6 @@ func (i OrderContactArgs) ToOrderContactOutputWithContext(ctx context.Context) O
 	return pulumi.ToOutputWithContext(ctx, i).(OrderContactOutput)
 }
 
-func (i OrderContactArgs) ToOutput(ctx context.Context) pulumix.Output[OrderContact] {
-	return pulumix.Output[OrderContact]{
-		OutputState: i.ToOrderContactOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OrderContactArgs) ToOrderContactPtrOutput() OrderContactPtrOutput {
 	return i.ToOrderContactPtrOutputWithContext(context.Background())
 }
@@ -317,12 +286,6 @@ func (i *orderContactPtrType) ToOrderContactPtrOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(OrderContactPtrOutput)
 }
 
-func (i *orderContactPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrderContact] {
-	return pulumix.Output[*OrderContact]{
-		OutputState: i.ToOrderContactPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrderContactOutput struct{ *pulumi.OutputState }
 
 func (OrderContactOutput) ElementType() reflect.Type {
@@ -345,12 +308,6 @@ func (o OrderContactOutput) ToOrderContactPtrOutputWithContext(ctx context.Conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrderContact) *OrderContact {
 		return &v
 	}).(OrderContactPtrOutput)
-}
-
-func (o OrderContactOutput) ToOutput(ctx context.Context) pulumix.Output[OrderContact] {
-	return pulumix.Output[OrderContact]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the company. Changing this forces a new Databox Edge Order to be created.
@@ -385,12 +342,6 @@ func (o OrderContactPtrOutput) ToOrderContactPtrOutput() OrderContactPtrOutput {
 
 func (o OrderContactPtrOutput) ToOrderContactPtrOutputWithContext(ctx context.Context) OrderContactPtrOutput {
 	return o
-}
-
-func (o OrderContactPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrderContact] {
-	return pulumix.Output[*OrderContact]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrderContactPtrOutput) Elem() OrderContactOutput {
@@ -488,12 +439,6 @@ func (i OrderReturnTrackingArgs) ToOrderReturnTrackingOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(OrderReturnTrackingOutput)
 }
 
-func (i OrderReturnTrackingArgs) ToOutput(ctx context.Context) pulumix.Output[OrderReturnTracking] {
-	return pulumix.Output[OrderReturnTracking]{
-		OutputState: i.ToOrderReturnTrackingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OrderReturnTrackingArrayInput is an input type that accepts OrderReturnTrackingArray and OrderReturnTrackingArrayOutput values.
 // You can construct a concrete instance of `OrderReturnTrackingArrayInput` via:
 //
@@ -519,12 +464,6 @@ func (i OrderReturnTrackingArray) ToOrderReturnTrackingArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(OrderReturnTrackingArrayOutput)
 }
 
-func (i OrderReturnTrackingArray) ToOutput(ctx context.Context) pulumix.Output[[]OrderReturnTracking] {
-	return pulumix.Output[[]OrderReturnTracking]{
-		OutputState: i.ToOrderReturnTrackingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrderReturnTrackingOutput struct{ *pulumi.OutputState }
 
 func (OrderReturnTrackingOutput) ElementType() reflect.Type {
@@ -537,12 +476,6 @@ func (o OrderReturnTrackingOutput) ToOrderReturnTrackingOutput() OrderReturnTrac
 
 func (o OrderReturnTrackingOutput) ToOrderReturnTrackingOutputWithContext(ctx context.Context) OrderReturnTrackingOutput {
 	return o
-}
-
-func (o OrderReturnTrackingOutput) ToOutput(ctx context.Context) pulumix.Output[OrderReturnTracking] {
-	return pulumix.Output[OrderReturnTracking]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the carrier used in the delivery.
@@ -577,12 +510,6 @@ func (o OrderReturnTrackingArrayOutput) ToOrderReturnTrackingArrayOutput() Order
 
 func (o OrderReturnTrackingArrayOutput) ToOrderReturnTrackingArrayOutputWithContext(ctx context.Context) OrderReturnTrackingArrayOutput {
 	return o
-}
-
-func (o OrderReturnTrackingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OrderReturnTracking] {
-	return pulumix.Output[[]OrderReturnTracking]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrderReturnTrackingArrayOutput) Index(i pulumi.IntInput) OrderReturnTrackingOutput {
@@ -640,12 +567,6 @@ func (i OrderShipmentAddressArgs) ToOrderShipmentAddressOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(OrderShipmentAddressOutput)
 }
 
-func (i OrderShipmentAddressArgs) ToOutput(ctx context.Context) pulumix.Output[OrderShipmentAddress] {
-	return pulumix.Output[OrderShipmentAddress]{
-		OutputState: i.ToOrderShipmentAddressOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i OrderShipmentAddressArgs) ToOrderShipmentAddressPtrOutput() OrderShipmentAddressPtrOutput {
 	return i.ToOrderShipmentAddressPtrOutputWithContext(context.Background())
 }
@@ -687,12 +608,6 @@ func (i *orderShipmentAddressPtrType) ToOrderShipmentAddressPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(OrderShipmentAddressPtrOutput)
 }
 
-func (i *orderShipmentAddressPtrType) ToOutput(ctx context.Context) pulumix.Output[*OrderShipmentAddress] {
-	return pulumix.Output[*OrderShipmentAddress]{
-		OutputState: i.ToOrderShipmentAddressPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrderShipmentAddressOutput struct{ *pulumi.OutputState }
 
 func (OrderShipmentAddressOutput) ElementType() reflect.Type {
@@ -715,12 +630,6 @@ func (o OrderShipmentAddressOutput) ToOrderShipmentAddressPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrderShipmentAddress) *OrderShipmentAddress {
 		return &v
 	}).(OrderShipmentAddressPtrOutput)
-}
-
-func (o OrderShipmentAddressOutput) ToOutput(ctx context.Context) pulumix.Output[OrderShipmentAddress] {
-	return pulumix.Output[OrderShipmentAddress]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The list of upto 3 lines for address information.
@@ -760,12 +669,6 @@ func (o OrderShipmentAddressPtrOutput) ToOrderShipmentAddressPtrOutput() OrderSh
 
 func (o OrderShipmentAddressPtrOutput) ToOrderShipmentAddressPtrOutputWithContext(ctx context.Context) OrderShipmentAddressPtrOutput {
 	return o
-}
-
-func (o OrderShipmentAddressPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*OrderShipmentAddress] {
-	return pulumix.Output[*OrderShipmentAddress]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrderShipmentAddressPtrOutput) Elem() OrderShipmentAddressOutput {
@@ -869,12 +772,6 @@ func (i OrderShipmentHistoryArgs) ToOrderShipmentHistoryOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(OrderShipmentHistoryOutput)
 }
 
-func (i OrderShipmentHistoryArgs) ToOutput(ctx context.Context) pulumix.Output[OrderShipmentHistory] {
-	return pulumix.Output[OrderShipmentHistory]{
-		OutputState: i.ToOrderShipmentHistoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OrderShipmentHistoryArrayInput is an input type that accepts OrderShipmentHistoryArray and OrderShipmentHistoryArrayOutput values.
 // You can construct a concrete instance of `OrderShipmentHistoryArrayInput` via:
 //
@@ -900,12 +797,6 @@ func (i OrderShipmentHistoryArray) ToOrderShipmentHistoryArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(OrderShipmentHistoryArrayOutput)
 }
 
-func (i OrderShipmentHistoryArray) ToOutput(ctx context.Context) pulumix.Output[[]OrderShipmentHistory] {
-	return pulumix.Output[[]OrderShipmentHistory]{
-		OutputState: i.ToOrderShipmentHistoryArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrderShipmentHistoryOutput struct{ *pulumi.OutputState }
 
 func (OrderShipmentHistoryOutput) ElementType() reflect.Type {
@@ -918,12 +809,6 @@ func (o OrderShipmentHistoryOutput) ToOrderShipmentHistoryOutput() OrderShipment
 
 func (o OrderShipmentHistoryOutput) ToOrderShipmentHistoryOutputWithContext(ctx context.Context) OrderShipmentHistoryOutput {
 	return o
-}
-
-func (o OrderShipmentHistoryOutput) ToOutput(ctx context.Context) pulumix.Output[OrderShipmentHistory] {
-	return pulumix.Output[OrderShipmentHistory]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Dictionary to hold generic information which is not stored by the already existing properties.
@@ -953,12 +838,6 @@ func (o OrderShipmentHistoryArrayOutput) ToOrderShipmentHistoryArrayOutput() Ord
 
 func (o OrderShipmentHistoryArrayOutput) ToOrderShipmentHistoryArrayOutputWithContext(ctx context.Context) OrderShipmentHistoryArrayOutput {
 	return o
-}
-
-func (o OrderShipmentHistoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OrderShipmentHistory] {
-	return pulumix.Output[[]OrderShipmentHistory]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrderShipmentHistoryArrayOutput) Index(i pulumi.IntInput) OrderShipmentHistoryOutput {
@@ -1012,12 +891,6 @@ func (i OrderShipmentTrackingArgs) ToOrderShipmentTrackingOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(OrderShipmentTrackingOutput)
 }
 
-func (i OrderShipmentTrackingArgs) ToOutput(ctx context.Context) pulumix.Output[OrderShipmentTracking] {
-	return pulumix.Output[OrderShipmentTracking]{
-		OutputState: i.ToOrderShipmentTrackingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OrderShipmentTrackingArrayInput is an input type that accepts OrderShipmentTrackingArray and OrderShipmentTrackingArrayOutput values.
 // You can construct a concrete instance of `OrderShipmentTrackingArrayInput` via:
 //
@@ -1043,12 +916,6 @@ func (i OrderShipmentTrackingArray) ToOrderShipmentTrackingArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(OrderShipmentTrackingArrayOutput)
 }
 
-func (i OrderShipmentTrackingArray) ToOutput(ctx context.Context) pulumix.Output[[]OrderShipmentTracking] {
-	return pulumix.Output[[]OrderShipmentTracking]{
-		OutputState: i.ToOrderShipmentTrackingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrderShipmentTrackingOutput struct{ *pulumi.OutputState }
 
 func (OrderShipmentTrackingOutput) ElementType() reflect.Type {
@@ -1061,12 +928,6 @@ func (o OrderShipmentTrackingOutput) ToOrderShipmentTrackingOutput() OrderShipme
 
 func (o OrderShipmentTrackingOutput) ToOrderShipmentTrackingOutputWithContext(ctx context.Context) OrderShipmentTrackingOutput {
 	return o
-}
-
-func (o OrderShipmentTrackingOutput) ToOutput(ctx context.Context) pulumix.Output[OrderShipmentTracking] {
-	return pulumix.Output[OrderShipmentTracking]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the carrier used in the delivery.
@@ -1101,12 +962,6 @@ func (o OrderShipmentTrackingArrayOutput) ToOrderShipmentTrackingArrayOutput() O
 
 func (o OrderShipmentTrackingArrayOutput) ToOrderShipmentTrackingArrayOutputWithContext(ctx context.Context) OrderShipmentTrackingArrayOutput {
 	return o
-}
-
-func (o OrderShipmentTrackingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OrderShipmentTracking] {
-	return pulumix.Output[[]OrderShipmentTracking]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrderShipmentTrackingArrayOutput) Index(i pulumi.IntInput) OrderShipmentTrackingOutput {
@@ -1160,12 +1015,6 @@ func (i OrderStatusArgs) ToOrderStatusOutputWithContext(ctx context.Context) Ord
 	return pulumi.ToOutputWithContext(ctx, i).(OrderStatusOutput)
 }
 
-func (i OrderStatusArgs) ToOutput(ctx context.Context) pulumix.Output[OrderStatus] {
-	return pulumix.Output[OrderStatus]{
-		OutputState: i.ToOrderStatusOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OrderStatusArrayInput is an input type that accepts OrderStatusArray and OrderStatusArrayOutput values.
 // You can construct a concrete instance of `OrderStatusArrayInput` via:
 //
@@ -1191,12 +1040,6 @@ func (i OrderStatusArray) ToOrderStatusArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(OrderStatusArrayOutput)
 }
 
-func (i OrderStatusArray) ToOutput(ctx context.Context) pulumix.Output[[]OrderStatus] {
-	return pulumix.Output[[]OrderStatus]{
-		OutputState: i.ToOrderStatusArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrderStatusOutput struct{ *pulumi.OutputState }
 
 func (OrderStatusOutput) ElementType() reflect.Type {
@@ -1209,12 +1052,6 @@ func (o OrderStatusOutput) ToOrderStatusOutput() OrderStatusOutput {
 
 func (o OrderStatusOutput) ToOrderStatusOutputWithContext(ctx context.Context) OrderStatusOutput {
 	return o
-}
-
-func (o OrderStatusOutput) ToOutput(ctx context.Context) pulumix.Output[OrderStatus] {
-	return pulumix.Output[OrderStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Dictionary to hold generic information which is not stored by the already existing properties.
@@ -1249,12 +1086,6 @@ func (o OrderStatusArrayOutput) ToOrderStatusArrayOutput() OrderStatusArrayOutpu
 
 func (o OrderStatusArrayOutput) ToOrderStatusArrayOutputWithContext(ctx context.Context) OrderStatusArrayOutput {
 	return o
-}
-
-func (o OrderStatusArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]OrderStatus] {
-	return pulumix.Output[[]OrderStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrderStatusArrayOutput) Index(i pulumi.IntInput) OrderStatusOutput {
@@ -1336,12 +1167,6 @@ func (i GetDeviceDevicePropertyArgs) ToGetDeviceDevicePropertyOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceDevicePropertyOutput)
 }
 
-func (i GetDeviceDevicePropertyArgs) ToOutput(ctx context.Context) pulumix.Output[GetDeviceDeviceProperty] {
-	return pulumix.Output[GetDeviceDeviceProperty]{
-		OutputState: i.ToGetDeviceDevicePropertyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetDeviceDevicePropertyArrayInput is an input type that accepts GetDeviceDevicePropertyArray and GetDeviceDevicePropertyArrayOutput values.
 // You can construct a concrete instance of `GetDeviceDevicePropertyArrayInput` via:
 //
@@ -1367,12 +1192,6 @@ func (i GetDeviceDevicePropertyArray) ToGetDeviceDevicePropertyArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetDeviceDevicePropertyArrayOutput)
 }
 
-func (i GetDeviceDevicePropertyArray) ToOutput(ctx context.Context) pulumix.Output[[]GetDeviceDeviceProperty] {
-	return pulumix.Output[[]GetDeviceDeviceProperty]{
-		OutputState: i.ToGetDeviceDevicePropertyArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetDeviceDevicePropertyOutput struct{ *pulumi.OutputState }
 
 func (GetDeviceDevicePropertyOutput) ElementType() reflect.Type {
@@ -1385,12 +1204,6 @@ func (o GetDeviceDevicePropertyOutput) ToGetDeviceDevicePropertyOutput() GetDevi
 
 func (o GetDeviceDevicePropertyOutput) ToGetDeviceDevicePropertyOutputWithContext(ctx context.Context) GetDeviceDevicePropertyOutput {
 	return o
-}
-
-func (o GetDeviceDevicePropertyOutput) ToOutput(ctx context.Context) pulumix.Output[GetDeviceDeviceProperty] {
-	return pulumix.Output[GetDeviceDeviceProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Data Box Edge/Gateway device local capacity in MB.
@@ -1460,12 +1273,6 @@ func (o GetDeviceDevicePropertyArrayOutput) ToGetDeviceDevicePropertyArrayOutput
 
 func (o GetDeviceDevicePropertyArrayOutput) ToGetDeviceDevicePropertyArrayOutputWithContext(ctx context.Context) GetDeviceDevicePropertyArrayOutput {
 	return o
-}
-
-func (o GetDeviceDevicePropertyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetDeviceDeviceProperty] {
-	return pulumix.Output[[]GetDeviceDeviceProperty]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetDeviceDevicePropertyArrayOutput) Index(i pulumi.IntInput) GetDeviceDevicePropertyOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // !> **IMPORTANT** This deploys an Azure Front Door (classic) resource which has been deprecated and will receive security updates only. Please migrate your existing Azure Front Door (classic) deployments to the new Azure Front Door (standard/premium) resources. For your convenience, the service team has exposed a `Front Door Classic` to `Front Door Standard/Premium` [migration tool](https://learn.microsoft.com/azure/frontdoor/tier-migration) to allow you to migrate your existing `Front Door Classic` instances to the new `Front Door Standard/Premium` product tiers.
@@ -374,12 +373,6 @@ func (i *Frontdoor) ToFrontdoorOutputWithContext(ctx context.Context) FrontdoorO
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorOutput)
 }
 
-func (i *Frontdoor) ToOutput(ctx context.Context) pulumix.Output[*Frontdoor] {
-	return pulumix.Output[*Frontdoor]{
-		OutputState: i.ToFrontdoorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FrontdoorArrayInput is an input type that accepts FrontdoorArray and FrontdoorArrayOutput values.
 // You can construct a concrete instance of `FrontdoorArrayInput` via:
 //
@@ -403,12 +396,6 @@ func (i FrontdoorArray) ToFrontdoorArrayOutput() FrontdoorArrayOutput {
 
 func (i FrontdoorArray) ToFrontdoorArrayOutputWithContext(ctx context.Context) FrontdoorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorArrayOutput)
-}
-
-func (i FrontdoorArray) ToOutput(ctx context.Context) pulumix.Output[[]*Frontdoor] {
-	return pulumix.Output[[]*Frontdoor]{
-		OutputState: i.ToFrontdoorArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FrontdoorMapInput is an input type that accepts FrontdoorMap and FrontdoorMapOutput values.
@@ -436,12 +423,6 @@ func (i FrontdoorMap) ToFrontdoorMapOutputWithContext(ctx context.Context) Front
 	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorMapOutput)
 }
 
-func (i FrontdoorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Frontdoor] {
-	return pulumix.Output[map[string]*Frontdoor]{
-		OutputState: i.ToFrontdoorMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FrontdoorOutput struct{ *pulumi.OutputState }
 
 func (FrontdoorOutput) ElementType() reflect.Type {
@@ -454,12 +435,6 @@ func (o FrontdoorOutput) ToFrontdoorOutput() FrontdoorOutput {
 
 func (o FrontdoorOutput) ToFrontdoorOutputWithContext(ctx context.Context) FrontdoorOutput {
 	return o
-}
-
-func (o FrontdoorOutput) ToOutput(ctx context.Context) pulumix.Output[*Frontdoor] {
-	return pulumix.Output[*Frontdoor]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `backendPoolHealthProbe` block as defined below.
@@ -572,12 +547,6 @@ func (o FrontdoorArrayOutput) ToFrontdoorArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o FrontdoorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Frontdoor] {
-	return pulumix.Output[[]*Frontdoor]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FrontdoorArrayOutput) Index(i pulumi.IntInput) FrontdoorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Frontdoor {
 		return vs[0].([]*Frontdoor)[vs[1].(int)]
@@ -596,12 +565,6 @@ func (o FrontdoorMapOutput) ToFrontdoorMapOutput() FrontdoorMapOutput {
 
 func (o FrontdoorMapOutput) ToFrontdoorMapOutputWithContext(ctx context.Context) FrontdoorMapOutput {
 	return o
-}
-
-func (o FrontdoorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Frontdoor] {
-	return pulumix.Output[map[string]*Frontdoor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FrontdoorMapOutput) MapIndex(k pulumi.StringInput) FrontdoorOutput {

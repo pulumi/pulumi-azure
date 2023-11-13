@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Management Lock which is scoped to a Subscription, Resource Group or Resource.
@@ -268,12 +267,6 @@ func (i *ManangementLock) ToManangementLockOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ManangementLockOutput)
 }
 
-func (i *ManangementLock) ToOutput(ctx context.Context) pulumix.Output[*ManangementLock] {
-	return pulumix.Output[*ManangementLock]{
-		OutputState: i.ToManangementLockOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ManangementLockArrayInput is an input type that accepts ManangementLockArray and ManangementLockArrayOutput values.
 // You can construct a concrete instance of `ManangementLockArrayInput` via:
 //
@@ -297,12 +290,6 @@ func (i ManangementLockArray) ToManangementLockArrayOutput() ManangementLockArra
 
 func (i ManangementLockArray) ToManangementLockArrayOutputWithContext(ctx context.Context) ManangementLockArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ManangementLockArrayOutput)
-}
-
-func (i ManangementLockArray) ToOutput(ctx context.Context) pulumix.Output[[]*ManangementLock] {
-	return pulumix.Output[[]*ManangementLock]{
-		OutputState: i.ToManangementLockArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ManangementLockMapInput is an input type that accepts ManangementLockMap and ManangementLockMapOutput values.
@@ -330,12 +317,6 @@ func (i ManangementLockMap) ToManangementLockMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ManangementLockMapOutput)
 }
 
-func (i ManangementLockMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManangementLock] {
-	return pulumix.Output[map[string]*ManangementLock]{
-		OutputState: i.ToManangementLockMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ManangementLockOutput struct{ *pulumi.OutputState }
 
 func (ManangementLockOutput) ElementType() reflect.Type {
@@ -348,12 +329,6 @@ func (o ManangementLockOutput) ToManangementLockOutput() ManangementLockOutput {
 
 func (o ManangementLockOutput) ToManangementLockOutputWithContext(ctx context.Context) ManangementLockOutput {
 	return o
-}
-
-func (o ManangementLockOutput) ToOutput(ctx context.Context) pulumix.Output[*ManangementLock] {
-	return pulumix.Output[*ManangementLock]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Level to be used for this Lock. Possible values are `CanNotDelete` and `ReadOnly`. Changing this forces a new resource to be created.
@@ -392,12 +367,6 @@ func (o ManangementLockArrayOutput) ToManangementLockArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o ManangementLockArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ManangementLock] {
-	return pulumix.Output[[]*ManangementLock]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ManangementLockArrayOutput) Index(i pulumi.IntInput) ManangementLockOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ManangementLock {
 		return vs[0].([]*ManangementLock)[vs[1].(int)]
@@ -416,12 +385,6 @@ func (o ManangementLockMapOutput) ToManangementLockMapOutput() ManangementLockMa
 
 func (o ManangementLockMapOutput) ToManangementLockMapOutputWithContext(ctx context.Context) ManangementLockMapOutput {
 	return o
-}
-
-func (o ManangementLockMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ManangementLock] {
-	return pulumix.Output[map[string]*ManangementLock]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ManangementLockMapOutput) MapIndex(k pulumi.StringInput) ManangementLockOutput {

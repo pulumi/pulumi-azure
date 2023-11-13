@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Databox Edge Order.
@@ -247,12 +246,6 @@ func (i *Order) ToOrderOutputWithContext(ctx context.Context) OrderOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrderOutput)
 }
 
-func (i *Order) ToOutput(ctx context.Context) pulumix.Output[*Order] {
-	return pulumix.Output[*Order]{
-		OutputState: i.ToOrderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OrderArrayInput is an input type that accepts OrderArray and OrderArrayOutput values.
 // You can construct a concrete instance of `OrderArrayInput` via:
 //
@@ -276,12 +269,6 @@ func (i OrderArray) ToOrderArrayOutput() OrderArrayOutput {
 
 func (i OrderArray) ToOrderArrayOutputWithContext(ctx context.Context) OrderArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrderArrayOutput)
-}
-
-func (i OrderArray) ToOutput(ctx context.Context) pulumix.Output[[]*Order] {
-	return pulumix.Output[[]*Order]{
-		OutputState: i.ToOrderArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // OrderMapInput is an input type that accepts OrderMap and OrderMapOutput values.
@@ -309,12 +296,6 @@ func (i OrderMap) ToOrderMapOutputWithContext(ctx context.Context) OrderMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(OrderMapOutput)
 }
 
-func (i OrderMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Order] {
-	return pulumix.Output[map[string]*Order]{
-		OutputState: i.ToOrderMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OrderOutput struct{ *pulumi.OutputState }
 
 func (OrderOutput) ElementType() reflect.Type {
@@ -327,12 +308,6 @@ func (o OrderOutput) ToOrderOutput() OrderOutput {
 
 func (o OrderOutput) ToOrderOutputWithContext(ctx context.Context) OrderOutput {
 	return o
-}
-
-func (o OrderOutput) ToOutput(ctx context.Context) pulumix.Output[*Order] {
-	return pulumix.Output[*Order]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `contact` block as defined below.
@@ -399,12 +374,6 @@ func (o OrderArrayOutput) ToOrderArrayOutputWithContext(ctx context.Context) Ord
 	return o
 }
 
-func (o OrderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Order] {
-	return pulumix.Output[[]*Order]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OrderArrayOutput) Index(i pulumi.IntInput) OrderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Order {
 		return vs[0].([]*Order)[vs[1].(int)]
@@ -423,12 +392,6 @@ func (o OrderMapOutput) ToOrderMapOutput() OrderMapOutput {
 
 func (o OrderMapOutput) ToOrderMapOutputWithContext(ctx context.Context) OrderMapOutput {
 	return o
-}
-
-func (o OrderMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Order] {
-	return pulumix.Output[map[string]*Order]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OrderMapOutput) MapIndex(k pulumi.StringInput) OrderOutput {

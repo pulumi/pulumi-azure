@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Dynamics 365 Data Connector.
@@ -189,12 +188,6 @@ func (i *DataConnectorDynamics365) ToDataConnectorDynamics365OutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorDynamics365Output)
 }
 
-func (i *DataConnectorDynamics365) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorDynamics365] {
-	return pulumix.Output[*DataConnectorDynamics365]{
-		OutputState: i.ToDataConnectorDynamics365OutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataConnectorDynamics365ArrayInput is an input type that accepts DataConnectorDynamics365Array and DataConnectorDynamics365ArrayOutput values.
 // You can construct a concrete instance of `DataConnectorDynamics365ArrayInput` via:
 //
@@ -218,12 +211,6 @@ func (i DataConnectorDynamics365Array) ToDataConnectorDynamics365ArrayOutput() D
 
 func (i DataConnectorDynamics365Array) ToDataConnectorDynamics365ArrayOutputWithContext(ctx context.Context) DataConnectorDynamics365ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorDynamics365ArrayOutput)
-}
-
-func (i DataConnectorDynamics365Array) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorDynamics365] {
-	return pulumix.Output[[]*DataConnectorDynamics365]{
-		OutputState: i.ToDataConnectorDynamics365ArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataConnectorDynamics365MapInput is an input type that accepts DataConnectorDynamics365Map and DataConnectorDynamics365MapOutput values.
@@ -251,12 +238,6 @@ func (i DataConnectorDynamics365Map) ToDataConnectorDynamics365MapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorDynamics365MapOutput)
 }
 
-func (i DataConnectorDynamics365Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorDynamics365] {
-	return pulumix.Output[map[string]*DataConnectorDynamics365]{
-		OutputState: i.ToDataConnectorDynamics365MapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataConnectorDynamics365Output struct{ *pulumi.OutputState }
 
 func (DataConnectorDynamics365Output) ElementType() reflect.Type {
@@ -269,12 +250,6 @@ func (o DataConnectorDynamics365Output) ToDataConnectorDynamics365Output() DataC
 
 func (o DataConnectorDynamics365Output) ToDataConnectorDynamics365OutputWithContext(ctx context.Context) DataConnectorDynamics365Output {
 	return o
-}
-
-func (o DataConnectorDynamics365Output) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorDynamics365] {
-	return pulumix.Output[*DataConnectorDynamics365]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Log Analytics Workspace that this Dynamics 365 Data Connector resides in. Changing this forces a new Dynamics 365 Data Connector to be created.
@@ -308,12 +283,6 @@ func (o DataConnectorDynamics365ArrayOutput) ToDataConnectorDynamics365ArrayOutp
 	return o
 }
 
-func (o DataConnectorDynamics365ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorDynamics365] {
-	return pulumix.Output[[]*DataConnectorDynamics365]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataConnectorDynamics365ArrayOutput) Index(i pulumi.IntInput) DataConnectorDynamics365Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorDynamics365 {
 		return vs[0].([]*DataConnectorDynamics365)[vs[1].(int)]
@@ -332,12 +301,6 @@ func (o DataConnectorDynamics365MapOutput) ToDataConnectorDynamics365MapOutput()
 
 func (o DataConnectorDynamics365MapOutput) ToDataConnectorDynamics365MapOutputWithContext(ctx context.Context) DataConnectorDynamics365MapOutput {
 	return o
-}
-
-func (o DataConnectorDynamics365MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorDynamics365] {
-	return pulumix.Output[map[string]*DataConnectorDynamics365]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataConnectorDynamics365MapOutput) MapIndex(k pulumi.StringInput) DataConnectorDynamics365Output {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Diagnostic Setting for an existing Resource.
@@ -407,12 +406,6 @@ func (i *DiagnosticSetting) ToDiagnosticSettingOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingOutput)
 }
 
-func (i *DiagnosticSetting) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticSetting] {
-	return pulumix.Output[*DiagnosticSetting]{
-		OutputState: i.ToDiagnosticSettingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DiagnosticSettingArrayInput is an input type that accepts DiagnosticSettingArray and DiagnosticSettingArrayOutput values.
 // You can construct a concrete instance of `DiagnosticSettingArrayInput` via:
 //
@@ -436,12 +429,6 @@ func (i DiagnosticSettingArray) ToDiagnosticSettingArrayOutput() DiagnosticSetti
 
 func (i DiagnosticSettingArray) ToDiagnosticSettingArrayOutputWithContext(ctx context.Context) DiagnosticSettingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingArrayOutput)
-}
-
-func (i DiagnosticSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]*DiagnosticSetting] {
-	return pulumix.Output[[]*DiagnosticSetting]{
-		OutputState: i.ToDiagnosticSettingArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DiagnosticSettingMapInput is an input type that accepts DiagnosticSettingMap and DiagnosticSettingMapOutput values.
@@ -469,12 +456,6 @@ func (i DiagnosticSettingMap) ToDiagnosticSettingMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DiagnosticSettingMapOutput)
 }
 
-func (i DiagnosticSettingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DiagnosticSetting] {
-	return pulumix.Output[map[string]*DiagnosticSetting]{
-		OutputState: i.ToDiagnosticSettingMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DiagnosticSettingOutput struct{ *pulumi.OutputState }
 
 func (DiagnosticSettingOutput) ElementType() reflect.Type {
@@ -487,12 +468,6 @@ func (o DiagnosticSettingOutput) ToDiagnosticSettingOutput() DiagnosticSettingOu
 
 func (o DiagnosticSettingOutput) ToDiagnosticSettingOutputWithContext(ctx context.Context) DiagnosticSettingOutput {
 	return o
-}
-
-func (o DiagnosticSettingOutput) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticSetting] {
-	return pulumix.Output[*DiagnosticSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `enabledLog` blocks as defined below.
@@ -588,12 +563,6 @@ func (o DiagnosticSettingArrayOutput) ToDiagnosticSettingArrayOutputWithContext(
 	return o
 }
 
-func (o DiagnosticSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DiagnosticSetting] {
-	return pulumix.Output[[]*DiagnosticSetting]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DiagnosticSettingArrayOutput) Index(i pulumi.IntInput) DiagnosticSettingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DiagnosticSetting {
 		return vs[0].([]*DiagnosticSetting)[vs[1].(int)]
@@ -612,12 +581,6 @@ func (o DiagnosticSettingMapOutput) ToDiagnosticSettingMapOutput() DiagnosticSet
 
 func (o DiagnosticSettingMapOutput) ToDiagnosticSettingMapOutputWithContext(ctx context.Context) DiagnosticSettingMapOutput {
 	return o
-}
-
-func (o DiagnosticSettingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DiagnosticSetting] {
-	return pulumix.Output[map[string]*DiagnosticSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DiagnosticSettingMapOutput) MapIndex(k pulumi.StringInput) DiagnosticSettingOutput {

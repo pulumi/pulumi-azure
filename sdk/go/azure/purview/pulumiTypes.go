@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -63,12 +62,6 @@ func (i AccountIdentityArgs) ToAccountIdentityOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityOutput)
 }
 
-func (i AccountIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[AccountIdentity] {
-	return pulumix.Output[AccountIdentity]{
-		OutputState: i.ToAccountIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountIdentityArgs) ToAccountIdentityPtrOutput() AccountIdentityPtrOutput {
 	return i.ToAccountIdentityPtrOutputWithContext(context.Background())
 }
@@ -110,12 +103,6 @@ func (i *accountIdentityPtrType) ToAccountIdentityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(AccountIdentityPtrOutput)
 }
 
-func (i *accountIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountIdentity] {
-	return pulumix.Output[*AccountIdentity]{
-		OutputState: i.ToAccountIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountIdentityOutput struct{ *pulumi.OutputState }
 
 func (AccountIdentityOutput) ElementType() reflect.Type {
@@ -138,12 +125,6 @@ func (o AccountIdentityOutput) ToAccountIdentityPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountIdentity) *AccountIdentity {
 		return &v
 	}).(AccountIdentityPtrOutput)
-}
-
-func (o AccountIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[AccountIdentity] {
-	return pulumix.Output[AccountIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Purview Account.
@@ -180,12 +161,6 @@ func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutput() AccountIdentityPt
 
 func (o AccountIdentityPtrOutput) ToAccountIdentityPtrOutputWithContext(ctx context.Context) AccountIdentityPtrOutput {
 	return o
-}
-
-func (o AccountIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountIdentity] {
-	return pulumix.Output[*AccountIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountIdentityPtrOutput) Elem() AccountIdentityOutput {
@@ -281,12 +256,6 @@ func (i AccountManagedResourceArgs) ToAccountManagedResourceOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(AccountManagedResourceOutput)
 }
 
-func (i AccountManagedResourceArgs) ToOutput(ctx context.Context) pulumix.Output[AccountManagedResource] {
-	return pulumix.Output[AccountManagedResource]{
-		OutputState: i.ToAccountManagedResourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AccountManagedResourceArrayInput is an input type that accepts AccountManagedResourceArray and AccountManagedResourceArrayOutput values.
 // You can construct a concrete instance of `AccountManagedResourceArrayInput` via:
 //
@@ -312,12 +281,6 @@ func (i AccountManagedResourceArray) ToAccountManagedResourceArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AccountManagedResourceArrayOutput)
 }
 
-func (i AccountManagedResourceArray) ToOutput(ctx context.Context) pulumix.Output[[]AccountManagedResource] {
-	return pulumix.Output[[]AccountManagedResource]{
-		OutputState: i.ToAccountManagedResourceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountManagedResourceOutput struct{ *pulumi.OutputState }
 
 func (AccountManagedResourceOutput) ElementType() reflect.Type {
@@ -330,12 +293,6 @@ func (o AccountManagedResourceOutput) ToAccountManagedResourceOutput() AccountMa
 
 func (o AccountManagedResourceOutput) ToAccountManagedResourceOutputWithContext(ctx context.Context) AccountManagedResourceOutput {
 	return o
-}
-
-func (o AccountManagedResourceOutput) ToOutput(ctx context.Context) pulumix.Output[AccountManagedResource] {
-	return pulumix.Output[AccountManagedResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the managed event hub namespace.
@@ -365,12 +322,6 @@ func (o AccountManagedResourceArrayOutput) ToAccountManagedResourceArrayOutput()
 
 func (o AccountManagedResourceArrayOutput) ToAccountManagedResourceArrayOutputWithContext(ctx context.Context) AccountManagedResourceArrayOutput {
 	return o
-}
-
-func (o AccountManagedResourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AccountManagedResource] {
-	return pulumix.Output[[]AccountManagedResource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountManagedResourceArrayOutput) Index(i pulumi.IntInput) AccountManagedResourceOutput {
