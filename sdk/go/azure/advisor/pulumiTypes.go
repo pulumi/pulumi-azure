@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -79,12 +78,6 @@ func (i GetRecommendationsRecommendationArgs) ToGetRecommendationsRecommendation
 	return pulumi.ToOutputWithContext(ctx, i).(GetRecommendationsRecommendationOutput)
 }
 
-func (i GetRecommendationsRecommendationArgs) ToOutput(ctx context.Context) pulumix.Output[GetRecommendationsRecommendation] {
-	return pulumix.Output[GetRecommendationsRecommendation]{
-		OutputState: i.ToGetRecommendationsRecommendationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetRecommendationsRecommendationArrayInput is an input type that accepts GetRecommendationsRecommendationArray and GetRecommendationsRecommendationArrayOutput values.
 // You can construct a concrete instance of `GetRecommendationsRecommendationArrayInput` via:
 //
@@ -110,12 +103,6 @@ func (i GetRecommendationsRecommendationArray) ToGetRecommendationsRecommendatio
 	return pulumi.ToOutputWithContext(ctx, i).(GetRecommendationsRecommendationArrayOutput)
 }
 
-func (i GetRecommendationsRecommendationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRecommendationsRecommendation] {
-	return pulumix.Output[[]GetRecommendationsRecommendation]{
-		OutputState: i.ToGetRecommendationsRecommendationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetRecommendationsRecommendationOutput struct{ *pulumi.OutputState }
 
 func (GetRecommendationsRecommendationOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o GetRecommendationsRecommendationOutput) ToGetRecommendationsRecommendati
 
 func (o GetRecommendationsRecommendationOutput) ToGetRecommendationsRecommendationOutputWithContext(ctx context.Context) GetRecommendationsRecommendationOutput {
 	return o
-}
-
-func (o GetRecommendationsRecommendationOutput) ToOutput(ctx context.Context) pulumix.Output[GetRecommendationsRecommendation] {
-	return pulumix.Output[GetRecommendationsRecommendation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The category of the recommendation.
@@ -193,12 +174,6 @@ func (o GetRecommendationsRecommendationArrayOutput) ToGetRecommendationsRecomme
 
 func (o GetRecommendationsRecommendationArrayOutput) ToGetRecommendationsRecommendationArrayOutputWithContext(ctx context.Context) GetRecommendationsRecommendationArrayOutput {
 	return o
-}
-
-func (o GetRecommendationsRecommendationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRecommendationsRecommendation] {
-	return pulumix.Output[[]GetRecommendationsRecommendation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRecommendationsRecommendationArrayOutput) Index(i pulumi.IntInput) GetRecommendationsRecommendationOutput {

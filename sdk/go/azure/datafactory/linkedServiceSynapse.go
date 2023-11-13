@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linked Service (connection) between Synapse and Azure Data Factory.
@@ -310,12 +309,6 @@ func (i *LinkedServiceSynapse) ToLinkedServiceSynapseOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSynapseOutput)
 }
 
-func (i *LinkedServiceSynapse) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceSynapse] {
-	return pulumix.Output[*LinkedServiceSynapse]{
-		OutputState: i.ToLinkedServiceSynapseOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinkedServiceSynapseArrayInput is an input type that accepts LinkedServiceSynapseArray and LinkedServiceSynapseArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceSynapseArrayInput` via:
 //
@@ -339,12 +332,6 @@ func (i LinkedServiceSynapseArray) ToLinkedServiceSynapseArrayOutput() LinkedSer
 
 func (i LinkedServiceSynapseArray) ToLinkedServiceSynapseArrayOutputWithContext(ctx context.Context) LinkedServiceSynapseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSynapseArrayOutput)
-}
-
-func (i LinkedServiceSynapseArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceSynapse] {
-	return pulumix.Output[[]*LinkedServiceSynapse]{
-		OutputState: i.ToLinkedServiceSynapseArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinkedServiceSynapseMapInput is an input type that accepts LinkedServiceSynapseMap and LinkedServiceSynapseMapOutput values.
@@ -372,12 +359,6 @@ func (i LinkedServiceSynapseMap) ToLinkedServiceSynapseMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceSynapseMapOutput)
 }
 
-func (i LinkedServiceSynapseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceSynapse] {
-	return pulumix.Output[map[string]*LinkedServiceSynapse]{
-		OutputState: i.ToLinkedServiceSynapseMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkedServiceSynapseOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceSynapseOutput) ElementType() reflect.Type {
@@ -390,12 +371,6 @@ func (o LinkedServiceSynapseOutput) ToLinkedServiceSynapseOutput() LinkedService
 
 func (o LinkedServiceSynapseOutput) ToLinkedServiceSynapseOutputWithContext(ctx context.Context) LinkedServiceSynapseOutput {
 	return o
-}
-
-func (o LinkedServiceSynapseOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceSynapse] {
-	return pulumix.Output[*LinkedServiceSynapse]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service Synapse.
@@ -459,12 +434,6 @@ func (o LinkedServiceSynapseArrayOutput) ToLinkedServiceSynapseArrayOutputWithCo
 	return o
 }
 
-func (o LinkedServiceSynapseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceSynapse] {
-	return pulumix.Output[[]*LinkedServiceSynapse]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinkedServiceSynapseArrayOutput) Index(i pulumi.IntInput) LinkedServiceSynapseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceSynapse {
 		return vs[0].([]*LinkedServiceSynapse)[vs[1].(int)]
@@ -483,12 +452,6 @@ func (o LinkedServiceSynapseMapOutput) ToLinkedServiceSynapseMapOutput() LinkedS
 
 func (o LinkedServiceSynapseMapOutput) ToLinkedServiceSynapseMapOutputWithContext(ctx context.Context) LinkedServiceSynapseMapOutput {
 	return o
-}
-
-func (o LinkedServiceSynapseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceSynapse] {
-	return pulumix.Output[map[string]*LinkedServiceSynapse]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkedServiceSynapseMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceSynapseOutput {

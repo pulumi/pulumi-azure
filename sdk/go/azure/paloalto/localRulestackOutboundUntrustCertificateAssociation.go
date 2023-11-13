@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Palo Alto Networks Rulestack Outbound Untrust Certificate Association.
@@ -148,12 +147,6 @@ func (i *LocalRulestackOutboundUntrustCertificateAssociation) ToLocalRulestackOu
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackOutboundUntrustCertificateAssociationOutput)
 }
 
-func (i *LocalRulestackOutboundUntrustCertificateAssociation) ToOutput(ctx context.Context) pulumix.Output[*LocalRulestackOutboundUntrustCertificateAssociation] {
-	return pulumix.Output[*LocalRulestackOutboundUntrustCertificateAssociation]{
-		OutputState: i.ToLocalRulestackOutboundUntrustCertificateAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocalRulestackOutboundUntrustCertificateAssociationArrayInput is an input type that accepts LocalRulestackOutboundUntrustCertificateAssociationArray and LocalRulestackOutboundUntrustCertificateAssociationArrayOutput values.
 // You can construct a concrete instance of `LocalRulestackOutboundUntrustCertificateAssociationArrayInput` via:
 //
@@ -177,12 +170,6 @@ func (i LocalRulestackOutboundUntrustCertificateAssociationArray) ToLocalRulesta
 
 func (i LocalRulestackOutboundUntrustCertificateAssociationArray) ToLocalRulestackOutboundUntrustCertificateAssociationArrayOutputWithContext(ctx context.Context) LocalRulestackOutboundUntrustCertificateAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackOutboundUntrustCertificateAssociationArrayOutput)
-}
-
-func (i LocalRulestackOutboundUntrustCertificateAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalRulestackOutboundUntrustCertificateAssociation] {
-	return pulumix.Output[[]*LocalRulestackOutboundUntrustCertificateAssociation]{
-		OutputState: i.ToLocalRulestackOutboundUntrustCertificateAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LocalRulestackOutboundUntrustCertificateAssociationMapInput is an input type that accepts LocalRulestackOutboundUntrustCertificateAssociationMap and LocalRulestackOutboundUntrustCertificateAssociationMapOutput values.
@@ -210,12 +197,6 @@ func (i LocalRulestackOutboundUntrustCertificateAssociationMap) ToLocalRulestack
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackOutboundUntrustCertificateAssociationMapOutput)
 }
 
-func (i LocalRulestackOutboundUntrustCertificateAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalRulestackOutboundUntrustCertificateAssociation] {
-	return pulumix.Output[map[string]*LocalRulestackOutboundUntrustCertificateAssociation]{
-		OutputState: i.ToLocalRulestackOutboundUntrustCertificateAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalRulestackOutboundUntrustCertificateAssociationOutput struct{ *pulumi.OutputState }
 
 func (LocalRulestackOutboundUntrustCertificateAssociationOutput) ElementType() reflect.Type {
@@ -228,12 +209,6 @@ func (o LocalRulestackOutboundUntrustCertificateAssociationOutput) ToLocalRulest
 
 func (o LocalRulestackOutboundUntrustCertificateAssociationOutput) ToLocalRulestackOutboundUntrustCertificateAssociationOutputWithContext(ctx context.Context) LocalRulestackOutboundUntrustCertificateAssociationOutput {
 	return o
-}
-
-func (o LocalRulestackOutboundUntrustCertificateAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalRulestackOutboundUntrustCertificateAssociation] {
-	return pulumix.Output[*LocalRulestackOutboundUntrustCertificateAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Certificate to use as the Outbound Untrust Certificate. Changing this forces a new Palo Alto Networks Rulestack Outbound Untrust Certificate Association to be created.
@@ -257,12 +232,6 @@ func (o LocalRulestackOutboundUntrustCertificateAssociationArrayOutput) ToLocalR
 	return o
 }
 
-func (o LocalRulestackOutboundUntrustCertificateAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalRulestackOutboundUntrustCertificateAssociation] {
-	return pulumix.Output[[]*LocalRulestackOutboundUntrustCertificateAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocalRulestackOutboundUntrustCertificateAssociationArrayOutput) Index(i pulumi.IntInput) LocalRulestackOutboundUntrustCertificateAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalRulestackOutboundUntrustCertificateAssociation {
 		return vs[0].([]*LocalRulestackOutboundUntrustCertificateAssociation)[vs[1].(int)]
@@ -281,12 +250,6 @@ func (o LocalRulestackOutboundUntrustCertificateAssociationMapOutput) ToLocalRul
 
 func (o LocalRulestackOutboundUntrustCertificateAssociationMapOutput) ToLocalRulestackOutboundUntrustCertificateAssociationMapOutputWithContext(ctx context.Context) LocalRulestackOutboundUntrustCertificateAssociationMapOutput {
 	return o
-}
-
-func (o LocalRulestackOutboundUntrustCertificateAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalRulestackOutboundUntrustCertificateAssociation] {
-	return pulumix.Output[map[string]*LocalRulestackOutboundUntrustCertificateAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocalRulestackOutboundUntrustCertificateAssociationMapOutput) MapIndex(k pulumi.StringInput) LocalRulestackOutboundUntrustCertificateAssociationOutput {

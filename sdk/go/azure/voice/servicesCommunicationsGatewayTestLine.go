@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Voice Services Communications Gateway Test Line.
@@ -212,12 +211,6 @@ func (i *ServicesCommunicationsGatewayTestLine) ToServicesCommunicationsGatewayT
 	return pulumi.ToOutputWithContext(ctx, i).(ServicesCommunicationsGatewayTestLineOutput)
 }
 
-func (i *ServicesCommunicationsGatewayTestLine) ToOutput(ctx context.Context) pulumix.Output[*ServicesCommunicationsGatewayTestLine] {
-	return pulumix.Output[*ServicesCommunicationsGatewayTestLine]{
-		OutputState: i.ToServicesCommunicationsGatewayTestLineOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServicesCommunicationsGatewayTestLineArrayInput is an input type that accepts ServicesCommunicationsGatewayTestLineArray and ServicesCommunicationsGatewayTestLineArrayOutput values.
 // You can construct a concrete instance of `ServicesCommunicationsGatewayTestLineArrayInput` via:
 //
@@ -241,12 +234,6 @@ func (i ServicesCommunicationsGatewayTestLineArray) ToServicesCommunicationsGate
 
 func (i ServicesCommunicationsGatewayTestLineArray) ToServicesCommunicationsGatewayTestLineArrayOutputWithContext(ctx context.Context) ServicesCommunicationsGatewayTestLineArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServicesCommunicationsGatewayTestLineArrayOutput)
-}
-
-func (i ServicesCommunicationsGatewayTestLineArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServicesCommunicationsGatewayTestLine] {
-	return pulumix.Output[[]*ServicesCommunicationsGatewayTestLine]{
-		OutputState: i.ToServicesCommunicationsGatewayTestLineArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServicesCommunicationsGatewayTestLineMapInput is an input type that accepts ServicesCommunicationsGatewayTestLineMap and ServicesCommunicationsGatewayTestLineMapOutput values.
@@ -274,12 +261,6 @@ func (i ServicesCommunicationsGatewayTestLineMap) ToServicesCommunicationsGatewa
 	return pulumi.ToOutputWithContext(ctx, i).(ServicesCommunicationsGatewayTestLineMapOutput)
 }
 
-func (i ServicesCommunicationsGatewayTestLineMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServicesCommunicationsGatewayTestLine] {
-	return pulumix.Output[map[string]*ServicesCommunicationsGatewayTestLine]{
-		OutputState: i.ToServicesCommunicationsGatewayTestLineMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServicesCommunicationsGatewayTestLineOutput struct{ *pulumi.OutputState }
 
 func (ServicesCommunicationsGatewayTestLineOutput) ElementType() reflect.Type {
@@ -292,12 +273,6 @@ func (o ServicesCommunicationsGatewayTestLineOutput) ToServicesCommunicationsGat
 
 func (o ServicesCommunicationsGatewayTestLineOutput) ToServicesCommunicationsGatewayTestLineOutputWithContext(ctx context.Context) ServicesCommunicationsGatewayTestLineOutput {
 	return o
-}
-
-func (o ServicesCommunicationsGatewayTestLineOutput) ToOutput(ctx context.Context) pulumix.Output[*ServicesCommunicationsGatewayTestLine] {
-	return pulumix.Output[*ServicesCommunicationsGatewayTestLine]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Azure Region where the Voice Services Communications Gateway Test Line should exist. Changing this forces a new resource to be created.
@@ -346,12 +321,6 @@ func (o ServicesCommunicationsGatewayTestLineArrayOutput) ToServicesCommunicatio
 	return o
 }
 
-func (o ServicesCommunicationsGatewayTestLineArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServicesCommunicationsGatewayTestLine] {
-	return pulumix.Output[[]*ServicesCommunicationsGatewayTestLine]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServicesCommunicationsGatewayTestLineArrayOutput) Index(i pulumi.IntInput) ServicesCommunicationsGatewayTestLineOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServicesCommunicationsGatewayTestLine {
 		return vs[0].([]*ServicesCommunicationsGatewayTestLine)[vs[1].(int)]
@@ -370,12 +339,6 @@ func (o ServicesCommunicationsGatewayTestLineMapOutput) ToServicesCommunications
 
 func (o ServicesCommunicationsGatewayTestLineMapOutput) ToServicesCommunicationsGatewayTestLineMapOutputWithContext(ctx context.Context) ServicesCommunicationsGatewayTestLineMapOutput {
 	return o
-}
-
-func (o ServicesCommunicationsGatewayTestLineMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServicesCommunicationsGatewayTestLine] {
-	return pulumix.Output[map[string]*ServicesCommunicationsGatewayTestLine]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServicesCommunicationsGatewayTestLineMapOutput) MapIndex(k pulumi.StringInput) ServicesCommunicationsGatewayTestLineOutput {

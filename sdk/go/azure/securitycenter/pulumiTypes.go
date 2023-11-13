@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i AssessmentStatusArgs) ToAssessmentStatusOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusOutput)
 }
 
-func (i AssessmentStatusArgs) ToOutput(ctx context.Context) pulumix.Output[AssessmentStatus] {
-	return pulumix.Output[AssessmentStatus]{
-		OutputState: i.ToAssessmentStatusOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AssessmentStatusArgs) ToAssessmentStatusPtrOutput() AssessmentStatusPtrOutput {
 	return i.ToAssessmentStatusPtrOutputWithContext(context.Background())
 }
@@ -102,12 +95,6 @@ func (i *assessmentStatusPtrType) ToAssessmentStatusPtrOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(AssessmentStatusPtrOutput)
 }
 
-func (i *assessmentStatusPtrType) ToOutput(ctx context.Context) pulumix.Output[*AssessmentStatus] {
-	return pulumix.Output[*AssessmentStatus]{
-		OutputState: i.ToAssessmentStatusPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssessmentStatusOutput struct{ *pulumi.OutputState }
 
 func (AssessmentStatusOutput) ElementType() reflect.Type {
@@ -130,12 +117,6 @@ func (o AssessmentStatusOutput) ToAssessmentStatusPtrOutputWithContext(ctx conte
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentStatus) *AssessmentStatus {
 		return &v
 	}).(AssessmentStatusPtrOutput)
-}
-
-func (o AssessmentStatusOutput) ToOutput(ctx context.Context) pulumix.Output[AssessmentStatus] {
-	return pulumix.Output[AssessmentStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the cause of the assessment status.
@@ -165,12 +146,6 @@ func (o AssessmentStatusPtrOutput) ToAssessmentStatusPtrOutput() AssessmentStatu
 
 func (o AssessmentStatusPtrOutput) ToAssessmentStatusPtrOutputWithContext(ctx context.Context) AssessmentStatusPtrOutput {
 	return o
-}
-
-func (o AssessmentStatusPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssessmentStatus] {
-	return pulumix.Output[*AssessmentStatus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssessmentStatusPtrOutput) Elem() AssessmentStatusOutput {
@@ -258,12 +233,6 @@ func (i AutomationActionArgs) ToAutomationActionOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionOutput)
 }
 
-func (i AutomationActionArgs) ToOutput(ctx context.Context) pulumix.Output[AutomationAction] {
-	return pulumix.Output[AutomationAction]{
-		OutputState: i.ToAutomationActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutomationActionArrayInput is an input type that accepts AutomationActionArray and AutomationActionArrayOutput values.
 // You can construct a concrete instance of `AutomationActionArrayInput` via:
 //
@@ -289,12 +258,6 @@ func (i AutomationActionArray) ToAutomationActionArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationActionArrayOutput)
 }
 
-func (i AutomationActionArray) ToOutput(ctx context.Context) pulumix.Output[[]AutomationAction] {
-	return pulumix.Output[[]AutomationAction]{
-		OutputState: i.ToAutomationActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutomationActionOutput struct{ *pulumi.OutputState }
 
 func (AutomationActionOutput) ElementType() reflect.Type {
@@ -307,12 +270,6 @@ func (o AutomationActionOutput) ToAutomationActionOutput() AutomationActionOutpu
 
 func (o AutomationActionOutput) ToAutomationActionOutputWithContext(ctx context.Context) AutomationActionOutput {
 	return o
-}
-
-func (o AutomationActionOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationAction] {
-	return pulumix.Output[AutomationAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Optional, but required when `type` is `EventHub`) A connection string to send data to the target Event Hub namespace, this should include a key with send permissions.
@@ -347,12 +304,6 @@ func (o AutomationActionArrayOutput) ToAutomationActionArrayOutput() AutomationA
 
 func (o AutomationActionArrayOutput) ToAutomationActionArrayOutputWithContext(ctx context.Context) AutomationActionArrayOutput {
 	return o
-}
-
-func (o AutomationActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AutomationAction] {
-	return pulumix.Output[[]AutomationAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationActionArrayOutput) Index(i pulumi.IntInput) AutomationActionOutput {
@@ -402,12 +353,6 @@ func (i AutomationSourceArgs) ToAutomationSourceOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationSourceOutput)
 }
 
-func (i AutomationSourceArgs) ToOutput(ctx context.Context) pulumix.Output[AutomationSource] {
-	return pulumix.Output[AutomationSource]{
-		OutputState: i.ToAutomationSourceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutomationSourceArrayInput is an input type that accepts AutomationSourceArray and AutomationSourceArrayOutput values.
 // You can construct a concrete instance of `AutomationSourceArrayInput` via:
 //
@@ -433,12 +378,6 @@ func (i AutomationSourceArray) ToAutomationSourceArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationSourceArrayOutput)
 }
 
-func (i AutomationSourceArray) ToOutput(ctx context.Context) pulumix.Output[[]AutomationSource] {
-	return pulumix.Output[[]AutomationSource]{
-		OutputState: i.ToAutomationSourceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutomationSourceOutput struct{ *pulumi.OutputState }
 
 func (AutomationSourceOutput) ElementType() reflect.Type {
@@ -451,12 +390,6 @@ func (o AutomationSourceOutput) ToAutomationSourceOutput() AutomationSourceOutpu
 
 func (o AutomationSourceOutput) ToAutomationSourceOutputWithContext(ctx context.Context) AutomationSourceOutput {
 	return o
-}
-
-func (o AutomationSourceOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationSource] {
-	return pulumix.Output[AutomationSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `AssessmentsSnapshot`, `RegulatoryComplianceAssessment`, `RegulatoryComplianceAssessmentSnapshot`, `SecureScoreControls`, `SecureScoreControlsSnapshot`, `SecureScores`, `SecureScoresSnapshot`, `SubAssessments` or `SubAssessmentsSnapshot`. Note. assessments are also referred to as recommendations
@@ -483,12 +416,6 @@ func (o AutomationSourceArrayOutput) ToAutomationSourceArrayOutput() AutomationS
 
 func (o AutomationSourceArrayOutput) ToAutomationSourceArrayOutputWithContext(ctx context.Context) AutomationSourceArrayOutput {
 	return o
-}
-
-func (o AutomationSourceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AutomationSource] {
-	return pulumix.Output[[]AutomationSource]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationSourceArrayOutput) Index(i pulumi.IntInput) AutomationSourceOutput {
@@ -534,12 +461,6 @@ func (i AutomationSourceRuleSetArgs) ToAutomationSourceRuleSetOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationSourceRuleSetOutput)
 }
 
-func (i AutomationSourceRuleSetArgs) ToOutput(ctx context.Context) pulumix.Output[AutomationSourceRuleSet] {
-	return pulumix.Output[AutomationSourceRuleSet]{
-		OutputState: i.ToAutomationSourceRuleSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutomationSourceRuleSetArrayInput is an input type that accepts AutomationSourceRuleSetArray and AutomationSourceRuleSetArrayOutput values.
 // You can construct a concrete instance of `AutomationSourceRuleSetArrayInput` via:
 //
@@ -565,12 +486,6 @@ func (i AutomationSourceRuleSetArray) ToAutomationSourceRuleSetArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationSourceRuleSetArrayOutput)
 }
 
-func (i AutomationSourceRuleSetArray) ToOutput(ctx context.Context) pulumix.Output[[]AutomationSourceRuleSet] {
-	return pulumix.Output[[]AutomationSourceRuleSet]{
-		OutputState: i.ToAutomationSourceRuleSetArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutomationSourceRuleSetOutput struct{ *pulumi.OutputState }
 
 func (AutomationSourceRuleSetOutput) ElementType() reflect.Type {
@@ -583,12 +498,6 @@ func (o AutomationSourceRuleSetOutput) ToAutomationSourceRuleSetOutput() Automat
 
 func (o AutomationSourceRuleSetOutput) ToAutomationSourceRuleSetOutputWithContext(ctx context.Context) AutomationSourceRuleSetOutput {
 	return o
-}
-
-func (o AutomationSourceRuleSetOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationSourceRuleSet] {
-	return pulumix.Output[AutomationSourceRuleSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `rule` blocks as defined below.
@@ -610,12 +519,6 @@ func (o AutomationSourceRuleSetArrayOutput) ToAutomationSourceRuleSetArrayOutput
 
 func (o AutomationSourceRuleSetArrayOutput) ToAutomationSourceRuleSetArrayOutputWithContext(ctx context.Context) AutomationSourceRuleSetArrayOutput {
 	return o
-}
-
-func (o AutomationSourceRuleSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AutomationSourceRuleSet] {
-	return pulumix.Output[[]AutomationSourceRuleSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationSourceRuleSetArrayOutput) Index(i pulumi.IntInput) AutomationSourceRuleSetOutput {
@@ -673,12 +576,6 @@ func (i AutomationSourceRuleSetRuleArgs) ToAutomationSourceRuleSetRuleOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationSourceRuleSetRuleOutput)
 }
 
-func (i AutomationSourceRuleSetRuleArgs) ToOutput(ctx context.Context) pulumix.Output[AutomationSourceRuleSetRule] {
-	return pulumix.Output[AutomationSourceRuleSetRule]{
-		OutputState: i.ToAutomationSourceRuleSetRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutomationSourceRuleSetRuleArrayInput is an input type that accepts AutomationSourceRuleSetRuleArray and AutomationSourceRuleSetRuleArrayOutput values.
 // You can construct a concrete instance of `AutomationSourceRuleSetRuleArrayInput` via:
 //
@@ -704,12 +601,6 @@ func (i AutomationSourceRuleSetRuleArray) ToAutomationSourceRuleSetRuleArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(AutomationSourceRuleSetRuleArrayOutput)
 }
 
-func (i AutomationSourceRuleSetRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]AutomationSourceRuleSetRule] {
-	return pulumix.Output[[]AutomationSourceRuleSetRule]{
-		OutputState: i.ToAutomationSourceRuleSetRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutomationSourceRuleSetRuleOutput struct{ *pulumi.OutputState }
 
 func (AutomationSourceRuleSetRuleOutput) ElementType() reflect.Type {
@@ -722,12 +613,6 @@ func (o AutomationSourceRuleSetRuleOutput) ToAutomationSourceRuleSetRuleOutput()
 
 func (o AutomationSourceRuleSetRuleOutput) ToAutomationSourceRuleSetRuleOutputWithContext(ctx context.Context) AutomationSourceRuleSetRuleOutput {
 	return o
-}
-
-func (o AutomationSourceRuleSetRuleOutput) ToOutput(ctx context.Context) pulumix.Output[AutomationSourceRuleSetRule] {
-	return pulumix.Output[AutomationSourceRuleSetRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A value that will be compared with the value in `propertyPath`.
@@ -764,12 +649,6 @@ func (o AutomationSourceRuleSetRuleArrayOutput) ToAutomationSourceRuleSetRuleArr
 
 func (o AutomationSourceRuleSetRuleArrayOutput) ToAutomationSourceRuleSetRuleArrayOutputWithContext(ctx context.Context) AutomationSourceRuleSetRuleArrayOutput {
 	return o
-}
-
-func (o AutomationSourceRuleSetRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]AutomationSourceRuleSetRule] {
-	return pulumix.Output[[]AutomationSourceRuleSetRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutomationSourceRuleSetRuleArrayOutput) Index(i pulumi.IntInput) AutomationSourceRuleSetRuleOutput {
@@ -823,12 +702,6 @@ func (i SubscriptionPricingExtensionArgs) ToSubscriptionPricingExtensionOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPricingExtensionOutput)
 }
 
-func (i SubscriptionPricingExtensionArgs) ToOutput(ctx context.Context) pulumix.Output[SubscriptionPricingExtension] {
-	return pulumix.Output[SubscriptionPricingExtension]{
-		OutputState: i.ToSubscriptionPricingExtensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SubscriptionPricingExtensionArrayInput is an input type that accepts SubscriptionPricingExtensionArray and SubscriptionPricingExtensionArrayOutput values.
 // You can construct a concrete instance of `SubscriptionPricingExtensionArrayInput` via:
 //
@@ -854,12 +727,6 @@ func (i SubscriptionPricingExtensionArray) ToSubscriptionPricingExtensionArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPricingExtensionArrayOutput)
 }
 
-func (i SubscriptionPricingExtensionArray) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionPricingExtension] {
-	return pulumix.Output[[]SubscriptionPricingExtension]{
-		OutputState: i.ToSubscriptionPricingExtensionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SubscriptionPricingExtensionOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionPricingExtensionOutput) ElementType() reflect.Type {
@@ -872,12 +739,6 @@ func (o SubscriptionPricingExtensionOutput) ToSubscriptionPricingExtensionOutput
 
 func (o SubscriptionPricingExtensionOutput) ToSubscriptionPricingExtensionOutputWithContext(ctx context.Context) SubscriptionPricingExtensionOutput {
 	return o
-}
-
-func (o SubscriptionPricingExtensionOutput) ToOutput(ctx context.Context) pulumix.Output[SubscriptionPricingExtension] {
-	return pulumix.Output[SubscriptionPricingExtension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Key/Value pairs that are required for some extensions.
@@ -906,12 +767,6 @@ func (o SubscriptionPricingExtensionArrayOutput) ToSubscriptionPricingExtensionA
 
 func (o SubscriptionPricingExtensionArrayOutput) ToSubscriptionPricingExtensionArrayOutputWithContext(ctx context.Context) SubscriptionPricingExtensionArrayOutput {
 	return o
-}
-
-func (o SubscriptionPricingExtensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SubscriptionPricingExtension] {
-	return pulumix.Output[[]SubscriptionPricingExtension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SubscriptionPricingExtensionArrayOutput) Index(i pulumi.IntInput) SubscriptionPricingExtensionOutput {

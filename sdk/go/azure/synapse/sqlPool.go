@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Synapse SQL Pool.
@@ -280,12 +279,6 @@ func (i *SqlPool) ToSqlPoolOutputWithContext(ctx context.Context) SqlPoolOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolOutput)
 }
 
-func (i *SqlPool) ToOutput(ctx context.Context) pulumix.Output[*SqlPool] {
-	return pulumix.Output[*SqlPool]{
-		OutputState: i.ToSqlPoolOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SqlPoolArrayInput is an input type that accepts SqlPoolArray and SqlPoolArrayOutput values.
 // You can construct a concrete instance of `SqlPoolArrayInput` via:
 //
@@ -309,12 +302,6 @@ func (i SqlPoolArray) ToSqlPoolArrayOutput() SqlPoolArrayOutput {
 
 func (i SqlPoolArray) ToSqlPoolArrayOutputWithContext(ctx context.Context) SqlPoolArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolArrayOutput)
-}
-
-func (i SqlPoolArray) ToOutput(ctx context.Context) pulumix.Output[[]*SqlPool] {
-	return pulumix.Output[[]*SqlPool]{
-		OutputState: i.ToSqlPoolArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SqlPoolMapInput is an input type that accepts SqlPoolMap and SqlPoolMapOutput values.
@@ -342,12 +329,6 @@ func (i SqlPoolMap) ToSqlPoolMapOutputWithContext(ctx context.Context) SqlPoolMa
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolMapOutput)
 }
 
-func (i SqlPoolMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlPool] {
-	return pulumix.Output[map[string]*SqlPool]{
-		OutputState: i.ToSqlPoolMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SqlPoolOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolOutput) ElementType() reflect.Type {
@@ -360,12 +341,6 @@ func (o SqlPoolOutput) ToSqlPoolOutput() SqlPoolOutput {
 
 func (o SqlPoolOutput) ToSqlPoolOutputWithContext(ctx context.Context) SqlPoolOutput {
 	return o
-}
-
-func (o SqlPoolOutput) ToOutput(ctx context.Context) pulumix.Output[*SqlPool] {
-	return pulumix.Output[*SqlPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the collation to use with this pool, only applicable when `createMode` is set to `Default`. Azure default is `SQL_LATIN1_GENERAL_CP1_CI_AS`. Changing this forces a new Synapse SQL Pool to be created.
@@ -437,12 +412,6 @@ func (o SqlPoolArrayOutput) ToSqlPoolArrayOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o SqlPoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SqlPool] {
-	return pulumix.Output[[]*SqlPool]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SqlPoolArrayOutput) Index(i pulumi.IntInput) SqlPoolOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SqlPool {
 		return vs[0].([]*SqlPool)[vs[1].(int)]
@@ -461,12 +430,6 @@ func (o SqlPoolMapOutput) ToSqlPoolMapOutput() SqlPoolMapOutput {
 
 func (o SqlPoolMapOutput) ToSqlPoolMapOutputWithContext(ctx context.Context) SqlPoolMapOutput {
 	return o
-}
-
-func (o SqlPoolMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlPool] {
-	return pulumix.Output[map[string]*SqlPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SqlPoolMapOutput) MapIndex(k pulumi.StringInput) SqlPoolOutput {

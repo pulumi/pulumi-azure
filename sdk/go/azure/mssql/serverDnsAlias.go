@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a MS SQL Server DNS Alias.
@@ -170,12 +169,6 @@ func (i *ServerDnsAlias) ToServerDnsAliasOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(ServerDnsAliasOutput)
 }
 
-func (i *ServerDnsAlias) ToOutput(ctx context.Context) pulumix.Output[*ServerDnsAlias] {
-	return pulumix.Output[*ServerDnsAlias]{
-		OutputState: i.ToServerDnsAliasOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServerDnsAliasArrayInput is an input type that accepts ServerDnsAliasArray and ServerDnsAliasArrayOutput values.
 // You can construct a concrete instance of `ServerDnsAliasArrayInput` via:
 //
@@ -199,12 +192,6 @@ func (i ServerDnsAliasArray) ToServerDnsAliasArrayOutput() ServerDnsAliasArrayOu
 
 func (i ServerDnsAliasArray) ToServerDnsAliasArrayOutputWithContext(ctx context.Context) ServerDnsAliasArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServerDnsAliasArrayOutput)
-}
-
-func (i ServerDnsAliasArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServerDnsAlias] {
-	return pulumix.Output[[]*ServerDnsAlias]{
-		OutputState: i.ToServerDnsAliasArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServerDnsAliasMapInput is an input type that accepts ServerDnsAliasMap and ServerDnsAliasMapOutput values.
@@ -232,12 +219,6 @@ func (i ServerDnsAliasMap) ToServerDnsAliasMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ServerDnsAliasMapOutput)
 }
 
-func (i ServerDnsAliasMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerDnsAlias] {
-	return pulumix.Output[map[string]*ServerDnsAlias]{
-		OutputState: i.ToServerDnsAliasMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerDnsAliasOutput struct{ *pulumi.OutputState }
 
 func (ServerDnsAliasOutput) ElementType() reflect.Type {
@@ -250,12 +231,6 @@ func (o ServerDnsAliasOutput) ToServerDnsAliasOutput() ServerDnsAliasOutput {
 
 func (o ServerDnsAliasOutput) ToServerDnsAliasOutputWithContext(ctx context.Context) ServerDnsAliasOutput {
 	return o
-}
-
-func (o ServerDnsAliasOutput) ToOutput(ctx context.Context) pulumix.Output[*ServerDnsAlias] {
-	return pulumix.Output[*ServerDnsAlias]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The fully qualified DNS record for alias.
@@ -287,12 +262,6 @@ func (o ServerDnsAliasArrayOutput) ToServerDnsAliasArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o ServerDnsAliasArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServerDnsAlias] {
-	return pulumix.Output[[]*ServerDnsAlias]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServerDnsAliasArrayOutput) Index(i pulumi.IntInput) ServerDnsAliasOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServerDnsAlias {
 		return vs[0].([]*ServerDnsAlias)[vs[1].(int)]
@@ -311,12 +280,6 @@ func (o ServerDnsAliasMapOutput) ToServerDnsAliasMapOutput() ServerDnsAliasMapOu
 
 func (o ServerDnsAliasMapOutput) ToServerDnsAliasMapOutputWithContext(ctx context.Context) ServerDnsAliasMapOutput {
 	return o
-}
-
-func (o ServerDnsAliasMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServerDnsAlias] {
-	return pulumix.Output[map[string]*ServerDnsAlias]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerDnsAliasMapOutput) MapIndex(k pulumi.StringInput) ServerDnsAliasOutput {

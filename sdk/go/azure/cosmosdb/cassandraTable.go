@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Cassandra Table within a Cosmos DB Cassandra Keyspace.
@@ -254,12 +253,6 @@ func (i *CassandraTable) ToCassandraTableOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableOutput)
 }
 
-func (i *CassandraTable) ToOutput(ctx context.Context) pulumix.Output[*CassandraTable] {
-	return pulumix.Output[*CassandraTable]{
-		OutputState: i.ToCassandraTableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CassandraTableArrayInput is an input type that accepts CassandraTableArray and CassandraTableArrayOutput values.
 // You can construct a concrete instance of `CassandraTableArrayInput` via:
 //
@@ -283,12 +276,6 @@ func (i CassandraTableArray) ToCassandraTableArrayOutput() CassandraTableArrayOu
 
 func (i CassandraTableArray) ToCassandraTableArrayOutputWithContext(ctx context.Context) CassandraTableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableArrayOutput)
-}
-
-func (i CassandraTableArray) ToOutput(ctx context.Context) pulumix.Output[[]*CassandraTable] {
-	return pulumix.Output[[]*CassandraTable]{
-		OutputState: i.ToCassandraTableArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CassandraTableMapInput is an input type that accepts CassandraTableMap and CassandraTableMapOutput values.
@@ -316,12 +303,6 @@ func (i CassandraTableMap) ToCassandraTableMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraTableMapOutput)
 }
 
-func (i CassandraTableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CassandraTable] {
-	return pulumix.Output[map[string]*CassandraTable]{
-		OutputState: i.ToCassandraTableMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CassandraTableOutput struct{ *pulumi.OutputState }
 
 func (CassandraTableOutput) ElementType() reflect.Type {
@@ -334,12 +315,6 @@ func (o CassandraTableOutput) ToCassandraTableOutput() CassandraTableOutput {
 
 func (o CassandraTableOutput) ToCassandraTableOutputWithContext(ctx context.Context) CassandraTableOutput {
 	return o
-}
-
-func (o CassandraTableOutput) ToOutput(ctx context.Context) pulumix.Output[*CassandraTable] {
-	return pulumix.Output[*CassandraTable]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created.
@@ -391,12 +366,6 @@ func (o CassandraTableArrayOutput) ToCassandraTableArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o CassandraTableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CassandraTable] {
-	return pulumix.Output[[]*CassandraTable]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CassandraTableArrayOutput) Index(i pulumi.IntInput) CassandraTableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CassandraTable {
 		return vs[0].([]*CassandraTable)[vs[1].(int)]
@@ -415,12 +384,6 @@ func (o CassandraTableMapOutput) ToCassandraTableMapOutput() CassandraTableMapOu
 
 func (o CassandraTableMapOutput) ToCassandraTableMapOutputWithContext(ctx context.Context) CassandraTableMapOutput {
 	return o
-}
-
-func (o CassandraTableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CassandraTable] {
-	return pulumix.Output[map[string]*CassandraTable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CassandraTableMapOutput) MapIndex(k pulumi.StringInput) CassandraTableOutput {

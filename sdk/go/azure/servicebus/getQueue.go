@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Service Bus Queue.
@@ -159,12 +158,6 @@ func (o LookupQueueResultOutput) ToLookupQueueResultOutput() LookupQueueResultOu
 
 func (o LookupQueueResultOutput) ToLookupQueueResultOutputWithContext(ctx context.Context) LookupQueueResultOutput {
 	return o
-}
-
-func (o LookupQueueResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupQueueResult] {
-	return pulumix.Output[LookupQueueResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ISO 8601 timespan duration of the idle interval after which the Queue is automatically deleted, minimum of 5 minutes.

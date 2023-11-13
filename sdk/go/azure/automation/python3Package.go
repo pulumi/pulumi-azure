@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Automation Python3 Package.
@@ -236,12 +235,6 @@ func (i *Python3Package) ToPython3PackageOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(Python3PackageOutput)
 }
 
-func (i *Python3Package) ToOutput(ctx context.Context) pulumix.Output[*Python3Package] {
-	return pulumix.Output[*Python3Package]{
-		OutputState: i.ToPython3PackageOutputWithContext(ctx).OutputState,
-	}
-}
-
 // Python3PackageArrayInput is an input type that accepts Python3PackageArray and Python3PackageArrayOutput values.
 // You can construct a concrete instance of `Python3PackageArrayInput` via:
 //
@@ -265,12 +258,6 @@ func (i Python3PackageArray) ToPython3PackageArrayOutput() Python3PackageArrayOu
 
 func (i Python3PackageArray) ToPython3PackageArrayOutputWithContext(ctx context.Context) Python3PackageArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(Python3PackageArrayOutput)
-}
-
-func (i Python3PackageArray) ToOutput(ctx context.Context) pulumix.Output[[]*Python3Package] {
-	return pulumix.Output[[]*Python3Package]{
-		OutputState: i.ToPython3PackageArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Python3PackageMapInput is an input type that accepts Python3PackageMap and Python3PackageMapOutput values.
@@ -298,12 +285,6 @@ func (i Python3PackageMap) ToPython3PackageMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(Python3PackageMapOutput)
 }
 
-func (i Python3PackageMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Python3Package] {
-	return pulumix.Output[map[string]*Python3Package]{
-		OutputState: i.ToPython3PackageMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type Python3PackageOutput struct{ *pulumi.OutputState }
 
 func (Python3PackageOutput) ElementType() reflect.Type {
@@ -316,12 +297,6 @@ func (o Python3PackageOutput) ToPython3PackageOutput() Python3PackageOutput {
 
 func (o Python3PackageOutput) ToPython3PackageOutputWithContext(ctx context.Context) Python3PackageOutput {
 	return o
-}
-
-func (o Python3PackageOutput) ToOutput(ctx context.Context) pulumix.Output[*Python3Package] {
-	return pulumix.Output[*Python3Package]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the automation account in which the Python3 Package is created. Changing this forces a new resource to be created.
@@ -378,12 +353,6 @@ func (o Python3PackageArrayOutput) ToPython3PackageArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o Python3PackageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Python3Package] {
-	return pulumix.Output[[]*Python3Package]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o Python3PackageArrayOutput) Index(i pulumi.IntInput) Python3PackageOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Python3Package {
 		return vs[0].([]*Python3Package)[vs[1].(int)]
@@ -402,12 +371,6 @@ func (o Python3PackageMapOutput) ToPython3PackageMapOutput() Python3PackageMapOu
 
 func (o Python3PackageMapOutput) ToPython3PackageMapOutputWithContext(ctx context.Context) Python3PackageMapOutput {
 	return o
-}
-
-func (o Python3PackageMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Python3Package] {
-	return pulumix.Output[map[string]*Python3Package]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o Python3PackageMapOutput) MapIndex(k pulumi.StringInput) Python3PackageOutput {

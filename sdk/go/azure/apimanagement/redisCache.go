@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a API Management Redis Cache.
@@ -232,12 +231,6 @@ func (i *RedisCache) ToRedisCacheOutputWithContext(ctx context.Context) RedisCac
 	return pulumi.ToOutputWithContext(ctx, i).(RedisCacheOutput)
 }
 
-func (i *RedisCache) ToOutput(ctx context.Context) pulumix.Output[*RedisCache] {
-	return pulumix.Output[*RedisCache]{
-		OutputState: i.ToRedisCacheOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RedisCacheArrayInput is an input type that accepts RedisCacheArray and RedisCacheArrayOutput values.
 // You can construct a concrete instance of `RedisCacheArrayInput` via:
 //
@@ -261,12 +254,6 @@ func (i RedisCacheArray) ToRedisCacheArrayOutput() RedisCacheArrayOutput {
 
 func (i RedisCacheArray) ToRedisCacheArrayOutputWithContext(ctx context.Context) RedisCacheArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RedisCacheArrayOutput)
-}
-
-func (i RedisCacheArray) ToOutput(ctx context.Context) pulumix.Output[[]*RedisCache] {
-	return pulumix.Output[[]*RedisCache]{
-		OutputState: i.ToRedisCacheArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RedisCacheMapInput is an input type that accepts RedisCacheMap and RedisCacheMapOutput values.
@@ -294,12 +281,6 @@ func (i RedisCacheMap) ToRedisCacheMapOutputWithContext(ctx context.Context) Red
 	return pulumi.ToOutputWithContext(ctx, i).(RedisCacheMapOutput)
 }
 
-func (i RedisCacheMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RedisCache] {
-	return pulumix.Output[map[string]*RedisCache]{
-		OutputState: i.ToRedisCacheMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RedisCacheOutput struct{ *pulumi.OutputState }
 
 func (RedisCacheOutput) ElementType() reflect.Type {
@@ -312,12 +293,6 @@ func (o RedisCacheOutput) ToRedisCacheOutput() RedisCacheOutput {
 
 func (o RedisCacheOutput) ToRedisCacheOutputWithContext(ctx context.Context) RedisCacheOutput {
 	return o
-}
-
-func (o RedisCacheOutput) ToOutput(ctx context.Context) pulumix.Output[*RedisCache] {
-	return pulumix.Output[*RedisCache]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The resource ID of the API Management Service from which to create this external cache. Changing this forces a new API Management Redis Cache to be created.
@@ -364,12 +339,6 @@ func (o RedisCacheArrayOutput) ToRedisCacheArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o RedisCacheArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RedisCache] {
-	return pulumix.Output[[]*RedisCache]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RedisCacheArrayOutput) Index(i pulumi.IntInput) RedisCacheOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RedisCache {
 		return vs[0].([]*RedisCache)[vs[1].(int)]
@@ -388,12 +357,6 @@ func (o RedisCacheMapOutput) ToRedisCacheMapOutput() RedisCacheMapOutput {
 
 func (o RedisCacheMapOutput) ToRedisCacheMapOutputWithContext(ctx context.Context) RedisCacheMapOutput {
 	return o
-}
-
-func (o RedisCacheMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RedisCache] {
-	return pulumix.Output[map[string]*RedisCache]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RedisCacheMapOutput) MapIndex(k pulumi.StringInput) RedisCacheOutput {

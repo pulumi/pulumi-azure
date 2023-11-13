@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Network Manager Management Group Connection which may cross tenants.
@@ -237,12 +236,6 @@ func (i *NetworkManagerManagementGroupConnection) ToNetworkManagerManagementGrou
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerManagementGroupConnectionOutput)
 }
 
-func (i *NetworkManagerManagementGroupConnection) ToOutput(ctx context.Context) pulumix.Output[*NetworkManagerManagementGroupConnection] {
-	return pulumix.Output[*NetworkManagerManagementGroupConnection]{
-		OutputState: i.ToNetworkManagerManagementGroupConnectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkManagerManagementGroupConnectionArrayInput is an input type that accepts NetworkManagerManagementGroupConnectionArray and NetworkManagerManagementGroupConnectionArrayOutput values.
 // You can construct a concrete instance of `NetworkManagerManagementGroupConnectionArrayInput` via:
 //
@@ -266,12 +259,6 @@ func (i NetworkManagerManagementGroupConnectionArray) ToNetworkManagerManagement
 
 func (i NetworkManagerManagementGroupConnectionArray) ToNetworkManagerManagementGroupConnectionArrayOutputWithContext(ctx context.Context) NetworkManagerManagementGroupConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerManagementGroupConnectionArrayOutput)
-}
-
-func (i NetworkManagerManagementGroupConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkManagerManagementGroupConnection] {
-	return pulumix.Output[[]*NetworkManagerManagementGroupConnection]{
-		OutputState: i.ToNetworkManagerManagementGroupConnectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NetworkManagerManagementGroupConnectionMapInput is an input type that accepts NetworkManagerManagementGroupConnectionMap and NetworkManagerManagementGroupConnectionMapOutput values.
@@ -299,12 +286,6 @@ func (i NetworkManagerManagementGroupConnectionMap) ToNetworkManagerManagementGr
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagerManagementGroupConnectionMapOutput)
 }
 
-func (i NetworkManagerManagementGroupConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkManagerManagementGroupConnection] {
-	return pulumix.Output[map[string]*NetworkManagerManagementGroupConnection]{
-		OutputState: i.ToNetworkManagerManagementGroupConnectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkManagerManagementGroupConnectionOutput struct{ *pulumi.OutputState }
 
 func (NetworkManagerManagementGroupConnectionOutput) ElementType() reflect.Type {
@@ -317,12 +298,6 @@ func (o NetworkManagerManagementGroupConnectionOutput) ToNetworkManagerManagemen
 
 func (o NetworkManagerManagementGroupConnectionOutput) ToNetworkManagerManagementGroupConnectionOutputWithContext(ctx context.Context) NetworkManagerManagementGroupConnectionOutput {
 	return o
-}
-
-func (o NetworkManagerManagementGroupConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkManagerManagementGroupConnection] {
-	return pulumix.Output[*NetworkManagerManagementGroupConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Connection state of the Network Manager Management Group Connection.
@@ -364,12 +339,6 @@ func (o NetworkManagerManagementGroupConnectionArrayOutput) ToNetworkManagerMana
 	return o
 }
 
-func (o NetworkManagerManagementGroupConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkManagerManagementGroupConnection] {
-	return pulumix.Output[[]*NetworkManagerManagementGroupConnection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkManagerManagementGroupConnectionArrayOutput) Index(i pulumi.IntInput) NetworkManagerManagementGroupConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkManagerManagementGroupConnection {
 		return vs[0].([]*NetworkManagerManagementGroupConnection)[vs[1].(int)]
@@ -388,12 +357,6 @@ func (o NetworkManagerManagementGroupConnectionMapOutput) ToNetworkManagerManage
 
 func (o NetworkManagerManagementGroupConnectionMapOutput) ToNetworkManagerManagementGroupConnectionMapOutputWithContext(ctx context.Context) NetworkManagerManagementGroupConnectionMapOutput {
 	return o
-}
-
-func (o NetworkManagerManagementGroupConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkManagerManagementGroupConnection] {
-	return pulumix.Output[map[string]*NetworkManagerManagementGroupConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkManagerManagementGroupConnectionMapOutput) MapIndex(k pulumi.StringInput) NetworkManagerManagementGroupConnectionOutput {

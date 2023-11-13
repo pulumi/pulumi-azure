@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Virtual Network.
@@ -121,12 +120,6 @@ func (o LookupVirtualNetworkResultOutput) ToLookupVirtualNetworkResultOutput() L
 
 func (o LookupVirtualNetworkResultOutput) ToLookupVirtualNetworkResultOutputWithContext(ctx context.Context) LookupVirtualNetworkResultOutput {
 	return o
-}
-
-func (o LookupVirtualNetworkResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVirtualNetworkResult] {
-	return pulumix.Output[LookupVirtualNetworkResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The list of address spaces used by the virtual network.

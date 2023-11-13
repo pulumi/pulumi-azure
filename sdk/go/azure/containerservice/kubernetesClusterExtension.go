@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Kubernetes Cluster Extension.
@@ -266,12 +265,6 @@ func (i *KubernetesClusterExtension) ToKubernetesClusterExtensionOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterExtensionOutput)
 }
 
-func (i *KubernetesClusterExtension) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterExtension] {
-	return pulumix.Output[*KubernetesClusterExtension]{
-		OutputState: i.ToKubernetesClusterExtensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // KubernetesClusterExtensionArrayInput is an input type that accepts KubernetesClusterExtensionArray and KubernetesClusterExtensionArrayOutput values.
 // You can construct a concrete instance of `KubernetesClusterExtensionArrayInput` via:
 //
@@ -295,12 +288,6 @@ func (i KubernetesClusterExtensionArray) ToKubernetesClusterExtensionArrayOutput
 
 func (i KubernetesClusterExtensionArray) ToKubernetesClusterExtensionArrayOutputWithContext(ctx context.Context) KubernetesClusterExtensionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterExtensionArrayOutput)
-}
-
-func (i KubernetesClusterExtensionArray) ToOutput(ctx context.Context) pulumix.Output[[]*KubernetesClusterExtension] {
-	return pulumix.Output[[]*KubernetesClusterExtension]{
-		OutputState: i.ToKubernetesClusterExtensionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // KubernetesClusterExtensionMapInput is an input type that accepts KubernetesClusterExtensionMap and KubernetesClusterExtensionMapOutput values.
@@ -328,12 +315,6 @@ func (i KubernetesClusterExtensionMap) ToKubernetesClusterExtensionMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterExtensionMapOutput)
 }
 
-func (i KubernetesClusterExtensionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*KubernetesClusterExtension] {
-	return pulumix.Output[map[string]*KubernetesClusterExtension]{
-		OutputState: i.ToKubernetesClusterExtensionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type KubernetesClusterExtensionOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterExtensionOutput) ElementType() reflect.Type {
@@ -346,12 +327,6 @@ func (o KubernetesClusterExtensionOutput) ToKubernetesClusterExtensionOutput() K
 
 func (o KubernetesClusterExtensionOutput) ToKubernetesClusterExtensionOutputWithContext(ctx context.Context) KubernetesClusterExtensionOutput {
 	return o
-}
-
-func (o KubernetesClusterExtensionOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesClusterExtension] {
-	return pulumix.Output[*KubernetesClusterExtension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `aksAssignedIdentity` block as defined below.
@@ -430,12 +405,6 @@ func (o KubernetesClusterExtensionArrayOutput) ToKubernetesClusterExtensionArray
 	return o
 }
 
-func (o KubernetesClusterExtensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*KubernetesClusterExtension] {
-	return pulumix.Output[[]*KubernetesClusterExtension]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o KubernetesClusterExtensionArrayOutput) Index(i pulumi.IntInput) KubernetesClusterExtensionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KubernetesClusterExtension {
 		return vs[0].([]*KubernetesClusterExtension)[vs[1].(int)]
@@ -454,12 +423,6 @@ func (o KubernetesClusterExtensionMapOutput) ToKubernetesClusterExtensionMapOutp
 
 func (o KubernetesClusterExtensionMapOutput) ToKubernetesClusterExtensionMapOutputWithContext(ctx context.Context) KubernetesClusterExtensionMapOutput {
 	return o
-}
-
-func (o KubernetesClusterExtensionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*KubernetesClusterExtension] {
-	return pulumix.Output[map[string]*KubernetesClusterExtension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o KubernetesClusterExtensionMapOutput) MapIndex(k pulumi.StringInput) KubernetesClusterExtensionOutput {

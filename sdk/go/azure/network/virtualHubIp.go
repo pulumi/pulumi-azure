@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Virtual Hub IP. This resource is also known as a Route Server.
@@ -243,12 +242,6 @@ func (i *VirtualHubIp) ToVirtualHubIpOutputWithContext(ctx context.Context) Virt
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubIpOutput)
 }
 
-func (i *VirtualHubIp) ToOutput(ctx context.Context) pulumix.Output[*VirtualHubIp] {
-	return pulumix.Output[*VirtualHubIp]{
-		OutputState: i.ToVirtualHubIpOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualHubIpArrayInput is an input type that accepts VirtualHubIpArray and VirtualHubIpArrayOutput values.
 // You can construct a concrete instance of `VirtualHubIpArrayInput` via:
 //
@@ -272,12 +265,6 @@ func (i VirtualHubIpArray) ToVirtualHubIpArrayOutput() VirtualHubIpArrayOutput {
 
 func (i VirtualHubIpArray) ToVirtualHubIpArrayOutputWithContext(ctx context.Context) VirtualHubIpArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubIpArrayOutput)
-}
-
-func (i VirtualHubIpArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualHubIp] {
-	return pulumix.Output[[]*VirtualHubIp]{
-		OutputState: i.ToVirtualHubIpArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualHubIpMapInput is an input type that accepts VirtualHubIpMap and VirtualHubIpMapOutput values.
@@ -305,12 +292,6 @@ func (i VirtualHubIpMap) ToVirtualHubIpMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualHubIpMapOutput)
 }
 
-func (i VirtualHubIpMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualHubIp] {
-	return pulumix.Output[map[string]*VirtualHubIp]{
-		OutputState: i.ToVirtualHubIpMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualHubIpOutput struct{ *pulumi.OutputState }
 
 func (VirtualHubIpOutput) ElementType() reflect.Type {
@@ -323,12 +304,6 @@ func (o VirtualHubIpOutput) ToVirtualHubIpOutput() VirtualHubIpOutput {
 
 func (o VirtualHubIpOutput) ToVirtualHubIpOutputWithContext(ctx context.Context) VirtualHubIpOutput {
 	return o
-}
-
-func (o VirtualHubIpOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualHubIp] {
-	return pulumix.Output[*VirtualHubIp]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name which should be used for this Virtual Hub IP. Changing this forces a new resource to be created.
@@ -375,12 +350,6 @@ func (o VirtualHubIpArrayOutput) ToVirtualHubIpArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o VirtualHubIpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualHubIp] {
-	return pulumix.Output[[]*VirtualHubIp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualHubIpArrayOutput) Index(i pulumi.IntInput) VirtualHubIpOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualHubIp {
 		return vs[0].([]*VirtualHubIp)[vs[1].(int)]
@@ -399,12 +368,6 @@ func (o VirtualHubIpMapOutput) ToVirtualHubIpMapOutput() VirtualHubIpMapOutput {
 
 func (o VirtualHubIpMapOutput) ToVirtualHubIpMapOutputWithContext(ctx context.Context) VirtualHubIpMapOutput {
 	return o
-}
-
-func (o VirtualHubIpMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualHubIp] {
-	return pulumix.Output[map[string]*VirtualHubIp]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualHubIpMapOutput) MapIndex(k pulumi.StringInput) VirtualHubIpOutput {

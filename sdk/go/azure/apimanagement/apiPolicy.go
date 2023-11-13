@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an API Management API Policy
@@ -202,12 +201,6 @@ func (i *ApiPolicy) ToApiPolicyOutputWithContext(ctx context.Context) ApiPolicyO
 	return pulumi.ToOutputWithContext(ctx, i).(ApiPolicyOutput)
 }
 
-func (i *ApiPolicy) ToOutput(ctx context.Context) pulumix.Output[*ApiPolicy] {
-	return pulumix.Output[*ApiPolicy]{
-		OutputState: i.ToApiPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApiPolicyArrayInput is an input type that accepts ApiPolicyArray and ApiPolicyArrayOutput values.
 // You can construct a concrete instance of `ApiPolicyArrayInput` via:
 //
@@ -231,12 +224,6 @@ func (i ApiPolicyArray) ToApiPolicyArrayOutput() ApiPolicyArrayOutput {
 
 func (i ApiPolicyArray) ToApiPolicyArrayOutputWithContext(ctx context.Context) ApiPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ApiPolicyArrayOutput)
-}
-
-func (i ApiPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*ApiPolicy] {
-	return pulumix.Output[[]*ApiPolicy]{
-		OutputState: i.ToApiPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ApiPolicyMapInput is an input type that accepts ApiPolicyMap and ApiPolicyMapOutput values.
@@ -264,12 +251,6 @@ func (i ApiPolicyMap) ToApiPolicyMapOutputWithContext(ctx context.Context) ApiPo
 	return pulumi.ToOutputWithContext(ctx, i).(ApiPolicyMapOutput)
 }
 
-func (i ApiPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiPolicy] {
-	return pulumix.Output[map[string]*ApiPolicy]{
-		OutputState: i.ToApiPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApiPolicyOutput struct{ *pulumi.OutputState }
 
 func (ApiPolicyOutput) ElementType() reflect.Type {
@@ -282,12 +263,6 @@ func (o ApiPolicyOutput) ToApiPolicyOutput() ApiPolicyOutput {
 
 func (o ApiPolicyOutput) ToApiPolicyOutputWithContext(ctx context.Context) ApiPolicyOutput {
 	return o
-}
-
-func (o ApiPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*ApiPolicy] {
-	return pulumix.Output[*ApiPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the API Management Service. Changing this forces a new resource to be created.
@@ -329,12 +304,6 @@ func (o ApiPolicyArrayOutput) ToApiPolicyArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ApiPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ApiPolicy] {
-	return pulumix.Output[[]*ApiPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ApiPolicyArrayOutput) Index(i pulumi.IntInput) ApiPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ApiPolicy {
 		return vs[0].([]*ApiPolicy)[vs[1].(int)]
@@ -353,12 +322,6 @@ func (o ApiPolicyMapOutput) ToApiPolicyMapOutput() ApiPolicyMapOutput {
 
 func (o ApiPolicyMapOutput) ToApiPolicyMapOutputWithContext(ctx context.Context) ApiPolicyMapOutput {
 	return o
-}
-
-func (o ApiPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ApiPolicy] {
-	return pulumix.Output[map[string]*ApiPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApiPolicyMapOutput) MapIndex(k pulumi.StringInput) ApiPolicyOutput {

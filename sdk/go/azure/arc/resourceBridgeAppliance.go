@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Arc Resource Bridge Appliance.
@@ -232,12 +231,6 @@ func (i *ResourceBridgeAppliance) ToResourceBridgeApplianceOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceBridgeApplianceOutput)
 }
 
-func (i *ResourceBridgeAppliance) ToOutput(ctx context.Context) pulumix.Output[*ResourceBridgeAppliance] {
-	return pulumix.Output[*ResourceBridgeAppliance]{
-		OutputState: i.ToResourceBridgeApplianceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResourceBridgeApplianceArrayInput is an input type that accepts ResourceBridgeApplianceArray and ResourceBridgeApplianceArrayOutput values.
 // You can construct a concrete instance of `ResourceBridgeApplianceArrayInput` via:
 //
@@ -261,12 +254,6 @@ func (i ResourceBridgeApplianceArray) ToResourceBridgeApplianceArrayOutput() Res
 
 func (i ResourceBridgeApplianceArray) ToResourceBridgeApplianceArrayOutputWithContext(ctx context.Context) ResourceBridgeApplianceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceBridgeApplianceArrayOutput)
-}
-
-func (i ResourceBridgeApplianceArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceBridgeAppliance] {
-	return pulumix.Output[[]*ResourceBridgeAppliance]{
-		OutputState: i.ToResourceBridgeApplianceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ResourceBridgeApplianceMapInput is an input type that accepts ResourceBridgeApplianceMap and ResourceBridgeApplianceMapOutput values.
@@ -294,12 +281,6 @@ func (i ResourceBridgeApplianceMap) ToResourceBridgeApplianceMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceBridgeApplianceMapOutput)
 }
 
-func (i ResourceBridgeApplianceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceBridgeAppliance] {
-	return pulumix.Output[map[string]*ResourceBridgeAppliance]{
-		OutputState: i.ToResourceBridgeApplianceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceBridgeApplianceOutput struct{ *pulumi.OutputState }
 
 func (ResourceBridgeApplianceOutput) ElementType() reflect.Type {
@@ -312,12 +293,6 @@ func (o ResourceBridgeApplianceOutput) ToResourceBridgeApplianceOutput() Resourc
 
 func (o ResourceBridgeApplianceOutput) ToResourceBridgeApplianceOutputWithContext(ctx context.Context) ResourceBridgeApplianceOutput {
 	return o
-}
-
-func (o ResourceBridgeApplianceOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceBridgeAppliance] {
-	return pulumix.Output[*ResourceBridgeAppliance]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a supported Fabric/Infrastructure for this Arc Resource Bridge Appliance. The possible value is `AKSEdge`.
@@ -374,12 +349,6 @@ func (o ResourceBridgeApplianceArrayOutput) ToResourceBridgeApplianceArrayOutput
 	return o
 }
 
-func (o ResourceBridgeApplianceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceBridgeAppliance] {
-	return pulumix.Output[[]*ResourceBridgeAppliance]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceBridgeApplianceArrayOutput) Index(i pulumi.IntInput) ResourceBridgeApplianceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceBridgeAppliance {
 		return vs[0].([]*ResourceBridgeAppliance)[vs[1].(int)]
@@ -398,12 +367,6 @@ func (o ResourceBridgeApplianceMapOutput) ToResourceBridgeApplianceMapOutput() R
 
 func (o ResourceBridgeApplianceMapOutput) ToResourceBridgeApplianceMapOutputWithContext(ctx context.Context) ResourceBridgeApplianceMapOutput {
 	return o
-}
-
-func (o ResourceBridgeApplianceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceBridgeAppliance] {
-	return pulumix.Output[map[string]*ResourceBridgeAppliance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceBridgeApplianceMapOutput) MapIndex(k pulumi.StringInput) ResourceBridgeApplianceOutput {

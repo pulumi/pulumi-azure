@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing API Management Gateway.
@@ -116,12 +115,6 @@ func (o LookupGatewayResultOutput) ToLookupGatewayResultOutput() LookupGatewayRe
 
 func (o LookupGatewayResultOutput) ToLookupGatewayResultOutputWithContext(ctx context.Context) LookupGatewayResultOutput {
 	return o
-}
-
-func (o LookupGatewayResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGatewayResult] {
-	return pulumix.Output[LookupGatewayResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupGatewayResultOutput) ApiManagementId() pulumi.StringOutput {

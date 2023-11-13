@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Synapse Self-hosted Integration Runtime.
@@ -221,12 +220,6 @@ func (i *IntegrationRuntimeSelfHosted) ToIntegrationRuntimeSelfHostedOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSelfHostedOutput)
 }
 
-func (i *IntegrationRuntimeSelfHosted) ToOutput(ctx context.Context) pulumix.Output[*IntegrationRuntimeSelfHosted] {
-	return pulumix.Output[*IntegrationRuntimeSelfHosted]{
-		OutputState: i.ToIntegrationRuntimeSelfHostedOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationRuntimeSelfHostedArrayInput is an input type that accepts IntegrationRuntimeSelfHostedArray and IntegrationRuntimeSelfHostedArrayOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeSelfHostedArrayInput` via:
 //
@@ -250,12 +243,6 @@ func (i IntegrationRuntimeSelfHostedArray) ToIntegrationRuntimeSelfHostedArrayOu
 
 func (i IntegrationRuntimeSelfHostedArray) ToIntegrationRuntimeSelfHostedArrayOutputWithContext(ctx context.Context) IntegrationRuntimeSelfHostedArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSelfHostedArrayOutput)
-}
-
-func (i IntegrationRuntimeSelfHostedArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationRuntimeSelfHosted] {
-	return pulumix.Output[[]*IntegrationRuntimeSelfHosted]{
-		OutputState: i.ToIntegrationRuntimeSelfHostedArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IntegrationRuntimeSelfHostedMapInput is an input type that accepts IntegrationRuntimeSelfHostedMap and IntegrationRuntimeSelfHostedMapOutput values.
@@ -283,12 +270,6 @@ func (i IntegrationRuntimeSelfHostedMap) ToIntegrationRuntimeSelfHostedMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeSelfHostedMapOutput)
 }
 
-func (i IntegrationRuntimeSelfHostedMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationRuntimeSelfHosted] {
-	return pulumix.Output[map[string]*IntegrationRuntimeSelfHosted]{
-		OutputState: i.ToIntegrationRuntimeSelfHostedMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationRuntimeSelfHostedOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeSelfHostedOutput) ElementType() reflect.Type {
@@ -301,12 +282,6 @@ func (o IntegrationRuntimeSelfHostedOutput) ToIntegrationRuntimeSelfHostedOutput
 
 func (o IntegrationRuntimeSelfHostedOutput) ToIntegrationRuntimeSelfHostedOutputWithContext(ctx context.Context) IntegrationRuntimeSelfHostedOutput {
 	return o
-}
-
-func (o IntegrationRuntimeSelfHostedOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationRuntimeSelfHosted] {
-	return pulumix.Output[*IntegrationRuntimeSelfHosted]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The primary integration runtime authentication key.
@@ -348,12 +323,6 @@ func (o IntegrationRuntimeSelfHostedArrayOutput) ToIntegrationRuntimeSelfHostedA
 	return o
 }
 
-func (o IntegrationRuntimeSelfHostedArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationRuntimeSelfHosted] {
-	return pulumix.Output[[]*IntegrationRuntimeSelfHosted]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationRuntimeSelfHostedArrayOutput) Index(i pulumi.IntInput) IntegrationRuntimeSelfHostedOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationRuntimeSelfHosted {
 		return vs[0].([]*IntegrationRuntimeSelfHosted)[vs[1].(int)]
@@ -372,12 +341,6 @@ func (o IntegrationRuntimeSelfHostedMapOutput) ToIntegrationRuntimeSelfHostedMap
 
 func (o IntegrationRuntimeSelfHostedMapOutput) ToIntegrationRuntimeSelfHostedMapOutputWithContext(ctx context.Context) IntegrationRuntimeSelfHostedMapOutput {
 	return o
-}
-
-func (o IntegrationRuntimeSelfHostedMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationRuntimeSelfHosted] {
-	return pulumix.Output[map[string]*IntegrationRuntimeSelfHosted]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationRuntimeSelfHostedMapOutput) MapIndex(k pulumi.StringInput) IntegrationRuntimeSelfHostedOutput {

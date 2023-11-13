@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Streaming Policy.
@@ -301,12 +300,6 @@ func (i *StreamingPolicy) ToStreamingPolicyOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyOutput)
 }
 
-func (i *StreamingPolicy) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicy] {
-	return pulumix.Output[*StreamingPolicy]{
-		OutputState: i.ToStreamingPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StreamingPolicyArrayInput is an input type that accepts StreamingPolicyArray and StreamingPolicyArrayOutput values.
 // You can construct a concrete instance of `StreamingPolicyArrayInput` via:
 //
@@ -330,12 +323,6 @@ func (i StreamingPolicyArray) ToStreamingPolicyArrayOutput() StreamingPolicyArra
 
 func (i StreamingPolicyArray) ToStreamingPolicyArrayOutputWithContext(ctx context.Context) StreamingPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyArrayOutput)
-}
-
-func (i StreamingPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*StreamingPolicy] {
-	return pulumix.Output[[]*StreamingPolicy]{
-		OutputState: i.ToStreamingPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // StreamingPolicyMapInput is an input type that accepts StreamingPolicyMap and StreamingPolicyMapOutput values.
@@ -363,12 +350,6 @@ func (i StreamingPolicyMap) ToStreamingPolicyMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(StreamingPolicyMapOutput)
 }
 
-func (i StreamingPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StreamingPolicy] {
-	return pulumix.Output[map[string]*StreamingPolicy]{
-		OutputState: i.ToStreamingPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamingPolicyOutput struct{ *pulumi.OutputState }
 
 func (StreamingPolicyOutput) ElementType() reflect.Type {
@@ -381,12 +362,6 @@ func (o StreamingPolicyOutput) ToStreamingPolicyOutput() StreamingPolicyOutput {
 
 func (o StreamingPolicyOutput) ToStreamingPolicyOutputWithContext(ctx context.Context) StreamingPolicyOutput {
 	return o
-}
-
-func (o StreamingPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamingPolicy] {
-	return pulumix.Output[*StreamingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `commonEncryptionCbcs` block as defined below. Changing this forces a new Streaming Policy to be created.
@@ -445,12 +420,6 @@ func (o StreamingPolicyArrayOutput) ToStreamingPolicyArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o StreamingPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StreamingPolicy] {
-	return pulumix.Output[[]*StreamingPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StreamingPolicyArrayOutput) Index(i pulumi.IntInput) StreamingPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StreamingPolicy {
 		return vs[0].([]*StreamingPolicy)[vs[1].(int)]
@@ -469,12 +438,6 @@ func (o StreamingPolicyMapOutput) ToStreamingPolicyMapOutput() StreamingPolicyMa
 
 func (o StreamingPolicyMapOutput) ToStreamingPolicyMapOutputWithContext(ctx context.Context) StreamingPolicyMapOutput {
 	return o
-}
-
-func (o StreamingPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StreamingPolicy] {
-	return pulumix.Output[map[string]*StreamingPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamingPolicyMapOutput) MapIndex(k pulumi.StringInput) StreamingPolicyOutput {

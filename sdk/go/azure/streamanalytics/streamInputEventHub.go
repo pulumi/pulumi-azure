@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **Note:** This resource creates a Stream Input of type `Microsoft.ServiceBus/EventHub`, to create a Stream Input of type `Microsoft.EventHub/EventHub` please use the resource azurerm_stream_analytics_stream_input_eventhub_v2.
@@ -310,12 +309,6 @@ func (i *StreamInputEventHub) ToStreamInputEventHubOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputEventHubOutput)
 }
 
-func (i *StreamInputEventHub) ToOutput(ctx context.Context) pulumix.Output[*StreamInputEventHub] {
-	return pulumix.Output[*StreamInputEventHub]{
-		OutputState: i.ToStreamInputEventHubOutputWithContext(ctx).OutputState,
-	}
-}
-
 // StreamInputEventHubArrayInput is an input type that accepts StreamInputEventHubArray and StreamInputEventHubArrayOutput values.
 // You can construct a concrete instance of `StreamInputEventHubArrayInput` via:
 //
@@ -339,12 +332,6 @@ func (i StreamInputEventHubArray) ToStreamInputEventHubArrayOutput() StreamInput
 
 func (i StreamInputEventHubArray) ToStreamInputEventHubArrayOutputWithContext(ctx context.Context) StreamInputEventHubArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputEventHubArrayOutput)
-}
-
-func (i StreamInputEventHubArray) ToOutput(ctx context.Context) pulumix.Output[[]*StreamInputEventHub] {
-	return pulumix.Output[[]*StreamInputEventHub]{
-		OutputState: i.ToStreamInputEventHubArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // StreamInputEventHubMapInput is an input type that accepts StreamInputEventHubMap and StreamInputEventHubMapOutput values.
@@ -372,12 +359,6 @@ func (i StreamInputEventHubMap) ToStreamInputEventHubMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(StreamInputEventHubMapOutput)
 }
 
-func (i StreamInputEventHubMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*StreamInputEventHub] {
-	return pulumix.Output[map[string]*StreamInputEventHub]{
-		OutputState: i.ToStreamInputEventHubMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type StreamInputEventHubOutput struct{ *pulumi.OutputState }
 
 func (StreamInputEventHubOutput) ElementType() reflect.Type {
@@ -390,12 +371,6 @@ func (o StreamInputEventHubOutput) ToStreamInputEventHubOutput() StreamInputEven
 
 func (o StreamInputEventHubOutput) ToStreamInputEventHubOutputWithContext(ctx context.Context) StreamInputEventHubOutput {
 	return o
-}
-
-func (o StreamInputEventHubOutput) ToOutput(ctx context.Context) pulumix.Output[*StreamInputEventHub] {
-	return pulumix.Output[*StreamInputEventHub]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`.
@@ -467,12 +442,6 @@ func (o StreamInputEventHubArrayOutput) ToStreamInputEventHubArrayOutputWithCont
 	return o
 }
 
-func (o StreamInputEventHubArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*StreamInputEventHub] {
-	return pulumix.Output[[]*StreamInputEventHub]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o StreamInputEventHubArrayOutput) Index(i pulumi.IntInput) StreamInputEventHubOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StreamInputEventHub {
 		return vs[0].([]*StreamInputEventHub)[vs[1].(int)]
@@ -491,12 +460,6 @@ func (o StreamInputEventHubMapOutput) ToStreamInputEventHubMapOutput() StreamInp
 
 func (o StreamInputEventHubMapOutput) ToStreamInputEventHubMapOutputWithContext(ctx context.Context) StreamInputEventHubMapOutput {
 	return o
-}
-
-func (o StreamInputEventHubMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*StreamInputEventHub] {
-	return pulumix.Output[map[string]*StreamInputEventHub]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o StreamInputEventHubMapOutput) MapIndex(k pulumi.StringInput) StreamInputEventHubOutput {
