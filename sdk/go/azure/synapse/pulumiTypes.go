@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i LinkedServiceIntegrationRuntimeArgs) ToLinkedServiceIntegrationRuntimeOu
 
 func (i LinkedServiceIntegrationRuntimeArgs) ToLinkedServiceIntegrationRuntimeOutputWithContext(ctx context.Context) LinkedServiceIntegrationRuntimeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceIntegrationRuntimeOutput)
-}
-
-func (i LinkedServiceIntegrationRuntimeArgs) ToOutput(ctx context.Context) pulumix.Output[LinkedServiceIntegrationRuntime] {
-	return pulumix.Output[LinkedServiceIntegrationRuntime]{
-		OutputState: i.ToLinkedServiceIntegrationRuntimeOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i LinkedServiceIntegrationRuntimeArgs) ToLinkedServiceIntegrationRuntimePtrOutput() LinkedServiceIntegrationRuntimePtrOutput {
@@ -98,12 +91,6 @@ func (i *linkedServiceIntegrationRuntimePtrType) ToLinkedServiceIntegrationRunti
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceIntegrationRuntimePtrOutput)
 }
 
-func (i *linkedServiceIntegrationRuntimePtrType) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceIntegrationRuntime] {
-	return pulumix.Output[*LinkedServiceIntegrationRuntime]{
-		OutputState: i.ToLinkedServiceIntegrationRuntimePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkedServiceIntegrationRuntimeOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceIntegrationRuntimeOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o LinkedServiceIntegrationRuntimeOutput) ToLinkedServiceIntegrationRuntime
 	}).(LinkedServiceIntegrationRuntimePtrOutput)
 }
 
-func (o LinkedServiceIntegrationRuntimeOutput) ToOutput(ctx context.Context) pulumix.Output[LinkedServiceIntegrationRuntime] {
-	return pulumix.Output[LinkedServiceIntegrationRuntime]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The integration runtime reference to associate with the Synapse Linked Service.
 func (o LinkedServiceIntegrationRuntimeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LinkedServiceIntegrationRuntime) string { return v.Name }).(pulumi.StringOutput)
@@ -156,12 +137,6 @@ func (o LinkedServiceIntegrationRuntimePtrOutput) ToLinkedServiceIntegrationRunt
 
 func (o LinkedServiceIntegrationRuntimePtrOutput) ToLinkedServiceIntegrationRuntimePtrOutputWithContext(ctx context.Context) LinkedServiceIntegrationRuntimePtrOutput {
 	return o
-}
-
-func (o LinkedServiceIntegrationRuntimePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceIntegrationRuntime] {
-	return pulumix.Output[*LinkedServiceIntegrationRuntime]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkedServiceIntegrationRuntimePtrOutput) Elem() LinkedServiceIntegrationRuntimeOutput {
@@ -227,12 +202,6 @@ func (i SparkPoolAutoPauseArgs) ToSparkPoolAutoPauseOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolAutoPauseOutput)
 }
 
-func (i SparkPoolAutoPauseArgs) ToOutput(ctx context.Context) pulumix.Output[SparkPoolAutoPause] {
-	return pulumix.Output[SparkPoolAutoPause]{
-		OutputState: i.ToSparkPoolAutoPauseOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkPoolAutoPauseArgs) ToSparkPoolAutoPausePtrOutput() SparkPoolAutoPausePtrOutput {
 	return i.ToSparkPoolAutoPausePtrOutputWithContext(context.Background())
 }
@@ -274,12 +243,6 @@ func (i *sparkPoolAutoPausePtrType) ToSparkPoolAutoPausePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolAutoPausePtrOutput)
 }
 
-func (i *sparkPoolAutoPausePtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkPoolAutoPause] {
-	return pulumix.Output[*SparkPoolAutoPause]{
-		OutputState: i.ToSparkPoolAutoPausePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkPoolAutoPauseOutput struct{ *pulumi.OutputState }
 
 func (SparkPoolAutoPauseOutput) ElementType() reflect.Type {
@@ -304,12 +267,6 @@ func (o SparkPoolAutoPauseOutput) ToSparkPoolAutoPausePtrOutputWithContext(ctx c
 	}).(SparkPoolAutoPausePtrOutput)
 }
 
-func (o SparkPoolAutoPauseOutput) ToOutput(ctx context.Context) pulumix.Output[SparkPoolAutoPause] {
-	return pulumix.Output[SparkPoolAutoPause]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Number of minutes of idle time before the Spark Pool is automatically paused. Must be between `5` and `10080`.
 func (o SparkPoolAutoPauseOutput) DelayInMinutes() pulumi.IntOutput {
 	return o.ApplyT(func(v SparkPoolAutoPause) int { return v.DelayInMinutes }).(pulumi.IntOutput)
@@ -327,12 +284,6 @@ func (o SparkPoolAutoPausePtrOutput) ToSparkPoolAutoPausePtrOutput() SparkPoolAu
 
 func (o SparkPoolAutoPausePtrOutput) ToSparkPoolAutoPausePtrOutputWithContext(ctx context.Context) SparkPoolAutoPausePtrOutput {
 	return o
-}
-
-func (o SparkPoolAutoPausePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkPoolAutoPause] {
-	return pulumix.Output[*SparkPoolAutoPause]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkPoolAutoPausePtrOutput) Elem() SparkPoolAutoPauseOutput {
@@ -392,12 +343,6 @@ func (i SparkPoolAutoScaleArgs) ToSparkPoolAutoScaleOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolAutoScaleOutput)
 }
 
-func (i SparkPoolAutoScaleArgs) ToOutput(ctx context.Context) pulumix.Output[SparkPoolAutoScale] {
-	return pulumix.Output[SparkPoolAutoScale]{
-		OutputState: i.ToSparkPoolAutoScaleOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkPoolAutoScaleArgs) ToSparkPoolAutoScalePtrOutput() SparkPoolAutoScalePtrOutput {
 	return i.ToSparkPoolAutoScalePtrOutputWithContext(context.Background())
 }
@@ -439,12 +384,6 @@ func (i *sparkPoolAutoScalePtrType) ToSparkPoolAutoScalePtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolAutoScalePtrOutput)
 }
 
-func (i *sparkPoolAutoScalePtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkPoolAutoScale] {
-	return pulumix.Output[*SparkPoolAutoScale]{
-		OutputState: i.ToSparkPoolAutoScalePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkPoolAutoScaleOutput struct{ *pulumi.OutputState }
 
 func (SparkPoolAutoScaleOutput) ElementType() reflect.Type {
@@ -469,12 +408,6 @@ func (o SparkPoolAutoScaleOutput) ToSparkPoolAutoScalePtrOutputWithContext(ctx c
 	}).(SparkPoolAutoScalePtrOutput)
 }
 
-func (o SparkPoolAutoScaleOutput) ToOutput(ctx context.Context) pulumix.Output[SparkPoolAutoScale] {
-	return pulumix.Output[SparkPoolAutoScale]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The maximum number of nodes the Spark Pool can support. Must be between `3` and `200`.
 func (o SparkPoolAutoScaleOutput) MaxNodeCount() pulumi.IntOutput {
 	return o.ApplyT(func(v SparkPoolAutoScale) int { return v.MaxNodeCount }).(pulumi.IntOutput)
@@ -497,12 +430,6 @@ func (o SparkPoolAutoScalePtrOutput) ToSparkPoolAutoScalePtrOutput() SparkPoolAu
 
 func (o SparkPoolAutoScalePtrOutput) ToSparkPoolAutoScalePtrOutputWithContext(ctx context.Context) SparkPoolAutoScalePtrOutput {
 	return o
-}
-
-func (o SparkPoolAutoScalePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkPoolAutoScale] {
-	return pulumix.Output[*SparkPoolAutoScale]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkPoolAutoScalePtrOutput) Elem() SparkPoolAutoScaleOutput {
@@ -572,12 +499,6 @@ func (i SparkPoolLibraryRequirementArgs) ToSparkPoolLibraryRequirementOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolLibraryRequirementOutput)
 }
 
-func (i SparkPoolLibraryRequirementArgs) ToOutput(ctx context.Context) pulumix.Output[SparkPoolLibraryRequirement] {
-	return pulumix.Output[SparkPoolLibraryRequirement]{
-		OutputState: i.ToSparkPoolLibraryRequirementOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkPoolLibraryRequirementArgs) ToSparkPoolLibraryRequirementPtrOutput() SparkPoolLibraryRequirementPtrOutput {
 	return i.ToSparkPoolLibraryRequirementPtrOutputWithContext(context.Background())
 }
@@ -619,12 +540,6 @@ func (i *sparkPoolLibraryRequirementPtrType) ToSparkPoolLibraryRequirementPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolLibraryRequirementPtrOutput)
 }
 
-func (i *sparkPoolLibraryRequirementPtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkPoolLibraryRequirement] {
-	return pulumix.Output[*SparkPoolLibraryRequirement]{
-		OutputState: i.ToSparkPoolLibraryRequirementPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkPoolLibraryRequirementOutput struct{ *pulumi.OutputState }
 
 func (SparkPoolLibraryRequirementOutput) ElementType() reflect.Type {
@@ -649,12 +564,6 @@ func (o SparkPoolLibraryRequirementOutput) ToSparkPoolLibraryRequirementPtrOutpu
 	}).(SparkPoolLibraryRequirementPtrOutput)
 }
 
-func (o SparkPoolLibraryRequirementOutput) ToOutput(ctx context.Context) pulumix.Output[SparkPoolLibraryRequirement] {
-	return pulumix.Output[SparkPoolLibraryRequirement]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The content of library requirements.
 func (o SparkPoolLibraryRequirementOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkPoolLibraryRequirement) string { return v.Content }).(pulumi.StringOutput)
@@ -677,12 +586,6 @@ func (o SparkPoolLibraryRequirementPtrOutput) ToSparkPoolLibraryRequirementPtrOu
 
 func (o SparkPoolLibraryRequirementPtrOutput) ToSparkPoolLibraryRequirementPtrOutputWithContext(ctx context.Context) SparkPoolLibraryRequirementPtrOutput {
 	return o
-}
-
-func (o SparkPoolLibraryRequirementPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkPoolLibraryRequirement] {
-	return pulumix.Output[*SparkPoolLibraryRequirement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkPoolLibraryRequirementPtrOutput) Elem() SparkPoolLibraryRequirementOutput {
@@ -752,12 +655,6 @@ func (i SparkPoolSparkConfigArgs) ToSparkPoolSparkConfigOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolSparkConfigOutput)
 }
 
-func (i SparkPoolSparkConfigArgs) ToOutput(ctx context.Context) pulumix.Output[SparkPoolSparkConfig] {
-	return pulumix.Output[SparkPoolSparkConfig]{
-		OutputState: i.ToSparkPoolSparkConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SparkPoolSparkConfigArgs) ToSparkPoolSparkConfigPtrOutput() SparkPoolSparkConfigPtrOutput {
 	return i.ToSparkPoolSparkConfigPtrOutputWithContext(context.Background())
 }
@@ -799,12 +696,6 @@ func (i *sparkPoolSparkConfigPtrType) ToSparkPoolSparkConfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolSparkConfigPtrOutput)
 }
 
-func (i *sparkPoolSparkConfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*SparkPoolSparkConfig] {
-	return pulumix.Output[*SparkPoolSparkConfig]{
-		OutputState: i.ToSparkPoolSparkConfigPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkPoolSparkConfigOutput struct{ *pulumi.OutputState }
 
 func (SparkPoolSparkConfigOutput) ElementType() reflect.Type {
@@ -829,12 +720,6 @@ func (o SparkPoolSparkConfigOutput) ToSparkPoolSparkConfigPtrOutputWithContext(c
 	}).(SparkPoolSparkConfigPtrOutput)
 }
 
-func (o SparkPoolSparkConfigOutput) ToOutput(ctx context.Context) pulumix.Output[SparkPoolSparkConfig] {
-	return pulumix.Output[SparkPoolSparkConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The contents of a spark configuration.
 func (o SparkPoolSparkConfigOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkPoolSparkConfig) string { return v.Content }).(pulumi.StringOutput)
@@ -857,12 +742,6 @@ func (o SparkPoolSparkConfigPtrOutput) ToSparkPoolSparkConfigPtrOutput() SparkPo
 
 func (o SparkPoolSparkConfigPtrOutput) ToSparkPoolSparkConfigPtrOutputWithContext(ctx context.Context) SparkPoolSparkConfigPtrOutput {
 	return o
-}
-
-func (o SparkPoolSparkConfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkPoolSparkConfig] {
-	return pulumix.Output[*SparkPoolSparkConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkPoolSparkConfigPtrOutput) Elem() SparkPoolSparkConfigOutput {
@@ -932,12 +811,6 @@ func (i SqlPoolRestoreArgs) ToSqlPoolRestoreOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolRestoreOutput)
 }
 
-func (i SqlPoolRestoreArgs) ToOutput(ctx context.Context) pulumix.Output[SqlPoolRestore] {
-	return pulumix.Output[SqlPoolRestore]{
-		OutputState: i.ToSqlPoolRestoreOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SqlPoolRestoreArgs) ToSqlPoolRestorePtrOutput() SqlPoolRestorePtrOutput {
 	return i.ToSqlPoolRestorePtrOutputWithContext(context.Background())
 }
@@ -979,12 +852,6 @@ func (i *sqlPoolRestorePtrType) ToSqlPoolRestorePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolRestorePtrOutput)
 }
 
-func (i *sqlPoolRestorePtrType) ToOutput(ctx context.Context) pulumix.Output[*SqlPoolRestore] {
-	return pulumix.Output[*SqlPoolRestore]{
-		OutputState: i.ToSqlPoolRestorePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SqlPoolRestoreOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolRestoreOutput) ElementType() reflect.Type {
@@ -1009,12 +876,6 @@ func (o SqlPoolRestoreOutput) ToSqlPoolRestorePtrOutputWithContext(ctx context.C
 	}).(SqlPoolRestorePtrOutput)
 }
 
-func (o SqlPoolRestoreOutput) ToOutput(ctx context.Context) pulumix.Output[SqlPoolRestore] {
-	return pulumix.Output[SqlPoolRestore]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Specifies the Snapshot time to restore formatted as an RFC3339 date string. Changing this forces a new Synapse SQL Pool to be created.
 func (o SqlPoolRestoreOutput) PointInTime() pulumi.StringOutput {
 	return o.ApplyT(func(v SqlPoolRestore) string { return v.PointInTime }).(pulumi.StringOutput)
@@ -1037,12 +898,6 @@ func (o SqlPoolRestorePtrOutput) ToSqlPoolRestorePtrOutput() SqlPoolRestorePtrOu
 
 func (o SqlPoolRestorePtrOutput) ToSqlPoolRestorePtrOutputWithContext(ctx context.Context) SqlPoolRestorePtrOutput {
 	return o
-}
-
-func (o SqlPoolRestorePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SqlPoolRestore] {
-	return pulumix.Output[*SqlPoolRestore]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SqlPoolRestorePtrOutput) Elem() SqlPoolRestoreOutput {
@@ -1108,12 +963,6 @@ func (i SqlPoolVulnerabilityAssessmentBaselineBaselineArgs) ToSqlPoolVulnerabili
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolVulnerabilityAssessmentBaselineBaselineOutput)
 }
 
-func (i SqlPoolVulnerabilityAssessmentBaselineBaselineArgs) ToOutput(ctx context.Context) pulumix.Output[SqlPoolVulnerabilityAssessmentBaselineBaseline] {
-	return pulumix.Output[SqlPoolVulnerabilityAssessmentBaselineBaseline]{
-		OutputState: i.ToSqlPoolVulnerabilityAssessmentBaselineBaselineOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SqlPoolVulnerabilityAssessmentBaselineBaselineArrayInput is an input type that accepts SqlPoolVulnerabilityAssessmentBaselineBaselineArray and SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput values.
 // You can construct a concrete instance of `SqlPoolVulnerabilityAssessmentBaselineBaselineArrayInput` via:
 //
@@ -1139,12 +988,6 @@ func (i SqlPoolVulnerabilityAssessmentBaselineBaselineArray) ToSqlPoolVulnerabil
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput)
 }
 
-func (i SqlPoolVulnerabilityAssessmentBaselineBaselineArray) ToOutput(ctx context.Context) pulumix.Output[[]SqlPoolVulnerabilityAssessmentBaselineBaseline] {
-	return pulumix.Output[[]SqlPoolVulnerabilityAssessmentBaselineBaseline]{
-		OutputState: i.ToSqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SqlPoolVulnerabilityAssessmentBaselineBaselineOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolVulnerabilityAssessmentBaselineBaselineOutput) ElementType() reflect.Type {
@@ -1157,12 +1000,6 @@ func (o SqlPoolVulnerabilityAssessmentBaselineBaselineOutput) ToSqlPoolVulnerabi
 
 func (o SqlPoolVulnerabilityAssessmentBaselineBaselineOutput) ToSqlPoolVulnerabilityAssessmentBaselineBaselineOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentBaselineBaselineOutput {
 	return o
-}
-
-func (o SqlPoolVulnerabilityAssessmentBaselineBaselineOutput) ToOutput(ctx context.Context) pulumix.Output[SqlPoolVulnerabilityAssessmentBaselineBaseline] {
-	return pulumix.Output[SqlPoolVulnerabilityAssessmentBaselineBaseline]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of rule baseline result.
@@ -1182,12 +1019,6 @@ func (o SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput) ToSqlPoolVuln
 
 func (o SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput) ToSqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput {
 	return o
-}
-
-func (o SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SqlPoolVulnerabilityAssessmentBaselineBaseline] {
-	return pulumix.Output[[]SqlPoolVulnerabilityAssessmentBaselineBaseline]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SqlPoolVulnerabilityAssessmentBaselineBaselineArrayOutput) Index(i pulumi.IntInput) SqlPoolVulnerabilityAssessmentBaselineBaselineOutput {
@@ -1237,12 +1068,6 @@ func (i SqlPoolVulnerabilityAssessmentRecurringScansArgs) ToSqlPoolVulnerability
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolVulnerabilityAssessmentRecurringScansOutput)
 }
 
-func (i SqlPoolVulnerabilityAssessmentRecurringScansArgs) ToOutput(ctx context.Context) pulumix.Output[SqlPoolVulnerabilityAssessmentRecurringScans] {
-	return pulumix.Output[SqlPoolVulnerabilityAssessmentRecurringScans]{
-		OutputState: i.ToSqlPoolVulnerabilityAssessmentRecurringScansOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i SqlPoolVulnerabilityAssessmentRecurringScansArgs) ToSqlPoolVulnerabilityAssessmentRecurringScansPtrOutput() SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput {
 	return i.ToSqlPoolVulnerabilityAssessmentRecurringScansPtrOutputWithContext(context.Background())
 }
@@ -1284,12 +1109,6 @@ func (i *sqlPoolVulnerabilityAssessmentRecurringScansPtrType) ToSqlPoolVulnerabi
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput)
 }
 
-func (i *sqlPoolVulnerabilityAssessmentRecurringScansPtrType) ToOutput(ctx context.Context) pulumix.Output[*SqlPoolVulnerabilityAssessmentRecurringScans] {
-	return pulumix.Output[*SqlPoolVulnerabilityAssessmentRecurringScans]{
-		OutputState: i.ToSqlPoolVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SqlPoolVulnerabilityAssessmentRecurringScansOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolVulnerabilityAssessmentRecurringScansOutput) ElementType() reflect.Type {
@@ -1312,12 +1131,6 @@ func (o SqlPoolVulnerabilityAssessmentRecurringScansOutput) ToSqlPoolVulnerabili
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v SqlPoolVulnerabilityAssessmentRecurringScans) *SqlPoolVulnerabilityAssessmentRecurringScans {
 		return &v
 	}).(SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput)
-}
-
-func (o SqlPoolVulnerabilityAssessmentRecurringScansOutput) ToOutput(ctx context.Context) pulumix.Output[SqlPoolVulnerabilityAssessmentRecurringScans] {
-	return pulumix.Output[SqlPoolVulnerabilityAssessmentRecurringScans]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
@@ -1347,12 +1160,6 @@ func (o SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput) ToSqlPoolVulnerab
 
 func (o SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput) ToSqlPoolVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx context.Context) SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput {
 	return o
-}
-
-func (o SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*SqlPoolVulnerabilityAssessmentRecurringScans] {
-	return pulumix.Output[*SqlPoolVulnerabilityAssessmentRecurringScans]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SqlPoolVulnerabilityAssessmentRecurringScansPtrOutput) Elem() SqlPoolVulnerabilityAssessmentRecurringScansOutput {
@@ -1436,12 +1243,6 @@ func (i WorkspaceAadAdminTypeArgs) ToWorkspaceAadAdminTypeOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAadAdminTypeOutput)
 }
 
-func (i WorkspaceAadAdminTypeArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceAadAdminType] {
-	return pulumix.Output[WorkspaceAadAdminType]{
-		OutputState: i.ToWorkspaceAadAdminTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkspaceAadAdminTypeArgs) ToWorkspaceAadAdminTypePtrOutput() WorkspaceAadAdminTypePtrOutput {
 	return i.ToWorkspaceAadAdminTypePtrOutputWithContext(context.Background())
 }
@@ -1483,12 +1284,6 @@ func (i *workspaceAadAdminTypePtrType) ToWorkspaceAadAdminTypePtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAadAdminTypePtrOutput)
 }
 
-func (i *workspaceAadAdminTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceAadAdminType] {
-	return pulumix.Output[*WorkspaceAadAdminType]{
-		OutputState: i.ToWorkspaceAadAdminTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkspaceAadAdminTypeOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceAadAdminTypeOutput) ElementType() reflect.Type {
@@ -1511,12 +1306,6 @@ func (o WorkspaceAadAdminTypeOutput) ToWorkspaceAadAdminTypePtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceAadAdminType) *WorkspaceAadAdminType {
 		return &v
 	}).(WorkspaceAadAdminTypePtrOutput)
-}
-
-func (o WorkspaceAadAdminTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceAadAdminType] {
-	return pulumix.Output[WorkspaceAadAdminType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The login name of the Azure AD Administrator of this Synapse Workspace.
@@ -1546,12 +1335,6 @@ func (o WorkspaceAadAdminTypePtrOutput) ToWorkspaceAadAdminTypePtrOutput() Works
 
 func (o WorkspaceAadAdminTypePtrOutput) ToWorkspaceAadAdminTypePtrOutputWithContext(ctx context.Context) WorkspaceAadAdminTypePtrOutput {
 	return o
-}
-
-func (o WorkspaceAadAdminTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceAadAdminType] {
-	return pulumix.Output[*WorkspaceAadAdminType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceAadAdminTypePtrOutput) Elem() WorkspaceAadAdminTypeOutput {
@@ -1651,12 +1434,6 @@ func (i WorkspaceAzureDevopsRepoArgs) ToWorkspaceAzureDevopsRepoOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAzureDevopsRepoOutput)
 }
 
-func (i WorkspaceAzureDevopsRepoArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceAzureDevopsRepo] {
-	return pulumix.Output[WorkspaceAzureDevopsRepo]{
-		OutputState: i.ToWorkspaceAzureDevopsRepoOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkspaceAzureDevopsRepoArgs) ToWorkspaceAzureDevopsRepoPtrOutput() WorkspaceAzureDevopsRepoPtrOutput {
 	return i.ToWorkspaceAzureDevopsRepoPtrOutputWithContext(context.Background())
 }
@@ -1698,12 +1475,6 @@ func (i *workspaceAzureDevopsRepoPtrType) ToWorkspaceAzureDevopsRepoPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceAzureDevopsRepoPtrOutput)
 }
 
-func (i *workspaceAzureDevopsRepoPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceAzureDevopsRepo] {
-	return pulumix.Output[*WorkspaceAzureDevopsRepo]{
-		OutputState: i.ToWorkspaceAzureDevopsRepoPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkspaceAzureDevopsRepoOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceAzureDevopsRepoOutput) ElementType() reflect.Type {
@@ -1726,12 +1497,6 @@ func (o WorkspaceAzureDevopsRepoOutput) ToWorkspaceAzureDevopsRepoPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceAzureDevopsRepo) *WorkspaceAzureDevopsRepo {
 		return &v
 	}).(WorkspaceAzureDevopsRepoPtrOutput)
-}
-
-func (o WorkspaceAzureDevopsRepoOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceAzureDevopsRepo] {
-	return pulumix.Output[WorkspaceAzureDevopsRepo]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Azure DevOps account name.
@@ -1781,12 +1546,6 @@ func (o WorkspaceAzureDevopsRepoPtrOutput) ToWorkspaceAzureDevopsRepoPtrOutput()
 
 func (o WorkspaceAzureDevopsRepoPtrOutput) ToWorkspaceAzureDevopsRepoPtrOutputWithContext(ctx context.Context) WorkspaceAzureDevopsRepoPtrOutput {
 	return o
-}
-
-func (o WorkspaceAzureDevopsRepoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceAzureDevopsRepo] {
-	return pulumix.Output[*WorkspaceAzureDevopsRepo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceAzureDevopsRepoPtrOutput) Elem() WorkspaceAzureDevopsRepoOutput {
@@ -1906,12 +1665,6 @@ func (i WorkspaceCustomerManagedKeyArgs) ToWorkspaceCustomerManagedKeyOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomerManagedKeyOutput)
 }
 
-func (i WorkspaceCustomerManagedKeyArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceCustomerManagedKey] {
-	return pulumix.Output[WorkspaceCustomerManagedKey]{
-		OutputState: i.ToWorkspaceCustomerManagedKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkspaceCustomerManagedKeyArgs) ToWorkspaceCustomerManagedKeyPtrOutput() WorkspaceCustomerManagedKeyPtrOutput {
 	return i.ToWorkspaceCustomerManagedKeyPtrOutputWithContext(context.Background())
 }
@@ -1953,12 +1706,6 @@ func (i *workspaceCustomerManagedKeyPtrType) ToWorkspaceCustomerManagedKeyPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceCustomerManagedKeyPtrOutput)
 }
 
-func (i *workspaceCustomerManagedKeyPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceCustomerManagedKey] {
-	return pulumix.Output[*WorkspaceCustomerManagedKey]{
-		OutputState: i.ToWorkspaceCustomerManagedKeyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkspaceCustomerManagedKeyOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceCustomerManagedKeyOutput) ElementType() reflect.Type {
@@ -1983,12 +1730,6 @@ func (o WorkspaceCustomerManagedKeyOutput) ToWorkspaceCustomerManagedKeyPtrOutpu
 	}).(WorkspaceCustomerManagedKeyPtrOutput)
 }
 
-func (o WorkspaceCustomerManagedKeyOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceCustomerManagedKey] {
-	return pulumix.Output[WorkspaceCustomerManagedKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 // An identifier for the key. Name needs to match the name of the key used with the `synapse.WorkspaceKey` resource. Defaults to "cmk" if not specified.
 func (o WorkspaceCustomerManagedKeyOutput) KeyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceCustomerManagedKey) *string { return v.KeyName }).(pulumi.StringPtrOutput)
@@ -2011,12 +1752,6 @@ func (o WorkspaceCustomerManagedKeyPtrOutput) ToWorkspaceCustomerManagedKeyPtrOu
 
 func (o WorkspaceCustomerManagedKeyPtrOutput) ToWorkspaceCustomerManagedKeyPtrOutputWithContext(ctx context.Context) WorkspaceCustomerManagedKeyPtrOutput {
 	return o
-}
-
-func (o WorkspaceCustomerManagedKeyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceCustomerManagedKey] {
-	return pulumix.Output[*WorkspaceCustomerManagedKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceCustomerManagedKeyPtrOutput) Elem() WorkspaceCustomerManagedKeyOutput {
@@ -2106,12 +1841,6 @@ func (i WorkspaceGithubRepoArgs) ToWorkspaceGithubRepoOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceGithubRepoOutput)
 }
 
-func (i WorkspaceGithubRepoArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceGithubRepo] {
-	return pulumix.Output[WorkspaceGithubRepo]{
-		OutputState: i.ToWorkspaceGithubRepoOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkspaceGithubRepoArgs) ToWorkspaceGithubRepoPtrOutput() WorkspaceGithubRepoPtrOutput {
 	return i.ToWorkspaceGithubRepoPtrOutputWithContext(context.Background())
 }
@@ -2153,12 +1882,6 @@ func (i *workspaceGithubRepoPtrType) ToWorkspaceGithubRepoPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceGithubRepoPtrOutput)
 }
 
-func (i *workspaceGithubRepoPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceGithubRepo] {
-	return pulumix.Output[*WorkspaceGithubRepo]{
-		OutputState: i.ToWorkspaceGithubRepoPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkspaceGithubRepoOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceGithubRepoOutput) ElementType() reflect.Type {
@@ -2181,12 +1904,6 @@ func (o WorkspaceGithubRepoOutput) ToWorkspaceGithubRepoPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceGithubRepo) *WorkspaceGithubRepo {
 		return &v
 	}).(WorkspaceGithubRepoPtrOutput)
-}
-
-func (o WorkspaceGithubRepoOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceGithubRepo] {
-	return pulumix.Output[WorkspaceGithubRepo]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the GitHub account name.
@@ -2233,12 +1950,6 @@ func (o WorkspaceGithubRepoPtrOutput) ToWorkspaceGithubRepoPtrOutput() Workspace
 
 func (o WorkspaceGithubRepoPtrOutput) ToWorkspaceGithubRepoPtrOutputWithContext(ctx context.Context) WorkspaceGithubRepoPtrOutput {
 	return o
-}
-
-func (o WorkspaceGithubRepoPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceGithubRepo] {
-	return pulumix.Output[*WorkspaceGithubRepo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceGithubRepoPtrOutput) Elem() WorkspaceGithubRepoOutput {
@@ -2362,12 +2073,6 @@ func (i WorkspaceIdentityArgs) ToWorkspaceIdentityOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceIdentityOutput)
 }
 
-func (i WorkspaceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceIdentity] {
-	return pulumix.Output[WorkspaceIdentity]{
-		OutputState: i.ToWorkspaceIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkspaceIdentityArgs) ToWorkspaceIdentityPtrOutput() WorkspaceIdentityPtrOutput {
 	return i.ToWorkspaceIdentityPtrOutputWithContext(context.Background())
 }
@@ -2409,12 +2114,6 @@ func (i *workspaceIdentityPtrType) ToWorkspaceIdentityPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceIdentityPtrOutput)
 }
 
-func (i *workspaceIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceIdentity] {
-	return pulumix.Output[*WorkspaceIdentity]{
-		OutputState: i.ToWorkspaceIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkspaceIdentityOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceIdentityOutput) ElementType() reflect.Type {
@@ -2437,12 +2136,6 @@ func (o WorkspaceIdentityOutput) ToWorkspaceIdentityPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceIdentity) *WorkspaceIdentity {
 		return &v
 	}).(WorkspaceIdentityPtrOutput)
-}
-
-func (o WorkspaceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceIdentity] {
-	return pulumix.Output[WorkspaceIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
@@ -2479,12 +2172,6 @@ func (o WorkspaceIdentityPtrOutput) ToWorkspaceIdentityPtrOutput() WorkspaceIden
 
 func (o WorkspaceIdentityPtrOutput) ToWorkspaceIdentityPtrOutputWithContext(ctx context.Context) WorkspaceIdentityPtrOutput {
 	return o
-}
-
-func (o WorkspaceIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceIdentity] {
-	return pulumix.Output[*WorkspaceIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceIdentityPtrOutput) Elem() WorkspaceIdentityOutput {
@@ -2580,12 +2267,6 @@ func (i WorkspaceSqlAadAdminTypeArgs) ToWorkspaceSqlAadAdminTypeOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSqlAadAdminTypeOutput)
 }
 
-func (i WorkspaceSqlAadAdminTypeArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceSqlAadAdminType] {
-	return pulumix.Output[WorkspaceSqlAadAdminType]{
-		OutputState: i.ToWorkspaceSqlAadAdminTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkspaceSqlAadAdminTypeArgs) ToWorkspaceSqlAadAdminTypePtrOutput() WorkspaceSqlAadAdminTypePtrOutput {
 	return i.ToWorkspaceSqlAadAdminTypePtrOutputWithContext(context.Background())
 }
@@ -2627,12 +2308,6 @@ func (i *workspaceSqlAadAdminTypePtrType) ToWorkspaceSqlAadAdminTypePtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceSqlAadAdminTypePtrOutput)
 }
 
-func (i *workspaceSqlAadAdminTypePtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceSqlAadAdminType] {
-	return pulumix.Output[*WorkspaceSqlAadAdminType]{
-		OutputState: i.ToWorkspaceSqlAadAdminTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkspaceSqlAadAdminTypeOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceSqlAadAdminTypeOutput) ElementType() reflect.Type {
@@ -2655,12 +2330,6 @@ func (o WorkspaceSqlAadAdminTypeOutput) ToWorkspaceSqlAadAdminTypePtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceSqlAadAdminType) *WorkspaceSqlAadAdminType {
 		return &v
 	}).(WorkspaceSqlAadAdminTypePtrOutput)
-}
-
-func (o WorkspaceSqlAadAdminTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceSqlAadAdminType] {
-	return pulumix.Output[WorkspaceSqlAadAdminType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The login name of the Azure AD Administrator of this Synapse Workspace SQL.
@@ -2690,12 +2359,6 @@ func (o WorkspaceSqlAadAdminTypePtrOutput) ToWorkspaceSqlAadAdminTypePtrOutput()
 
 func (o WorkspaceSqlAadAdminTypePtrOutput) ToWorkspaceSqlAadAdminTypePtrOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminTypePtrOutput {
 	return o
-}
-
-func (o WorkspaceSqlAadAdminTypePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceSqlAadAdminType] {
-	return pulumix.Output[*WorkspaceSqlAadAdminType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceSqlAadAdminTypePtrOutput) Elem() WorkspaceSqlAadAdminTypeOutput {
@@ -2779,12 +2442,6 @@ func (i WorkspaceVulnerabilityAssessmentRecurringScansArgs) ToWorkspaceVulnerabi
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceVulnerabilityAssessmentRecurringScansOutput)
 }
 
-func (i WorkspaceVulnerabilityAssessmentRecurringScansArgs) ToOutput(ctx context.Context) pulumix.Output[WorkspaceVulnerabilityAssessmentRecurringScans] {
-	return pulumix.Output[WorkspaceVulnerabilityAssessmentRecurringScans]{
-		OutputState: i.ToWorkspaceVulnerabilityAssessmentRecurringScansOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i WorkspaceVulnerabilityAssessmentRecurringScansArgs) ToWorkspaceVulnerabilityAssessmentRecurringScansPtrOutput() WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput {
 	return i.ToWorkspaceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(context.Background())
 }
@@ -2826,12 +2483,6 @@ func (i *workspaceVulnerabilityAssessmentRecurringScansPtrType) ToWorkspaceVulne
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput)
 }
 
-func (i *workspaceVulnerabilityAssessmentRecurringScansPtrType) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceVulnerabilityAssessmentRecurringScans] {
-	return pulumix.Output[*WorkspaceVulnerabilityAssessmentRecurringScans]{
-		OutputState: i.ToWorkspaceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkspaceVulnerabilityAssessmentRecurringScansOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceVulnerabilityAssessmentRecurringScansOutput) ElementType() reflect.Type {
@@ -2854,12 +2505,6 @@ func (o WorkspaceVulnerabilityAssessmentRecurringScansOutput) ToWorkspaceVulnera
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceVulnerabilityAssessmentRecurringScans) *WorkspaceVulnerabilityAssessmentRecurringScans {
 		return &v
 	}).(WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput)
-}
-
-func (o WorkspaceVulnerabilityAssessmentRecurringScansOutput) ToOutput(ctx context.Context) pulumix.Output[WorkspaceVulnerabilityAssessmentRecurringScans] {
-	return pulumix.Output[WorkspaceVulnerabilityAssessmentRecurringScans]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Boolean flag which specifies if the schedule scan notification will be sent to the subscription administrators. Defaults to `false`.
@@ -2889,12 +2534,6 @@ func (o WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput) ToWorkspaceVuln
 
 func (o WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput) ToWorkspaceVulnerabilityAssessmentRecurringScansPtrOutputWithContext(ctx context.Context) WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput {
 	return o
-}
-
-func (o WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceVulnerabilityAssessmentRecurringScans] {
-	return pulumix.Output[*WorkspaceVulnerabilityAssessmentRecurringScans]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceVulnerabilityAssessmentRecurringScansPtrOutput) Elem() WorkspaceVulnerabilityAssessmentRecurringScansOutput {
@@ -2980,12 +2619,6 @@ func (i GetWorkspaceIdentityArgs) ToGetWorkspaceIdentityOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceIdentityOutput)
 }
 
-func (i GetWorkspaceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetWorkspaceIdentity] {
-	return pulumix.Output[GetWorkspaceIdentity]{
-		OutputState: i.ToGetWorkspaceIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetWorkspaceIdentityArrayInput is an input type that accepts GetWorkspaceIdentityArray and GetWorkspaceIdentityArrayOutput values.
 // You can construct a concrete instance of `GetWorkspaceIdentityArrayInput` via:
 //
@@ -3011,12 +2644,6 @@ func (i GetWorkspaceIdentityArray) ToGetWorkspaceIdentityArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceIdentityArrayOutput)
 }
 
-func (i GetWorkspaceIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWorkspaceIdentity] {
-	return pulumix.Output[[]GetWorkspaceIdentity]{
-		OutputState: i.ToGetWorkspaceIdentityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetWorkspaceIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetWorkspaceIdentityOutput) ElementType() reflect.Type {
@@ -3029,12 +2656,6 @@ func (o GetWorkspaceIdentityOutput) ToGetWorkspaceIdentityOutput() GetWorkspaceI
 
 func (o GetWorkspaceIdentityOutput) ToGetWorkspaceIdentityOutputWithContext(ctx context.Context) GetWorkspaceIdentityOutput {
 	return o
-}
-
-func (o GetWorkspaceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetWorkspaceIdentity] {
-	return pulumix.Output[GetWorkspaceIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetWorkspaceIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
@@ -3068,12 +2689,6 @@ func (o GetWorkspaceIdentityArrayOutput) ToGetWorkspaceIdentityArrayOutput() Get
 
 func (o GetWorkspaceIdentityArrayOutput) ToGetWorkspaceIdentityArrayOutputWithContext(ctx context.Context) GetWorkspaceIdentityArrayOutput {
 	return o
-}
-
-func (o GetWorkspaceIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWorkspaceIdentity] {
-	return pulumix.Output[[]GetWorkspaceIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetWorkspaceIdentityArrayOutput) Index(i pulumi.IntInput) GetWorkspaceIdentityOutput {

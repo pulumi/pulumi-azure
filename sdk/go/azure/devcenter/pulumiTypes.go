@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i DevCenterIdentityArgs) ToDevCenterIdentityOutput() DevCenterIdentityOutp
 
 func (i DevCenterIdentityArgs) ToDevCenterIdentityOutputWithContext(ctx context.Context) DevCenterIdentityOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DevCenterIdentityOutput)
-}
-
-func (i DevCenterIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[DevCenterIdentity] {
-	return pulumix.Output[DevCenterIdentity]{
-		OutputState: i.ToDevCenterIdentityOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i DevCenterIdentityArgs) ToDevCenterIdentityPtrOutput() DevCenterIdentityPtrOutput {
@@ -98,12 +91,6 @@ func (i *devCenterIdentityPtrType) ToDevCenterIdentityPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(DevCenterIdentityPtrOutput)
 }
 
-func (i *devCenterIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*DevCenterIdentity] {
-	return pulumix.Output[*DevCenterIdentity]{
-		OutputState: i.ToDevCenterIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DevCenterIdentityOutput struct{ *pulumi.OutputState }
 
 func (DevCenterIdentityOutput) ElementType() reflect.Type {
@@ -126,12 +113,6 @@ func (o DevCenterIdentityOutput) ToDevCenterIdentityPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v DevCenterIdentity) *DevCenterIdentity {
 		return &v
 	}).(DevCenterIdentityPtrOutput)
-}
-
-func (o DevCenterIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[DevCenterIdentity] {
-	return pulumix.Output[DevCenterIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DevCenterIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
@@ -162,12 +143,6 @@ func (o DevCenterIdentityPtrOutput) ToDevCenterIdentityPtrOutput() DevCenterIden
 
 func (o DevCenterIdentityPtrOutput) ToDevCenterIdentityPtrOutputWithContext(ctx context.Context) DevCenterIdentityPtrOutput {
 	return o
-}
-
-func (o DevCenterIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*DevCenterIdentity] {
-	return pulumix.Output[*DevCenterIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DevCenterIdentityPtrOutput) Elem() DevCenterIdentityOutput {

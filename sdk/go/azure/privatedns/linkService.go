@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Private Link Service.
@@ -332,12 +331,6 @@ func (i *LinkService) ToLinkServiceOutputWithContext(ctx context.Context) LinkSe
 	return pulumi.ToOutputWithContext(ctx, i).(LinkServiceOutput)
 }
 
-func (i *LinkService) ToOutput(ctx context.Context) pulumix.Output[*LinkService] {
-	return pulumix.Output[*LinkService]{
-		OutputState: i.ToLinkServiceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinkServiceArrayInput is an input type that accepts LinkServiceArray and LinkServiceArrayOutput values.
 // You can construct a concrete instance of `LinkServiceArrayInput` via:
 //
@@ -361,12 +354,6 @@ func (i LinkServiceArray) ToLinkServiceArrayOutput() LinkServiceArrayOutput {
 
 func (i LinkServiceArray) ToLinkServiceArrayOutputWithContext(ctx context.Context) LinkServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkServiceArrayOutput)
-}
-
-func (i LinkServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkService] {
-	return pulumix.Output[[]*LinkService]{
-		OutputState: i.ToLinkServiceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinkServiceMapInput is an input type that accepts LinkServiceMap and LinkServiceMapOutput values.
@@ -394,12 +381,6 @@ func (i LinkServiceMap) ToLinkServiceMapOutputWithContext(ctx context.Context) L
 	return pulumi.ToOutputWithContext(ctx, i).(LinkServiceMapOutput)
 }
 
-func (i LinkServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkService] {
-	return pulumix.Output[map[string]*LinkService]{
-		OutputState: i.ToLinkServiceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkServiceOutput struct{ *pulumi.OutputState }
 
 func (LinkServiceOutput) ElementType() reflect.Type {
@@ -412,12 +393,6 @@ func (o LinkServiceOutput) ToLinkServiceOutput() LinkServiceOutput {
 
 func (o LinkServiceOutput) ToLinkServiceOutputWithContext(ctx context.Context) LinkServiceOutput {
 	return o
-}
-
-func (o LinkServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkService] {
-	return pulumix.Output[*LinkService]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A globally unique DNS Name for your Private Link Service. You can use this alias to request a connection to your Private Link Service.
@@ -491,12 +466,6 @@ func (o LinkServiceArrayOutput) ToLinkServiceArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o LinkServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkService] {
-	return pulumix.Output[[]*LinkService]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinkServiceArrayOutput) Index(i pulumi.IntInput) LinkServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkService {
 		return vs[0].([]*LinkService)[vs[1].(int)]
@@ -515,12 +484,6 @@ func (o LinkServiceMapOutput) ToLinkServiceMapOutput() LinkServiceMapOutput {
 
 func (o LinkServiceMapOutput) ToLinkServiceMapOutputWithContext(ctx context.Context) LinkServiceMapOutput {
 	return o
-}
-
-func (o LinkServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkService] {
-	return pulumix.Output[map[string]*LinkService]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkServiceMapOutput) MapIndex(k pulumi.StringInput) LinkServiceOutput {

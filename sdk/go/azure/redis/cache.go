@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Redis Cache.
@@ -447,12 +446,6 @@ func (i *Cache) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CacheOutput)
 }
 
-func (i *Cache) ToOutput(ctx context.Context) pulumix.Output[*Cache] {
-	return pulumix.Output[*Cache]{
-		OutputState: i.ToCacheOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CacheArrayInput is an input type that accepts CacheArray and CacheArrayOutput values.
 // You can construct a concrete instance of `CacheArrayInput` via:
 //
@@ -476,12 +469,6 @@ func (i CacheArray) ToCacheArrayOutput() CacheArrayOutput {
 
 func (i CacheArray) ToCacheArrayOutputWithContext(ctx context.Context) CacheArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CacheArrayOutput)
-}
-
-func (i CacheArray) ToOutput(ctx context.Context) pulumix.Output[[]*Cache] {
-	return pulumix.Output[[]*Cache]{
-		OutputState: i.ToCacheArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CacheMapInput is an input type that accepts CacheMap and CacheMapOutput values.
@@ -509,12 +496,6 @@ func (i CacheMap) ToCacheMapOutputWithContext(ctx context.Context) CacheMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(CacheMapOutput)
 }
 
-func (i CacheMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Cache] {
-	return pulumix.Output[map[string]*Cache]{
-		OutputState: i.ToCacheMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CacheOutput struct{ *pulumi.OutputState }
 
 func (CacheOutput) ElementType() reflect.Type {
@@ -527,12 +508,6 @@ func (o CacheOutput) ToCacheOutput() CacheOutput {
 
 func (o CacheOutput) ToCacheOutputWithContext(ctx context.Context) CacheOutput {
 	return o
-}
-
-func (o CacheOutput) ToOutput(ctx context.Context) pulumix.Output[*Cache] {
-	return pulumix.Output[*Cache]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The size of the Redis cache to deploy. Valid values for a SKU `family` of C (Basic/Standard) are `0, 1, 2, 3, 4, 5, 6`, and for P (Premium) `family` are `1, 2, 3, 4, 5`.
@@ -695,12 +670,6 @@ func (o CacheArrayOutput) ToCacheArrayOutputWithContext(ctx context.Context) Cac
 	return o
 }
 
-func (o CacheArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Cache] {
-	return pulumix.Output[[]*Cache]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CacheArrayOutput) Index(i pulumi.IntInput) CacheOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Cache {
 		return vs[0].([]*Cache)[vs[1].(int)]
@@ -719,12 +688,6 @@ func (o CacheMapOutput) ToCacheMapOutput() CacheMapOutput {
 
 func (o CacheMapOutput) ToCacheMapOutputWithContext(ctx context.Context) CacheMapOutput {
 	return o
-}
-
-func (o CacheMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Cache] {
-	return pulumix.Output[map[string]*Cache]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CacheMapOutput) MapIndex(k pulumi.StringInput) CacheOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Enables you to manage DNS PTR Records within Azure Private DNS.
@@ -220,12 +219,6 @@ func (i *PTRRecord) ToPTRRecordOutputWithContext(ctx context.Context) PTRRecordO
 	return pulumi.ToOutputWithContext(ctx, i).(PTRRecordOutput)
 }
 
-func (i *PTRRecord) ToOutput(ctx context.Context) pulumix.Output[*PTRRecord] {
-	return pulumix.Output[*PTRRecord]{
-		OutputState: i.ToPTRRecordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PTRRecordArrayInput is an input type that accepts PTRRecordArray and PTRRecordArrayOutput values.
 // You can construct a concrete instance of `PTRRecordArrayInput` via:
 //
@@ -249,12 +242,6 @@ func (i PTRRecordArray) ToPTRRecordArrayOutput() PTRRecordArrayOutput {
 
 func (i PTRRecordArray) ToPTRRecordArrayOutputWithContext(ctx context.Context) PTRRecordArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PTRRecordArrayOutput)
-}
-
-func (i PTRRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]*PTRRecord] {
-	return pulumix.Output[[]*PTRRecord]{
-		OutputState: i.ToPTRRecordArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PTRRecordMapInput is an input type that accepts PTRRecordMap and PTRRecordMapOutput values.
@@ -282,12 +269,6 @@ func (i PTRRecordMap) ToPTRRecordMapOutputWithContext(ctx context.Context) PTRRe
 	return pulumi.ToOutputWithContext(ctx, i).(PTRRecordMapOutput)
 }
 
-func (i PTRRecordMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PTRRecord] {
-	return pulumix.Output[map[string]*PTRRecord]{
-		OutputState: i.ToPTRRecordMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PTRRecordOutput struct{ *pulumi.OutputState }
 
 func (PTRRecordOutput) ElementType() reflect.Type {
@@ -300,12 +281,6 @@ func (o PTRRecordOutput) ToPTRRecordOutput() PTRRecordOutput {
 
 func (o PTRRecordOutput) ToPTRRecordOutputWithContext(ctx context.Context) PTRRecordOutput {
 	return o
-}
-
-func (o PTRRecordOutput) ToOutput(ctx context.Context) pulumix.Output[*PTRRecord] {
-	return pulumix.Output[*PTRRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The FQDN of the DNS PTR Record.
@@ -357,12 +332,6 @@ func (o PTRRecordArrayOutput) ToPTRRecordArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o PTRRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PTRRecord] {
-	return pulumix.Output[[]*PTRRecord]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PTRRecordArrayOutput) Index(i pulumi.IntInput) PTRRecordOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PTRRecord {
 		return vs[0].([]*PTRRecord)[vs[1].(int)]
@@ -381,12 +350,6 @@ func (o PTRRecordMapOutput) ToPTRRecordMapOutput() PTRRecordMapOutput {
 
 func (o PTRRecordMapOutput) ToPTRRecordMapOutputWithContext(ctx context.Context) PTRRecordMapOutput {
 	return o
-}
-
-func (o PTRRecordMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PTRRecord] {
-	return pulumix.Output[map[string]*PTRRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PTRRecordMapOutput) MapIndex(k pulumi.StringInput) PTRRecordOutput {

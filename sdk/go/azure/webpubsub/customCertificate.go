@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Web PubSub Custom Certificate.
@@ -160,12 +159,6 @@ func (i *CustomCertificate) ToCustomCertificateOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(CustomCertificateOutput)
 }
 
-func (i *CustomCertificate) ToOutput(ctx context.Context) pulumix.Output[*CustomCertificate] {
-	return pulumix.Output[*CustomCertificate]{
-		OutputState: i.ToCustomCertificateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CustomCertificateArrayInput is an input type that accepts CustomCertificateArray and CustomCertificateArrayOutput values.
 // You can construct a concrete instance of `CustomCertificateArrayInput` via:
 //
@@ -189,12 +182,6 @@ func (i CustomCertificateArray) ToCustomCertificateArrayOutput() CustomCertifica
 
 func (i CustomCertificateArray) ToCustomCertificateArrayOutputWithContext(ctx context.Context) CustomCertificateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CustomCertificateArrayOutput)
-}
-
-func (i CustomCertificateArray) ToOutput(ctx context.Context) pulumix.Output[[]*CustomCertificate] {
-	return pulumix.Output[[]*CustomCertificate]{
-		OutputState: i.ToCustomCertificateArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CustomCertificateMapInput is an input type that accepts CustomCertificateMap and CustomCertificateMapOutput values.
@@ -222,12 +209,6 @@ func (i CustomCertificateMap) ToCustomCertificateMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CustomCertificateMapOutput)
 }
 
-func (i CustomCertificateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomCertificate] {
-	return pulumix.Output[map[string]*CustomCertificate]{
-		OutputState: i.ToCustomCertificateMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CustomCertificateOutput struct{ *pulumi.OutputState }
 
 func (CustomCertificateOutput) ElementType() reflect.Type {
@@ -240,12 +221,6 @@ func (o CustomCertificateOutput) ToCustomCertificateOutput() CustomCertificateOu
 
 func (o CustomCertificateOutput) ToCustomCertificateOutputWithContext(ctx context.Context) CustomCertificateOutput {
 	return o
-}
-
-func (o CustomCertificateOutput) ToOutput(ctx context.Context) pulumix.Output[*CustomCertificate] {
-	return pulumix.Output[*CustomCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The certificate version of the Web PubSub Custom Certificate.
@@ -286,12 +261,6 @@ func (o CustomCertificateArrayOutput) ToCustomCertificateArrayOutputWithContext(
 	return o
 }
 
-func (o CustomCertificateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CustomCertificate] {
-	return pulumix.Output[[]*CustomCertificate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CustomCertificateArrayOutput) Index(i pulumi.IntInput) CustomCertificateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CustomCertificate {
 		return vs[0].([]*CustomCertificate)[vs[1].(int)]
@@ -310,12 +279,6 @@ func (o CustomCertificateMapOutput) ToCustomCertificateMapOutput() CustomCertifi
 
 func (o CustomCertificateMapOutput) ToCustomCertificateMapOutputWithContext(ctx context.Context) CustomCertificateMapOutput {
 	return o
-}
-
-func (o CustomCertificateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CustomCertificate] {
-	return pulumix.Output[map[string]*CustomCertificate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CustomCertificateMapOutput) MapIndex(k pulumi.StringInput) CustomCertificateOutput {

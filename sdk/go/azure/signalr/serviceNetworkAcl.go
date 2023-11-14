@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the Network ACL for a SignalR service.
@@ -244,12 +243,6 @@ func (i *ServiceNetworkAcl) ToServiceNetworkAclOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkAclOutput)
 }
 
-func (i *ServiceNetworkAcl) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkAcl] {
-	return pulumix.Output[*ServiceNetworkAcl]{
-		OutputState: i.ToServiceNetworkAclOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceNetworkAclArrayInput is an input type that accepts ServiceNetworkAclArray and ServiceNetworkAclArrayOutput values.
 // You can construct a concrete instance of `ServiceNetworkAclArrayInput` via:
 //
@@ -273,12 +266,6 @@ func (i ServiceNetworkAclArray) ToServiceNetworkAclArrayOutput() ServiceNetworkA
 
 func (i ServiceNetworkAclArray) ToServiceNetworkAclArrayOutputWithContext(ctx context.Context) ServiceNetworkAclArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkAclArrayOutput)
-}
-
-func (i ServiceNetworkAclArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceNetworkAcl] {
-	return pulumix.Output[[]*ServiceNetworkAcl]{
-		OutputState: i.ToServiceNetworkAclArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceNetworkAclMapInput is an input type that accepts ServiceNetworkAclMap and ServiceNetworkAclMapOutput values.
@@ -306,12 +293,6 @@ func (i ServiceNetworkAclMap) ToServiceNetworkAclMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNetworkAclMapOutput)
 }
 
-func (i ServiceNetworkAclMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceNetworkAcl] {
-	return pulumix.Output[map[string]*ServiceNetworkAcl]{
-		OutputState: i.ToServiceNetworkAclMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceNetworkAclOutput struct{ *pulumi.OutputState }
 
 func (ServiceNetworkAclOutput) ElementType() reflect.Type {
@@ -324,12 +305,6 @@ func (o ServiceNetworkAclOutput) ToServiceNetworkAclOutput() ServiceNetworkAclOu
 
 func (o ServiceNetworkAclOutput) ToServiceNetworkAclOutputWithContext(ctx context.Context) ServiceNetworkAclOutput {
 	return o
-}
-
-func (o ServiceNetworkAclOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceNetworkAcl] {
-	return pulumix.Output[*ServiceNetworkAcl]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`.
@@ -366,12 +341,6 @@ func (o ServiceNetworkAclArrayOutput) ToServiceNetworkAclArrayOutputWithContext(
 	return o
 }
 
-func (o ServiceNetworkAclArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceNetworkAcl] {
-	return pulumix.Output[[]*ServiceNetworkAcl]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceNetworkAclArrayOutput) Index(i pulumi.IntInput) ServiceNetworkAclOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceNetworkAcl {
 		return vs[0].([]*ServiceNetworkAcl)[vs[1].(int)]
@@ -390,12 +359,6 @@ func (o ServiceNetworkAclMapOutput) ToServiceNetworkAclMapOutput() ServiceNetwor
 
 func (o ServiceNetworkAclMapOutput) ToServiceNetworkAclMapOutputWithContext(ctx context.Context) ServiceNetworkAclMapOutput {
 	return o
-}
-
-func (o ServiceNetworkAclMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceNetworkAcl] {
-	return pulumix.Output[map[string]*ServiceNetworkAcl]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceNetworkAclMapOutput) MapIndex(k pulumi.StringInput) ServiceNetworkAclOutput {

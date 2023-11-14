@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Automation Connection with type `AzureServicePrincipal`.
@@ -256,12 +255,6 @@ func (i *ConnectionServicePrincipal) ToConnectionServicePrincipalOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionServicePrincipalOutput)
 }
 
-func (i *ConnectionServicePrincipal) ToOutput(ctx context.Context) pulumix.Output[*ConnectionServicePrincipal] {
-	return pulumix.Output[*ConnectionServicePrincipal]{
-		OutputState: i.ToConnectionServicePrincipalOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ConnectionServicePrincipalArrayInput is an input type that accepts ConnectionServicePrincipalArray and ConnectionServicePrincipalArrayOutput values.
 // You can construct a concrete instance of `ConnectionServicePrincipalArrayInput` via:
 //
@@ -285,12 +278,6 @@ func (i ConnectionServicePrincipalArray) ToConnectionServicePrincipalArrayOutput
 
 func (i ConnectionServicePrincipalArray) ToConnectionServicePrincipalArrayOutputWithContext(ctx context.Context) ConnectionServicePrincipalArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionServicePrincipalArrayOutput)
-}
-
-func (i ConnectionServicePrincipalArray) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectionServicePrincipal] {
-	return pulumix.Output[[]*ConnectionServicePrincipal]{
-		OutputState: i.ToConnectionServicePrincipalArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ConnectionServicePrincipalMapInput is an input type that accepts ConnectionServicePrincipalMap and ConnectionServicePrincipalMapOutput values.
@@ -318,12 +305,6 @@ func (i ConnectionServicePrincipalMap) ToConnectionServicePrincipalMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ConnectionServicePrincipalMapOutput)
 }
 
-func (i ConnectionServicePrincipalMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectionServicePrincipal] {
-	return pulumix.Output[map[string]*ConnectionServicePrincipal]{
-		OutputState: i.ToConnectionServicePrincipalMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ConnectionServicePrincipalOutput struct{ *pulumi.OutputState }
 
 func (ConnectionServicePrincipalOutput) ElementType() reflect.Type {
@@ -336,12 +317,6 @@ func (o ConnectionServicePrincipalOutput) ToConnectionServicePrincipalOutput() C
 
 func (o ConnectionServicePrincipalOutput) ToConnectionServicePrincipalOutputWithContext(ctx context.Context) ConnectionServicePrincipalOutput {
 	return o
-}
-
-func (o ConnectionServicePrincipalOutput) ToOutput(ctx context.Context) pulumix.Output[*ConnectionServicePrincipal] {
-	return pulumix.Output[*ConnectionServicePrincipal]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The (Client) ID of the Service Principal.
@@ -398,12 +373,6 @@ func (o ConnectionServicePrincipalArrayOutput) ToConnectionServicePrincipalArray
 	return o
 }
 
-func (o ConnectionServicePrincipalArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ConnectionServicePrincipal] {
-	return pulumix.Output[[]*ConnectionServicePrincipal]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ConnectionServicePrincipalArrayOutput) Index(i pulumi.IntInput) ConnectionServicePrincipalOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConnectionServicePrincipal {
 		return vs[0].([]*ConnectionServicePrincipal)[vs[1].(int)]
@@ -422,12 +391,6 @@ func (o ConnectionServicePrincipalMapOutput) ToConnectionServicePrincipalMapOutp
 
 func (o ConnectionServicePrincipalMapOutput) ToConnectionServicePrincipalMapOutputWithContext(ctx context.Context) ConnectionServicePrincipalMapOutput {
 	return o
-}
-
-func (o ConnectionServicePrincipalMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ConnectionServicePrincipal] {
-	return pulumix.Output[map[string]*ConnectionServicePrincipal]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ConnectionServicePrincipalMapOutput) MapIndex(k pulumi.StringInput) ConnectionServicePrincipalOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Synapse SQL Pool Workload Group.
@@ -264,12 +263,6 @@ func (i *SqlPoolWorkloadGroup) ToSqlPoolWorkloadGroupOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolWorkloadGroupOutput)
 }
 
-func (i *SqlPoolWorkloadGroup) ToOutput(ctx context.Context) pulumix.Output[*SqlPoolWorkloadGroup] {
-	return pulumix.Output[*SqlPoolWorkloadGroup]{
-		OutputState: i.ToSqlPoolWorkloadGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SqlPoolWorkloadGroupArrayInput is an input type that accepts SqlPoolWorkloadGroupArray and SqlPoolWorkloadGroupArrayOutput values.
 // You can construct a concrete instance of `SqlPoolWorkloadGroupArrayInput` via:
 //
@@ -293,12 +286,6 @@ func (i SqlPoolWorkloadGroupArray) ToSqlPoolWorkloadGroupArrayOutput() SqlPoolWo
 
 func (i SqlPoolWorkloadGroupArray) ToSqlPoolWorkloadGroupArrayOutputWithContext(ctx context.Context) SqlPoolWorkloadGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolWorkloadGroupArrayOutput)
-}
-
-func (i SqlPoolWorkloadGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*SqlPoolWorkloadGroup] {
-	return pulumix.Output[[]*SqlPoolWorkloadGroup]{
-		OutputState: i.ToSqlPoolWorkloadGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SqlPoolWorkloadGroupMapInput is an input type that accepts SqlPoolWorkloadGroupMap and SqlPoolWorkloadGroupMapOutput values.
@@ -326,12 +313,6 @@ func (i SqlPoolWorkloadGroupMap) ToSqlPoolWorkloadGroupMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolWorkloadGroupMapOutput)
 }
 
-func (i SqlPoolWorkloadGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlPoolWorkloadGroup] {
-	return pulumix.Output[map[string]*SqlPoolWorkloadGroup]{
-		OutputState: i.ToSqlPoolWorkloadGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SqlPoolWorkloadGroupOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolWorkloadGroupOutput) ElementType() reflect.Type {
@@ -344,12 +325,6 @@ func (o SqlPoolWorkloadGroupOutput) ToSqlPoolWorkloadGroupOutput() SqlPoolWorklo
 
 func (o SqlPoolWorkloadGroupOutput) ToSqlPoolWorkloadGroupOutputWithContext(ctx context.Context) SqlPoolWorkloadGroupOutput {
 	return o
-}
-
-func (o SqlPoolWorkloadGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*SqlPoolWorkloadGroup] {
-	return pulumix.Output[*SqlPoolWorkloadGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The workload group importance level. Defaults to `normal`.
@@ -406,12 +381,6 @@ func (o SqlPoolWorkloadGroupArrayOutput) ToSqlPoolWorkloadGroupArrayOutputWithCo
 	return o
 }
 
-func (o SqlPoolWorkloadGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SqlPoolWorkloadGroup] {
-	return pulumix.Output[[]*SqlPoolWorkloadGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SqlPoolWorkloadGroupArrayOutput) Index(i pulumi.IntInput) SqlPoolWorkloadGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SqlPoolWorkloadGroup {
 		return vs[0].([]*SqlPoolWorkloadGroup)[vs[1].(int)]
@@ -430,12 +399,6 @@ func (o SqlPoolWorkloadGroupMapOutput) ToSqlPoolWorkloadGroupMapOutput() SqlPool
 
 func (o SqlPoolWorkloadGroupMapOutput) ToSqlPoolWorkloadGroupMapOutputWithContext(ctx context.Context) SqlPoolWorkloadGroupMapOutput {
 	return o
-}
-
-func (o SqlPoolWorkloadGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlPoolWorkloadGroup] {
-	return pulumix.Output[map[string]*SqlPoolWorkloadGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SqlPoolWorkloadGroupMapOutput) MapIndex(k pulumi.StringInput) SqlPoolWorkloadGroupOutput {

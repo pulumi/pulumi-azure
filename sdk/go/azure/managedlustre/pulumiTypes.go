@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i FileSystemEncryptionKeyArgs) ToFileSystemEncryptionKeyOutput() FileSyste
 
 func (i FileSystemEncryptionKeyArgs) ToFileSystemEncryptionKeyOutputWithContext(ctx context.Context) FileSystemEncryptionKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemEncryptionKeyOutput)
-}
-
-func (i FileSystemEncryptionKeyArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemEncryptionKey] {
-	return pulumix.Output[FileSystemEncryptionKey]{
-		OutputState: i.ToFileSystemEncryptionKeyOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i FileSystemEncryptionKeyArgs) ToFileSystemEncryptionKeyPtrOutput() FileSystemEncryptionKeyPtrOutput {
@@ -98,12 +91,6 @@ func (i *fileSystemEncryptionKeyPtrType) ToFileSystemEncryptionKeyPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemEncryptionKeyPtrOutput)
 }
 
-func (i *fileSystemEncryptionKeyPtrType) ToOutput(ctx context.Context) pulumix.Output[*FileSystemEncryptionKey] {
-	return pulumix.Output[*FileSystemEncryptionKey]{
-		OutputState: i.ToFileSystemEncryptionKeyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileSystemEncryptionKeyOutput struct{ *pulumi.OutputState }
 
 func (FileSystemEncryptionKeyOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o FileSystemEncryptionKeyOutput) ToFileSystemEncryptionKeyPtrOutputWithCon
 	}).(FileSystemEncryptionKeyPtrOutput)
 }
 
-func (o FileSystemEncryptionKeyOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemEncryptionKey] {
-	return pulumix.Output[FileSystemEncryptionKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The URL to the Key Vault Key used as the Encryption Key. This can be found as `id` on the `keyvault.Key` resource.
 func (o FileSystemEncryptionKeyOutput) KeyUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v FileSystemEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
@@ -156,12 +137,6 @@ func (o FileSystemEncryptionKeyPtrOutput) ToFileSystemEncryptionKeyPtrOutput() F
 
 func (o FileSystemEncryptionKeyPtrOutput) ToFileSystemEncryptionKeyPtrOutputWithContext(ctx context.Context) FileSystemEncryptionKeyPtrOutput {
 	return o
-}
-
-func (o FileSystemEncryptionKeyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystemEncryptionKey] {
-	return pulumix.Output[*FileSystemEncryptionKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemEncryptionKeyPtrOutput) Elem() FileSystemEncryptionKeyOutput {
@@ -239,12 +214,6 @@ func (i FileSystemHsmSettingArgs) ToFileSystemHsmSettingOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemHsmSettingOutput)
 }
 
-func (i FileSystemHsmSettingArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemHsmSetting] {
-	return pulumix.Output[FileSystemHsmSetting]{
-		OutputState: i.ToFileSystemHsmSettingOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FileSystemHsmSettingArgs) ToFileSystemHsmSettingPtrOutput() FileSystemHsmSettingPtrOutput {
 	return i.ToFileSystemHsmSettingPtrOutputWithContext(context.Background())
 }
@@ -286,12 +255,6 @@ func (i *fileSystemHsmSettingPtrType) ToFileSystemHsmSettingPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemHsmSettingPtrOutput)
 }
 
-func (i *fileSystemHsmSettingPtrType) ToOutput(ctx context.Context) pulumix.Output[*FileSystemHsmSetting] {
-	return pulumix.Output[*FileSystemHsmSetting]{
-		OutputState: i.ToFileSystemHsmSettingPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileSystemHsmSettingOutput struct{ *pulumi.OutputState }
 
 func (FileSystemHsmSettingOutput) ElementType() reflect.Type {
@@ -314,12 +277,6 @@ func (o FileSystemHsmSettingOutput) ToFileSystemHsmSettingPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemHsmSetting) *FileSystemHsmSetting {
 		return &v
 	}).(FileSystemHsmSettingPtrOutput)
-}
-
-func (o FileSystemHsmSettingOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemHsmSetting] {
-	return pulumix.Output[FileSystemHsmSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The resource ID of the storage container that is used for hydrating the namespace and archiving from the namespace. Changing this forces a new resource to be created.
@@ -351,12 +308,6 @@ func (o FileSystemHsmSettingPtrOutput) ToFileSystemHsmSettingPtrOutput() FileSys
 
 func (o FileSystemHsmSettingPtrOutput) ToFileSystemHsmSettingPtrOutputWithContext(ctx context.Context) FileSystemHsmSettingPtrOutput {
 	return o
-}
-
-func (o FileSystemHsmSettingPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystemHsmSetting] {
-	return pulumix.Output[*FileSystemHsmSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemHsmSettingPtrOutput) Elem() FileSystemHsmSettingOutput {
@@ -438,12 +389,6 @@ func (i FileSystemIdentityArgs) ToFileSystemIdentityOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemIdentityOutput)
 }
 
-func (i FileSystemIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemIdentity] {
-	return pulumix.Output[FileSystemIdentity]{
-		OutputState: i.ToFileSystemIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FileSystemIdentityArgs) ToFileSystemIdentityPtrOutput() FileSystemIdentityPtrOutput {
 	return i.ToFileSystemIdentityPtrOutputWithContext(context.Background())
 }
@@ -485,12 +430,6 @@ func (i *fileSystemIdentityPtrType) ToFileSystemIdentityPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemIdentityPtrOutput)
 }
 
-func (i *fileSystemIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*FileSystemIdentity] {
-	return pulumix.Output[*FileSystemIdentity]{
-		OutputState: i.ToFileSystemIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileSystemIdentityOutput struct{ *pulumi.OutputState }
 
 func (FileSystemIdentityOutput) ElementType() reflect.Type {
@@ -515,12 +454,6 @@ func (o FileSystemIdentityOutput) ToFileSystemIdentityPtrOutputWithContext(ctx c
 	}).(FileSystemIdentityPtrOutput)
 }
 
-func (o FileSystemIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemIdentity] {
-	return pulumix.Output[FileSystemIdentity]{
-		OutputState: o.OutputState,
-	}
-}
-
 // A list of User Assigned Managed Identity IDs to be assigned to this Azure Managed Lustre File System. Changing this forces a new resource to be created.
 func (o FileSystemIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FileSystemIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
@@ -543,12 +476,6 @@ func (o FileSystemIdentityPtrOutput) ToFileSystemIdentityPtrOutput() FileSystemI
 
 func (o FileSystemIdentityPtrOutput) ToFileSystemIdentityPtrOutputWithContext(ctx context.Context) FileSystemIdentityPtrOutput {
 	return o
-}
-
-func (o FileSystemIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystemIdentity] {
-	return pulumix.Output[*FileSystemIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemIdentityPtrOutput) Elem() FileSystemIdentityOutput {
@@ -616,12 +543,6 @@ func (i FileSystemMaintenanceWindowArgs) ToFileSystemMaintenanceWindowOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemMaintenanceWindowOutput)
 }
 
-func (i FileSystemMaintenanceWindowArgs) ToOutput(ctx context.Context) pulumix.Output[FileSystemMaintenanceWindow] {
-	return pulumix.Output[FileSystemMaintenanceWindow]{
-		OutputState: i.ToFileSystemMaintenanceWindowOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FileSystemMaintenanceWindowArgs) ToFileSystemMaintenanceWindowPtrOutput() FileSystemMaintenanceWindowPtrOutput {
 	return i.ToFileSystemMaintenanceWindowPtrOutputWithContext(context.Background())
 }
@@ -663,12 +584,6 @@ func (i *fileSystemMaintenanceWindowPtrType) ToFileSystemMaintenanceWindowPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemMaintenanceWindowPtrOutput)
 }
 
-func (i *fileSystemMaintenanceWindowPtrType) ToOutput(ctx context.Context) pulumix.Output[*FileSystemMaintenanceWindow] {
-	return pulumix.Output[*FileSystemMaintenanceWindow]{
-		OutputState: i.ToFileSystemMaintenanceWindowPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FileSystemMaintenanceWindowOutput struct{ *pulumi.OutputState }
 
 func (FileSystemMaintenanceWindowOutput) ElementType() reflect.Type {
@@ -693,12 +608,6 @@ func (o FileSystemMaintenanceWindowOutput) ToFileSystemMaintenanceWindowPtrOutpu
 	}).(FileSystemMaintenanceWindowPtrOutput)
 }
 
-func (o FileSystemMaintenanceWindowOutput) ToOutput(ctx context.Context) pulumix.Output[FileSystemMaintenanceWindow] {
-	return pulumix.Output[FileSystemMaintenanceWindow]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The day of the week on which the maintenance window will occur. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
 func (o FileSystemMaintenanceWindowOutput) DayOfWeek() pulumi.StringOutput {
 	return o.ApplyT(func(v FileSystemMaintenanceWindow) string { return v.DayOfWeek }).(pulumi.StringOutput)
@@ -720,12 +629,6 @@ func (o FileSystemMaintenanceWindowPtrOutput) ToFileSystemMaintenanceWindowPtrOu
 
 func (o FileSystemMaintenanceWindowPtrOutput) ToFileSystemMaintenanceWindowPtrOutputWithContext(ctx context.Context) FileSystemMaintenanceWindowPtrOutput {
 	return o
-}
-
-func (o FileSystemMaintenanceWindowPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FileSystemMaintenanceWindow] {
-	return pulumix.Output[*FileSystemMaintenanceWindow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FileSystemMaintenanceWindowPtrOutput) Elem() FileSystemMaintenanceWindowOutput {

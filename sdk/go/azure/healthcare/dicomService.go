@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Healthcare DICOM Service
@@ -216,12 +215,6 @@ func (i *DicomService) ToDicomServiceOutputWithContext(ctx context.Context) Dico
 	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceOutput)
 }
 
-func (i *DicomService) ToOutput(ctx context.Context) pulumix.Output[*DicomService] {
-	return pulumix.Output[*DicomService]{
-		OutputState: i.ToDicomServiceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DicomServiceArrayInput is an input type that accepts DicomServiceArray and DicomServiceArrayOutput values.
 // You can construct a concrete instance of `DicomServiceArrayInput` via:
 //
@@ -245,12 +238,6 @@ func (i DicomServiceArray) ToDicomServiceArrayOutput() DicomServiceArrayOutput {
 
 func (i DicomServiceArray) ToDicomServiceArrayOutputWithContext(ctx context.Context) DicomServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceArrayOutput)
-}
-
-func (i DicomServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*DicomService] {
-	return pulumix.Output[[]*DicomService]{
-		OutputState: i.ToDicomServiceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DicomServiceMapInput is an input type that accepts DicomServiceMap and DicomServiceMapOutput values.
@@ -278,12 +265,6 @@ func (i DicomServiceMap) ToDicomServiceMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(DicomServiceMapOutput)
 }
 
-func (i DicomServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DicomService] {
-	return pulumix.Output[map[string]*DicomService]{
-		OutputState: i.ToDicomServiceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DicomServiceOutput struct{ *pulumi.OutputState }
 
 func (DicomServiceOutput) ElementType() reflect.Type {
@@ -296,12 +277,6 @@ func (o DicomServiceOutput) ToDicomServiceOutput() DicomServiceOutput {
 
 func (o DicomServiceOutput) ToDicomServiceOutputWithContext(ctx context.Context) DicomServiceOutput {
 	return o
-}
-
-func (o DicomServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*DicomService] {
-	return pulumix.Output[*DicomService]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The `authentication` block as defined below.
@@ -362,12 +337,6 @@ func (o DicomServiceArrayOutput) ToDicomServiceArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o DicomServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DicomService] {
-	return pulumix.Output[[]*DicomService]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DicomServiceArrayOutput) Index(i pulumi.IntInput) DicomServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DicomService {
 		return vs[0].([]*DicomService)[vs[1].(int)]
@@ -386,12 +355,6 @@ func (o DicomServiceMapOutput) ToDicomServiceMapOutput() DicomServiceMapOutput {
 
 func (o DicomServiceMapOutput) ToDicomServiceMapOutputWithContext(ctx context.Context) DicomServiceMapOutput {
 	return o
-}
-
-func (o DicomServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DicomService] {
-	return pulumix.Output[map[string]*DicomService]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DicomServiceMapOutput) MapIndex(k pulumi.StringInput) DicomServiceOutput {

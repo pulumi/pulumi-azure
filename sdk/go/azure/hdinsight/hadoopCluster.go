@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a HDInsight Hadoop Cluster.
@@ -413,12 +412,6 @@ func (i *HadoopCluster) ToHadoopClusterOutputWithContext(ctx context.Context) Ha
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterOutput)
 }
 
-func (i *HadoopCluster) ToOutput(ctx context.Context) pulumix.Output[*HadoopCluster] {
-	return pulumix.Output[*HadoopCluster]{
-		OutputState: i.ToHadoopClusterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // HadoopClusterArrayInput is an input type that accepts HadoopClusterArray and HadoopClusterArrayOutput values.
 // You can construct a concrete instance of `HadoopClusterArrayInput` via:
 //
@@ -442,12 +435,6 @@ func (i HadoopClusterArray) ToHadoopClusterArrayOutput() HadoopClusterArrayOutpu
 
 func (i HadoopClusterArray) ToHadoopClusterArrayOutputWithContext(ctx context.Context) HadoopClusterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterArrayOutput)
-}
-
-func (i HadoopClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]*HadoopCluster] {
-	return pulumix.Output[[]*HadoopCluster]{
-		OutputState: i.ToHadoopClusterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // HadoopClusterMapInput is an input type that accepts HadoopClusterMap and HadoopClusterMapOutput values.
@@ -475,12 +462,6 @@ func (i HadoopClusterMap) ToHadoopClusterMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(HadoopClusterMapOutput)
 }
 
-func (i HadoopClusterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*HadoopCluster] {
-	return pulumix.Output[map[string]*HadoopCluster]{
-		OutputState: i.ToHadoopClusterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type HadoopClusterOutput struct{ *pulumi.OutputState }
 
 func (HadoopClusterOutput) ElementType() reflect.Type {
@@ -493,12 +474,6 @@ func (o HadoopClusterOutput) ToHadoopClusterOutput() HadoopClusterOutput {
 
 func (o HadoopClusterOutput) ToHadoopClusterOutputWithContext(ctx context.Context) HadoopClusterOutput {
 	return o
-}
-
-func (o HadoopClusterOutput) ToOutput(ctx context.Context) pulumix.Output[*HadoopCluster] {
-	return pulumix.Output[*HadoopCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Version of HDInsights which should be used for this Cluster. Changing this forces a new resource to be created.
@@ -622,12 +597,6 @@ func (o HadoopClusterArrayOutput) ToHadoopClusterArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o HadoopClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*HadoopCluster] {
-	return pulumix.Output[[]*HadoopCluster]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o HadoopClusterArrayOutput) Index(i pulumi.IntInput) HadoopClusterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HadoopCluster {
 		return vs[0].([]*HadoopCluster)[vs[1].(int)]
@@ -646,12 +615,6 @@ func (o HadoopClusterMapOutput) ToHadoopClusterMapOutput() HadoopClusterMapOutpu
 
 func (o HadoopClusterMapOutput) ToHadoopClusterMapOutputWithContext(ctx context.Context) HadoopClusterMapOutput {
 	return o
-}
-
-func (o HadoopClusterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*HadoopCluster] {
-	return pulumix.Output[map[string]*HadoopCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o HadoopClusterMapOutput) MapIndex(k pulumi.StringInput) HadoopClusterOutput {

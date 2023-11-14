@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -59,12 +58,6 @@ func (i BackupPolicyDiskRetentionRuleArgs) ToBackupPolicyDiskRetentionRuleOutput
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyDiskRetentionRuleOutput)
 }
 
-func (i BackupPolicyDiskRetentionRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BackupPolicyDiskRetentionRule] {
-	return pulumix.Output[BackupPolicyDiskRetentionRule]{
-		OutputState: i.ToBackupPolicyDiskRetentionRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BackupPolicyDiskRetentionRuleArrayInput is an input type that accepts BackupPolicyDiskRetentionRuleArray and BackupPolicyDiskRetentionRuleArrayOutput values.
 // You can construct a concrete instance of `BackupPolicyDiskRetentionRuleArrayInput` via:
 //
@@ -90,12 +83,6 @@ func (i BackupPolicyDiskRetentionRuleArray) ToBackupPolicyDiskRetentionRuleArray
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyDiskRetentionRuleArrayOutput)
 }
 
-func (i BackupPolicyDiskRetentionRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BackupPolicyDiskRetentionRule] {
-	return pulumix.Output[[]BackupPolicyDiskRetentionRule]{
-		OutputState: i.ToBackupPolicyDiskRetentionRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BackupPolicyDiskRetentionRuleOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyDiskRetentionRuleOutput) ElementType() reflect.Type {
@@ -108,12 +95,6 @@ func (o BackupPolicyDiskRetentionRuleOutput) ToBackupPolicyDiskRetentionRuleOutp
 
 func (o BackupPolicyDiskRetentionRuleOutput) ToBackupPolicyDiskRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyDiskRetentionRuleOutput {
 	return o
-}
-
-func (o BackupPolicyDiskRetentionRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BackupPolicyDiskRetentionRule] {
-	return pulumix.Output[BackupPolicyDiskRetentionRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `criteria` block as defined below. Changing this forces a new Backup Policy Disk to be created.
@@ -148,12 +129,6 @@ func (o BackupPolicyDiskRetentionRuleArrayOutput) ToBackupPolicyDiskRetentionRul
 
 func (o BackupPolicyDiskRetentionRuleArrayOutput) ToBackupPolicyDiskRetentionRuleArrayOutputWithContext(ctx context.Context) BackupPolicyDiskRetentionRuleArrayOutput {
 	return o
-}
-
-func (o BackupPolicyDiskRetentionRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BackupPolicyDiskRetentionRule] {
-	return pulumix.Output[[]BackupPolicyDiskRetentionRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BackupPolicyDiskRetentionRuleArrayOutput) Index(i pulumi.IntInput) BackupPolicyDiskRetentionRuleOutput {
@@ -195,12 +170,6 @@ func (i BackupPolicyDiskRetentionRuleCriteriaArgs) ToBackupPolicyDiskRetentionRu
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyDiskRetentionRuleCriteriaOutput)
 }
 
-func (i BackupPolicyDiskRetentionRuleCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[BackupPolicyDiskRetentionRuleCriteria] {
-	return pulumix.Output[BackupPolicyDiskRetentionRuleCriteria]{
-		OutputState: i.ToBackupPolicyDiskRetentionRuleCriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BackupPolicyDiskRetentionRuleCriteriaOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyDiskRetentionRuleCriteriaOutput) ElementType() reflect.Type {
@@ -213,12 +182,6 @@ func (o BackupPolicyDiskRetentionRuleCriteriaOutput) ToBackupPolicyDiskRetention
 
 func (o BackupPolicyDiskRetentionRuleCriteriaOutput) ToBackupPolicyDiskRetentionRuleCriteriaOutputWithContext(ctx context.Context) BackupPolicyDiskRetentionRuleCriteriaOutput {
 	return o
-}
-
-func (o BackupPolicyDiskRetentionRuleCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[BackupPolicyDiskRetentionRuleCriteria] {
-	return pulumix.Output[BackupPolicyDiskRetentionRuleCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
@@ -271,12 +234,6 @@ func (i BackupPolicyPostgresqlRetentionRuleArgs) ToBackupPolicyPostgresqlRetenti
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyPostgresqlRetentionRuleOutput)
 }
 
-func (i BackupPolicyPostgresqlRetentionRuleArgs) ToOutput(ctx context.Context) pulumix.Output[BackupPolicyPostgresqlRetentionRule] {
-	return pulumix.Output[BackupPolicyPostgresqlRetentionRule]{
-		OutputState: i.ToBackupPolicyPostgresqlRetentionRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BackupPolicyPostgresqlRetentionRuleArrayInput is an input type that accepts BackupPolicyPostgresqlRetentionRuleArray and BackupPolicyPostgresqlRetentionRuleArrayOutput values.
 // You can construct a concrete instance of `BackupPolicyPostgresqlRetentionRuleArrayInput` via:
 //
@@ -302,12 +259,6 @@ func (i BackupPolicyPostgresqlRetentionRuleArray) ToBackupPolicyPostgresqlRetent
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyPostgresqlRetentionRuleArrayOutput)
 }
 
-func (i BackupPolicyPostgresqlRetentionRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]BackupPolicyPostgresqlRetentionRule] {
-	return pulumix.Output[[]BackupPolicyPostgresqlRetentionRule]{
-		OutputState: i.ToBackupPolicyPostgresqlRetentionRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BackupPolicyPostgresqlRetentionRuleOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyPostgresqlRetentionRuleOutput) ElementType() reflect.Type {
@@ -320,12 +271,6 @@ func (o BackupPolicyPostgresqlRetentionRuleOutput) ToBackupPolicyPostgresqlReten
 
 func (o BackupPolicyPostgresqlRetentionRuleOutput) ToBackupPolicyPostgresqlRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyPostgresqlRetentionRuleOutput {
 	return o
-}
-
-func (o BackupPolicyPostgresqlRetentionRuleOutput) ToOutput(ctx context.Context) pulumix.Output[BackupPolicyPostgresqlRetentionRule] {
-	return pulumix.Output[BackupPolicyPostgresqlRetentionRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
@@ -362,12 +307,6 @@ func (o BackupPolicyPostgresqlRetentionRuleArrayOutput) ToBackupPolicyPostgresql
 
 func (o BackupPolicyPostgresqlRetentionRuleArrayOutput) ToBackupPolicyPostgresqlRetentionRuleArrayOutputWithContext(ctx context.Context) BackupPolicyPostgresqlRetentionRuleArrayOutput {
 	return o
-}
-
-func (o BackupPolicyPostgresqlRetentionRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BackupPolicyPostgresqlRetentionRule] {
-	return pulumix.Output[[]BackupPolicyPostgresqlRetentionRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BackupPolicyPostgresqlRetentionRuleArrayOutput) Index(i pulumi.IntInput) BackupPolicyPostgresqlRetentionRuleOutput {
@@ -425,12 +364,6 @@ func (i BackupPolicyPostgresqlRetentionRuleCriteriaArgs) ToBackupPolicyPostgresq
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyPostgresqlRetentionRuleCriteriaOutput)
 }
 
-func (i BackupPolicyPostgresqlRetentionRuleCriteriaArgs) ToOutput(ctx context.Context) pulumix.Output[BackupPolicyPostgresqlRetentionRuleCriteria] {
-	return pulumix.Output[BackupPolicyPostgresqlRetentionRuleCriteria]{
-		OutputState: i.ToBackupPolicyPostgresqlRetentionRuleCriteriaOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BackupPolicyPostgresqlRetentionRuleCriteriaOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyPostgresqlRetentionRuleCriteriaOutput) ElementType() reflect.Type {
@@ -443,12 +376,6 @@ func (o BackupPolicyPostgresqlRetentionRuleCriteriaOutput) ToBackupPolicyPostgre
 
 func (o BackupPolicyPostgresqlRetentionRuleCriteriaOutput) ToBackupPolicyPostgresqlRetentionRuleCriteriaOutputWithContext(ctx context.Context) BackupPolicyPostgresqlRetentionRuleCriteriaOutput {
 	return o
-}
-
-func (o BackupPolicyPostgresqlRetentionRuleCriteriaOutput) ToOutput(ctx context.Context) pulumix.Output[BackupPolicyPostgresqlRetentionRuleCriteria] {
-	return pulumix.Output[BackupPolicyPostgresqlRetentionRuleCriteria]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy PostgreSQL to be created.
@@ -517,12 +444,6 @@ func (i BackupVaultIdentityArgs) ToBackupVaultIdentityOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultIdentityOutput)
 }
 
-func (i BackupVaultIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[BackupVaultIdentity] {
-	return pulumix.Output[BackupVaultIdentity]{
-		OutputState: i.ToBackupVaultIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BackupVaultIdentityArgs) ToBackupVaultIdentityPtrOutput() BackupVaultIdentityPtrOutput {
 	return i.ToBackupVaultIdentityPtrOutputWithContext(context.Background())
 }
@@ -564,12 +485,6 @@ func (i *backupVaultIdentityPtrType) ToBackupVaultIdentityPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(BackupVaultIdentityPtrOutput)
 }
 
-func (i *backupVaultIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*BackupVaultIdentity] {
-	return pulumix.Output[*BackupVaultIdentity]{
-		OutputState: i.ToBackupVaultIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BackupVaultIdentityOutput struct{ *pulumi.OutputState }
 
 func (BackupVaultIdentityOutput) ElementType() reflect.Type {
@@ -592,12 +507,6 @@ func (o BackupVaultIdentityOutput) ToBackupVaultIdentityPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupVaultIdentity) *BackupVaultIdentity {
 		return &v
 	}).(BackupVaultIdentityPtrOutput)
-}
-
-func (o BackupVaultIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[BackupVaultIdentity] {
-	return pulumix.Output[BackupVaultIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Principal ID for the Service Principal associated with the Identity of this Backup Vault.
@@ -627,12 +536,6 @@ func (o BackupVaultIdentityPtrOutput) ToBackupVaultIdentityPtrOutput() BackupVau
 
 func (o BackupVaultIdentityPtrOutput) ToBackupVaultIdentityPtrOutputWithContext(ctx context.Context) BackupVaultIdentityPtrOutput {
 	return o
-}
-
-func (o BackupVaultIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BackupVaultIdentity] {
-	return pulumix.Output[*BackupVaultIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BackupVaultIdentityPtrOutput) Elem() BackupVaultIdentityOutput {
@@ -716,12 +619,6 @@ func (i GetBackupVaultIdentityArgs) ToGetBackupVaultIdentityOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetBackupVaultIdentityOutput)
 }
 
-func (i GetBackupVaultIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetBackupVaultIdentity] {
-	return pulumix.Output[GetBackupVaultIdentity]{
-		OutputState: i.ToGetBackupVaultIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetBackupVaultIdentityArrayInput is an input type that accepts GetBackupVaultIdentityArray and GetBackupVaultIdentityArrayOutput values.
 // You can construct a concrete instance of `GetBackupVaultIdentityArrayInput` via:
 //
@@ -747,12 +644,6 @@ func (i GetBackupVaultIdentityArray) ToGetBackupVaultIdentityArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetBackupVaultIdentityArrayOutput)
 }
 
-func (i GetBackupVaultIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetBackupVaultIdentity] {
-	return pulumix.Output[[]GetBackupVaultIdentity]{
-		OutputState: i.ToGetBackupVaultIdentityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetBackupVaultIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetBackupVaultIdentityOutput) ElementType() reflect.Type {
@@ -765,12 +656,6 @@ func (o GetBackupVaultIdentityOutput) ToGetBackupVaultIdentityOutput() GetBackup
 
 func (o GetBackupVaultIdentityOutput) ToGetBackupVaultIdentityOutputWithContext(ctx context.Context) GetBackupVaultIdentityOutput {
 	return o
-}
-
-func (o GetBackupVaultIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetBackupVaultIdentity] {
-	return pulumix.Output[GetBackupVaultIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Principal ID of the System Assigned Managed Service Identity that is configured on this Backup Vault.
@@ -800,12 +685,6 @@ func (o GetBackupVaultIdentityArrayOutput) ToGetBackupVaultIdentityArrayOutput()
 
 func (o GetBackupVaultIdentityArrayOutput) ToGetBackupVaultIdentityArrayOutputWithContext(ctx context.Context) GetBackupVaultIdentityArrayOutput {
 	return o
-}
-
-func (o GetBackupVaultIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetBackupVaultIdentity] {
-	return pulumix.Output[[]GetBackupVaultIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetBackupVaultIdentityArrayOutput) Index(i pulumi.IntInput) GetBackupVaultIdentityOutput {

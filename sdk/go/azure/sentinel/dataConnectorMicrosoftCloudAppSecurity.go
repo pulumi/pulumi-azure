@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Microsoft Cloud App Security Data Connector.
@@ -221,12 +220,6 @@ func (i *DataConnectorMicrosoftCloudAppSecurity) ToDataConnectorMicrosoftCloudAp
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorMicrosoftCloudAppSecurityOutput)
 }
 
-func (i *DataConnectorMicrosoftCloudAppSecurity) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorMicrosoftCloudAppSecurity] {
-	return pulumix.Output[*DataConnectorMicrosoftCloudAppSecurity]{
-		OutputState: i.ToDataConnectorMicrosoftCloudAppSecurityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataConnectorMicrosoftCloudAppSecurityArrayInput is an input type that accepts DataConnectorMicrosoftCloudAppSecurityArray and DataConnectorMicrosoftCloudAppSecurityArrayOutput values.
 // You can construct a concrete instance of `DataConnectorMicrosoftCloudAppSecurityArrayInput` via:
 //
@@ -250,12 +243,6 @@ func (i DataConnectorMicrosoftCloudAppSecurityArray) ToDataConnectorMicrosoftClo
 
 func (i DataConnectorMicrosoftCloudAppSecurityArray) ToDataConnectorMicrosoftCloudAppSecurityArrayOutputWithContext(ctx context.Context) DataConnectorMicrosoftCloudAppSecurityArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorMicrosoftCloudAppSecurityArrayOutput)
-}
-
-func (i DataConnectorMicrosoftCloudAppSecurityArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorMicrosoftCloudAppSecurity] {
-	return pulumix.Output[[]*DataConnectorMicrosoftCloudAppSecurity]{
-		OutputState: i.ToDataConnectorMicrosoftCloudAppSecurityArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataConnectorMicrosoftCloudAppSecurityMapInput is an input type that accepts DataConnectorMicrosoftCloudAppSecurityMap and DataConnectorMicrosoftCloudAppSecurityMapOutput values.
@@ -283,12 +270,6 @@ func (i DataConnectorMicrosoftCloudAppSecurityMap) ToDataConnectorMicrosoftCloud
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorMicrosoftCloudAppSecurityMapOutput)
 }
 
-func (i DataConnectorMicrosoftCloudAppSecurityMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorMicrosoftCloudAppSecurity] {
-	return pulumix.Output[map[string]*DataConnectorMicrosoftCloudAppSecurity]{
-		OutputState: i.ToDataConnectorMicrosoftCloudAppSecurityMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataConnectorMicrosoftCloudAppSecurityOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorMicrosoftCloudAppSecurityOutput) ElementType() reflect.Type {
@@ -301,12 +282,6 @@ func (o DataConnectorMicrosoftCloudAppSecurityOutput) ToDataConnectorMicrosoftCl
 
 func (o DataConnectorMicrosoftCloudAppSecurityOutput) ToDataConnectorMicrosoftCloudAppSecurityOutputWithContext(ctx context.Context) DataConnectorMicrosoftCloudAppSecurityOutput {
 	return o
-}
-
-func (o DataConnectorMicrosoftCloudAppSecurityOutput) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorMicrosoftCloudAppSecurity] {
-	return pulumix.Output[*DataConnectorMicrosoftCloudAppSecurity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Should the alerts be enabled? Defaults to `true`.
@@ -352,12 +327,6 @@ func (o DataConnectorMicrosoftCloudAppSecurityArrayOutput) ToDataConnectorMicros
 	return o
 }
 
-func (o DataConnectorMicrosoftCloudAppSecurityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorMicrosoftCloudAppSecurity] {
-	return pulumix.Output[[]*DataConnectorMicrosoftCloudAppSecurity]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataConnectorMicrosoftCloudAppSecurityArrayOutput) Index(i pulumi.IntInput) DataConnectorMicrosoftCloudAppSecurityOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorMicrosoftCloudAppSecurity {
 		return vs[0].([]*DataConnectorMicrosoftCloudAppSecurity)[vs[1].(int)]
@@ -376,12 +345,6 @@ func (o DataConnectorMicrosoftCloudAppSecurityMapOutput) ToDataConnectorMicrosof
 
 func (o DataConnectorMicrosoftCloudAppSecurityMapOutput) ToDataConnectorMicrosoftCloudAppSecurityMapOutputWithContext(ctx context.Context) DataConnectorMicrosoftCloudAppSecurityMapOutput {
 	return o
-}
-
-func (o DataConnectorMicrosoftCloudAppSecurityMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorMicrosoftCloudAppSecurity] {
-	return pulumix.Output[map[string]*DataConnectorMicrosoftCloudAppSecurity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataConnectorMicrosoftCloudAppSecurityMapOutput) MapIndex(k pulumi.StringInput) DataConnectorMicrosoftCloudAppSecurityOutput {

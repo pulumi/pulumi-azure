@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Data Flow inside an Azure Data Factory.
@@ -415,12 +414,6 @@ func (i *DataFlow) ToDataFlowOutputWithContext(ctx context.Context) DataFlowOutp
 	return pulumi.ToOutputWithContext(ctx, i).(DataFlowOutput)
 }
 
-func (i *DataFlow) ToOutput(ctx context.Context) pulumix.Output[*DataFlow] {
-	return pulumix.Output[*DataFlow]{
-		OutputState: i.ToDataFlowOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataFlowArrayInput is an input type that accepts DataFlowArray and DataFlowArrayOutput values.
 // You can construct a concrete instance of `DataFlowArrayInput` via:
 //
@@ -444,12 +437,6 @@ func (i DataFlowArray) ToDataFlowArrayOutput() DataFlowArrayOutput {
 
 func (i DataFlowArray) ToDataFlowArrayOutputWithContext(ctx context.Context) DataFlowArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataFlowArrayOutput)
-}
-
-func (i DataFlowArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataFlow] {
-	return pulumix.Output[[]*DataFlow]{
-		OutputState: i.ToDataFlowArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataFlowMapInput is an input type that accepts DataFlowMap and DataFlowMapOutput values.
@@ -477,12 +464,6 @@ func (i DataFlowMap) ToDataFlowMapOutputWithContext(ctx context.Context) DataFlo
 	return pulumi.ToOutputWithContext(ctx, i).(DataFlowMapOutput)
 }
 
-func (i DataFlowMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataFlow] {
-	return pulumix.Output[map[string]*DataFlow]{
-		OutputState: i.ToDataFlowMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataFlowOutput struct{ *pulumi.OutputState }
 
 func (DataFlowOutput) ElementType() reflect.Type {
@@ -495,12 +476,6 @@ func (o DataFlowOutput) ToDataFlowOutput() DataFlowOutput {
 
 func (o DataFlowOutput) ToDataFlowOutputWithContext(ctx context.Context) DataFlowOutput {
 	return o
-}
-
-func (o DataFlowOutput) ToOutput(ctx context.Context) pulumix.Output[*DataFlow] {
-	return pulumix.Output[*DataFlow]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of tags that can be used for describing the Data Factory Data Flow.
@@ -567,12 +542,6 @@ func (o DataFlowArrayOutput) ToDataFlowArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o DataFlowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataFlow] {
-	return pulumix.Output[[]*DataFlow]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataFlowArrayOutput) Index(i pulumi.IntInput) DataFlowOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataFlow {
 		return vs[0].([]*DataFlow)[vs[1].(int)]
@@ -591,12 +560,6 @@ func (o DataFlowMapOutput) ToDataFlowMapOutput() DataFlowMapOutput {
 
 func (o DataFlowMapOutput) ToDataFlowMapOutputWithContext(ctx context.Context) DataFlowMapOutput {
 	return o
-}
-
-func (o DataFlowMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataFlow] {
-	return pulumix.Output[map[string]*DataFlow]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataFlowMapOutput) MapIndex(k pulumi.StringInput) DataFlowOutput {

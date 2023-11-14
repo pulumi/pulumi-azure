@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about a Network Manager Network Group.
@@ -79,12 +78,6 @@ func (o LookupNetworkManagerNetworkGroupResultOutput) ToLookupNetworkManagerNetw
 
 func (o LookupNetworkManagerNetworkGroupResultOutput) ToLookupNetworkManagerNetworkGroupResultOutputWithContext(ctx context.Context) LookupNetworkManagerNetworkGroupResultOutput {
 	return o
-}
-
-func (o LookupNetworkManagerNetworkGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNetworkManagerNetworkGroupResult] {
-	return pulumix.Output[LookupNetworkManagerNetworkGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description of the Network Manager Network Group.

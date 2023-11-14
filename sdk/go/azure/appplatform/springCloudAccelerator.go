@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **NOTE:** This resource is applicable only for Spring Cloud Service with enterprise tier.
@@ -164,12 +163,6 @@ func (i *SpringCloudAccelerator) ToSpringCloudAcceleratorOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAcceleratorOutput)
 }
 
-func (i *SpringCloudAccelerator) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudAccelerator] {
-	return pulumix.Output[*SpringCloudAccelerator]{
-		OutputState: i.ToSpringCloudAcceleratorOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SpringCloudAcceleratorArrayInput is an input type that accepts SpringCloudAcceleratorArray and SpringCloudAcceleratorArrayOutput values.
 // You can construct a concrete instance of `SpringCloudAcceleratorArrayInput` via:
 //
@@ -193,12 +186,6 @@ func (i SpringCloudAcceleratorArray) ToSpringCloudAcceleratorArrayOutput() Sprin
 
 func (i SpringCloudAcceleratorArray) ToSpringCloudAcceleratorArrayOutputWithContext(ctx context.Context) SpringCloudAcceleratorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAcceleratorArrayOutput)
-}
-
-func (i SpringCloudAcceleratorArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudAccelerator] {
-	return pulumix.Output[[]*SpringCloudAccelerator]{
-		OutputState: i.ToSpringCloudAcceleratorArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SpringCloudAcceleratorMapInput is an input type that accepts SpringCloudAcceleratorMap and SpringCloudAcceleratorMapOutput values.
@@ -226,12 +213,6 @@ func (i SpringCloudAcceleratorMap) ToSpringCloudAcceleratorMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudAcceleratorMapOutput)
 }
 
-func (i SpringCloudAcceleratorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudAccelerator] {
-	return pulumix.Output[map[string]*SpringCloudAccelerator]{
-		OutputState: i.ToSpringCloudAcceleratorMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SpringCloudAcceleratorOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudAcceleratorOutput) ElementType() reflect.Type {
@@ -244,12 +225,6 @@ func (o SpringCloudAcceleratorOutput) ToSpringCloudAcceleratorOutput() SpringClo
 
 func (o SpringCloudAcceleratorOutput) ToSpringCloudAcceleratorOutputWithContext(ctx context.Context) SpringCloudAcceleratorOutput {
 	return o
-}
-
-func (o SpringCloudAcceleratorOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudAccelerator] {
-	return pulumix.Output[*SpringCloudAccelerator]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name which should be used for this Spring Cloud Accelerator. Changing this forces a new Spring Cloud Accelerator to be created. The only possible value is `default`.
@@ -276,12 +251,6 @@ func (o SpringCloudAcceleratorArrayOutput) ToSpringCloudAcceleratorArrayOutputWi
 	return o
 }
 
-func (o SpringCloudAcceleratorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudAccelerator] {
-	return pulumix.Output[[]*SpringCloudAccelerator]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SpringCloudAcceleratorArrayOutput) Index(i pulumi.IntInput) SpringCloudAcceleratorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudAccelerator {
 		return vs[0].([]*SpringCloudAccelerator)[vs[1].(int)]
@@ -300,12 +269,6 @@ func (o SpringCloudAcceleratorMapOutput) ToSpringCloudAcceleratorMapOutput() Spr
 
 func (o SpringCloudAcceleratorMapOutput) ToSpringCloudAcceleratorMapOutputWithContext(ctx context.Context) SpringCloudAcceleratorMapOutput {
 	return o
-}
-
-func (o SpringCloudAcceleratorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudAccelerator] {
-	return pulumix.Output[map[string]*SpringCloudAccelerator]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SpringCloudAcceleratorMapOutput) MapIndex(k pulumi.StringInput) SpringCloudAcceleratorOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Mobile Network Slice.
@@ -214,12 +213,6 @@ func (i *NetworkSlice) ToNetworkSliceOutputWithContext(ctx context.Context) Netw
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSliceOutput)
 }
 
-func (i *NetworkSlice) ToOutput(ctx context.Context) pulumix.Output[*NetworkSlice] {
-	return pulumix.Output[*NetworkSlice]{
-		OutputState: i.ToNetworkSliceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NetworkSliceArrayInput is an input type that accepts NetworkSliceArray and NetworkSliceArrayOutput values.
 // You can construct a concrete instance of `NetworkSliceArrayInput` via:
 //
@@ -243,12 +236,6 @@ func (i NetworkSliceArray) ToNetworkSliceArrayOutput() NetworkSliceArrayOutput {
 
 func (i NetworkSliceArray) ToNetworkSliceArrayOutputWithContext(ctx context.Context) NetworkSliceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSliceArrayOutput)
-}
-
-func (i NetworkSliceArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkSlice] {
-	return pulumix.Output[[]*NetworkSlice]{
-		OutputState: i.ToNetworkSliceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NetworkSliceMapInput is an input type that accepts NetworkSliceMap and NetworkSliceMapOutput values.
@@ -276,12 +263,6 @@ func (i NetworkSliceMap) ToNetworkSliceMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(NetworkSliceMapOutput)
 }
 
-func (i NetworkSliceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkSlice] {
-	return pulumix.Output[map[string]*NetworkSlice]{
-		OutputState: i.ToNetworkSliceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NetworkSliceOutput struct{ *pulumi.OutputState }
 
 func (NetworkSliceOutput) ElementType() reflect.Type {
@@ -294,12 +275,6 @@ func (o NetworkSliceOutput) ToNetworkSliceOutput() NetworkSliceOutput {
 
 func (o NetworkSliceOutput) ToNetworkSliceOutputWithContext(ctx context.Context) NetworkSliceOutput {
 	return o
-}
-
-func (o NetworkSliceOutput) ToOutput(ctx context.Context) pulumix.Output[*NetworkSlice] {
-	return pulumix.Output[*NetworkSlice]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description for this Mobile Network Slice.
@@ -348,12 +323,6 @@ func (o NetworkSliceArrayOutput) ToNetworkSliceArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o NetworkSliceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetworkSlice] {
-	return pulumix.Output[[]*NetworkSlice]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NetworkSliceArrayOutput) Index(i pulumi.IntInput) NetworkSliceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetworkSlice {
 		return vs[0].([]*NetworkSlice)[vs[1].(int)]
@@ -372,12 +341,6 @@ func (o NetworkSliceMapOutput) ToNetworkSliceMapOutput() NetworkSliceMapOutput {
 
 func (o NetworkSliceMapOutput) ToNetworkSliceMapOutputWithContext(ctx context.Context) NetworkSliceMapOutput {
 	return o
-}
-
-func (o NetworkSliceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetworkSlice] {
-	return pulumix.Output[map[string]*NetworkSlice]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NetworkSliceMapOutput) MapIndex(k pulumi.StringInput) NetworkSliceOutput {
