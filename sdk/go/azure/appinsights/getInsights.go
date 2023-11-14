@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Application Insights component.
@@ -121,12 +120,6 @@ func (o LookupInsightsResultOutput) ToLookupInsightsResultOutput() LookupInsight
 
 func (o LookupInsightsResultOutput) ToLookupInsightsResultOutputWithContext(ctx context.Context) LookupInsightsResultOutput {
 	return o
-}
-
-func (o LookupInsightsResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupInsightsResult] {
-	return pulumix.Output[LookupInsightsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The App ID associated with this Application Insights component.

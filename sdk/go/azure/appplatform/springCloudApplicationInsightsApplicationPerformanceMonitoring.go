@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // > **NOTE:** This resource is only applicable for Spring Cloud Service enterprise tier
@@ -239,12 +238,6 @@ func (i *SpringCloudApplicationInsightsApplicationPerformanceMonitoring) ToSprin
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudApplicationInsightsApplicationPerformanceMonitoringOutput)
 }
 
-func (i *SpringCloudApplicationInsightsApplicationPerformanceMonitoring) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudApplicationInsightsApplicationPerformanceMonitoring] {
-	return pulumix.Output[*SpringCloudApplicationInsightsApplicationPerformanceMonitoring]{
-		OutputState: i.ToSpringCloudApplicationInsightsApplicationPerformanceMonitoringOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SpringCloudApplicationInsightsApplicationPerformanceMonitoringArrayInput is an input type that accepts SpringCloudApplicationInsightsApplicationPerformanceMonitoringArray and SpringCloudApplicationInsightsApplicationPerformanceMonitoringArrayOutput values.
 // You can construct a concrete instance of `SpringCloudApplicationInsightsApplicationPerformanceMonitoringArrayInput` via:
 //
@@ -268,12 +261,6 @@ func (i SpringCloudApplicationInsightsApplicationPerformanceMonitoringArray) ToS
 
 func (i SpringCloudApplicationInsightsApplicationPerformanceMonitoringArray) ToSpringCloudApplicationInsightsApplicationPerformanceMonitoringArrayOutputWithContext(ctx context.Context) SpringCloudApplicationInsightsApplicationPerformanceMonitoringArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudApplicationInsightsApplicationPerformanceMonitoringArrayOutput)
-}
-
-func (i SpringCloudApplicationInsightsApplicationPerformanceMonitoringArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudApplicationInsightsApplicationPerformanceMonitoring] {
-	return pulumix.Output[[]*SpringCloudApplicationInsightsApplicationPerformanceMonitoring]{
-		OutputState: i.ToSpringCloudApplicationInsightsApplicationPerformanceMonitoringArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SpringCloudApplicationInsightsApplicationPerformanceMonitoringMapInput is an input type that accepts SpringCloudApplicationInsightsApplicationPerformanceMonitoringMap and SpringCloudApplicationInsightsApplicationPerformanceMonitoringMapOutput values.
@@ -301,12 +288,6 @@ func (i SpringCloudApplicationInsightsApplicationPerformanceMonitoringMap) ToSpr
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudApplicationInsightsApplicationPerformanceMonitoringMapOutput)
 }
 
-func (i SpringCloudApplicationInsightsApplicationPerformanceMonitoringMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudApplicationInsightsApplicationPerformanceMonitoring] {
-	return pulumix.Output[map[string]*SpringCloudApplicationInsightsApplicationPerformanceMonitoring]{
-		OutputState: i.ToSpringCloudApplicationInsightsApplicationPerformanceMonitoringMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SpringCloudApplicationInsightsApplicationPerformanceMonitoringOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudApplicationInsightsApplicationPerformanceMonitoringOutput) ElementType() reflect.Type {
@@ -319,12 +300,6 @@ func (o SpringCloudApplicationInsightsApplicationPerformanceMonitoringOutput) To
 
 func (o SpringCloudApplicationInsightsApplicationPerformanceMonitoringOutput) ToSpringCloudApplicationInsightsApplicationPerformanceMonitoringOutputWithContext(ctx context.Context) SpringCloudApplicationInsightsApplicationPerformanceMonitoringOutput {
 	return o
-}
-
-func (o SpringCloudApplicationInsightsApplicationPerformanceMonitoringOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudApplicationInsightsApplicationPerformanceMonitoring] {
-	return pulumix.Output[*SpringCloudApplicationInsightsApplicationPerformanceMonitoring]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The instrumentation key used to push data to Application Insights.
@@ -397,12 +372,6 @@ func (o SpringCloudApplicationInsightsApplicationPerformanceMonitoringArrayOutpu
 	return o
 }
 
-func (o SpringCloudApplicationInsightsApplicationPerformanceMonitoringArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudApplicationInsightsApplicationPerformanceMonitoring] {
-	return pulumix.Output[[]*SpringCloudApplicationInsightsApplicationPerformanceMonitoring]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SpringCloudApplicationInsightsApplicationPerformanceMonitoringArrayOutput) Index(i pulumi.IntInput) SpringCloudApplicationInsightsApplicationPerformanceMonitoringOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudApplicationInsightsApplicationPerformanceMonitoring {
 		return vs[0].([]*SpringCloudApplicationInsightsApplicationPerformanceMonitoring)[vs[1].(int)]
@@ -421,12 +390,6 @@ func (o SpringCloudApplicationInsightsApplicationPerformanceMonitoringMapOutput)
 
 func (o SpringCloudApplicationInsightsApplicationPerformanceMonitoringMapOutput) ToSpringCloudApplicationInsightsApplicationPerformanceMonitoringMapOutputWithContext(ctx context.Context) SpringCloudApplicationInsightsApplicationPerformanceMonitoringMapOutput {
 	return o
-}
-
-func (o SpringCloudApplicationInsightsApplicationPerformanceMonitoringMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudApplicationInsightsApplicationPerformanceMonitoring] {
-	return pulumix.Output[map[string]*SpringCloudApplicationInsightsApplicationPerformanceMonitoring]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SpringCloudApplicationInsightsApplicationPerformanceMonitoringMapOutput) MapIndex(k pulumi.StringInput) SpringCloudApplicationInsightsApplicationPerformanceMonitoringOutput {

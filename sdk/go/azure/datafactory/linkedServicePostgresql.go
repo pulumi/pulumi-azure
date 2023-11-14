@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linked Service (connection) between PostgreSQL and Azure Data Factory.
@@ -225,12 +224,6 @@ func (i *LinkedServicePostgresql) ToLinkedServicePostgresqlOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServicePostgresqlOutput)
 }
 
-func (i *LinkedServicePostgresql) ToOutput(ctx context.Context) pulumix.Output[*LinkedServicePostgresql] {
-	return pulumix.Output[*LinkedServicePostgresql]{
-		OutputState: i.ToLinkedServicePostgresqlOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinkedServicePostgresqlArrayInput is an input type that accepts LinkedServicePostgresqlArray and LinkedServicePostgresqlArrayOutput values.
 // You can construct a concrete instance of `LinkedServicePostgresqlArrayInput` via:
 //
@@ -254,12 +247,6 @@ func (i LinkedServicePostgresqlArray) ToLinkedServicePostgresqlArrayOutput() Lin
 
 func (i LinkedServicePostgresqlArray) ToLinkedServicePostgresqlArrayOutputWithContext(ctx context.Context) LinkedServicePostgresqlArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServicePostgresqlArrayOutput)
-}
-
-func (i LinkedServicePostgresqlArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServicePostgresql] {
-	return pulumix.Output[[]*LinkedServicePostgresql]{
-		OutputState: i.ToLinkedServicePostgresqlArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinkedServicePostgresqlMapInput is an input type that accepts LinkedServicePostgresqlMap and LinkedServicePostgresqlMapOutput values.
@@ -287,12 +274,6 @@ func (i LinkedServicePostgresqlMap) ToLinkedServicePostgresqlMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServicePostgresqlMapOutput)
 }
 
-func (i LinkedServicePostgresqlMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServicePostgresql] {
-	return pulumix.Output[map[string]*LinkedServicePostgresql]{
-		OutputState: i.ToLinkedServicePostgresqlMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkedServicePostgresqlOutput struct{ *pulumi.OutputState }
 
 func (LinkedServicePostgresqlOutput) ElementType() reflect.Type {
@@ -305,12 +286,6 @@ func (o LinkedServicePostgresqlOutput) ToLinkedServicePostgresqlOutput() LinkedS
 
 func (o LinkedServicePostgresqlOutput) ToLinkedServicePostgresqlOutputWithContext(ctx context.Context) LinkedServicePostgresqlOutput {
 	return o
-}
-
-func (o LinkedServicePostgresqlOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedServicePostgresql] {
-	return pulumix.Output[*LinkedServicePostgresql]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service PostgreSQL.
@@ -367,12 +342,6 @@ func (o LinkedServicePostgresqlArrayOutput) ToLinkedServicePostgresqlArrayOutput
 	return o
 }
 
-func (o LinkedServicePostgresqlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServicePostgresql] {
-	return pulumix.Output[[]*LinkedServicePostgresql]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinkedServicePostgresqlArrayOutput) Index(i pulumi.IntInput) LinkedServicePostgresqlOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServicePostgresql {
 		return vs[0].([]*LinkedServicePostgresql)[vs[1].(int)]
@@ -391,12 +360,6 @@ func (o LinkedServicePostgresqlMapOutput) ToLinkedServicePostgresqlMapOutput() L
 
 func (o LinkedServicePostgresqlMapOutput) ToLinkedServicePostgresqlMapOutputWithContext(ctx context.Context) LinkedServicePostgresqlMapOutput {
 	return o
-}
-
-func (o LinkedServicePostgresqlMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServicePostgresql] {
-	return pulumix.Output[map[string]*LinkedServicePostgresql]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkedServicePostgresqlMapOutput) MapIndex(k pulumi.StringInput) LinkedServicePostgresqlOutput {

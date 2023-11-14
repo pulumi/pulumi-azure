@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Storage Encryption Scope.
@@ -202,12 +201,6 @@ func (i *EncryptionScope) ToEncryptionScopeOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionScopeOutput)
 }
 
-func (i *EncryptionScope) ToOutput(ctx context.Context) pulumix.Output[*EncryptionScope] {
-	return pulumix.Output[*EncryptionScope]{
-		OutputState: i.ToEncryptionScopeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EncryptionScopeArrayInput is an input type that accepts EncryptionScopeArray and EncryptionScopeArrayOutput values.
 // You can construct a concrete instance of `EncryptionScopeArrayInput` via:
 //
@@ -231,12 +224,6 @@ func (i EncryptionScopeArray) ToEncryptionScopeArrayOutput() EncryptionScopeArra
 
 func (i EncryptionScopeArray) ToEncryptionScopeArrayOutputWithContext(ctx context.Context) EncryptionScopeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionScopeArrayOutput)
-}
-
-func (i EncryptionScopeArray) ToOutput(ctx context.Context) pulumix.Output[[]*EncryptionScope] {
-	return pulumix.Output[[]*EncryptionScope]{
-		OutputState: i.ToEncryptionScopeArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EncryptionScopeMapInput is an input type that accepts EncryptionScopeMap and EncryptionScopeMapOutput values.
@@ -264,12 +251,6 @@ func (i EncryptionScopeMap) ToEncryptionScopeMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionScopeMapOutput)
 }
 
-func (i EncryptionScopeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EncryptionScope] {
-	return pulumix.Output[map[string]*EncryptionScope]{
-		OutputState: i.ToEncryptionScopeMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EncryptionScopeOutput struct{ *pulumi.OutputState }
 
 func (EncryptionScopeOutput) ElementType() reflect.Type {
@@ -282,12 +263,6 @@ func (o EncryptionScopeOutput) ToEncryptionScopeOutput() EncryptionScopeOutput {
 
 func (o EncryptionScopeOutput) ToEncryptionScopeOutputWithContext(ctx context.Context) EncryptionScopeOutput {
 	return o
-}
-
-func (o EncryptionScopeOutput) ToOutput(ctx context.Context) pulumix.Output[*EncryptionScope] {
-	return pulumix.Output[*EncryptionScope]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Is a secondary layer of encryption with Platform Managed Keys for data applied? Changing this forces a new resource to be created.
@@ -329,12 +304,6 @@ func (o EncryptionScopeArrayOutput) ToEncryptionScopeArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o EncryptionScopeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EncryptionScope] {
-	return pulumix.Output[[]*EncryptionScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EncryptionScopeArrayOutput) Index(i pulumi.IntInput) EncryptionScopeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EncryptionScope {
 		return vs[0].([]*EncryptionScope)[vs[1].(int)]
@@ -353,12 +322,6 @@ func (o EncryptionScopeMapOutput) ToEncryptionScopeMapOutput() EncryptionScopeMa
 
 func (o EncryptionScopeMapOutput) ToEncryptionScopeMapOutputWithContext(ctx context.Context) EncryptionScopeMapOutput {
 	return o
-}
-
-func (o EncryptionScopeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EncryptionScope] {
-	return pulumix.Output[map[string]*EncryptionScope]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EncryptionScopeMapOutput) MapIndex(k pulumi.StringInput) EncryptionScopeOutput {

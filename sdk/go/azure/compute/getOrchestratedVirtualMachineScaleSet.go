@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Orchestrated Virtual Machine Scale Set.
@@ -112,12 +111,6 @@ func (o LookupOrchestratedVirtualMachineScaleSetResultOutput) ToLookupOrchestrat
 
 func (o LookupOrchestratedVirtualMachineScaleSetResultOutput) ToLookupOrchestratedVirtualMachineScaleSetResultOutputWithContext(ctx context.Context) LookupOrchestratedVirtualMachineScaleSetResultOutput {
 	return o
-}
-
-func (o LookupOrchestratedVirtualMachineScaleSetResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupOrchestratedVirtualMachineScaleSetResult] {
-	return pulumix.Output[LookupOrchestratedVirtualMachineScaleSetResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

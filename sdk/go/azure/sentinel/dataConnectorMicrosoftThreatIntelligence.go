@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Microsoft Threat Intelligence Data Connector.
@@ -250,12 +249,6 @@ func (i *DataConnectorMicrosoftThreatIntelligence) ToDataConnectorMicrosoftThrea
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorMicrosoftThreatIntelligenceOutput)
 }
 
-func (i *DataConnectorMicrosoftThreatIntelligence) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorMicrosoftThreatIntelligence] {
-	return pulumix.Output[*DataConnectorMicrosoftThreatIntelligence]{
-		OutputState: i.ToDataConnectorMicrosoftThreatIntelligenceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataConnectorMicrosoftThreatIntelligenceArrayInput is an input type that accepts DataConnectorMicrosoftThreatIntelligenceArray and DataConnectorMicrosoftThreatIntelligenceArrayOutput values.
 // You can construct a concrete instance of `DataConnectorMicrosoftThreatIntelligenceArrayInput` via:
 //
@@ -279,12 +272,6 @@ func (i DataConnectorMicrosoftThreatIntelligenceArray) ToDataConnectorMicrosoftT
 
 func (i DataConnectorMicrosoftThreatIntelligenceArray) ToDataConnectorMicrosoftThreatIntelligenceArrayOutputWithContext(ctx context.Context) DataConnectorMicrosoftThreatIntelligenceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorMicrosoftThreatIntelligenceArrayOutput)
-}
-
-func (i DataConnectorMicrosoftThreatIntelligenceArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorMicrosoftThreatIntelligence] {
-	return pulumix.Output[[]*DataConnectorMicrosoftThreatIntelligence]{
-		OutputState: i.ToDataConnectorMicrosoftThreatIntelligenceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataConnectorMicrosoftThreatIntelligenceMapInput is an input type that accepts DataConnectorMicrosoftThreatIntelligenceMap and DataConnectorMicrosoftThreatIntelligenceMapOutput values.
@@ -312,12 +299,6 @@ func (i DataConnectorMicrosoftThreatIntelligenceMap) ToDataConnectorMicrosoftThr
 	return pulumi.ToOutputWithContext(ctx, i).(DataConnectorMicrosoftThreatIntelligenceMapOutput)
 }
 
-func (i DataConnectorMicrosoftThreatIntelligenceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorMicrosoftThreatIntelligence] {
-	return pulumix.Output[map[string]*DataConnectorMicrosoftThreatIntelligence]{
-		OutputState: i.ToDataConnectorMicrosoftThreatIntelligenceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataConnectorMicrosoftThreatIntelligenceOutput struct{ *pulumi.OutputState }
 
 func (DataConnectorMicrosoftThreatIntelligenceOutput) ElementType() reflect.Type {
@@ -330,12 +311,6 @@ func (o DataConnectorMicrosoftThreatIntelligenceOutput) ToDataConnectorMicrosoft
 
 func (o DataConnectorMicrosoftThreatIntelligenceOutput) ToDataConnectorMicrosoftThreatIntelligenceOutputWithContext(ctx context.Context) DataConnectorMicrosoftThreatIntelligenceOutput {
 	return o
-}
-
-func (o DataConnectorMicrosoftThreatIntelligenceOutput) ToOutput(ctx context.Context) pulumix.Output[*DataConnectorMicrosoftThreatIntelligence] {
-	return pulumix.Output[*DataConnectorMicrosoftThreatIntelligence]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The lookback date for the Bing Safety Phishing Url in RFC3339. Changing this forces a new Data Connector to be created.
@@ -393,12 +368,6 @@ func (o DataConnectorMicrosoftThreatIntelligenceArrayOutput) ToDataConnectorMicr
 	return o
 }
 
-func (o DataConnectorMicrosoftThreatIntelligenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataConnectorMicrosoftThreatIntelligence] {
-	return pulumix.Output[[]*DataConnectorMicrosoftThreatIntelligence]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataConnectorMicrosoftThreatIntelligenceArrayOutput) Index(i pulumi.IntInput) DataConnectorMicrosoftThreatIntelligenceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataConnectorMicrosoftThreatIntelligence {
 		return vs[0].([]*DataConnectorMicrosoftThreatIntelligence)[vs[1].(int)]
@@ -417,12 +386,6 @@ func (o DataConnectorMicrosoftThreatIntelligenceMapOutput) ToDataConnectorMicros
 
 func (o DataConnectorMicrosoftThreatIntelligenceMapOutput) ToDataConnectorMicrosoftThreatIntelligenceMapOutputWithContext(ctx context.Context) DataConnectorMicrosoftThreatIntelligenceMapOutput {
 	return o
-}
-
-func (o DataConnectorMicrosoftThreatIntelligenceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataConnectorMicrosoftThreatIntelligence] {
-	return pulumix.Output[map[string]*DataConnectorMicrosoftThreatIntelligence]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataConnectorMicrosoftThreatIntelligenceMapOutput) MapIndex(k pulumi.StringInput) DataConnectorMicrosoftThreatIntelligenceOutput {

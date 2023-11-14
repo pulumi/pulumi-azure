@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an App Service Virtual Network Association for [Regional VNet Integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration).
@@ -327,12 +326,6 @@ func (i *VirtualNetworkSwiftConnection) ToVirtualNetworkSwiftConnectionOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkSwiftConnectionOutput)
 }
 
-func (i *VirtualNetworkSwiftConnection) ToOutput(ctx context.Context) pulumix.Output[*VirtualNetworkSwiftConnection] {
-	return pulumix.Output[*VirtualNetworkSwiftConnection]{
-		OutputState: i.ToVirtualNetworkSwiftConnectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualNetworkSwiftConnectionArrayInput is an input type that accepts VirtualNetworkSwiftConnectionArray and VirtualNetworkSwiftConnectionArrayOutput values.
 // You can construct a concrete instance of `VirtualNetworkSwiftConnectionArrayInput` via:
 //
@@ -356,12 +349,6 @@ func (i VirtualNetworkSwiftConnectionArray) ToVirtualNetworkSwiftConnectionArray
 
 func (i VirtualNetworkSwiftConnectionArray) ToVirtualNetworkSwiftConnectionArrayOutputWithContext(ctx context.Context) VirtualNetworkSwiftConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkSwiftConnectionArrayOutput)
-}
-
-func (i VirtualNetworkSwiftConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualNetworkSwiftConnection] {
-	return pulumix.Output[[]*VirtualNetworkSwiftConnection]{
-		OutputState: i.ToVirtualNetworkSwiftConnectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualNetworkSwiftConnectionMapInput is an input type that accepts VirtualNetworkSwiftConnectionMap and VirtualNetworkSwiftConnectionMapOutput values.
@@ -389,12 +376,6 @@ func (i VirtualNetworkSwiftConnectionMap) ToVirtualNetworkSwiftConnectionMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkSwiftConnectionMapOutput)
 }
 
-func (i VirtualNetworkSwiftConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualNetworkSwiftConnection] {
-	return pulumix.Output[map[string]*VirtualNetworkSwiftConnection]{
-		OutputState: i.ToVirtualNetworkSwiftConnectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualNetworkSwiftConnectionOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkSwiftConnectionOutput) ElementType() reflect.Type {
@@ -407,12 +388,6 @@ func (o VirtualNetworkSwiftConnectionOutput) ToVirtualNetworkSwiftConnectionOutp
 
 func (o VirtualNetworkSwiftConnectionOutput) ToVirtualNetworkSwiftConnectionOutputWithContext(ctx context.Context) VirtualNetworkSwiftConnectionOutput {
 	return o
-}
-
-func (o VirtualNetworkSwiftConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNetworkSwiftConnection] {
-	return pulumix.Output[*VirtualNetworkSwiftConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
@@ -439,12 +414,6 @@ func (o VirtualNetworkSwiftConnectionArrayOutput) ToVirtualNetworkSwiftConnectio
 	return o
 }
 
-func (o VirtualNetworkSwiftConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualNetworkSwiftConnection] {
-	return pulumix.Output[[]*VirtualNetworkSwiftConnection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualNetworkSwiftConnectionArrayOutput) Index(i pulumi.IntInput) VirtualNetworkSwiftConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualNetworkSwiftConnection {
 		return vs[0].([]*VirtualNetworkSwiftConnection)[vs[1].(int)]
@@ -463,12 +432,6 @@ func (o VirtualNetworkSwiftConnectionMapOutput) ToVirtualNetworkSwiftConnectionM
 
 func (o VirtualNetworkSwiftConnectionMapOutput) ToVirtualNetworkSwiftConnectionMapOutputWithContext(ctx context.Context) VirtualNetworkSwiftConnectionMapOutput {
 	return o
-}
-
-func (o VirtualNetworkSwiftConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualNetworkSwiftConnection] {
-	return pulumix.Output[map[string]*VirtualNetworkSwiftConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualNetworkSwiftConnectionMapOutput) MapIndex(k pulumi.StringInput) VirtualNetworkSwiftConnectionOutput {

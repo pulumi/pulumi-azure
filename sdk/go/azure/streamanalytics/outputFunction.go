@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Stream Analytics Output Function.
@@ -282,12 +281,6 @@ func (i *OutputFunction) ToOutputFunctionOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(OutputFunctionOutput)
 }
 
-func (i *OutputFunction) ToOutput(ctx context.Context) pulumix.Output[*OutputFunction] {
-	return pulumix.Output[*OutputFunction]{
-		OutputState: i.ToOutputFunctionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OutputFunctionArrayInput is an input type that accepts OutputFunctionArray and OutputFunctionArrayOutput values.
 // You can construct a concrete instance of `OutputFunctionArrayInput` via:
 //
@@ -311,12 +304,6 @@ func (i OutputFunctionArray) ToOutputFunctionArrayOutput() OutputFunctionArrayOu
 
 func (i OutputFunctionArray) ToOutputFunctionArrayOutputWithContext(ctx context.Context) OutputFunctionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OutputFunctionArrayOutput)
-}
-
-func (i OutputFunctionArray) ToOutput(ctx context.Context) pulumix.Output[[]*OutputFunction] {
-	return pulumix.Output[[]*OutputFunction]{
-		OutputState: i.ToOutputFunctionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // OutputFunctionMapInput is an input type that accepts OutputFunctionMap and OutputFunctionMapOutput values.
@@ -344,12 +331,6 @@ func (i OutputFunctionMap) ToOutputFunctionMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(OutputFunctionMapOutput)
 }
 
-func (i OutputFunctionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*OutputFunction] {
-	return pulumix.Output[map[string]*OutputFunction]{
-		OutputState: i.ToOutputFunctionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OutputFunctionOutput struct{ *pulumi.OutputState }
 
 func (OutputFunctionOutput) ElementType() reflect.Type {
@@ -362,12 +343,6 @@ func (o OutputFunctionOutput) ToOutputFunctionOutput() OutputFunctionOutput {
 
 func (o OutputFunctionOutput) ToOutputFunctionOutputWithContext(ctx context.Context) OutputFunctionOutput {
 	return o
-}
-
-func (o OutputFunctionOutput) ToOutput(ctx context.Context) pulumix.Output[*OutputFunction] {
-	return pulumix.Output[*OutputFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The API key for the Function.
@@ -424,12 +399,6 @@ func (o OutputFunctionArrayOutput) ToOutputFunctionArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o OutputFunctionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*OutputFunction] {
-	return pulumix.Output[[]*OutputFunction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OutputFunctionArrayOutput) Index(i pulumi.IntInput) OutputFunctionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OutputFunction {
 		return vs[0].([]*OutputFunction)[vs[1].(int)]
@@ -448,12 +417,6 @@ func (o OutputFunctionMapOutput) ToOutputFunctionMapOutput() OutputFunctionMapOu
 
 func (o OutputFunctionMapOutput) ToOutputFunctionMapOutputWithContext(ctx context.Context) OutputFunctionMapOutput {
 	return o
-}
-
-func (o OutputFunctionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*OutputFunction] {
-	return pulumix.Output[map[string]*OutputFunction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OutputFunctionMapOutput) MapIndex(k pulumi.StringInput) OutputFunctionOutput {

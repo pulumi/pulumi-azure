@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linked Service (connection) between a Kusto Cluster and Azure Data Factory.
@@ -356,12 +355,6 @@ func (i *LinkedServiceKusto) ToLinkedServiceKustoOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceKustoOutput)
 }
 
-func (i *LinkedServiceKusto) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceKusto] {
-	return pulumix.Output[*LinkedServiceKusto]{
-		OutputState: i.ToLinkedServiceKustoOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinkedServiceKustoArrayInput is an input type that accepts LinkedServiceKustoArray and LinkedServiceKustoArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceKustoArrayInput` via:
 //
@@ -385,12 +378,6 @@ func (i LinkedServiceKustoArray) ToLinkedServiceKustoArrayOutput() LinkedService
 
 func (i LinkedServiceKustoArray) ToLinkedServiceKustoArrayOutputWithContext(ctx context.Context) LinkedServiceKustoArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceKustoArrayOutput)
-}
-
-func (i LinkedServiceKustoArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceKusto] {
-	return pulumix.Output[[]*LinkedServiceKusto]{
-		OutputState: i.ToLinkedServiceKustoArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinkedServiceKustoMapInput is an input type that accepts LinkedServiceKustoMap and LinkedServiceKustoMapOutput values.
@@ -418,12 +405,6 @@ func (i LinkedServiceKustoMap) ToLinkedServiceKustoMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceKustoMapOutput)
 }
 
-func (i LinkedServiceKustoMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceKusto] {
-	return pulumix.Output[map[string]*LinkedServiceKusto]{
-		OutputState: i.ToLinkedServiceKustoMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkedServiceKustoOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceKustoOutput) ElementType() reflect.Type {
@@ -436,12 +417,6 @@ func (o LinkedServiceKustoOutput) ToLinkedServiceKustoOutput() LinkedServiceKust
 
 func (o LinkedServiceKustoOutput) ToLinkedServiceKustoOutputWithContext(ctx context.Context) LinkedServiceKustoOutput {
 	return o
-}
-
-func (o LinkedServiceKustoOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceKusto] {
-	return pulumix.Output[*LinkedServiceKusto]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service.
@@ -529,12 +504,6 @@ func (o LinkedServiceKustoArrayOutput) ToLinkedServiceKustoArrayOutputWithContex
 	return o
 }
 
-func (o LinkedServiceKustoArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceKusto] {
-	return pulumix.Output[[]*LinkedServiceKusto]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinkedServiceKustoArrayOutput) Index(i pulumi.IntInput) LinkedServiceKustoOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceKusto {
 		return vs[0].([]*LinkedServiceKusto)[vs[1].(int)]
@@ -553,12 +522,6 @@ func (o LinkedServiceKustoMapOutput) ToLinkedServiceKustoMapOutput() LinkedServi
 
 func (o LinkedServiceKustoMapOutput) ToLinkedServiceKustoMapOutputWithContext(ctx context.Context) LinkedServiceKustoMapOutput {
 	return o
-}
-
-func (o LinkedServiceKustoMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceKusto] {
-	return pulumix.Output[map[string]*LinkedServiceKusto]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkedServiceKustoMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceKustoOutput {

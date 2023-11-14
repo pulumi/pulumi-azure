@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Customer Managed Key for a EventHub Namespace.
@@ -422,12 +421,6 @@ func (i *NamespaceCustomerManagedKey) ToNamespaceCustomerManagedKeyOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceCustomerManagedKeyOutput)
 }
 
-func (i *NamespaceCustomerManagedKey) ToOutput(ctx context.Context) pulumix.Output[*NamespaceCustomerManagedKey] {
-	return pulumix.Output[*NamespaceCustomerManagedKey]{
-		OutputState: i.ToNamespaceCustomerManagedKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NamespaceCustomerManagedKeyArrayInput is an input type that accepts NamespaceCustomerManagedKeyArray and NamespaceCustomerManagedKeyArrayOutput values.
 // You can construct a concrete instance of `NamespaceCustomerManagedKeyArrayInput` via:
 //
@@ -451,12 +444,6 @@ func (i NamespaceCustomerManagedKeyArray) ToNamespaceCustomerManagedKeyArrayOutp
 
 func (i NamespaceCustomerManagedKeyArray) ToNamespaceCustomerManagedKeyArrayOutputWithContext(ctx context.Context) NamespaceCustomerManagedKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceCustomerManagedKeyArrayOutput)
-}
-
-func (i NamespaceCustomerManagedKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*NamespaceCustomerManagedKey] {
-	return pulumix.Output[[]*NamespaceCustomerManagedKey]{
-		OutputState: i.ToNamespaceCustomerManagedKeyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NamespaceCustomerManagedKeyMapInput is an input type that accepts NamespaceCustomerManagedKeyMap and NamespaceCustomerManagedKeyMapOutput values.
@@ -484,12 +471,6 @@ func (i NamespaceCustomerManagedKeyMap) ToNamespaceCustomerManagedKeyMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceCustomerManagedKeyMapOutput)
 }
 
-func (i NamespaceCustomerManagedKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NamespaceCustomerManagedKey] {
-	return pulumix.Output[map[string]*NamespaceCustomerManagedKey]{
-		OutputState: i.ToNamespaceCustomerManagedKeyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NamespaceCustomerManagedKeyOutput struct{ *pulumi.OutputState }
 
 func (NamespaceCustomerManagedKeyOutput) ElementType() reflect.Type {
@@ -502,12 +483,6 @@ func (o NamespaceCustomerManagedKeyOutput) ToNamespaceCustomerManagedKeyOutput()
 
 func (o NamespaceCustomerManagedKeyOutput) ToNamespaceCustomerManagedKeyOutputWithContext(ctx context.Context) NamespaceCustomerManagedKeyOutput {
 	return o
-}
-
-func (o NamespaceCustomerManagedKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*NamespaceCustomerManagedKey] {
-	return pulumix.Output[*NamespaceCustomerManagedKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the EventHub Namespace. Changing this forces a new resource to be created.
@@ -548,12 +523,6 @@ func (o NamespaceCustomerManagedKeyArrayOutput) ToNamespaceCustomerManagedKeyArr
 	return o
 }
 
-func (o NamespaceCustomerManagedKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NamespaceCustomerManagedKey] {
-	return pulumix.Output[[]*NamespaceCustomerManagedKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NamespaceCustomerManagedKeyArrayOutput) Index(i pulumi.IntInput) NamespaceCustomerManagedKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NamespaceCustomerManagedKey {
 		return vs[0].([]*NamespaceCustomerManagedKey)[vs[1].(int)]
@@ -572,12 +541,6 @@ func (o NamespaceCustomerManagedKeyMapOutput) ToNamespaceCustomerManagedKeyMapOu
 
 func (o NamespaceCustomerManagedKeyMapOutput) ToNamespaceCustomerManagedKeyMapOutputWithContext(ctx context.Context) NamespaceCustomerManagedKeyMapOutput {
 	return o
-}
-
-func (o NamespaceCustomerManagedKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NamespaceCustomerManagedKey] {
-	return pulumix.Output[map[string]*NamespaceCustomerManagedKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NamespaceCustomerManagedKeyMapOutput) MapIndex(k pulumi.StringInput) NamespaceCustomerManagedKeyOutput {

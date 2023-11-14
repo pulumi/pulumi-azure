@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -181,12 +180,6 @@ func (i *VolumeGroupSapHana) ToVolumeGroupSapHanaOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupSapHanaOutput)
 }
 
-func (i *VolumeGroupSapHana) ToOutput(ctx context.Context) pulumix.Output[*VolumeGroupSapHana] {
-	return pulumix.Output[*VolumeGroupSapHana]{
-		OutputState: i.ToVolumeGroupSapHanaOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VolumeGroupSapHanaArrayInput is an input type that accepts VolumeGroupSapHanaArray and VolumeGroupSapHanaArrayOutput values.
 // You can construct a concrete instance of `VolumeGroupSapHanaArrayInput` via:
 //
@@ -210,12 +203,6 @@ func (i VolumeGroupSapHanaArray) ToVolumeGroupSapHanaArrayOutput() VolumeGroupSa
 
 func (i VolumeGroupSapHanaArray) ToVolumeGroupSapHanaArrayOutputWithContext(ctx context.Context) VolumeGroupSapHanaArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupSapHanaArrayOutput)
-}
-
-func (i VolumeGroupSapHanaArray) ToOutput(ctx context.Context) pulumix.Output[[]*VolumeGroupSapHana] {
-	return pulumix.Output[[]*VolumeGroupSapHana]{
-		OutputState: i.ToVolumeGroupSapHanaArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VolumeGroupSapHanaMapInput is an input type that accepts VolumeGroupSapHanaMap and VolumeGroupSapHanaMapOutput values.
@@ -243,12 +230,6 @@ func (i VolumeGroupSapHanaMap) ToVolumeGroupSapHanaMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(VolumeGroupSapHanaMapOutput)
 }
 
-func (i VolumeGroupSapHanaMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VolumeGroupSapHana] {
-	return pulumix.Output[map[string]*VolumeGroupSapHana]{
-		OutputState: i.ToVolumeGroupSapHanaMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VolumeGroupSapHanaOutput struct{ *pulumi.OutputState }
 
 func (VolumeGroupSapHanaOutput) ElementType() reflect.Type {
@@ -261,12 +242,6 @@ func (o VolumeGroupSapHanaOutput) ToVolumeGroupSapHanaOutput() VolumeGroupSapHan
 
 func (o VolumeGroupSapHanaOutput) ToVolumeGroupSapHanaOutputWithContext(ctx context.Context) VolumeGroupSapHanaOutput {
 	return o
-}
-
-func (o VolumeGroupSapHanaOutput) ToOutput(ctx context.Context) pulumix.Output[*VolumeGroupSapHana] {
-	return pulumix.Output[*VolumeGroupSapHana]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -318,12 +293,6 @@ func (o VolumeGroupSapHanaArrayOutput) ToVolumeGroupSapHanaArrayOutputWithContex
 	return o
 }
 
-func (o VolumeGroupSapHanaArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VolumeGroupSapHana] {
-	return pulumix.Output[[]*VolumeGroupSapHana]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VolumeGroupSapHanaArrayOutput) Index(i pulumi.IntInput) VolumeGroupSapHanaOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VolumeGroupSapHana {
 		return vs[0].([]*VolumeGroupSapHana)[vs[1].(int)]
@@ -342,12 +311,6 @@ func (o VolumeGroupSapHanaMapOutput) ToVolumeGroupSapHanaMapOutput() VolumeGroup
 
 func (o VolumeGroupSapHanaMapOutput) ToVolumeGroupSapHanaMapOutputWithContext(ctx context.Context) VolumeGroupSapHanaMapOutput {
 	return o
-}
-
-func (o VolumeGroupSapHanaMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VolumeGroupSapHana] {
-	return pulumix.Output[map[string]*VolumeGroupSapHana]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VolumeGroupSapHanaMapOutput) MapIndex(k pulumi.StringInput) VolumeGroupSapHanaOutput {

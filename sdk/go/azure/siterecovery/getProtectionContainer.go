@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing site recovery services protection container.
@@ -116,12 +115,6 @@ func (o LookupProtectionContainerResultOutput) ToLookupProtectionContainerResult
 
 func (o LookupProtectionContainerResultOutput) ToLookupProtectionContainerResultOutputWithContext(ctx context.Context) LookupProtectionContainerResultOutput {
 	return o
-}
-
-func (o LookupProtectionContainerResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupProtectionContainerResult] {
-	return pulumix.Output[LookupProtectionContainerResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

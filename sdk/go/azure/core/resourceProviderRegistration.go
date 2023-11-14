@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the registration of a Resource Provider - which allows access to the API's supported by this Resource Provider.
@@ -172,12 +171,6 @@ func (i *ResourceProviderRegistration) ToResourceProviderRegistrationOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceProviderRegistrationOutput)
 }
 
-func (i *ResourceProviderRegistration) ToOutput(ctx context.Context) pulumix.Output[*ResourceProviderRegistration] {
-	return pulumix.Output[*ResourceProviderRegistration]{
-		OutputState: i.ToResourceProviderRegistrationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResourceProviderRegistrationArrayInput is an input type that accepts ResourceProviderRegistrationArray and ResourceProviderRegistrationArrayOutput values.
 // You can construct a concrete instance of `ResourceProviderRegistrationArrayInput` via:
 //
@@ -201,12 +194,6 @@ func (i ResourceProviderRegistrationArray) ToResourceProviderRegistrationArrayOu
 
 func (i ResourceProviderRegistrationArray) ToResourceProviderRegistrationArrayOutputWithContext(ctx context.Context) ResourceProviderRegistrationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceProviderRegistrationArrayOutput)
-}
-
-func (i ResourceProviderRegistrationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceProviderRegistration] {
-	return pulumix.Output[[]*ResourceProviderRegistration]{
-		OutputState: i.ToResourceProviderRegistrationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ResourceProviderRegistrationMapInput is an input type that accepts ResourceProviderRegistrationMap and ResourceProviderRegistrationMapOutput values.
@@ -234,12 +221,6 @@ func (i ResourceProviderRegistrationMap) ToResourceProviderRegistrationMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceProviderRegistrationMapOutput)
 }
 
-func (i ResourceProviderRegistrationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceProviderRegistration] {
-	return pulumix.Output[map[string]*ResourceProviderRegistration]{
-		OutputState: i.ToResourceProviderRegistrationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceProviderRegistrationOutput struct{ *pulumi.OutputState }
 
 func (ResourceProviderRegistrationOutput) ElementType() reflect.Type {
@@ -252,12 +233,6 @@ func (o ResourceProviderRegistrationOutput) ToResourceProviderRegistrationOutput
 
 func (o ResourceProviderRegistrationOutput) ToResourceProviderRegistrationOutputWithContext(ctx context.Context) ResourceProviderRegistrationOutput {
 	return o
-}
-
-func (o ResourceProviderRegistrationOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceProviderRegistration] {
-	return pulumix.Output[*ResourceProviderRegistration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceProviderRegistrationOutput) Features() ResourceProviderRegistrationFeatureArrayOutput {
@@ -285,12 +260,6 @@ func (o ResourceProviderRegistrationArrayOutput) ToResourceProviderRegistrationA
 	return o
 }
 
-func (o ResourceProviderRegistrationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceProviderRegistration] {
-	return pulumix.Output[[]*ResourceProviderRegistration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceProviderRegistrationArrayOutput) Index(i pulumi.IntInput) ResourceProviderRegistrationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceProviderRegistration {
 		return vs[0].([]*ResourceProviderRegistration)[vs[1].(int)]
@@ -309,12 +278,6 @@ func (o ResourceProviderRegistrationMapOutput) ToResourceProviderRegistrationMap
 
 func (o ResourceProviderRegistrationMapOutput) ToResourceProviderRegistrationMapOutputWithContext(ctx context.Context) ResourceProviderRegistrationMapOutput {
 	return o
-}
-
-func (o ResourceProviderRegistrationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceProviderRegistration] {
-	return pulumix.Output[map[string]*ResourceProviderRegistration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceProviderRegistrationMapOutput) MapIndex(k pulumi.StringInput) ResourceProviderRegistrationOutput {

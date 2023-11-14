@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Backup Protected File Share to enable backups for file shares within an Azure Storage Account
@@ -260,12 +259,6 @@ func (i *ProtectedFileShare) ToProtectedFileShareOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectedFileShareOutput)
 }
 
-func (i *ProtectedFileShare) ToOutput(ctx context.Context) pulumix.Output[*ProtectedFileShare] {
-	return pulumix.Output[*ProtectedFileShare]{
-		OutputState: i.ToProtectedFileShareOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProtectedFileShareArrayInput is an input type that accepts ProtectedFileShareArray and ProtectedFileShareArrayOutput values.
 // You can construct a concrete instance of `ProtectedFileShareArrayInput` via:
 //
@@ -289,12 +282,6 @@ func (i ProtectedFileShareArray) ToProtectedFileShareArrayOutput() ProtectedFile
 
 func (i ProtectedFileShareArray) ToProtectedFileShareArrayOutputWithContext(ctx context.Context) ProtectedFileShareArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectedFileShareArrayOutput)
-}
-
-func (i ProtectedFileShareArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProtectedFileShare] {
-	return pulumix.Output[[]*ProtectedFileShare]{
-		OutputState: i.ToProtectedFileShareArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ProtectedFileShareMapInput is an input type that accepts ProtectedFileShareMap and ProtectedFileShareMapOutput values.
@@ -322,12 +309,6 @@ func (i ProtectedFileShareMap) ToProtectedFileShareMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectedFileShareMapOutput)
 }
 
-func (i ProtectedFileShareMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProtectedFileShare] {
-	return pulumix.Output[map[string]*ProtectedFileShare]{
-		OutputState: i.ToProtectedFileShareMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProtectedFileShareOutput struct{ *pulumi.OutputState }
 
 func (ProtectedFileShareOutput) ElementType() reflect.Type {
@@ -340,12 +321,6 @@ func (o ProtectedFileShareOutput) ToProtectedFileShareOutput() ProtectedFileShar
 
 func (o ProtectedFileShareOutput) ToProtectedFileShareOutputWithContext(ctx context.Context) ProtectedFileShareOutput {
 	return o
-}
-
-func (o ProtectedFileShareOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectedFileShare] {
-	return pulumix.Output[*ProtectedFileShare]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the ID of the backup policy to use. The policy must be an Azure File Share backup policy. Other types are not supported.
@@ -389,12 +364,6 @@ func (o ProtectedFileShareArrayOutput) ToProtectedFileShareArrayOutputWithContex
 	return o
 }
 
-func (o ProtectedFileShareArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProtectedFileShare] {
-	return pulumix.Output[[]*ProtectedFileShare]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectedFileShareArrayOutput) Index(i pulumi.IntInput) ProtectedFileShareOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProtectedFileShare {
 		return vs[0].([]*ProtectedFileShare)[vs[1].(int)]
@@ -413,12 +382,6 @@ func (o ProtectedFileShareMapOutput) ToProtectedFileShareMapOutput() ProtectedFi
 
 func (o ProtectedFileShareMapOutput) ToProtectedFileShareMapOutputWithContext(ctx context.Context) ProtectedFileShareMapOutput {
 	return o
-}
-
-func (o ProtectedFileShareMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProtectedFileShare] {
-	return pulumix.Output[map[string]*ProtectedFileShare]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProtectedFileShareMapOutput) MapIndex(k pulumi.StringInput) ProtectedFileShareOutput {

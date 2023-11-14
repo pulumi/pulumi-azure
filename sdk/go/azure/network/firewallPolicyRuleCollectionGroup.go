@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Firewall Policy Rule Collection Group.
@@ -164,12 +163,6 @@ func (i *FirewallPolicyRuleCollectionGroup) ToFirewallPolicyRuleCollectionGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionGroupOutput)
 }
 
-func (i *FirewallPolicyRuleCollectionGroup) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyRuleCollectionGroup] {
-	return pulumix.Output[*FirewallPolicyRuleCollectionGroup]{
-		OutputState: i.ToFirewallPolicyRuleCollectionGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FirewallPolicyRuleCollectionGroupArrayInput is an input type that accepts FirewallPolicyRuleCollectionGroupArray and FirewallPolicyRuleCollectionGroupArrayOutput values.
 // You can construct a concrete instance of `FirewallPolicyRuleCollectionGroupArrayInput` via:
 //
@@ -193,12 +186,6 @@ func (i FirewallPolicyRuleCollectionGroupArray) ToFirewallPolicyRuleCollectionGr
 
 func (i FirewallPolicyRuleCollectionGroupArray) ToFirewallPolicyRuleCollectionGroupArrayOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionGroupArrayOutput)
-}
-
-func (i FirewallPolicyRuleCollectionGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*FirewallPolicyRuleCollectionGroup] {
-	return pulumix.Output[[]*FirewallPolicyRuleCollectionGroup]{
-		OutputState: i.ToFirewallPolicyRuleCollectionGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FirewallPolicyRuleCollectionGroupMapInput is an input type that accepts FirewallPolicyRuleCollectionGroupMap and FirewallPolicyRuleCollectionGroupMapOutput values.
@@ -226,12 +213,6 @@ func (i FirewallPolicyRuleCollectionGroupMap) ToFirewallPolicyRuleCollectionGrou
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyRuleCollectionGroupMapOutput)
 }
 
-func (i FirewallPolicyRuleCollectionGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FirewallPolicyRuleCollectionGroup] {
-	return pulumix.Output[map[string]*FirewallPolicyRuleCollectionGroup]{
-		OutputState: i.ToFirewallPolicyRuleCollectionGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FirewallPolicyRuleCollectionGroupOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyRuleCollectionGroupOutput) ElementType() reflect.Type {
@@ -244,12 +225,6 @@ func (o FirewallPolicyRuleCollectionGroupOutput) ToFirewallPolicyRuleCollectionG
 
 func (o FirewallPolicyRuleCollectionGroupOutput) ToFirewallPolicyRuleCollectionGroupOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupOutput {
 	return o
-}
-
-func (o FirewallPolicyRuleCollectionGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*FirewallPolicyRuleCollectionGroup] {
-	return pulumix.Output[*FirewallPolicyRuleCollectionGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more `applicationRuleCollection` blocks as defined below.
@@ -302,12 +277,6 @@ func (o FirewallPolicyRuleCollectionGroupArrayOutput) ToFirewallPolicyRuleCollec
 	return o
 }
 
-func (o FirewallPolicyRuleCollectionGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FirewallPolicyRuleCollectionGroup] {
-	return pulumix.Output[[]*FirewallPolicyRuleCollectionGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FirewallPolicyRuleCollectionGroupArrayOutput) Index(i pulumi.IntInput) FirewallPolicyRuleCollectionGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FirewallPolicyRuleCollectionGroup {
 		return vs[0].([]*FirewallPolicyRuleCollectionGroup)[vs[1].(int)]
@@ -326,12 +295,6 @@ func (o FirewallPolicyRuleCollectionGroupMapOutput) ToFirewallPolicyRuleCollecti
 
 func (o FirewallPolicyRuleCollectionGroupMapOutput) ToFirewallPolicyRuleCollectionGroupMapOutputWithContext(ctx context.Context) FirewallPolicyRuleCollectionGroupMapOutput {
 	return o
-}
-
-func (o FirewallPolicyRuleCollectionGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FirewallPolicyRuleCollectionGroup] {
-	return pulumix.Output[map[string]*FirewallPolicyRuleCollectionGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FirewallPolicyRuleCollectionGroupMapOutput) MapIndex(k pulumi.StringInput) FirewallPolicyRuleCollectionGroupOutput {

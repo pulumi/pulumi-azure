@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an API Management API Assignment to a Product.
@@ -203,12 +202,6 @@ func (i *ProductApi) ToProductApiOutputWithContext(ctx context.Context) ProductA
 	return pulumi.ToOutputWithContext(ctx, i).(ProductApiOutput)
 }
 
-func (i *ProductApi) ToOutput(ctx context.Context) pulumix.Output[*ProductApi] {
-	return pulumix.Output[*ProductApi]{
-		OutputState: i.ToProductApiOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProductApiArrayInput is an input type that accepts ProductApiArray and ProductApiArrayOutput values.
 // You can construct a concrete instance of `ProductApiArrayInput` via:
 //
@@ -232,12 +225,6 @@ func (i ProductApiArray) ToProductApiArrayOutput() ProductApiArrayOutput {
 
 func (i ProductApiArray) ToProductApiArrayOutputWithContext(ctx context.Context) ProductApiArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProductApiArrayOutput)
-}
-
-func (i ProductApiArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProductApi] {
-	return pulumix.Output[[]*ProductApi]{
-		OutputState: i.ToProductApiArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ProductApiMapInput is an input type that accepts ProductApiMap and ProductApiMapOutput values.
@@ -265,12 +252,6 @@ func (i ProductApiMap) ToProductApiMapOutputWithContext(ctx context.Context) Pro
 	return pulumi.ToOutputWithContext(ctx, i).(ProductApiMapOutput)
 }
 
-func (i ProductApiMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProductApi] {
-	return pulumix.Output[map[string]*ProductApi]{
-		OutputState: i.ToProductApiMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProductApiOutput struct{ *pulumi.OutputState }
 
 func (ProductApiOutput) ElementType() reflect.Type {
@@ -283,12 +264,6 @@ func (o ProductApiOutput) ToProductApiOutput() ProductApiOutput {
 
 func (o ProductApiOutput) ToProductApiOutputWithContext(ctx context.Context) ProductApiOutput {
 	return o
-}
-
-func (o ProductApiOutput) ToOutput(ctx context.Context) pulumix.Output[*ProductApi] {
-	return pulumix.Output[*ProductApi]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the API Management Service. Changing this forces a new resource to be created.
@@ -325,12 +300,6 @@ func (o ProductApiArrayOutput) ToProductApiArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ProductApiArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProductApi] {
-	return pulumix.Output[[]*ProductApi]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProductApiArrayOutput) Index(i pulumi.IntInput) ProductApiOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProductApi {
 		return vs[0].([]*ProductApi)[vs[1].(int)]
@@ -349,12 +318,6 @@ func (o ProductApiMapOutput) ToProductApiMapOutput() ProductApiMapOutput {
 
 func (o ProductApiMapOutput) ToProductApiMapOutputWithContext(ctx context.Context) ProductApiMapOutput {
 	return o
-}
-
-func (o ProductApiMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProductApi] {
-	return pulumix.Output[map[string]*ProductApi]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProductApiMapOutput) MapIndex(k pulumi.StringInput) ProductApiOutput {

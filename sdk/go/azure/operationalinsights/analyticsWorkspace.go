@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Log Analytics (formally Operational Insights) Workspace.
@@ -360,12 +359,6 @@ func (i *AnalyticsWorkspace) ToAnalyticsWorkspaceOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsWorkspaceOutput)
 }
 
-func (i *AnalyticsWorkspace) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsWorkspace] {
-	return pulumix.Output[*AnalyticsWorkspace]{
-		OutputState: i.ToAnalyticsWorkspaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AnalyticsWorkspaceArrayInput is an input type that accepts AnalyticsWorkspaceArray and AnalyticsWorkspaceArrayOutput values.
 // You can construct a concrete instance of `AnalyticsWorkspaceArrayInput` via:
 //
@@ -389,12 +382,6 @@ func (i AnalyticsWorkspaceArray) ToAnalyticsWorkspaceArrayOutput() AnalyticsWork
 
 func (i AnalyticsWorkspaceArray) ToAnalyticsWorkspaceArrayOutputWithContext(ctx context.Context) AnalyticsWorkspaceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsWorkspaceArrayOutput)
-}
-
-func (i AnalyticsWorkspaceArray) ToOutput(ctx context.Context) pulumix.Output[[]*AnalyticsWorkspace] {
-	return pulumix.Output[[]*AnalyticsWorkspace]{
-		OutputState: i.ToAnalyticsWorkspaceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AnalyticsWorkspaceMapInput is an input type that accepts AnalyticsWorkspaceMap and AnalyticsWorkspaceMapOutput values.
@@ -422,12 +409,6 @@ func (i AnalyticsWorkspaceMap) ToAnalyticsWorkspaceMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(AnalyticsWorkspaceMapOutput)
 }
 
-func (i AnalyticsWorkspaceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AnalyticsWorkspace] {
-	return pulumix.Output[map[string]*AnalyticsWorkspace]{
-		OutputState: i.ToAnalyticsWorkspaceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AnalyticsWorkspaceOutput struct{ *pulumi.OutputState }
 
 func (AnalyticsWorkspaceOutput) ElementType() reflect.Type {
@@ -440,12 +421,6 @@ func (o AnalyticsWorkspaceOutput) ToAnalyticsWorkspaceOutput() AnalyticsWorkspac
 
 func (o AnalyticsWorkspaceOutput) ToAnalyticsWorkspaceOutputWithContext(ctx context.Context) AnalyticsWorkspaceOutput {
 	return o
-}
-
-func (o AnalyticsWorkspaceOutput) ToOutput(ctx context.Context) pulumix.Output[*AnalyticsWorkspace] {
-	return pulumix.Output[*AnalyticsWorkspace]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`.
@@ -559,12 +534,6 @@ func (o AnalyticsWorkspaceArrayOutput) ToAnalyticsWorkspaceArrayOutputWithContex
 	return o
 }
 
-func (o AnalyticsWorkspaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AnalyticsWorkspace] {
-	return pulumix.Output[[]*AnalyticsWorkspace]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AnalyticsWorkspaceArrayOutput) Index(i pulumi.IntInput) AnalyticsWorkspaceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AnalyticsWorkspace {
 		return vs[0].([]*AnalyticsWorkspace)[vs[1].(int)]
@@ -583,12 +552,6 @@ func (o AnalyticsWorkspaceMapOutput) ToAnalyticsWorkspaceMapOutput() AnalyticsWo
 
 func (o AnalyticsWorkspaceMapOutput) ToAnalyticsWorkspaceMapOutputWithContext(ctx context.Context) AnalyticsWorkspaceMapOutput {
 	return o
-}
-
-func (o AnalyticsWorkspaceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AnalyticsWorkspace] {
-	return pulumix.Output[map[string]*AnalyticsWorkspace]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AnalyticsWorkspaceMapOutput) MapIndex(k pulumi.StringInput) AnalyticsWorkspaceOutput {

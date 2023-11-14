@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Gets information about an existing Private DNS Resolver Inbound Endpoint.
@@ -110,12 +109,6 @@ func (o LookupResolverInboundEndpointResultOutput) ToLookupResolverInboundEndpoi
 
 func (o LookupResolverInboundEndpointResultOutput) ToLookupResolverInboundEndpointResultOutputWithContext(ctx context.Context) LookupResolverInboundEndpointResultOutput {
 	return o
-}
-
-func (o LookupResolverInboundEndpointResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupResolverInboundEndpointResult] {
-	return pulumix.Output[LookupResolverInboundEndpointResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.
