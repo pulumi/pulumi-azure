@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ApiTagDescriptionArgs', 'ApiTagDescription']
+__all__ = ['ApiTagDescriptionArrgs', 'ApiTagDescription']
 
 @pulumi.input_type
-class ApiTagDescriptionArgs:
+calass ApiTagDescriptionArrgs:
     def __init__(__self__, *,
                  api_tag_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class ApiTagDescriptionArgs:
 
 
 @pulumi.input_type
-class _ApiTagDescriptionState:
+calass _ApiTagDescriptionState:
     def __init__(__self__, *,
                  api_tag_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -154,7 +154,7 @@ class _ApiTagDescriptionState:
         pulumi.set(self, "external_documentation_url", value)
 
 
-class ApiTagDescription(pulumi.CustomResource):
+calass ApiTagDescription(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -186,7 +186,7 @@ class ApiTagDescription(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ApiTagDescriptionArgs,
+                 args: ApiTagDescriptionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Tag Description within an API Management Service.
@@ -200,12 +200,12 @@ class ApiTagDescription(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ApiTagDescriptionArgs args: The arguments to use to populate this resource's properties.
+        :param ApiTagDescriptionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ApiTagDescriptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ApiTagDescriptionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -225,7 +225,7 @@ class ApiTagDescription(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ApiTagDescriptionArgs.__new__(ApiTagDescriptionArgs)
+            __props__ = ApiTagDescriptionArrgs.__new__(ApiTagDescriptionArrgs)
 
             if api_tag_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_tag_id'")

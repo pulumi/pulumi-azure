@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EndpointEventGridArgs', 'EndpointEventGrid']
+__all__ = ['EndpointEventGridArrgs', 'EndpointEventGrid']
 
 @pulumi.input_type
-class EndpointEventGridArgs:
+calass EndpointEventGridArrgs:
     def __init__(__self__, *,
                  digital_twins_id: pulumi.Input[str],
                  eventgrid_topic_endpoint: pulumi.Input[str],
@@ -112,7 +112,7 @@ class EndpointEventGridArgs:
 
 
 @pulumi.input_type
-class _EndpointEventGridState:
+calass _EndpointEventGridState:
     def __init__(__self__, *,
                  dead_letter_storage_secret: Optional[pulumi.Input[str]] = None,
                  digital_twins_id: Optional[pulumi.Input[str]] = None,
@@ -215,7 +215,7 @@ class _EndpointEventGridState:
         pulumi.set(self, "name", value)
 
 
-class EndpointEventGrid(pulumi.CustomResource):
+calass EndpointEventGrid(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -271,7 +271,7 @@ class EndpointEventGrid(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EndpointEventGridArgs,
+                 args: EndpointEventGridArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Digital Twins Event Grid Endpoint.
@@ -305,12 +305,12 @@ class EndpointEventGrid(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EndpointEventGridArgs args: The arguments to use to populate this resource's properties.
+        :param EndpointEventGridArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EndpointEventGridArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EndpointEventGridArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -332,7 +332,7 @@ class EndpointEventGrid(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EndpointEventGridArgs.__new__(EndpointEventGridArgs)
+            __props__ = EndpointEventGridArrgs.__new__(EndpointEventGridArrgs)
 
             __props__.__dict__["dead_letter_storage_secret"] = dead_letter_storage_secret
             if digital_twins_id is None and not opts.urn:

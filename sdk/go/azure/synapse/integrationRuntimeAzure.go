@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Synapse Azure Integration Runtime.
@@ -250,12 +249,6 @@ func (i *IntegrationRuntimeAzure) ToIntegrationRuntimeAzureOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeAzureOutput)
 }
 
-func (i *IntegrationRuntimeAzure) ToOutput(ctx context.Context) pulumix.Output[*IntegrationRuntimeAzure] {
-	return pulumix.Output[*IntegrationRuntimeAzure]{
-		OutputState: i.ToIntegrationRuntimeAzureOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IntegrationRuntimeAzureArrayInput is an input type that accepts IntegrationRuntimeAzureArray and IntegrationRuntimeAzureArrayOutput values.
 // You can construct a concrete instance of `IntegrationRuntimeAzureArrayInput` via:
 //
@@ -279,12 +272,6 @@ func (i IntegrationRuntimeAzureArray) ToIntegrationRuntimeAzureArrayOutput() Int
 
 func (i IntegrationRuntimeAzureArray) ToIntegrationRuntimeAzureArrayOutputWithContext(ctx context.Context) IntegrationRuntimeAzureArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeAzureArrayOutput)
-}
-
-func (i IntegrationRuntimeAzureArray) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationRuntimeAzure] {
-	return pulumix.Output[[]*IntegrationRuntimeAzure]{
-		OutputState: i.ToIntegrationRuntimeAzureArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IntegrationRuntimeAzureMapInput is an input type that accepts IntegrationRuntimeAzureMap and IntegrationRuntimeAzureMapOutput values.
@@ -312,12 +299,6 @@ func (i IntegrationRuntimeAzureMap) ToIntegrationRuntimeAzureMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(IntegrationRuntimeAzureMapOutput)
 }
 
-func (i IntegrationRuntimeAzureMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationRuntimeAzure] {
-	return pulumix.Output[map[string]*IntegrationRuntimeAzure]{
-		OutputState: i.ToIntegrationRuntimeAzureMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IntegrationRuntimeAzureOutput struct{ *pulumi.OutputState }
 
 func (IntegrationRuntimeAzureOutput) ElementType() reflect.Type {
@@ -330,12 +311,6 @@ func (o IntegrationRuntimeAzureOutput) ToIntegrationRuntimeAzureOutput() Integra
 
 func (o IntegrationRuntimeAzureOutput) ToIntegrationRuntimeAzureOutputWithContext(ctx context.Context) IntegrationRuntimeAzureOutput {
 	return o
-}
-
-func (o IntegrationRuntimeAzureOutput) ToOutput(ctx context.Context) pulumix.Output[*IntegrationRuntimeAzure] {
-	return pulumix.Output[*IntegrationRuntimeAzure]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
@@ -387,12 +362,6 @@ func (o IntegrationRuntimeAzureArrayOutput) ToIntegrationRuntimeAzureArrayOutput
 	return o
 }
 
-func (o IntegrationRuntimeAzureArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IntegrationRuntimeAzure] {
-	return pulumix.Output[[]*IntegrationRuntimeAzure]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IntegrationRuntimeAzureArrayOutput) Index(i pulumi.IntInput) IntegrationRuntimeAzureOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IntegrationRuntimeAzure {
 		return vs[0].([]*IntegrationRuntimeAzure)[vs[1].(int)]
@@ -411,12 +380,6 @@ func (o IntegrationRuntimeAzureMapOutput) ToIntegrationRuntimeAzureMapOutput() I
 
 func (o IntegrationRuntimeAzureMapOutput) ToIntegrationRuntimeAzureMapOutputWithContext(ctx context.Context) IntegrationRuntimeAzureMapOutput {
 	return o
-}
-
-func (o IntegrationRuntimeAzureMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IntegrationRuntimeAzure] {
-	return pulumix.Output[map[string]*IntegrationRuntimeAzure]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IntegrationRuntimeAzureMapOutput) MapIndex(k pulumi.StringInput) IntegrationRuntimeAzureOutput {

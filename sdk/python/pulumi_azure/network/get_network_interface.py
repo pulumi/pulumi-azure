@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetNetworkInterfaceResult:
+calass GetNetworkInterfaceResult:
     """
     A collection of values returned by getNetworkInterface.
     """
@@ -198,7 +198,7 @@ class GetNetworkInterfaceResult:
         return pulumi.get(self, "virtual_machine_id")
 
 
-class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
+calass AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

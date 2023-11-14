@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['OrderArgs', 'Order']
+__all__ = ['OrderArrgs', 'Order']
 
 @pulumi.input_type
-class OrderArgs:
+calass OrderArrgs:
     def __init__(__self__, *,
-                 contact: pulumi.Input['OrderContactArgs'],
+                 contact: pulumi.Input['OrderContactArrgs'],
                  device_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 shipment_address: pulumi.Input['OrderShipmentAddressArgs']):
+                 shipment_address: pulumi.Input['OrderShipmentAddressArrgs']):
         """
         The set of arguments for constructing a Order resource.
-        :param pulumi.Input['OrderContactArgs'] contact: A `contact` block as defined below.
+        :param pulumi.Input['OrderContactArrgs'] contact: A `contact` block as defined below.
         :param pulumi.Input[str] device_name: The name of the Databox Edge Device this order is for. Changing this forces a new Databox Edge Order to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created.
-        :param pulumi.Input['OrderShipmentAddressArgs'] shipment_address: A `shipment_address` block as defined below.
+        :param pulumi.Input['OrderShipmentAddressArrgs'] shipment_address: A `shipment_address` block as defined below.
         """
         pulumi.set(__self__, "contact", contact)
         pulumi.set(__self__, "device_name", device_name)
@@ -34,14 +34,14 @@ class OrderArgs:
 
     @property
     @pulumi.getter
-    def contact(self) -> pulumi.Input['OrderContactArgs']:
+    def contact(self) -> pulumi.Input['OrderContactArrgs']:
         """
         A `contact` block as defined below.
         """
         return pulumi.get(self, "contact")
 
     @contact.setter
-    def contact(self, value: pulumi.Input['OrderContactArgs']):
+    def contact(self, value: pulumi.Input['OrderContactArrgs']):
         pulumi.set(self, "contact", value)
 
     @property
@@ -70,42 +70,42 @@ class OrderArgs:
 
     @property
     @pulumi.getter(name="shipmentAddress")
-    def shipment_address(self) -> pulumi.Input['OrderShipmentAddressArgs']:
+    def shipment_address(self) -> pulumi.Input['OrderShipmentAddressArrgs']:
         """
         A `shipment_address` block as defined below.
         """
         return pulumi.get(self, "shipment_address")
 
     @shipment_address.setter
-    def shipment_address(self, value: pulumi.Input['OrderShipmentAddressArgs']):
+    def shipment_address(self, value: pulumi.Input['OrderShipmentAddressArrgs']):
         pulumi.set(self, "shipment_address", value)
 
 
 @pulumi.input_type
-class _OrderState:
+calass _OrderState:
     def __init__(__self__, *,
-                 contact: Optional[pulumi.Input['OrderContactArgs']] = None,
+                 contact: Optional[pulumi.Input['OrderContactArrgs']] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 return_trackings: Optional[pulumi.Input[Sequence[pulumi.Input['OrderReturnTrackingArgs']]]] = None,
+                 return_trackings: Optional[pulumi.Input[Sequence[pulumi.Input['OrderReturnTrackingArrgs']]]] = None,
                  serial_number: Optional[pulumi.Input[str]] = None,
-                 shipment_address: Optional[pulumi.Input['OrderShipmentAddressArgs']] = None,
-                 shipment_histories: Optional[pulumi.Input[Sequence[pulumi.Input['OrderShipmentHistoryArgs']]]] = None,
-                 shipment_trackings: Optional[pulumi.Input[Sequence[pulumi.Input['OrderShipmentTrackingArgs']]]] = None,
-                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input['OrderStatusArgs']]]] = None):
+                 shipment_address: Optional[pulumi.Input['OrderShipmentAddressArrgs']] = None,
+                 shipment_histories: Optional[pulumi.Input[Sequence[pulumi.Input['OrderShipmentHistoryArrgs']]]] = None,
+                 shipment_trackings: Optional[pulumi.Input[Sequence[pulumi.Input['OrderShipmentTrackingArrgs']]]] = None,
+                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input['OrderStatusArrgs']]]] = None):
         """
         Input properties used for looking up and filtering Order resources.
-        :param pulumi.Input['OrderContactArgs'] contact: A `contact` block as defined below.
+        :param pulumi.Input['OrderContactArrgs'] contact: A `contact` block as defined below.
         :param pulumi.Input[str] device_name: The name of the Databox Edge Device this order is for. Changing this forces a new Databox Edge Order to be created.
         :param pulumi.Input[str] name: The contact person name. Changing this forces a new Databox Edge Order to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['OrderReturnTrackingArgs']]] return_trackings: Tracking information for the package returned from the customer whether it has an original or a replacement device. A `return_tracking` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['OrderReturnTrackingArrgs']]] return_trackings: Tracking information for the package returned from the customer whether it has an original or a replacement device. A `return_tracking` block as defined below.
         :param pulumi.Input[str] serial_number: Serial number of the device being tracked.
-        :param pulumi.Input['OrderShipmentAddressArgs'] shipment_address: A `shipment_address` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['OrderShipmentHistoryArgs']]] shipment_histories: List of status changes in the order. A `shipment_history` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['OrderShipmentTrackingArgs']]] shipment_trackings: Tracking information for the package delivered to the customer whether it has an original or a replacement device. A `shipment_tracking` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['OrderStatusArgs']]] statuses: The current status of the order. A `status` block as defined below.
+        :param pulumi.Input['OrderShipmentAddressArrgs'] shipment_address: A `shipment_address` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['OrderShipmentHistoryArrgs']]] shipment_histories: List of status changes in the order. A `shipment_history` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['OrderShipmentTrackingArrgs']]] shipment_trackings: Tracking information for the package delivered to the customer whether it has an original or a replacement device. A `shipment_tracking` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['OrderStatusArrgs']]] statuses: The current status of the order. A `status` block as defined below.
         """
         if contact is not None:
             pulumi.set(__self__, "contact", contact)
@@ -130,14 +130,14 @@ class _OrderState:
 
     @property
     @pulumi.getter
-    def contact(self) -> Optional[pulumi.Input['OrderContactArgs']]:
+    def contact(self) -> Optional[pulumi.Input['OrderContactArrgs']]:
         """
         A `contact` block as defined below.
         """
         return pulumi.get(self, "contact")
 
     @contact.setter
-    def contact(self, value: Optional[pulumi.Input['OrderContactArgs']]):
+    def contact(self, value: Optional[pulumi.Input['OrderContactArrgs']]):
         pulumi.set(self, "contact", value)
 
     @property
@@ -178,14 +178,14 @@ class _OrderState:
 
     @property
     @pulumi.getter(name="returnTrackings")
-    def return_trackings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrderReturnTrackingArgs']]]]:
+    def return_trackings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrderReturnTrackingArrgs']]]]:
         """
         Tracking information for the package returned from the customer whether it has an original or a replacement device. A `return_tracking` block as defined below.
         """
         return pulumi.get(self, "return_trackings")
 
     @return_trackings.setter
-    def return_trackings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrderReturnTrackingArgs']]]]):
+    def return_trackings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrderReturnTrackingArrgs']]]]):
         pulumi.set(self, "return_trackings", value)
 
     @property
@@ -202,62 +202,62 @@ class _OrderState:
 
     @property
     @pulumi.getter(name="shipmentAddress")
-    def shipment_address(self) -> Optional[pulumi.Input['OrderShipmentAddressArgs']]:
+    def shipment_address(self) -> Optional[pulumi.Input['OrderShipmentAddressArrgs']]:
         """
         A `shipment_address` block as defined below.
         """
         return pulumi.get(self, "shipment_address")
 
     @shipment_address.setter
-    def shipment_address(self, value: Optional[pulumi.Input['OrderShipmentAddressArgs']]):
+    def shipment_address(self, value: Optional[pulumi.Input['OrderShipmentAddressArrgs']]):
         pulumi.set(self, "shipment_address", value)
 
     @property
     @pulumi.getter(name="shipmentHistories")
-    def shipment_histories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrderShipmentHistoryArgs']]]]:
+    def shipment_histories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrderShipmentHistoryArrgs']]]]:
         """
         List of status changes in the order. A `shipment_history` block as defined below.
         """
         return pulumi.get(self, "shipment_histories")
 
     @shipment_histories.setter
-    def shipment_histories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrderShipmentHistoryArgs']]]]):
+    def shipment_histories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrderShipmentHistoryArrgs']]]]):
         pulumi.set(self, "shipment_histories", value)
 
     @property
     @pulumi.getter(name="shipmentTrackings")
-    def shipment_trackings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrderShipmentTrackingArgs']]]]:
+    def shipment_trackings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrderShipmentTrackingArrgs']]]]:
         """
         Tracking information for the package delivered to the customer whether it has an original or a replacement device. A `shipment_tracking` block as defined below.
         """
         return pulumi.get(self, "shipment_trackings")
 
     @shipment_trackings.setter
-    def shipment_trackings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrderShipmentTrackingArgs']]]]):
+    def shipment_trackings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrderShipmentTrackingArrgs']]]]):
         pulumi.set(self, "shipment_trackings", value)
 
     @property
     @pulumi.getter
-    def statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrderStatusArgs']]]]:
+    def statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrderStatusArrgs']]]]:
         """
         The current status of the order. A `status` block as defined below.
         """
         return pulumi.get(self, "statuses")
 
     @statuses.setter
-    def statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrderStatusArgs']]]]):
+    def statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrderStatusArrgs']]]]):
         pulumi.set(self, "statuses", value)
 
 
-class Order(pulumi.CustomResource):
+calass Order(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact: Optional[pulumi.Input[pulumi.InputType['OrderContactArgs']]] = None,
+                 contact: Optional[pulumi.Input[pulumi.InputType['OrderContactArrgs']]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 shipment_address: Optional[pulumi.Input[pulumi.InputType['OrderShipmentAddressArgs']]] = None,
+                 shipment_address: Optional[pulumi.Input[pulumi.InputType['OrderShipmentAddressArrgs']]] = None,
                  __props__=None):
         """
         Manages a Databox Edge Order.
@@ -278,13 +278,13 @@ class Order(pulumi.CustomResource):
         example_order = azure.databoxedge.Order("exampleOrder",
             resource_group_name=example_resource_group.name,
             device_name=example_device.name,
-            contact=azure.databoxedge.OrderContactArgs(
+            contact=azure.databoxedge.OrderContactArrgs(
                 name="TerraForm Test",
                 emails=["creator4983@FlynnsArcade.com"],
                 company_name="Flynn's Arcade",
                 phone_number="(800) 555-1234",
             ),
-            shipment_address=azure.databoxedge.OrderShipmentAddressArgs(
+            shipment_address=azure.databoxedge.OrderShipmentAddressArrgs(
                 addresses=["One Microsoft Way"],
                 city="Redmond",
                 postal_code="98052",
@@ -303,16 +303,16 @@ class Order(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['OrderContactArgs']] contact: A `contact` block as defined below.
+        :param pulumi.Input[pulumi.InputType['OrderContactArrgs']] contact: A `contact` block as defined below.
         :param pulumi.Input[str] device_name: The name of the Databox Edge Device this order is for. Changing this forces a new Databox Edge Order to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created.
-        :param pulumi.Input[pulumi.InputType['OrderShipmentAddressArgs']] shipment_address: A `shipment_address` block as defined below.
+        :param pulumi.Input[pulumi.InputType['OrderShipmentAddressArrgs']] shipment_address: A `shipment_address` block as defined below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OrderArgs,
+                 args: OrderArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Databox Edge Order.
@@ -333,13 +333,13 @@ class Order(pulumi.CustomResource):
         example_order = azure.databoxedge.Order("exampleOrder",
             resource_group_name=example_resource_group.name,
             device_name=example_device.name,
-            contact=azure.databoxedge.OrderContactArgs(
+            contact=azure.databoxedge.OrderContactArrgs(
                 name="TerraForm Test",
                 emails=["creator4983@FlynnsArcade.com"],
                 company_name="Flynn's Arcade",
                 phone_number="(800) 555-1234",
             ),
-            shipment_address=azure.databoxedge.OrderShipmentAddressArgs(
+            shipment_address=azure.databoxedge.OrderShipmentAddressArrgs(
                 addresses=["One Microsoft Way"],
                 city="Redmond",
                 postal_code="98052",
@@ -357,12 +357,12 @@ class Order(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param OrderArgs args: The arguments to use to populate this resource's properties.
+        :param OrderArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OrderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OrderArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -371,10 +371,10 @@ class Order(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 contact: Optional[pulumi.Input[pulumi.InputType['OrderContactArgs']]] = None,
+                 contact: Optional[pulumi.Input[pulumi.InputType['OrderContactArrgs']]] = None,
                  device_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 shipment_address: Optional[pulumi.Input[pulumi.InputType['OrderShipmentAddressArgs']]] = None,
+                 shipment_address: Optional[pulumi.Input[pulumi.InputType['OrderShipmentAddressArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -382,7 +382,7 @@ class Order(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OrderArgs.__new__(OrderArgs)
+            __props__ = OrderArrgs.__new__(OrderArrgs)
 
             if contact is None and not opts.urn:
                 raise TypeError("Missing required property 'contact'")
@@ -412,16 +412,16 @@ class Order(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            contact: Optional[pulumi.Input[pulumi.InputType['OrderContactArgs']]] = None,
+            contact: Optional[pulumi.Input[pulumi.InputType['OrderContactArrgs']]] = None,
             device_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            return_trackings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderReturnTrackingArgs']]]]] = None,
+            return_trackings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderReturnTrackingArrgs']]]]] = None,
             serial_number: Optional[pulumi.Input[str]] = None,
-            shipment_address: Optional[pulumi.Input[pulumi.InputType['OrderShipmentAddressArgs']]] = None,
-            shipment_histories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderShipmentHistoryArgs']]]]] = None,
-            shipment_trackings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderShipmentTrackingArgs']]]]] = None,
-            statuses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderStatusArgs']]]]] = None) -> 'Order':
+            shipment_address: Optional[pulumi.Input[pulumi.InputType['OrderShipmentAddressArrgs']]] = None,
+            shipment_histories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderShipmentHistoryArrgs']]]]] = None,
+            shipment_trackings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderShipmentTrackingArrgs']]]]] = None,
+            statuses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderStatusArrgs']]]]] = None) -> 'Order':
         """
         Get an existing Order resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -429,16 +429,16 @@ class Order(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['OrderContactArgs']] contact: A `contact` block as defined below.
+        :param pulumi.Input[pulumi.InputType['OrderContactArrgs']] contact: A `contact` block as defined below.
         :param pulumi.Input[str] device_name: The name of the Databox Edge Device this order is for. Changing this forces a new Databox Edge Order to be created.
         :param pulumi.Input[str] name: The contact person name. Changing this forces a new Databox Edge Order to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Databox Edge Order should exist. Changing this forces a new Databox Edge Order to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderReturnTrackingArgs']]]] return_trackings: Tracking information for the package returned from the customer whether it has an original or a replacement device. A `return_tracking` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderReturnTrackingArrgs']]]] return_trackings: Tracking information for the package returned from the customer whether it has an original or a replacement device. A `return_tracking` block as defined below.
         :param pulumi.Input[str] serial_number: Serial number of the device being tracked.
-        :param pulumi.Input[pulumi.InputType['OrderShipmentAddressArgs']] shipment_address: A `shipment_address` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderShipmentHistoryArgs']]]] shipment_histories: List of status changes in the order. A `shipment_history` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderShipmentTrackingArgs']]]] shipment_trackings: Tracking information for the package delivered to the customer whether it has an original or a replacement device. A `shipment_tracking` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderStatusArgs']]]] statuses: The current status of the order. A `status` block as defined below.
+        :param pulumi.Input[pulumi.InputType['OrderShipmentAddressArrgs']] shipment_address: A `shipment_address` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderShipmentHistoryArrgs']]]] shipment_histories: List of status changes in the order. A `shipment_history` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderShipmentTrackingArrgs']]]] shipment_trackings: Tracking information for the package delivered to the customer whether it has an original or a replacement device. A `shipment_tracking` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OrderStatusArrgs']]]] statuses: The current status of the order. A `status` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

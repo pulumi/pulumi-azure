@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AvailabilitySetArgs', 'AvailabilitySet']
+__all__ = ['AvailabilitySetArrgs', 'AvailabilitySet']
 
 @pulumi.input_type
-class AvailabilitySetArgs:
+calass AvailabilitySetArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
@@ -155,7 +155,7 @@ class AvailabilitySetArgs:
 
 
 @pulumi.input_type
-class _AvailabilitySetState:
+calass _AvailabilitySetState:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
                  managed: Optional[pulumi.Input[bool]] = None,
@@ -298,7 +298,7 @@ class _AvailabilitySetState:
         pulumi.set(self, "tags", value)
 
 
-class AvailabilitySet(pulumi.CustomResource):
+calass AvailabilitySet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -357,7 +357,7 @@ class AvailabilitySet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AvailabilitySetArgs,
+                 args: AvailabilitySetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Availability Set for Virtual Machines.
@@ -386,12 +386,12 @@ class AvailabilitySet(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AvailabilitySetArgs args: The arguments to use to populate this resource's properties.
+        :param AvailabilitySetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AvailabilitySetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AvailabilitySetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -415,7 +415,7 @@ class AvailabilitySet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AvailabilitySetArgs.__new__(AvailabilitySetArgs)
+            __props__ = AvailabilitySetArrgs.__new__(AvailabilitySetArrgs)
 
             __props__.__dict__["location"] = location
             __props__.__dict__["managed"] = managed

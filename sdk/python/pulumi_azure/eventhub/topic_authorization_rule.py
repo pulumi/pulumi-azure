@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TopicAuthorizationRuleArgs', 'TopicAuthorizationRule']
+__all__ = ['TopicAuthorizationRuleArrgs', 'TopicAuthorizationRule']
 
 @pulumi.input_type
-class TopicAuthorizationRuleArgs:
+calass TopicAuthorizationRuleArrgs:
     def __init__(__self__, *,
                  topic_id: pulumi.Input[str],
                  listen: Optional[pulumi.Input[bool]] = None,
@@ -103,7 +103,7 @@ class TopicAuthorizationRuleArgs:
 
 
 @pulumi.input_type
-class _TopicAuthorizationRuleState:
+calass _TopicAuthorizationRuleState:
     def __init__(__self__, *,
                  listen: Optional[pulumi.Input[bool]] = None,
                  manage: Optional[pulumi.Input[bool]] = None,
@@ -293,7 +293,7 @@ class _TopicAuthorizationRuleState:
 warnings.warn("""azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule""", DeprecationWarning)
 
 
-class TopicAuthorizationRule(pulumi.CustomResource):
+calass TopicAuthorizationRule(pulumi.CustomResource):
     warnings.warn("""azure.eventhub.TopicAuthorizationRule has been deprecated in favor of azure.servicebus.TopicAuthorizationRule""", DeprecationWarning)
 
     @overload
@@ -353,7 +353,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TopicAuthorizationRuleArgs,
+                 args: TopicAuthorizationRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a ServiceBus Topic authorization Rule within a ServiceBus Topic.
@@ -389,12 +389,12 @@ class TopicAuthorizationRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TopicAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.
+        :param TopicAuthorizationRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TopicAuthorizationRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TopicAuthorizationRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -416,7 +416,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TopicAuthorizationRuleArgs.__new__(TopicAuthorizationRuleArgs)
+            __props__ = TopicAuthorizationRuleArrgs.__new__(TopicAuthorizationRuleArrgs)
 
             __props__.__dict__["listen"] = listen
             __props__.__dict__["manage"] = manage

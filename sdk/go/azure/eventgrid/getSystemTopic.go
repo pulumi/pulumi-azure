@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing EventGrid System Topic
@@ -115,12 +114,6 @@ func (o LookupSystemTopicResultOutput) ToLookupSystemTopicResultOutput() LookupS
 
 func (o LookupSystemTopicResultOutput) ToLookupSystemTopicResultOutputWithContext(ctx context.Context) LookupSystemTopicResultOutput {
 	return o
-}
-
-func (o LookupSystemTopicResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupSystemTopicResult] {
-	return pulumix.Output[LookupSystemTopicResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

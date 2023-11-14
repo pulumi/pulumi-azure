@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetWindowsWebAppResult:
+calass GetWindowsWebAppResult:
     """
     A collection of values returned by getWindowsWebApp.
     """
@@ -382,7 +382,7 @@ class GetWindowsWebAppResult:
         return pulumi.get(self, "virtual_network_subnet_id")
 
 
-class AwaitableGetWindowsWebAppResult(GetWindowsWebAppResult):
+calass AwaitableGetWindowsWebAppResult(GetWindowsWebAppResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

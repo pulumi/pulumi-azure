@@ -11,22 +11,22 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FrontdoorOriginGroupArgs', 'FrontdoorOriginGroup']
+__all__ = ['FrontdoorOriginGroupArrgs', 'FrontdoorOriginGroup']
 
 @pulumi.input_type
-class FrontdoorOriginGroupArgs:
+calass FrontdoorOriginGroupArrgs:
     def __init__(__self__, *,
                  cdn_frontdoor_profile_id: pulumi.Input[str],
-                 load_balancing: pulumi.Input['FrontdoorOriginGroupLoadBalancingArgs'],
-                 health_probe: Optional[pulumi.Input['FrontdoorOriginGroupHealthProbeArgs']] = None,
+                 load_balancing: pulumi.Input['FrontdoorOriginGroupLoadBalancingArrgs'],
+                 health_probe: Optional[pulumi.Input['FrontdoorOriginGroupHealthProbeArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Optional[pulumi.Input[int]] = None,
                  session_affinity_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a FrontdoorOriginGroup resource.
         :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
-        :param pulumi.Input['FrontdoorOriginGroupLoadBalancingArgs'] load_balancing: A `load_balancing` block as defined below.
-        :param pulumi.Input['FrontdoorOriginGroupHealthProbeArgs'] health_probe: A `health_probe` block as defined below.
+        :param pulumi.Input['FrontdoorOriginGroupLoadBalancingArrgs'] load_balancing: A `load_balancing` block as defined below.
+        :param pulumi.Input['FrontdoorOriginGroupHealthProbeArrgs'] health_probe: A `health_probe` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         :param pulumi.Input[int] restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
                
@@ -58,26 +58,26 @@ class FrontdoorOriginGroupArgs:
 
     @property
     @pulumi.getter(name="loadBalancing")
-    def load_balancing(self) -> pulumi.Input['FrontdoorOriginGroupLoadBalancingArgs']:
+    def load_balancing(self) -> pulumi.Input['FrontdoorOriginGroupLoadBalancingArrgs']:
         """
         A `load_balancing` block as defined below.
         """
         return pulumi.get(self, "load_balancing")
 
     @load_balancing.setter
-    def load_balancing(self, value: pulumi.Input['FrontdoorOriginGroupLoadBalancingArgs']):
+    def load_balancing(self, value: pulumi.Input['FrontdoorOriginGroupLoadBalancingArrgs']):
         pulumi.set(self, "load_balancing", value)
 
     @property
     @pulumi.getter(name="healthProbe")
-    def health_probe(self) -> Optional[pulumi.Input['FrontdoorOriginGroupHealthProbeArgs']]:
+    def health_probe(self) -> Optional[pulumi.Input['FrontdoorOriginGroupHealthProbeArrgs']]:
         """
         A `health_probe` block as defined below.
         """
         return pulumi.get(self, "health_probe")
 
     @health_probe.setter
-    def health_probe(self, value: Optional[pulumi.Input['FrontdoorOriginGroupHealthProbeArgs']]):
+    def health_probe(self, value: Optional[pulumi.Input['FrontdoorOriginGroupHealthProbeArrgs']]):
         pulumi.set(self, "health_probe", value)
 
     @property
@@ -120,19 +120,19 @@ class FrontdoorOriginGroupArgs:
 
 
 @pulumi.input_type
-class _FrontdoorOriginGroupState:
+calass _FrontdoorOriginGroupState:
     def __init__(__self__, *,
                  cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
-                 health_probe: Optional[pulumi.Input['FrontdoorOriginGroupHealthProbeArgs']] = None,
-                 load_balancing: Optional[pulumi.Input['FrontdoorOriginGroupLoadBalancingArgs']] = None,
+                 health_probe: Optional[pulumi.Input['FrontdoorOriginGroupHealthProbeArrgs']] = None,
+                 load_balancing: Optional[pulumi.Input['FrontdoorOriginGroupLoadBalancingArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Optional[pulumi.Input[int]] = None,
                  session_affinity_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering FrontdoorOriginGroup resources.
         :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
-        :param pulumi.Input['FrontdoorOriginGroupHealthProbeArgs'] health_probe: A `health_probe` block as defined below.
-        :param pulumi.Input['FrontdoorOriginGroupLoadBalancingArgs'] load_balancing: A `load_balancing` block as defined below.
+        :param pulumi.Input['FrontdoorOriginGroupHealthProbeArrgs'] health_probe: A `health_probe` block as defined below.
+        :param pulumi.Input['FrontdoorOriginGroupLoadBalancingArrgs'] load_balancing: A `load_balancing` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         :param pulumi.Input[int] restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
                
@@ -166,26 +166,26 @@ class _FrontdoorOriginGroupState:
 
     @property
     @pulumi.getter(name="healthProbe")
-    def health_probe(self) -> Optional[pulumi.Input['FrontdoorOriginGroupHealthProbeArgs']]:
+    def health_probe(self) -> Optional[pulumi.Input['FrontdoorOriginGroupHealthProbeArrgs']]:
         """
         A `health_probe` block as defined below.
         """
         return pulumi.get(self, "health_probe")
 
     @health_probe.setter
-    def health_probe(self, value: Optional[pulumi.Input['FrontdoorOriginGroupHealthProbeArgs']]):
+    def health_probe(self, value: Optional[pulumi.Input['FrontdoorOriginGroupHealthProbeArrgs']]):
         pulumi.set(self, "health_probe", value)
 
     @property
     @pulumi.getter(name="loadBalancing")
-    def load_balancing(self) -> Optional[pulumi.Input['FrontdoorOriginGroupLoadBalancingArgs']]:
+    def load_balancing(self) -> Optional[pulumi.Input['FrontdoorOriginGroupLoadBalancingArrgs']]:
         """
         A `load_balancing` block as defined below.
         """
         return pulumi.get(self, "load_balancing")
 
     @load_balancing.setter
-    def load_balancing(self, value: Optional[pulumi.Input['FrontdoorOriginGroupLoadBalancingArgs']]):
+    def load_balancing(self, value: Optional[pulumi.Input['FrontdoorOriginGroupLoadBalancingArrgs']]):
         pulumi.set(self, "load_balancing", value)
 
     @property
@@ -227,14 +227,14 @@ class _FrontdoorOriginGroupState:
         pulumi.set(self, "session_affinity_enabled", value)
 
 
-class FrontdoorOriginGroup(pulumi.CustomResource):
+calass FrontdoorOriginGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
-                 health_probe: Optional[pulumi.Input[pulumi.InputType['FrontdoorOriginGroupHealthProbeArgs']]] = None,
-                 load_balancing: Optional[pulumi.Input[pulumi.InputType['FrontdoorOriginGroupLoadBalancingArgs']]] = None,
+                 health_probe: Optional[pulumi.Input[pulumi.InputType['FrontdoorOriginGroupHealthProbeArrgs']]] = None,
+                 load_balancing: Optional[pulumi.Input[pulumi.InputType['FrontdoorOriginGroupLoadBalancingArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Optional[pulumi.Input[int]] = None,
                  session_affinity_enabled: Optional[pulumi.Input[bool]] = None,
@@ -256,13 +256,13 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             session_affinity_enabled=True,
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
-            health_probe=azure.cdn.FrontdoorOriginGroupHealthProbeArgs(
+            health_probe=azure.cdn.FrontdoorOriginGroupHealthProbeArrgs(
                 interval_in_seconds=240,
                 path="/healthProbe",
                 protocol="Https",
                 request_type="HEAD",
             ),
-            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs(
+            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArrgs(
                 additional_latency_in_milliseconds=0,
                 sample_size=16,
                 successful_samples_required=3,
@@ -280,8 +280,8 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
-        :param pulumi.Input[pulumi.InputType['FrontdoorOriginGroupHealthProbeArgs']] health_probe: A `health_probe` block as defined below.
-        :param pulumi.Input[pulumi.InputType['FrontdoorOriginGroupLoadBalancingArgs']] load_balancing: A `load_balancing` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FrontdoorOriginGroupHealthProbeArrgs']] health_probe: A `health_probe` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FrontdoorOriginGroupLoadBalancingArrgs']] load_balancing: A `load_balancing` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         :param pulumi.Input[int] restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
                
@@ -292,7 +292,7 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FrontdoorOriginGroupArgs,
+                 args: FrontdoorOriginGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Front Door (standard/premium) Origin Group.
@@ -311,13 +311,13 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             session_affinity_enabled=True,
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
-            health_probe=azure.cdn.FrontdoorOriginGroupHealthProbeArgs(
+            health_probe=azure.cdn.FrontdoorOriginGroupHealthProbeArrgs(
                 interval_in_seconds=240,
                 path="/healthProbe",
                 protocol="Https",
                 request_type="HEAD",
             ),
-            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArgs(
+            load_balancing=azure.cdn.FrontdoorOriginGroupLoadBalancingArrgs(
                 additional_latency_in_milliseconds=0,
                 sample_size=16,
                 successful_samples_required=3,
@@ -333,12 +333,12 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FrontdoorOriginGroupArgs args: The arguments to use to populate this resource's properties.
+        :param FrontdoorOriginGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FrontdoorOriginGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FrontdoorOriginGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -348,8 +348,8 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
-                 health_probe: Optional[pulumi.Input[pulumi.InputType['FrontdoorOriginGroupHealthProbeArgs']]] = None,
-                 load_balancing: Optional[pulumi.Input[pulumi.InputType['FrontdoorOriginGroupLoadBalancingArgs']]] = None,
+                 health_probe: Optional[pulumi.Input[pulumi.InputType['FrontdoorOriginGroupHealthProbeArrgs']]] = None,
+                 load_balancing: Optional[pulumi.Input[pulumi.InputType['FrontdoorOriginGroupLoadBalancingArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Optional[pulumi.Input[int]] = None,
                  session_affinity_enabled: Optional[pulumi.Input[bool]] = None,
@@ -360,7 +360,7 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FrontdoorOriginGroupArgs.__new__(FrontdoorOriginGroupArgs)
+            __props__ = FrontdoorOriginGroupArrgs.__new__(FrontdoorOriginGroupArrgs)
 
             if cdn_frontdoor_profile_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cdn_frontdoor_profile_id'")
@@ -383,8 +383,8 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cdn_frontdoor_profile_id: Optional[pulumi.Input[str]] = None,
-            health_probe: Optional[pulumi.Input[pulumi.InputType['FrontdoorOriginGroupHealthProbeArgs']]] = None,
-            load_balancing: Optional[pulumi.Input[pulumi.InputType['FrontdoorOriginGroupLoadBalancingArgs']]] = None,
+            health_probe: Optional[pulumi.Input[pulumi.InputType['FrontdoorOriginGroupHealthProbeArrgs']]] = None,
+            load_balancing: Optional[pulumi.Input[pulumi.InputType['FrontdoorOriginGroupLoadBalancingArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Optional[pulumi.Input[int]] = None,
             session_affinity_enabled: Optional[pulumi.Input[bool]] = None) -> 'FrontdoorOriginGroup':
@@ -396,8 +396,8 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cdn_frontdoor_profile_id: The ID of the Front Door Profile within which this Front Door Origin Group should exist. Changing this forces a new Front Door Origin Group to be created.
-        :param pulumi.Input[pulumi.InputType['FrontdoorOriginGroupHealthProbeArgs']] health_probe: A `health_probe` block as defined below.
-        :param pulumi.Input[pulumi.InputType['FrontdoorOriginGroupLoadBalancingArgs']] load_balancing: A `load_balancing` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FrontdoorOriginGroupHealthProbeArrgs']] health_probe: A `health_probe` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FrontdoorOriginGroupLoadBalancingArrgs']] load_balancing: A `load_balancing` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Origin Group. Changing this forces a new Front Door Origin Group to be created.
         :param pulumi.Input[int] restore_traffic_time_to_healed_or_new_endpoint_in_minutes: Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes.
                

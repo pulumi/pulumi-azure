@@ -11,35 +11,35 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['WindowsFunctionAppSlotArgs', 'WindowsFunctionAppSlot']
+__all__ = ['WindowsFunctionAppSlotArrgs', 'WindowsFunctionAppSlot']
 
 @pulumi.input_type
-class WindowsFunctionAppSlotArgs:
+calass WindowsFunctionAppSlotArrgs:
     def __init__(__self__, *,
                  function_app_id: pulumi.Input[str],
-                 site_config: pulumi.Input['WindowsFunctionAppSlotSiteConfigArgs'],
+                 site_config: pulumi.Input['WindowsFunctionAppSlotSiteConfigArrgs'],
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 auth_settings: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsArgs']] = None,
-                 auth_settings_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2Args']] = None,
-                 backup: Optional[pulumi.Input['WindowsFunctionAppSlotBackupArgs']] = None,
+                 auth_settings: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsArrgs']] = None,
+                 auth_settings_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2Arrgs']] = None,
+                 backup: Optional[pulumi.Input['WindowsFunctionAppSlotBackupArrgs']] = None,
                  builtin_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotConnectionStringArgs']]]] = None,
+                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotConnectionStringArrgs']]]] = None,
                  content_share_force_disabled: Optional[pulumi.Input[bool]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  functions_extension_version: Optional[pulumi.Input[str]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input['WindowsFunctionAppSlotIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['WindowsFunctionAppSlotIdentityArrgs']] = None,
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArgs']]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArrgs']]]] = None,
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -47,29 +47,29 @@ class WindowsFunctionAppSlotArgs:
         """
         The set of arguments for constructing a WindowsFunctionAppSlot resource.
         :param pulumi.Input[str] function_app_id: The name of the Windows Function App this Slot is a member of. Changing this forces a new resource to be created.
-        :param pulumi.Input['WindowsFunctionAppSlotSiteConfigArgs'] site_config: a `site_config` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotSiteConfigArrgs'] site_config: a `site_config` block as detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
-        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsArgs'] auth_settings: an `auth_settings` block as detailed below.
-        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2Args'] auth_settings_v2: an `auth_settings_v2` block as detailed below.
-        :param pulumi.Input['WindowsFunctionAppSlotBackupArgs'] backup: a `backup` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsArrgs'] auth_settings: an `auth_settings` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2Arrgs'] auth_settings_v2: an `auth_settings_v2` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotBackupArrgs'] backup: a `backup` block as detailed below.
         :param pulumi.Input[bool] builtin_logging_enabled: Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[bool] client_certificate_enabled: Should the Function App Slot use Client Certificates.
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotConnectionStringArgs']]] connection_strings: a `connection_string` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotConnectionStringArrgs']]] connection_strings: a `connection_string` block as detailed below.
         :param pulumi.Input[bool] content_share_force_disabled: Force disable the content share settings.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         :param pulumi.Input[bool] enabled: Is the Windows Function App Slot enabled. Defaults to `true`.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
         :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?
-        :param pulumi.Input['WindowsFunctionAppSlotIdentityArgs'] identity: an `identity` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotIdentityArrgs'] identity: an `identity` block as detailed below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] name: Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Function App will be used.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the storage account for the Function App Slot.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App Slot.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArrgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
                
                > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
@@ -149,14 +149,14 @@ class WindowsFunctionAppSlotArgs:
 
     @property
     @pulumi.getter(name="siteConfig")
-    def site_config(self) -> pulumi.Input['WindowsFunctionAppSlotSiteConfigArgs']:
+    def site_config(self) -> pulumi.Input['WindowsFunctionAppSlotSiteConfigArrgs']:
         """
         a `site_config` block as detailed below.
         """
         return pulumi.get(self, "site_config")
 
     @site_config.setter
-    def site_config(self, value: pulumi.Input['WindowsFunctionAppSlotSiteConfigArgs']):
+    def site_config(self, value: pulumi.Input['WindowsFunctionAppSlotSiteConfigArrgs']):
         pulumi.set(self, "site_config", value)
 
     @property
@@ -173,38 +173,38 @@ class WindowsFunctionAppSlotArgs:
 
     @property
     @pulumi.getter(name="authSettings")
-    def auth_settings(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsArgs']]:
+    def auth_settings(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsArrgs']]:
         """
         an `auth_settings` block as detailed below.
         """
         return pulumi.get(self, "auth_settings")
 
     @auth_settings.setter
-    def auth_settings(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsArgs']]):
+    def auth_settings(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsArrgs']]):
         pulumi.set(self, "auth_settings", value)
 
     @property
     @pulumi.getter(name="authSettingsV2")
-    def auth_settings_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2Args']]:
+    def auth_settings_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2Arrgs']]:
         """
         an `auth_settings_v2` block as detailed below.
         """
         return pulumi.get(self, "auth_settings_v2")
 
     @auth_settings_v2.setter
-    def auth_settings_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2Args']]):
+    def auth_settings_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2Arrgs']]):
         pulumi.set(self, "auth_settings_v2", value)
 
     @property
     @pulumi.getter
-    def backup(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotBackupArgs']]:
+    def backup(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotBackupArrgs']]:
         """
         a `backup` block as detailed below.
         """
         return pulumi.get(self, "backup")
 
     @backup.setter
-    def backup(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotBackupArgs']]):
+    def backup(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotBackupArrgs']]):
         pulumi.set(self, "backup", value)
 
     @property
@@ -257,14 +257,14 @@ class WindowsFunctionAppSlotArgs:
 
     @property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotConnectionStringArgs']]]]:
+    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotConnectionStringArrgs']]]]:
         """
         a `connection_string` block as detailed below.
         """
         return pulumi.get(self, "connection_strings")
 
     @connection_strings.setter
-    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotConnectionStringArgs']]]]):
+    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotConnectionStringArrgs']]]]):
         pulumi.set(self, "connection_strings", value)
 
     @property
@@ -329,14 +329,14 @@ class WindowsFunctionAppSlotArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotIdentityArrgs']]:
         """
         an `identity` block as detailed below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -413,14 +413,14 @@ class WindowsFunctionAppSlotArgs:
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArgs']]]]:
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArrgs']]]]:
         """
         One or more `storage_account` blocks as defined below.
         """
         return pulumi.get(self, "storage_accounts")
 
     @storage_accounts.setter
-    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArgs']]]]):
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArrgs']]]]):
         pulumi.set(self, "storage_accounts", value)
 
     @property
@@ -476,17 +476,17 @@ class WindowsFunctionAppSlotArgs:
 
 
 @pulumi.input_type
-class _WindowsFunctionAppSlotState:
+calass _WindowsFunctionAppSlotState:
     def __init__(__self__, *,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 auth_settings: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsArgs']] = None,
-                 auth_settings_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2Args']] = None,
-                 backup: Optional[pulumi.Input['WindowsFunctionAppSlotBackupArgs']] = None,
+                 auth_settings: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsArrgs']] = None,
+                 auth_settings_v2: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2Arrgs']] = None,
+                 backup: Optional[pulumi.Input['WindowsFunctionAppSlotBackupArrgs']] = None,
                  builtin_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotConnectionStringArgs']]]] = None,
+                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotConnectionStringArrgs']]]] = None,
                  content_share_force_disabled: Optional[pulumi.Input[bool]] = None,
                  custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
@@ -496,7 +496,7 @@ class _WindowsFunctionAppSlotState:
                  functions_extension_version: Optional[pulumi.Input[str]] = None,
                  hosting_environment_id: Optional[pulumi.Input[str]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input['WindowsFunctionAppSlotIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['WindowsFunctionAppSlotIdentityArrgs']] = None,
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -506,11 +506,11 @@ class _WindowsFunctionAppSlotState:
                  possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
-                 site_config: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigArgs']] = None,
-                 site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteCredentialArgs']]]] = None,
+                 site_config: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigArrgs']] = None,
+                 site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteCredentialArrgs']]]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArgs']]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArrgs']]]] = None,
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -518,14 +518,14 @@ class _WindowsFunctionAppSlotState:
         """
         Input properties used for looking up and filtering WindowsFunctionAppSlot resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
-        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsArgs'] auth_settings: an `auth_settings` block as detailed below.
-        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2Args'] auth_settings_v2: an `auth_settings_v2` block as detailed below.
-        :param pulumi.Input['WindowsFunctionAppSlotBackupArgs'] backup: a `backup` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsArrgs'] auth_settings: an `auth_settings` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2Arrgs'] auth_settings_v2: an `auth_settings_v2` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotBackupArrgs'] backup: a `backup` block as detailed below.
         :param pulumi.Input[bool] builtin_logging_enabled: Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[bool] client_certificate_enabled: Should the Function App Slot use Client Certificates.
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotConnectionStringArgs']]] connection_strings: a `connection_string` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotConnectionStringArrgs']]] connection_strings: a `connection_string` block as detailed below.
         :param pulumi.Input[bool] content_share_force_disabled: Force disable the content share settings.
         :param pulumi.Input[str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
@@ -535,7 +535,7 @@ class _WindowsFunctionAppSlotState:
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
         :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by Function App Slot.
         :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?
-        :param pulumi.Input['WindowsFunctionAppSlotIdentityArgs'] identity: an `identity` block as detailed below.
+        :param pulumi.Input['WindowsFunctionAppSlotIdentityArrgs'] identity: an `identity` block as detailed below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] kind: The Kind value for this Windows Function App Slot.
         :param pulumi.Input[str] name: Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
@@ -545,11 +545,11 @@ class _WindowsFunctionAppSlotState:
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
         :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Function App will be used.
-        :param pulumi.Input['WindowsFunctionAppSlotSiteConfigArgs'] site_config: a `site_config` block as detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below.
+        :param pulumi.Input['WindowsFunctionAppSlotSiteConfigArrgs'] site_config: a `site_config` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteCredentialArrgs']]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the storage account for the Function App Slot.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App Slot.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArrgs']]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
                
                > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
@@ -649,38 +649,38 @@ class _WindowsFunctionAppSlotState:
 
     @property
     @pulumi.getter(name="authSettings")
-    def auth_settings(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsArgs']]:
+    def auth_settings(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsArrgs']]:
         """
         an `auth_settings` block as detailed below.
         """
         return pulumi.get(self, "auth_settings")
 
     @auth_settings.setter
-    def auth_settings(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsArgs']]):
+    def auth_settings(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsArrgs']]):
         pulumi.set(self, "auth_settings", value)
 
     @property
     @pulumi.getter(name="authSettingsV2")
-    def auth_settings_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2Args']]:
+    def auth_settings_v2(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2Arrgs']]:
         """
         an `auth_settings_v2` block as detailed below.
         """
         return pulumi.get(self, "auth_settings_v2")
 
     @auth_settings_v2.setter
-    def auth_settings_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2Args']]):
+    def auth_settings_v2(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2Arrgs']]):
         pulumi.set(self, "auth_settings_v2", value)
 
     @property
     @pulumi.getter
-    def backup(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotBackupArgs']]:
+    def backup(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotBackupArrgs']]:
         """
         a `backup` block as detailed below.
         """
         return pulumi.get(self, "backup")
 
     @backup.setter
-    def backup(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotBackupArgs']]):
+    def backup(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotBackupArrgs']]):
         pulumi.set(self, "backup", value)
 
     @property
@@ -733,14 +733,14 @@ class _WindowsFunctionAppSlotState:
 
     @property
     @pulumi.getter(name="connectionStrings")
-    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotConnectionStringArgs']]]]:
+    def connection_strings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotConnectionStringArrgs']]]]:
         """
         a `connection_string` block as detailed below.
         """
         return pulumi.get(self, "connection_strings")
 
     @connection_strings.setter
-    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotConnectionStringArgs']]]]):
+    def connection_strings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotConnectionStringArrgs']]]]):
         pulumi.set(self, "connection_strings", value)
 
     @property
@@ -853,14 +853,14 @@ class _WindowsFunctionAppSlotState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotIdentityArrgs']]:
         """
         an `identity` block as detailed below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -973,26 +973,26 @@ class _WindowsFunctionAppSlotState:
 
     @property
     @pulumi.getter(name="siteConfig")
-    def site_config(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigArgs']]:
+    def site_config(self) -> Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigArrgs']]:
         """
         a `site_config` block as detailed below.
         """
         return pulumi.get(self, "site_config")
 
     @site_config.setter
-    def site_config(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigArgs']]):
+    def site_config(self, value: Optional[pulumi.Input['WindowsFunctionAppSlotSiteConfigArrgs']]):
         pulumi.set(self, "site_config", value)
 
     @property
     @pulumi.getter(name="siteCredentials")
-    def site_credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteCredentialArgs']]]]:
+    def site_credentials(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteCredentialArrgs']]]]:
         """
         A `site_credential` block as defined below.
         """
         return pulumi.get(self, "site_credentials")
 
     @site_credentials.setter
-    def site_credentials(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteCredentialArgs']]]]):
+    def site_credentials(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteCredentialArrgs']]]]):
         pulumi.set(self, "site_credentials", value)
 
     @property
@@ -1021,14 +1021,14 @@ class _WindowsFunctionAppSlotState:
 
     @property
     @pulumi.getter(name="storageAccounts")
-    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArgs']]]]:
+    def storage_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArrgs']]]]:
         """
         One or more `storage_account` blocks as defined below.
         """
         return pulumi.get(self, "storage_accounts")
 
     @storage_accounts.setter
-    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArgs']]]]):
+    def storage_accounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotStorageAccountArrgs']]]]):
         pulumi.set(self, "storage_accounts", value)
 
     @property
@@ -1083,35 +1083,35 @@ class _WindowsFunctionAppSlotState:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
-class WindowsFunctionAppSlot(pulumi.CustomResource):
+calass WindowsFunctionAppSlot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 auth_settings: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsArgs']]] = None,
-                 auth_settings_v2: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsV2Args']]] = None,
-                 backup: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotBackupArgs']]] = None,
+                 auth_settings: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsArrgs']]] = None,
+                 auth_settings_v2: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsV2Arrgs']]] = None,
+                 backup: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotBackupArrgs']]] = None,
                  builtin_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotConnectionStringArgs']]]]] = None,
+                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotConnectionStringArrgs']]]]] = None,
                  content_share_force_disabled: Optional[pulumi.Input[bool]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  function_app_id: Optional[pulumi.Input[str]] = None,
                  functions_extension_version: Optional[pulumi.Input[str]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotIdentityArrgs']]] = None,
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
-                 site_config: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteConfigArgs']]] = None,
+                 site_config: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteConfigArrgs']]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotStorageAccountArgs']]]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotStorageAccountArrgs']]]]] = None,
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1142,11 +1142,11 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
             location=example_resource_group.location,
             storage_account_name=example_account.name,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs())
+            site_config=azure.appservice.WindowsFunctionAppSiteConfigArrgs())
         example_windows_function_app_slot = azure.appservice.WindowsFunctionAppSlot("exampleWindowsFunctionAppSlot",
             function_app_id=example_windows_function_app.id,
             storage_account_name=example_account.name,
-            site_config=azure.appservice.WindowsFunctionAppSlotSiteConfigArgs())
+            site_config=azure.appservice.WindowsFunctionAppSlotSiteConfigArrgs())
         ```
 
         ## Import
@@ -1160,29 +1160,29 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
-        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsArgs']] auth_settings: an `auth_settings` block as detailed below.
-        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsV2Args']] auth_settings_v2: an `auth_settings_v2` block as detailed below.
-        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotBackupArgs']] backup: a `backup` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsArrgs']] auth_settings: an `auth_settings` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsV2Arrgs']] auth_settings_v2: an `auth_settings_v2` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotBackupArrgs']] backup: a `backup` block as detailed below.
         :param pulumi.Input[bool] builtin_logging_enabled: Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[bool] client_certificate_enabled: Should the Function App Slot use Client Certificates.
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotConnectionStringArgs']]]] connection_strings: a `connection_string` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotConnectionStringArrgs']]]] connection_strings: a `connection_string` block as detailed below.
         :param pulumi.Input[bool] content_share_force_disabled: Force disable the content share settings.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
         :param pulumi.Input[bool] enabled: Is the Windows Function App Slot enabled. Defaults to `true`.
         :param pulumi.Input[str] function_app_id: The name of the Windows Function App this Slot is a member of. Changing this forces a new resource to be created.
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
         :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?
-        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotIdentityArgs']] identity: an `identity` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotIdentityArrgs']] identity: an `identity` block as detailed below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] name: Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Function App will be used.
-        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteConfigArgs']] site_config: a `site_config` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteConfigArrgs']] site_config: a `site_config` block as detailed below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the storage account for the Function App Slot.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App Slot.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotStorageAccountArrgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
                
                > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.
@@ -1197,7 +1197,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WindowsFunctionAppSlotArgs,
+                 args: WindowsFunctionAppSlotArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Windows Function App Slot.
@@ -1224,11 +1224,11 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
             location=example_resource_group.location,
             storage_account_name=example_account.name,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs())
+            site_config=azure.appservice.WindowsFunctionAppSiteConfigArrgs())
         example_windows_function_app_slot = azure.appservice.WindowsFunctionAppSlot("exampleWindowsFunctionAppSlot",
             function_app_id=example_windows_function_app.id,
             storage_account_name=example_account.name,
-            site_config=azure.appservice.WindowsFunctionAppSlotSiteConfigArgs())
+            site_config=azure.appservice.WindowsFunctionAppSlotSiteConfigArrgs())
         ```
 
         ## Import
@@ -1240,12 +1240,12 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WindowsFunctionAppSlotArgs args: The arguments to use to populate this resource's properties.
+        :param WindowsFunctionAppSlotArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WindowsFunctionAppSlotArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WindowsFunctionAppSlotArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1255,29 +1255,29 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 auth_settings: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsArgs']]] = None,
-                 auth_settings_v2: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsV2Args']]] = None,
-                 backup: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotBackupArgs']]] = None,
+                 auth_settings: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsArrgs']]] = None,
+                 auth_settings_v2: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsV2Arrgs']]] = None,
+                 backup: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotBackupArrgs']]] = None,
                  builtin_logging_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
                  client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
                  client_certificate_mode: Optional[pulumi.Input[str]] = None,
-                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotConnectionStringArgs']]]]] = None,
+                 connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotConnectionStringArrgs']]]]] = None,
                  content_share_force_disabled: Optional[pulumi.Input[bool]] = None,
                  daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  function_app_id: Optional[pulumi.Input[str]] = None,
                  functions_extension_version: Optional[pulumi.Input[str]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotIdentityArrgs']]] = None,
                  key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  service_plan_id: Optional[pulumi.Input[str]] = None,
-                 site_config: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteConfigArgs']]] = None,
+                 site_config: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteConfigArrgs']]] = None,
                  storage_account_access_key: Optional[pulumi.Input[str]] = None,
                  storage_account_name: Optional[pulumi.Input[str]] = None,
-                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotStorageAccountArgs']]]]] = None,
+                 storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotStorageAccountArrgs']]]]] = None,
                  storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
                  storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1289,7 +1289,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WindowsFunctionAppSlotArgs.__new__(WindowsFunctionAppSlotArgs)
+            __props__ = WindowsFunctionAppSlotArrgs.__new__(WindowsFunctionAppSlotArrgs)
 
             __props__.__dict__["app_settings"] = app_settings
             __props__.__dict__["auth_settings"] = auth_settings
@@ -1345,14 +1345,14 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             app_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            auth_settings: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsArgs']]] = None,
-            auth_settings_v2: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsV2Args']]] = None,
-            backup: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotBackupArgs']]] = None,
+            auth_settings: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsArrgs']]] = None,
+            auth_settings_v2: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsV2Arrgs']]] = None,
+            backup: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotBackupArrgs']]] = None,
             builtin_logging_enabled: Optional[pulumi.Input[bool]] = None,
             client_certificate_enabled: Optional[pulumi.Input[bool]] = None,
             client_certificate_exclusion_paths: Optional[pulumi.Input[str]] = None,
             client_certificate_mode: Optional[pulumi.Input[str]] = None,
-            connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotConnectionStringArgs']]]]] = None,
+            connection_strings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotConnectionStringArrgs']]]]] = None,
             content_share_force_disabled: Optional[pulumi.Input[bool]] = None,
             custom_domain_verification_id: Optional[pulumi.Input[str]] = None,
             daily_memory_time_quota: Optional[pulumi.Input[int]] = None,
@@ -1362,7 +1362,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
             functions_extension_version: Optional[pulumi.Input[str]] = None,
             hosting_environment_id: Optional[pulumi.Input[str]] = None,
             https_only: Optional[pulumi.Input[bool]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotIdentityArrgs']]] = None,
             key_vault_reference_identity_id: Optional[pulumi.Input[str]] = None,
             kind: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -1372,11 +1372,11 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
             possible_outbound_ip_addresses: Optional[pulumi.Input[str]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             service_plan_id: Optional[pulumi.Input[str]] = None,
-            site_config: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteConfigArgs']]] = None,
-            site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteCredentialArgs']]]]] = None,
+            site_config: Optional[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteConfigArrgs']]] = None,
+            site_credentials: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteCredentialArrgs']]]]] = None,
             storage_account_access_key: Optional[pulumi.Input[str]] = None,
             storage_account_name: Optional[pulumi.Input[str]] = None,
-            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotStorageAccountArgs']]]]] = None,
+            storage_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotStorageAccountArrgs']]]]] = None,
             storage_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
             storage_uses_managed_identity: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -1389,14 +1389,14 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
-        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsArgs']] auth_settings: an `auth_settings` block as detailed below.
-        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsV2Args']] auth_settings_v2: an `auth_settings_v2` block as detailed below.
-        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotBackupArgs']] backup: a `backup` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsArrgs']] auth_settings: an `auth_settings` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotAuthSettingsV2Arrgs']] auth_settings_v2: an `auth_settings_v2` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotBackupArrgs']] backup: a `backup` block as detailed below.
         :param pulumi.Input[bool] builtin_logging_enabled: Should built-in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[bool] client_certificate_enabled: Should the Function App Slot use Client Certificates.
         :param pulumi.Input[str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
         :param pulumi.Input[str] client_certificate_mode: The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotConnectionStringArgs']]]] connection_strings: a `connection_string` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotConnectionStringArrgs']]]] connection_strings: a `connection_string` block as detailed below.
         :param pulumi.Input[bool] content_share_force_disabled: Force disable the content share settings.
         :param pulumi.Input[str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[int] daily_memory_time_quota: The amount of memory in gigabyte-seconds that your application is allowed to consume per day. Setting this value only affects function apps in Consumption Plans. Defaults to `0`.
@@ -1406,7 +1406,7 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] functions_extension_version: The runtime version associated with the Function App Slot. Defaults to `~4`.
         :param pulumi.Input[str] hosting_environment_id: The ID of the App Service Environment used by Function App Slot.
         :param pulumi.Input[bool] https_only: Can the Function App Slot only be accessed via HTTPS?
-        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotIdentityArgs']] identity: an `identity` block as detailed below.
+        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotIdentityArrgs']] identity: an `identity` block as detailed below.
         :param pulumi.Input[str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. The identity must be assigned to the application in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[str] kind: The Kind value for this Windows Function App Slot.
         :param pulumi.Input[str] name: Specifies the name of the Windows Function App Slot. Changing this forces a new resource to be created.
@@ -1416,11 +1416,11 @@ class WindowsFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[str] possible_outbound_ip_addresses: A comma separated list of possible outbound IP addresses as a string. For example `52.23.25.3,52.143.43.12,52.143.43.17`. This is a superset of `outbound_ip_addresses`. For example `["52.23.25.3", "52.143.43.12","52.143.43.17"]`.
         :param pulumi.Input[bool] public_network_access_enabled: Should public network access be enabled for the Function App. Defaults to `true`.
         :param pulumi.Input[str] service_plan_id: The ID of the Service Plan in which to run this slot. If not specified the same Service Plan as the Windows Function App will be used.
-        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteConfigArgs']] site_config: a `site_config` block as detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteCredentialArgs']]]] site_credentials: A `site_credential` block as defined below.
+        :param pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteConfigArrgs']] site_config: a `site_config` block as detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotSiteCredentialArrgs']]]] site_credentials: A `site_credential` block as defined below.
         :param pulumi.Input[str] storage_account_access_key: The access key which will be used to access the storage account for the Function App Slot.
         :param pulumi.Input[str] storage_account_name: The backend storage account name which will be used by this Function App Slot.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotStorageAccountArgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WindowsFunctionAppSlotStorageAccountArrgs']]]] storage_accounts: One or more `storage_account` blocks as defined below.
         :param pulumi.Input[str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the Connection String to connect to the storage account for this Function App Slot.
                
                > **NOTE:** `storage_key_vault_secret_id` cannot be used with `storage_account_name`.

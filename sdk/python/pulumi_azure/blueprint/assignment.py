@@ -11,12 +11,12 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AssignmentArgs', 'Assignment']
+__all__ = ['AssignmentArrgs', 'Assignment']
 
 @pulumi.input_type
-class AssignmentArgs:
+calass AssignmentArrgs:
     def __init__(__self__, *,
-                 identity: pulumi.Input['AssignmentIdentityArgs'],
+                 identity: pulumi.Input['AssignmentIdentityArrgs'],
                  target_subscription_id: pulumi.Input[str],
                  version_id: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
@@ -28,7 +28,7 @@ class AssignmentArgs:
                  resource_groups: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Assignment resource.
-        :param pulumi.Input['AssignmentIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['AssignmentIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] target_subscription_id: The Subscription ID the Blueprint Published Version is to be applied to. Changing this forces a new resource to be created.
         :param pulumi.Input[str] version_id: The ID of the Published Version of the blueprint to be assigned.
         :param pulumi.Input[str] location: The Azure location of the Assignment. Changing this forces a new resource to be created.
@@ -63,14 +63,14 @@ class AssignmentArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Input['AssignmentIdentityArgs']:
+    def identity(self) -> pulumi.Input['AssignmentIdentityArrgs']:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: pulumi.Input['AssignmentIdentityArgs']):
+    def identity(self, value: pulumi.Input['AssignmentIdentityArrgs']):
         pulumi.set(self, "identity", value)
 
     @property
@@ -187,12 +187,12 @@ class AssignmentArgs:
 
 
 @pulumi.input_type
-class _AssignmentState:
+calass _AssignmentState:
     def __init__(__self__, *,
                  blueprint_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['AssignmentIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['AssignmentIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  lock_exclude_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  lock_exclude_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -208,7 +208,7 @@ class _AssignmentState:
         :param pulumi.Input[str] blueprint_name: The name of the blueprint assigned
         :param pulumi.Input[str] description: The Description on the Blueprint
         :param pulumi.Input[str] display_name: The display name of the blueprint
-        :param pulumi.Input['AssignmentIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['AssignmentIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location of the Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_actions: a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
@@ -291,14 +291,14 @@ class _AssignmentState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['AssignmentIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['AssignmentIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['AssignmentIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['AssignmentIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -426,12 +426,12 @@ class _AssignmentState:
         pulumi.set(self, "version_id", value)
 
 
-class Assignment(pulumi.CustomResource):
+calass Assignment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AssignmentIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  lock_exclude_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  lock_exclude_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -484,7 +484,7 @@ class Assignment(pulumi.CustomResource):
             location=example_resource_group.location,
             lock_mode="AllResourcesDoNotDelete",
             lock_exclude_principals=[current.object_id],
-            identity=azure.blueprint.AssignmentIdentityArgs(
+            identity=azure.blueprint.AssignmentIdentityArrgs(
                 type="UserAssigned",
                 identity_ids=[example_user_assigned_identity.id],
             ),
@@ -516,7 +516,7 @@ class Assignment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AssignmentIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location of the Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_actions: a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.
@@ -535,7 +535,7 @@ class Assignment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AssignmentArgs,
+                 args: AssignmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Blueprint Assignment resource
@@ -579,7 +579,7 @@ class Assignment(pulumi.CustomResource):
             location=example_resource_group.location,
             lock_mode="AllResourcesDoNotDelete",
             lock_exclude_principals=[current.object_id],
-            identity=azure.blueprint.AssignmentIdentityArgs(
+            identity=azure.blueprint.AssignmentIdentityArrgs(
                 type="UserAssigned",
                 identity_ids=[example_user_assigned_identity.id],
             ),
@@ -610,12 +610,12 @@ class Assignment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AssignmentArgs args: The arguments to use to populate this resource's properties.
+        :param AssignmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AssignmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AssignmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -624,7 +624,7 @@ class Assignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['AssignmentIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  lock_exclude_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  lock_exclude_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -641,7 +641,7 @@ class Assignment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AssignmentArgs.__new__(AssignmentArgs)
+            __props__ = AssignmentArrgs.__new__(AssignmentArrgs)
 
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
@@ -676,7 +676,7 @@ class Assignment(pulumi.CustomResource):
             blueprint_name: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['AssignmentIdentityArrgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             lock_exclude_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             lock_exclude_principals: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -697,7 +697,7 @@ class Assignment(pulumi.CustomResource):
         :param pulumi.Input[str] blueprint_name: The name of the blueprint assigned
         :param pulumi.Input[str] description: The Description on the Blueprint
         :param pulumi.Input[str] display_name: The display name of the blueprint
-        :param pulumi.Input[pulumi.InputType['AssignmentIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AssignmentIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: The Azure location of the Assignment. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_actions: a list of up to 200 actions that are permitted to bypass the locks applied by the Blueprint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] lock_exclude_principals: a list of up to 5 Principal IDs that are permitted to bypass the locks applied by the Blueprint.

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPublicConfigurationsResult:
+calass GetPublicConfigurationsResult:
     """
     A collection of values returned by getPublicConfigurations.
     """
@@ -77,7 +77,7 @@ class GetPublicConfigurationsResult:
         return pulumi.get(self, "scope")
 
 
-class AwaitableGetPublicConfigurationsResult(GetPublicConfigurationsResult):
+calass AwaitableGetPublicConfigurationsResult(GetPublicConfigurationsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

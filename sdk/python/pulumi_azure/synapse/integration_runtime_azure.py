@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['IntegrationRuntimeAzureArgs', 'IntegrationRuntimeAzure']
+__all__ = ['IntegrationRuntimeAzureArrgs', 'IntegrationRuntimeAzure']
 
 @pulumi.input_type
-class IntegrationRuntimeAzureArgs:
+calass IntegrationRuntimeAzureArrgs:
     def __init__(__self__, *,
                  synapse_workspace_id: pulumi.Input[str],
                  compute_type: Optional[pulumi.Input[str]] = None,
@@ -131,7 +131,7 @@ class IntegrationRuntimeAzureArgs:
 
 
 @pulumi.input_type
-class _IntegrationRuntimeAzureState:
+calass _IntegrationRuntimeAzureState:
     def __init__(__self__, *,
                  compute_type: Optional[pulumi.Input[str]] = None,
                  core_count: Optional[pulumi.Input[int]] = None,
@@ -250,7 +250,7 @@ class _IntegrationRuntimeAzureState:
         pulumi.set(self, "time_to_live_min", value)
 
 
-class IntegrationRuntimeAzure(pulumi.CustomResource):
+calass IntegrationRuntimeAzure(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -289,7 +289,7 @@ class IntegrationRuntimeAzure(pulumi.CustomResource):
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
             managed_virtual_network_enabled=True,
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_firewall_rule = azure.synapse.FirewallRule("exampleFirewallRule",
@@ -323,7 +323,7 @@ class IntegrationRuntimeAzure(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IntegrationRuntimeAzureArgs,
+                 args: IntegrationRuntimeAzureArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Synapse Azure Integration Runtime.
@@ -351,7 +351,7 @@ class IntegrationRuntimeAzure(pulumi.CustomResource):
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
             managed_virtual_network_enabled=True,
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_firewall_rule = azure.synapse.FirewallRule("exampleFirewallRule",
@@ -372,12 +372,12 @@ class IntegrationRuntimeAzure(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param IntegrationRuntimeAzureArgs args: The arguments to use to populate this resource's properties.
+        :param IntegrationRuntimeAzureArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IntegrationRuntimeAzureArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IntegrationRuntimeAzureArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -400,7 +400,7 @@ class IntegrationRuntimeAzure(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IntegrationRuntimeAzureArgs.__new__(IntegrationRuntimeAzureArgs)
+            __props__ = IntegrationRuntimeAzureArrgs.__new__(IntegrationRuntimeAzureArrgs)
 
             __props__.__dict__["compute_type"] = compute_type
             __props__.__dict__["core_count"] = core_count

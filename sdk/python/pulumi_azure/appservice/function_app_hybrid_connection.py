@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['FunctionAppHybridConnectionArgs', 'FunctionAppHybridConnection']
+__all__ = ['FunctionAppHybridConnectionArrgs', 'FunctionAppHybridConnection']
 
 @pulumi.input_type
-class FunctionAppHybridConnectionArgs:
+calass FunctionAppHybridConnectionArrgs:
     def __init__(__self__, *,
                  function_app_id: pulumi.Input[str],
                  hostname: pulumi.Input[str],
@@ -96,7 +96,7 @@ class FunctionAppHybridConnectionArgs:
 
 
 @pulumi.input_type
-class _FunctionAppHybridConnectionState:
+calass _FunctionAppHybridConnectionState:
     def __init__(__self__, *,
                  function_app_id: Optional[pulumi.Input[str]] = None,
                  hostname: Optional[pulumi.Input[str]] = None,
@@ -263,7 +263,7 @@ class _FunctionAppHybridConnectionState:
         pulumi.set(self, "service_bus_suffix", value)
 
 
-class FunctionAppHybridConnection(pulumi.CustomResource):
+calass FunctionAppHybridConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -305,14 +305,14 @@ class FunctionAppHybridConnection(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
+            site_config=azure.appservice.WindowsWebAppSiteConfigArrgs())
         example_windows_function_app = azure.appservice.WindowsFunctionApp("exampleWindowsFunctionApp",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs())
+            site_config=azure.appservice.WindowsFunctionAppSiteConfigArrgs())
         example_function_app_hybrid_connection = azure.appservice.FunctionAppHybridConnection("exampleFunctionAppHybridConnection",
             function_app_id=example_windows_web_app.id,
             relay_id=example_hybrid_connection.id,
@@ -340,7 +340,7 @@ class FunctionAppHybridConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FunctionAppHybridConnectionArgs,
+                 args: FunctionAppHybridConnectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Function App Hybrid Connection.
@@ -373,14 +373,14 @@ class FunctionAppHybridConnection(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
+            site_config=azure.appservice.WindowsWebAppSiteConfigArrgs())
         example_windows_function_app = azure.appservice.WindowsFunctionApp("exampleWindowsFunctionApp",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
-            site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs())
+            site_config=azure.appservice.WindowsFunctionAppSiteConfigArrgs())
         example_function_app_hybrid_connection = azure.appservice.FunctionAppHybridConnection("exampleFunctionAppHybridConnection",
             function_app_id=example_windows_web_app.id,
             relay_id=example_hybrid_connection.id,
@@ -397,12 +397,12 @@ class FunctionAppHybridConnection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FunctionAppHybridConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param FunctionAppHybridConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FunctionAppHybridConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FunctionAppHybridConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -423,7 +423,7 @@ class FunctionAppHybridConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FunctionAppHybridConnectionArgs.__new__(FunctionAppHybridConnectionArgs)
+            __props__ = FunctionAppHybridConnectionArrgs.__new__(FunctionAppHybridConnectionArrgs)
 
             if function_app_id is None and not opts.urn:
                 raise TypeError("Missing required property 'function_app_id'")

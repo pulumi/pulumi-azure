@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'MonitorPlanArgs',
-    'MonitorUserArgs',
-    'TagRuleLogTagFilterArgs',
-    'TagRuleMetricTagFilterArgs',
+    'MonitorPlanArrgs',
+    'MonitorUserArrgs',
+    'TagRuleLogTagFilterArrgs',
+    'TagRuleMetricTagFilterArrgs',
 ]
 
 @pulumi.input_type
-class MonitorPlanArgs:
+calass MonitorPlanArrgs:
     def __init__(__self__, *,
                  effective_date: pulumi.Input[str],
                  billing_cycle: Optional[pulumi.Input[str]] = None,
@@ -87,7 +87,7 @@ class MonitorPlanArgs:
 
 
 @pulumi.input_type
-class MonitorUserArgs:
+calass MonitorUserArrgs:
     def __init__(__self__, *,
                  email: pulumi.Input[str],
                  first_name: pulumi.Input[str],
@@ -154,7 +154,7 @@ class MonitorUserArgs:
 
 
 @pulumi.input_type
-class TagRuleLogTagFilterArgs:
+calass TagRuleLogTagFilterArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -206,7 +206,7 @@ class TagRuleLogTagFilterArgs:
 
 
 @pulumi.input_type
-class TagRuleMetricTagFilterArgs:
+calass TagRuleMetricTagFilterArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  name: pulumi.Input[str],

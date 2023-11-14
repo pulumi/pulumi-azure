@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linked Service (connection) between Azure SQL Database and Azure Data Factory.
@@ -282,12 +281,6 @@ func (i *LinkedServiceAzureSqlDatabase) ToLinkedServiceAzureSqlDatabaseOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureSqlDatabaseOutput)
 }
 
-func (i *LinkedServiceAzureSqlDatabase) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceAzureSqlDatabase] {
-	return pulumix.Output[*LinkedServiceAzureSqlDatabase]{
-		OutputState: i.ToLinkedServiceAzureSqlDatabaseOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinkedServiceAzureSqlDatabaseArrayInput is an input type that accepts LinkedServiceAzureSqlDatabaseArray and LinkedServiceAzureSqlDatabaseArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceAzureSqlDatabaseArrayInput` via:
 //
@@ -311,12 +304,6 @@ func (i LinkedServiceAzureSqlDatabaseArray) ToLinkedServiceAzureSqlDatabaseArray
 
 func (i LinkedServiceAzureSqlDatabaseArray) ToLinkedServiceAzureSqlDatabaseArrayOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabaseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureSqlDatabaseArrayOutput)
-}
-
-func (i LinkedServiceAzureSqlDatabaseArray) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceAzureSqlDatabase] {
-	return pulumix.Output[[]*LinkedServiceAzureSqlDatabase]{
-		OutputState: i.ToLinkedServiceAzureSqlDatabaseArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinkedServiceAzureSqlDatabaseMapInput is an input type that accepts LinkedServiceAzureSqlDatabaseMap and LinkedServiceAzureSqlDatabaseMapOutput values.
@@ -344,12 +331,6 @@ func (i LinkedServiceAzureSqlDatabaseMap) ToLinkedServiceAzureSqlDatabaseMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureSqlDatabaseMapOutput)
 }
 
-func (i LinkedServiceAzureSqlDatabaseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceAzureSqlDatabase] {
-	return pulumix.Output[map[string]*LinkedServiceAzureSqlDatabase]{
-		OutputState: i.ToLinkedServiceAzureSqlDatabaseMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkedServiceAzureSqlDatabaseOutput struct{ *pulumi.OutputState }
 
 func (LinkedServiceAzureSqlDatabaseOutput) ElementType() reflect.Type {
@@ -362,12 +343,6 @@ func (o LinkedServiceAzureSqlDatabaseOutput) ToLinkedServiceAzureSqlDatabaseOutp
 
 func (o LinkedServiceAzureSqlDatabaseOutput) ToLinkedServiceAzureSqlDatabaseOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabaseOutput {
 	return o
-}
-
-func (o LinkedServiceAzureSqlDatabaseOutput) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceAzureSqlDatabase] {
-	return pulumix.Output[*LinkedServiceAzureSqlDatabase]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service Azure SQL Database.
@@ -458,12 +433,6 @@ func (o LinkedServiceAzureSqlDatabaseArrayOutput) ToLinkedServiceAzureSqlDatabas
 	return o
 }
 
-func (o LinkedServiceAzureSqlDatabaseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceAzureSqlDatabase] {
-	return pulumix.Output[[]*LinkedServiceAzureSqlDatabase]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinkedServiceAzureSqlDatabaseArrayOutput) Index(i pulumi.IntInput) LinkedServiceAzureSqlDatabaseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceAzureSqlDatabase {
 		return vs[0].([]*LinkedServiceAzureSqlDatabase)[vs[1].(int)]
@@ -482,12 +451,6 @@ func (o LinkedServiceAzureSqlDatabaseMapOutput) ToLinkedServiceAzureSqlDatabaseM
 
 func (o LinkedServiceAzureSqlDatabaseMapOutput) ToLinkedServiceAzureSqlDatabaseMapOutputWithContext(ctx context.Context) LinkedServiceAzureSqlDatabaseMapOutput {
 	return o
-}
-
-func (o LinkedServiceAzureSqlDatabaseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceAzureSqlDatabase] {
-	return pulumix.Output[map[string]*LinkedServiceAzureSqlDatabase]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkedServiceAzureSqlDatabaseMapOutput) MapIndex(k pulumi.StringInput) LinkedServiceAzureSqlDatabaseOutput {

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetFactoryResult:
+calass GetFactoryResult:
     """
     A collection of values returned by getFactory.
     """
@@ -107,7 +107,7 @@ class GetFactoryResult:
         return pulumi.get(self, "vsts_configurations")
 
 
-class AwaitableGetFactoryResult(GetFactoryResult):
+calass AwaitableGetFactoryResult(GetFactoryResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

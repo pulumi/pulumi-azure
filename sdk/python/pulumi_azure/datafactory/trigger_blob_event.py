@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['TriggerBlobEventArgs', 'TriggerBlobEvent']
+__all__ = ['TriggerBlobEventArrgs', 'TriggerBlobEvent']
 
 @pulumi.input_type
-class TriggerBlobEventArgs:
+calass TriggerBlobEventArrgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[str],
                  events: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 pipelines: pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]],
+                 pipelines: pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArrgs']]],
                  storage_account_id: pulumi.Input[str],
                  activated: Optional[pulumi.Input[bool]] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -32,7 +32,7 @@ class TriggerBlobEventArgs:
         The set of arguments for constructing a TriggerBlobEvent resource.
         :param pulumi.Input[str] data_factory_id: The ID of Data Factory in which to associate the Trigger with. Changing this forces a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: List of events that will fire this trigger. Possible values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted`.
-        :param pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]] pipelines: One or more `pipeline` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArrgs']]] pipelines: One or more `pipeline` blocks as defined below.
         :param pulumi.Input[str] storage_account_id: The ID of Storage Account in which blob event will be listened. Changing this forces a new resource.
         :param pulumi.Input[bool] activated: Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Blob Event Trigger.
@@ -92,14 +92,14 @@ class TriggerBlobEventArgs:
 
     @property
     @pulumi.getter
-    def pipelines(self) -> pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]]:
+    def pipelines(self) -> pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArrgs']]]:
         """
         One or more `pipeline` blocks as defined below.
         """
         return pulumi.get(self, "pipelines")
 
     @pipelines.setter
-    def pipelines(self, value: pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]]):
+    def pipelines(self, value: pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArrgs']]]):
         pulumi.set(self, "pipelines", value)
 
     @property
@@ -214,7 +214,7 @@ class TriggerBlobEventArgs:
 
 
 @pulumi.input_type
-class _TriggerBlobEventState:
+calass _TriggerBlobEventState:
     def __init__(__self__, *,
                  activated: Optional[pulumi.Input[bool]] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -226,7 +226,7 @@ class _TriggerBlobEventState:
                  events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ignore_empty_blobs: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]]] = None,
+                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArrgs']]]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TriggerBlobEvent resources.
@@ -242,7 +242,7 @@ class _TriggerBlobEventState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: List of events that will fire this trigger. Possible values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted`.
         :param pulumi.Input[bool] ignore_empty_blobs: are blobs with zero bytes ignored?
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Blob Event Trigger. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]] pipelines: One or more `pipeline` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArrgs']]] pipelines: One or more `pipeline` blocks as defined below.
         :param pulumi.Input[str] storage_account_id: The ID of Storage Account in which blob event will be listened. Changing this forces a new resource.
         """
         if activated is not None:
@@ -394,14 +394,14 @@ class _TriggerBlobEventState:
 
     @property
     @pulumi.getter
-    def pipelines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]]]:
+    def pipelines(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArrgs']]]]:
         """
         One or more `pipeline` blocks as defined below.
         """
         return pulumi.get(self, "pipelines")
 
     @pipelines.setter
-    def pipelines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArgs']]]]):
+    def pipelines(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TriggerBlobEventPipelineArrgs']]]]):
         pulumi.set(self, "pipelines", value)
 
     @property
@@ -417,7 +417,7 @@ class _TriggerBlobEventState:
         pulumi.set(self, "storage_account_id", value)
 
 
-class TriggerBlobEvent(pulumi.CustomResource):
+calass TriggerBlobEvent(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -432,7 +432,7 @@ class TriggerBlobEvent(pulumi.CustomResource):
                  events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ignore_empty_blobs: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerBlobEventPipelineArgs']]]]] = None,
+                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerBlobEventPipelineArrgs']]]]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -470,7 +470,7 @@ class TriggerBlobEvent(pulumi.CustomResource):
                 "test3",
             ],
             description="example description",
-            pipelines=[azure.datafactory.TriggerBlobEventPipelineArgs(
+            pipelines=[azure.datafactory.TriggerBlobEventPipelineArrgs(
                 name=example_pipeline.name,
                 parameters={
                     "Env": "Prod",
@@ -504,14 +504,14 @@ class TriggerBlobEvent(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: List of events that will fire this trigger. Possible values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted`.
         :param pulumi.Input[bool] ignore_empty_blobs: are blobs with zero bytes ignored?
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Blob Event Trigger. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerBlobEventPipelineArgs']]]] pipelines: One or more `pipeline` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerBlobEventPipelineArrgs']]]] pipelines: One or more `pipeline` blocks as defined below.
         :param pulumi.Input[str] storage_account_id: The ID of Storage Account in which blob event will be listened. Changing this forces a new resource.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TriggerBlobEventArgs,
+                 args: TriggerBlobEventArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Blob Event Trigger inside an Azure Data Factory.
@@ -548,7 +548,7 @@ class TriggerBlobEvent(pulumi.CustomResource):
                 "test3",
             ],
             description="example description",
-            pipelines=[azure.datafactory.TriggerBlobEventPipelineArgs(
+            pipelines=[azure.datafactory.TriggerBlobEventPipelineArrgs(
                 name=example_pipeline.name,
                 parameters={
                     "Env": "Prod",
@@ -569,12 +569,12 @@ class TriggerBlobEvent(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TriggerBlobEventArgs args: The arguments to use to populate this resource's properties.
+        :param TriggerBlobEventArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TriggerBlobEventArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TriggerBlobEventArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -593,7 +593,7 @@ class TriggerBlobEvent(pulumi.CustomResource):
                  events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ignore_empty_blobs: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerBlobEventPipelineArgs']]]]] = None,
+                 pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerBlobEventPipelineArrgs']]]]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -602,7 +602,7 @@ class TriggerBlobEvent(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TriggerBlobEventArgs.__new__(TriggerBlobEventArgs)
+            __props__ = TriggerBlobEventArrgs.__new__(TriggerBlobEventArrgs)
 
             __props__.__dict__["activated"] = activated
             __props__.__dict__["additional_properties"] = additional_properties
@@ -644,7 +644,7 @@ class TriggerBlobEvent(pulumi.CustomResource):
             events: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             ignore_empty_blobs: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerBlobEventPipelineArgs']]]]] = None,
+            pipelines: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerBlobEventPipelineArrgs']]]]] = None,
             storage_account_id: Optional[pulumi.Input[str]] = None) -> 'TriggerBlobEvent':
         """
         Get an existing TriggerBlobEvent resource's state with the given name, id, and optional extra
@@ -665,7 +665,7 @@ class TriggerBlobEvent(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] events: List of events that will fire this trigger. Possible values are `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted`.
         :param pulumi.Input[bool] ignore_empty_blobs: are blobs with zero bytes ignored?
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Blob Event Trigger. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerBlobEventPipelineArgs']]]] pipelines: One or more `pipeline` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TriggerBlobEventPipelineArrgs']]]] pipelines: One or more `pipeline` blocks as defined below.
         :param pulumi.Input[str] storage_account_id: The ID of Storage Account in which blob event will be listened. Changing this forces a new resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

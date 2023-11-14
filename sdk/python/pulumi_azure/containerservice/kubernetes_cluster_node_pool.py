@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['KubernetesClusterNodePoolArgs', 'KubernetesClusterNodePool']
+__all__ = ['KubernetesClusterNodePoolArrgs', 'KubernetesClusterNodePool']
 
 @pulumi.input_type
-class KubernetesClusterNodePoolArgs:
+calass KubernetesClusterNodePoolArrgs:
     def __init__(__self__, *,
                  kubernetes_cluster_id: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
@@ -26,9 +26,9 @@ class KubernetesClusterNodePoolArgs:
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
-                 kubelet_config: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']] = None,
+                 kubelet_config: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArrgs']] = None,
                  kubelet_disk_type: Optional[pulumi.Input[str]] = None,
-                 linux_os_config: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']] = None,
+                 linux_os_config: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArrgs']] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
                  message_of_the_day: Optional[pulumi.Input[str]] = None,
@@ -37,7 +37,7 @@ class KubernetesClusterNodePoolArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 node_network_profile: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']] = None,
+                 node_network_profile: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArrgs']] = None,
                  node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
@@ -53,9 +53,9 @@ class KubernetesClusterNodePoolArgs:
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
-                 upgrade_settings: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']] = None,
+                 upgrade_settings: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArrgs']] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
-                 windows_profile: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']] = None,
+                 windows_profile: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArrgs']] = None,
                  workload_runtime: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -80,9 +80,9 @@ class KubernetesClusterNodePoolArgs:
                
                > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterNodePoolKubeletConfigArrgs'] kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
-        :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArrgs'] linux_os_config: A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
@@ -93,7 +93,7 @@ class KubernetesClusterNodePoolArgs:
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
         :param pulumi.Input[int] node_count: The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
-        :param pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs'] node_network_profile: A `node_network_profile` block as documented below.
+        :param pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArrgs'] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
@@ -117,11 +117,11 @@ class KubernetesClusterNodePoolArgs:
                
                > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
         :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
+        :param pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArrgs'] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
                
                > **NOTE:** A route table must be configured on this Subnet.
-        :param pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs'] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterNodePoolWindowsProfileArrgs'] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
                
                > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
@@ -344,14 +344,14 @@ class KubernetesClusterNodePoolArgs:
 
     @property
     @pulumi.getter(name="kubeletConfig")
-    def kubelet_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']]:
+    def kubelet_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArrgs']]:
         """
         A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kubelet_config")
 
     @kubelet_config.setter
-    def kubelet_config(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']]):
+    def kubelet_config(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArrgs']]):
         pulumi.set(self, "kubelet_config", value)
 
     @property
@@ -368,14 +368,14 @@ class KubernetesClusterNodePoolArgs:
 
     @property
     @pulumi.getter(name="linuxOsConfig")
-    def linux_os_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']]:
+    def linux_os_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArrgs']]:
         """
         A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "linux_os_config")
 
     @linux_os_config.setter
-    def linux_os_config(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']]):
+    def linux_os_config(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArrgs']]):
         pulumi.set(self, "linux_os_config", value)
 
     @property
@@ -478,14 +478,14 @@ class KubernetesClusterNodePoolArgs:
 
     @property
     @pulumi.getter(name="nodeNetworkProfile")
-    def node_network_profile(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']]:
+    def node_network_profile(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArrgs']]:
         """
         A `node_network_profile` block as documented below.
         """
         return pulumi.get(self, "node_network_profile")
 
     @node_network_profile.setter
-    def node_network_profile(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']]):
+    def node_network_profile(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArrgs']]):
         pulumi.set(self, "node_network_profile", value)
 
     @property
@@ -678,14 +678,14 @@ class KubernetesClusterNodePoolArgs:
 
     @property
     @pulumi.getter(name="upgradeSettings")
-    def upgrade_settings(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']]:
+    def upgrade_settings(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArrgs']]:
         """
         A `upgrade_settings` block as documented below.
         """
         return pulumi.get(self, "upgrade_settings")
 
     @upgrade_settings.setter
-    def upgrade_settings(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']]):
+    def upgrade_settings(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArrgs']]):
         pulumi.set(self, "upgrade_settings", value)
 
     @property
@@ -704,14 +704,14 @@ class KubernetesClusterNodePoolArgs:
 
     @property
     @pulumi.getter(name="windowsProfile")
-    def windows_profile(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']]:
+    def windows_profile(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArrgs']]:
         """
         A `windows_profile` block as documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "windows_profile")
 
     @windows_profile.setter
-    def windows_profile(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']]):
+    def windows_profile(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArrgs']]):
         pulumi.set(self, "windows_profile", value)
 
     @property
@@ -744,7 +744,7 @@ class KubernetesClusterNodePoolArgs:
 
 
 @pulumi.input_type
-class _KubernetesClusterNodePoolState:
+calass _KubernetesClusterNodePoolState:
     def __init__(__self__, *,
                  capacity_reservation_group_id: Optional[pulumi.Input[str]] = None,
                  custom_ca_trust_enabled: Optional[pulumi.Input[bool]] = None,
@@ -754,10 +754,10 @@ class _KubernetesClusterNodePoolState:
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
-                 kubelet_config: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']] = None,
+                 kubelet_config: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArrgs']] = None,
                  kubelet_disk_type: Optional[pulumi.Input[str]] = None,
                  kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
-                 linux_os_config: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']] = None,
+                 linux_os_config: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArrgs']] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
                  message_of_the_day: Optional[pulumi.Input[str]] = None,
@@ -766,7 +766,7 @@ class _KubernetesClusterNodePoolState:
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 node_network_profile: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']] = None,
+                 node_network_profile: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArrgs']] = None,
                  node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
@@ -782,10 +782,10 @@ class _KubernetesClusterNodePoolState:
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
-                 upgrade_settings: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']] = None,
+                 upgrade_settings: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArrgs']] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
-                 windows_profile: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']] = None,
+                 windows_profile: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArrgs']] = None,
                  workload_runtime: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -806,12 +806,12 @@ class _KubernetesClusterNodePoolState:
                
                > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterNodePoolKubeletConfigArrgs'] kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
                
                > **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
-        :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArrgs'] linux_os_config: A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
@@ -822,7 +822,7 @@ class _KubernetesClusterNodePoolState:
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
         :param pulumi.Input[int] node_count: The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
-        :param pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs'] node_network_profile: A `node_network_profile` block as documented below.
+        :param pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArrgs'] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
@@ -846,12 +846,12 @@ class _KubernetesClusterNodePoolState:
                
                > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
         :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
+        :param pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArrgs'] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
                
                > **NOTE:** A route table must be configured on this Subnet.
-        :param pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs'] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterNodePoolWindowsProfileArrgs'] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
                
                > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
@@ -1050,14 +1050,14 @@ class _KubernetesClusterNodePoolState:
 
     @property
     @pulumi.getter(name="kubeletConfig")
-    def kubelet_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']]:
+    def kubelet_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArrgs']]:
         """
         A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "kubelet_config")
 
     @kubelet_config.setter
-    def kubelet_config(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArgs']]):
+    def kubelet_config(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolKubeletConfigArrgs']]):
         pulumi.set(self, "kubelet_config", value)
 
     @property
@@ -1088,14 +1088,14 @@ class _KubernetesClusterNodePoolState:
 
     @property
     @pulumi.getter(name="linuxOsConfig")
-    def linux_os_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']]:
+    def linux_os_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArrgs']]:
         """
         A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "linux_os_config")
 
     @linux_os_config.setter
-    def linux_os_config(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArgs']]):
+    def linux_os_config(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigArrgs']]):
         pulumi.set(self, "linux_os_config", value)
 
     @property
@@ -1198,14 +1198,14 @@ class _KubernetesClusterNodePoolState:
 
     @property
     @pulumi.getter(name="nodeNetworkProfile")
-    def node_network_profile(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']]:
+    def node_network_profile(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArrgs']]:
         """
         A `node_network_profile` block as documented below.
         """
         return pulumi.get(self, "node_network_profile")
 
     @node_network_profile.setter
-    def node_network_profile(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArgs']]):
+    def node_network_profile(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileArrgs']]):
         pulumi.set(self, "node_network_profile", value)
 
     @property
@@ -1398,14 +1398,14 @@ class _KubernetesClusterNodePoolState:
 
     @property
     @pulumi.getter(name="upgradeSettings")
-    def upgrade_settings(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']]:
+    def upgrade_settings(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArrgs']]:
         """
         A `upgrade_settings` block as documented below.
         """
         return pulumi.get(self, "upgrade_settings")
 
     @upgrade_settings.setter
-    def upgrade_settings(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArgs']]):
+    def upgrade_settings(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolUpgradeSettingsArrgs']]):
         pulumi.set(self, "upgrade_settings", value)
 
     @property
@@ -1436,14 +1436,14 @@ class _KubernetesClusterNodePoolState:
 
     @property
     @pulumi.getter(name="windowsProfile")
-    def windows_profile(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']]:
+    def windows_profile(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArrgs']]:
         """
         A `windows_profile` block as documented below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "windows_profile")
 
     @windows_profile.setter
-    def windows_profile(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs']]):
+    def windows_profile(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolWindowsProfileArrgs']]):
         pulumi.set(self, "windows_profile", value)
 
     @property
@@ -1475,7 +1475,7 @@ class _KubernetesClusterNodePoolState:
         pulumi.set(self, "zones", value)
 
 
-class KubernetesClusterNodePool(pulumi.CustomResource):
+calass KubernetesClusterNodePool(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -1488,10 +1488,10 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
-                 kubelet_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']]] = None,
+                 kubelet_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArrgs']]] = None,
                  kubelet_disk_type: Optional[pulumi.Input[str]] = None,
                  kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
-                 linux_os_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']]] = None,
+                 linux_os_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArrgs']]] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
                  message_of_the_day: Optional[pulumi.Input[str]] = None,
@@ -1500,7 +1500,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 node_network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolNodeNetworkProfileArgs']]] = None,
+                 node_network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolNodeNetworkProfileArrgs']]] = None,
                  node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
@@ -1516,10 +1516,10 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
-                 upgrade_settings: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']]] = None,
+                 upgrade_settings: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArrgs']]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
-                 windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolWindowsProfileArgs']]] = None,
+                 windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolWindowsProfileArrgs']]] = None,
                  workload_runtime: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -1541,12 +1541,12 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             dns_prefix="exampleaks1",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
+            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArrgs(
                 name="default",
                 node_count=1,
                 vm_size="Standard_D2_v2",
             ),
-            service_principal=azure.containerservice.KubernetesClusterServicePrincipalArgs(
+            service_principal=azure.containerservice.KubernetesClusterServicePrincipalArrgs(
                 client_id="00000000-0000-0000-0000-000000000000",
                 client_secret="00000000000000000000000000000000",
             ))
@@ -1585,12 +1585,12 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                
                > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']] kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArrgs']] kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
                
                > **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']] linux_os_config: A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArrgs']] linux_os_config: A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
@@ -1601,7 +1601,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
         :param pulumi.Input[int] node_count: The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolNodeNetworkProfileArgs']] node_network_profile: A `node_network_profile` block as documented below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolNodeNetworkProfileArrgs']] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
@@ -1625,12 +1625,12 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                
                > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
         :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']] upgrade_settings: A `upgrade_settings` block as documented below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArrgs']] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
                
                > **NOTE:** A route table must be configured on this Subnet.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolWindowsProfileArgs']] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolWindowsProfileArrgs']] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
                
                > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
@@ -1642,7 +1642,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: KubernetesClusterNodePoolArgs,
+                 args: KubernetesClusterNodePoolArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Node Pool within a Kubernetes Cluster
@@ -1662,12 +1662,12 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             dns_prefix="exampleaks1",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
+            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArrgs(
                 name="default",
                 node_count=1,
                 vm_size="Standard_D2_v2",
             ),
-            service_principal=azure.containerservice.KubernetesClusterServicePrincipalArgs(
+            service_principal=azure.containerservice.KubernetesClusterServicePrincipalArrgs(
                 client_id="00000000-0000-0000-0000-000000000000",
                 client_secret="00000000000000000000000000000000",
             ))
@@ -1689,12 +1689,12 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param KubernetesClusterNodePoolArgs args: The arguments to use to populate this resource's properties.
+        :param KubernetesClusterNodePoolArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(KubernetesClusterNodePoolArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(KubernetesClusterNodePoolArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -1711,10 +1711,10 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  eviction_policy: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
-                 kubelet_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']]] = None,
+                 kubelet_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArrgs']]] = None,
                  kubelet_disk_type: Optional[pulumi.Input[str]] = None,
                  kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
-                 linux_os_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']]] = None,
+                 linux_os_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArrgs']]] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
                  message_of_the_day: Optional[pulumi.Input[str]] = None,
@@ -1723,7 +1723,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 node_network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolNodeNetworkProfileArgs']]] = None,
+                 node_network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolNodeNetworkProfileArrgs']]] = None,
                  node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  orchestrator_version: Optional[pulumi.Input[str]] = None,
@@ -1739,10 +1739,10 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                  spot_max_price: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
-                 upgrade_settings: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']]] = None,
+                 upgrade_settings: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArrgs']]] = None,
                  vm_size: Optional[pulumi.Input[str]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
-                 windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolWindowsProfileArgs']]] = None,
+                 windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolWindowsProfileArrgs']]] = None,
                  workload_runtime: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -1752,7 +1752,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = KubernetesClusterNodePoolArgs.__new__(KubernetesClusterNodePoolArgs)
+            __props__ = KubernetesClusterNodePoolArrgs.__new__(KubernetesClusterNodePoolArrgs)
 
             __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
             __props__.__dict__["custom_ca_trust_enabled"] = custom_ca_trust_enabled
@@ -1818,10 +1818,10 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             eviction_policy: Optional[pulumi.Input[str]] = None,
             fips_enabled: Optional[pulumi.Input[bool]] = None,
             host_group_id: Optional[pulumi.Input[str]] = None,
-            kubelet_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']]] = None,
+            kubelet_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArrgs']]] = None,
             kubelet_disk_type: Optional[pulumi.Input[str]] = None,
             kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
-            linux_os_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']]] = None,
+            linux_os_config: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArrgs']]] = None,
             max_count: Optional[pulumi.Input[int]] = None,
             max_pods: Optional[pulumi.Input[int]] = None,
             message_of_the_day: Optional[pulumi.Input[str]] = None,
@@ -1830,7 +1830,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             node_count: Optional[pulumi.Input[int]] = None,
             node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            node_network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolNodeNetworkProfileArgs']]] = None,
+            node_network_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolNodeNetworkProfileArrgs']]] = None,
             node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
             node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             orchestrator_version: Optional[pulumi.Input[str]] = None,
@@ -1846,10 +1846,10 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
             spot_max_price: Optional[pulumi.Input[float]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
-            upgrade_settings: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']]] = None,
+            upgrade_settings: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArrgs']]] = None,
             vm_size: Optional[pulumi.Input[str]] = None,
             vnet_subnet_id: Optional[pulumi.Input[str]] = None,
-            windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolWindowsProfileArgs']]] = None,
+            windows_profile: Optional[pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolWindowsProfileArrgs']]] = None,
             workload_runtime: Optional[pulumi.Input[str]] = None,
             zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'KubernetesClusterNodePool':
         """
@@ -1875,12 +1875,12 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                
                > **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview).
         :param pulumi.Input[str] host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArgs']] kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolKubeletConfigArrgs']] kubelet_config: A `kubelet_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
         :param pulumi.Input[str] kubernetes_cluster_id: The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created.
                
                > **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArgs']] linux_os_config: A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolLinuxOsConfigArrgs']] linux_os_config: A `linux_os_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created.
         :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
@@ -1891,7 +1891,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                > **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters.
         :param pulumi.Input[int] node_count: The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in this Node Pool.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolNodeNetworkProfileArgs']] node_network_profile: A `node_network_profile` block as documented below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolNodeNetworkProfileArrgs']] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
         :param pulumi.Input[str] orchestrator_version: Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
@@ -1915,12 +1915,12 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                
                > At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you may wish to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) functionality to ignore changes to the casing until this is fixed in the AKS API.
         :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArgs']] upgrade_settings: A `upgrade_settings` block as documented below.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolUpgradeSettingsArrgs']] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vm_size: The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] vnet_subnet_id: The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created.
                
                > **NOTE:** A route table must be configured on this Subnet.
-        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolWindowsProfileArgs']] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['KubernetesClusterNodePoolWindowsProfileArrgs']] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`.
                
                > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)

@@ -10,42 +10,42 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'BudgetManagementGroupFilterArgs',
-    'BudgetManagementGroupFilterDimensionArgs',
-    'BudgetManagementGroupFilterNotArgs',
-    'BudgetManagementGroupFilterNotDimensionArgs',
-    'BudgetManagementGroupFilterNotTagArgs',
-    'BudgetManagementGroupFilterTagArgs',
-    'BudgetManagementGroupNotificationArgs',
-    'BudgetManagementGroupTimePeriodArgs',
-    'BudgetResourceGroupFilterArgs',
-    'BudgetResourceGroupFilterDimensionArgs',
-    'BudgetResourceGroupFilterNotArgs',
-    'BudgetResourceGroupFilterNotDimensionArgs',
-    'BudgetResourceGroupFilterNotTagArgs',
-    'BudgetResourceGroupFilterTagArgs',
-    'BudgetResourceGroupNotificationArgs',
-    'BudgetResourceGroupTimePeriodArgs',
-    'BudgetSubscriptionFilterArgs',
-    'BudgetSubscriptionFilterDimensionArgs',
-    'BudgetSubscriptionFilterNotArgs',
-    'BudgetSubscriptionFilterNotDimensionArgs',
-    'BudgetSubscriptionFilterNotTagArgs',
-    'BudgetSubscriptionFilterTagArgs',
-    'BudgetSubscriptionNotificationArgs',
-    'BudgetSubscriptionTimePeriodArgs',
+    'BudgetManagementGroupFilterArrgs',
+    'BudgetManagementGroupFilterDimensionArrgs',
+    'BudgetManagementGroupFilterNotArrgs',
+    'BudgetManagementGroupFilterNotDimensionArrgs',
+    'BudgetManagementGroupFilterNotTagArrgs',
+    'BudgetManagementGroupFilterTagArrgs',
+    'BudgetManagementGroupNotificationArrgs',
+    'BudgetManagementGroupTimePeriodArrgs',
+    'BudgetResourceGroupFilterArrgs',
+    'BudgetResourceGroupFilterDimensionArrgs',
+    'BudgetResourceGroupFilterNotArrgs',
+    'BudgetResourceGroupFilterNotDimensionArrgs',
+    'BudgetResourceGroupFilterNotTagArrgs',
+    'BudgetResourceGroupFilterTagArrgs',
+    'BudgetResourceGroupNotificationArrgs',
+    'BudgetResourceGroupTimePeriodArrgs',
+    'BudgetSubscriptionFilterArrgs',
+    'BudgetSubscriptionFilterDimensionArrgs',
+    'BudgetSubscriptionFilterNotArrgs',
+    'BudgetSubscriptionFilterNotDimensionArrgs',
+    'BudgetSubscriptionFilterNotTagArrgs',
+    'BudgetSubscriptionFilterTagArrgs',
+    'BudgetSubscriptionNotificationArrgs',
+    'BudgetSubscriptionTimePeriodArrgs',
 ]
 
 @pulumi.input_type
-class BudgetManagementGroupFilterArgs:
+calass BudgetManagementGroupFilterArrgs:
     def __init__(__self__, *,
-                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgs']]]] = None,
-                 not_: Optional[pulumi.Input['BudgetManagementGroupFilterNotArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgs']]]] = None):
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArrgs']]]] = None,
+                 not_: Optional[pulumi.Input['BudgetManagementGroupFilterNotArrgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgs']]] dimensions: One or more `dimension` blocks as defined below to filter the budget on.
-        :param pulumi.Input['BudgetManagementGroupFilterNotArgs'] not_: A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        :param pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgs']]] tags: One or more `tag` blocks as defined below to filter the budget on.
+        :param pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArrgs']]] dimensions: One or more `dimension` blocks as defined below to filter the budget on.
+        :param pulumi.Input['BudgetManagementGroupFilterNotArrgs'] not_: A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+        :param pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArrgs']]] tags: One or more `tag` blocks as defined below to filter the budget on.
         """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
@@ -59,19 +59,19 @@ class BudgetManagementGroupFilterArgs:
 
     @property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgs']]]]:
+    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArrgs']]]]:
         """
         One or more `dimension` blocks as defined below to filter the budget on.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgs']]]]):
+    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArrgs']]]]):
         pulumi.set(self, "dimensions", value)
 
     @property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input['BudgetManagementGroupFilterNotArgs']]:
+    def not_(self) -> Optional[pulumi.Input['BudgetManagementGroupFilterNotArrgs']]:
         """
         A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
@@ -81,24 +81,24 @@ class BudgetManagementGroupFilterArgs:
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input['BudgetManagementGroupFilterNotArgs']]):
+    def not_(self, value: Optional[pulumi.Input['BudgetManagementGroupFilterNotArrgs']]):
         pulumi.set(self, "not_", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArrgs']]]]:
         """
         One or more `tag` blocks as defined below to filter the budget on.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArrgs']]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
-class BudgetManagementGroupFilterDimensionArgs:
+calass BudgetManagementGroupFilterDimensionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -151,13 +151,13 @@ class BudgetManagementGroupFilterDimensionArgs:
 
 
 @pulumi.input_type
-class BudgetManagementGroupFilterNotArgs:
+calass BudgetManagementGroupFilterNotArrgs:
     def __init__(__self__, *,
-                 dimension: Optional[pulumi.Input['BudgetManagementGroupFilterNotDimensionArgs']] = None,
-                 tag: Optional[pulumi.Input['BudgetManagementGroupFilterNotTagArgs']] = None):
+                 dimension: Optional[pulumi.Input['BudgetManagementGroupFilterNotDimensionArrgs']] = None,
+                 tag: Optional[pulumi.Input['BudgetManagementGroupFilterNotTagArrgs']] = None):
         """
-        :param pulumi.Input['BudgetManagementGroupFilterNotDimensionArgs'] dimension: One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
-        :param pulumi.Input['BudgetManagementGroupFilterNotTagArgs'] tag: One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
+        :param pulumi.Input['BudgetManagementGroupFilterNotDimensionArrgs'] dimension: One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
+        :param pulumi.Input['BudgetManagementGroupFilterNotTagArrgs'] tag: One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
         """
         if dimension is not None:
             pulumi.set(__self__, "dimension", dimension)
@@ -166,31 +166,31 @@ class BudgetManagementGroupFilterNotArgs:
 
     @property
     @pulumi.getter
-    def dimension(self) -> Optional[pulumi.Input['BudgetManagementGroupFilterNotDimensionArgs']]:
+    def dimension(self) -> Optional[pulumi.Input['BudgetManagementGroupFilterNotDimensionArrgs']]:
         """
         One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
         """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
-    def dimension(self, value: Optional[pulumi.Input['BudgetManagementGroupFilterNotDimensionArgs']]):
+    def dimension(self, value: Optional[pulumi.Input['BudgetManagementGroupFilterNotDimensionArrgs']]):
         pulumi.set(self, "dimension", value)
 
     @property
     @pulumi.getter
-    def tag(self) -> Optional[pulumi.Input['BudgetManagementGroupFilterNotTagArgs']]:
+    def tag(self) -> Optional[pulumi.Input['BudgetManagementGroupFilterNotTagArrgs']]:
         """
         One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
         """
         return pulumi.get(self, "tag")
 
     @tag.setter
-    def tag(self, value: Optional[pulumi.Input['BudgetManagementGroupFilterNotTagArgs']]):
+    def tag(self, value: Optional[pulumi.Input['BudgetManagementGroupFilterNotTagArrgs']]):
         pulumi.set(self, "tag", value)
 
 
 @pulumi.input_type
-class BudgetManagementGroupFilterNotDimensionArgs:
+calass BudgetManagementGroupFilterNotDimensionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -243,7 +243,7 @@ class BudgetManagementGroupFilterNotDimensionArgs:
 
 
 @pulumi.input_type
-class BudgetManagementGroupFilterNotTagArgs:
+calass BudgetManagementGroupFilterNotTagArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -296,7 +296,7 @@ class BudgetManagementGroupFilterNotTagArgs:
 
 
 @pulumi.input_type
-class BudgetManagementGroupFilterTagArgs:
+calass BudgetManagementGroupFilterTagArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -349,7 +349,7 @@ class BudgetManagementGroupFilterTagArgs:
 
 
 @pulumi.input_type
-class BudgetManagementGroupNotificationArgs:
+calass BudgetManagementGroupNotificationArrgs:
     def __init__(__self__, *,
                  contact_emails: pulumi.Input[Sequence[pulumi.Input[str]]],
                  operator: pulumi.Input[str],
@@ -433,7 +433,7 @@ class BudgetManagementGroupNotificationArgs:
 
 
 @pulumi.input_type
-class BudgetManagementGroupTimePeriodArgs:
+calass BudgetManagementGroupTimePeriodArrgs:
     def __init__(__self__, *,
                  start_date: pulumi.Input[str],
                  end_date: Optional[pulumi.Input[str]] = None):
@@ -471,15 +471,15 @@ class BudgetManagementGroupTimePeriodArgs:
 
 
 @pulumi.input_type
-class BudgetResourceGroupFilterArgs:
+calass BudgetResourceGroupFilterArrgs:
     def __init__(__self__, *,
-                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgs']]]] = None,
-                 not_: Optional[pulumi.Input['BudgetResourceGroupFilterNotArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgs']]]] = None):
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArrgs']]]] = None,
+                 not_: Optional[pulumi.Input['BudgetResourceGroupFilterNotArrgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgs']]] dimensions: One or more `dimension` blocks as defined below to filter the budget on.
-        :param pulumi.Input['BudgetResourceGroupFilterNotArgs'] not_: A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        :param pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgs']]] tags: One or more `tag` blocks as defined below to filter the budget on.
+        :param pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArrgs']]] dimensions: One or more `dimension` blocks as defined below to filter the budget on.
+        :param pulumi.Input['BudgetResourceGroupFilterNotArrgs'] not_: A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+        :param pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArrgs']]] tags: One or more `tag` blocks as defined below to filter the budget on.
         """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
@@ -493,19 +493,19 @@ class BudgetResourceGroupFilterArgs:
 
     @property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgs']]]]:
+    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArrgs']]]]:
         """
         One or more `dimension` blocks as defined below to filter the budget on.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgs']]]]):
+    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArrgs']]]]):
         pulumi.set(self, "dimensions", value)
 
     @property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input['BudgetResourceGroupFilterNotArgs']]:
+    def not_(self) -> Optional[pulumi.Input['BudgetResourceGroupFilterNotArrgs']]:
         """
         A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
@@ -515,24 +515,24 @@ class BudgetResourceGroupFilterArgs:
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input['BudgetResourceGroupFilterNotArgs']]):
+    def not_(self, value: Optional[pulumi.Input['BudgetResourceGroupFilterNotArrgs']]):
         pulumi.set(self, "not_", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArrgs']]]]:
         """
         One or more `tag` blocks as defined below to filter the budget on.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArrgs']]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
-class BudgetResourceGroupFilterDimensionArgs:
+calass BudgetResourceGroupFilterDimensionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -585,13 +585,13 @@ class BudgetResourceGroupFilterDimensionArgs:
 
 
 @pulumi.input_type
-class BudgetResourceGroupFilterNotArgs:
+calass BudgetResourceGroupFilterNotArrgs:
     def __init__(__self__, *,
-                 dimension: Optional[pulumi.Input['BudgetResourceGroupFilterNotDimensionArgs']] = None,
-                 tag: Optional[pulumi.Input['BudgetResourceGroupFilterNotTagArgs']] = None):
+                 dimension: Optional[pulumi.Input['BudgetResourceGroupFilterNotDimensionArrgs']] = None,
+                 tag: Optional[pulumi.Input['BudgetResourceGroupFilterNotTagArrgs']] = None):
         """
-        :param pulumi.Input['BudgetResourceGroupFilterNotDimensionArgs'] dimension: One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
-        :param pulumi.Input['BudgetResourceGroupFilterNotTagArgs'] tag: One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
+        :param pulumi.Input['BudgetResourceGroupFilterNotDimensionArrgs'] dimension: One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
+        :param pulumi.Input['BudgetResourceGroupFilterNotTagArrgs'] tag: One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
         """
         if dimension is not None:
             pulumi.set(__self__, "dimension", dimension)
@@ -600,31 +600,31 @@ class BudgetResourceGroupFilterNotArgs:
 
     @property
     @pulumi.getter
-    def dimension(self) -> Optional[pulumi.Input['BudgetResourceGroupFilterNotDimensionArgs']]:
+    def dimension(self) -> Optional[pulumi.Input['BudgetResourceGroupFilterNotDimensionArrgs']]:
         """
         One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
         """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
-    def dimension(self, value: Optional[pulumi.Input['BudgetResourceGroupFilterNotDimensionArgs']]):
+    def dimension(self, value: Optional[pulumi.Input['BudgetResourceGroupFilterNotDimensionArrgs']]):
         pulumi.set(self, "dimension", value)
 
     @property
     @pulumi.getter
-    def tag(self) -> Optional[pulumi.Input['BudgetResourceGroupFilterNotTagArgs']]:
+    def tag(self) -> Optional[pulumi.Input['BudgetResourceGroupFilterNotTagArrgs']]:
         """
         One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
         """
         return pulumi.get(self, "tag")
 
     @tag.setter
-    def tag(self, value: Optional[pulumi.Input['BudgetResourceGroupFilterNotTagArgs']]):
+    def tag(self, value: Optional[pulumi.Input['BudgetResourceGroupFilterNotTagArrgs']]):
         pulumi.set(self, "tag", value)
 
 
 @pulumi.input_type
-class BudgetResourceGroupFilterNotDimensionArgs:
+calass BudgetResourceGroupFilterNotDimensionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -677,7 +677,7 @@ class BudgetResourceGroupFilterNotDimensionArgs:
 
 
 @pulumi.input_type
-class BudgetResourceGroupFilterNotTagArgs:
+calass BudgetResourceGroupFilterNotTagArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -730,7 +730,7 @@ class BudgetResourceGroupFilterNotTagArgs:
 
 
 @pulumi.input_type
-class BudgetResourceGroupFilterTagArgs:
+calass BudgetResourceGroupFilterTagArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -783,7 +783,7 @@ class BudgetResourceGroupFilterTagArgs:
 
 
 @pulumi.input_type
-class BudgetResourceGroupNotificationArgs:
+calass BudgetResourceGroupNotificationArrgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
                  threshold: pulumi.Input[int],
@@ -904,7 +904,7 @@ class BudgetResourceGroupNotificationArgs:
 
 
 @pulumi.input_type
-class BudgetResourceGroupTimePeriodArgs:
+calass BudgetResourceGroupTimePeriodArrgs:
     def __init__(__self__, *,
                  start_date: pulumi.Input[str],
                  end_date: Optional[pulumi.Input[str]] = None):
@@ -942,15 +942,15 @@ class BudgetResourceGroupTimePeriodArgs:
 
 
 @pulumi.input_type
-class BudgetSubscriptionFilterArgs:
+calass BudgetSubscriptionFilterArrgs:
     def __init__(__self__, *,
-                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgs']]]] = None,
-                 not_: Optional[pulumi.Input['BudgetSubscriptionFilterNotArgs']] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgs']]]] = None):
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArrgs']]]] = None,
+                 not_: Optional[pulumi.Input['BudgetSubscriptionFilterNotArrgs']] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgs']]] dimensions: One or more `dimension` blocks as defined below to filter the budget on.
-        :param pulumi.Input['BudgetSubscriptionFilterNotArgs'] not_: A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        :param pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgs']]] tags: One or more `tag` blocks as defined below to filter the budget on.
+        :param pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArrgs']]] dimensions: One or more `dimension` blocks as defined below to filter the budget on.
+        :param pulumi.Input['BudgetSubscriptionFilterNotArrgs'] not_: A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+        :param pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArrgs']]] tags: One or more `tag` blocks as defined below to filter the budget on.
         """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
@@ -964,19 +964,19 @@ class BudgetSubscriptionFilterArgs:
 
     @property
     @pulumi.getter
-    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgs']]]]:
+    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArrgs']]]]:
         """
         One or more `dimension` blocks as defined below to filter the budget on.
         """
         return pulumi.get(self, "dimensions")
 
     @dimensions.setter
-    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgs']]]]):
+    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArrgs']]]]):
         pulumi.set(self, "dimensions", value)
 
     @property
     @pulumi.getter(name="not")
-    def not_(self) -> Optional[pulumi.Input['BudgetSubscriptionFilterNotArgs']]:
+    def not_(self) -> Optional[pulumi.Input['BudgetSubscriptionFilterNotArrgs']]:
         """
         A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
         """
@@ -986,24 +986,24 @@ class BudgetSubscriptionFilterArgs:
         return pulumi.get(self, "not_")
 
     @not_.setter
-    def not_(self, value: Optional[pulumi.Input['BudgetSubscriptionFilterNotArgs']]):
+    def not_(self, value: Optional[pulumi.Input['BudgetSubscriptionFilterNotArrgs']]):
         pulumi.set(self, "not_", value)
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgs']]]]:
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArrgs']]]]:
         """
         One or more `tag` blocks as defined below to filter the budget on.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgs']]]]):
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArrgs']]]]):
         pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type
-class BudgetSubscriptionFilterDimensionArgs:
+calass BudgetSubscriptionFilterDimensionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -1056,13 +1056,13 @@ class BudgetSubscriptionFilterDimensionArgs:
 
 
 @pulumi.input_type
-class BudgetSubscriptionFilterNotArgs:
+calass BudgetSubscriptionFilterNotArrgs:
     def __init__(__self__, *,
-                 dimension: Optional[pulumi.Input['BudgetSubscriptionFilterNotDimensionArgs']] = None,
-                 tag: Optional[pulumi.Input['BudgetSubscriptionFilterNotTagArgs']] = None):
+                 dimension: Optional[pulumi.Input['BudgetSubscriptionFilterNotDimensionArrgs']] = None,
+                 tag: Optional[pulumi.Input['BudgetSubscriptionFilterNotTagArrgs']] = None):
         """
-        :param pulumi.Input['BudgetSubscriptionFilterNotDimensionArgs'] dimension: One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
-        :param pulumi.Input['BudgetSubscriptionFilterNotTagArgs'] tag: One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
+        :param pulumi.Input['BudgetSubscriptionFilterNotDimensionArrgs'] dimension: One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
+        :param pulumi.Input['BudgetSubscriptionFilterNotTagArrgs'] tag: One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
         """
         if dimension is not None:
             pulumi.set(__self__, "dimension", dimension)
@@ -1071,31 +1071,31 @@ class BudgetSubscriptionFilterNotArgs:
 
     @property
     @pulumi.getter
-    def dimension(self) -> Optional[pulumi.Input['BudgetSubscriptionFilterNotDimensionArgs']]:
+    def dimension(self) -> Optional[pulumi.Input['BudgetSubscriptionFilterNotDimensionArrgs']]:
         """
         One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
         """
         return pulumi.get(self, "dimension")
 
     @dimension.setter
-    def dimension(self, value: Optional[pulumi.Input['BudgetSubscriptionFilterNotDimensionArgs']]):
+    def dimension(self, value: Optional[pulumi.Input['BudgetSubscriptionFilterNotDimensionArrgs']]):
         pulumi.set(self, "dimension", value)
 
     @property
     @pulumi.getter
-    def tag(self) -> Optional[pulumi.Input['BudgetSubscriptionFilterNotTagArgs']]:
+    def tag(self) -> Optional[pulumi.Input['BudgetSubscriptionFilterNotTagArrgs']]:
         """
         One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
         """
         return pulumi.get(self, "tag")
 
     @tag.setter
-    def tag(self, value: Optional[pulumi.Input['BudgetSubscriptionFilterNotTagArgs']]):
+    def tag(self, value: Optional[pulumi.Input['BudgetSubscriptionFilterNotTagArrgs']]):
         pulumi.set(self, "tag", value)
 
 
 @pulumi.input_type
-class BudgetSubscriptionFilterNotDimensionArgs:
+calass BudgetSubscriptionFilterNotDimensionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -1148,7 +1148,7 @@ class BudgetSubscriptionFilterNotDimensionArgs:
 
 
 @pulumi.input_type
-class BudgetSubscriptionFilterNotTagArgs:
+calass BudgetSubscriptionFilterNotTagArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -1201,7 +1201,7 @@ class BudgetSubscriptionFilterNotTagArgs:
 
 
 @pulumi.input_type
-class BudgetSubscriptionFilterTagArgs:
+calass BudgetSubscriptionFilterTagArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  values: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -1254,7 +1254,7 @@ class BudgetSubscriptionFilterTagArgs:
 
 
 @pulumi.input_type
-class BudgetSubscriptionNotificationArgs:
+calass BudgetSubscriptionNotificationArrgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
                  threshold: pulumi.Input[int],
@@ -1375,7 +1375,7 @@ class BudgetSubscriptionNotificationArgs:
 
 
 @pulumi.input_type
-class BudgetSubscriptionTimePeriodArgs:
+calass BudgetSubscriptionTimePeriodArrgs:
     def __init__(__self__, *,
                  start_date: pulumi.Input[str],
                  end_date: Optional[pulumi.Input[str]] = None):

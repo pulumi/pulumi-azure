@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LinkedServiceMysqlArgs', 'LinkedServiceMysql']
+__all__ = ['LinkedServiceMysqlArrgs', 'LinkedServiceMysql']
 
 @pulumi.input_type
-class LinkedServiceMysqlArgs:
+calass LinkedServiceMysqlArrgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[str],
                  data_factory_id: pulumi.Input[str],
@@ -146,7 +146,7 @@ class LinkedServiceMysqlArgs:
 
 
 @pulumi.input_type
-class _LinkedServiceMysqlState:
+calass _LinkedServiceMysqlState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -281,7 +281,7 @@ class _LinkedServiceMysqlState:
         pulumi.set(self, "parameters", value)
 
 
-class LinkedServiceMysql(pulumi.CustomResource):
+calass LinkedServiceMysql(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -336,7 +336,7 @@ class LinkedServiceMysql(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LinkedServiceMysqlArgs,
+                 args: LinkedServiceMysqlArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between MySQL and Azure Data Factory.
@@ -365,12 +365,12 @@ class LinkedServiceMysql(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LinkedServiceMysqlArgs args: The arguments to use to populate this resource's properties.
+        :param LinkedServiceMysqlArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceMysqlArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceMysqlArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -394,7 +394,7 @@ class LinkedServiceMysql(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LinkedServiceMysqlArgs.__new__(LinkedServiceMysqlArgs)
+            __props__ = LinkedServiceMysqlArrgs.__new__(LinkedServiceMysqlArrgs)
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations

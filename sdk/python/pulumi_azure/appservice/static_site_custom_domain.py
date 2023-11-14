@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['StaticSiteCustomDomainArgs', 'StaticSiteCustomDomain']
+__all__ = ['StaticSiteCustomDomainArrgs', 'StaticSiteCustomDomain']
 
 @pulumi.input_type
-class StaticSiteCustomDomainArgs:
+calass StaticSiteCustomDomainArrgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[str],
                  static_site_id: pulumi.Input[str],
@@ -66,7 +66,7 @@ class StaticSiteCustomDomainArgs:
 
 
 @pulumi.input_type
-class _StaticSiteCustomDomainState:
+calass _StaticSiteCustomDomainState:
     def __init__(__self__, *,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  static_site_id: Optional[pulumi.Input[str]] = None,
@@ -137,7 +137,7 @@ class _StaticSiteCustomDomainState:
         pulumi.set(self, "validation_type", value)
 
 
-class StaticSiteCustomDomain(pulumi.CustomResource):
+calass StaticSiteCustomDomain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -186,7 +186,7 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
             zone_name="contoso.com",
             resource_group_name=example_resource_group.name,
             ttl=300,
-            records=[azure.dns.TxtRecordRecordArgs(
+            records=[azure.dns.TxtRecordRecordArrgs(
                 value=example_static_site_custom_domain.validation_token,
             )])
         ```
@@ -209,7 +209,7 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: StaticSiteCustomDomainArgs,
+                 args: StaticSiteCustomDomainArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
@@ -251,7 +251,7 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
             zone_name="contoso.com",
             resource_group_name=example_resource_group.name,
             ttl=300,
-            records=[azure.dns.TxtRecordRecordArgs(
+            records=[azure.dns.TxtRecordRecordArrgs(
                 value=example_static_site_custom_domain.validation_token,
             )])
         ```
@@ -265,12 +265,12 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param StaticSiteCustomDomainArgs args: The arguments to use to populate this resource's properties.
+        :param StaticSiteCustomDomainArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(StaticSiteCustomDomainArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(StaticSiteCustomDomainArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -289,7 +289,7 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = StaticSiteCustomDomainArgs.__new__(StaticSiteCustomDomainArgs)
+            __props__ = StaticSiteCustomDomainArrgs.__new__(StaticSiteCustomDomainArrgs)
 
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")

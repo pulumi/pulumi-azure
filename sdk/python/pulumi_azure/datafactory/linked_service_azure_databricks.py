@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LinkedServiceAzureDatabricksArgs', 'LinkedServiceAzureDatabricks']
+__all__ = ['LinkedServiceAzureDatabricksArrgs', 'LinkedServiceAzureDatabricks']
 
 @pulumi.input_type
-class LinkedServiceAzureDatabricksArgs:
+calass LinkedServiceAzureDatabricksArrgs:
     def __init__(__self__, *,
                  adb_domain: pulumi.Input[str],
                  data_factory_id: pulumi.Input[str],
@@ -23,12 +23,12 @@ class LinkedServiceAzureDatabricksArgs:
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  existing_cluster_id: Optional[pulumi.Input[str]] = None,
-                 instance_pool: Optional[pulumi.Input['LinkedServiceAzureDatabricksInstancePoolArgs']] = None,
+                 instance_pool: Optional[pulumi.Input['LinkedServiceAzureDatabricksInstancePoolArrgs']] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
-                 key_vault_password: Optional[pulumi.Input['LinkedServiceAzureDatabricksKeyVaultPasswordArgs']] = None,
+                 key_vault_password: Optional[pulumi.Input['LinkedServiceAzureDatabricksKeyVaultPasswordArrgs']] = None,
                  msi_work_space_resource_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 new_cluster_config: Optional[pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArgs']] = None,
+                 new_cluster_config: Optional[pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArrgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a LinkedServiceAzureDatabricks resource.
@@ -39,12 +39,12 @@ class LinkedServiceAzureDatabricksArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] existing_cluster_id: The cluster_id of an existing cluster within the linked ADB instance.
-        :param pulumi.Input['LinkedServiceAzureDatabricksInstancePoolArgs'] instance_pool: Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
+        :param pulumi.Input['LinkedServiceAzureDatabricksInstancePoolArrgs'] instance_pool: Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
-        :param pulumi.Input['LinkedServiceAzureDatabricksKeyVaultPasswordArgs'] key_vault_password: Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
+        :param pulumi.Input['LinkedServiceAzureDatabricksKeyVaultPasswordArrgs'] key_vault_password: Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
         :param pulumi.Input[str] msi_work_space_resource_id: Authenticate to ADB via managed service identity.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
-        :param pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArgs'] new_cluster_config: Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
+        :param pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArrgs'] new_cluster_config: Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
         pulumi.set(__self__, "adb_domain", adb_domain)
@@ -160,14 +160,14 @@ class LinkedServiceAzureDatabricksArgs:
 
     @property
     @pulumi.getter(name="instancePool")
-    def instance_pool(self) -> Optional[pulumi.Input['LinkedServiceAzureDatabricksInstancePoolArgs']]:
+    def instance_pool(self) -> Optional[pulumi.Input['LinkedServiceAzureDatabricksInstancePoolArrgs']]:
         """
         Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
         """
         return pulumi.get(self, "instance_pool")
 
     @instance_pool.setter
-    def instance_pool(self, value: Optional[pulumi.Input['LinkedServiceAzureDatabricksInstancePoolArgs']]):
+    def instance_pool(self, value: Optional[pulumi.Input['LinkedServiceAzureDatabricksInstancePoolArrgs']]):
         pulumi.set(self, "instance_pool", value)
 
     @property
@@ -184,14 +184,14 @@ class LinkedServiceAzureDatabricksArgs:
 
     @property
     @pulumi.getter(name="keyVaultPassword")
-    def key_vault_password(self) -> Optional[pulumi.Input['LinkedServiceAzureDatabricksKeyVaultPasswordArgs']]:
+    def key_vault_password(self) -> Optional[pulumi.Input['LinkedServiceAzureDatabricksKeyVaultPasswordArrgs']]:
         """
         Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
         """
         return pulumi.get(self, "key_vault_password")
 
     @key_vault_password.setter
-    def key_vault_password(self, value: Optional[pulumi.Input['LinkedServiceAzureDatabricksKeyVaultPasswordArgs']]):
+    def key_vault_password(self, value: Optional[pulumi.Input['LinkedServiceAzureDatabricksKeyVaultPasswordArrgs']]):
         pulumi.set(self, "key_vault_password", value)
 
     @property
@@ -220,14 +220,14 @@ class LinkedServiceAzureDatabricksArgs:
 
     @property
     @pulumi.getter(name="newClusterConfig")
-    def new_cluster_config(self) -> Optional[pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArgs']]:
+    def new_cluster_config(self) -> Optional[pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArrgs']]:
         """
         Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
         """
         return pulumi.get(self, "new_cluster_config")
 
     @new_cluster_config.setter
-    def new_cluster_config(self, value: Optional[pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArgs']]):
+    def new_cluster_config(self, value: Optional[pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArrgs']]):
         pulumi.set(self, "new_cluster_config", value)
 
     @property
@@ -244,7 +244,7 @@ class LinkedServiceAzureDatabricksArgs:
 
 
 @pulumi.input_type
-class _LinkedServiceAzureDatabricksState:
+calass _LinkedServiceAzureDatabricksState:
     def __init__(__self__, *,
                  access_token: Optional[pulumi.Input[str]] = None,
                  adb_domain: Optional[pulumi.Input[str]] = None,
@@ -253,12 +253,12 @@ class _LinkedServiceAzureDatabricksState:
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  existing_cluster_id: Optional[pulumi.Input[str]] = None,
-                 instance_pool: Optional[pulumi.Input['LinkedServiceAzureDatabricksInstancePoolArgs']] = None,
+                 instance_pool: Optional[pulumi.Input['LinkedServiceAzureDatabricksInstancePoolArrgs']] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
-                 key_vault_password: Optional[pulumi.Input['LinkedServiceAzureDatabricksKeyVaultPasswordArgs']] = None,
+                 key_vault_password: Optional[pulumi.Input['LinkedServiceAzureDatabricksKeyVaultPasswordArrgs']] = None,
                  msi_work_space_resource_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 new_cluster_config: Optional[pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArgs']] = None,
+                 new_cluster_config: Optional[pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArrgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering LinkedServiceAzureDatabricks resources.
@@ -269,12 +269,12 @@ class _LinkedServiceAzureDatabricksState:
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] existing_cluster_id: The cluster_id of an existing cluster within the linked ADB instance.
-        :param pulumi.Input['LinkedServiceAzureDatabricksInstancePoolArgs'] instance_pool: Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
+        :param pulumi.Input['LinkedServiceAzureDatabricksInstancePoolArrgs'] instance_pool: Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
-        :param pulumi.Input['LinkedServiceAzureDatabricksKeyVaultPasswordArgs'] key_vault_password: Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
+        :param pulumi.Input['LinkedServiceAzureDatabricksKeyVaultPasswordArrgs'] key_vault_password: Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
         :param pulumi.Input[str] msi_work_space_resource_id: Authenticate to ADB via managed service identity.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
-        :param pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArgs'] new_cluster_config: Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
+        :param pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArrgs'] new_cluster_config: Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
         if access_token is not None:
@@ -392,14 +392,14 @@ class _LinkedServiceAzureDatabricksState:
 
     @property
     @pulumi.getter(name="instancePool")
-    def instance_pool(self) -> Optional[pulumi.Input['LinkedServiceAzureDatabricksInstancePoolArgs']]:
+    def instance_pool(self) -> Optional[pulumi.Input['LinkedServiceAzureDatabricksInstancePoolArrgs']]:
         """
         Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
         """
         return pulumi.get(self, "instance_pool")
 
     @instance_pool.setter
-    def instance_pool(self, value: Optional[pulumi.Input['LinkedServiceAzureDatabricksInstancePoolArgs']]):
+    def instance_pool(self, value: Optional[pulumi.Input['LinkedServiceAzureDatabricksInstancePoolArrgs']]):
         pulumi.set(self, "instance_pool", value)
 
     @property
@@ -416,14 +416,14 @@ class _LinkedServiceAzureDatabricksState:
 
     @property
     @pulumi.getter(name="keyVaultPassword")
-    def key_vault_password(self) -> Optional[pulumi.Input['LinkedServiceAzureDatabricksKeyVaultPasswordArgs']]:
+    def key_vault_password(self) -> Optional[pulumi.Input['LinkedServiceAzureDatabricksKeyVaultPasswordArrgs']]:
         """
         Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
         """
         return pulumi.get(self, "key_vault_password")
 
     @key_vault_password.setter
-    def key_vault_password(self, value: Optional[pulumi.Input['LinkedServiceAzureDatabricksKeyVaultPasswordArgs']]):
+    def key_vault_password(self, value: Optional[pulumi.Input['LinkedServiceAzureDatabricksKeyVaultPasswordArrgs']]):
         pulumi.set(self, "key_vault_password", value)
 
     @property
@@ -452,14 +452,14 @@ class _LinkedServiceAzureDatabricksState:
 
     @property
     @pulumi.getter(name="newClusterConfig")
-    def new_cluster_config(self) -> Optional[pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArgs']]:
+    def new_cluster_config(self) -> Optional[pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArrgs']]:
         """
         Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
         """
         return pulumi.get(self, "new_cluster_config")
 
     @new_cluster_config.setter
-    def new_cluster_config(self, value: Optional[pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArgs']]):
+    def new_cluster_config(self, value: Optional[pulumi.Input['LinkedServiceAzureDatabricksNewClusterConfigArrgs']]):
         pulumi.set(self, "new_cluster_config", value)
 
     @property
@@ -475,7 +475,7 @@ class _LinkedServiceAzureDatabricksState:
         pulumi.set(self, "parameters", value)
 
 
-class LinkedServiceAzureDatabricks(pulumi.CustomResource):
+calass LinkedServiceAzureDatabricks(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -487,12 +487,12 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  existing_cluster_id: Optional[pulumi.Input[str]] = None,
-                 instance_pool: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksInstancePoolArgs']]] = None,
+                 instance_pool: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksInstancePoolArrgs']]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
-                 key_vault_password: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksKeyVaultPasswordArgs']]] = None,
+                 key_vault_password: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksKeyVaultPasswordArrgs']]] = None,
                  msi_work_space_resource_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 new_cluster_config: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksNewClusterConfigArgs']]] = None,
+                 new_cluster_config: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksNewClusterConfigArrgs']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -510,7 +510,7 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         example_factory = azure.datafactory.Factory("exampleFactory",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            identity=azure.datafactory.FactoryIdentityArgs(
+            identity=azure.datafactory.FactoryIdentityArrgs(
                 type="SystemAssigned",
             ))
         #Create a databricks instance
@@ -523,7 +523,7 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
             description="ADB Linked Service via MSI",
             adb_domain=example_workspace.workspace_url.apply(lambda workspace_url: f"https://{workspace_url}"),
             msi_work_space_resource_id=example_workspace.id,
-            new_cluster_config=azure.datafactory.LinkedServiceAzureDatabricksNewClusterConfigArgs(
+            new_cluster_config=azure.datafactory.LinkedServiceAzureDatabricksNewClusterConfigArrgs(
                 node_type="Standard_NC12",
                 cluster_version="5.5.x-gpu-scala2.11",
                 min_number_of_workers=1,
@@ -589,19 +589,19 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] existing_cluster_id: The cluster_id of an existing cluster within the linked ADB instance.
-        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksInstancePoolArgs']] instance_pool: Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
+        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksInstancePoolArrgs']] instance_pool: Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
-        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksKeyVaultPasswordArgs']] key_vault_password: Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
+        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksKeyVaultPasswordArrgs']] key_vault_password: Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
         :param pulumi.Input[str] msi_work_space_resource_id: Authenticate to ADB via managed service identity.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
-        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksNewClusterConfigArgs']] new_cluster_config: Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
+        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksNewClusterConfigArrgs']] new_cluster_config: Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LinkedServiceAzureDatabricksArgs,
+                 args: LinkedServiceAzureDatabricksArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between Azure Databricks and Azure Data Factory.
@@ -618,7 +618,7 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         example_factory = azure.datafactory.Factory("exampleFactory",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            identity=azure.datafactory.FactoryIdentityArgs(
+            identity=azure.datafactory.FactoryIdentityArrgs(
                 type="SystemAssigned",
             ))
         #Create a databricks instance
@@ -631,7 +631,7 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
             description="ADB Linked Service via MSI",
             adb_domain=example_workspace.workspace_url.apply(lambda workspace_url: f"https://{workspace_url}"),
             msi_work_space_resource_id=example_workspace.id,
-            new_cluster_config=azure.datafactory.LinkedServiceAzureDatabricksNewClusterConfigArgs(
+            new_cluster_config=azure.datafactory.LinkedServiceAzureDatabricksNewClusterConfigArrgs(
                 node_type="Standard_NC12",
                 cluster_version="5.5.x-gpu-scala2.11",
                 min_number_of_workers=1,
@@ -689,12 +689,12 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LinkedServiceAzureDatabricksArgs args: The arguments to use to populate this resource's properties.
+        :param LinkedServiceAzureDatabricksArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceAzureDatabricksArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceAzureDatabricksArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -710,12 +710,12 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  existing_cluster_id: Optional[pulumi.Input[str]] = None,
-                 instance_pool: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksInstancePoolArgs']]] = None,
+                 instance_pool: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksInstancePoolArrgs']]] = None,
                  integration_runtime_name: Optional[pulumi.Input[str]] = None,
-                 key_vault_password: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksKeyVaultPasswordArgs']]] = None,
+                 key_vault_password: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksKeyVaultPasswordArrgs']]] = None,
                  msi_work_space_resource_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 new_cluster_config: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksNewClusterConfigArgs']]] = None,
+                 new_cluster_config: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksNewClusterConfigArrgs']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -724,7 +724,7 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LinkedServiceAzureDatabricksArgs.__new__(LinkedServiceAzureDatabricksArgs)
+            __props__ = LinkedServiceAzureDatabricksArrgs.__new__(LinkedServiceAzureDatabricksArrgs)
 
             __props__.__dict__["access_token"] = None if access_token is None else pulumi.Output.secret(access_token)
             if adb_domain is None and not opts.urn:
@@ -763,12 +763,12 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
             data_factory_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             existing_cluster_id: Optional[pulumi.Input[str]] = None,
-            instance_pool: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksInstancePoolArgs']]] = None,
+            instance_pool: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksInstancePoolArrgs']]] = None,
             integration_runtime_name: Optional[pulumi.Input[str]] = None,
-            key_vault_password: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksKeyVaultPasswordArgs']]] = None,
+            key_vault_password: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksKeyVaultPasswordArrgs']]] = None,
             msi_work_space_resource_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            new_cluster_config: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksNewClusterConfigArgs']]] = None,
+            new_cluster_config: Optional[pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksNewClusterConfigArrgs']]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'LinkedServiceAzureDatabricks':
         """
         Get an existing LinkedServiceAzureDatabricks resource's state with the given name, id, and optional extra
@@ -784,12 +784,12 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Linked Service.
         :param pulumi.Input[str] existing_cluster_id: The cluster_id of an existing cluster within the linked ADB instance.
-        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksInstancePoolArgs']] instance_pool: Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
+        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksInstancePoolArrgs']] instance_pool: Leverages an instance pool within the linked ADB instance as defined by `instance_pool` block below.
         :param pulumi.Input[str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service.
-        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksKeyVaultPasswordArgs']] key_vault_password: Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
+        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksKeyVaultPasswordArrgs']] key_vault_password: Authenticate to ADB via Azure Key Vault Linked Service as defined in the `key_vault_password` block below.
         :param pulumi.Input[str] msi_work_space_resource_id: Authenticate to ADB via managed service identity.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
-        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksNewClusterConfigArgs']] new_cluster_config: Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
+        :param pulumi.Input[pulumi.InputType['LinkedServiceAzureDatabricksNewClusterConfigArrgs']] new_cluster_config: Creates new clusters within the linked ADB instance as defined in the `new_cluster_config` block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Linked Service.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

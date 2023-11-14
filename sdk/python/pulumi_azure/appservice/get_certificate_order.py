@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetCertificateOrderResult:
+calass GetCertificateOrderResult:
     """
     A collection of values returned by getCertificateOrder.
     """
@@ -239,7 +239,7 @@ class GetCertificateOrderResult:
         return pulumi.get(self, "validity_in_years")
 
 
-class AwaitableGetCertificateOrderResult(GetCertificateOrderResult):
+calass AwaitableGetCertificateOrderResult(GetCertificateOrderResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

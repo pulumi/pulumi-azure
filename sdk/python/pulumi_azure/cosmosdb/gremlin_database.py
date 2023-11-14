@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['GremlinDatabaseArgs', 'GremlinDatabase']
+__all__ = ['GremlinDatabaseArrgs', 'GremlinDatabase']
 
 @pulumi.input_type
-class GremlinDatabaseArgs:
+calass GremlinDatabaseArrgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 autoscale_settings: Optional[pulumi.Input['GremlinDatabaseAutoscaleSettingsArgs']] = None,
+                 autoscale_settings: Optional[pulumi.Input['GremlinDatabaseAutoscaleSettingsArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  throughput: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a GremlinDatabase resource.
         :param pulumi.Input[str] account_name: The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Cosmos DB Gremlin Database is created. Changing this forces a new resource to be created.
-        :param pulumi.Input['GremlinDatabaseAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+        :param pulumi.Input['GremlinDatabaseAutoscaleSettingsArrgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
                
                > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
@@ -68,7 +68,7 @@ class GremlinDatabaseArgs:
 
     @property
     @pulumi.getter(name="autoscaleSettings")
-    def autoscale_settings(self) -> Optional[pulumi.Input['GremlinDatabaseAutoscaleSettingsArgs']]:
+    def autoscale_settings(self) -> Optional[pulumi.Input['GremlinDatabaseAutoscaleSettingsArrgs']]:
         """
         An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 
@@ -77,7 +77,7 @@ class GremlinDatabaseArgs:
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
-    def autoscale_settings(self, value: Optional[pulumi.Input['GremlinDatabaseAutoscaleSettingsArgs']]):
+    def autoscale_settings(self, value: Optional[pulumi.Input['GremlinDatabaseAutoscaleSettingsArrgs']]):
         pulumi.set(self, "autoscale_settings", value)
 
     @property
@@ -108,17 +108,17 @@ class GremlinDatabaseArgs:
 
 
 @pulumi.input_type
-class _GremlinDatabaseState:
+calass _GremlinDatabaseState:
     def __init__(__self__, *,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 autoscale_settings: Optional[pulumi.Input['GremlinDatabaseAutoscaleSettingsArgs']] = None,
+                 autoscale_settings: Optional[pulumi.Input['GremlinDatabaseAutoscaleSettingsArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  throughput: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering GremlinDatabase resources.
         :param pulumi.Input[str] account_name: The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
-        :param pulumi.Input['GremlinDatabaseAutoscaleSettingsArgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+        :param pulumi.Input['GremlinDatabaseAutoscaleSettingsArrgs'] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
                
                > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
@@ -152,7 +152,7 @@ class _GremlinDatabaseState:
 
     @property
     @pulumi.getter(name="autoscaleSettings")
-    def autoscale_settings(self) -> Optional[pulumi.Input['GremlinDatabaseAutoscaleSettingsArgs']]:
+    def autoscale_settings(self) -> Optional[pulumi.Input['GremlinDatabaseAutoscaleSettingsArrgs']]:
         """
         An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
 
@@ -161,7 +161,7 @@ class _GremlinDatabaseState:
         return pulumi.get(self, "autoscale_settings")
 
     @autoscale_settings.setter
-    def autoscale_settings(self, value: Optional[pulumi.Input['GremlinDatabaseAutoscaleSettingsArgs']]):
+    def autoscale_settings(self, value: Optional[pulumi.Input['GremlinDatabaseAutoscaleSettingsArrgs']]):
         pulumi.set(self, "autoscale_settings", value)
 
     @property
@@ -203,13 +203,13 @@ class _GremlinDatabaseState:
         pulumi.set(self, "throughput", value)
 
 
-class GremlinDatabase(pulumi.CustomResource):
+calass GremlinDatabase(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 autoscale_settings: Optional[pulumi.Input[pulumi.InputType['GremlinDatabaseAutoscaleSettingsArgs']]] = None,
+                 autoscale_settings: Optional[pulumi.Input[pulumi.InputType['GremlinDatabaseAutoscaleSettingsArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
@@ -242,7 +242,7 @@ class GremlinDatabase(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['GremlinDatabaseAutoscaleSettingsArgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+        :param pulumi.Input[pulumi.InputType['GremlinDatabaseAutoscaleSettingsArrgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
                
                > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.
@@ -255,7 +255,7 @@ class GremlinDatabase(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GremlinDatabaseArgs,
+                 args: GremlinDatabaseArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Gremlin Database within a Cosmos DB Account.
@@ -283,12 +283,12 @@ class GremlinDatabase(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param GremlinDatabaseArgs args: The arguments to use to populate this resource's properties.
+        :param GremlinDatabaseArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GremlinDatabaseArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GremlinDatabaseArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -298,7 +298,7 @@ class GremlinDatabase(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: Optional[pulumi.Input[str]] = None,
-                 autoscale_settings: Optional[pulumi.Input[pulumi.InputType['GremlinDatabaseAutoscaleSettingsArgs']]] = None,
+                 autoscale_settings: Optional[pulumi.Input[pulumi.InputType['GremlinDatabaseAutoscaleSettingsArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
@@ -309,7 +309,7 @@ class GremlinDatabase(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GremlinDatabaseArgs.__new__(GremlinDatabaseArgs)
+            __props__ = GremlinDatabaseArrgs.__new__(GremlinDatabaseArrgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
@@ -331,7 +331,7 @@ class GremlinDatabase(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: Optional[pulumi.Input[str]] = None,
-            autoscale_settings: Optional[pulumi.Input[pulumi.InputType['GremlinDatabaseAutoscaleSettingsArgs']]] = None,
+            autoscale_settings: Optional[pulumi.Input[pulumi.InputType['GremlinDatabaseAutoscaleSettingsArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             throughput: Optional[pulumi.Input[int]] = None) -> 'GremlinDatabase':
@@ -343,7 +343,7 @@ class GremlinDatabase(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the CosmosDB Account to create the Gremlin Database within. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['GremlinDatabaseAutoscaleSettingsArgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
+        :param pulumi.Input[pulumi.InputType['GremlinDatabaseAutoscaleSettingsArrgs']] autoscale_settings: An `autoscale_settings` block as defined below. This must be set upon database creation otherwise it cannot be updated without a manual destroy-apply.
                
                > **Note:** Switching between autoscale and manual throughput is not supported via this provider and must be completed via the Azure Portal and refreshed.
         :param pulumi.Input[str] name: Specifies the name of the Cosmos DB Gremlin Database. Changing this forces a new resource to be created.

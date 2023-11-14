@@ -10,47 +10,47 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'SpringCloudApiPortalSsoArgs',
-    'SpringCloudAppCustomPersistentDiskArgs',
-    'SpringCloudAppIdentityArgs',
-    'SpringCloudAppIngressSettingsArgs',
-    'SpringCloudAppPersistentDiskArgs',
-    'SpringCloudBuildDeploymentQuotaArgs',
-    'SpringCloudBuildPackBindingLaunchArgs',
-    'SpringCloudBuilderBuildPackGroupArgs',
-    'SpringCloudBuilderStackArgs',
-    'SpringCloudConfigurationServiceRepositoryArgs',
-    'SpringCloudConnectionAuthenticationArgs',
-    'SpringCloudConnectionSecretStoreArgs',
-    'SpringCloudContainerDeploymentQuotaArgs',
-    'SpringCloudCustomizedAcceleratorGitRepositoryArgs',
-    'SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs',
-    'SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs',
-    'SpringCloudDevToolPortalSsoArgs',
-    'SpringCloudGatewayApiMetadataArgs',
-    'SpringCloudGatewayClientAuthorizationArgs',
-    'SpringCloudGatewayCorsArgs',
-    'SpringCloudGatewayQuotaArgs',
-    'SpringCloudGatewayRouteConfigOpenApiArgs',
-    'SpringCloudGatewayRouteConfigRouteArgs',
-    'SpringCloudGatewaySsoArgs',
-    'SpringCloudJavaDeploymentQuotaArgs',
-    'SpringCloudServiceConfigServerGitSettingArgs',
-    'SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs',
-    'SpringCloudServiceConfigServerGitSettingRepositoryArgs',
-    'SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs',
-    'SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs',
-    'SpringCloudServiceConfigServerGitSettingSshAuthArgs',
-    'SpringCloudServiceContainerRegistryArgs',
-    'SpringCloudServiceDefaultBuildServiceArgs',
-    'SpringCloudServiceMarketplaceArgs',
-    'SpringCloudServiceNetworkArgs',
-    'SpringCloudServiceRequiredNetworkTrafficRuleArgs',
-    'SpringCloudServiceTraceArgs',
+    'SpringCloudApiPortalSsoArrgs',
+    'SpringCloudAppCustomPersistentDiskArrgs',
+    'SpringCloudAppIdentityArrgs',
+    'SpringCloudAppIngressSettingsArrgs',
+    'SpringCloudAppPersistentDiskArrgs',
+    'SpringCloudBuildDeploymentQuotaArrgs',
+    'SpringCloudBuildPackBindingLaunchArrgs',
+    'SpringCloudBuilderBuildPackGroupArrgs',
+    'SpringCloudBuilderStackArrgs',
+    'SpringCloudConfigurationServiceRepositoryArrgs',
+    'SpringCloudConnectionAuthenticationArrgs',
+    'SpringCloudConnectionSecretStoreArrgs',
+    'SpringCloudContainerDeploymentQuotaArrgs',
+    'SpringCloudCustomizedAcceleratorGitRepositoryArrgs',
+    'SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArrgs',
+    'SpringCloudCustomizedAcceleratorGitRepositorySshAuthArrgs',
+    'SpringCloudDevToolPortalSsoArrgs',
+    'SpringCloudGatewayApiMetadataArrgs',
+    'SpringCloudGatewayClientAuthorizationArrgs',
+    'SpringCloudGatewayCorsArrgs',
+    'SpringCloudGatewayQuotaArrgs',
+    'SpringCloudGatewayRouteConfigOpenApiArrgs',
+    'SpringCloudGatewayRouteConfigRouteArrgs',
+    'SpringCloudGatewaySsoArrgs',
+    'SpringCloudJavaDeploymentQuotaArrgs',
+    'SpringCloudServiceConfigServerGitSettingArrgs',
+    'SpringCloudServiceConfigServerGitSettingHttpBasicAuthArrgs',
+    'SpringCloudServiceConfigServerGitSettingRepositoryArrgs',
+    'SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrgs',
+    'SpringCloudServiceConfigServerGitSettingRepositorySshAuthArrgs',
+    'SpringCloudServiceConfigServerGitSettingSshAuthArrgs',
+    'SpringCloudServiceContainerRegistryArrgs',
+    'SpringCloudServiceDefaultBuildServiceArrgs',
+    'SpringCloudServiceMarketplaceArrgs',
+    'SpringCloudServiceNetworkArrgs',
+    'SpringCloudServiceRequiredNetworkTrafficRuleArrgs',
+    'SpringCloudServiceTraceArrgs',
 ]
 
 @pulumi.input_type
-class SpringCloudApiPortalSsoArgs:
+calass SpringCloudApiPortalSsoArrgs:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class SpringCloudApiPortalSsoArgs:
 
 
 @pulumi.input_type
-class SpringCloudAppCustomPersistentDiskArgs:
+calass SpringCloudAppCustomPersistentDiskArrgs:
     def __init__(__self__, *,
                  mount_path: pulumi.Input[str],
                  share_name: pulumi.Input[str],
@@ -205,7 +205,7 @@ class SpringCloudAppCustomPersistentDiskArgs:
 
 
 @pulumi.input_type
-class SpringCloudAppIdentityArgs:
+calass SpringCloudAppIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -279,7 +279,7 @@ class SpringCloudAppIdentityArgs:
 
 
 @pulumi.input_type
-class SpringCloudAppIngressSettingsArgs:
+calass SpringCloudAppIngressSettingsArrgs:
     def __init__(__self__, *,
                  backend_protocol: Optional[pulumi.Input[str]] = None,
                  read_timeout_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -366,7 +366,7 @@ class SpringCloudAppIngressSettingsArgs:
 
 
 @pulumi.input_type
-class SpringCloudAppPersistentDiskArgs:
+calass SpringCloudAppPersistentDiskArrgs:
     def __init__(__self__, *,
                  size_in_gb: pulumi.Input[int],
                  mount_path: Optional[pulumi.Input[str]] = None):
@@ -404,7 +404,7 @@ class SpringCloudAppPersistentDiskArgs:
 
 
 @pulumi.input_type
-class SpringCloudBuildDeploymentQuotaArgs:
+calass SpringCloudBuildDeploymentQuotaArrgs:
     def __init__(__self__, *,
                  cpu: Optional[pulumi.Input[str]] = None,
                  memory: Optional[pulumi.Input[str]] = None):
@@ -451,7 +451,7 @@ class SpringCloudBuildDeploymentQuotaArgs:
 
 
 @pulumi.input_type
-class SpringCloudBuildPackBindingLaunchArgs:
+calass SpringCloudBuildPackBindingLaunchArrgs:
     def __init__(__self__, *,
                  properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  secrets: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -490,7 +490,7 @@ class SpringCloudBuildPackBindingLaunchArgs:
 
 
 @pulumi.input_type
-class SpringCloudBuilderBuildPackGroupArgs:
+calass SpringCloudBuilderBuildPackGroupArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  build_pack_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -528,7 +528,7 @@ class SpringCloudBuilderBuildPackGroupArgs:
 
 
 @pulumi.input_type
-class SpringCloudBuilderStackArgs:
+calass SpringCloudBuilderStackArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  version: pulumi.Input[str]):
@@ -565,7 +565,7 @@ class SpringCloudBuilderStackArgs:
 
 
 @pulumi.input_type
-class SpringCloudConfigurationServiceRepositoryArgs:
+calass SpringCloudConfigurationServiceRepositoryArrgs:
     def __init__(__self__, *,
                  label: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -760,7 +760,7 @@ class SpringCloudConfigurationServiceRepositoryArgs:
 
 
 @pulumi.input_type
-class SpringCloudConnectionAuthenticationArgs:
+calass SpringCloudConnectionAuthenticationArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  certificate: Optional[pulumi.Input[str]] = None,
@@ -878,7 +878,7 @@ class SpringCloudConnectionAuthenticationArgs:
 
 
 @pulumi.input_type
-class SpringCloudConnectionSecretStoreArgs:
+calass SpringCloudConnectionSecretStoreArrgs:
     def __init__(__self__, *,
                  key_vault_id: pulumi.Input[str]):
         """
@@ -900,7 +900,7 @@ class SpringCloudConnectionSecretStoreArgs:
 
 
 @pulumi.input_type
-class SpringCloudContainerDeploymentQuotaArgs:
+calass SpringCloudContainerDeploymentQuotaArrgs:
     def __init__(__self__, *,
                  cpu: Optional[pulumi.Input[str]] = None,
                  memory: Optional[pulumi.Input[str]] = None):
@@ -947,25 +947,25 @@ class SpringCloudContainerDeploymentQuotaArgs:
 
 
 @pulumi.input_type
-class SpringCloudCustomizedAcceleratorGitRepositoryArgs:
+calass SpringCloudCustomizedAcceleratorGitRepositoryArrgs:
     def __init__(__self__, *,
                  url: pulumi.Input[str],
-                 basic_auth: Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs']] = None,
+                 basic_auth: Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArrgs']] = None,
                  branch: Optional[pulumi.Input[str]] = None,
                  ca_certificate_id: Optional[pulumi.Input[str]] = None,
                  commit: Optional[pulumi.Input[str]] = None,
                  git_tag: Optional[pulumi.Input[str]] = None,
                  interval_in_seconds: Optional[pulumi.Input[int]] = None,
-                 ssh_auth: Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs']] = None):
+                 ssh_auth: Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositorySshAuthArrgs']] = None):
         """
         :param pulumi.Input[str] url: Specifies Git repository URL for the accelerator.
-        :param pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs'] basic_auth: A `basic_auth` block as defined below. Conflicts with `git_repository.0.ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+        :param pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArrgs'] basic_auth: A `basic_auth` block as defined below. Conflicts with `git_repository.0.ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         :param pulumi.Input[str] branch: Specifies the Git repository branch to be used.
         :param pulumi.Input[str] ca_certificate_id: Specifies the ID of the CA Spring Cloud Certificate for https URL of Git repository.
         :param pulumi.Input[str] commit: Specifies the Git repository commit to be used.
         :param pulumi.Input[str] git_tag: Specifies the Git repository tag to be used.
         :param pulumi.Input[int] interval_in_seconds: Specifies the interval for checking for updates to Git or image repository. It should be greater than 10.
-        :param pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs'] ssh_auth: A `ssh_auth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
+        :param pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositorySshAuthArrgs'] ssh_auth: A `ssh_auth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         """
         pulumi.set(__self__, "url", url)
         if basic_auth is not None:
@@ -997,14 +997,14 @@ class SpringCloudCustomizedAcceleratorGitRepositoryArgs:
 
     @property
     @pulumi.getter(name="basicAuth")
-    def basic_auth(self) -> Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs']]:
+    def basic_auth(self) -> Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArrgs']]:
         """
         A `basic_auth` block as defined below. Conflicts with `git_repository.0.ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         """
         return pulumi.get(self, "basic_auth")
 
     @basic_auth.setter
-    def basic_auth(self, value: Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs']]):
+    def basic_auth(self, value: Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArrgs']]):
         pulumi.set(self, "basic_auth", value)
 
     @property
@@ -1069,19 +1069,19 @@ class SpringCloudCustomizedAcceleratorGitRepositoryArgs:
 
     @property
     @pulumi.getter(name="sshAuth")
-    def ssh_auth(self) -> Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs']]:
+    def ssh_auth(self) -> Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositorySshAuthArrgs']]:
         """
         A `ssh_auth` block as defined below. Conflicts with `git_repository.0.basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
         """
         return pulumi.get(self, "ssh_auth")
 
     @ssh_auth.setter
-    def ssh_auth(self, value: Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs']]):
+    def ssh_auth(self, value: Optional[pulumi.Input['SpringCloudCustomizedAcceleratorGitRepositorySshAuthArrgs']]):
         pulumi.set(self, "ssh_auth", value)
 
 
 @pulumi.input_type
-class SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs:
+calass SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArrgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
@@ -1118,7 +1118,7 @@ class SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs:
 
 
 @pulumi.input_type
-class SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs:
+calass SpringCloudCustomizedAcceleratorGitRepositorySshAuthArrgs:
     def __init__(__self__, *,
                  private_key: pulumi.Input[str],
                  host_key: Optional[pulumi.Input[str]] = None,
@@ -1172,7 +1172,7 @@ class SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs:
 
 
 @pulumi.input_type
-class SpringCloudDevToolPortalSsoArgs:
+calass SpringCloudDevToolPortalSsoArrgs:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -1243,7 +1243,7 @@ class SpringCloudDevToolPortalSsoArgs:
 
 
 @pulumi.input_type
-class SpringCloudGatewayApiMetadataArgs:
+calass SpringCloudGatewayApiMetadataArrgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  documentation_url: Optional[pulumi.Input[str]] = None,
@@ -1330,7 +1330,7 @@ class SpringCloudGatewayApiMetadataArgs:
 
 
 @pulumi.input_type
-class SpringCloudGatewayClientAuthorizationArgs:
+calass SpringCloudGatewayClientAuthorizationArrgs:
     def __init__(__self__, *,
                  certificate_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  verification_enabled: Optional[pulumi.Input[bool]] = None):
@@ -1369,7 +1369,7 @@ class SpringCloudGatewayClientAuthorizationArgs:
 
 
 @pulumi.input_type
-class SpringCloudGatewayCorsArgs:
+calass SpringCloudGatewayCorsArrgs:
     def __init__(__self__, *,
                  allowed_headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  allowed_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1488,7 +1488,7 @@ class SpringCloudGatewayCorsArgs:
 
 
 @pulumi.input_type
-class SpringCloudGatewayQuotaArgs:
+calass SpringCloudGatewayQuotaArrgs:
     def __init__(__self__, *,
                  cpu: Optional[pulumi.Input[str]] = None,
                  memory: Optional[pulumi.Input[str]] = None):
@@ -1535,7 +1535,7 @@ class SpringCloudGatewayQuotaArgs:
 
 
 @pulumi.input_type
-class SpringCloudGatewayRouteConfigOpenApiArgs:
+calass SpringCloudGatewayRouteConfigOpenApiArrgs:
     def __init__(__self__, *,
                  uri: Optional[pulumi.Input[str]] = None):
         """
@@ -1558,7 +1558,7 @@ class SpringCloudGatewayRouteConfigOpenApiArgs:
 
 
 @pulumi.input_type
-class SpringCloudGatewayRouteConfigRouteArgs:
+calass SpringCloudGatewayRouteConfigRouteArrgs:
     def __init__(__self__, *,
                  order: pulumi.Input[int],
                  classification_tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1708,7 +1708,7 @@ class SpringCloudGatewayRouteConfigRouteArgs:
 
 
 @pulumi.input_type
-class SpringCloudGatewaySsoArgs:
+calass SpringCloudGatewaySsoArrgs:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
@@ -1779,7 +1779,7 @@ class SpringCloudGatewaySsoArgs:
 
 
 @pulumi.input_type
-class SpringCloudJavaDeploymentQuotaArgs:
+calass SpringCloudJavaDeploymentQuotaArrgs:
     def __init__(__self__, *,
                  cpu: Optional[pulumi.Input[str]] = None,
                  memory: Optional[pulumi.Input[str]] = None):
@@ -1826,21 +1826,21 @@ class SpringCloudJavaDeploymentQuotaArgs:
 
 
 @pulumi.input_type
-class SpringCloudServiceConfigServerGitSettingArgs:
+calass SpringCloudServiceConfigServerGitSettingArrgs:
     def __init__(__self__, *,
                  uri: pulumi.Input[str],
-                 http_basic_auth: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs']] = None,
+                 http_basic_auth: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingHttpBasicAuthArrgs']] = None,
                  label: Optional[pulumi.Input[str]] = None,
-                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryArgs']]]] = None,
+                 repositories: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryArrgs']]]] = None,
                  search_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 ssh_auth: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingSshAuthArgs']] = None):
+                 ssh_auth: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingSshAuthArrgs']] = None):
         """
         :param pulumi.Input[str] uri: The URI of the default Git repository used as the Config Server back end, should be started with `http://`, `https://`, `git@`, or `ssh://`.
-        :param pulumi.Input['SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs'] http_basic_auth: A `http_basic_auth` block as defined below.
+        :param pulumi.Input['SpringCloudServiceConfigServerGitSettingHttpBasicAuthArrgs'] http_basic_auth: A `http_basic_auth` block as defined below.
         :param pulumi.Input[str] label: The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
-        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryArgs']]] repositories: One or more `repository` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryArrgs']]] repositories: One or more `repository` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] search_paths: An array of strings used to search subdirectories of the Git repository.
-        :param pulumi.Input['SpringCloudServiceConfigServerGitSettingSshAuthArgs'] ssh_auth: A `ssh_auth` block as defined below.
+        :param pulumi.Input['SpringCloudServiceConfigServerGitSettingSshAuthArrgs'] ssh_auth: A `ssh_auth` block as defined below.
         """
         pulumi.set(__self__, "uri", uri)
         if http_basic_auth is not None:
@@ -1868,14 +1868,14 @@ class SpringCloudServiceConfigServerGitSettingArgs:
 
     @property
     @pulumi.getter(name="httpBasicAuth")
-    def http_basic_auth(self) -> Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs']]:
+    def http_basic_auth(self) -> Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingHttpBasicAuthArrgs']]:
         """
         A `http_basic_auth` block as defined below.
         """
         return pulumi.get(self, "http_basic_auth")
 
     @http_basic_auth.setter
-    def http_basic_auth(self, value: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs']]):
+    def http_basic_auth(self, value: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingHttpBasicAuthArrgs']]):
         pulumi.set(self, "http_basic_auth", value)
 
     @property
@@ -1892,14 +1892,14 @@ class SpringCloudServiceConfigServerGitSettingArgs:
 
     @property
     @pulumi.getter
-    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryArgs']]]]:
+    def repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryArrgs']]]]:
         """
         One or more `repository` blocks as defined below.
         """
         return pulumi.get(self, "repositories")
 
     @repositories.setter
-    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryArgs']]]]):
+    def repositories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryArrgs']]]]):
         pulumi.set(self, "repositories", value)
 
     @property
@@ -1916,19 +1916,19 @@ class SpringCloudServiceConfigServerGitSettingArgs:
 
     @property
     @pulumi.getter(name="sshAuth")
-    def ssh_auth(self) -> Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingSshAuthArgs']]:
+    def ssh_auth(self) -> Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingSshAuthArrgs']]:
         """
         A `ssh_auth` block as defined below.
         """
         return pulumi.get(self, "ssh_auth")
 
     @ssh_auth.setter
-    def ssh_auth(self, value: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingSshAuthArgs']]):
+    def ssh_auth(self, value: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingSshAuthArrgs']]):
         pulumi.set(self, "ssh_auth", value)
 
 
 @pulumi.input_type
-class SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs:
+calass SpringCloudServiceConfigServerGitSettingHttpBasicAuthArrgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
@@ -1965,23 +1965,23 @@ class SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs:
 
 
 @pulumi.input_type
-class SpringCloudServiceConfigServerGitSettingRepositoryArgs:
+calass SpringCloudServiceConfigServerGitSettingRepositoryArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  uri: pulumi.Input[str],
-                 http_basic_auth: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs']] = None,
+                 http_basic_auth: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrgs']] = None,
                  label: Optional[pulumi.Input[str]] = None,
                  patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  search_paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 ssh_auth: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs']] = None):
+                 ssh_auth: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositorySshAuthArrgs']] = None):
         """
         :param pulumi.Input[str] name: A name to identify on the Git repository, required only if repos exists.
         :param pulumi.Input[str] uri: The URI of the Git repository that's used as the Config Server back end should be started with `http://`, `https://`, `git@`, or `ssh://`.
-        :param pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs'] http_basic_auth: A `http_basic_auth` block as defined below.
+        :param pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrgs'] http_basic_auth: A `http_basic_auth` block as defined below.
         :param pulumi.Input[str] label: The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] patterns: An array of strings used to match an application name. For each pattern, use the `{application}/{profile}` format with wildcards.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] search_paths: An array of strings used to search subdirectories of the Git repository.
-        :param pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs'] ssh_auth: A `ssh_auth` block as defined below.
+        :param pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositorySshAuthArrgs'] ssh_auth: A `ssh_auth` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "uri", uri)
@@ -2022,14 +2022,14 @@ class SpringCloudServiceConfigServerGitSettingRepositoryArgs:
 
     @property
     @pulumi.getter(name="httpBasicAuth")
-    def http_basic_auth(self) -> Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs']]:
+    def http_basic_auth(self) -> Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrgs']]:
         """
         A `http_basic_auth` block as defined below.
         """
         return pulumi.get(self, "http_basic_auth")
 
     @http_basic_auth.setter
-    def http_basic_auth(self, value: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs']]):
+    def http_basic_auth(self, value: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrgs']]):
         pulumi.set(self, "http_basic_auth", value)
 
     @property
@@ -2070,19 +2070,19 @@ class SpringCloudServiceConfigServerGitSettingRepositoryArgs:
 
     @property
     @pulumi.getter(name="sshAuth")
-    def ssh_auth(self) -> Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs']]:
+    def ssh_auth(self) -> Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositorySshAuthArrgs']]:
         """
         A `ssh_auth` block as defined below.
         """
         return pulumi.get(self, "ssh_auth")
 
     @ssh_auth.setter
-    def ssh_auth(self, value: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs']]):
+    def ssh_auth(self, value: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositorySshAuthArrgs']]):
         pulumi.set(self, "ssh_auth", value)
 
 
 @pulumi.input_type
-class SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs:
+calass SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArrgs:
     def __init__(__self__, *,
                  password: pulumi.Input[str],
                  username: pulumi.Input[str]):
@@ -2119,7 +2119,7 @@ class SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs:
 
 
 @pulumi.input_type
-class SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs:
+calass SpringCloudServiceConfigServerGitSettingRepositorySshAuthArrgs:
     def __init__(__self__, *,
                  private_key: pulumi.Input[str],
                  host_key: Optional[pulumi.Input[str]] = None,
@@ -2189,7 +2189,7 @@ class SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs:
 
 
 @pulumi.input_type
-class SpringCloudServiceConfigServerGitSettingSshAuthArgs:
+calass SpringCloudServiceConfigServerGitSettingSshAuthArrgs:
     def __init__(__self__, *,
                  private_key: pulumi.Input[str],
                  host_key: Optional[pulumi.Input[str]] = None,
@@ -2259,7 +2259,7 @@ class SpringCloudServiceConfigServerGitSettingSshAuthArgs:
 
 
 @pulumi.input_type
-class SpringCloudServiceContainerRegistryArgs:
+calass SpringCloudServiceContainerRegistryArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -2326,7 +2326,7 @@ class SpringCloudServiceContainerRegistryArgs:
 
 
 @pulumi.input_type
-class SpringCloudServiceDefaultBuildServiceArgs:
+calass SpringCloudServiceDefaultBuildServiceArrgs:
     def __init__(__self__, *,
                  container_registry_name: Optional[pulumi.Input[str]] = None):
         """
@@ -2349,7 +2349,7 @@ class SpringCloudServiceDefaultBuildServiceArgs:
 
 
 @pulumi.input_type
-class SpringCloudServiceMarketplaceArgs:
+calass SpringCloudServiceMarketplaceArrgs:
     def __init__(__self__, *,
                  plan: pulumi.Input[str],
                  product: pulumi.Input[str],
@@ -2401,7 +2401,7 @@ class SpringCloudServiceMarketplaceArgs:
 
 
 @pulumi.input_type
-class SpringCloudServiceNetworkArgs:
+calass SpringCloudServiceNetworkArrgs:
     def __init__(__self__, *,
                  app_subnet_id: pulumi.Input[str],
                  cidr_ranges: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -2517,7 +2517,7 @@ class SpringCloudServiceNetworkArgs:
 
 
 @pulumi.input_type
-class SpringCloudServiceRequiredNetworkTrafficRuleArgs:
+calass SpringCloudServiceRequiredNetworkTrafficRuleArrgs:
     def __init__(__self__, *,
                  direction: Optional[pulumi.Input[str]] = None,
                  fqdns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2604,7 +2604,7 @@ class SpringCloudServiceRequiredNetworkTrafficRuleArgs:
 
 
 @pulumi.input_type
-class SpringCloudServiceTraceArgs:
+calass SpringCloudServiceTraceArrgs:
     def __init__(__self__, *,
                  connection_string: Optional[pulumi.Input[str]] = None,
                  sample_rate: Optional[pulumi.Input[float]] = None):

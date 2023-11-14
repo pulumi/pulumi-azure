@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetEndpointConnectionResult:
+calass GetEndpointConnectionResult:
     """
     A collection of values returned by getEndpointConnection.
     """
@@ -82,7 +82,7 @@ class GetEndpointConnectionResult:
         return pulumi.get(self, "resource_group_name")
 
 
-class AwaitableGetEndpointConnectionResult(GetEndpointConnectionResult):
+calass AwaitableGetEndpointConnectionResult(GetEndpointConnectionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

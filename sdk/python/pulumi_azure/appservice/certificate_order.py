@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CertificateOrderArgs', 'CertificateOrder']
+__all__ = ['CertificateOrderArrgs', 'CertificateOrder']
 
 @pulumi.input_type
-class CertificateOrderArgs:
+calass CertificateOrderArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  auto_renew: Optional[pulumi.Input[bool]] = None,
@@ -185,11 +185,11 @@ class CertificateOrderArgs:
 
 
 @pulumi.input_type
-class _CertificateOrderState:
+calass _CertificateOrderState:
     def __init__(__self__, *,
                  app_service_certificate_not_renewable_reasons: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_renew: Optional[pulumi.Input[bool]] = None,
-                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateOrderCertificateArgs']]]] = None,
+                 certificates: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateOrderCertificateArrgs']]]] = None,
                  csr: Optional[pulumi.Input[str]] = None,
                  distinguished_name: Optional[pulumi.Input[str]] = None,
                  domain_verification_token: Optional[pulumi.Input[str]] = None,
@@ -210,7 +210,7 @@ class _CertificateOrderState:
         Input properties used for looking up and filtering CertificateOrder resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] app_service_certificate_not_renewable_reasons: Reasons why App Service Certificate is not renewable at the current moment.
         :param pulumi.Input[bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['CertificateOrderCertificateArgs']]] certificates: State of the Key Vault secret. A `certificates` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateOrderCertificateArrgs']]] certificates: State of the Key Vault secret. A `certificates` block as defined below.
         :param pulumi.Input[str] csr: Last CSR that was created for this order.
         :param pulumi.Input[str] distinguished_name: The Distinguished Name for the App Service Certificate Order.
                
@@ -295,14 +295,14 @@ class _CertificateOrderState:
 
     @property
     @pulumi.getter
-    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateOrderCertificateArgs']]]]:
+    def certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateOrderCertificateArrgs']]]]:
         """
         State of the Key Vault secret. A `certificates` block as defined below.
         """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateOrderCertificateArgs']]]]):
+    def certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateOrderCertificateArrgs']]]]):
         pulumi.set(self, "certificates", value)
 
     @property
@@ -500,7 +500,7 @@ class _CertificateOrderState:
         pulumi.set(self, "validity_in_years", value)
 
 
-class CertificateOrder(pulumi.CustomResource):
+calass CertificateOrder(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -560,7 +560,7 @@ class CertificateOrder(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CertificateOrderArgs,
+                 args: CertificateOrderArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an App Service Certificate Order.
@@ -588,12 +588,12 @@ class CertificateOrder(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CertificateOrderArgs args: The arguments to use to populate this resource's properties.
+        :param CertificateOrderArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CertificateOrderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CertificateOrderArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -619,7 +619,7 @@ class CertificateOrder(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CertificateOrderArgs.__new__(CertificateOrderArgs)
+            __props__ = CertificateOrderArrgs.__new__(CertificateOrderArrgs)
 
             __props__.__dict__["auto_renew"] = auto_renew
             __props__.__dict__["csr"] = csr
@@ -654,7 +654,7 @@ class CertificateOrder(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             app_service_certificate_not_renewable_reasons: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             auto_renew: Optional[pulumi.Input[bool]] = None,
-            certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateOrderCertificateArgs']]]]] = None,
+            certificates: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateOrderCertificateArrgs']]]]] = None,
             csr: Optional[pulumi.Input[str]] = None,
             distinguished_name: Optional[pulumi.Input[str]] = None,
             domain_verification_token: Optional[pulumi.Input[str]] = None,
@@ -680,7 +680,7 @@ class CertificateOrder(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] app_service_certificate_not_renewable_reasons: Reasons why App Service Certificate is not renewable at the current moment.
         :param pulumi.Input[bool] auto_renew: true if the certificate should be automatically renewed when it expires; otherwise, false. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateOrderCertificateArgs']]]] certificates: State of the Key Vault secret. A `certificates` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateOrderCertificateArrgs']]]] certificates: State of the Key Vault secret. A `certificates` block as defined below.
         :param pulumi.Input[str] csr: Last CSR that was created for this order.
         :param pulumi.Input[str] distinguished_name: The Distinguished Name for the App Service Certificate Order.
                

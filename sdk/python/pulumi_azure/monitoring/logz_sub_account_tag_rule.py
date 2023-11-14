@@ -11,23 +11,23 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LogzSubAccountTagRuleArgs', 'LogzSubAccountTagRule']
+__all__ = ['LogzSubAccountTagRuleArrgs', 'LogzSubAccountTagRule']
 
 @pulumi.input_type
-class LogzSubAccountTagRuleArgs:
+calass LogzSubAccountTagRuleArrgs:
     def __init__(__self__, *,
                  logz_sub_account_id: pulumi.Input[str],
                  send_aad_logs: Optional[pulumi.Input[bool]] = None,
                  send_activity_logs: Optional[pulumi.Input[bool]] = None,
                  send_subscription_logs: Optional[pulumi.Input[bool]] = None,
-                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogzSubAccountTagRuleTagFilterArgs']]]] = None):
+                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogzSubAccountTagRuleTagFilterArrgs']]]] = None):
         """
         The set of arguments for constructing a LogzSubAccountTagRule resource.
         :param pulumi.Input[str] logz_sub_account_id: The ID of the Logz Sub Account. Changing this forces a new Logz Sub Account Tag Rule to be created.
         :param pulumi.Input[bool] send_aad_logs: Whether AAD logs should be sent to the Monitor resource?
         :param pulumi.Input[bool] send_activity_logs: Whether activity logs from this Logz Sub Account Tag Rule should be sent to the Monitor resource?
         :param pulumi.Input[bool] send_subscription_logs: Whether subscription logs should be sent to the Monitor resource?
-        :param pulumi.Input[Sequence[pulumi.Input['LogzSubAccountTagRuleTagFilterArgs']]] tag_filters: One or more (up to 10) `tag_filter` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LogzSubAccountTagRuleTagFilterArrgs']]] tag_filters: One or more (up to 10) `tag_filter` blocks as defined below.
         """
         pulumi.set(__self__, "logz_sub_account_id", logz_sub_account_id)
         if send_aad_logs is not None:
@@ -89,32 +89,32 @@ class LogzSubAccountTagRuleArgs:
 
     @property
     @pulumi.getter(name="tagFilters")
-    def tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogzSubAccountTagRuleTagFilterArgs']]]]:
+    def tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogzSubAccountTagRuleTagFilterArrgs']]]]:
         """
         One or more (up to 10) `tag_filter` blocks as defined below.
         """
         return pulumi.get(self, "tag_filters")
 
     @tag_filters.setter
-    def tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogzSubAccountTagRuleTagFilterArgs']]]]):
+    def tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogzSubAccountTagRuleTagFilterArrgs']]]]):
         pulumi.set(self, "tag_filters", value)
 
 
 @pulumi.input_type
-class _LogzSubAccountTagRuleState:
+calass _LogzSubAccountTagRuleState:
     def __init__(__self__, *,
                  logz_sub_account_id: Optional[pulumi.Input[str]] = None,
                  send_aad_logs: Optional[pulumi.Input[bool]] = None,
                  send_activity_logs: Optional[pulumi.Input[bool]] = None,
                  send_subscription_logs: Optional[pulumi.Input[bool]] = None,
-                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogzSubAccountTagRuleTagFilterArgs']]]] = None):
+                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input['LogzSubAccountTagRuleTagFilterArrgs']]]] = None):
         """
         Input properties used for looking up and filtering LogzSubAccountTagRule resources.
         :param pulumi.Input[str] logz_sub_account_id: The ID of the Logz Sub Account. Changing this forces a new Logz Sub Account Tag Rule to be created.
         :param pulumi.Input[bool] send_aad_logs: Whether AAD logs should be sent to the Monitor resource?
         :param pulumi.Input[bool] send_activity_logs: Whether activity logs from this Logz Sub Account Tag Rule should be sent to the Monitor resource?
         :param pulumi.Input[bool] send_subscription_logs: Whether subscription logs should be sent to the Monitor resource?
-        :param pulumi.Input[Sequence[pulumi.Input['LogzSubAccountTagRuleTagFilterArgs']]] tag_filters: One or more (up to 10) `tag_filter` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LogzSubAccountTagRuleTagFilterArrgs']]] tag_filters: One or more (up to 10) `tag_filter` blocks as defined below.
         """
         if logz_sub_account_id is not None:
             pulumi.set(__self__, "logz_sub_account_id", logz_sub_account_id)
@@ -177,18 +177,18 @@ class _LogzSubAccountTagRuleState:
 
     @property
     @pulumi.getter(name="tagFilters")
-    def tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogzSubAccountTagRuleTagFilterArgs']]]]:
+    def tag_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogzSubAccountTagRuleTagFilterArrgs']]]]:
         """
         One or more (up to 10) `tag_filter` blocks as defined below.
         """
         return pulumi.get(self, "tag_filters")
 
     @tag_filters.setter
-    def tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogzSubAccountTagRuleTagFilterArgs']]]]):
+    def tag_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogzSubAccountTagRuleTagFilterArrgs']]]]):
         pulumi.set(self, "tag_filters", value)
 
 
-class LogzSubAccountTagRule(pulumi.CustomResource):
+calass LogzSubAccountTagRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -197,7 +197,7 @@ class LogzSubAccountTagRule(pulumi.CustomResource):
                  send_aad_logs: Optional[pulumi.Input[bool]] = None,
                  send_activity_logs: Optional[pulumi.Input[bool]] = None,
                  send_subscription_logs: Optional[pulumi.Input[bool]] = None,
-                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzSubAccountTagRuleTagFilterArgs']]]]] = None,
+                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzSubAccountTagRuleTagFilterArrgs']]]]] = None,
                  __props__=None):
         """
         Manages a Logz Sub Account Tag Rule.
@@ -212,12 +212,12 @@ class LogzSubAccountTagRule(pulumi.CustomResource):
         example_logz_monitor = azure.monitoring.LogzMonitor("exampleLogzMonitor",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            plan=azure.monitoring.LogzMonitorPlanArgs(
+            plan=azure.monitoring.LogzMonitorPlanArrgs(
                 billing_cycle="MONTHLY",
                 effective_date="2022-06-06T00:00:00Z",
                 usage_type="COMMITTED",
             ),
-            user=azure.monitoring.LogzMonitorUserArgs(
+            user=azure.monitoring.LogzMonitorUserArrgs(
                 email="user@example.com",
                 first_name="Example",
                 last_name="User",
@@ -225,7 +225,7 @@ class LogzSubAccountTagRule(pulumi.CustomResource):
             ))
         example_logz_sub_account = azure.monitoring.LogzSubAccount("exampleLogzSubAccount",
             logz_monitor_id=example_logz_monitor.id,
-            user=azure.monitoring.LogzSubAccountUserArgs(
+            user=azure.monitoring.LogzSubAccountUserArrgs(
                 email=example_logz_monitor.user.email,
                 first_name=example_logz_monitor.user.first_name,
                 last_name=example_logz_monitor.user.last_name,
@@ -237,12 +237,12 @@ class LogzSubAccountTagRule(pulumi.CustomResource):
             send_activity_logs=True,
             send_subscription_logs=True,
             tag_filters=[
-                azure.monitoring.LogzSubAccountTagRuleTagFilterArgs(
+                azure.monitoring.LogzSubAccountTagRuleTagFilterArrgs(
                     name="name1",
                     action="Include",
                     value="value1",
                 ),
-                azure.monitoring.LogzSubAccountTagRuleTagFilterArgs(
+                azure.monitoring.LogzSubAccountTagRuleTagFilterArrgs(
                     name="name2",
                     action="Exclude",
                     value="value2",
@@ -264,13 +264,13 @@ class LogzSubAccountTagRule(pulumi.CustomResource):
         :param pulumi.Input[bool] send_aad_logs: Whether AAD logs should be sent to the Monitor resource?
         :param pulumi.Input[bool] send_activity_logs: Whether activity logs from this Logz Sub Account Tag Rule should be sent to the Monitor resource?
         :param pulumi.Input[bool] send_subscription_logs: Whether subscription logs should be sent to the Monitor resource?
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzSubAccountTagRuleTagFilterArgs']]]] tag_filters: One or more (up to 10) `tag_filter` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzSubAccountTagRuleTagFilterArrgs']]]] tag_filters: One or more (up to 10) `tag_filter` blocks as defined below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LogzSubAccountTagRuleArgs,
+                 args: LogzSubAccountTagRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Logz Sub Account Tag Rule.
@@ -285,12 +285,12 @@ class LogzSubAccountTagRule(pulumi.CustomResource):
         example_logz_monitor = azure.monitoring.LogzMonitor("exampleLogzMonitor",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            plan=azure.monitoring.LogzMonitorPlanArgs(
+            plan=azure.monitoring.LogzMonitorPlanArrgs(
                 billing_cycle="MONTHLY",
                 effective_date="2022-06-06T00:00:00Z",
                 usage_type="COMMITTED",
             ),
-            user=azure.monitoring.LogzMonitorUserArgs(
+            user=azure.monitoring.LogzMonitorUserArrgs(
                 email="user@example.com",
                 first_name="Example",
                 last_name="User",
@@ -298,7 +298,7 @@ class LogzSubAccountTagRule(pulumi.CustomResource):
             ))
         example_logz_sub_account = azure.monitoring.LogzSubAccount("exampleLogzSubAccount",
             logz_monitor_id=example_logz_monitor.id,
-            user=azure.monitoring.LogzSubAccountUserArgs(
+            user=azure.monitoring.LogzSubAccountUserArrgs(
                 email=example_logz_monitor.user.email,
                 first_name=example_logz_monitor.user.first_name,
                 last_name=example_logz_monitor.user.last_name,
@@ -310,12 +310,12 @@ class LogzSubAccountTagRule(pulumi.CustomResource):
             send_activity_logs=True,
             send_subscription_logs=True,
             tag_filters=[
-                azure.monitoring.LogzSubAccountTagRuleTagFilterArgs(
+                azure.monitoring.LogzSubAccountTagRuleTagFilterArrgs(
                     name="name1",
                     action="Include",
                     value="value1",
                 ),
-                azure.monitoring.LogzSubAccountTagRuleTagFilterArgs(
+                azure.monitoring.LogzSubAccountTagRuleTagFilterArrgs(
                     name="name2",
                     action="Exclude",
                     value="value2",
@@ -332,12 +332,12 @@ class LogzSubAccountTagRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LogzSubAccountTagRuleArgs args: The arguments to use to populate this resource's properties.
+        :param LogzSubAccountTagRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LogzSubAccountTagRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LogzSubAccountTagRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -350,7 +350,7 @@ class LogzSubAccountTagRule(pulumi.CustomResource):
                  send_aad_logs: Optional[pulumi.Input[bool]] = None,
                  send_activity_logs: Optional[pulumi.Input[bool]] = None,
                  send_subscription_logs: Optional[pulumi.Input[bool]] = None,
-                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzSubAccountTagRuleTagFilterArgs']]]]] = None,
+                 tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzSubAccountTagRuleTagFilterArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -358,7 +358,7 @@ class LogzSubAccountTagRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LogzSubAccountTagRuleArgs.__new__(LogzSubAccountTagRuleArgs)
+            __props__ = LogzSubAccountTagRuleArrgs.__new__(LogzSubAccountTagRuleArrgs)
 
             if logz_sub_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'logz_sub_account_id'")
@@ -381,7 +381,7 @@ class LogzSubAccountTagRule(pulumi.CustomResource):
             send_aad_logs: Optional[pulumi.Input[bool]] = None,
             send_activity_logs: Optional[pulumi.Input[bool]] = None,
             send_subscription_logs: Optional[pulumi.Input[bool]] = None,
-            tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzSubAccountTagRuleTagFilterArgs']]]]] = None) -> 'LogzSubAccountTagRule':
+            tag_filters: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzSubAccountTagRuleTagFilterArrgs']]]]] = None) -> 'LogzSubAccountTagRule':
         """
         Get an existing LogzSubAccountTagRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -393,7 +393,7 @@ class LogzSubAccountTagRule(pulumi.CustomResource):
         :param pulumi.Input[bool] send_aad_logs: Whether AAD logs should be sent to the Monitor resource?
         :param pulumi.Input[bool] send_activity_logs: Whether activity logs from this Logz Sub Account Tag Rule should be sent to the Monitor resource?
         :param pulumi.Input[bool] send_subscription_logs: Whether subscription logs should be sent to the Monitor resource?
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzSubAccountTagRuleTagFilterArgs']]]] tag_filters: One or more (up to 10) `tag_filter` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LogzSubAccountTagRuleTagFilterArrgs']]]] tag_filters: One or more (up to 10) `tag_filter` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

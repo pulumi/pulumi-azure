@@ -10,116 +10,116 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ConnectedRegistryNotificationArgs',
-    'FluxConfigurationBlobStorageArgs',
-    'FluxConfigurationBlobStorageManagedIdentityArgs',
-    'FluxConfigurationBlobStorageServicePrincipalArgs',
-    'FluxConfigurationBucketArgs',
-    'FluxConfigurationGitRepositoryArgs',
-    'FluxConfigurationKustomizationArgs',
-    'GroupContainerArgs',
-    'GroupContainerGpuArgs',
-    'GroupContainerGpuLimitArgs',
-    'GroupContainerLivenessProbeArgs',
-    'GroupContainerLivenessProbeHttpGetArgs',
-    'GroupContainerPortArgs',
-    'GroupContainerReadinessProbeArgs',
-    'GroupContainerReadinessProbeHttpGetArgs',
-    'GroupContainerSecurityArgs',
-    'GroupContainerVolumeArgs',
-    'GroupContainerVolumeGitRepoArgs',
-    'GroupDiagnosticsArgs',
-    'GroupDiagnosticsLogAnalyticsArgs',
-    'GroupDnsConfigArgs',
-    'GroupExposedPortArgs',
-    'GroupIdentityArgs',
-    'GroupImageRegistryCredentialArgs',
-    'GroupInitContainerArgs',
-    'GroupInitContainerSecurityArgs',
-    'GroupInitContainerVolumeArgs',
-    'GroupInitContainerVolumeGitRepoArgs',
-    'KubernetesClusterAciConnectorLinuxArgs',
-    'KubernetesClusterAciConnectorLinuxConnectorIdentityArgs',
-    'KubernetesClusterApiServerAccessProfileArgs',
-    'KubernetesClusterAutoScalerProfileArgs',
-    'KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs',
-    'KubernetesClusterConfidentialComputingArgs',
-    'KubernetesClusterDefaultNodePoolArgs',
-    'KubernetesClusterDefaultNodePoolKubeletConfigArgs',
-    'KubernetesClusterDefaultNodePoolLinuxOsConfigArgs',
-    'KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs',
-    'KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs',
-    'KubernetesClusterDefaultNodePoolUpgradeSettingsArgs',
-    'KubernetesClusterExtensionAksAssignedIdentityArgs',
-    'KubernetesClusterExtensionPlanArgs',
-    'KubernetesClusterHttpProxyConfigArgs',
-    'KubernetesClusterIdentityArgs',
-    'KubernetesClusterIngressApplicationGatewayArgs',
-    'KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs',
-    'KubernetesClusterKeyManagementServiceArgs',
-    'KubernetesClusterKeyVaultSecretsProviderArgs',
-    'KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs',
-    'KubernetesClusterKubeAdminConfigArgs',
-    'KubernetesClusterKubeConfigArgs',
-    'KubernetesClusterKubeletIdentityArgs',
-    'KubernetesClusterLinuxProfileArgs',
-    'KubernetesClusterLinuxProfileSshKeyArgs',
-    'KubernetesClusterMaintenanceWindowArgs',
-    'KubernetesClusterMaintenanceWindowAllowedArgs',
-    'KubernetesClusterMaintenanceWindowAutoUpgradeArgs',
-    'KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs',
-    'KubernetesClusterMaintenanceWindowNodeOsArgs',
-    'KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs',
-    'KubernetesClusterMaintenanceWindowNotAllowedArgs',
-    'KubernetesClusterMicrosoftDefenderArgs',
-    'KubernetesClusterMonitorMetricsArgs',
-    'KubernetesClusterNetworkProfileArgs',
-    'KubernetesClusterNetworkProfileLoadBalancerProfileArgs',
-    'KubernetesClusterNetworkProfileNatGatewayProfileArgs',
-    'KubernetesClusterNodePoolKubeletConfigArgs',
-    'KubernetesClusterNodePoolLinuxOsConfigArgs',
-    'KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs',
-    'KubernetesClusterNodePoolNodeNetworkProfileArgs',
-    'KubernetesClusterNodePoolUpgradeSettingsArgs',
-    'KubernetesClusterNodePoolWindowsProfileArgs',
-    'KubernetesClusterOmsAgentArgs',
-    'KubernetesClusterOmsAgentOmsAgentIdentityArgs',
-    'KubernetesClusterServiceMeshProfileArgs',
-    'KubernetesClusterServicePrincipalArgs',
-    'KubernetesClusterStorageProfileArgs',
-    'KubernetesClusterWebAppRoutingArgs',
-    'KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs',
-    'KubernetesClusterWindowsProfileArgs',
-    'KubernetesClusterWindowsProfileGmsaArgs',
-    'KubernetesClusterWorkloadAutoscalerProfileArgs',
-    'KubernetesFleetManagerHubProfileArgs',
-    'RegistryEncryptionArgs',
-    'RegistryGeoreplicationArgs',
-    'RegistryIdentityArgs',
-    'RegistryNetworkRuleSetArgs',
-    'RegistryNetworkRuleSetIpRuleArgs',
-    'RegistryNetworkRuleSetVirtualNetworkArgs',
-    'RegistryRetentionPolicyArgs',
-    'RegistryTaskAgentSettingArgs',
-    'RegistryTaskBaseImageTriggerArgs',
-    'RegistryTaskDockerStepArgs',
-    'RegistryTaskEncodedStepArgs',
-    'RegistryTaskFileStepArgs',
-    'RegistryTaskIdentityArgs',
-    'RegistryTaskPlatformArgs',
-    'RegistryTaskRegistryCredentialArgs',
-    'RegistryTaskRegistryCredentialCustomArgs',
-    'RegistryTaskRegistryCredentialSourceArgs',
-    'RegistryTaskSourceTriggerArgs',
-    'RegistryTaskSourceTriggerAuthenticationArgs',
-    'RegistryTaskTimerTriggerArgs',
-    'RegistryTrustPolicyArgs',
-    'TokenPasswordPassword1Args',
-    'TokenPasswordPassword2Args',
+    'ConnectedRegistryNotificationArrgs',
+    'FluxConfigurationBlobStorageArrgs',
+    'FluxConfigurationBlobStorageManagedIdentityArrgs',
+    'FluxConfigurationBlobStorageServicePrincipalArrgs',
+    'FluxConfigurationBucketArrgs',
+    'FluxConfigurationGitRepositoryArrgs',
+    'FluxConfigurationKustomizationArrgs',
+    'GroupContainerArrgs',
+    'GroupContainerGpuArrgs',
+    'GroupContainerGpuLimitArrgs',
+    'GroupContainerLivenessProbeArrgs',
+    'GroupContainerLivenessProbeHttpGetArrgs',
+    'GroupContainerPortArrgs',
+    'GroupContainerReadinessProbeArrgs',
+    'GroupContainerReadinessProbeHttpGetArrgs',
+    'GroupContainerSecurityArrgs',
+    'GroupContainerVolumeArrgs',
+    'GroupContainerVolumeGitRepoArrgs',
+    'GroupDiagnosticsArrgs',
+    'GroupDiagnosticsLogAnalyticsArrgs',
+    'GroupDnsConfigArrgs',
+    'GroupExposedPortArrgs',
+    'GroupIdentityArrgs',
+    'GroupImageRegistryCredentialArrgs',
+    'GroupInitContainerArrgs',
+    'GroupInitContainerSecurityArrgs',
+    'GroupInitContainerVolumeArrgs',
+    'GroupInitContainerVolumeGitRepoArrgs',
+    'KubernetesClusterAciConnectorLinuxArrgs',
+    'KubernetesClusterAciConnectorLinuxConnectorIdentityArrgs',
+    'KubernetesClusterApiServerAccessProfileArrgs',
+    'KubernetesClusterAutoScalerProfileArrgs',
+    'KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrgs',
+    'KubernetesClusterConfidentialComputingArrgs',
+    'KubernetesClusterDefaultNodePoolArrgs',
+    'KubernetesClusterDefaultNodePoolKubeletConfigArrgs',
+    'KubernetesClusterDefaultNodePoolLinuxOsConfigArrgs',
+    'KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArrgs',
+    'KubernetesClusterDefaultNodePoolNodeNetworkProfileArrgs',
+    'KubernetesClusterDefaultNodePoolUpgradeSettingsArrgs',
+    'KubernetesClusterExtensionAksAssignedIdentityArrgs',
+    'KubernetesClusterExtensionPlanArrgs',
+    'KubernetesClusterHttpProxyConfigArrgs',
+    'KubernetesClusterIdentityArrgs',
+    'KubernetesClusterIngressApplicationGatewayArrgs',
+    'KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrgs',
+    'KubernetesClusterKeyManagementServiceArrgs',
+    'KubernetesClusterKeyVaultSecretsProviderArrgs',
+    'KubernetesClusterKeyVaultSecretsProviderSecretIdentityArrgs',
+    'KubernetesClusterKubeAdminConfigArrgs',
+    'KubernetesClusterKubeConfigArrgs',
+    'KubernetesClusterKubeletIdentityArrgs',
+    'KubernetesClusterLinuxProfileArrgs',
+    'KubernetesClusterLinuxProfileSshKeyArrgs',
+    'KubernetesClusterMaintenanceWindowArrgs',
+    'KubernetesClusterMaintenanceWindowAllowedArrgs',
+    'KubernetesClusterMaintenanceWindowAutoUpgradeArrgs',
+    'KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrgs',
+    'KubernetesClusterMaintenanceWindowNodeOsArrgs',
+    'KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrgs',
+    'KubernetesClusterMaintenanceWindowNotAllowedArrgs',
+    'KubernetesClusterMicrosoftDefenderArrgs',
+    'KubernetesClusterMonitorMetricsArrgs',
+    'KubernetesClusterNetworkProfileArrgs',
+    'KubernetesClusterNetworkProfileLoadBalancerProfileArrgs',
+    'KubernetesClusterNetworkProfileNatGatewayProfileArrgs',
+    'KubernetesClusterNodePoolKubeletConfigArrgs',
+    'KubernetesClusterNodePoolLinuxOsConfigArrgs',
+    'KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArrgs',
+    'KubernetesClusterNodePoolNodeNetworkProfileArrgs',
+    'KubernetesClusterNodePoolUpgradeSettingsArrgs',
+    'KubernetesClusterNodePoolWindowsProfileArrgs',
+    'KubernetesClusterOmsAgentArrgs',
+    'KubernetesClusterOmsAgentOmsAgentIdentityArrgs',
+    'KubernetesClusterServiceMeshProfileArrgs',
+    'KubernetesClusterServicePrincipalArrgs',
+    'KubernetesClusterStorageProfileArrgs',
+    'KubernetesClusterWebAppRoutingArrgs',
+    'KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrgs',
+    'KubernetesClusterWindowsProfileArrgs',
+    'KubernetesClusterWindowsProfileGmsaArrgs',
+    'KubernetesClusterWorkloadAutoscalerProfileArrgs',
+    'KubernetesFleetManagerHubProfileArrgs',
+    'RegistryEncryptionArrgs',
+    'RegistryGeoreplicationArrgs',
+    'RegistryIdentityArrgs',
+    'RegistryNetworkRuleSetArrgs',
+    'RegistryNetworkRuleSetIpRuleArrgs',
+    'RegistryNetworkRuleSetVirtualNetworkArrgs',
+    'RegistryRetentionPolicyArrgs',
+    'RegistryTaskAgentSettingArrgs',
+    'RegistryTaskBaseImageTriggerArrgs',
+    'RegistryTaskDockerStepArrgs',
+    'RegistryTaskEncodedStepArrgs',
+    'RegistryTaskFileStepArrgs',
+    'RegistryTaskIdentityArrgs',
+    'RegistryTaskPlatformArrgs',
+    'RegistryTaskRegistryCredentialArrgs',
+    'RegistryTaskRegistryCredentialCustomArrgs',
+    'RegistryTaskRegistryCredentialSourceArrgs',
+    'RegistryTaskSourceTriggerArrgs',
+    'RegistryTaskSourceTriggerAuthenticationArrgs',
+    'RegistryTaskTimerTriggerArrgs',
+    'RegistryTrustPolicyArrgs',
+    'TokenPasswordPassword1Arrgs',
+    'TokenPasswordPassword2Arrgs',
 ]
 
 @pulumi.input_type
-class ConnectedRegistryNotificationArgs:
+calass ConnectedRegistryNotificationArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -192,23 +192,23 @@ class ConnectedRegistryNotificationArgs:
 
 
 @pulumi.input_type
-class FluxConfigurationBlobStorageArgs:
+calass FluxConfigurationBlobStorageArrgs:
     def __init__(__self__, *,
                  container_id: pulumi.Input[str],
                  account_key: Optional[pulumi.Input[str]] = None,
                  local_auth_reference: Optional[pulumi.Input[str]] = None,
-                 managed_identity: Optional[pulumi.Input['FluxConfigurationBlobStorageManagedIdentityArgs']] = None,
+                 managed_identity: Optional[pulumi.Input['FluxConfigurationBlobStorageManagedIdentityArrgs']] = None,
                  sas_token: Optional[pulumi.Input[str]] = None,
-                 service_principal: Optional[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArgs']] = None,
+                 service_principal: Optional[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArrgs']] = None,
                  sync_interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] container_id: Specifies the Azure Blob container ID.
         :param pulumi.Input[str] account_key: Specifies the account key (shared key) to access the storage account.
         :param pulumi.Input[str] local_auth_reference: Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
-        :param pulumi.Input['FluxConfigurationBlobStorageManagedIdentityArgs'] managed_identity: A `managed_identity` block as defined below.
+        :param pulumi.Input['FluxConfigurationBlobStorageManagedIdentityArrgs'] managed_identity: A `managed_identity` block as defined below.
         :param pulumi.Input[str] sas_token: Specifies the shared access token to access the storage container.
-        :param pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArgs'] service_principal: A `service_principal` block as defined below.
+        :param pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArrgs'] service_principal: A `service_principal` block as defined below.
         :param pulumi.Input[int] sync_interval_in_seconds: Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote.
         :param pulumi.Input[int] timeout_in_seconds: Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
         """
@@ -266,14 +266,14 @@ class FluxConfigurationBlobStorageArgs:
 
     @property
     @pulumi.getter(name="managedIdentity")
-    def managed_identity(self) -> Optional[pulumi.Input['FluxConfigurationBlobStorageManagedIdentityArgs']]:
+    def managed_identity(self) -> Optional[pulumi.Input['FluxConfigurationBlobStorageManagedIdentityArrgs']]:
         """
         A `managed_identity` block as defined below.
         """
         return pulumi.get(self, "managed_identity")
 
     @managed_identity.setter
-    def managed_identity(self, value: Optional[pulumi.Input['FluxConfigurationBlobStorageManagedIdentityArgs']]):
+    def managed_identity(self, value: Optional[pulumi.Input['FluxConfigurationBlobStorageManagedIdentityArrgs']]):
         pulumi.set(self, "managed_identity", value)
 
     @property
@@ -290,14 +290,14 @@ class FluxConfigurationBlobStorageArgs:
 
     @property
     @pulumi.getter(name="servicePrincipal")
-    def service_principal(self) -> Optional[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArgs']]:
+    def service_principal(self) -> Optional[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArrgs']]:
         """
         A `service_principal` block as defined below.
         """
         return pulumi.get(self, "service_principal")
 
     @service_principal.setter
-    def service_principal(self, value: Optional[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArgs']]):
+    def service_principal(self, value: Optional[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArrgs']]):
         pulumi.set(self, "service_principal", value)
 
     @property
@@ -326,7 +326,7 @@ class FluxConfigurationBlobStorageArgs:
 
 
 @pulumi.input_type
-class FluxConfigurationBlobStorageManagedIdentityArgs:
+calass FluxConfigurationBlobStorageManagedIdentityArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str]):
         """
@@ -348,7 +348,7 @@ class FluxConfigurationBlobStorageManagedIdentityArgs:
 
 
 @pulumi.input_type
-class FluxConfigurationBlobStorageServicePrincipalArgs:
+calass FluxConfigurationBlobStorageServicePrincipalArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  tenant_id: pulumi.Input[str],
@@ -449,7 +449,7 @@ class FluxConfigurationBlobStorageServicePrincipalArgs:
 
 
 @pulumi.input_type
-class FluxConfigurationBucketArgs:
+calass FluxConfigurationBucketArrgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str],
                  url: pulumi.Input[str],
@@ -582,7 +582,7 @@ class FluxConfigurationBucketArgs:
 
 
 @pulumi.input_type
-class FluxConfigurationGitRepositoryArgs:
+calass FluxConfigurationGitRepositoryArrgs:
     def __init__(__self__, *,
                  reference_type: pulumi.Input[str],
                  reference_value: pulumi.Input[str],
@@ -762,7 +762,7 @@ class FluxConfigurationGitRepositoryArgs:
 
 
 @pulumi.input_type
-class FluxConfigurationKustomizationArgs:
+calass FluxConfigurationKustomizationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  depends_ons: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -896,7 +896,7 @@ class FluxConfigurationKustomizationArgs:
 
 
 @pulumi.input_type
-class GroupContainerArgs:
+calass GroupContainerArrgs:
     def __init__(__self__, *,
                  cpu: pulumi.Input[float],
                  image: pulumi.Input[str],
@@ -905,15 +905,15 @@ class GroupContainerArgs:
                  commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cpu_limit: Optional[pulumi.Input[float]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 gpu: Optional[pulumi.Input['GroupContainerGpuArgs']] = None,
-                 gpu_limit: Optional[pulumi.Input['GroupContainerGpuLimitArgs']] = None,
-                 liveness_probe: Optional[pulumi.Input['GroupContainerLivenessProbeArgs']] = None,
+                 gpu: Optional[pulumi.Input['GroupContainerGpuArrgs']] = None,
+                 gpu_limit: Optional[pulumi.Input['GroupContainerGpuLimitArrgs']] = None,
+                 liveness_probe: Optional[pulumi.Input['GroupContainerLivenessProbeArrgs']] = None,
                  memory_limit: Optional[pulumi.Input[float]] = None,
-                 ports: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerPortArgs']]]] = None,
-                 readiness_probe: Optional[pulumi.Input['GroupContainerReadinessProbeArgs']] = None,
+                 ports: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerPortArrgs']]]] = None,
+                 readiness_probe: Optional[pulumi.Input['GroupContainerReadinessProbeArrgs']] = None,
                  secure_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 securities: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerSecurityArgs']]]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerVolumeArgs']]]] = None):
+                 securities: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerSecurityArrgs']]]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerVolumeArrgs']]]] = None):
         """
         :param pulumi.Input[float] cpu: The required number of CPU cores of the containers. Changing this forces a new resource to be created.
         :param pulumi.Input[str] image: The container image name. Changing this forces a new resource to be created.
@@ -922,17 +922,17 @@ class GroupContainerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: A list of commands which should be run on the container. Changing this forces a new resource to be created.
         :param pulumi.Input[float] cpu_limit: The upper limit of the number of CPU cores of the containers.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
-        :param pulumi.Input['GroupContainerGpuArgs'] gpu: A `gpu` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['GroupContainerGpuArrgs'] gpu: A `gpu` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** Gpu resources are currently only supported in Linux containers.
-        :param pulumi.Input['GroupContainerGpuLimitArgs'] gpu_limit: A `gpu_limit` block as defined below.
-        :param pulumi.Input['GroupContainerLivenessProbeArgs'] liveness_probe: The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
+        :param pulumi.Input['GroupContainerGpuLimitArrgs'] gpu_limit: A `gpu_limit` block as defined below.
+        :param pulumi.Input['GroupContainerLivenessProbeArrgs'] liveness_probe: The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[float] memory_limit: The the upper limit of the memory of the containers in GB.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupContainerPortArgs']]] ports: A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
-        :param pulumi.Input['GroupContainerReadinessProbeArgs'] readiness_probe: The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupContainerPortArrgs']]] ports: A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
+        :param pulumi.Input['GroupContainerReadinessProbeArrgs'] readiness_probe: The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secure_environment_variables: A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupContainerSecurityArgs']]] securities: The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupContainerVolumeArgs']]] volumes: The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupContainerSecurityArrgs']]] securities: The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupContainerVolumeArrgs']]] volumes: The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "cpu", cpu)
         pulumi.set(__self__, "image", image)
@@ -1049,7 +1049,7 @@ class GroupContainerArgs:
 
     @property
     @pulumi.getter
-    def gpu(self) -> Optional[pulumi.Input['GroupContainerGpuArgs']]:
+    def gpu(self) -> Optional[pulumi.Input['GroupContainerGpuArrgs']]:
         """
         A `gpu` block as defined below. Changing this forces a new resource to be created.
 
@@ -1058,31 +1058,31 @@ class GroupContainerArgs:
         return pulumi.get(self, "gpu")
 
     @gpu.setter
-    def gpu(self, value: Optional[pulumi.Input['GroupContainerGpuArgs']]):
+    def gpu(self, value: Optional[pulumi.Input['GroupContainerGpuArrgs']]):
         pulumi.set(self, "gpu", value)
 
     @property
     @pulumi.getter(name="gpuLimit")
-    def gpu_limit(self) -> Optional[pulumi.Input['GroupContainerGpuLimitArgs']]:
+    def gpu_limit(self) -> Optional[pulumi.Input['GroupContainerGpuLimitArrgs']]:
         """
         A `gpu_limit` block as defined below.
         """
         return pulumi.get(self, "gpu_limit")
 
     @gpu_limit.setter
-    def gpu_limit(self, value: Optional[pulumi.Input['GroupContainerGpuLimitArgs']]):
+    def gpu_limit(self, value: Optional[pulumi.Input['GroupContainerGpuLimitArrgs']]):
         pulumi.set(self, "gpu_limit", value)
 
     @property
     @pulumi.getter(name="livenessProbe")
-    def liveness_probe(self) -> Optional[pulumi.Input['GroupContainerLivenessProbeArgs']]:
+    def liveness_probe(self) -> Optional[pulumi.Input['GroupContainerLivenessProbeArrgs']]:
         """
         The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "liveness_probe")
 
     @liveness_probe.setter
-    def liveness_probe(self, value: Optional[pulumi.Input['GroupContainerLivenessProbeArgs']]):
+    def liveness_probe(self, value: Optional[pulumi.Input['GroupContainerLivenessProbeArrgs']]):
         pulumi.set(self, "liveness_probe", value)
 
     @property
@@ -1099,26 +1099,26 @@ class GroupContainerArgs:
 
     @property
     @pulumi.getter
-    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerPortArgs']]]]:
+    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerPortArrgs']]]]:
         """
         A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
         """
         return pulumi.get(self, "ports")
 
     @ports.setter
-    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerPortArgs']]]]):
+    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerPortArrgs']]]]):
         pulumi.set(self, "ports", value)
 
     @property
     @pulumi.getter(name="readinessProbe")
-    def readiness_probe(self) -> Optional[pulumi.Input['GroupContainerReadinessProbeArgs']]:
+    def readiness_probe(self) -> Optional[pulumi.Input['GroupContainerReadinessProbeArrgs']]:
         """
         The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "readiness_probe")
 
     @readiness_probe.setter
-    def readiness_probe(self, value: Optional[pulumi.Input['GroupContainerReadinessProbeArgs']]):
+    def readiness_probe(self, value: Optional[pulumi.Input['GroupContainerReadinessProbeArrgs']]):
         pulumi.set(self, "readiness_probe", value)
 
     @property
@@ -1135,31 +1135,31 @@ class GroupContainerArgs:
 
     @property
     @pulumi.getter
-    def securities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerSecurityArgs']]]]:
+    def securities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerSecurityArrgs']]]]:
         """
         The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "securities")
 
     @securities.setter
-    def securities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerSecurityArgs']]]]):
+    def securities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerSecurityArrgs']]]]):
         pulumi.set(self, "securities", value)
 
     @property
     @pulumi.getter
-    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerVolumeArgs']]]]:
+    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerVolumeArrgs']]]]:
         """
         The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "volumes")
 
     @volumes.setter
-    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerVolumeArgs']]]]):
+    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerVolumeArrgs']]]]):
         pulumi.set(self, "volumes", value)
 
 
 @pulumi.input_type
-class GroupContainerGpuArgs:
+calass GroupContainerGpuArrgs:
     def __init__(__self__, *,
                  count: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[str]] = None):
@@ -1198,7 +1198,7 @@ class GroupContainerGpuArgs:
 
 
 @pulumi.input_type
-class GroupContainerGpuLimitArgs:
+calass GroupContainerGpuLimitArrgs:
     def __init__(__self__, *,
                  count: Optional[pulumi.Input[int]] = None,
                  sku: Optional[pulumi.Input[str]] = None):
@@ -1237,11 +1237,11 @@ class GroupContainerGpuLimitArgs:
 
 
 @pulumi.input_type
-class GroupContainerLivenessProbeArgs:
+calass GroupContainerLivenessProbeArrgs:
     def __init__(__self__, *,
                  execs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  failure_threshold: Optional[pulumi.Input[int]] = None,
-                 http_gets: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerLivenessProbeHttpGetArgs']]]] = None,
+                 http_gets: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerLivenessProbeHttpGetArrgs']]]] = None,
                  initial_delay_seconds: Optional[pulumi.Input[int]] = None,
                  period_seconds: Optional[pulumi.Input[int]] = None,
                  success_threshold: Optional[pulumi.Input[int]] = None,
@@ -1249,7 +1249,7 @@ class GroupContainerLivenessProbeArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] execs: Commands to be run to validate container readiness. Changing this forces a new resource to be created.
         :param pulumi.Input[int] failure_threshold: How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupContainerLivenessProbeHttpGetArgs']]] http_gets: The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupContainerLivenessProbeHttpGetArrgs']]] http_gets: The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] initial_delay_seconds: Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
         :param pulumi.Input[int] period_seconds: How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] success_threshold: Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
@@ -1296,14 +1296,14 @@ class GroupContainerLivenessProbeArgs:
 
     @property
     @pulumi.getter(name="httpGets")
-    def http_gets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerLivenessProbeHttpGetArgs']]]]:
+    def http_gets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerLivenessProbeHttpGetArrgs']]]]:
         """
         The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "http_gets")
 
     @http_gets.setter
-    def http_gets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerLivenessProbeHttpGetArgs']]]]):
+    def http_gets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerLivenessProbeHttpGetArrgs']]]]):
         pulumi.set(self, "http_gets", value)
 
     @property
@@ -1356,7 +1356,7 @@ class GroupContainerLivenessProbeArgs:
 
 
 @pulumi.input_type
-class GroupContainerLivenessProbeHttpGetArgs:
+calass GroupContainerLivenessProbeHttpGetArrgs:
     def __init__(__self__, *,
                  http_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  path: Optional[pulumi.Input[str]] = None,
@@ -1427,7 +1427,7 @@ class GroupContainerLivenessProbeHttpGetArgs:
 
 
 @pulumi.input_type
-class GroupContainerPortArgs:
+calass GroupContainerPortArrgs:
     def __init__(__self__, *,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None):
@@ -1470,11 +1470,11 @@ class GroupContainerPortArgs:
 
 
 @pulumi.input_type
-class GroupContainerReadinessProbeArgs:
+calass GroupContainerReadinessProbeArrgs:
     def __init__(__self__, *,
                  execs: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  failure_threshold: Optional[pulumi.Input[int]] = None,
-                 http_gets: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerReadinessProbeHttpGetArgs']]]] = None,
+                 http_gets: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerReadinessProbeHttpGetArrgs']]]] = None,
                  initial_delay_seconds: Optional[pulumi.Input[int]] = None,
                  period_seconds: Optional[pulumi.Input[int]] = None,
                  success_threshold: Optional[pulumi.Input[int]] = None,
@@ -1482,7 +1482,7 @@ class GroupContainerReadinessProbeArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] execs: Commands to be run to validate container readiness. Changing this forces a new resource to be created.
         :param pulumi.Input[int] failure_threshold: How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupContainerReadinessProbeHttpGetArgs']]] http_gets: The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupContainerReadinessProbeHttpGetArrgs']]] http_gets: The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
         :param pulumi.Input[int] initial_delay_seconds: Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
         :param pulumi.Input[int] period_seconds: How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
         :param pulumi.Input[int] success_threshold: Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
@@ -1529,14 +1529,14 @@ class GroupContainerReadinessProbeArgs:
 
     @property
     @pulumi.getter(name="httpGets")
-    def http_gets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerReadinessProbeHttpGetArgs']]]]:
+    def http_gets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerReadinessProbeHttpGetArrgs']]]]:
         """
         The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "http_gets")
 
     @http_gets.setter
-    def http_gets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerReadinessProbeHttpGetArgs']]]]):
+    def http_gets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupContainerReadinessProbeHttpGetArrgs']]]]):
         pulumi.set(self, "http_gets", value)
 
     @property
@@ -1589,7 +1589,7 @@ class GroupContainerReadinessProbeArgs:
 
 
 @pulumi.input_type
-class GroupContainerReadinessProbeHttpGetArgs:
+calass GroupContainerReadinessProbeHttpGetArrgs:
     def __init__(__self__, *,
                  http_headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  path: Optional[pulumi.Input[str]] = None,
@@ -1660,7 +1660,7 @@ class GroupContainerReadinessProbeHttpGetArgs:
 
 
 @pulumi.input_type
-class GroupContainerSecurityArgs:
+calass GroupContainerSecurityArrgs:
     def __init__(__self__, *,
                  privilege_enabled: pulumi.Input[bool]):
         """
@@ -1686,12 +1686,12 @@ class GroupContainerSecurityArgs:
 
 
 @pulumi.input_type
-class GroupContainerVolumeArgs:
+calass GroupContainerVolumeArrgs:
     def __init__(__self__, *,
                  mount_path: pulumi.Input[str],
                  name: pulumi.Input[str],
                  empty_dir: Optional[pulumi.Input[bool]] = None,
-                 git_repo: Optional[pulumi.Input['GroupContainerVolumeGitRepoArgs']] = None,
+                 git_repo: Optional[pulumi.Input['GroupContainerVolumeGitRepoArrgs']] = None,
                  read_only: Optional[pulumi.Input[bool]] = None,
                  secret: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
@@ -1701,7 +1701,7 @@ class GroupContainerVolumeArgs:
         :param pulumi.Input[str] mount_path: The path on which this volume is to be mounted. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the volume mount. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] empty_dir: Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input['GroupContainerVolumeGitRepoArgs'] git_repo: A `git_repo` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['GroupContainerVolumeGitRepoArrgs'] git_repo: A `git_repo` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] read_only: Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secret: A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
                
@@ -1769,14 +1769,14 @@ class GroupContainerVolumeArgs:
 
     @property
     @pulumi.getter(name="gitRepo")
-    def git_repo(self) -> Optional[pulumi.Input['GroupContainerVolumeGitRepoArgs']]:
+    def git_repo(self) -> Optional[pulumi.Input['GroupContainerVolumeGitRepoArrgs']]:
         """
         A `git_repo` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "git_repo")
 
     @git_repo.setter
-    def git_repo(self, value: Optional[pulumi.Input['GroupContainerVolumeGitRepoArgs']]):
+    def git_repo(self, value: Optional[pulumi.Input['GroupContainerVolumeGitRepoArrgs']]):
         pulumi.set(self, "git_repo", value)
 
     @property
@@ -1847,7 +1847,7 @@ class GroupContainerVolumeArgs:
 
 
 @pulumi.input_type
-class GroupContainerVolumeGitRepoArgs:
+calass GroupContainerVolumeGitRepoArrgs:
     def __init__(__self__, *,
                  url: pulumi.Input[str],
                  directory: Optional[pulumi.Input[str]] = None,
@@ -1901,29 +1901,29 @@ class GroupContainerVolumeGitRepoArgs:
 
 
 @pulumi.input_type
-class GroupDiagnosticsArgs:
+calass GroupDiagnosticsArrgs:
     def __init__(__self__, *,
-                 log_analytics: pulumi.Input['GroupDiagnosticsLogAnalyticsArgs']):
+                 log_analytics: pulumi.Input['GroupDiagnosticsLogAnalyticsArrgs']):
         """
-        :param pulumi.Input['GroupDiagnosticsLogAnalyticsArgs'] log_analytics: A `log_analytics` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['GroupDiagnosticsLogAnalyticsArrgs'] log_analytics: A `log_analytics` block as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "log_analytics", log_analytics)
 
     @property
     @pulumi.getter(name="logAnalytics")
-    def log_analytics(self) -> pulumi.Input['GroupDiagnosticsLogAnalyticsArgs']:
+    def log_analytics(self) -> pulumi.Input['GroupDiagnosticsLogAnalyticsArrgs']:
         """
         A `log_analytics` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "log_analytics")
 
     @log_analytics.setter
-    def log_analytics(self, value: pulumi.Input['GroupDiagnosticsLogAnalyticsArgs']):
+    def log_analytics(self, value: pulumi.Input['GroupDiagnosticsLogAnalyticsArrgs']):
         pulumi.set(self, "log_analytics", value)
 
 
 @pulumi.input_type
-class GroupDiagnosticsLogAnalyticsArgs:
+calass GroupDiagnosticsLogAnalyticsArrgs:
     def __init__(__self__, *,
                  workspace_id: pulumi.Input[str],
                  workspace_key: pulumi.Input[str],
@@ -1992,7 +1992,7 @@ class GroupDiagnosticsLogAnalyticsArgs:
 
 
 @pulumi.input_type
-class GroupDnsConfigArgs:
+calass GroupDnsConfigArrgs:
     def __init__(__self__, *,
                  nameservers: pulumi.Input[Sequence[pulumi.Input[str]]],
                  options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2046,7 +2046,7 @@ class GroupDnsConfigArgs:
 
 
 @pulumi.input_type
-class GroupExposedPortArgs:
+calass GroupExposedPortArrgs:
     def __init__(__self__, *,
                  port: Optional[pulumi.Input[int]] = None,
                  protocol: Optional[pulumi.Input[str]] = None):
@@ -2089,7 +2089,7 @@ class GroupExposedPortArgs:
 
 
 @pulumi.input_type
-class GroupIdentityArgs:
+calass GroupIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2171,7 +2171,7 @@ class GroupIdentityArgs:
 
 
 @pulumi.input_type
-class GroupImageRegistryCredentialArgs:
+calass GroupImageRegistryCredentialArrgs:
     def __init__(__self__, *,
                  server: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None,
@@ -2241,23 +2241,23 @@ class GroupImageRegistryCredentialArgs:
 
 
 @pulumi.input_type
-class GroupInitContainerArgs:
+calass GroupInitContainerArrgs:
     def __init__(__self__, *,
                  image: pulumi.Input[str],
                  name: pulumi.Input[str],
                  commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  secure_environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 securities: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerSecurityArgs']]]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerVolumeArgs']]]] = None):
+                 securities: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerSecurityArrgs']]]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerVolumeArrgs']]]] = None):
         """
         :param pulumi.Input[str] image: The container image name. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Container. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: A list of commands which should be run on the container. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secure_environment_variables: A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupInitContainerSecurityArgs']]] securities: The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['GroupInitContainerVolumeArgs']]] volumes: The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupInitContainerSecurityArrgs']]] securities: The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupInitContainerVolumeArrgs']]] volumes: The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "name", name)
@@ -2334,31 +2334,31 @@ class GroupInitContainerArgs:
 
     @property
     @pulumi.getter
-    def securities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerSecurityArgs']]]]:
+    def securities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerSecurityArrgs']]]]:
         """
         The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "securities")
 
     @securities.setter
-    def securities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerSecurityArgs']]]]):
+    def securities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerSecurityArrgs']]]]):
         pulumi.set(self, "securities", value)
 
     @property
     @pulumi.getter
-    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerVolumeArgs']]]]:
+    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerVolumeArrgs']]]]:
         """
         The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "volumes")
 
     @volumes.setter
-    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerVolumeArgs']]]]):
+    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupInitContainerVolumeArrgs']]]]):
         pulumi.set(self, "volumes", value)
 
 
 @pulumi.input_type
-class GroupInitContainerSecurityArgs:
+calass GroupInitContainerSecurityArrgs:
     def __init__(__self__, *,
                  privilege_enabled: pulumi.Input[bool]):
         """
@@ -2384,12 +2384,12 @@ class GroupInitContainerSecurityArgs:
 
 
 @pulumi.input_type
-class GroupInitContainerVolumeArgs:
+calass GroupInitContainerVolumeArrgs:
     def __init__(__self__, *,
                  mount_path: pulumi.Input[str],
                  name: pulumi.Input[str],
                  empty_dir: Optional[pulumi.Input[bool]] = None,
-                 git_repo: Optional[pulumi.Input['GroupInitContainerVolumeGitRepoArgs']] = None,
+                 git_repo: Optional[pulumi.Input['GroupInitContainerVolumeGitRepoArrgs']] = None,
                  read_only: Optional[pulumi.Input[bool]] = None,
                  secret: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
@@ -2399,7 +2399,7 @@ class GroupInitContainerVolumeArgs:
         :param pulumi.Input[str] mount_path: The path on which this volume is to be mounted. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the volume mount. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] empty_dir: Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input['GroupInitContainerVolumeGitRepoArgs'] git_repo: A `git_repo` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['GroupInitContainerVolumeGitRepoArrgs'] git_repo: A `git_repo` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] read_only: Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] secret: A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
                
@@ -2467,14 +2467,14 @@ class GroupInitContainerVolumeArgs:
 
     @property
     @pulumi.getter(name="gitRepo")
-    def git_repo(self) -> Optional[pulumi.Input['GroupInitContainerVolumeGitRepoArgs']]:
+    def git_repo(self) -> Optional[pulumi.Input['GroupInitContainerVolumeGitRepoArrgs']]:
         """
         A `git_repo` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "git_repo")
 
     @git_repo.setter
-    def git_repo(self, value: Optional[pulumi.Input['GroupInitContainerVolumeGitRepoArgs']]):
+    def git_repo(self, value: Optional[pulumi.Input['GroupInitContainerVolumeGitRepoArrgs']]):
         pulumi.set(self, "git_repo", value)
 
     @property
@@ -2545,7 +2545,7 @@ class GroupInitContainerVolumeArgs:
 
 
 @pulumi.input_type
-class GroupInitContainerVolumeGitRepoArgs:
+calass GroupInitContainerVolumeGitRepoArrgs:
     def __init__(__self__, *,
                  url: pulumi.Input[str],
                  directory: Optional[pulumi.Input[str]] = None,
@@ -2599,10 +2599,10 @@ class GroupInitContainerVolumeGitRepoArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterAciConnectorLinuxArgs:
+calass KubernetesClusterAciConnectorLinuxArrgs:
     def __init__(__self__, *,
                  subnet_name: pulumi.Input[str],
-                 connector_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAciConnectorLinuxConnectorIdentityArgs']]]] = None):
+                 connector_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAciConnectorLinuxConnectorIdentityArrgs']]]] = None):
         """
         :param pulumi.Input[str] subnet_name: The subnet name for the virtual nodes to run.
                
@@ -2614,15 +2614,15 @@ class KubernetesClusterAciConnectorLinuxArgs:
                import pulumi
                import pulumi_azure as azure
                
-               virtual = azure.network.Subnet("virtual", delegations=[azure.network.SubnetDelegationArgs(
+               virtual = azure.network.Subnet("virtual", delegations=[azure.network.SubnetDelegationArrgs(
                    name="aciDelegation",
-                   service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                   service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                        actions=["Microsoft.Network/virtualNetworks/subnets/action"],
                        name="Microsoft.ContainerInstance/containerGroups",
                    ),
                )])
                ```
-        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAciConnectorLinuxConnectorIdentityArgs']]] connector_identities: A `connector_identity` block is exported. The exported attributes are defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAciConnectorLinuxConnectorIdentityArrgs']]] connector_identities: A `connector_identity` block is exported. The exported attributes are defined below.
         """
         pulumi.set(__self__, "subnet_name", subnet_name)
         if connector_identities is not None:
@@ -2642,9 +2642,9 @@ class KubernetesClusterAciConnectorLinuxArgs:
         import pulumi
         import pulumi_azure as azure
 
-        virtual = azure.network.Subnet("virtual", delegations=[azure.network.SubnetDelegationArgs(
+        virtual = azure.network.Subnet("virtual", delegations=[azure.network.SubnetDelegationArrgs(
             name="aciDelegation",
-            service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+            service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                 actions=["Microsoft.Network/virtualNetworks/subnets/action"],
                 name="Microsoft.ContainerInstance/containerGroups",
             ),
@@ -2659,19 +2659,19 @@ class KubernetesClusterAciConnectorLinuxArgs:
 
     @property
     @pulumi.getter(name="connectorIdentities")
-    def connector_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAciConnectorLinuxConnectorIdentityArgs']]]]:
+    def connector_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAciConnectorLinuxConnectorIdentityArrgs']]]]:
         """
         A `connector_identity` block is exported. The exported attributes are defined below.
         """
         return pulumi.get(self, "connector_identities")
 
     @connector_identities.setter
-    def connector_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAciConnectorLinuxConnectorIdentityArgs']]]]):
+    def connector_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterAciConnectorLinuxConnectorIdentityArrgs']]]]):
         pulumi.set(self, "connector_identities", value)
 
 
 @pulumi.input_type
-class KubernetesClusterAciConnectorLinuxConnectorIdentityArgs:
+calass KubernetesClusterAciConnectorLinuxConnectorIdentityArrgs:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
                  object_id: Optional[pulumi.Input[str]] = None,
@@ -2730,7 +2730,7 @@ class KubernetesClusterAciConnectorLinuxConnectorIdentityArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterApiServerAccessProfileArgs:
+calass KubernetesClusterApiServerAccessProfileArrgs:
     def __init__(__self__, *,
                  authorized_ip_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
@@ -2789,7 +2789,7 @@ class KubernetesClusterApiServerAccessProfileArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterAutoScalerProfileArgs:
+calass KubernetesClusterAutoScalerProfileArrgs:
     def __init__(__self__, *,
                  balance_similar_node_groups: Optional[pulumi.Input[bool]] = None,
                  empty_bulk_delete_max: Optional[pulumi.Input[str]] = None,
@@ -3068,7 +3068,7 @@ class KubernetesClusterAutoScalerProfileArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs:
+calass KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArrgs:
     def __init__(__self__, *,
                  admin_group_object_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  azure_rbac_enabled: Optional[pulumi.Input[bool]] = None,
@@ -3187,7 +3187,7 @@ class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterConfidentialComputingArgs:
+calass KubernetesClusterConfidentialComputingArrgs:
     def __init__(__self__, *,
                  sgx_quote_helper_enabled: pulumi.Input[bool]):
         """
@@ -3209,7 +3209,7 @@ class KubernetesClusterConfidentialComputingArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterDefaultNodePoolArgs:
+calass KubernetesClusterDefaultNodePoolArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  vm_size: pulumi.Input[str],
@@ -3220,16 +3220,16 @@ class KubernetesClusterDefaultNodePoolArgs:
                  enable_node_public_ip: Optional[pulumi.Input[bool]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
                  host_group_id: Optional[pulumi.Input[str]] = None,
-                 kubelet_config: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs']] = None,
+                 kubelet_config: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArrgs']] = None,
                  kubelet_disk_type: Optional[pulumi.Input[str]] = None,
-                 linux_os_config: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArgs']] = None,
+                 linux_os_config: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArrgs']] = None,
                  max_count: Optional[pulumi.Input[int]] = None,
                  max_pods: Optional[pulumi.Input[int]] = None,
                  message_of_the_day: Optional[pulumi.Input[str]] = None,
                  min_count: Optional[pulumi.Input[int]] = None,
                  node_count: Optional[pulumi.Input[int]] = None,
                  node_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 node_network_profile: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs']] = None,
+                 node_network_profile: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileArrgs']] = None,
                  node_public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  node_taints: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  only_critical_addons_enabled: Optional[pulumi.Input[bool]] = None,
@@ -3245,7 +3245,7 @@ class KubernetesClusterDefaultNodePoolArgs:
                  temporary_name_for_rotation: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None,
-                 upgrade_settings: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolUpgradeSettingsArgs']] = None,
+                 upgrade_settings: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolUpgradeSettingsArrgs']] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
                  workload_runtime: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -3265,9 +3265,9 @@ class KubernetesClusterDefaultNodePoolArgs:
         :param pulumi.Input[bool] enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
         :param pulumi.Input[bool] fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param pulumi.Input[str] host_group_id: Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs'] kubelet_config: A `kubelet_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
+        :param pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArrgs'] kubelet_config: A `kubelet_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
         :param pulumi.Input[str] kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
-        :param pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArgs'] linux_os_config: A `linux_os_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
+        :param pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArrgs'] linux_os_config: A `linux_os_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
         :param pulumi.Input[int] max_count: The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param pulumi.Input[int] max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. `temporary_name_for_rotation` must be specified when changing this property.
         :param pulumi.Input[str] message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
@@ -3276,7 +3276,7 @@ class KubernetesClusterDefaultNodePoolArgs:
                
                > **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
-        :param pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs'] node_network_profile: A `node_network_profile` block as documented below.
+        :param pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileArrgs'] node_network_profile: A `node_network_profile` block as documented below.
         :param pulumi.Input[str] node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] node_taints: A list of the taints added to new nodes during node pool create and scale. `temporary_name_for_rotation` must be specified when changing this property.
         :param pulumi.Input[bool] only_critical_addons_enabled: Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporary_name_for_rotation` must be specified when changing this property.
@@ -3298,7 +3298,7 @@ class KubernetesClusterDefaultNodePoolArgs:
                
                > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
         :param pulumi.Input[bool] ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
-        :param pulumi.Input['KubernetesClusterDefaultNodePoolUpgradeSettingsArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
+        :param pulumi.Input['KubernetesClusterDefaultNodePoolUpgradeSettingsArrgs'] upgrade_settings: A `upgrade_settings` block as documented below.
         :param pulumi.Input[str] vnet_subnet_id: The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
                
                > **Note:** A Route Table must be configured on this Subnet.
@@ -3500,14 +3500,14 @@ class KubernetesClusterDefaultNodePoolArgs:
 
     @property
     @pulumi.getter(name="kubeletConfig")
-    def kubelet_config(self) -> Optional[pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs']]:
+    def kubelet_config(self) -> Optional[pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArrgs']]:
         """
         A `kubelet_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
         """
         return pulumi.get(self, "kubelet_config")
 
     @kubelet_config.setter
-    def kubelet_config(self, value: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArgs']]):
+    def kubelet_config(self, value: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolKubeletConfigArrgs']]):
         pulumi.set(self, "kubelet_config", value)
 
     @property
@@ -3524,14 +3524,14 @@ class KubernetesClusterDefaultNodePoolArgs:
 
     @property
     @pulumi.getter(name="linuxOsConfig")
-    def linux_os_config(self) -> Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArgs']]:
+    def linux_os_config(self) -> Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArrgs']]:
         """
         A `linux_os_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
         """
         return pulumi.get(self, "linux_os_config")
 
     @linux_os_config.setter
-    def linux_os_config(self, value: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArgs']]):
+    def linux_os_config(self, value: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigArrgs']]):
         pulumi.set(self, "linux_os_config", value)
 
     @property
@@ -3610,14 +3610,14 @@ class KubernetesClusterDefaultNodePoolArgs:
 
     @property
     @pulumi.getter(name="nodeNetworkProfile")
-    def node_network_profile(self) -> Optional[pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs']]:
+    def node_network_profile(self) -> Optional[pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileArrgs']]:
         """
         A `node_network_profile` block as documented below.
         """
         return pulumi.get(self, "node_network_profile")
 
     @node_network_profile.setter
-    def node_network_profile(self, value: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs']]):
+    def node_network_profile(self, value: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileArrgs']]):
         pulumi.set(self, "node_network_profile", value)
 
     @property
@@ -3808,14 +3808,14 @@ class KubernetesClusterDefaultNodePoolArgs:
 
     @property
     @pulumi.getter(name="upgradeSettings")
-    def upgrade_settings(self) -> Optional[pulumi.Input['KubernetesClusterDefaultNodePoolUpgradeSettingsArgs']]:
+    def upgrade_settings(self) -> Optional[pulumi.Input['KubernetesClusterDefaultNodePoolUpgradeSettingsArrgs']]:
         """
         A `upgrade_settings` block as documented below.
         """
         return pulumi.get(self, "upgrade_settings")
 
     @upgrade_settings.setter
-    def upgrade_settings(self, value: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolUpgradeSettingsArgs']]):
+    def upgrade_settings(self, value: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolUpgradeSettingsArrgs']]):
         pulumi.set(self, "upgrade_settings", value)
 
     @property
@@ -3862,7 +3862,7 @@ class KubernetesClusterDefaultNodePoolArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterDefaultNodePoolKubeletConfigArgs:
+calass KubernetesClusterDefaultNodePoolKubeletConfigArrgs:
     def __init__(__self__, *,
                  allowed_unsafe_sysctls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  container_log_max_line: Optional[pulumi.Input[int]] = None,
@@ -4029,15 +4029,15 @@ class KubernetesClusterDefaultNodePoolKubeletConfigArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs:
+calass KubernetesClusterDefaultNodePoolLinuxOsConfigArrgs:
     def __init__(__self__, *,
                  swap_file_size_mb: Optional[pulumi.Input[int]] = None,
-                 sysctl_config: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs']] = None,
+                 sysctl_config: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArrgs']] = None,
                  transparent_huge_page_defrag: Optional[pulumi.Input[str]] = None,
                  transparent_huge_page_enabled: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] swap_file_size_mb: Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs'] sysctl_config: A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArrgs'] sysctl_config: A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] transparent_huge_page_defrag: specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] transparent_huge_page_enabled: Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
         """
@@ -4064,14 +4064,14 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs:
 
     @property
     @pulumi.getter(name="sysctlConfig")
-    def sysctl_config(self) -> Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs']]:
+    def sysctl_config(self) -> Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArrgs']]:
         """
         A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sysctl_config")
 
     @sysctl_config.setter
-    def sysctl_config(self, value: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs']]):
+    def sysctl_config(self, value: Optional[pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArrgs']]):
         pulumi.set(self, "sysctl_config", value)
 
     @property
@@ -4100,7 +4100,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs:
+calass KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArrgs:
     def __init__(__self__, *,
                  fs_aio_max_nr: Optional[pulumi.Input[int]] = None,
                  fs_file_max: Optional[pulumi.Input[int]] = None,
@@ -4571,7 +4571,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs:
+calass KubernetesClusterDefaultNodePoolNodeNetworkProfileArrgs:
     def __init__(__self__, *,
                  node_public_ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -4598,7 +4598,7 @@ class KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs:
+calass KubernetesClusterDefaultNodePoolUpgradeSettingsArrgs:
     def __init__(__self__, *,
                  max_surge: pulumi.Input[str]):
         """
@@ -4624,7 +4624,7 @@ class KubernetesClusterDefaultNodePoolUpgradeSettingsArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterExtensionAksAssignedIdentityArgs:
+calass KubernetesClusterExtensionAksAssignedIdentityArrgs:
     def __init__(__self__, *,
                  principal_id: Optional[pulumi.Input[str]] = None,
                  tenant_id: Optional[pulumi.Input[str]] = None,
@@ -4679,7 +4679,7 @@ class KubernetesClusterExtensionAksAssignedIdentityArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterExtensionPlanArgs:
+calass KubernetesClusterExtensionPlanArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  product: pulumi.Input[str],
@@ -4767,7 +4767,7 @@ class KubernetesClusterExtensionPlanArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterHttpProxyConfigArgs:
+calass KubernetesClusterHttpProxyConfigArrgs:
     def __init__(__self__, *,
                  http_proxy: Optional[pulumi.Input[str]] = None,
                  https_proxy: Optional[pulumi.Input[str]] = None,
@@ -4834,7 +4834,7 @@ class KubernetesClusterHttpProxyConfigArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterIdentityArgs:
+calass KubernetesClusterIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -4908,19 +4908,19 @@ class KubernetesClusterIdentityArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterIngressApplicationGatewayArgs:
+calass KubernetesClusterIngressApplicationGatewayArrgs:
     def __init__(__self__, *,
                  effective_gateway_id: Optional[pulumi.Input[str]] = None,
                  gateway_id: Optional[pulumi.Input[str]] = None,
                  gateway_name: Optional[pulumi.Input[str]] = None,
-                 ingress_application_gateway_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs']]]] = None,
+                 ingress_application_gateway_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrgs']]]] = None,
                  subnet_cidr: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] effective_gateway_id: The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
         :param pulumi.Input[str] gateway_id: The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
         :param pulumi.Input[str] gateway_name: The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs']]] ingress_application_gateway_identities: An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrgs']]] ingress_application_gateway_identities: An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
         :param pulumi.Input[str] subnet_cidr: The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
         :param pulumi.Input[str] subnet_id: The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
                
@@ -4979,14 +4979,14 @@ class KubernetesClusterIngressApplicationGatewayArgs:
 
     @property
     @pulumi.getter(name="ingressApplicationGatewayIdentities")
-    def ingress_application_gateway_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs']]]]:
+    def ingress_application_gateway_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrgs']]]]:
         """
         An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
         """
         return pulumi.get(self, "ingress_application_gateway_identities")
 
     @ingress_application_gateway_identities.setter
-    def ingress_application_gateway_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs']]]]):
+    def ingress_application_gateway_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrgs']]]]):
         pulumi.set(self, "ingress_application_gateway_identities", value)
 
     @property
@@ -5019,7 +5019,7 @@ class KubernetesClusterIngressApplicationGatewayArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs:
+calass KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrgs:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
                  object_id: Optional[pulumi.Input[str]] = None,
@@ -5078,7 +5078,7 @@ class KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentit
 
 
 @pulumi.input_type
-class KubernetesClusterKeyManagementServiceArgs:
+calass KubernetesClusterKeyManagementServiceArrgs:
     def __init__(__self__, *,
                  key_vault_key_id: pulumi.Input[str],
                  key_vault_network_access: Optional[pulumi.Input[str]] = None):
@@ -5116,13 +5116,13 @@ class KubernetesClusterKeyManagementServiceArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterKeyVaultSecretsProviderArgs:
+calass KubernetesClusterKeyVaultSecretsProviderArrgs:
     def __init__(__self__, *,
-                 secret_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs']]]] = None,
+                 secret_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderSecretIdentityArrgs']]]] = None,
                  secret_rotation_enabled: Optional[pulumi.Input[bool]] = None,
                  secret_rotation_interval: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs']]] secret_identities: An `secret_identity` block is exported. The exported attributes are defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderSecretIdentityArrgs']]] secret_identities: An `secret_identity` block is exported. The exported attributes are defined below.
         :param pulumi.Input[bool] secret_rotation_enabled: Should the secret store CSI driver on the AKS cluster be enabled?
         :param pulumi.Input[str] secret_rotation_interval: The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true and defaults to `2m`.
                
@@ -5137,14 +5137,14 @@ class KubernetesClusterKeyVaultSecretsProviderArgs:
 
     @property
     @pulumi.getter(name="secretIdentities")
-    def secret_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs']]]]:
+    def secret_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderSecretIdentityArrgs']]]]:
         """
         An `secret_identity` block is exported. The exported attributes are defined below.
         """
         return pulumi.get(self, "secret_identities")
 
     @secret_identities.setter
-    def secret_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs']]]]):
+    def secret_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderSecretIdentityArrgs']]]]):
         pulumi.set(self, "secret_identities", value)
 
     @property
@@ -5175,7 +5175,7 @@ class KubernetesClusterKeyVaultSecretsProviderArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs:
+calass KubernetesClusterKeyVaultSecretsProviderSecretIdentityArrgs:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
                  object_id: Optional[pulumi.Input[str]] = None,
@@ -5234,7 +5234,7 @@ class KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterKubeAdminConfigArgs:
+calass KubernetesClusterKubeAdminConfigArrgs:
     def __init__(__self__, *,
                  client_certificate: Optional[pulumi.Input[str]] = None,
                  client_key: Optional[pulumi.Input[str]] = None,
@@ -5337,7 +5337,7 @@ class KubernetesClusterKubeAdminConfigArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterKubeConfigArgs:
+calass KubernetesClusterKubeConfigArrgs:
     def __init__(__self__, *,
                  client_certificate: Optional[pulumi.Input[str]] = None,
                  client_key: Optional[pulumi.Input[str]] = None,
@@ -5440,7 +5440,7 @@ class KubernetesClusterKubeConfigArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterKubeletIdentityArgs:
+calass KubernetesClusterKubeletIdentityArrgs:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
                  object_id: Optional[pulumi.Input[str]] = None,
@@ -5499,13 +5499,13 @@ class KubernetesClusterKubeletIdentityArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterLinuxProfileArgs:
+calass KubernetesClusterLinuxProfileArrgs:
     def __init__(__self__, *,
                  admin_username: pulumi.Input[str],
-                 ssh_key: pulumi.Input['KubernetesClusterLinuxProfileSshKeyArgs']):
+                 ssh_key: pulumi.Input['KubernetesClusterLinuxProfileSshKeyArrgs']):
         """
         :param pulumi.Input[str] admin_username: The Admin Username for the Cluster. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterLinuxProfileSshKeyArgs'] ssh_key: An `ssh_key` block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
+        :param pulumi.Input['KubernetesClusterLinuxProfileSshKeyArrgs'] ssh_key: An `ssh_key` block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
         """
         pulumi.set(__self__, "admin_username", admin_username)
         pulumi.set(__self__, "ssh_key", ssh_key)
@@ -5524,19 +5524,19 @@ class KubernetesClusterLinuxProfileArgs:
 
     @property
     @pulumi.getter(name="sshKey")
-    def ssh_key(self) -> pulumi.Input['KubernetesClusterLinuxProfileSshKeyArgs']:
+    def ssh_key(self) -> pulumi.Input['KubernetesClusterLinuxProfileSshKeyArrgs']:
         """
         An `ssh_key` block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
         """
         return pulumi.get(self, "ssh_key")
 
     @ssh_key.setter
-    def ssh_key(self, value: pulumi.Input['KubernetesClusterLinuxProfileSshKeyArgs']):
+    def ssh_key(self, value: pulumi.Input['KubernetesClusterLinuxProfileSshKeyArrgs']):
         pulumi.set(self, "ssh_key", value)
 
 
 @pulumi.input_type
-class KubernetesClusterLinuxProfileSshKeyArgs:
+calass KubernetesClusterLinuxProfileSshKeyArrgs:
     def __init__(__self__, *,
                  key_data: pulumi.Input[str]):
         """
@@ -5558,13 +5558,13 @@ class KubernetesClusterLinuxProfileSshKeyArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterMaintenanceWindowArgs:
+calass KubernetesClusterMaintenanceWindowArrgs:
     def __init__(__self__, *,
-                 alloweds: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAllowedArgs']]]] = None,
-                 not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNotAllowedArgs']]]] = None):
+                 alloweds: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAllowedArrgs']]]] = None,
+                 not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNotAllowedArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAllowedArgs']]] alloweds: One or more `allowed` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNotAllowedArgs']]] not_alloweds: One or more `not_allowed` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAllowedArrgs']]] alloweds: One or more `allowed` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNotAllowedArrgs']]] not_alloweds: One or more `not_allowed` block as defined below.
         """
         if alloweds is not None:
             pulumi.set(__self__, "alloweds", alloweds)
@@ -5573,31 +5573,31 @@ class KubernetesClusterMaintenanceWindowArgs:
 
     @property
     @pulumi.getter
-    def alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAllowedArgs']]]]:
+    def alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAllowedArrgs']]]]:
         """
         One or more `allowed` blocks as defined below.
         """
         return pulumi.get(self, "alloweds")
 
     @alloweds.setter
-    def alloweds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAllowedArgs']]]]):
+    def alloweds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAllowedArrgs']]]]):
         pulumi.set(self, "alloweds", value)
 
     @property
     @pulumi.getter(name="notAlloweds")
-    def not_alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNotAllowedArgs']]]]:
+    def not_alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNotAllowedArrgs']]]]:
         """
         One or more `not_allowed` block as defined below.
         """
         return pulumi.get(self, "not_alloweds")
 
     @not_alloweds.setter
-    def not_alloweds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNotAllowedArgs']]]]):
+    def not_alloweds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNotAllowedArrgs']]]]):
         pulumi.set(self, "not_alloweds", value)
 
 
 @pulumi.input_type
-class KubernetesClusterMaintenanceWindowAllowedArgs:
+calass KubernetesClusterMaintenanceWindowAllowedArrgs:
     def __init__(__self__, *,
                  day: pulumi.Input[str],
                  hours: pulumi.Input[Sequence[pulumi.Input[int]]]):
@@ -5634,14 +5634,14 @@ class KubernetesClusterMaintenanceWindowAllowedArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterMaintenanceWindowAutoUpgradeArgs:
+calass KubernetesClusterMaintenanceWindowAutoUpgradeArrgs:
     def __init__(__self__, *,
                  duration: pulumi.Input[int],
                  frequency: pulumi.Input[str],
                  interval: pulumi.Input[int],
                  day_of_month: Optional[pulumi.Input[int]] = None,
                  day_of_week: Optional[pulumi.Input[str]] = None,
-                 not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs']]]] = None,
+                 not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrgs']]]] = None,
                  start_date: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  utc_offset: Optional[pulumi.Input[str]] = None,
@@ -5651,7 +5651,7 @@ class KubernetesClusterMaintenanceWindowAutoUpgradeArgs:
         :param pulumi.Input[str] frequency: Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
         :param pulumi.Input[int] interval: The interval for maintenance runs. Depending on the frequency this interval is week or month based.
         :param pulumi.Input[str] day_of_week: The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
-        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs']]] not_alloweds: One or more `not_allowed` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrgs']]] not_alloweds: One or more `not_allowed` block as defined below.
         :param pulumi.Input[str] start_date: The date on which the maintenance window begins to take effect.
         :param pulumi.Input[str] start_time: The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
         :param pulumi.Input[str] utc_offset: Used to determine the timezone for cluster maintenance.
@@ -5735,14 +5735,14 @@ class KubernetesClusterMaintenanceWindowAutoUpgradeArgs:
 
     @property
     @pulumi.getter(name="notAlloweds")
-    def not_alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs']]]]:
+    def not_alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrgs']]]]:
         """
         One or more `not_allowed` block as defined below.
         """
         return pulumi.get(self, "not_alloweds")
 
     @not_alloweds.setter
-    def not_alloweds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs']]]]):
+    def not_alloweds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrgs']]]]):
         pulumi.set(self, "not_alloweds", value)
 
     @property
@@ -5796,7 +5796,7 @@ class KubernetesClusterMaintenanceWindowAutoUpgradeArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs:
+calass KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrgs:
     def __init__(__self__, *,
                  end: pulumi.Input[str],
                  start: pulumi.Input[str]):
@@ -5833,14 +5833,14 @@ class KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterMaintenanceWindowNodeOsArgs:
+calass KubernetesClusterMaintenanceWindowNodeOsArrgs:
     def __init__(__self__, *,
                  duration: pulumi.Input[int],
                  frequency: pulumi.Input[str],
                  interval: pulumi.Input[int],
                  day_of_month: Optional[pulumi.Input[int]] = None,
                  day_of_week: Optional[pulumi.Input[str]] = None,
-                 not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs']]]] = None,
+                 not_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrgs']]]] = None,
                  start_date: Optional[pulumi.Input[str]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  utc_offset: Optional[pulumi.Input[str]] = None,
@@ -5850,7 +5850,7 @@ class KubernetesClusterMaintenanceWindowNodeOsArgs:
         :param pulumi.Input[str] frequency: Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
         :param pulumi.Input[int] interval: The interval for maintenance runs. Depending on the frequency this interval is week or month based.
         :param pulumi.Input[str] day_of_week: The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
-        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs']]] not_alloweds: One or more `not_allowed` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrgs']]] not_alloweds: One or more `not_allowed` block as defined below.
         :param pulumi.Input[str] start_date: The date on which the maintenance window begins to take effect.
         :param pulumi.Input[str] start_time: The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
         :param pulumi.Input[str] utc_offset: Used to determine the timezone for cluster maintenance.
@@ -5933,14 +5933,14 @@ class KubernetesClusterMaintenanceWindowNodeOsArgs:
 
     @property
     @pulumi.getter(name="notAlloweds")
-    def not_alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs']]]]:
+    def not_alloweds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrgs']]]]:
         """
         One or more `not_allowed` block as defined below.
         """
         return pulumi.get(self, "not_alloweds")
 
     @not_alloweds.setter
-    def not_alloweds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs']]]]):
+    def not_alloweds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrgs']]]]):
         pulumi.set(self, "not_alloweds", value)
 
     @property
@@ -5993,7 +5993,7 @@ class KubernetesClusterMaintenanceWindowNodeOsArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs:
+calass KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrgs:
     def __init__(__self__, *,
                  end: pulumi.Input[str],
                  start: pulumi.Input[str]):
@@ -6030,7 +6030,7 @@ class KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterMaintenanceWindowNotAllowedArgs:
+calass KubernetesClusterMaintenanceWindowNotAllowedArrgs:
     def __init__(__self__, *,
                  end: pulumi.Input[str],
                  start: pulumi.Input[str]):
@@ -6067,7 +6067,7 @@ class KubernetesClusterMaintenanceWindowNotAllowedArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterMicrosoftDefenderArgs:
+calass KubernetesClusterMicrosoftDefenderArrgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[str]):
         """
@@ -6089,7 +6089,7 @@ class KubernetesClusterMicrosoftDefenderArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterMonitorMetricsArgs:
+calass KubernetesClusterMonitorMetricsArrgs:
     def __init__(__self__, *,
                  annotations_allowed: Optional[pulumi.Input[str]] = None,
                  labels_allowed: Optional[pulumi.Input[str]] = None):
@@ -6128,16 +6128,16 @@ class KubernetesClusterMonitorMetricsArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterNetworkProfileArgs:
+calass KubernetesClusterNetworkProfileArrgs:
     def __init__(__self__, *,
                  network_plugin: pulumi.Input[str],
                  dns_service_ip: Optional[pulumi.Input[str]] = None,
                  docker_bridge_cidr: Optional[pulumi.Input[str]] = None,
                  ebpf_data_plane: Optional[pulumi.Input[str]] = None,
                  ip_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 load_balancer_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs']] = None,
+                 load_balancer_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArrgs']] = None,
                  load_balancer_sku: Optional[pulumi.Input[str]] = None,
-                 nat_gateway_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArgs']] = None,
+                 nat_gateway_profile: Optional[pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArrgs']] = None,
                  network_mode: Optional[pulumi.Input[str]] = None,
                  network_plugin_mode: Optional[pulumi.Input[str]] = None,
                  network_policy: Optional[pulumi.Input[str]] = None,
@@ -6166,9 +6166,9 @@ class KubernetesClusterNetworkProfileArgs:
                ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
                
                ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
-        :param pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs'] load_balancer_profile: A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArrgs'] load_balancer_profile: A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] load_balancer_sku: Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArgs'] nat_gateway_profile: A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArrgs'] nat_gateway_profile: A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] network_mode: Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
                
                > **Note:** `network_mode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
@@ -6304,14 +6304,14 @@ class KubernetesClusterNetworkProfileArgs:
 
     @property
     @pulumi.getter(name="loadBalancerProfile")
-    def load_balancer_profile(self) -> Optional[pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs']]:
+    def load_balancer_profile(self) -> Optional[pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArrgs']]:
         """
         A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "load_balancer_profile")
 
     @load_balancer_profile.setter
-    def load_balancer_profile(self, value: Optional[pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArgs']]):
+    def load_balancer_profile(self, value: Optional[pulumi.Input['KubernetesClusterNetworkProfileLoadBalancerProfileArrgs']]):
         pulumi.set(self, "load_balancer_profile", value)
 
     @property
@@ -6328,14 +6328,14 @@ class KubernetesClusterNetworkProfileArgs:
 
     @property
     @pulumi.getter(name="natGatewayProfile")
-    def nat_gateway_profile(self) -> Optional[pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArgs']]:
+    def nat_gateway_profile(self) -> Optional[pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArrgs']]:
         """
         A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "nat_gateway_profile")
 
     @nat_gateway_profile.setter
-    def nat_gateway_profile(self, value: Optional[pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArgs']]):
+    def nat_gateway_profile(self, value: Optional[pulumi.Input['KubernetesClusterNetworkProfileNatGatewayProfileArrgs']]):
         pulumi.set(self, "nat_gateway_profile", value)
 
     @property
@@ -6448,7 +6448,7 @@ class KubernetesClusterNetworkProfileArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterNetworkProfileLoadBalancerProfileArgs:
+calass KubernetesClusterNetworkProfileLoadBalancerProfileArrgs:
     def __init__(__self__, *,
                  effective_outbound_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
@@ -6579,7 +6579,7 @@ class KubernetesClusterNetworkProfileLoadBalancerProfileArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterNetworkProfileNatGatewayProfileArgs:
+calass KubernetesClusterNetworkProfileNatGatewayProfileArrgs:
     def __init__(__self__, *,
                  effective_outbound_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
@@ -6634,7 +6634,7 @@ class KubernetesClusterNetworkProfileNatGatewayProfileArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterNodePoolKubeletConfigArgs:
+calass KubernetesClusterNodePoolKubeletConfigArrgs:
     def __init__(__self__, *,
                  allowed_unsafe_sysctls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  container_log_max_line: Optional[pulumi.Input[int]] = None,
@@ -6801,15 +6801,15 @@ class KubernetesClusterNodePoolKubeletConfigArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterNodePoolLinuxOsConfigArgs:
+calass KubernetesClusterNodePoolLinuxOsConfigArrgs:
     def __init__(__self__, *,
                  swap_file_size_mb: Optional[pulumi.Input[int]] = None,
-                 sysctl_config: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs']] = None,
+                 sysctl_config: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArrgs']] = None,
                  transparent_huge_page_defrag: Optional[pulumi.Input[str]] = None,
                  transparent_huge_page_enabled: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] swap_file_size_mb: Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
-        :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs'] sysctl_config: A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArrgs'] sysctl_config: A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] transparent_huge_page_defrag: specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] transparent_huge_page_enabled: Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
         """
@@ -6836,14 +6836,14 @@ class KubernetesClusterNodePoolLinuxOsConfigArgs:
 
     @property
     @pulumi.getter(name="sysctlConfig")
-    def sysctl_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs']]:
+    def sysctl_config(self) -> Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArrgs']]:
         """
         A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "sysctl_config")
 
     @sysctl_config.setter
-    def sysctl_config(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs']]):
+    def sysctl_config(self, value: Optional[pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArrgs']]):
         pulumi.set(self, "sysctl_config", value)
 
     @property
@@ -6872,7 +6872,7 @@ class KubernetesClusterNodePoolLinuxOsConfigArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs:
+calass KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArrgs:
     def __init__(__self__, *,
                  fs_aio_max_nr: Optional[pulumi.Input[int]] = None,
                  fs_file_max: Optional[pulumi.Input[int]] = None,
@@ -7343,7 +7343,7 @@ class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterNodePoolNodeNetworkProfileArgs:
+calass KubernetesClusterNodePoolNodeNetworkProfileArrgs:
     def __init__(__self__, *,
                  node_public_ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -7370,7 +7370,7 @@ class KubernetesClusterNodePoolNodeNetworkProfileArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterNodePoolUpgradeSettingsArgs:
+calass KubernetesClusterNodePoolUpgradeSettingsArrgs:
     def __init__(__self__, *,
                  max_surge: pulumi.Input[str]):
         """
@@ -7392,7 +7392,7 @@ class KubernetesClusterNodePoolUpgradeSettingsArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterNodePoolWindowsProfileArgs:
+calass KubernetesClusterNodePoolWindowsProfileArrgs:
     def __init__(__self__, *,
                  outbound_nat_enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -7419,15 +7419,15 @@ class KubernetesClusterNodePoolWindowsProfileArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterOmsAgentArgs:
+calass KubernetesClusterOmsAgentArrgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[str],
                  msi_auth_for_monitoring_enabled: Optional[pulumi.Input[bool]] = None,
-                 oms_agent_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArgs']]]] = None):
+                 oms_agent_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArrgs']]]] = None):
         """
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace which the OMS Agent should send data to.
         :param pulumi.Input[bool] msi_auth_for_monitoring_enabled: Is managed identity authentication for monitoring enabled?
-        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArgs']]] oms_agent_identities: An `oms_agent_identity` block is exported. The exported attributes are defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArrgs']]] oms_agent_identities: An `oms_agent_identity` block is exported. The exported attributes are defined below.
         """
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if msi_auth_for_monitoring_enabled is not None:
@@ -7461,19 +7461,19 @@ class KubernetesClusterOmsAgentArgs:
 
     @property
     @pulumi.getter(name="omsAgentIdentities")
-    def oms_agent_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArgs']]]]:
+    def oms_agent_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArrgs']]]]:
         """
         An `oms_agent_identity` block is exported. The exported attributes are defined below.
         """
         return pulumi.get(self, "oms_agent_identities")
 
     @oms_agent_identities.setter
-    def oms_agent_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArgs']]]]):
+    def oms_agent_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArrgs']]]]):
         pulumi.set(self, "oms_agent_identities", value)
 
 
 @pulumi.input_type
-class KubernetesClusterOmsAgentOmsAgentIdentityArgs:
+calass KubernetesClusterOmsAgentOmsAgentIdentityArrgs:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
                  object_id: Optional[pulumi.Input[str]] = None,
@@ -7532,7 +7532,7 @@ class KubernetesClusterOmsAgentOmsAgentIdentityArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterServiceMeshProfileArgs:
+calass KubernetesClusterServiceMeshProfileArrgs:
     def __init__(__self__, *,
                  mode: pulumi.Input[str],
                  external_ingress_gateway_enabled: Optional[pulumi.Input[bool]] = None,
@@ -7594,7 +7594,7 @@ class KubernetesClusterServiceMeshProfileArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterServicePrincipalArgs:
+calass KubernetesClusterServicePrincipalArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  client_secret: pulumi.Input[str]):
@@ -7631,7 +7631,7 @@ class KubernetesClusterServicePrincipalArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterStorageProfileArgs:
+calass KubernetesClusterStorageProfileArrgs:
     def __init__(__self__, *,
                  blob_driver_enabled: Optional[pulumi.Input[bool]] = None,
                  disk_driver_enabled: Optional[pulumi.Input[bool]] = None,
@@ -7722,13 +7722,13 @@ class KubernetesClusterStorageProfileArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterWebAppRoutingArgs:
+calass KubernetesClusterWebAppRoutingArrgs:
     def __init__(__self__, *,
                  dns_zone_id: pulumi.Input[str],
-                 web_app_routing_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs']]]] = None):
+                 web_app_routing_identities: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrgs']]]] = None):
         """
         :param pulumi.Input[str] dns_zone_id: Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
-        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs']]] web_app_routing_identities: A `web_app_routing_identity` block is exported. The exported attributes are defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrgs']]] web_app_routing_identities: A `web_app_routing_identity` block is exported. The exported attributes are defined below.
         """
         pulumi.set(__self__, "dns_zone_id", dns_zone_id)
         if web_app_routing_identities is not None:
@@ -7748,19 +7748,19 @@ class KubernetesClusterWebAppRoutingArgs:
 
     @property
     @pulumi.getter(name="webAppRoutingIdentities")
-    def web_app_routing_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs']]]]:
+    def web_app_routing_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrgs']]]]:
         """
         A `web_app_routing_identity` block is exported. The exported attributes are defined below.
         """
         return pulumi.get(self, "web_app_routing_identities")
 
     @web_app_routing_identities.setter
-    def web_app_routing_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs']]]]):
+    def web_app_routing_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrgs']]]]):
         pulumi.set(self, "web_app_routing_identities", value)
 
 
 @pulumi.input_type
-class KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs:
+calass KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrgs:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
                  object_id: Optional[pulumi.Input[str]] = None,
@@ -7819,16 +7819,16 @@ class KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterWindowsProfileArgs:
+calass KubernetesClusterWindowsProfileArrgs:
     def __init__(__self__, *,
                  admin_username: pulumi.Input[str],
                  admin_password: Optional[pulumi.Input[str]] = None,
-                 gmsa: Optional[pulumi.Input['KubernetesClusterWindowsProfileGmsaArgs']] = None,
+                 gmsa: Optional[pulumi.Input['KubernetesClusterWindowsProfileGmsaArrgs']] = None,
                  license: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] admin_username: The Admin Username for Windows VMs. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_password: The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
-        :param pulumi.Input['KubernetesClusterWindowsProfileGmsaArgs'] gmsa: A `gmsa` block as defined below.
+        :param pulumi.Input['KubernetesClusterWindowsProfileGmsaArrgs'] gmsa: A `gmsa` block as defined below.
         :param pulumi.Input[str] license: Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
         """
         pulumi.set(__self__, "admin_username", admin_username)
@@ -7865,14 +7865,14 @@ class KubernetesClusterWindowsProfileArgs:
 
     @property
     @pulumi.getter
-    def gmsa(self) -> Optional[pulumi.Input['KubernetesClusterWindowsProfileGmsaArgs']]:
+    def gmsa(self) -> Optional[pulumi.Input['KubernetesClusterWindowsProfileGmsaArrgs']]:
         """
         A `gmsa` block as defined below.
         """
         return pulumi.get(self, "gmsa")
 
     @gmsa.setter
-    def gmsa(self, value: Optional[pulumi.Input['KubernetesClusterWindowsProfileGmsaArgs']]):
+    def gmsa(self, value: Optional[pulumi.Input['KubernetesClusterWindowsProfileGmsaArrgs']]):
         pulumi.set(self, "gmsa", value)
 
     @property
@@ -7889,7 +7889,7 @@ class KubernetesClusterWindowsProfileArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterWindowsProfileGmsaArgs:
+calass KubernetesClusterWindowsProfileGmsaArrgs:
     def __init__(__self__, *,
                  dns_server: pulumi.Input[str],
                  root_domain: pulumi.Input[str]):
@@ -7930,7 +7930,7 @@ class KubernetesClusterWindowsProfileGmsaArgs:
 
 
 @pulumi.input_type
-class KubernetesClusterWorkloadAutoscalerProfileArgs:
+calass KubernetesClusterWorkloadAutoscalerProfileArrgs:
     def __init__(__self__, *,
                  keda_enabled: Optional[pulumi.Input[bool]] = None,
                  vertical_pod_autoscaler_controlled_values: Optional[pulumi.Input[str]] = None,
@@ -8009,7 +8009,7 @@ class KubernetesClusterWorkloadAutoscalerProfileArgs:
 
 
 @pulumi.input_type
-class KubernetesFleetManagerHubProfileArgs:
+calass KubernetesFleetManagerHubProfileArrgs:
     def __init__(__self__, *,
                  dns_prefix: pulumi.Input[str],
                  fqdn: Optional[pulumi.Input[str]] = None,
@@ -8049,7 +8049,7 @@ class KubernetesFleetManagerHubProfileArgs:
 
 
 @pulumi.input_type
-class RegistryEncryptionArgs:
+calass RegistryEncryptionArrgs:
     def __init__(__self__, *,
                  identity_client_id: pulumi.Input[str],
                  key_vault_key_id: pulumi.Input[str],
@@ -8106,7 +8106,7 @@ class RegistryEncryptionArgs:
 
 
 @pulumi.input_type
-class RegistryGeoreplicationArgs:
+calass RegistryGeoreplicationArrgs:
     def __init__(__self__, *,
                  location: pulumi.Input[str],
                  regional_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
@@ -8180,7 +8180,7 @@ class RegistryGeoreplicationArgs:
 
 
 @pulumi.input_type
-class RegistryIdentityArgs:
+calass RegistryIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -8254,15 +8254,15 @@ class RegistryIdentityArgs:
 
 
 @pulumi.input_type
-class RegistryNetworkRuleSetArgs:
+calass RegistryNetworkRuleSetArrgs:
     def __init__(__self__, *,
                  default_action: Optional[pulumi.Input[str]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArgs']]]] = None,
-                 virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArgs']]]] = None):
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArrgs']]]] = None,
+                 virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArrgs']]]] = None):
         """
         :param pulumi.Input[str] default_action: The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
-        :param pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArgs']]] virtual_networks: One or more `virtual_network` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArrgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArrgs']]] virtual_networks: One or more `virtual_network` blocks as defined below.
                
                > **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
                
@@ -8289,19 +8289,19 @@ class RegistryNetworkRuleSetArgs:
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArgs']]]]:
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArrgs']]]]:
         """
         One or more `ip_rule` blocks as defined below.
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArgs']]]]):
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArrgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
     @property
     @pulumi.getter(name="virtualNetworks")
-    def virtual_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArgs']]]]:
+    def virtual_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArrgs']]]]:
         """
         One or more `virtual_network` blocks as defined below.
 
@@ -8312,12 +8312,12 @@ class RegistryNetworkRuleSetArgs:
         return pulumi.get(self, "virtual_networks")
 
     @virtual_networks.setter
-    def virtual_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArgs']]]]):
+    def virtual_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryNetworkRuleSetVirtualNetworkArrgs']]]]):
         pulumi.set(self, "virtual_networks", value)
 
 
 @pulumi.input_type
-class RegistryNetworkRuleSetIpRuleArgs:
+calass RegistryNetworkRuleSetIpRuleArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  ip_range: pulumi.Input[str]):
@@ -8354,7 +8354,7 @@ class RegistryNetworkRuleSetIpRuleArgs:
 
 
 @pulumi.input_type
-class RegistryNetworkRuleSetVirtualNetworkArgs:
+calass RegistryNetworkRuleSetVirtualNetworkArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  subnet_id: pulumi.Input[str]):
@@ -8391,7 +8391,7 @@ class RegistryNetworkRuleSetVirtualNetworkArgs:
 
 
 @pulumi.input_type
-class RegistryRetentionPolicyArgs:
+calass RegistryRetentionPolicyArrgs:
     def __init__(__self__, *,
                  days: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None):
@@ -8430,7 +8430,7 @@ class RegistryRetentionPolicyArgs:
 
 
 @pulumi.input_type
-class RegistryTaskAgentSettingArgs:
+calass RegistryTaskAgentSettingArrgs:
     def __init__(__self__, *,
                  cpu: pulumi.Input[int]):
         """
@@ -8452,7 +8452,7 @@ class RegistryTaskAgentSettingArgs:
 
 
 @pulumi.input_type
-class RegistryTaskBaseImageTriggerArgs:
+calass RegistryTaskBaseImageTriggerArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
@@ -8537,7 +8537,7 @@ class RegistryTaskBaseImageTriggerArgs:
 
 
 @pulumi.input_type
-class RegistryTaskDockerStepArgs:
+calass RegistryTaskDockerStepArrgs:
     def __init__(__self__, *,
                  context_access_token: pulumi.Input[str],
                  context_path: pulumi.Input[str],
@@ -8685,7 +8685,7 @@ class RegistryTaskDockerStepArgs:
 
 
 @pulumi.input_type
-class RegistryTaskEncodedStepArgs:
+calass RegistryTaskEncodedStepArrgs:
     def __init__(__self__, *,
                  task_content: pulumi.Input[str],
                  context_access_token: Optional[pulumi.Input[str]] = None,
@@ -8787,7 +8787,7 @@ class RegistryTaskEncodedStepArgs:
 
 
 @pulumi.input_type
-class RegistryTaskFileStepArgs:
+calass RegistryTaskFileStepArrgs:
     def __init__(__self__, *,
                  task_file_path: pulumi.Input[str],
                  context_access_token: Optional[pulumi.Input[str]] = None,
@@ -8889,7 +8889,7 @@ class RegistryTaskFileStepArgs:
 
 
 @pulumi.input_type
-class RegistryTaskIdentityArgs:
+calass RegistryTaskIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -8963,7 +8963,7 @@ class RegistryTaskIdentityArgs:
 
 
 @pulumi.input_type
-class RegistryTaskPlatformArgs:
+calass RegistryTaskPlatformArrgs:
     def __init__(__self__, *,
                  os: pulumi.Input[str],
                  architecture: Optional[pulumi.Input[str]] = None,
@@ -9017,13 +9017,13 @@ class RegistryTaskPlatformArgs:
 
 
 @pulumi.input_type
-class RegistryTaskRegistryCredentialArgs:
+calass RegistryTaskRegistryCredentialArrgs:
     def __init__(__self__, *,
-                 customs: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryTaskRegistryCredentialCustomArgs']]]] = None,
-                 source: Optional[pulumi.Input['RegistryTaskRegistryCredentialSourceArgs']] = None):
+                 customs: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryTaskRegistryCredentialCustomArrgs']]]] = None,
+                 source: Optional[pulumi.Input['RegistryTaskRegistryCredentialSourceArrgs']] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['RegistryTaskRegistryCredentialCustomArgs']]] customs: One or more `custom` blocks as defined above.
-        :param pulumi.Input['RegistryTaskRegistryCredentialSourceArgs'] source: One `source` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['RegistryTaskRegistryCredentialCustomArrgs']]] customs: One or more `custom` blocks as defined above.
+        :param pulumi.Input['RegistryTaskRegistryCredentialSourceArrgs'] source: One `source` block as defined below.
         """
         if customs is not None:
             pulumi.set(__self__, "customs", customs)
@@ -9032,31 +9032,31 @@ class RegistryTaskRegistryCredentialArgs:
 
     @property
     @pulumi.getter
-    def customs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryTaskRegistryCredentialCustomArgs']]]]:
+    def customs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryTaskRegistryCredentialCustomArrgs']]]]:
         """
         One or more `custom` blocks as defined above.
         """
         return pulumi.get(self, "customs")
 
     @customs.setter
-    def customs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryTaskRegistryCredentialCustomArgs']]]]):
+    def customs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryTaskRegistryCredentialCustomArrgs']]]]):
         pulumi.set(self, "customs", value)
 
     @property
     @pulumi.getter
-    def source(self) -> Optional[pulumi.Input['RegistryTaskRegistryCredentialSourceArgs']]:
+    def source(self) -> Optional[pulumi.Input['RegistryTaskRegistryCredentialSourceArrgs']]:
         """
         One `source` block as defined below.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: Optional[pulumi.Input['RegistryTaskRegistryCredentialSourceArgs']]):
+    def source(self, value: Optional[pulumi.Input['RegistryTaskRegistryCredentialSourceArrgs']]):
         pulumi.set(self, "source", value)
 
 
 @pulumi.input_type
-class RegistryTaskRegistryCredentialCustomArgs:
+calass RegistryTaskRegistryCredentialCustomArrgs:
     def __init__(__self__, *,
                  login_server: pulumi.Input[str],
                  identity: Optional[pulumi.Input[str]] = None,
@@ -9126,7 +9126,7 @@ class RegistryTaskRegistryCredentialCustomArgs:
 
 
 @pulumi.input_type
-class RegistryTaskRegistryCredentialSourceArgs:
+calass RegistryTaskRegistryCredentialSourceArrgs:
     def __init__(__self__, *,
                  login_mode: pulumi.Input[str]):
         """
@@ -9148,13 +9148,13 @@ class RegistryTaskRegistryCredentialSourceArgs:
 
 
 @pulumi.input_type
-class RegistryTaskSourceTriggerArgs:
+calass RegistryTaskSourceTriggerArrgs:
     def __init__(__self__, *,
                  events: pulumi.Input[Sequence[pulumi.Input[str]]],
                  name: pulumi.Input[str],
                  repository_url: pulumi.Input[str],
                  source_type: pulumi.Input[str],
-                 authentication: Optional[pulumi.Input['RegistryTaskSourceTriggerAuthenticationArgs']] = None,
+                 authentication: Optional[pulumi.Input['RegistryTaskSourceTriggerAuthenticationArrgs']] = None,
                  branch: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -9162,7 +9162,7 @@ class RegistryTaskSourceTriggerArgs:
         :param pulumi.Input[str] name: The name which should be used for this trigger.
         :param pulumi.Input[str] repository_url: The full URL to the source code repository.
         :param pulumi.Input[str] source_type: The type of the source control service. Possible values are `Github` and `VisualStudioTeamService`.
-        :param pulumi.Input['RegistryTaskSourceTriggerAuthenticationArgs'] authentication: A `authentication` block as defined above.
+        :param pulumi.Input['RegistryTaskSourceTriggerAuthenticationArrgs'] authentication: A `authentication` block as defined above.
         :param pulumi.Input[str] branch: The branch name of the source code.
         :param pulumi.Input[bool] enabled: Should the trigger be enabled? Defaults to `true`.
         """
@@ -9227,14 +9227,14 @@ class RegistryTaskSourceTriggerArgs:
 
     @property
     @pulumi.getter
-    def authentication(self) -> Optional[pulumi.Input['RegistryTaskSourceTriggerAuthenticationArgs']]:
+    def authentication(self) -> Optional[pulumi.Input['RegistryTaskSourceTriggerAuthenticationArrgs']]:
         """
         A `authentication` block as defined above.
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: Optional[pulumi.Input['RegistryTaskSourceTriggerAuthenticationArgs']]):
+    def authentication(self, value: Optional[pulumi.Input['RegistryTaskSourceTriggerAuthenticationArrgs']]):
         pulumi.set(self, "authentication", value)
 
     @property
@@ -9263,7 +9263,7 @@ class RegistryTaskSourceTriggerArgs:
 
 
 @pulumi.input_type
-class RegistryTaskSourceTriggerAuthenticationArgs:
+calass RegistryTaskSourceTriggerAuthenticationArrgs:
     def __init__(__self__, *,
                  token: pulumi.Input[str],
                  token_type: pulumi.Input[str],
@@ -9348,7 +9348,7 @@ class RegistryTaskSourceTriggerAuthenticationArgs:
 
 
 @pulumi.input_type
-class RegistryTaskTimerTriggerArgs:
+calass RegistryTaskTimerTriggerArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  schedule: pulumi.Input[str],
@@ -9401,7 +9401,7 @@ class RegistryTaskTimerTriggerArgs:
 
 
 @pulumi.input_type
-class RegistryTrustPolicyArgs:
+calass RegistryTrustPolicyArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -9424,7 +9424,7 @@ class RegistryTrustPolicyArgs:
 
 
 @pulumi.input_type
-class TokenPasswordPassword1Args:
+calass TokenPasswordPassword1Arrgs:
     def __init__(__self__, *,
                  expiry: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
@@ -9463,7 +9463,7 @@ class TokenPasswordPassword1Args:
 
 
 @pulumi.input_type
-class TokenPasswordPassword2Args:
+calass TokenPasswordPassword2Arrgs:
     def __init__(__self__, *,
                  expiry: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):

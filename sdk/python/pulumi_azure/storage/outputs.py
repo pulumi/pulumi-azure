@@ -76,7 +76,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AccountAzureFilesAuthentication(dict):
+calass AccountAzureFilesAuthentication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -101,7 +101,7 @@ class AccountAzureFilesAuthentication(dict):
                  active_directory: Optional['outputs.AccountAzureFilesAuthenticationActiveDirectory'] = None):
         """
         :param str directory_type: Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
-        :param 'AccountAzureFilesAuthenticationActiveDirectoryArgs' active_directory: A `active_directory` block as defined below. Required when `directory_type` is `AD`.
+        :param 'AccountAzureFilesAuthenticationActiveDirectoryArrgs' active_directory: A `active_directory` block as defined below. Required when `directory_type` is `AD`.
         """
         pulumi.set(__self__, "directory_type", directory_type)
         if active_directory is not None:
@@ -125,7 +125,7 @@ class AccountAzureFilesAuthentication(dict):
 
 
 @pulumi.output_type
-class AccountAzureFilesAuthenticationActiveDirectory(dict):
+calass AccountAzureFilesAuthenticationActiveDirectory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -229,7 +229,7 @@ class AccountAzureFilesAuthenticationActiveDirectory(dict):
 
 
 @pulumi.output_type
-class AccountBlobProperties(dict):
+calass AccountBlobProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -280,14 +280,14 @@ class AccountBlobProperties(dict):
         :param int change_feed_retention_in_days: The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
                
                > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
-        :param 'AccountBlobPropertiesContainerDeleteRetentionPolicyArgs' container_delete_retention_policy: A `container_delete_retention_policy` block as defined below.
-        :param Sequence['AccountBlobPropertiesCorsRuleArgs'] cors_rules: A `cors_rule` block as defined below.
+        :param 'AccountBlobPropertiesContainerDeleteRetentionPolicyArrgs' container_delete_retention_policy: A `container_delete_retention_policy` block as defined below.
+        :param Sequence['AccountBlobPropertiesCorsRuleArrgs'] cors_rules: A `cors_rule` block as defined below.
         :param str default_service_version: The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version.
-        :param 'AccountBlobPropertiesDeleteRetentionPolicyArgs' delete_retention_policy: A `delete_retention_policy` block as defined below.
+        :param 'AccountBlobPropertiesDeleteRetentionPolicyArrgs' delete_retention_policy: A `delete_retention_policy` block as defined below.
         :param bool last_access_time_enabled: Is the last access time based tracking enabled? Default to `false`.
                
                > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
-        :param 'AccountBlobPropertiesRestorePolicyArgs' restore_policy: A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
+        :param 'AccountBlobPropertiesRestorePolicyArrgs' restore_policy: A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
                
                > **NOTE:** This field cannot be configured when `kind` is set to `Storage` (V1).
         :param bool versioning_enabled: Is versioning enabled? Default to `false`.
@@ -397,7 +397,7 @@ class AccountBlobProperties(dict):
 
 
 @pulumi.output_type
-class AccountBlobPropertiesContainerDeleteRetentionPolicy(dict):
+calass AccountBlobPropertiesContainerDeleteRetentionPolicy(dict):
     def __init__(__self__, *,
                  days: Optional[int] = None):
         """
@@ -416,7 +416,7 @@ class AccountBlobPropertiesContainerDeleteRetentionPolicy(dict):
 
 
 @pulumi.output_type
-class AccountBlobPropertiesCorsRule(dict):
+calass AccountBlobPropertiesCorsRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -505,7 +505,7 @@ class AccountBlobPropertiesCorsRule(dict):
 
 
 @pulumi.output_type
-class AccountBlobPropertiesDeleteRetentionPolicy(dict):
+calass AccountBlobPropertiesDeleteRetentionPolicy(dict):
     def __init__(__self__, *,
                  days: Optional[int] = None):
         """
@@ -524,7 +524,7 @@ class AccountBlobPropertiesDeleteRetentionPolicy(dict):
 
 
 @pulumi.output_type
-class AccountBlobPropertiesRestorePolicy(dict):
+calass AccountBlobPropertiesRestorePolicy(dict):
     def __init__(__self__, *,
                  days: int):
         """
@@ -542,7 +542,7 @@ class AccountBlobPropertiesRestorePolicy(dict):
 
 
 @pulumi.output_type
-class AccountCustomDomain(dict):
+calass AccountCustomDomain(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -589,7 +589,7 @@ class AccountCustomDomain(dict):
 
 
 @pulumi.output_type
-class AccountCustomerManagedKey(dict):
+calass AccountCustomerManagedKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -641,7 +641,7 @@ class AccountCustomerManagedKey(dict):
 
 
 @pulumi.output_type
-class AccountIdentity(dict):
+calass AccountIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -724,7 +724,7 @@ class AccountIdentity(dict):
 
 
 @pulumi.output_type
-class AccountImmutabilityPolicy(dict):
+calass AccountImmutabilityPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -783,7 +783,7 @@ class AccountImmutabilityPolicy(dict):
 
 
 @pulumi.output_type
-class AccountNetworkRules(dict):
+calass AccountNetworkRules(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -817,7 +817,7 @@ class AccountNetworkRules(dict):
         :param str default_action: Specifies the default action of allow or deny when no other rules match. Valid options are `Deny` or `Allow`.
         :param Sequence[str] bypasses: Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of `Logging`, `Metrics`, `AzureServices`, or `None`.
         :param Sequence[str] ip_rules: List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)),  are not allowed.
-        :param Sequence['AccountNetworkRulesPrivateLinkAccessArgs'] private_link_accesses: One or More `private_link_access` block as defined below.
+        :param Sequence['AccountNetworkRulesPrivateLinkAccessArrgs'] private_link_accesses: One or More `private_link_access` block as defined below.
                
                > **Note:** If specifying `network_rules`, one of either `ip_rules` or `virtual_network_subnet_ids` must be specified and `default_action` must be set to `Deny`.
                
@@ -888,7 +888,7 @@ class AccountNetworkRules(dict):
 
 
 @pulumi.output_type
-class AccountNetworkRulesPrivateLinkAccess(dict):
+calass AccountNetworkRulesPrivateLinkAccess(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -937,7 +937,7 @@ class AccountNetworkRulesPrivateLinkAccess(dict):
 
 
 @pulumi.output_type
-class AccountNetworkRulesPrivateLinkAccessRule(dict):
+calass AccountNetworkRulesPrivateLinkAccessRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -986,7 +986,7 @@ class AccountNetworkRulesPrivateLinkAccessRule(dict):
 
 
 @pulumi.output_type
-class AccountQueueProperties(dict):
+calass AccountQueueProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1014,10 +1014,10 @@ class AccountQueueProperties(dict):
                  logging: Optional['outputs.AccountQueuePropertiesLogging'] = None,
                  minute_metrics: Optional['outputs.AccountQueuePropertiesMinuteMetrics'] = None):
         """
-        :param Sequence['AccountQueuePropertiesCorsRuleArgs'] cors_rules: A `cors_rule` block as defined above.
-        :param 'AccountQueuePropertiesHourMetricsArgs' hour_metrics: A `hour_metrics` block as defined below.
-        :param 'AccountQueuePropertiesLoggingArgs' logging: A `logging` block as defined below.
-        :param 'AccountQueuePropertiesMinuteMetricsArgs' minute_metrics: A `minute_metrics` block as defined below.
+        :param Sequence['AccountQueuePropertiesCorsRuleArrgs'] cors_rules: A `cors_rule` block as defined above.
+        :param 'AccountQueuePropertiesHourMetricsArrgs' hour_metrics: A `hour_metrics` block as defined below.
+        :param 'AccountQueuePropertiesLoggingArrgs' logging: A `logging` block as defined below.
+        :param 'AccountQueuePropertiesMinuteMetricsArrgs' minute_metrics: A `minute_metrics` block as defined below.
         """
         if cors_rules is not None:
             pulumi.set(__self__, "cors_rules", cors_rules)
@@ -1062,7 +1062,7 @@ class AccountQueueProperties(dict):
 
 
 @pulumi.output_type
-class AccountQueuePropertiesCorsRule(dict):
+calass AccountQueuePropertiesCorsRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1151,7 +1151,7 @@ class AccountQueuePropertiesCorsRule(dict):
 
 
 @pulumi.output_type
-class AccountQueuePropertiesHourMetrics(dict):
+calass AccountQueuePropertiesHourMetrics(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1223,7 +1223,7 @@ class AccountQueuePropertiesHourMetrics(dict):
 
 
 @pulumi.output_type
-class AccountQueuePropertiesLogging(dict):
+calass AccountQueuePropertiesLogging(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1303,7 +1303,7 @@ class AccountQueuePropertiesLogging(dict):
 
 
 @pulumi.output_type
-class AccountQueuePropertiesMinuteMetrics(dict):
+calass AccountQueuePropertiesMinuteMetrics(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1375,7 +1375,7 @@ class AccountQueuePropertiesMinuteMetrics(dict):
 
 
 @pulumi.output_type
-class AccountRouting(dict):
+calass AccountRouting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1437,7 +1437,7 @@ class AccountRouting(dict):
 
 
 @pulumi.output_type
-class AccountSasPolicy(dict):
+calass AccountSasPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1486,7 +1486,7 @@ class AccountSasPolicy(dict):
 
 
 @pulumi.output_type
-class AccountShareProperties(dict):
+calass AccountShareProperties(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1511,9 +1511,9 @@ class AccountShareProperties(dict):
                  retention_policy: Optional['outputs.AccountSharePropertiesRetentionPolicy'] = None,
                  smb: Optional['outputs.AccountSharePropertiesSmb'] = None):
         """
-        :param Sequence['AccountSharePropertiesCorsRuleArgs'] cors_rules: A `cors_rule` block as defined below.
-        :param 'AccountSharePropertiesRetentionPolicyArgs' retention_policy: A `retention_policy` block as defined below.
-        :param 'AccountSharePropertiesSmbArgs' smb: A `smb` block as defined below.
+        :param Sequence['AccountSharePropertiesCorsRuleArrgs'] cors_rules: A `cors_rule` block as defined below.
+        :param 'AccountSharePropertiesRetentionPolicyArrgs' retention_policy: A `retention_policy` block as defined below.
+        :param 'AccountSharePropertiesSmbArrgs' smb: A `smb` block as defined below.
         """
         if cors_rules is not None:
             pulumi.set(__self__, "cors_rules", cors_rules)
@@ -1548,7 +1548,7 @@ class AccountShareProperties(dict):
 
 
 @pulumi.output_type
-class AccountSharePropertiesCorsRule(dict):
+calass AccountSharePropertiesCorsRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1637,7 +1637,7 @@ class AccountSharePropertiesCorsRule(dict):
 
 
 @pulumi.output_type
-class AccountSharePropertiesRetentionPolicy(dict):
+calass AccountSharePropertiesRetentionPolicy(dict):
     def __init__(__self__, *,
                  days: Optional[int] = None):
         """
@@ -1656,7 +1656,7 @@ class AccountSharePropertiesRetentionPolicy(dict):
 
 
 @pulumi.output_type
-class AccountSharePropertiesSmb(dict):
+calass AccountSharePropertiesSmb(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1746,7 +1746,7 @@ class AccountSharePropertiesSmb(dict):
 
 
 @pulumi.output_type
-class AccountStaticWebsite(dict):
+calass AccountStaticWebsite(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1796,7 +1796,7 @@ class AccountStaticWebsite(dict):
 
 
 @pulumi.output_type
-class BlobInventoryPolicyRule(dict):
+calass BlobInventoryPolicyRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1831,7 +1831,7 @@ class BlobInventoryPolicyRule(dict):
         :param Sequence[str] schema_fields: A list of fields to be included in the inventory. See the [Azure API reference](https://docs.microsoft.com/rest/api/storagerp/blob-inventory-policies/create-or-update#blobinventorypolicydefinition) for all the supported fields.
         :param str scope: The scope of the inventory for this rule. Possible values are `Blob` and `Container`.
         :param str storage_container_name: The storage container name to store the blob inventory files for this rule.
-        :param 'BlobInventoryPolicyRuleFilterArgs' filter: A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
+        :param 'BlobInventoryPolicyRuleFilterArrgs' filter: A `filter` block as defined above. Can only be set when the `scope` is `Blob`.
         """
         pulumi.set(__self__, "format", format)
         pulumi.set(__self__, "name", name)
@@ -1900,7 +1900,7 @@ class BlobInventoryPolicyRule(dict):
 
 
 @pulumi.output_type
-class BlobInventoryPolicyRuleFilter(dict):
+calass BlobInventoryPolicyRuleFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2021,7 +2021,7 @@ class BlobInventoryPolicyRuleFilter(dict):
 
 
 @pulumi.output_type
-class DataLakeGen2FilesystemAce(dict):
+calass DataLakeGen2FilesystemAce(dict):
     def __init__(__self__, *,
                  permissions: str,
                  type: str,
@@ -2078,7 +2078,7 @@ class DataLakeGen2FilesystemAce(dict):
 
 
 @pulumi.output_type
-class DataLakeGen2PathAce(dict):
+calass DataLakeGen2PathAce(dict):
     def __init__(__self__, *,
                  permissions: str,
                  type: str,
@@ -2127,7 +2127,7 @@ class DataLakeGen2PathAce(dict):
 
 
 @pulumi.output_type
-class LocalUserPermissionScope(dict):
+calass LocalUserPermissionScope(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2150,7 +2150,7 @@ class LocalUserPermissionScope(dict):
                  resource_name: str,
                  service: str):
         """
-        :param 'LocalUserPermissionScopePermissionsArgs' permissions: A `permissions` block as defined below.
+        :param 'LocalUserPermissionScopePermissionsArrgs' permissions: A `permissions` block as defined below.
         :param str resource_name: The container name (when `service` is set to `blob`) or the file share name (when `service` is set to `file`), used by the Storage Account Local User.
         :param str service: The storage service used by this Storage Account Local User. Possible values are `blob` and `file`.
         """
@@ -2184,7 +2184,7 @@ class LocalUserPermissionScope(dict):
 
 
 @pulumi.output_type
-class LocalUserPermissionScopePermissions(dict):
+calass LocalUserPermissionScopePermissions(dict):
     def __init__(__self__, *,
                  create: Optional[bool] = None,
                  delete: Optional[bool] = None,
@@ -2251,7 +2251,7 @@ class LocalUserPermissionScopePermissions(dict):
 
 
 @pulumi.output_type
-class LocalUserSshAuthorizedKey(dict):
+calass LocalUserSshAuthorizedKey(dict):
     def __init__(__self__, *,
                  key: str,
                  description: Optional[str] = None):
@@ -2281,16 +2281,16 @@ class LocalUserSshAuthorizedKey(dict):
 
 
 @pulumi.output_type
-class ManagementPolicyRule(dict):
+calass ManagementPolicyRule(dict):
     def __init__(__self__, *,
                  actions: 'outputs.ManagementPolicyRuleActions',
                  enabled: bool,
                  filters: 'outputs.ManagementPolicyRuleFilters',
                  name: str):
         """
-        :param 'ManagementPolicyRuleActionsArgs' actions: An `actions` block as documented below.
+        :param 'ManagementPolicyRuleActionsArrgs' actions: An `actions` block as documented below.
         :param bool enabled: Boolean to specify whether the rule is enabled.
-        :param 'ManagementPolicyRuleFiltersArgs' filters: A `filters` block as documented below.
+        :param 'ManagementPolicyRuleFiltersArrgs' filters: A `filters` block as documented below.
         :param str name: The name of the rule. Rule name is case-sensitive. It must be unique within a policy.
         """
         pulumi.set(__self__, "actions", actions)
@@ -2332,7 +2332,7 @@ class ManagementPolicyRule(dict):
 
 
 @pulumi.output_type
-class ManagementPolicyRuleActions(dict):
+calass ManagementPolicyRuleActions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2355,9 +2355,9 @@ class ManagementPolicyRuleActions(dict):
                  snapshot: Optional['outputs.ManagementPolicyRuleActionsSnapshot'] = None,
                  version: Optional['outputs.ManagementPolicyRuleActionsVersion'] = None):
         """
-        :param 'ManagementPolicyRuleActionsBaseBlobArgs' base_blob: A `base_blob` block as documented below.
-        :param 'ManagementPolicyRuleActionsSnapshotArgs' snapshot: A `snapshot` block as documented below.
-        :param 'ManagementPolicyRuleActionsVersionArgs' version: A `version` block as documented below.
+        :param 'ManagementPolicyRuleActionsBaseBlobArrgs' base_blob: A `base_blob` block as documented below.
+        :param 'ManagementPolicyRuleActionsSnapshotArrgs' snapshot: A `snapshot` block as documented below.
+        :param 'ManagementPolicyRuleActionsVersionArrgs' version: A `version` block as documented below.
         """
         if base_blob is not None:
             pulumi.set(__self__, "base_blob", base_blob)
@@ -2392,7 +2392,7 @@ class ManagementPolicyRuleActions(dict):
 
 
 @pulumi.output_type
-class ManagementPolicyRuleActionsBaseBlob(dict):
+calass ManagementPolicyRuleActionsBaseBlob(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2634,7 +2634,7 @@ class ManagementPolicyRuleActionsBaseBlob(dict):
 
 
 @pulumi.output_type
-class ManagementPolicyRuleActionsSnapshot(dict):
+calass ManagementPolicyRuleActionsSnapshot(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2726,7 +2726,7 @@ class ManagementPolicyRuleActionsSnapshot(dict):
 
 
 @pulumi.output_type
-class ManagementPolicyRuleActionsVersion(dict):
+calass ManagementPolicyRuleActionsVersion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2818,7 +2818,7 @@ class ManagementPolicyRuleActionsVersion(dict):
 
 
 @pulumi.output_type
-class ManagementPolicyRuleFilters(dict):
+calass ManagementPolicyRuleFilters(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2846,7 +2846,7 @@ class ManagementPolicyRuleFilters(dict):
                  prefix_matches: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] blob_types: An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
-        :param Sequence['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs'] match_blob_index_tags: A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+        :param Sequence['ManagementPolicyRuleFiltersMatchBlobIndexTagArrgs'] match_blob_index_tags: A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
                
                > **NOTE:** The `match_blob_index_tag` property requires enabling the `blobIndex` feature with [PSH or CLI commands](https://azure.microsoft.com/en-us/blog/manage-and-find-data-with-blob-index-for-azure-storage-now-in-preview/).
         :param Sequence[str] prefix_matches: An array of strings for prefixes to be matched.
@@ -2885,7 +2885,7 @@ class ManagementPolicyRuleFilters(dict):
 
 
 @pulumi.output_type
-class ManagementPolicyRuleFiltersMatchBlobIndexTag(dict):
+calass ManagementPolicyRuleFiltersMatchBlobIndexTag(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str,
@@ -2926,7 +2926,7 @@ class ManagementPolicyRuleFiltersMatchBlobIndexTag(dict):
 
 
 @pulumi.output_type
-class ObjectReplicationRule(dict):
+calass ObjectReplicationRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3010,7 +3010,7 @@ class ObjectReplicationRule(dict):
 
 
 @pulumi.output_type
-class ShareAcl(dict):
+calass ShareAcl(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3033,7 +3033,7 @@ class ShareAcl(dict):
                  access_policies: Optional[Sequence['outputs.ShareAclAccessPolicy']] = None):
         """
         :param str id: The ID which should be used for this Shared Identifier.
-        :param Sequence['ShareAclAccessPolicyArgs'] access_policies: An `access_policy` block as defined below.
+        :param Sequence['ShareAclAccessPolicyArrgs'] access_policies: An `access_policy` block as defined below.
         """
         pulumi.set(__self__, "id", id)
         if access_policies is not None:
@@ -3057,7 +3057,7 @@ class ShareAcl(dict):
 
 
 @pulumi.output_type
-class ShareAclAccessPolicy(dict):
+calass ShareAclAccessPolicy(dict):
     def __init__(__self__, *,
                  permissions: str,
                  expiry: Optional[str] = None,
@@ -3103,7 +3103,7 @@ class ShareAclAccessPolicy(dict):
 
 
 @pulumi.output_type
-class TableAcl(dict):
+calass TableAcl(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3126,7 +3126,7 @@ class TableAcl(dict):
                  access_policies: Optional[Sequence['outputs.TableAclAccessPolicy']] = None):
         """
         :param str id: The ID which should be used for this Shared Identifier.
-        :param Sequence['TableAclAccessPolicyArgs'] access_policies: An `access_policy` block as defined below.
+        :param Sequence['TableAclAccessPolicyArrgs'] access_policies: An `access_policy` block as defined below.
         """
         pulumi.set(__self__, "id", id)
         if access_policies is not None:
@@ -3150,7 +3150,7 @@ class TableAcl(dict):
 
 
 @pulumi.output_type
-class TableAclAccessPolicy(dict):
+calass TableAclAccessPolicy(dict):
     def __init__(__self__, *,
                  expiry: str,
                  permissions: str,
@@ -3190,12 +3190,12 @@ class TableAclAccessPolicy(dict):
 
 
 @pulumi.output_type
-class GetAccountAzureFilesAuthenticationResult(dict):
+calass GetAccountAzureFilesAuthenticationResult(dict):
     def __init__(__self__, *,
                  active_directories: Sequence['outputs.GetAccountAzureFilesAuthenticationActiveDirectoryResult'],
                  directory_type: str):
         """
-        :param Sequence['GetAccountAzureFilesAuthenticationActiveDirectoryArgs'] active_directories: An `active_directory` block as documented below.
+        :param Sequence['GetAccountAzureFilesAuthenticationActiveDirectoryArrgs'] active_directories: An `active_directory` block as documented below.
         :param str directory_type: The directory service used for this Storage Account.
         """
         pulumi.set(__self__, "active_directories", active_directories)
@@ -3219,7 +3219,7 @@ class GetAccountAzureFilesAuthenticationResult(dict):
 
 
 @pulumi.output_type
-class GetAccountAzureFilesAuthenticationActiveDirectoryResult(dict):
+calass GetAccountAzureFilesAuthenticationActiveDirectoryResult(dict):
     def __init__(__self__, *,
                  domain_guid: str,
                  domain_name: str,
@@ -3292,7 +3292,7 @@ class GetAccountAzureFilesAuthenticationActiveDirectoryResult(dict):
 
 
 @pulumi.output_type
-class GetAccountBlobContainerSASPermissionsResult(dict):
+calass GetAccountBlobContainerSASPermissionsResult(dict):
     def __init__(__self__, *,
                  add: bool,
                  create: bool,
@@ -3371,7 +3371,7 @@ class GetAccountBlobContainerSASPermissionsResult(dict):
 
 
 @pulumi.output_type
-class GetAccountCustomDomainResult(dict):
+calass GetAccountCustomDomainResult(dict):
     def __init__(__self__, *,
                  name: str):
         """
@@ -3389,7 +3389,7 @@ class GetAccountCustomDomainResult(dict):
 
 
 @pulumi.output_type
-class GetAccountIdentityResult(dict):
+calass GetAccountIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -3440,7 +3440,7 @@ class GetAccountIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetAccountSASPermissionsResult(dict):
+calass GetAccountSASPermissionsResult(dict):
     def __init__(__self__, *,
                  add: bool,
                  create: bool,
@@ -3563,7 +3563,7 @@ class GetAccountSASPermissionsResult(dict):
 
 
 @pulumi.output_type
-class GetAccountSASResourceTypesResult(dict):
+calass GetAccountSASResourceTypesResult(dict):
     def __init__(__self__, *,
                  container: bool,
                  object: bool,
@@ -3603,7 +3603,7 @@ class GetAccountSASResourceTypesResult(dict):
 
 
 @pulumi.output_type
-class GetAccountSASServicesResult(dict):
+calass GetAccountSASServicesResult(dict):
     def __init__(__self__, *,
                  blob: bool,
                  file: bool,
@@ -3654,16 +3654,16 @@ class GetAccountSASServicesResult(dict):
 
 
 @pulumi.output_type
-class GetPolicyRuleResult(dict):
+calass GetPolicyRuleResult(dict):
     def __init__(__self__, *,
                  actions: Sequence['outputs.GetPolicyRuleActionResult'],
                  enabled: bool,
                  filters: Sequence['outputs.GetPolicyRuleFilterResult'],
                  name: str):
         """
-        :param Sequence['GetPolicyRuleActionArgs'] actions: An `actions` block as documented below.
+        :param Sequence['GetPolicyRuleActionArrgs'] actions: An `actions` block as documented below.
         :param bool enabled: Boolean to specify whether the rule is enabled.
-        :param Sequence['GetPolicyRuleFilterArgs'] filters: A `filter` block as documented below.
+        :param Sequence['GetPolicyRuleFilterArrgs'] filters: A `filter` block as documented below.
         :param str name: The filter tag name used for tag based filtering for blob objects.
         """
         pulumi.set(__self__, "actions", actions)
@@ -3705,15 +3705,15 @@ class GetPolicyRuleResult(dict):
 
 
 @pulumi.output_type
-class GetPolicyRuleActionResult(dict):
+calass GetPolicyRuleActionResult(dict):
     def __init__(__self__, *,
                  base_blobs: Sequence['outputs.GetPolicyRuleActionBaseBlobResult'],
                  snapshots: Sequence['outputs.GetPolicyRuleActionSnapshotResult'],
                  versions: Sequence['outputs.GetPolicyRuleActionVersionResult']):
         """
-        :param Sequence['GetPolicyRuleActionBaseBlobArgs'] base_blobs: A `base_blob` block as documented below.
-        :param Sequence['GetPolicyRuleActionSnapshotArgs'] snapshots: A `snapshot` block as documented below.
-        :param Sequence['GetPolicyRuleActionVersionArgs'] versions: A `version` block as documented below.
+        :param Sequence['GetPolicyRuleActionBaseBlobArrgs'] base_blobs: A `base_blob` block as documented below.
+        :param Sequence['GetPolicyRuleActionSnapshotArrgs'] snapshots: A `snapshot` block as documented below.
+        :param Sequence['GetPolicyRuleActionVersionArrgs'] versions: A `version` block as documented below.
         """
         pulumi.set(__self__, "base_blobs", base_blobs)
         pulumi.set(__self__, "snapshots", snapshots)
@@ -3745,7 +3745,7 @@ class GetPolicyRuleActionResult(dict):
 
 
 @pulumi.output_type
-class GetPolicyRuleActionBaseBlobResult(dict):
+calass GetPolicyRuleActionBaseBlobResult(dict):
     def __init__(__self__, *,
                  auto_tier_to_hot_from_cool_enabled: bool,
                  delete_after_days_since_creation_greater_than: int,
@@ -3906,7 +3906,7 @@ class GetPolicyRuleActionBaseBlobResult(dict):
 
 
 @pulumi.output_type
-class GetPolicyRuleActionSnapshotResult(dict):
+calass GetPolicyRuleActionSnapshotResult(dict):
     def __init__(__self__, *,
                  change_tier_to_archive_after_days_since_creation: int,
                  change_tier_to_cool_after_days_since_creation: int,
@@ -3968,7 +3968,7 @@ class GetPolicyRuleActionSnapshotResult(dict):
 
 
 @pulumi.output_type
-class GetPolicyRuleActionVersionResult(dict):
+calass GetPolicyRuleActionVersionResult(dict):
     def __init__(__self__, *,
                  change_tier_to_archive_after_days_since_creation: int,
                  change_tier_to_cool_after_days_since_creation: int,
@@ -4030,14 +4030,14 @@ class GetPolicyRuleActionVersionResult(dict):
 
 
 @pulumi.output_type
-class GetPolicyRuleFilterResult(dict):
+calass GetPolicyRuleFilterResult(dict):
     def __init__(__self__, *,
                  blob_types: Sequence[str],
                  match_blob_index_tags: Sequence['outputs.GetPolicyRuleFilterMatchBlobIndexTagResult'],
                  prefix_matches: Sequence[str]):
         """
         :param Sequence[str] blob_types: An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
-        :param Sequence['GetPolicyRuleFilterMatchBlobIndexTagArgs'] match_blob_index_tags: A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
+        :param Sequence['GetPolicyRuleFilterMatchBlobIndexTagArrgs'] match_blob_index_tags: A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
         :param Sequence[str] prefix_matches: An array of strings for prefixes to be matched.
         """
         pulumi.set(__self__, "blob_types", blob_types)
@@ -4070,7 +4070,7 @@ class GetPolicyRuleFilterResult(dict):
 
 
 @pulumi.output_type
-class GetPolicyRuleFilterMatchBlobIndexTagResult(dict):
+calass GetPolicyRuleFilterMatchBlobIndexTagResult(dict):
     def __init__(__self__, *,
                  name: str,
                  operation: str,
@@ -4110,12 +4110,12 @@ class GetPolicyRuleFilterMatchBlobIndexTagResult(dict):
 
 
 @pulumi.output_type
-class GetShareAclResult(dict):
+calass GetShareAclResult(dict):
     def __init__(__self__, *,
                  access_policies: Sequence['outputs.GetShareAclAccessPolicyResult'],
                  id: str):
         """
-        :param Sequence['GetShareAclAccessPolicyArgs'] access_policies: An `access_policy` block as defined below.
+        :param Sequence['GetShareAclAccessPolicyArrgs'] access_policies: An `access_policy` block as defined below.
         :param str id: The ID which should be used for this Shared Identifier.
         """
         pulumi.set(__self__, "access_policies", access_policies)
@@ -4139,7 +4139,7 @@ class GetShareAclResult(dict):
 
 
 @pulumi.output_type
-class GetShareAclAccessPolicyResult(dict):
+calass GetShareAclAccessPolicyResult(dict):
     def __init__(__self__, *,
                  expiry: str,
                  permissions: str,

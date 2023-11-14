@@ -25,7 +25,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class EndpointCustomDnsConfig(dict):
+calass EndpointCustomDnsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -73,7 +73,7 @@ class EndpointCustomDnsConfig(dict):
 
 
 @pulumi.output_type
-class EndpointIpConfiguration(dict):
+calass EndpointIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -151,7 +151,7 @@ class EndpointIpConfiguration(dict):
 
 
 @pulumi.output_type
-class EndpointNetworkInterface(dict):
+calass EndpointNetworkInterface(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  name: Optional[str] = None):
@@ -182,7 +182,7 @@ class EndpointNetworkInterface(dict):
 
 
 @pulumi.output_type
-class EndpointPrivateDnsZoneConfig(dict):
+calass EndpointPrivateDnsZoneConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -211,7 +211,7 @@ class EndpointPrivateDnsZoneConfig(dict):
         :param str id: The ID of the Private DNS Zone Config.
         :param str name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
         :param str private_dns_zone_id: A list of IP Addresses
-        :param Sequence['EndpointPrivateDnsZoneConfigRecordSetArgs'] record_sets: A `record_sets` block as defined below.
+        :param Sequence['EndpointPrivateDnsZoneConfigRecordSetArrgs'] record_sets: A `record_sets` block as defined below.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -256,7 +256,7 @@ class EndpointPrivateDnsZoneConfig(dict):
 
 
 @pulumi.output_type
-class EndpointPrivateDnsZoneConfigRecordSet(dict):
+calass EndpointPrivateDnsZoneConfigRecordSet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -340,7 +340,7 @@ class EndpointPrivateDnsZoneConfigRecordSet(dict):
 
 
 @pulumi.output_type
-class EndpointPrivateDnsZoneGroup(dict):
+calass EndpointPrivateDnsZoneGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -398,7 +398,7 @@ class EndpointPrivateDnsZoneGroup(dict):
 
 
 @pulumi.output_type
-class EndpointPrivateServiceConnection(dict):
+calass EndpointPrivateServiceConnection(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -522,7 +522,7 @@ class EndpointPrivateServiceConnection(dict):
 
 
 @pulumi.output_type
-class GetEndpointConnectionNetworkInterfaceResult(dict):
+calass GetEndpointConnectionNetworkInterfaceResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str):
@@ -551,7 +551,7 @@ class GetEndpointConnectionNetworkInterfaceResult(dict):
 
 
 @pulumi.output_type
-class GetEndpointConnectionPrivateServiceConnectionResult(dict):
+calass GetEndpointConnectionPrivateServiceConnectionResult(dict):
     def __init__(__self__, *,
                  name: str,
                  private_ip_address: str,
@@ -612,7 +612,7 @@ class GetEndpointConnectionPrivateServiceConnectionResult(dict):
 
 
 @pulumi.output_type
-class GetServiceEndpointConnectionsPrivateEndpointConnectionResult(dict):
+calass GetServiceEndpointConnectionsPrivateEndpointConnectionResult(dict):
     def __init__(__self__, *,
                  action_required: str,
                  connection_id: str,
@@ -696,7 +696,7 @@ class GetServiceEndpointConnectionsPrivateEndpointConnectionResult(dict):
 
 
 @pulumi.output_type
-class GetServiceNatIpConfigurationResult(dict):
+calass GetServiceNatIpConfigurationResult(dict):
     def __init__(__self__, *,
                  name: str,
                  primary: bool,

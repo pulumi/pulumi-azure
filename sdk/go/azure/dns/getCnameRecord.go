@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -118,12 +117,6 @@ func (o GetCnameRecordResultOutput) ToGetCnameRecordResultOutput() GetCnameRecor
 
 func (o GetCnameRecordResultOutput) ToGetCnameRecordResultOutputWithContext(ctx context.Context) GetCnameRecordResultOutput {
 	return o
-}
-
-func (o GetCnameRecordResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetCnameRecordResult] {
-	return pulumix.Output[GetCnameRecordResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The FQDN of the DNS CName Record.

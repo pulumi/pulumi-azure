@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['OutputSynapseArgs', 'OutputSynapse']
+__all__ = ['OutputSynapseArrgs', 'OutputSynapse']
 
 @pulumi.input_type
-class OutputSynapseArgs:
+calass OutputSynapseArrgs:
     def __init__(__self__, *,
                  database: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -141,7 +141,7 @@ class OutputSynapseArgs:
 
 
 @pulumi.input_type
-class _OutputSynapseState:
+calass _OutputSynapseState:
     def __init__(__self__, *,
                  database: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -276,7 +276,7 @@ class _OutputSynapseState:
         pulumi.set(self, "user", value)
 
 
-class OutputSynapse(pulumi.CustomResource):
+calass OutputSynapse(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -316,7 +316,7 @@ class OutputSynapse(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_output_synapse = azure.streamanalytics.OutputSynapse("exampleOutputSynapse",
@@ -352,7 +352,7 @@ class OutputSynapse(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OutputSynapseArgs,
+                 args: OutputSynapseArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Output to an Azure Synapse Analytics Workspace.
@@ -380,7 +380,7 @@ class OutputSynapse(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_output_synapse = azure.streamanalytics.OutputSynapse("exampleOutputSynapse",
@@ -402,12 +402,12 @@ class OutputSynapse(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param OutputSynapseArgs args: The arguments to use to populate this resource's properties.
+        :param OutputSynapseArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OutputSynapseArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OutputSynapseArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -431,7 +431,7 @@ class OutputSynapse(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OutputSynapseArgs.__new__(OutputSynapseArgs)
+            __props__ = OutputSynapseArrgs.__new__(OutputSynapseArrgs)
 
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")

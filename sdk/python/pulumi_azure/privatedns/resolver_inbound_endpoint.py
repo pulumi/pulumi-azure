@@ -11,19 +11,19 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ResolverInboundEndpointArgs', 'ResolverInboundEndpoint']
+__all__ = ['ResolverInboundEndpointArrgs', 'ResolverInboundEndpoint']
 
 @pulumi.input_type
-class ResolverInboundEndpointArgs:
+calass ResolverInboundEndpointArrgs:
     def __init__(__self__, *,
-                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['ResolverInboundEndpointIpConfigurationArgs']]],
+                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['ResolverInboundEndpointIpConfigurationArrgs']]],
                  private_dns_resolver_id: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ResolverInboundEndpoint resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ResolverInboundEndpointIpConfigurationArgs']]] ip_configurations: Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ResolverInboundEndpointIpConfigurationArrgs']]] ip_configurations: Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
         :param pulumi.Input[str] private_dns_resolver_id: Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
@@ -40,14 +40,14 @@ class ResolverInboundEndpointArgs:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['ResolverInboundEndpointIpConfigurationArgs']]]:
+    def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['ResolverInboundEndpointIpConfigurationArrgs']]]:
         """
         Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
         """
         return pulumi.get(self, "ip_configurations")
 
     @ip_configurations.setter
-    def ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['ResolverInboundEndpointIpConfigurationArgs']]]):
+    def ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['ResolverInboundEndpointIpConfigurationArrgs']]]):
         pulumi.set(self, "ip_configurations", value)
 
     @property
@@ -100,16 +100,16 @@ class ResolverInboundEndpointArgs:
 
 
 @pulumi.input_type
-class _ResolverInboundEndpointState:
+calass _ResolverInboundEndpointState:
     def __init__(__self__, *,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverInboundEndpointIpConfigurationArgs']]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverInboundEndpointIpConfigurationArrgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_dns_resolver_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering ResolverInboundEndpoint resources.
-        :param pulumi.Input[Sequence[pulumi.Input['ResolverInboundEndpointIpConfigurationArgs']]] ip_configurations: Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ResolverInboundEndpointIpConfigurationArrgs']]] ip_configurations: Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         :param pulumi.Input[str] private_dns_resolver_id: Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
@@ -128,14 +128,14 @@ class _ResolverInboundEndpointState:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResolverInboundEndpointIpConfigurationArgs']]]]:
+    def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResolverInboundEndpointIpConfigurationArrgs']]]]:
         """
         Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
         """
         return pulumi.get(self, "ip_configurations")
 
     @ip_configurations.setter
-    def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverInboundEndpointIpConfigurationArgs']]]]):
+    def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResolverInboundEndpointIpConfigurationArrgs']]]]):
         pulumi.set(self, "ip_configurations", value)
 
     @property
@@ -187,12 +187,12 @@ class _ResolverInboundEndpointState:
         pulumi.set(self, "tags", value)
 
 
-class ResolverInboundEndpoint(pulumi.CustomResource):
+calass ResolverInboundEndpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverInboundEndpointIpConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverInboundEndpointIpConfigurationArrgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_dns_resolver_id: Optional[pulumi.Input[str]] = None,
@@ -220,9 +220,9 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/28"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="Microsoft.Network.dnsResolvers",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
                     name="Microsoft.Network/dnsResolvers",
                 ),
@@ -230,7 +230,7 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
         example_resolver_inbound_endpoint = azure.privatedns.ResolverInboundEndpoint("exampleResolverInboundEndpoint",
             private_dns_resolver_id=example_resolver.id,
             location=example_resolver.location,
-            ip_configurations=[azure.privatedns.ResolverInboundEndpointIpConfigurationArgs(
+            ip_configurations=[azure.privatedns.ResolverInboundEndpointIpConfigurationArrgs(
                 private_ip_allocation_method="Dynamic",
                 subnet_id=example_subnet.id,
             )],
@@ -249,7 +249,7 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverInboundEndpointIpConfigurationArgs']]]] ip_configurations: Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverInboundEndpointIpConfigurationArrgs']]]] ip_configurations: Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         :param pulumi.Input[str] private_dns_resolver_id: Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
@@ -259,7 +259,7 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ResolverInboundEndpointArgs,
+                 args: ResolverInboundEndpointArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Private DNS Resolver Inbound Endpoint.
@@ -283,9 +283,9 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/28"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="Microsoft.Network.dnsResolvers",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
                     name="Microsoft.Network/dnsResolvers",
                 ),
@@ -293,7 +293,7 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
         example_resolver_inbound_endpoint = azure.privatedns.ResolverInboundEndpoint("exampleResolverInboundEndpoint",
             private_dns_resolver_id=example_resolver.id,
             location=example_resolver.location,
-            ip_configurations=[azure.privatedns.ResolverInboundEndpointIpConfigurationArgs(
+            ip_configurations=[azure.privatedns.ResolverInboundEndpointIpConfigurationArrgs(
                 private_ip_allocation_method="Dynamic",
                 subnet_id=example_subnet.id,
             )],
@@ -311,12 +311,12 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ResolverInboundEndpointArgs args: The arguments to use to populate this resource's properties.
+        :param ResolverInboundEndpointArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ResolverInboundEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ResolverInboundEndpointArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -325,7 +325,7 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverInboundEndpointIpConfigurationArgs']]]]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverInboundEndpointIpConfigurationArrgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  private_dns_resolver_id: Optional[pulumi.Input[str]] = None,
@@ -337,7 +337,7 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ResolverInboundEndpointArgs.__new__(ResolverInboundEndpointArgs)
+            __props__ = ResolverInboundEndpointArrgs.__new__(ResolverInboundEndpointArrgs)
 
             if ip_configurations is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_configurations'")
@@ -358,7 +358,7 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverInboundEndpointIpConfigurationArgs']]]]] = None,
+            ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverInboundEndpointIpConfigurationArrgs']]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             private_dns_resolver_id: Optional[pulumi.Input[str]] = None,
@@ -370,7 +370,7 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverInboundEndpointIpConfigurationArgs']]]] ip_configurations: Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResolverInboundEndpointIpConfigurationArrgs']]]] ip_configurations: Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block as defined below.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.
         :param pulumi.Input[str] private_dns_resolver_id: Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created.

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ResolverDnsForwardingRulesetArgs', 'ResolverDnsForwardingRuleset']
+__all__ = ['ResolverDnsForwardingRulesetArrgs', 'ResolverDnsForwardingRuleset']
 
 @pulumi.input_type
-class ResolverDnsForwardingRulesetArgs:
+calass ResolverDnsForwardingRulesetArrgs:
     def __init__(__self__, *,
                  private_dns_resolver_outbound_endpoint_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  resource_group_name: pulumi.Input[str],
@@ -98,7 +98,7 @@ class ResolverDnsForwardingRulesetArgs:
 
 
 @pulumi.input_type
-class _ResolverDnsForwardingRulesetState:
+calass _ResolverDnsForwardingRulesetState:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -185,7 +185,7 @@ class _ResolverDnsForwardingRulesetState:
         pulumi.set(self, "tags", value)
 
 
-class ResolverDnsForwardingRuleset(pulumi.CustomResource):
+calass ResolverDnsForwardingRuleset(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -214,9 +214,9 @@ class ResolverDnsForwardingRuleset(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.64/28"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="Microsoft.Network.dnsResolvers",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
                     name="Microsoft.Network/dnsResolvers",
                 ),
@@ -261,7 +261,7 @@ class ResolverDnsForwardingRuleset(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ResolverDnsForwardingRulesetArgs,
+                 args: ResolverDnsForwardingRulesetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Private DNS Resolver Dns Forwarding Ruleset.
@@ -281,9 +281,9 @@ class ResolverDnsForwardingRuleset(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.64/28"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="Microsoft.Network.dnsResolvers",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
                     name="Microsoft.Network/dnsResolvers",
                 ),
@@ -317,12 +317,12 @@ class ResolverDnsForwardingRuleset(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ResolverDnsForwardingRulesetArgs args: The arguments to use to populate this resource's properties.
+        :param ResolverDnsForwardingRulesetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ResolverDnsForwardingRulesetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ResolverDnsForwardingRulesetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -343,7 +343,7 @@ class ResolverDnsForwardingRuleset(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ResolverDnsForwardingRulesetArgs.__new__(ResolverDnsForwardingRulesetArgs)
+            __props__ = ResolverDnsForwardingRulesetArrgs.__new__(ResolverDnsForwardingRulesetArrgs)
 
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

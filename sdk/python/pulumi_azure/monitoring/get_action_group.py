@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetActionGroupResult:
+calass GetActionGroupResult:
     """
     A collection of values returned by getActionGroup.
     """
@@ -198,7 +198,7 @@ class GetActionGroupResult:
         return pulumi.get(self, "webhook_receivers")
 
 
-class AwaitableGetActionGroupResult(GetActionGroupResult):
+calass AwaitableGetActionGroupResult(GetActionGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

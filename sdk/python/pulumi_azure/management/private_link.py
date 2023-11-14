@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PrivateLinkArgs', 'PrivateLink']
+__all__ = ['PrivateLinkArrgs', 'PrivateLink']
 
 @pulumi.input_type
-class PrivateLinkArgs:
+calass PrivateLinkArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
@@ -67,7 +67,7 @@ class PrivateLinkArgs:
 
 
 @pulumi.input_type
-class _PrivateLinkState:
+calass _PrivateLinkState:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class _PrivateLinkState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class PrivateLink(pulumi.CustomResource):
+calass PrivateLink(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -164,7 +164,7 @@ class PrivateLink(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PrivateLinkArgs,
+                 args: PrivateLinkArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Resource Management Private Link to restrict access for managing resources in the tenant.
@@ -190,12 +190,12 @@ class PrivateLink(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PrivateLinkArgs args: The arguments to use to populate this resource's properties.
+        :param PrivateLinkArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PrivateLinkArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PrivateLinkArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -214,7 +214,7 @@ class PrivateLink(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PrivateLinkArgs.__new__(PrivateLinkArgs)
+            __props__ = PrivateLinkArrgs.__new__(PrivateLinkArrgs)
 
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

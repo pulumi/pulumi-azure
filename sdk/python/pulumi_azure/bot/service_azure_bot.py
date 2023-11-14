@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ServiceAzureBotArgs', 'ServiceAzureBot']
+__all__ = ['ServiceAzureBotArrgs', 'ServiceAzureBot']
 
 @pulumi.input_type
-class ServiceAzureBotArgs:
+calass ServiceAzureBotArrgs:
     def __init__(__self__, *,
                  microsoft_app_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -321,7 +321,7 @@ class ServiceAzureBotArgs:
 
 
 @pulumi.input_type
-class _ServiceAzureBotState:
+calass _ServiceAzureBotState:
     def __init__(__self__, *,
                  developer_app_insights_api_key: Optional[pulumi.Input[str]] = None,
                  developer_app_insights_application_id: Optional[pulumi.Input[str]] = None,
@@ -632,7 +632,7 @@ class _ServiceAzureBotState:
         pulumi.set(self, "tags", value)
 
 
-class ServiceAzureBot(pulumi.CustomResource):
+calass ServiceAzureBot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -728,7 +728,7 @@ class ServiceAzureBot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServiceAzureBotArgs,
+                 args: ServiceAzureBotArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Bot Service.
@@ -776,12 +776,12 @@ class ServiceAzureBot(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServiceAzureBotArgs args: The arguments to use to populate this resource's properties.
+        :param ServiceAzureBotArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServiceAzureBotArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceAzureBotArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -816,7 +816,7 @@ class ServiceAzureBot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServiceAzureBotArgs.__new__(ServiceAzureBotArgs)
+            __props__ = ServiceAzureBotArrgs.__new__(ServiceAzureBotArrgs)
 
             __props__.__dict__["developer_app_insights_api_key"] = None if developer_app_insights_api_key is None else pulumi.Output.secret(developer_app_insights_api_key)
             __props__.__dict__["developer_app_insights_application_id"] = developer_app_insights_application_id

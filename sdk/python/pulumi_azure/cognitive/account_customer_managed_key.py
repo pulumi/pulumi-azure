@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AccountCustomerManagedKeyInitArgs', 'AccountCustomerManagedKey']
+__all__ = ['AccountCustomerManagedKeyInitArrgs', 'AccountCustomerManagedKey']
 
 @pulumi.input_type
-class AccountCustomerManagedKeyInitArgs:
+calass AccountCustomerManagedKeyInitArrgs:
     def __init__(__self__, *,
                  cognitive_account_id: pulumi.Input[str],
                  key_vault_key_id: pulumi.Input[str],
@@ -66,7 +66,7 @@ class AccountCustomerManagedKeyInitArgs:
 
 
 @pulumi.input_type
-class _AccountCustomerManagedKeyState:
+calass _AccountCustomerManagedKeyState:
     def __init__(__self__, *,
                  cognitive_account_id: Optional[pulumi.Input[str]] = None,
                  identity_client_id: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _AccountCustomerManagedKeyState:
         pulumi.set(self, "key_vault_key_id", value)
 
 
-class AccountCustomerManagedKey(pulumi.CustomResource):
+calass AccountCustomerManagedKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -152,7 +152,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
             kind="Face",
             sku_name="E0",
             custom_subdomain_name="example-account",
-            identity=azure.cognitive.AccountIdentityArgs(
+            identity=azure.cognitive.AccountIdentityArrgs(
                 type="SystemAssigned, UserAssigned",
                 identity_ids=[example_user_assigned_identity.id],
             ))
@@ -163,7 +163,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
             sku_name="standard",
             purge_protection_enabled=True,
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=example_account.identity.tenant_id,
                     object_id=example_account.identity.principal_id,
                     key_permissions=[
@@ -182,7 +182,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
                     ],
                     secret_permissions=["Get"],
                 ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=current.object_id,
                     key_permissions=[
@@ -203,7 +203,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
                     ],
                     secret_permissions=["Get"],
                 ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=example_user_assigned_identity.tenant_id,
                     object_id=example_user_assigned_identity.principal_id,
                     key_permissions=[
@@ -260,7 +260,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AccountCustomerManagedKeyInitArgs,
+                 args: AccountCustomerManagedKeyInitArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Customer Managed Key for a Cognitive Services Account.
@@ -284,7 +284,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
             kind="Face",
             sku_name="E0",
             custom_subdomain_name="example-account",
-            identity=azure.cognitive.AccountIdentityArgs(
+            identity=azure.cognitive.AccountIdentityArrgs(
                 type="SystemAssigned, UserAssigned",
                 identity_ids=[example_user_assigned_identity.id],
             ))
@@ -295,7 +295,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
             sku_name="standard",
             purge_protection_enabled=True,
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=example_account.identity.tenant_id,
                     object_id=example_account.identity.principal_id,
                     key_permissions=[
@@ -314,7 +314,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
                     ],
                     secret_permissions=["Get"],
                 ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=current.object_id,
                     key_permissions=[
@@ -335,7 +335,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
                     ],
                     secret_permissions=["Get"],
                 ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=example_user_assigned_identity.tenant_id,
                     object_id=example_user_assigned_identity.principal_id,
                     key_permissions=[
@@ -383,12 +383,12 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AccountCustomerManagedKeyInitArgs args: The arguments to use to populate this resource's properties.
+        :param AccountCustomerManagedKeyInitArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AccountCustomerManagedKeyInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AccountCustomerManagedKeyInitArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -407,7 +407,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AccountCustomerManagedKeyInitArgs.__new__(AccountCustomerManagedKeyInitArgs)
+            __props__ = AccountCustomerManagedKeyInitArrgs.__new__(AccountCustomerManagedKeyInitArrgs)
 
             if cognitive_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cognitive_account_id'")

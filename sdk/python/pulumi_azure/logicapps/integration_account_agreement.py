@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['IntegrationAccountAgreementArgs', 'IntegrationAccountAgreement']
+__all__ = ['IntegrationAccountAgreementArrgs', 'IntegrationAccountAgreement']
 
 @pulumi.input_type
-class IntegrationAccountAgreementArgs:
+calass IntegrationAccountAgreementArrgs:
     def __init__(__self__, *,
                  agreement_type: pulumi.Input[str],
                  content: pulumi.Input[str],
-                 guest_identity: pulumi.Input['IntegrationAccountAgreementGuestIdentityArgs'],
+                 guest_identity: pulumi.Input['IntegrationAccountAgreementGuestIdentityArrgs'],
                  guest_partner_name: pulumi.Input[str],
-                 host_identity: pulumi.Input['IntegrationAccountAgreementHostIdentityArgs'],
+                 host_identity: pulumi.Input['IntegrationAccountAgreementHostIdentityArrgs'],
                  host_partner_name: pulumi.Input[str],
                  integration_account_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -30,9 +30,9 @@ class IntegrationAccountAgreementArgs:
         The set of arguments for constructing a IntegrationAccountAgreement resource.
         :param pulumi.Input[str] agreement_type: The type of the Logic App Integration Account Agreement. Possible values are `AS2`, `X12` and `Edifact`.
         :param pulumi.Input[str] content: The content of the Logic App Integration Account Agreement.
-        :param pulumi.Input['IntegrationAccountAgreementGuestIdentityArgs'] guest_identity: A `guest_identity` block as documented below.
+        :param pulumi.Input['IntegrationAccountAgreementGuestIdentityArrgs'] guest_identity: A `guest_identity` block as documented below.
         :param pulumi.Input[str] guest_partner_name: The name of the guest Logic App Integration Account Partner.
-        :param pulumi.Input['IntegrationAccountAgreementHostIdentityArgs'] host_identity: A `host_identity` block as documented below.
+        :param pulumi.Input['IntegrationAccountAgreementHostIdentityArrgs'] host_identity: A `host_identity` block as documented below.
         :param pulumi.Input[str] host_partner_name: The name of the host Logic App Integration Account Partner.
         :param pulumi.Input[str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Logic App Integration Account Agreement should exist. Changing this forces a new resource to be created.
@@ -78,14 +78,14 @@ class IntegrationAccountAgreementArgs:
 
     @property
     @pulumi.getter(name="guestIdentity")
-    def guest_identity(self) -> pulumi.Input['IntegrationAccountAgreementGuestIdentityArgs']:
+    def guest_identity(self) -> pulumi.Input['IntegrationAccountAgreementGuestIdentityArrgs']:
         """
         A `guest_identity` block as documented below.
         """
         return pulumi.get(self, "guest_identity")
 
     @guest_identity.setter
-    def guest_identity(self, value: pulumi.Input['IntegrationAccountAgreementGuestIdentityArgs']):
+    def guest_identity(self, value: pulumi.Input['IntegrationAccountAgreementGuestIdentityArrgs']):
         pulumi.set(self, "guest_identity", value)
 
     @property
@@ -102,14 +102,14 @@ class IntegrationAccountAgreementArgs:
 
     @property
     @pulumi.getter(name="hostIdentity")
-    def host_identity(self) -> pulumi.Input['IntegrationAccountAgreementHostIdentityArgs']:
+    def host_identity(self) -> pulumi.Input['IntegrationAccountAgreementHostIdentityArrgs']:
         """
         A `host_identity` block as documented below.
         """
         return pulumi.get(self, "host_identity")
 
     @host_identity.setter
-    def host_identity(self, value: pulumi.Input['IntegrationAccountAgreementHostIdentityArgs']):
+    def host_identity(self, value: pulumi.Input['IntegrationAccountAgreementHostIdentityArrgs']):
         pulumi.set(self, "host_identity", value)
 
     @property
@@ -174,13 +174,13 @@ class IntegrationAccountAgreementArgs:
 
 
 @pulumi.input_type
-class _IntegrationAccountAgreementState:
+calass _IntegrationAccountAgreementState:
     def __init__(__self__, *,
                  agreement_type: Optional[pulumi.Input[str]] = None,
                  content: Optional[pulumi.Input[str]] = None,
-                 guest_identity: Optional[pulumi.Input['IntegrationAccountAgreementGuestIdentityArgs']] = None,
+                 guest_identity: Optional[pulumi.Input['IntegrationAccountAgreementGuestIdentityArrgs']] = None,
                  guest_partner_name: Optional[pulumi.Input[str]] = None,
-                 host_identity: Optional[pulumi.Input['IntegrationAccountAgreementHostIdentityArgs']] = None,
+                 host_identity: Optional[pulumi.Input['IntegrationAccountAgreementHostIdentityArrgs']] = None,
                  host_partner_name: Optional[pulumi.Input[str]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -190,9 +190,9 @@ class _IntegrationAccountAgreementState:
         Input properties used for looking up and filtering IntegrationAccountAgreement resources.
         :param pulumi.Input[str] agreement_type: The type of the Logic App Integration Account Agreement. Possible values are `AS2`, `X12` and `Edifact`.
         :param pulumi.Input[str] content: The content of the Logic App Integration Account Agreement.
-        :param pulumi.Input['IntegrationAccountAgreementGuestIdentityArgs'] guest_identity: A `guest_identity` block as documented below.
+        :param pulumi.Input['IntegrationAccountAgreementGuestIdentityArrgs'] guest_identity: A `guest_identity` block as documented below.
         :param pulumi.Input[str] guest_partner_name: The name of the guest Logic App Integration Account Partner.
-        :param pulumi.Input['IntegrationAccountAgreementHostIdentityArgs'] host_identity: A `host_identity` block as documented below.
+        :param pulumi.Input['IntegrationAccountAgreementHostIdentityArrgs'] host_identity: A `host_identity` block as documented below.
         :param pulumi.Input[str] host_partner_name: The name of the host Logic App Integration Account Partner.
         :param pulumi.Input[str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: The metadata of the Logic App Integration Account Agreement.
@@ -246,14 +246,14 @@ class _IntegrationAccountAgreementState:
 
     @property
     @pulumi.getter(name="guestIdentity")
-    def guest_identity(self) -> Optional[pulumi.Input['IntegrationAccountAgreementGuestIdentityArgs']]:
+    def guest_identity(self) -> Optional[pulumi.Input['IntegrationAccountAgreementGuestIdentityArrgs']]:
         """
         A `guest_identity` block as documented below.
         """
         return pulumi.get(self, "guest_identity")
 
     @guest_identity.setter
-    def guest_identity(self, value: Optional[pulumi.Input['IntegrationAccountAgreementGuestIdentityArgs']]):
+    def guest_identity(self, value: Optional[pulumi.Input['IntegrationAccountAgreementGuestIdentityArrgs']]):
         pulumi.set(self, "guest_identity", value)
 
     @property
@@ -270,14 +270,14 @@ class _IntegrationAccountAgreementState:
 
     @property
     @pulumi.getter(name="hostIdentity")
-    def host_identity(self) -> Optional[pulumi.Input['IntegrationAccountAgreementHostIdentityArgs']]:
+    def host_identity(self) -> Optional[pulumi.Input['IntegrationAccountAgreementHostIdentityArrgs']]:
         """
         A `host_identity` block as documented below.
         """
         return pulumi.get(self, "host_identity")
 
     @host_identity.setter
-    def host_identity(self, value: Optional[pulumi.Input['IntegrationAccountAgreementHostIdentityArgs']]):
+    def host_identity(self, value: Optional[pulumi.Input['IntegrationAccountAgreementHostIdentityArrgs']]):
         pulumi.set(self, "host_identity", value)
 
     @property
@@ -341,16 +341,16 @@ class _IntegrationAccountAgreementState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class IntegrationAccountAgreement(pulumi.CustomResource):
+calass IntegrationAccountAgreement(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agreement_type: Optional[pulumi.Input[str]] = None,
                  content: Optional[pulumi.Input[str]] = None,
-                 guest_identity: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountAgreementGuestIdentityArgs']]] = None,
+                 guest_identity: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountAgreementGuestIdentityArrgs']]] = None,
                  guest_partner_name: Optional[pulumi.Input[str]] = None,
-                 host_identity: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountAgreementHostIdentityArgs']]] = None,
+                 host_identity: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountAgreementHostIdentityArrgs']]] = None,
                  host_partner_name: Optional[pulumi.Input[str]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -374,14 +374,14 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         host = azure.logicapps.IntegrationAccountPartner("host",
             resource_group_name=example.name,
             integration_account_name=test_integration_account.name,
-            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
+            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArrgs(
                 qualifier="AS2Identity",
                 value="FabrikamNY",
             )])
         guest = azure.logicapps.IntegrationAccountPartner("guest",
             resource_group_name=example.name,
             integration_account_name=test_integration_account.name,
-            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
+            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArrgs(
                 qualifier="AS2Identity",
                 value="FabrikamDC",
             )])
@@ -392,11 +392,11 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
             host_partner_name=host.name,
             guest_partner_name=guest.name,
             content=(lambda path: open(path).read())("testdata/integration_account_agreement_content_as2.json"),
-            host_identity=azure.logicapps.IntegrationAccountAgreementHostIdentityArgs(
+            host_identity=azure.logicapps.IntegrationAccountAgreementHostIdentityArrgs(
                 qualifier="AS2Identity",
                 value="FabrikamNY",
             ),
-            guest_identity=azure.logicapps.IntegrationAccountAgreementGuestIdentityArgs(
+            guest_identity=azure.logicapps.IntegrationAccountAgreementGuestIdentityArrgs(
                 qualifier="AS2Identity",
                 value="FabrikamDC",
             ))
@@ -414,9 +414,9 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agreement_type: The type of the Logic App Integration Account Agreement. Possible values are `AS2`, `X12` and `Edifact`.
         :param pulumi.Input[str] content: The content of the Logic App Integration Account Agreement.
-        :param pulumi.Input[pulumi.InputType['IntegrationAccountAgreementGuestIdentityArgs']] guest_identity: A `guest_identity` block as documented below.
+        :param pulumi.Input[pulumi.InputType['IntegrationAccountAgreementGuestIdentityArrgs']] guest_identity: A `guest_identity` block as documented below.
         :param pulumi.Input[str] guest_partner_name: The name of the guest Logic App Integration Account Partner.
-        :param pulumi.Input[pulumi.InputType['IntegrationAccountAgreementHostIdentityArgs']] host_identity: A `host_identity` block as documented below.
+        :param pulumi.Input[pulumi.InputType['IntegrationAccountAgreementHostIdentityArrgs']] host_identity: A `host_identity` block as documented below.
         :param pulumi.Input[str] host_partner_name: The name of the host Logic App Integration Account Partner.
         :param pulumi.Input[str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: The metadata of the Logic App Integration Account Agreement.
@@ -427,7 +427,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IntegrationAccountAgreementArgs,
+                 args: IntegrationAccountAgreementArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Logic App Integration Account Agreement.
@@ -446,14 +446,14 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         host = azure.logicapps.IntegrationAccountPartner("host",
             resource_group_name=example.name,
             integration_account_name=test_integration_account.name,
-            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
+            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArrgs(
                 qualifier="AS2Identity",
                 value="FabrikamNY",
             )])
         guest = azure.logicapps.IntegrationAccountPartner("guest",
             resource_group_name=example.name,
             integration_account_name=test_integration_account.name,
-            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
+            business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArrgs(
                 qualifier="AS2Identity",
                 value="FabrikamDC",
             )])
@@ -464,11 +464,11 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
             host_partner_name=host.name,
             guest_partner_name=guest.name,
             content=(lambda path: open(path).read())("testdata/integration_account_agreement_content_as2.json"),
-            host_identity=azure.logicapps.IntegrationAccountAgreementHostIdentityArgs(
+            host_identity=azure.logicapps.IntegrationAccountAgreementHostIdentityArrgs(
                 qualifier="AS2Identity",
                 value="FabrikamNY",
             ),
-            guest_identity=azure.logicapps.IntegrationAccountAgreementGuestIdentityArgs(
+            guest_identity=azure.logicapps.IntegrationAccountAgreementGuestIdentityArrgs(
                 qualifier="AS2Identity",
                 value="FabrikamDC",
             ))
@@ -483,12 +483,12 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param IntegrationAccountAgreementArgs args: The arguments to use to populate this resource's properties.
+        :param IntegrationAccountAgreementArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IntegrationAccountAgreementArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IntegrationAccountAgreementArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -499,9 +499,9 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agreement_type: Optional[pulumi.Input[str]] = None,
                  content: Optional[pulumi.Input[str]] = None,
-                 guest_identity: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountAgreementGuestIdentityArgs']]] = None,
+                 guest_identity: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountAgreementGuestIdentityArrgs']]] = None,
                  guest_partner_name: Optional[pulumi.Input[str]] = None,
-                 host_identity: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountAgreementHostIdentityArgs']]] = None,
+                 host_identity: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountAgreementHostIdentityArrgs']]] = None,
                  host_partner_name: Optional[pulumi.Input[str]] = None,
                  integration_account_name: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -514,7 +514,7 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IntegrationAccountAgreementArgs.__new__(IntegrationAccountAgreementArgs)
+            __props__ = IntegrationAccountAgreementArrgs.__new__(IntegrationAccountAgreementArrgs)
 
             if agreement_type is None and not opts.urn:
                 raise TypeError("Missing required property 'agreement_type'")
@@ -554,9 +554,9 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             agreement_type: Optional[pulumi.Input[str]] = None,
             content: Optional[pulumi.Input[str]] = None,
-            guest_identity: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountAgreementGuestIdentityArgs']]] = None,
+            guest_identity: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountAgreementGuestIdentityArrgs']]] = None,
             guest_partner_name: Optional[pulumi.Input[str]] = None,
-            host_identity: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountAgreementHostIdentityArgs']]] = None,
+            host_identity: Optional[pulumi.Input[pulumi.InputType['IntegrationAccountAgreementHostIdentityArrgs']]] = None,
             host_partner_name: Optional[pulumi.Input[str]] = None,
             integration_account_name: Optional[pulumi.Input[str]] = None,
             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -571,9 +571,9 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agreement_type: The type of the Logic App Integration Account Agreement. Possible values are `AS2`, `X12` and `Edifact`.
         :param pulumi.Input[str] content: The content of the Logic App Integration Account Agreement.
-        :param pulumi.Input[pulumi.InputType['IntegrationAccountAgreementGuestIdentityArgs']] guest_identity: A `guest_identity` block as documented below.
+        :param pulumi.Input[pulumi.InputType['IntegrationAccountAgreementGuestIdentityArrgs']] guest_identity: A `guest_identity` block as documented below.
         :param pulumi.Input[str] guest_partner_name: The name of the guest Logic App Integration Account Partner.
-        :param pulumi.Input[pulumi.InputType['IntegrationAccountAgreementHostIdentityArgs']] host_identity: A `host_identity` block as documented below.
+        :param pulumi.Input[pulumi.InputType['IntegrationAccountAgreementHostIdentityArrgs']] host_identity: A `host_identity` block as documented below.
         :param pulumi.Input[str] host_partner_name: The name of the host Logic App Integration Account Partner.
         :param pulumi.Input[str] integration_account_name: The name of the Logic App Integration Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: The metadata of the Logic App Integration Account Agreement.

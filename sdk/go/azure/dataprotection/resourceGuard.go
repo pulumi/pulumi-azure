@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Resource Guard.
@@ -185,12 +184,6 @@ func (i *ResourceGuard) ToResourceGuardOutputWithContext(ctx context.Context) Re
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGuardOutput)
 }
 
-func (i *ResourceGuard) ToOutput(ctx context.Context) pulumix.Output[*ResourceGuard] {
-	return pulumix.Output[*ResourceGuard]{
-		OutputState: i.ToResourceGuardOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResourceGuardArrayInput is an input type that accepts ResourceGuardArray and ResourceGuardArrayOutput values.
 // You can construct a concrete instance of `ResourceGuardArrayInput` via:
 //
@@ -214,12 +207,6 @@ func (i ResourceGuardArray) ToResourceGuardArrayOutput() ResourceGuardArrayOutpu
 
 func (i ResourceGuardArray) ToResourceGuardArrayOutputWithContext(ctx context.Context) ResourceGuardArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGuardArrayOutput)
-}
-
-func (i ResourceGuardArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceGuard] {
-	return pulumix.Output[[]*ResourceGuard]{
-		OutputState: i.ToResourceGuardArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ResourceGuardMapInput is an input type that accepts ResourceGuardMap and ResourceGuardMapOutput values.
@@ -247,12 +234,6 @@ func (i ResourceGuardMap) ToResourceGuardMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGuardMapOutput)
 }
 
-func (i ResourceGuardMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceGuard] {
-	return pulumix.Output[map[string]*ResourceGuard]{
-		OutputState: i.ToResourceGuardMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceGuardOutput struct{ *pulumi.OutputState }
 
 func (ResourceGuardOutput) ElementType() reflect.Type {
@@ -265,12 +246,6 @@ func (o ResourceGuardOutput) ToResourceGuardOutput() ResourceGuardOutput {
 
 func (o ResourceGuardOutput) ToResourceGuardOutputWithContext(ctx context.Context) ResourceGuardOutput {
 	return o
-}
-
-func (o ResourceGuardOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceGuard] {
-	return pulumix.Output[*ResourceGuard]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Azure Region where the Resource Guard should exist. Changing this forces a new resource to be created.
@@ -312,12 +287,6 @@ func (o ResourceGuardArrayOutput) ToResourceGuardArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o ResourceGuardArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceGuard] {
-	return pulumix.Output[[]*ResourceGuard]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceGuardArrayOutput) Index(i pulumi.IntInput) ResourceGuardOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceGuard {
 		return vs[0].([]*ResourceGuard)[vs[1].(int)]
@@ -336,12 +305,6 @@ func (o ResourceGuardMapOutput) ToResourceGuardMapOutput() ResourceGuardMapOutpu
 
 func (o ResourceGuardMapOutput) ToResourceGuardMapOutputWithContext(ctx context.Context) ResourceGuardMapOutput {
 	return o
-}
-
-func (o ResourceGuardMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceGuard] {
-	return pulumix.Output[map[string]*ResourceGuard]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceGuardMapOutput) MapIndex(k pulumi.StringInput) ResourceGuardOutput {

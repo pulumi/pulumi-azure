@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetTenantTemplateDeploymentResult:
+calass GetTenantTemplateDeploymentResult:
     """
     A collection of values returned by getTenantTemplateDeployment.
     """
@@ -54,7 +54,7 @@ class GetTenantTemplateDeploymentResult:
         return pulumi.get(self, "output_content")
 
 
-class AwaitableGetTenantTemplateDeploymentResult(GetTenantTemplateDeploymentResult):
+calass AwaitableGetTenantTemplateDeploymentResult(GetTenantTemplateDeploymentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

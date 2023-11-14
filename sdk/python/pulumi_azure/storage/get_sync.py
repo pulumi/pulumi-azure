@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSyncResult:
+calass GetSyncResult:
     """
     A collection of values returned by getSync.
     """
@@ -84,7 +84,7 @@ class GetSyncResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetSyncResult(GetSyncResult):
+calass AwaitableGetSyncResult(GetSyncResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

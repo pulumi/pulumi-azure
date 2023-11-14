@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NetworkManagerDeploymentArgs', 'NetworkManagerDeployment']
+__all__ = ['NetworkManagerDeploymentArrgs', 'NetworkManagerDeployment']
 
 @pulumi.input_type
-class NetworkManagerDeploymentArgs:
+calass NetworkManagerDeploymentArrgs:
     def __init__(__self__, *,
                  configuration_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  network_manager_id: pulumi.Input[str],
@@ -97,7 +97,7 @@ class NetworkManagerDeploymentArgs:
 
 
 @pulumi.input_type
-class _NetworkManagerDeploymentState:
+calass _NetworkManagerDeploymentState:
     def __init__(__self__, *,
                  configuration_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -184,7 +184,7 @@ class _NetworkManagerDeploymentState:
         pulumi.set(self, "triggers", value)
 
 
-class NetworkManagerDeployment(pulumi.CustomResource):
+calass NetworkManagerDeployment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -211,7 +211,7 @@ class NetworkManagerDeployment(pulumi.CustomResource):
         example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
+            scope=azure.network.NetworkManagerScopeArrgs(
                 subscription_ids=[current.id],
             ),
             scope_accesses=[
@@ -228,11 +228,11 @@ class NetworkManagerDeployment(pulumi.CustomResource):
         example_network_manager_connectivity_configuration = azure.network.NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration",
             network_manager_id=example_network_manager.id,
             connectivity_topology="HubAndSpoke",
-            applies_to_groups=[azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
+            applies_to_groups=[azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArrgs(
                 group_connectivity="None",
                 network_group_id=example_network_manager_network_group.id,
             )],
-            hub=azure.network.NetworkManagerConnectivityConfigurationHubArgs(
+            hub=azure.network.NetworkManagerConnectivityConfigurationHubArrgs(
                 resource_id=example_virtual_network.id,
                 resource_type="Microsoft.Network/virtualNetworks",
             ))
@@ -263,7 +263,7 @@ class NetworkManagerDeployment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkManagerDeploymentArgs,
+                 args: NetworkManagerDeploymentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Manager Deployment.
@@ -281,7 +281,7 @@ class NetworkManagerDeployment(pulumi.CustomResource):
         example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
+            scope=azure.network.NetworkManagerScopeArrgs(
                 subscription_ids=[current.id],
             ),
             scope_accesses=[
@@ -298,11 +298,11 @@ class NetworkManagerDeployment(pulumi.CustomResource):
         example_network_manager_connectivity_configuration = azure.network.NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration",
             network_manager_id=example_network_manager.id,
             connectivity_topology="HubAndSpoke",
-            applies_to_groups=[azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
+            applies_to_groups=[azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArrgs(
                 group_connectivity="None",
                 network_group_id=example_network_manager_network_group.id,
             )],
-            hub=azure.network.NetworkManagerConnectivityConfigurationHubArgs(
+            hub=azure.network.NetworkManagerConnectivityConfigurationHubArrgs(
                 resource_id=example_virtual_network.id,
                 resource_type="Microsoft.Network/virtualNetworks",
             ))
@@ -322,12 +322,12 @@ class NetworkManagerDeployment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkManagerDeploymentArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkManagerDeploymentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkManagerDeploymentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkManagerDeploymentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -348,7 +348,7 @@ class NetworkManagerDeployment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkManagerDeploymentArgs.__new__(NetworkManagerDeploymentArgs)
+            __props__ = NetworkManagerDeploymentArrgs.__new__(NetworkManagerDeploymentArrgs)
 
             if configuration_ids is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration_ids'")

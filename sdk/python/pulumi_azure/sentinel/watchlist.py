@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['WatchlistArgs', 'Watchlist']
+__all__ = ['WatchlistArrgs', 'Watchlist']
 
 @pulumi.input_type
-class WatchlistArgs:
+calass WatchlistArrgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[str],
                  item_search_key: pulumi.Input[str],
@@ -129,7 +129,7 @@ class WatchlistArgs:
 
 
 @pulumi.input_type
-class _WatchlistState:
+calass _WatchlistState:
     def __init__(__self__, *,
                  default_duration: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -248,7 +248,7 @@ class _WatchlistState:
         pulumi.set(self, "name", value)
 
 
-class Watchlist(pulumi.CustomResource):
+calass Watchlist(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -304,7 +304,7 @@ class Watchlist(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WatchlistArgs,
+                 args: WatchlistArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Sentinel Watchlist.
@@ -336,12 +336,12 @@ class Watchlist(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WatchlistArgs args: The arguments to use to populate this resource's properties.
+        :param WatchlistArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WatchlistArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WatchlistArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -364,7 +364,7 @@ class Watchlist(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WatchlistArgs.__new__(WatchlistArgs)
+            __props__ = WatchlistArrgs.__new__(WatchlistArrgs)
 
             __props__.__dict__["default_duration"] = default_duration
             __props__.__dict__["description"] = description

@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SpringCloudBuildDeploymentArgs', 'SpringCloudBuildDeployment']
+__all__ = ['SpringCloudBuildDeploymentArrgs', 'SpringCloudBuildDeployment']
 
 @pulumi.input_type
-class SpringCloudBuildDeploymentArgs:
+calass SpringCloudBuildDeploymentArrgs:
     def __init__(__self__, *,
                  build_result_id: pulumi.Input[str],
                  spring_cloud_app_id: pulumi.Input[str],
@@ -22,7 +22,7 @@ class SpringCloudBuildDeploymentArgs:
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 quota: Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArgs']] = None):
+                 quota: Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArrgs']] = None):
         """
         The set of arguments for constructing a SpringCloudBuildDeployment resource.
         :param pulumi.Input[str] build_result_id: The ID of the Spring Cloud Build Result.
@@ -31,7 +31,7 @@ class SpringCloudBuildDeploymentArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Build Deployment. Changing this forces a new Spring Cloud Build Deployment to be created.
-        :param pulumi.Input['SpringCloudBuildDeploymentQuotaArgs'] quota: A `quota` block as defined below.
+        :param pulumi.Input['SpringCloudBuildDeploymentQuotaArrgs'] quota: A `quota` block as defined below.
         """
         pulumi.set(__self__, "build_result_id", build_result_id)
         pulumi.set(__self__, "spring_cloud_app_id", spring_cloud_app_id)
@@ -120,26 +120,26 @@ class SpringCloudBuildDeploymentArgs:
 
     @property
     @pulumi.getter
-    def quota(self) -> Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArgs']]:
+    def quota(self) -> Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArrgs']]:
         """
         A `quota` block as defined below.
         """
         return pulumi.get(self, "quota")
 
     @quota.setter
-    def quota(self, value: Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArgs']]):
+    def quota(self, value: Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArrgs']]):
         pulumi.set(self, "quota", value)
 
 
 @pulumi.input_type
-class _SpringCloudBuildDeploymentState:
+calass _SpringCloudBuildDeploymentState:
     def __init__(__self__, *,
                  addon_json: Optional[pulumi.Input[str]] = None,
                  build_result_id: Optional[pulumi.Input[str]] = None,
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 quota: Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArgs']] = None,
+                 quota: Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArrgs']] = None,
                  spring_cloud_app_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudBuildDeployment resources.
@@ -148,7 +148,7 @@ class _SpringCloudBuildDeploymentState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Build Deployment. Changing this forces a new Spring Cloud Build Deployment to be created.
-        :param pulumi.Input['SpringCloudBuildDeploymentQuotaArgs'] quota: A `quota` block as defined below.
+        :param pulumi.Input['SpringCloudBuildDeploymentQuotaArrgs'] quota: A `quota` block as defined below.
         :param pulumi.Input[str] spring_cloud_app_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Build Deployment to be created.
         """
         if addon_json is not None:
@@ -228,14 +228,14 @@ class _SpringCloudBuildDeploymentState:
 
     @property
     @pulumi.getter
-    def quota(self) -> Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArgs']]:
+    def quota(self) -> Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArrgs']]:
         """
         A `quota` block as defined below.
         """
         return pulumi.get(self, "quota")
 
     @quota.setter
-    def quota(self, value: Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArgs']]):
+    def quota(self, value: Optional[pulumi.Input['SpringCloudBuildDeploymentQuotaArrgs']]):
         pulumi.set(self, "quota", value)
 
     @property
@@ -251,7 +251,7 @@ class _SpringCloudBuildDeploymentState:
         pulumi.set(self, "spring_cloud_app_id", value)
 
 
-class SpringCloudBuildDeployment(pulumi.CustomResource):
+calass SpringCloudBuildDeployment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -261,7 +261,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 quota: Optional[pulumi.Input[pulumi.InputType['SpringCloudBuildDeploymentQuotaArgs']]] = None,
+                 quota: Optional[pulumi.Input[pulumi.InputType['SpringCloudBuildDeploymentQuotaArrgs']]] = None,
                  spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -291,7 +291,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
                 "Foo": "Bar",
                 "Env": "Staging",
             },
-            quota=azure.appplatform.SpringCloudBuildDeploymentQuotaArgs(
+            quota=azure.appplatform.SpringCloudBuildDeploymentQuotaArrgs(
                 cpu="2",
                 memory="4Gi",
             ))
@@ -312,14 +312,14 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Build Deployment. Changing this forces a new Spring Cloud Build Deployment to be created.
-        :param pulumi.Input[pulumi.InputType['SpringCloudBuildDeploymentQuotaArgs']] quota: A `quota` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SpringCloudBuildDeploymentQuotaArrgs']] quota: A `quota` block as defined below.
         :param pulumi.Input[str] spring_cloud_app_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Build Deployment to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SpringCloudBuildDeploymentArgs,
+                 args: SpringCloudBuildDeploymentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Spring Cloud Build Deployment.
@@ -348,7 +348,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
                 "Foo": "Bar",
                 "Env": "Staging",
             },
-            quota=azure.appplatform.SpringCloudBuildDeploymentQuotaArgs(
+            quota=azure.appplatform.SpringCloudBuildDeploymentQuotaArrgs(
                 cpu="2",
                 memory="4Gi",
             ))
@@ -363,12 +363,12 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SpringCloudBuildDeploymentArgs args: The arguments to use to populate this resource's properties.
+        :param SpringCloudBuildDeploymentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudBuildDeploymentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudBuildDeploymentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -382,7 +382,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
                  environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 quota: Optional[pulumi.Input[pulumi.InputType['SpringCloudBuildDeploymentQuotaArgs']]] = None,
+                 quota: Optional[pulumi.Input[pulumi.InputType['SpringCloudBuildDeploymentQuotaArrgs']]] = None,
                  spring_cloud_app_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -391,7 +391,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SpringCloudBuildDeploymentArgs.__new__(SpringCloudBuildDeploymentArgs)
+            __props__ = SpringCloudBuildDeploymentArrgs.__new__(SpringCloudBuildDeploymentArrgs)
 
             __props__.__dict__["addon_json"] = addon_json
             if build_result_id is None and not opts.urn:
@@ -419,7 +419,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
             environment_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             instance_count: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            quota: Optional[pulumi.Input[pulumi.InputType['SpringCloudBuildDeploymentQuotaArgs']]] = None,
+            quota: Optional[pulumi.Input[pulumi.InputType['SpringCloudBuildDeploymentQuotaArrgs']]] = None,
             spring_cloud_app_id: Optional[pulumi.Input[str]] = None) -> 'SpringCloudBuildDeployment':
         """
         Get an existing SpringCloudBuildDeployment resource's state with the given name, id, and optional extra
@@ -433,7 +433,7 @@ class SpringCloudBuildDeployment(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment_variables: Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs.
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
         :param pulumi.Input[str] name: The name which should be used for this Spring Cloud Build Deployment. Changing this forces a new Spring Cloud Build Deployment to be created.
-        :param pulumi.Input[pulumi.InputType['SpringCloudBuildDeploymentQuotaArgs']] quota: A `quota` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SpringCloudBuildDeploymentQuotaArrgs']] quota: A `quota` block as defined below.
         :param pulumi.Input[str] spring_cloud_app_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud Build Deployment to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

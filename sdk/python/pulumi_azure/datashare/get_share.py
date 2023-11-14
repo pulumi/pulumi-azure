@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetShareResult:
+calass GetShareResult:
     """
     A collection of values returned by getShare.
     """
@@ -99,7 +99,7 @@ class GetShareResult:
         return pulumi.get(self, "terms")
 
 
-class AwaitableGetShareResult(GetShareResult):
+calass AwaitableGetShareResult(GetShareResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

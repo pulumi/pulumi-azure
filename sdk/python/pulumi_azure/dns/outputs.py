@@ -22,7 +22,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class CaaRecordRecord(dict):
+calass CaaRecordRecord(dict):
     def __init__(__self__, *,
                  flags: int,
                  tag: str,
@@ -62,7 +62,7 @@ class CaaRecordRecord(dict):
 
 
 @pulumi.output_type
-class MxRecordRecord(dict):
+calass MxRecordRecord(dict):
     def __init__(__self__, *,
                  exchange: str,
                  preference: str):
@@ -91,7 +91,7 @@ class MxRecordRecord(dict):
 
 
 @pulumi.output_type
-class SrvRecordRecord(dict):
+calass SrvRecordRecord(dict):
     def __init__(__self__, *,
                  port: int,
                  priority: int,
@@ -142,7 +142,7 @@ class SrvRecordRecord(dict):
 
 
 @pulumi.output_type
-class TxtRecordRecord(dict):
+calass TxtRecordRecord(dict):
     def __init__(__self__, *,
                  value: str):
         """
@@ -160,7 +160,7 @@ class TxtRecordRecord(dict):
 
 
 @pulumi.output_type
-class ZoneSoaRecord(dict):
+calass ZoneSoaRecord(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -309,7 +309,7 @@ class ZoneSoaRecord(dict):
 
 
 @pulumi.output_type
-class GetCAARecordRecordResult(dict):
+calass GetCAARecordRecordResult(dict):
     def __init__(__self__, *,
                  flags: int,
                  tag: str,
@@ -349,7 +349,7 @@ class GetCAARecordRecordResult(dict):
 
 
 @pulumi.output_type
-class GetMxRecordRecordResult(dict):
+calass GetMxRecordRecordResult(dict):
     def __init__(__self__, *,
                  exchange: str,
                  preference: str):
@@ -378,7 +378,7 @@ class GetMxRecordRecordResult(dict):
 
 
 @pulumi.output_type
-class GetSrvRecordRecordResult(dict):
+calass GetSrvRecordRecordResult(dict):
     def __init__(__self__, *,
                  port: int,
                  priority: int,
@@ -429,7 +429,7 @@ class GetSrvRecordRecordResult(dict):
 
 
 @pulumi.output_type
-class GetTxtRecordRecordResult(dict):
+calass GetTxtRecordRecordResult(dict):
     def __init__(__self__, *,
                  value: str):
         """

@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['RoutingIntentArgs', 'RoutingIntent']
+__all__ = ['RoutingIntentArrgs', 'RoutingIntent']
 
 @pulumi.input_type
-class RoutingIntentArgs:
+calass RoutingIntentArrgs:
     def __init__(__self__, *,
-                 routing_policies: pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArgs']]],
+                 routing_policies: pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArrgs']]],
                  virtual_hub_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RoutingIntent resource.
-        :param pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArgs']]] routing_policies: One or more `routing_policy` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArrgs']]] routing_policies: One or more `routing_policy` blocks as defined below.
         :param pulumi.Input[str] virtual_hub_id: The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created.
         """
@@ -32,14 +32,14 @@ class RoutingIntentArgs:
 
     @property
     @pulumi.getter(name="routingPolicies")
-    def routing_policies(self) -> pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArgs']]]:
+    def routing_policies(self) -> pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArrgs']]]:
         """
         One or more `routing_policy` blocks as defined below.
         """
         return pulumi.get(self, "routing_policies")
 
     @routing_policies.setter
-    def routing_policies(self, value: pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArgs']]]):
+    def routing_policies(self, value: pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArrgs']]]):
         pulumi.set(self, "routing_policies", value)
 
     @property
@@ -68,15 +68,15 @@ class RoutingIntentArgs:
 
 
 @pulumi.input_type
-class _RoutingIntentState:
+calass _RoutingIntentState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
-                 routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArgs']]]] = None,
+                 routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArrgs']]]] = None,
                  virtual_hub_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering RoutingIntent resources.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArgs']]] routing_policies: One or more `routing_policy` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArrgs']]] routing_policies: One or more `routing_policy` blocks as defined below.
         :param pulumi.Input[str] virtual_hub_id: The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
         """
         if name is not None:
@@ -100,14 +100,14 @@ class _RoutingIntentState:
 
     @property
     @pulumi.getter(name="routingPolicies")
-    def routing_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArgs']]]]:
+    def routing_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArrgs']]]]:
         """
         One or more `routing_policy` blocks as defined below.
         """
         return pulumi.get(self, "routing_policies")
 
     @routing_policies.setter
-    def routing_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArgs']]]]):
+    def routing_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingIntentRoutingPolicyArrgs']]]]):
         pulumi.set(self, "routing_policies", value)
 
     @property
@@ -123,13 +123,13 @@ class _RoutingIntentState:
         pulumi.set(self, "virtual_hub_id", value)
 
 
-class RoutingIntent(pulumi.CustomResource):
+calass RoutingIntent(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingIntentRoutingPolicyArgs']]]]] = None,
+                 routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingIntentRoutingPolicyArrgs']]]]] = None,
                  virtual_hub_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -155,13 +155,13 @@ class RoutingIntent(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku_name="AZFW_Hub",
             sku_tier="Standard",
-            virtual_hub=azure.network.FirewallVirtualHubArgs(
+            virtual_hub=azure.network.FirewallVirtualHubArrgs(
                 virtual_hub_id=example_virtual_hub.id,
                 public_ip_count=1,
             ))
         example_routing_intent = azure.network.RoutingIntent("exampleRoutingIntent",
             virtual_hub_id=example_virtual_hub.id,
-            routing_policies=[azure.network.RoutingIntentRoutingPolicyArgs(
+            routing_policies=[azure.network.RoutingIntentRoutingPolicyArrgs(
                 name="InternetTrafficPolicy",
                 destinations=["Internet"],
                 next_hop=example_firewall.id,
@@ -179,14 +179,14 @@ class RoutingIntent(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingIntentRoutingPolicyArgs']]]] routing_policies: One or more `routing_policy` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingIntentRoutingPolicyArrgs']]]] routing_policies: One or more `routing_policy` blocks as defined below.
         :param pulumi.Input[str] virtual_hub_id: The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RoutingIntentArgs,
+                 args: RoutingIntentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Virtual Hub Routing Intent.
@@ -211,13 +211,13 @@ class RoutingIntent(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku_name="AZFW_Hub",
             sku_tier="Standard",
-            virtual_hub=azure.network.FirewallVirtualHubArgs(
+            virtual_hub=azure.network.FirewallVirtualHubArrgs(
                 virtual_hub_id=example_virtual_hub.id,
                 public_ip_count=1,
             ))
         example_routing_intent = azure.network.RoutingIntent("exampleRoutingIntent",
             virtual_hub_id=example_virtual_hub.id,
-            routing_policies=[azure.network.RoutingIntentRoutingPolicyArgs(
+            routing_policies=[azure.network.RoutingIntentRoutingPolicyArrgs(
                 name="InternetTrafficPolicy",
                 destinations=["Internet"],
                 next_hop=example_firewall.id,
@@ -233,12 +233,12 @@ class RoutingIntent(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RoutingIntentArgs args: The arguments to use to populate this resource's properties.
+        :param RoutingIntentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RoutingIntentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RoutingIntentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -248,7 +248,7 @@ class RoutingIntent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingIntentRoutingPolicyArgs']]]]] = None,
+                 routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingIntentRoutingPolicyArrgs']]]]] = None,
                  virtual_hub_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -257,7 +257,7 @@ class RoutingIntent(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RoutingIntentArgs.__new__(RoutingIntentArgs)
+            __props__ = RoutingIntentArrgs.__new__(RoutingIntentArrgs)
 
             __props__.__dict__["name"] = name
             if routing_policies is None and not opts.urn:
@@ -277,7 +277,7 @@ class RoutingIntent(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[str]] = None,
-            routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingIntentRoutingPolicyArgs']]]]] = None,
+            routing_policies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingIntentRoutingPolicyArrgs']]]]] = None,
             virtual_hub_id: Optional[pulumi.Input[str]] = None) -> 'RoutingIntent':
         """
         Get an existing RoutingIntent resource's state with the given name, id, and optional extra
@@ -287,7 +287,7 @@ class RoutingIntent(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingIntentRoutingPolicyArgs']]]] routing_policies: One or more `routing_policy` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RoutingIntentRoutingPolicyArrgs']]]] routing_policies: One or more `routing_policy` blocks as defined below.
         :param pulumi.Input[str] virtual_hub_id: The resource ID of the Virtual Hub. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

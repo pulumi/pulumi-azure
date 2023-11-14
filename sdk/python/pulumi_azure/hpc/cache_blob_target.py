@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['CacheBlobTargetArgs', 'CacheBlobTarget']
+__all__ = ['CacheBlobTargetArrgs', 'CacheBlobTarget']
 
 @pulumi.input_type
-class CacheBlobTargetArgs:
+calass CacheBlobTargetArrgs:
     def __init__(__self__, *,
                  cache_name: pulumi.Input[str],
                  namespace_path: pulumi.Input[str],
@@ -116,7 +116,7 @@ class CacheBlobTargetArgs:
 
 
 @pulumi.input_type
-class _CacheBlobTargetState:
+calass _CacheBlobTargetState:
     def __init__(__self__, *,
                  access_policy_name: Optional[pulumi.Input[str]] = None,
                  cache_name: Optional[pulumi.Input[str]] = None,
@@ -223,7 +223,7 @@ class _CacheBlobTargetState:
         pulumi.set(self, "storage_container_id", value)
 
 
-class CacheBlobTarget(pulumi.CustomResource):
+calass CacheBlobTarget(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -307,7 +307,7 @@ class CacheBlobTarget(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CacheBlobTargetArgs,
+                 args: CacheBlobTargetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Blob Target within a HPC Cache.
@@ -367,12 +367,12 @@ class CacheBlobTarget(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CacheBlobTargetArgs args: The arguments to use to populate this resource's properties.
+        :param CacheBlobTargetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CacheBlobTargetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CacheBlobTargetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -394,7 +394,7 @@ class CacheBlobTarget(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CacheBlobTargetArgs.__new__(CacheBlobTargetArgs)
+            __props__ = CacheBlobTargetArrgs.__new__(CacheBlobTargetArrgs)
 
             __props__.__dict__["access_policy_name"] = access_policy_name
             if cache_name is None and not opts.urn:

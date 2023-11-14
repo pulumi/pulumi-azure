@@ -15,7 +15,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ModuleManagementNetworkProfile(dict):
+calass ModuleManagementNetworkProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -63,7 +63,7 @@ class ModuleManagementNetworkProfile(dict):
 
 
 @pulumi.output_type
-class ModuleNetworkProfile(dict):
+calass ModuleNetworkProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

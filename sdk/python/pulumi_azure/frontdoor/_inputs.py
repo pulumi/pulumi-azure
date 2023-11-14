@@ -10,34 +10,34 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'CustomHttpsConfigurationCustomHttpsConfigurationArgs',
-    'FirewallPolicyCustomRuleArgs',
-    'FirewallPolicyCustomRuleMatchConditionArgs',
-    'FirewallPolicyManagedRuleArgs',
-    'FirewallPolicyManagedRuleExclusionArgs',
-    'FirewallPolicyManagedRuleOverrideArgs',
-    'FirewallPolicyManagedRuleOverrideExclusionArgs',
-    'FirewallPolicyManagedRuleOverrideRuleArgs',
-    'FirewallPolicyManagedRuleOverrideRuleExclusionArgs',
-    'FrontdoorBackendPoolArgs',
-    'FrontdoorBackendPoolBackendArgs',
-    'FrontdoorBackendPoolHealthProbeArgs',
-    'FrontdoorBackendPoolLoadBalancingArgs',
-    'FrontdoorBackendPoolSettingArgs',
-    'FrontdoorExplicitResourceOrderArgs',
-    'FrontdoorFrontendEndpointArgs',
-    'FrontdoorRoutingRuleArgs',
-    'FrontdoorRoutingRuleForwardingConfigurationArgs',
-    'FrontdoorRoutingRuleRedirectConfigurationArgs',
-    'RulesEngineRuleArgs',
-    'RulesEngineRuleActionArgs',
-    'RulesEngineRuleActionRequestHeaderArgs',
-    'RulesEngineRuleActionResponseHeaderArgs',
-    'RulesEngineRuleMatchConditionArgs',
+    'CustomHttpsConfigurationCustomHttpsConfigurationArrgs',
+    'FirewallPolicyCustomRuleArrgs',
+    'FirewallPolicyCustomRuleMatchConditionArrgs',
+    'FirewallPolicyManagedRuleArrgs',
+    'FirewallPolicyManagedRuleExclusionArrgs',
+    'FirewallPolicyManagedRuleOverrideArrgs',
+    'FirewallPolicyManagedRuleOverrideExclusionArrgs',
+    'FirewallPolicyManagedRuleOverrideRuleArrgs',
+    'FirewallPolicyManagedRuleOverrideRuleExclusionArrgs',
+    'FrontdoorBackendPoolArrgs',
+    'FrontdoorBackendPoolBackendArrgs',
+    'FrontdoorBackendPoolHealthProbeArrgs',
+    'FrontdoorBackendPoolLoadBalancingArrgs',
+    'FrontdoorBackendPoolSettingArrgs',
+    'FrontdoorExplicitResourceOrderArrgs',
+    'FrontdoorFrontendEndpointArrgs',
+    'FrontdoorRoutingRuleArrgs',
+    'FrontdoorRoutingRuleForwardingConfigurationArrgs',
+    'FrontdoorRoutingRuleRedirectConfigurationArrgs',
+    'RulesEngineRuleArrgs',
+    'RulesEngineRuleActionArrgs',
+    'RulesEngineRuleActionRequestHeaderArrgs',
+    'RulesEngineRuleActionResponseHeaderArrgs',
+    'RulesEngineRuleMatchConditionArrgs',
 ]
 
 @pulumi.input_type
-class CustomHttpsConfigurationCustomHttpsConfigurationArgs:
+calass CustomHttpsConfigurationCustomHttpsConfigurationArrgs:
     def __init__(__self__, *,
                  azure_key_vault_certificate_secret_name: Optional[pulumi.Input[str]] = None,
                  azure_key_vault_certificate_secret_version: Optional[pulumi.Input[str]] = None,
@@ -156,13 +156,13 @@ class CustomHttpsConfigurationCustomHttpsConfigurationArgs:
 
 
 @pulumi.input_type
-class FirewallPolicyCustomRuleArgs:
+calass FirewallPolicyCustomRuleArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  name: pulumi.Input[str],
                  type: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 match_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleMatchConditionArgs']]]] = None,
+                 match_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleMatchConditionArrgs']]]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  rate_limit_duration_in_minutes: Optional[pulumi.Input[int]] = None,
                  rate_limit_threshold: Optional[pulumi.Input[int]] = None):
@@ -171,7 +171,7 @@ class FirewallPolicyCustomRuleArgs:
         :param pulumi.Input[str] name: Gets name of the resource that is unique within a policy. This name can be used to access the resource.
         :param pulumi.Input[str] type: The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
         :param pulumi.Input[bool] enabled: Is the rule is enabled or disabled? Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleMatchConditionArgs']]] match_conditions: One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleMatchConditionArrgs']]] match_conditions: One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
         :param pulumi.Input[int] priority: The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
         :param pulumi.Input[int] rate_limit_duration_in_minutes: The rate limit duration in minutes. Defaults to `1`.
         :param pulumi.Input[int] rate_limit_threshold: The rate limit threshold. Defaults to `10`.
@@ -240,14 +240,14 @@ class FirewallPolicyCustomRuleArgs:
 
     @property
     @pulumi.getter(name="matchConditions")
-    def match_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleMatchConditionArgs']]]]:
+    def match_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleMatchConditionArrgs']]]]:
         """
         One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
         """
         return pulumi.get(self, "match_conditions")
 
     @match_conditions.setter
-    def match_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleMatchConditionArgs']]]]):
+    def match_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleMatchConditionArrgs']]]]):
         pulumi.set(self, "match_conditions", value)
 
     @property
@@ -288,7 +288,7 @@ class FirewallPolicyCustomRuleArgs:
 
 
 @pulumi.input_type
-class FirewallPolicyCustomRuleMatchConditionArgs:
+calass FirewallPolicyCustomRuleMatchConditionArrgs:
     def __init__(__self__, *,
                  match_values: pulumi.Input[Sequence[pulumi.Input[str]]],
                  match_variable: pulumi.Input[str],
@@ -388,17 +388,17 @@ class FirewallPolicyCustomRuleMatchConditionArgs:
 
 
 @pulumi.input_type
-class FirewallPolicyManagedRuleArgs:
+calass FirewallPolicyManagedRuleArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  version: pulumi.Input[str],
-                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleExclusionArgs']]]] = None,
-                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideArgs']]]] = None):
+                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleExclusionArrgs']]]] = None,
+                 overrides: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideArrgs']]]] = None):
         """
         :param pulumi.Input[str] type: The name of the managed rule to use with this resource.
         :param pulumi.Input[str] version: The version on the managed rule to use with this resource.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleExclusionArgs']]] exclusions: One or more `exclusion` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideArgs']]] overrides: One or more `override` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleExclusionArrgs']]] exclusions: One or more `exclusion` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideArrgs']]] overrides: One or more `override` blocks as defined below.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "version", version)
@@ -433,31 +433,31 @@ class FirewallPolicyManagedRuleArgs:
 
     @property
     @pulumi.getter
-    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleExclusionArgs']]]]:
+    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleExclusionArrgs']]]]:
         """
         One or more `exclusion` blocks as defined below.
         """
         return pulumi.get(self, "exclusions")
 
     @exclusions.setter
-    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleExclusionArgs']]]]):
+    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleExclusionArrgs']]]]):
         pulumi.set(self, "exclusions", value)
 
     @property
     @pulumi.getter
-    def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideArgs']]]]:
+    def overrides(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideArrgs']]]]:
         """
         One or more `override` blocks as defined below.
         """
         return pulumi.get(self, "overrides")
 
     @overrides.setter
-    def overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideArgs']]]]):
+    def overrides(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideArrgs']]]]):
         pulumi.set(self, "overrides", value)
 
 
 @pulumi.input_type
-class FirewallPolicyManagedRuleExclusionArgs:
+calass FirewallPolicyManagedRuleExclusionArrgs:
     def __init__(__self__, *,
                  match_variable: pulumi.Input[str],
                  operator: pulumi.Input[str],
@@ -509,15 +509,15 @@ class FirewallPolicyManagedRuleExclusionArgs:
 
 
 @pulumi.input_type
-class FirewallPolicyManagedRuleOverrideArgs:
+calass FirewallPolicyManagedRuleOverrideArrgs:
     def __init__(__self__, *,
                  rule_group_name: pulumi.Input[str],
-                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideExclusionArgs']]]] = None,
-                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleArgs']]]] = None):
+                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideExclusionArrgs']]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleArrgs']]]] = None):
         """
         :param pulumi.Input[str] rule_group_name: The managed rule group to override.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideExclusionArgs']]] exclusions: One or more `exclusion` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleArgs']]] rules: One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideExclusionArrgs']]] exclusions: One or more `exclusion` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleArrgs']]] rules: One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
         if exclusions is not None:
@@ -539,31 +539,31 @@ class FirewallPolicyManagedRuleOverrideArgs:
 
     @property
     @pulumi.getter
-    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideExclusionArgs']]]]:
+    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideExclusionArrgs']]]]:
         """
         One or more `exclusion` blocks as defined below.
         """
         return pulumi.get(self, "exclusions")
 
     @exclusions.setter
-    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideExclusionArgs']]]]):
+    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideExclusionArrgs']]]]):
         pulumi.set(self, "exclusions", value)
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleArrgs']]]]:
         """
         One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleArrgs']]]]):
         pulumi.set(self, "rules", value)
 
 
 @pulumi.input_type
-class FirewallPolicyManagedRuleOverrideExclusionArgs:
+calass FirewallPolicyManagedRuleOverrideExclusionArrgs:
     def __init__(__self__, *,
                  match_variable: pulumi.Input[str],
                  operator: pulumi.Input[str],
@@ -615,17 +615,17 @@ class FirewallPolicyManagedRuleOverrideExclusionArgs:
 
 
 @pulumi.input_type
-class FirewallPolicyManagedRuleOverrideRuleArgs:
+calass FirewallPolicyManagedRuleOverrideRuleArrgs:
     def __init__(__self__, *,
                  action: pulumi.Input[str],
                  rule_id: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleExclusionArgs']]]] = None):
+                 exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleExclusionArrgs']]]] = None):
         """
         :param pulumi.Input[str] action: The action to be applied when the rule matches. Possible values are `Allow`, `Block`, `Log`, or `Redirect`.
         :param pulumi.Input[str] rule_id: Identifier for the managed rule.
         :param pulumi.Input[bool] enabled: Is the managed rule override enabled or disabled. Defaults to `false`
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleExclusionArgs']]] exclusions: One or more `exclusion` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleExclusionArrgs']]] exclusions: One or more `exclusion` blocks as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "rule_id", rule_id)
@@ -672,19 +672,19 @@ class FirewallPolicyManagedRuleOverrideRuleArgs:
 
     @property
     @pulumi.getter
-    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleExclusionArgs']]]]:
+    def exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleExclusionArrgs']]]]:
         """
         One or more `exclusion` blocks as defined below.
         """
         return pulumi.get(self, "exclusions")
 
     @exclusions.setter
-    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleExclusionArgs']]]]):
+    def exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleExclusionArrgs']]]]):
         pulumi.set(self, "exclusions", value)
 
 
 @pulumi.input_type
-class FirewallPolicyManagedRuleOverrideRuleExclusionArgs:
+calass FirewallPolicyManagedRuleOverrideRuleExclusionArrgs:
     def __init__(__self__, *,
                  match_variable: pulumi.Input[str],
                  operator: pulumi.Input[str],
@@ -736,15 +736,15 @@ class FirewallPolicyManagedRuleOverrideRuleExclusionArgs:
 
 
 @pulumi.input_type
-class FrontdoorBackendPoolArgs:
+calass FrontdoorBackendPoolArrgs:
     def __init__(__self__, *,
-                 backends: pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolBackendArgs']]],
+                 backends: pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolBackendArrgs']]],
                  health_probe_name: pulumi.Input[str],
                  load_balancing_name: pulumi.Input[str],
                  name: pulumi.Input[str],
                  id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolBackendArgs']]] backends: A `backend` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolBackendArrgs']]] backends: A `backend` block as defined below.
         :param pulumi.Input[str] health_probe_name: Specifies the name of the `backend_pool_health_probe` block within this resource to use for this `Backend Pool`.
         :param pulumi.Input[str] load_balancing_name: Specifies the name of the `backend_pool_load_balancing` block within this resource to use for this `Backend Pool`.
         :param pulumi.Input[str] name: Specifies the name of the Backend Pool.
@@ -759,14 +759,14 @@ class FrontdoorBackendPoolArgs:
 
     @property
     @pulumi.getter
-    def backends(self) -> pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolBackendArgs']]]:
+    def backends(self) -> pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolBackendArrgs']]]:
         """
         A `backend` block as defined below.
         """
         return pulumi.get(self, "backends")
 
     @backends.setter
-    def backends(self, value: pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolBackendArgs']]]):
+    def backends(self, value: pulumi.Input[Sequence[pulumi.Input['FrontdoorBackendPoolBackendArrgs']]]):
         pulumi.set(self, "backends", value)
 
     @property
@@ -819,7 +819,7 @@ class FrontdoorBackendPoolArgs:
 
 
 @pulumi.input_type
-class FrontdoorBackendPoolBackendArgs:
+calass FrontdoorBackendPoolBackendArrgs:
     def __init__(__self__, *,
                  address: pulumi.Input[str],
                  host_header: pulumi.Input[str],
@@ -934,7 +934,7 @@ class FrontdoorBackendPoolBackendArgs:
 
 
 @pulumi.input_type
-class FrontdoorBackendPoolHealthProbeArgs:
+calass FrontdoorBackendPoolHealthProbeArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -1056,7 +1056,7 @@ class FrontdoorBackendPoolHealthProbeArgs:
 
 
 @pulumi.input_type
-class FrontdoorBackendPoolLoadBalancingArgs:
+calass FrontdoorBackendPoolLoadBalancingArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  additional_latency_milliseconds: Optional[pulumi.Input[int]] = None,
@@ -1142,7 +1142,7 @@ class FrontdoorBackendPoolLoadBalancingArgs:
 
 
 @pulumi.input_type
-class FrontdoorBackendPoolSettingArgs:
+calass FrontdoorBackendPoolSettingArrgs:
     def __init__(__self__, *,
                  enforce_backend_pools_certificate_name_check: pulumi.Input[bool],
                  backend_pools_send_receive_timeout_seconds: Optional[pulumi.Input[int]] = None):
@@ -1184,7 +1184,7 @@ class FrontdoorBackendPoolSettingArgs:
 
 
 @pulumi.input_type
-class FrontdoorExplicitResourceOrderArgs:
+calass FrontdoorExplicitResourceOrderArrgs:
     def __init__(__self__, *,
                  backend_pool_health_probe_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backend_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1249,7 +1249,7 @@ class FrontdoorExplicitResourceOrderArgs:
 
 
 @pulumi.input_type
-class FrontdoorFrontendEndpointArgs:
+calass FrontdoorFrontendEndpointArrgs:
     def __init__(__self__, *,
                  host_name: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -1350,25 +1350,25 @@ class FrontdoorFrontendEndpointArgs:
 
 
 @pulumi.input_type
-class FrontdoorRoutingRuleArgs:
+calass FrontdoorRoutingRuleArrgs:
     def __init__(__self__, *,
                  accepted_protocols: pulumi.Input[Sequence[pulumi.Input[str]]],
                  frontend_endpoints: pulumi.Input[Sequence[pulumi.Input[str]]],
                  name: pulumi.Input[str],
                  patterns_to_matches: pulumi.Input[Sequence[pulumi.Input[str]]],
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 forwarding_configuration: Optional[pulumi.Input['FrontdoorRoutingRuleForwardingConfigurationArgs']] = None,
+                 forwarding_configuration: Optional[pulumi.Input['FrontdoorRoutingRuleForwardingConfigurationArrgs']] = None,
                  id: Optional[pulumi.Input[str]] = None,
-                 redirect_configuration: Optional[pulumi.Input['FrontdoorRoutingRuleRedirectConfigurationArgs']] = None):
+                 redirect_configuration: Optional[pulumi.Input['FrontdoorRoutingRuleRedirectConfigurationArrgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accepted_protocols: Protocol schemes to match for the Backend Routing Rule. Possible values are `Http` and `Https`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] frontend_endpoints: The names of the `frontend_endpoint` blocks within this resource to associate with this `routing_rule`.
         :param pulumi.Input[str] name: Specifies the name of the Routing Rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] patterns_to_matches: The route patterns for the Backend Routing Rule.
         :param pulumi.Input[bool] enabled: `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
-        :param pulumi.Input['FrontdoorRoutingRuleForwardingConfigurationArgs'] forwarding_configuration: A `forwarding_configuration` block as defined below.
+        :param pulumi.Input['FrontdoorRoutingRuleForwardingConfigurationArrgs'] forwarding_configuration: A `forwarding_configuration` block as defined below.
         :param pulumi.Input[str] id: The ID of the FrontDoor.
-        :param pulumi.Input['FrontdoorRoutingRuleRedirectConfigurationArgs'] redirect_configuration: A `redirect_configuration` block as defined below.
+        :param pulumi.Input['FrontdoorRoutingRuleRedirectConfigurationArrgs'] redirect_configuration: A `redirect_configuration` block as defined below.
         """
         pulumi.set(__self__, "accepted_protocols", accepted_protocols)
         pulumi.set(__self__, "frontend_endpoints", frontend_endpoints)
@@ -1445,14 +1445,14 @@ class FrontdoorRoutingRuleArgs:
 
     @property
     @pulumi.getter(name="forwardingConfiguration")
-    def forwarding_configuration(self) -> Optional[pulumi.Input['FrontdoorRoutingRuleForwardingConfigurationArgs']]:
+    def forwarding_configuration(self) -> Optional[pulumi.Input['FrontdoorRoutingRuleForwardingConfigurationArrgs']]:
         """
         A `forwarding_configuration` block as defined below.
         """
         return pulumi.get(self, "forwarding_configuration")
 
     @forwarding_configuration.setter
-    def forwarding_configuration(self, value: Optional[pulumi.Input['FrontdoorRoutingRuleForwardingConfigurationArgs']]):
+    def forwarding_configuration(self, value: Optional[pulumi.Input['FrontdoorRoutingRuleForwardingConfigurationArrgs']]):
         pulumi.set(self, "forwarding_configuration", value)
 
     @property
@@ -1469,19 +1469,19 @@ class FrontdoorRoutingRuleArgs:
 
     @property
     @pulumi.getter(name="redirectConfiguration")
-    def redirect_configuration(self) -> Optional[pulumi.Input['FrontdoorRoutingRuleRedirectConfigurationArgs']]:
+    def redirect_configuration(self) -> Optional[pulumi.Input['FrontdoorRoutingRuleRedirectConfigurationArrgs']]:
         """
         A `redirect_configuration` block as defined below.
         """
         return pulumi.get(self, "redirect_configuration")
 
     @redirect_configuration.setter
-    def redirect_configuration(self, value: Optional[pulumi.Input['FrontdoorRoutingRuleRedirectConfigurationArgs']]):
+    def redirect_configuration(self, value: Optional[pulumi.Input['FrontdoorRoutingRuleRedirectConfigurationArrgs']]):
         pulumi.set(self, "redirect_configuration", value)
 
 
 @pulumi.input_type
-class FrontdoorRoutingRuleForwardingConfigurationArgs:
+calass FrontdoorRoutingRuleForwardingConfigurationArrgs:
     def __init__(__self__, *,
                  backend_pool_name: pulumi.Input[str],
                  cache_duration: Optional[pulumi.Input[str]] = None,
@@ -1615,7 +1615,7 @@ class FrontdoorRoutingRuleForwardingConfigurationArgs:
 
 
 @pulumi.input_type
-class FrontdoorRoutingRuleRedirectConfigurationArgs:
+calass FrontdoorRoutingRuleRedirectConfigurationArrgs:
     def __init__(__self__, *,
                  redirect_protocol: pulumi.Input[str],
                  redirect_type: pulumi.Input[str],
@@ -1716,17 +1716,17 @@ class FrontdoorRoutingRuleRedirectConfigurationArgs:
 
 
 @pulumi.input_type
-class RulesEngineRuleArgs:
+calass RulesEngineRuleArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  priority: pulumi.Input[int],
-                 action: Optional[pulumi.Input['RulesEngineRuleActionArgs']] = None,
-                 match_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleMatchConditionArgs']]]] = None):
+                 action: Optional[pulumi.Input['RulesEngineRuleActionArrgs']] = None,
+                 match_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleMatchConditionArrgs']]]] = None):
         """
         :param pulumi.Input[str] name: The name of the rule.
         :param pulumi.Input[int] priority: Priority of the rule, must be unique per rules engine definition.
-        :param pulumi.Input['RulesEngineRuleActionArgs'] action: An `action` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleMatchConditionArgs']]] match_conditions: One or more `match_condition` block as defined below.
+        :param pulumi.Input['RulesEngineRuleActionArrgs'] action: An `action` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleMatchConditionArrgs']]] match_conditions: One or more `match_condition` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "priority", priority)
@@ -1761,37 +1761,37 @@ class RulesEngineRuleArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['RulesEngineRuleActionArgs']]:
+    def action(self) -> Optional[pulumi.Input['RulesEngineRuleActionArrgs']]:
         """
         An `action` block as defined below.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['RulesEngineRuleActionArgs']]):
+    def action(self, value: Optional[pulumi.Input['RulesEngineRuleActionArrgs']]):
         pulumi.set(self, "action", value)
 
     @property
     @pulumi.getter(name="matchConditions")
-    def match_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleMatchConditionArgs']]]]:
+    def match_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleMatchConditionArrgs']]]]:
         """
         One or more `match_condition` block as defined below.
         """
         return pulumi.get(self, "match_conditions")
 
     @match_conditions.setter
-    def match_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleMatchConditionArgs']]]]):
+    def match_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleMatchConditionArrgs']]]]):
         pulumi.set(self, "match_conditions", value)
 
 
 @pulumi.input_type
-class RulesEngineRuleActionArgs:
+calass RulesEngineRuleActionArrgs:
     def __init__(__self__, *,
-                 request_headers: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionRequestHeaderArgs']]]] = None,
-                 response_headers: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionResponseHeaderArgs']]]] = None):
+                 request_headers: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionRequestHeaderArrgs']]]] = None,
+                 response_headers: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionResponseHeaderArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionRequestHeaderArgs']]] request_headers: A `request_header` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionResponseHeaderArgs']]] response_headers: A `response_header` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionRequestHeaderArrgs']]] request_headers: A `request_header` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionResponseHeaderArrgs']]] response_headers: A `response_header` block as defined below.
         """
         if request_headers is not None:
             pulumi.set(__self__, "request_headers", request_headers)
@@ -1800,31 +1800,31 @@ class RulesEngineRuleActionArgs:
 
     @property
     @pulumi.getter(name="requestHeaders")
-    def request_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionRequestHeaderArgs']]]]:
+    def request_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionRequestHeaderArrgs']]]]:
         """
         A `request_header` block as defined below.
         """
         return pulumi.get(self, "request_headers")
 
     @request_headers.setter
-    def request_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionRequestHeaderArgs']]]]):
+    def request_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionRequestHeaderArrgs']]]]):
         pulumi.set(self, "request_headers", value)
 
     @property
     @pulumi.getter(name="responseHeaders")
-    def response_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionResponseHeaderArgs']]]]:
+    def response_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionResponseHeaderArrgs']]]]:
         """
         A `response_header` block as defined below.
         """
         return pulumi.get(self, "response_headers")
 
     @response_headers.setter
-    def response_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionResponseHeaderArgs']]]]):
+    def response_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RulesEngineRuleActionResponseHeaderArrgs']]]]):
         pulumi.set(self, "response_headers", value)
 
 
 @pulumi.input_type
-class RulesEngineRuleActionRequestHeaderArgs:
+calass RulesEngineRuleActionRequestHeaderArrgs:
     def __init__(__self__, *,
                  header_action_type: Optional[pulumi.Input[str]] = None,
                  header_name: Optional[pulumi.Input[str]] = None,
@@ -1879,7 +1879,7 @@ class RulesEngineRuleActionRequestHeaderArgs:
 
 
 @pulumi.input_type
-class RulesEngineRuleActionResponseHeaderArgs:
+calass RulesEngineRuleActionResponseHeaderArrgs:
     def __init__(__self__, *,
                  header_action_type: Optional[pulumi.Input[str]] = None,
                  header_name: Optional[pulumi.Input[str]] = None,
@@ -1934,7 +1934,7 @@ class RulesEngineRuleActionResponseHeaderArgs:
 
 
 @pulumi.input_type
-class RulesEngineRuleMatchConditionArgs:
+calass RulesEngineRuleMatchConditionArrgs:
     def __init__(__self__, *,
                  operator: pulumi.Input[str],
                  negate_condition: Optional[pulumi.Input[bool]] = None,

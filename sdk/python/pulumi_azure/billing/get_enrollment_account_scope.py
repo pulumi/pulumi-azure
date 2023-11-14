@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetEnrollmentAccountScopeResult:
+calass GetEnrollmentAccountScopeResult:
     """
     A collection of values returned by getEnrollmentAccountScope.
     """
@@ -51,7 +51,7 @@ class GetEnrollmentAccountScopeResult:
         return pulumi.get(self, "id")
 
 
-class AwaitableGetEnrollmentAccountScopeResult(GetEnrollmentAccountScopeResult):
+calass AwaitableGetEnrollmentAccountScopeResult(GetEnrollmentAccountScopeResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RegistryAgentPoolArgs', 'RegistryAgentPool']
+__all__ = ['RegistryAgentPoolArrgs', 'RegistryAgentPool']
 
 @pulumi.input_type
-class RegistryAgentPoolArgs:
+calass RegistryAgentPoolArrgs:
     def __init__(__self__, *,
                  container_registry_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -146,7 +146,7 @@ class RegistryAgentPoolArgs:
 
 
 @pulumi.input_type
-class _RegistryAgentPoolState:
+calass _RegistryAgentPoolState:
     def __init__(__self__, *,
                  container_registry_name: Optional[pulumi.Input[str]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
@@ -281,7 +281,7 @@ class _RegistryAgentPoolState:
         pulumi.set(self, "virtual_network_subnet_id", value)
 
 
-class RegistryAgentPool(pulumi.CustomResource):
+calass RegistryAgentPool(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -338,7 +338,7 @@ class RegistryAgentPool(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RegistryAgentPoolArgs,
+                 args: RegistryAgentPoolArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Container Registry Agent Pool.
@@ -369,12 +369,12 @@ class RegistryAgentPool(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RegistryAgentPoolArgs args: The arguments to use to populate this resource's properties.
+        :param RegistryAgentPoolArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RegistryAgentPoolArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RegistryAgentPoolArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -398,7 +398,7 @@ class RegistryAgentPool(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RegistryAgentPoolArgs.__new__(RegistryAgentPoolArgs)
+            __props__ = RegistryAgentPoolArrgs.__new__(RegistryAgentPoolArrgs)
 
             if container_registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'container_registry_name'")

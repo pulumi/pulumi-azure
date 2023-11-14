@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EventHubNamespaceAuthorizationRuleArgs', 'EventHubNamespaceAuthorizationRule']
+__all__ = ['EventHubNamespaceAuthorizationRuleArrgs', 'EventHubNamespaceAuthorizationRule']
 
 @pulumi.input_type
-class EventHubNamespaceAuthorizationRuleArgs:
+calass EventHubNamespaceAuthorizationRuleArrgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -118,7 +118,7 @@ class EventHubNamespaceAuthorizationRuleArgs:
 
 
 @pulumi.input_type
-class _EventHubNamespaceAuthorizationRuleState:
+calass _EventHubNamespaceAuthorizationRuleState:
     def __init__(__self__, *,
                  listen: Optional[pulumi.Input[bool]] = None,
                  manage: Optional[pulumi.Input[bool]] = None,
@@ -321,7 +321,7 @@ class _EventHubNamespaceAuthorizationRuleState:
         pulumi.set(self, "send", value)
 
 
-class EventHubNamespaceAuthorizationRule(pulumi.CustomResource):
+calass EventHubNamespaceAuthorizationRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -382,7 +382,7 @@ class EventHubNamespaceAuthorizationRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EventHubNamespaceAuthorizationRuleArgs,
+                 args: EventHubNamespaceAuthorizationRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Authorization Rule for an Event Hub Namespace.
@@ -419,12 +419,12 @@ class EventHubNamespaceAuthorizationRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EventHubNamespaceAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.
+        :param EventHubNamespaceAuthorizationRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EventHubNamespaceAuthorizationRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EventHubNamespaceAuthorizationRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -446,7 +446,7 @@ class EventHubNamespaceAuthorizationRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EventHubNamespaceAuthorizationRuleArgs.__new__(EventHubNamespaceAuthorizationRuleArgs)
+            __props__ = EventHubNamespaceAuthorizationRuleArrgs.__new__(EventHubNamespaceAuthorizationRuleArrgs)
 
             __props__.__dict__["listen"] = listen
             __props__.__dict__["manage"] = manage

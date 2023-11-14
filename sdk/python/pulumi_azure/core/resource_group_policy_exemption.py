@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ResourceGroupPolicyExemptionArgs', 'ResourceGroupPolicyExemption']
+__all__ = ['ResourceGroupPolicyExemptionArrgs', 'ResourceGroupPolicyExemption']
 
 @pulumi.input_type
-class ResourceGroupPolicyExemptionArgs:
+calass ResourceGroupPolicyExemptionArrgs:
     def __init__(__self__, *,
                  exemption_category: pulumi.Input[str],
                  policy_assignment_id: pulumi.Input[str],
@@ -161,7 +161,7 @@ class ResourceGroupPolicyExemptionArgs:
 
 
 @pulumi.input_type
-class _ResourceGroupPolicyExemptionState:
+calass _ResourceGroupPolicyExemptionState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -312,7 +312,7 @@ class _ResourceGroupPolicyExemptionState:
         pulumi.set(self, "resource_group_id", value)
 
 
-class ResourceGroupPolicyExemption(pulumi.CustomResource):
+calass ResourceGroupPolicyExemption(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -377,7 +377,7 @@ class ResourceGroupPolicyExemption(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ResourceGroupPolicyExemptionArgs,
+                 args: ResourceGroupPolicyExemptionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Resource Group Policy Exemption.
@@ -414,12 +414,12 @@ class ResourceGroupPolicyExemption(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ResourceGroupPolicyExemptionArgs args: The arguments to use to populate this resource's properties.
+        :param ResourceGroupPolicyExemptionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ResourceGroupPolicyExemptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ResourceGroupPolicyExemptionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -444,7 +444,7 @@ class ResourceGroupPolicyExemption(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ResourceGroupPolicyExemptionArgs.__new__(ResourceGroupPolicyExemptionArgs)
+            __props__ = ResourceGroupPolicyExemptionArrgs.__new__(ResourceGroupPolicyExemptionArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name

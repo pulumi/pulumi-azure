@@ -11,39 +11,39 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LiveEventArgs', 'LiveEvent']
+__all__ = ['LiveEventArrgs', 'LiveEvent']
 
 @pulumi.input_type
-class LiveEventArgs:
+calass LiveEventArrgs:
     def __init__(__self__, *,
-                 input: pulumi.Input['LiveEventInputArgs'],
+                 input: pulumi.Input['LiveEventInputArrgs'],
                  media_services_account_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  auto_start_enabled: Optional[pulumi.Input[bool]] = None,
-                 cross_site_access_policy: Optional[pulumi.Input['LiveEventCrossSiteAccessPolicyArgs']] = None,
+                 cross_site_access_policy: Optional[pulumi.Input['LiveEventCrossSiteAccessPolicyArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encoding: Optional[pulumi.Input['LiveEventEncodingArgs']] = None,
+                 encoding: Optional[pulumi.Input['LiveEventEncodingArrgs']] = None,
                  hostname_prefix: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 preview: Optional[pulumi.Input['LiveEventPreviewArgs']] = None,
+                 preview: Optional[pulumi.Input['LiveEventPreviewArrgs']] = None,
                  stream_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transcription_languages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  use_static_hostname: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a LiveEvent resource.
-        :param pulumi.Input['LiveEventInputArgs'] input: A `input` block as defined below.
+        :param pulumi.Input['LiveEventInputArrgs'] input: A `input` block as defined below.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Live Event to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created.
         :param pulumi.Input[bool] auto_start_enabled: The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input['LiveEventCrossSiteAccessPolicyArgs'] cross_site_access_policy: A `cross_site_access_policy` block as defined below.
+        :param pulumi.Input['LiveEventCrossSiteAccessPolicyArrgs'] cross_site_access_policy: A `cross_site_access_policy` block as defined below.
         :param pulumi.Input[str] description: A description for the live event.
-        :param pulumi.Input['LiveEventEncodingArgs'] encoding: A `encoding` block as defined below.
+        :param pulumi.Input['LiveEventEncodingArrgs'] encoding: A `encoding` block as defined below.
         :param pulumi.Input[str] hostname_prefix: When `use_static_hostname` is set to true, the `hostname_prefix` specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
         :param pulumi.Input[str] location: The Azure Region where the Live Event should exist. Changing this forces a new Live Event to be created.
         :param pulumi.Input[str] name: The name which should be used for this Live Event. Changing this forces a new Live Event to be created.
-        :param pulumi.Input['LiveEventPreviewArgs'] preview: A `preview` block as defined below.
+        :param pulumi.Input['LiveEventPreviewArrgs'] preview: A `preview` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] stream_options: A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Live Event.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] transcription_languages: Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742 ).
@@ -79,14 +79,14 @@ class LiveEventArgs:
 
     @property
     @pulumi.getter
-    def input(self) -> pulumi.Input['LiveEventInputArgs']:
+    def input(self) -> pulumi.Input['LiveEventInputArrgs']:
         """
         A `input` block as defined below.
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: pulumi.Input['LiveEventInputArgs']):
+    def input(self, value: pulumi.Input['LiveEventInputArrgs']):
         pulumi.set(self, "input", value)
 
     @property
@@ -127,14 +127,14 @@ class LiveEventArgs:
 
     @property
     @pulumi.getter(name="crossSiteAccessPolicy")
-    def cross_site_access_policy(self) -> Optional[pulumi.Input['LiveEventCrossSiteAccessPolicyArgs']]:
+    def cross_site_access_policy(self) -> Optional[pulumi.Input['LiveEventCrossSiteAccessPolicyArrgs']]:
         """
         A `cross_site_access_policy` block as defined below.
         """
         return pulumi.get(self, "cross_site_access_policy")
 
     @cross_site_access_policy.setter
-    def cross_site_access_policy(self, value: Optional[pulumi.Input['LiveEventCrossSiteAccessPolicyArgs']]):
+    def cross_site_access_policy(self, value: Optional[pulumi.Input['LiveEventCrossSiteAccessPolicyArrgs']]):
         pulumi.set(self, "cross_site_access_policy", value)
 
     @property
@@ -151,14 +151,14 @@ class LiveEventArgs:
 
     @property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input['LiveEventEncodingArgs']]:
+    def encoding(self) -> Optional[pulumi.Input['LiveEventEncodingArrgs']]:
         """
         A `encoding` block as defined below.
         """
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input['LiveEventEncodingArgs']]):
+    def encoding(self, value: Optional[pulumi.Input['LiveEventEncodingArrgs']]):
         pulumi.set(self, "encoding", value)
 
     @property
@@ -199,14 +199,14 @@ class LiveEventArgs:
 
     @property
     @pulumi.getter
-    def preview(self) -> Optional[pulumi.Input['LiveEventPreviewArgs']]:
+    def preview(self) -> Optional[pulumi.Input['LiveEventPreviewArrgs']]:
         """
         A `preview` block as defined below.
         """
         return pulumi.get(self, "preview")
 
     @preview.setter
-    def preview(self, value: Optional[pulumi.Input['LiveEventPreviewArgs']]):
+    def preview(self, value: Optional[pulumi.Input['LiveEventPreviewArrgs']]):
         pulumi.set(self, "preview", value)
 
     @property
@@ -259,18 +259,18 @@ class LiveEventArgs:
 
 
 @pulumi.input_type
-class _LiveEventState:
+calass _LiveEventState:
     def __init__(__self__, *,
                  auto_start_enabled: Optional[pulumi.Input[bool]] = None,
-                 cross_site_access_policy: Optional[pulumi.Input['LiveEventCrossSiteAccessPolicyArgs']] = None,
+                 cross_site_access_policy: Optional[pulumi.Input['LiveEventCrossSiteAccessPolicyArrgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encoding: Optional[pulumi.Input['LiveEventEncodingArgs']] = None,
+                 encoding: Optional[pulumi.Input['LiveEventEncodingArrgs']] = None,
                  hostname_prefix: Optional[pulumi.Input[str]] = None,
-                 input: Optional[pulumi.Input['LiveEventInputArgs']] = None,
+                 input: Optional[pulumi.Input['LiveEventInputArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  media_services_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 preview: Optional[pulumi.Input['LiveEventPreviewArgs']] = None,
+                 preview: Optional[pulumi.Input['LiveEventPreviewArrgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  stream_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -279,15 +279,15 @@ class _LiveEventState:
         """
         Input properties used for looking up and filtering LiveEvent resources.
         :param pulumi.Input[bool] auto_start_enabled: The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input['LiveEventCrossSiteAccessPolicyArgs'] cross_site_access_policy: A `cross_site_access_policy` block as defined below.
+        :param pulumi.Input['LiveEventCrossSiteAccessPolicyArrgs'] cross_site_access_policy: A `cross_site_access_policy` block as defined below.
         :param pulumi.Input[str] description: A description for the live event.
-        :param pulumi.Input['LiveEventEncodingArgs'] encoding: A `encoding` block as defined below.
+        :param pulumi.Input['LiveEventEncodingArrgs'] encoding: A `encoding` block as defined below.
         :param pulumi.Input[str] hostname_prefix: When `use_static_hostname` is set to true, the `hostname_prefix` specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
-        :param pulumi.Input['LiveEventInputArgs'] input: A `input` block as defined below.
+        :param pulumi.Input['LiveEventInputArrgs'] input: A `input` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Live Event should exist. Changing this forces a new Live Event to be created.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Live Event to be created.
         :param pulumi.Input[str] name: The name which should be used for this Live Event. Changing this forces a new Live Event to be created.
-        :param pulumi.Input['LiveEventPreviewArgs'] preview: A `preview` block as defined below.
+        :param pulumi.Input['LiveEventPreviewArrgs'] preview: A `preview` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] stream_options: A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Live Event.
@@ -339,14 +339,14 @@ class _LiveEventState:
 
     @property
     @pulumi.getter(name="crossSiteAccessPolicy")
-    def cross_site_access_policy(self) -> Optional[pulumi.Input['LiveEventCrossSiteAccessPolicyArgs']]:
+    def cross_site_access_policy(self) -> Optional[pulumi.Input['LiveEventCrossSiteAccessPolicyArrgs']]:
         """
         A `cross_site_access_policy` block as defined below.
         """
         return pulumi.get(self, "cross_site_access_policy")
 
     @cross_site_access_policy.setter
-    def cross_site_access_policy(self, value: Optional[pulumi.Input['LiveEventCrossSiteAccessPolicyArgs']]):
+    def cross_site_access_policy(self, value: Optional[pulumi.Input['LiveEventCrossSiteAccessPolicyArrgs']]):
         pulumi.set(self, "cross_site_access_policy", value)
 
     @property
@@ -363,14 +363,14 @@ class _LiveEventState:
 
     @property
     @pulumi.getter
-    def encoding(self) -> Optional[pulumi.Input['LiveEventEncodingArgs']]:
+    def encoding(self) -> Optional[pulumi.Input['LiveEventEncodingArrgs']]:
         """
         A `encoding` block as defined below.
         """
         return pulumi.get(self, "encoding")
 
     @encoding.setter
-    def encoding(self, value: Optional[pulumi.Input['LiveEventEncodingArgs']]):
+    def encoding(self, value: Optional[pulumi.Input['LiveEventEncodingArrgs']]):
         pulumi.set(self, "encoding", value)
 
     @property
@@ -387,14 +387,14 @@ class _LiveEventState:
 
     @property
     @pulumi.getter
-    def input(self) -> Optional[pulumi.Input['LiveEventInputArgs']]:
+    def input(self) -> Optional[pulumi.Input['LiveEventInputArrgs']]:
         """
         A `input` block as defined below.
         """
         return pulumi.get(self, "input")
 
     @input.setter
-    def input(self, value: Optional[pulumi.Input['LiveEventInputArgs']]):
+    def input(self, value: Optional[pulumi.Input['LiveEventInputArrgs']]):
         pulumi.set(self, "input", value)
 
     @property
@@ -435,14 +435,14 @@ class _LiveEventState:
 
     @property
     @pulumi.getter
-    def preview(self) -> Optional[pulumi.Input['LiveEventPreviewArgs']]:
+    def preview(self) -> Optional[pulumi.Input['LiveEventPreviewArrgs']]:
         """
         A `preview` block as defined below.
         """
         return pulumi.get(self, "preview")
 
     @preview.setter
-    def preview(self, value: Optional[pulumi.Input['LiveEventPreviewArgs']]):
+    def preview(self, value: Optional[pulumi.Input['LiveEventPreviewArrgs']]):
         pulumi.set(self, "preview", value)
 
     @property
@@ -506,21 +506,21 @@ class _LiveEventState:
         pulumi.set(self, "use_static_hostname", value)
 
 
-class LiveEvent(pulumi.CustomResource):
+calass LiveEvent(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_start_enabled: Optional[pulumi.Input[bool]] = None,
-                 cross_site_access_policy: Optional[pulumi.Input[pulumi.InputType['LiveEventCrossSiteAccessPolicyArgs']]] = None,
+                 cross_site_access_policy: Optional[pulumi.Input[pulumi.InputType['LiveEventCrossSiteAccessPolicyArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encoding: Optional[pulumi.Input[pulumi.InputType['LiveEventEncodingArgs']]] = None,
+                 encoding: Optional[pulumi.Input[pulumi.InputType['LiveEventEncodingArrgs']]] = None,
                  hostname_prefix: Optional[pulumi.Input[str]] = None,
-                 input: Optional[pulumi.Input[pulumi.InputType['LiveEventInputArgs']]] = None,
+                 input: Optional[pulumi.Input[pulumi.InputType['LiveEventInputArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  media_services_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 preview: Optional[pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']]] = None,
+                 preview: Optional[pulumi.Input[pulumi.InputType['LiveEventPreviewArrgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  stream_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -545,7 +545,7 @@ class LiveEvent(pulumi.CustomResource):
         example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArrgs(
                 id=example_account.id,
                 is_primary=True,
             )])
@@ -554,22 +554,22 @@ class LiveEvent(pulumi.CustomResource):
             location=example_resource_group.location,
             media_services_account_name=example_service_account.name,
             description="My Event Description",
-            input=azure.media.LiveEventInputArgs(
+            input=azure.media.LiveEventInputArrgs(
                 streaming_protocol="RTMP",
-                ip_access_control_allows=[azure.media.LiveEventInputIpAccessControlAllowArgs(
+                ip_access_control_allows=[azure.media.LiveEventInputIpAccessControlAllowArrgs(
                     name="AllowAll",
                     address="0.0.0.0",
                     subnet_prefix_length=0,
                 )],
             ),
-            encoding=azure.media.LiveEventEncodingArgs(
+            encoding=azure.media.LiveEventEncodingArrgs(
                 type="Standard",
                 preset_name="Default720p",
                 stretch_mode="AutoFit",
                 key_frame_interval="PT2S",
             ),
-            preview=azure.media.LiveEventPreviewArgs(
-                ip_access_control_allows=[azure.media.LiveEventPreviewIpAccessControlAllowArgs(
+            preview=azure.media.LiveEventPreviewArrgs(
+                ip_access_control_allows=[azure.media.LiveEventPreviewIpAccessControlAllowArrgs(
                     name="AllowAll",
                     address="0.0.0.0",
                     subnet_prefix_length=0,
@@ -592,15 +592,15 @@ class LiveEvent(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_start_enabled: The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['LiveEventCrossSiteAccessPolicyArgs']] cross_site_access_policy: A `cross_site_access_policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LiveEventCrossSiteAccessPolicyArrgs']] cross_site_access_policy: A `cross_site_access_policy` block as defined below.
         :param pulumi.Input[str] description: A description for the live event.
-        :param pulumi.Input[pulumi.InputType['LiveEventEncodingArgs']] encoding: A `encoding` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LiveEventEncodingArrgs']] encoding: A `encoding` block as defined below.
         :param pulumi.Input[str] hostname_prefix: When `use_static_hostname` is set to true, the `hostname_prefix` specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
-        :param pulumi.Input[pulumi.InputType['LiveEventInputArgs']] input: A `input` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LiveEventInputArrgs']] input: A `input` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Live Event should exist. Changing this forces a new Live Event to be created.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Live Event to be created.
         :param pulumi.Input[str] name: The name which should be used for this Live Event. Changing this forces a new Live Event to be created.
-        :param pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']] preview: A `preview` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LiveEventPreviewArrgs']] preview: A `preview` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] stream_options: A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Live Event.
@@ -611,7 +611,7 @@ class LiveEvent(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LiveEventArgs,
+                 args: LiveEventArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Live Event.
@@ -631,7 +631,7 @@ class LiveEvent(pulumi.CustomResource):
         example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArrgs(
                 id=example_account.id,
                 is_primary=True,
             )])
@@ -640,22 +640,22 @@ class LiveEvent(pulumi.CustomResource):
             location=example_resource_group.location,
             media_services_account_name=example_service_account.name,
             description="My Event Description",
-            input=azure.media.LiveEventInputArgs(
+            input=azure.media.LiveEventInputArrgs(
                 streaming_protocol="RTMP",
-                ip_access_control_allows=[azure.media.LiveEventInputIpAccessControlAllowArgs(
+                ip_access_control_allows=[azure.media.LiveEventInputIpAccessControlAllowArrgs(
                     name="AllowAll",
                     address="0.0.0.0",
                     subnet_prefix_length=0,
                 )],
             ),
-            encoding=azure.media.LiveEventEncodingArgs(
+            encoding=azure.media.LiveEventEncodingArrgs(
                 type="Standard",
                 preset_name="Default720p",
                 stretch_mode="AutoFit",
                 key_frame_interval="PT2S",
             ),
-            preview=azure.media.LiveEventPreviewArgs(
-                ip_access_control_allows=[azure.media.LiveEventPreviewIpAccessControlAllowArgs(
+            preview=azure.media.LiveEventPreviewArrgs(
+                ip_access_control_allows=[azure.media.LiveEventPreviewIpAccessControlAllowArrgs(
                     name="AllowAll",
                     address="0.0.0.0",
                     subnet_prefix_length=0,
@@ -676,12 +676,12 @@ class LiveEvent(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LiveEventArgs args: The arguments to use to populate this resource's properties.
+        :param LiveEventArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LiveEventArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LiveEventArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -691,15 +691,15 @@ class LiveEvent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_start_enabled: Optional[pulumi.Input[bool]] = None,
-                 cross_site_access_policy: Optional[pulumi.Input[pulumi.InputType['LiveEventCrossSiteAccessPolicyArgs']]] = None,
+                 cross_site_access_policy: Optional[pulumi.Input[pulumi.InputType['LiveEventCrossSiteAccessPolicyArrgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 encoding: Optional[pulumi.Input[pulumi.InputType['LiveEventEncodingArgs']]] = None,
+                 encoding: Optional[pulumi.Input[pulumi.InputType['LiveEventEncodingArrgs']]] = None,
                  hostname_prefix: Optional[pulumi.Input[str]] = None,
-                 input: Optional[pulumi.Input[pulumi.InputType['LiveEventInputArgs']]] = None,
+                 input: Optional[pulumi.Input[pulumi.InputType['LiveEventInputArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  media_services_account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 preview: Optional[pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']]] = None,
+                 preview: Optional[pulumi.Input[pulumi.InputType['LiveEventPreviewArrgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  stream_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -712,7 +712,7 @@ class LiveEvent(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LiveEventArgs.__new__(LiveEventArgs)
+            __props__ = LiveEventArrgs.__new__(LiveEventArrgs)
 
             __props__.__dict__["auto_start_enabled"] = auto_start_enabled
             __props__.__dict__["cross_site_access_policy"] = cross_site_access_policy
@@ -746,15 +746,15 @@ class LiveEvent(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_start_enabled: Optional[pulumi.Input[bool]] = None,
-            cross_site_access_policy: Optional[pulumi.Input[pulumi.InputType['LiveEventCrossSiteAccessPolicyArgs']]] = None,
+            cross_site_access_policy: Optional[pulumi.Input[pulumi.InputType['LiveEventCrossSiteAccessPolicyArrgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            encoding: Optional[pulumi.Input[pulumi.InputType['LiveEventEncodingArgs']]] = None,
+            encoding: Optional[pulumi.Input[pulumi.InputType['LiveEventEncodingArrgs']]] = None,
             hostname_prefix: Optional[pulumi.Input[str]] = None,
-            input: Optional[pulumi.Input[pulumi.InputType['LiveEventInputArgs']]] = None,
+            input: Optional[pulumi.Input[pulumi.InputType['LiveEventInputArrgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             media_services_account_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            preview: Optional[pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']]] = None,
+            preview: Optional[pulumi.Input[pulumi.InputType['LiveEventPreviewArrgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             stream_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -768,15 +768,15 @@ class LiveEvent(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_start_enabled: The flag indicates if the resource should be automatically started on creation. Default is `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['LiveEventCrossSiteAccessPolicyArgs']] cross_site_access_policy: A `cross_site_access_policy` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LiveEventCrossSiteAccessPolicyArrgs']] cross_site_access_policy: A `cross_site_access_policy` block as defined below.
         :param pulumi.Input[str] description: A description for the live event.
-        :param pulumi.Input[pulumi.InputType['LiveEventEncodingArgs']] encoding: A `encoding` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LiveEventEncodingArrgs']] encoding: A `encoding` block as defined below.
         :param pulumi.Input[str] hostname_prefix: When `use_static_hostname` is set to true, the `hostname_prefix` specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center.
-        :param pulumi.Input[pulumi.InputType['LiveEventInputArgs']] input: A `input` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LiveEventInputArrgs']] input: A `input` block as defined below.
         :param pulumi.Input[str] location: The Azure Region where the Live Event should exist. Changing this forces a new Live Event to be created.
         :param pulumi.Input[str] media_services_account_name: The Media Services account name. Changing this forces a new Live Event to be created.
         :param pulumi.Input[str] name: The name which should be used for this Live Event. Changing this forces a new Live Event to be created.
-        :param pulumi.Input[pulumi.InputType['LiveEventPreviewArgs']] preview: A `preview` block as defined below.
+        :param pulumi.Input[pulumi.InputType['LiveEventPreviewArrgs']] preview: A `preview` block as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Live Event should exist. Changing this forces a new Live Event to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] stream_options: A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Live Event.

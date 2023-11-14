@@ -22,7 +22,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class HubEventHandler(dict):
+calass HubEventHandler(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -51,7 +51,7 @@ class HubEventHandler(dict):
                  user_event_pattern: Optional[str] = None):
         """
         :param str url_template: The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: `http://example.com/api/{hub}/{event}`.
-        :param 'HubEventHandlerAuthArgs' auth: An `auth` block as defined below.
+        :param 'HubEventHandlerAuthArrgs' auth: An `auth` block as defined below.
         :param Sequence[str] system_events: Specifies the list of system events. Supported values are `connect`, `connected` and `disconnected`.
         :param str user_event_pattern: Specifies the matching event names. There are 3 kind of patterns supported: * `*` matches any event name * `,` Combine multiple events with `,` for example `event1,event2`, it matches event `event1` and `event2` * The single event name, for example `event1`, it matches `event1`.
         """
@@ -97,7 +97,7 @@ class HubEventHandler(dict):
 
 
 @pulumi.output_type
-class HubEventHandlerAuth(dict):
+calass HubEventHandlerAuth(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -136,7 +136,7 @@ class HubEventHandlerAuth(dict):
 
 
 @pulumi.output_type
-class HubEventListener(dict):
+calass HubEventListener(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -212,7 +212,7 @@ class HubEventListener(dict):
 
 
 @pulumi.output_type
-class NetworkAclPrivateEndpoint(dict):
+calass NetworkAclPrivateEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -277,7 +277,7 @@ class NetworkAclPrivateEndpoint(dict):
 
 
 @pulumi.output_type
-class NetworkAclPublicNetwork(dict):
+calass NetworkAclPublicNetwork(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -331,7 +331,7 @@ class NetworkAclPublicNetwork(dict):
 
 
 @pulumi.output_type
-class ServiceIdentity(dict):
+calass ServiceIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -410,7 +410,7 @@ class ServiceIdentity(dict):
 
 
 @pulumi.output_type
-class ServiceLiveTrace(dict):
+calass ServiceLiveTrace(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -486,7 +486,7 @@ class ServiceLiveTrace(dict):
 
 
 @pulumi.output_type
-class GetPrivateLinkResourceSharedPrivateLinkResourceTypeResult(dict):
+calass GetPrivateLinkResourceSharedPrivateLinkResourceTypeResult(dict):
     def __init__(__self__, *,
                  description: str,
                  subresource_name: str):

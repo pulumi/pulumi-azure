@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GrafanaAzureMonitorWorkspaceIntegrationArgs',
-    'GrafanaIdentityArgs',
+    'GrafanaAzureMonitorWorkspaceIntegrationArrgs',
+    'GrafanaIdentityArrgs',
 ]
 
 @pulumi.input_type
-class GrafanaAzureMonitorWorkspaceIntegrationArgs:
+calass GrafanaAzureMonitorWorkspaceIntegrationArrgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[str]):
         """
@@ -37,7 +37,7 @@ class GrafanaAzureMonitorWorkspaceIntegrationArgs:
 
 
 @pulumi.input_type
-class GrafanaIdentityArgs:
+calass GrafanaIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

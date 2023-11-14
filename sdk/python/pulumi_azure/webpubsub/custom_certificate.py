@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['CustomCertificateArgs', 'CustomCertificate']
+__all__ = ['CustomCertificateArrgs', 'CustomCertificate']
 
 @pulumi.input_type
-class CustomCertificateArgs:
+calass CustomCertificateArrgs:
     def __init__(__self__, *,
                  custom_certificate_id: pulumi.Input[str],
                  web_pubsub_id: pulumi.Input[str],
@@ -74,7 +74,7 @@ class CustomCertificateArgs:
 
 
 @pulumi.input_type
-class _CustomCertificateState:
+calass _CustomCertificateState:
     def __init__(__self__, *,
                  certificate_version: Optional[pulumi.Input[str]] = None,
                  custom_certificate_id: Optional[pulumi.Input[str]] = None,
@@ -153,7 +153,7 @@ class _CustomCertificateState:
         pulumi.set(self, "web_pubsub_id", value)
 
 
-class CustomCertificate(pulumi.CustomResource):
+calass CustomCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -187,7 +187,7 @@ class CustomCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CustomCertificateArgs,
+                 args: CustomCertificateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Web PubSub Custom Certificate.
@@ -201,12 +201,12 @@ class CustomCertificate(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CustomCertificateArgs args: The arguments to use to populate this resource's properties.
+        :param CustomCertificateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CustomCertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CustomCertificateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -225,7 +225,7 @@ class CustomCertificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CustomCertificateArgs.__new__(CustomCertificateArgs)
+            __props__ = CustomCertificateArrgs.__new__(CustomCertificateArrgs)
 
             if custom_certificate_id is None and not opts.urn:
                 raise TypeError("Missing required property 'custom_certificate_id'")

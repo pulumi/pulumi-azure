@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a SQL Server Table Dataset inside a Azure Data Factory.
@@ -252,12 +251,6 @@ func (i *DatasetSqlServerTable) ToDatasetSqlServerTableOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetSqlServerTableOutput)
 }
 
-func (i *DatasetSqlServerTable) ToOutput(ctx context.Context) pulumix.Output[*DatasetSqlServerTable] {
-	return pulumix.Output[*DatasetSqlServerTable]{
-		OutputState: i.ToDatasetSqlServerTableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DatasetSqlServerTableArrayInput is an input type that accepts DatasetSqlServerTableArray and DatasetSqlServerTableArrayOutput values.
 // You can construct a concrete instance of `DatasetSqlServerTableArrayInput` via:
 //
@@ -281,12 +274,6 @@ func (i DatasetSqlServerTableArray) ToDatasetSqlServerTableArrayOutput() Dataset
 
 func (i DatasetSqlServerTableArray) ToDatasetSqlServerTableArrayOutputWithContext(ctx context.Context) DatasetSqlServerTableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetSqlServerTableArrayOutput)
-}
-
-func (i DatasetSqlServerTableArray) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetSqlServerTable] {
-	return pulumix.Output[[]*DatasetSqlServerTable]{
-		OutputState: i.ToDatasetSqlServerTableArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DatasetSqlServerTableMapInput is an input type that accepts DatasetSqlServerTableMap and DatasetSqlServerTableMapOutput values.
@@ -314,12 +301,6 @@ func (i DatasetSqlServerTableMap) ToDatasetSqlServerTableMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetSqlServerTableMapOutput)
 }
 
-func (i DatasetSqlServerTableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetSqlServerTable] {
-	return pulumix.Output[map[string]*DatasetSqlServerTable]{
-		OutputState: i.ToDatasetSqlServerTableMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DatasetSqlServerTableOutput struct{ *pulumi.OutputState }
 
 func (DatasetSqlServerTableOutput) ElementType() reflect.Type {
@@ -332,12 +313,6 @@ func (o DatasetSqlServerTableOutput) ToDatasetSqlServerTableOutput() DatasetSqlS
 
 func (o DatasetSqlServerTableOutput) ToDatasetSqlServerTableOutputWithContext(ctx context.Context) DatasetSqlServerTableOutput {
 	return o
-}
-
-func (o DatasetSqlServerTableOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetSqlServerTable] {
-	return pulumix.Output[*DatasetSqlServerTable]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of additional properties to associate with the Data Factory Dataset SQL Server Table.
@@ -404,12 +379,6 @@ func (o DatasetSqlServerTableArrayOutput) ToDatasetSqlServerTableArrayOutputWith
 	return o
 }
 
-func (o DatasetSqlServerTableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetSqlServerTable] {
-	return pulumix.Output[[]*DatasetSqlServerTable]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetSqlServerTableArrayOutput) Index(i pulumi.IntInput) DatasetSqlServerTableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetSqlServerTable {
 		return vs[0].([]*DatasetSqlServerTable)[vs[1].(int)]
@@ -428,12 +397,6 @@ func (o DatasetSqlServerTableMapOutput) ToDatasetSqlServerTableMapOutput() Datas
 
 func (o DatasetSqlServerTableMapOutput) ToDatasetSqlServerTableMapOutputWithContext(ctx context.Context) DatasetSqlServerTableMapOutput {
 	return o
-}
-
-func (o DatasetSqlServerTableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetSqlServerTable] {
-	return pulumix.Output[map[string]*DatasetSqlServerTable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatasetSqlServerTableMapOutput) MapIndex(k pulumi.StringInput) DatasetSqlServerTableOutput {

@@ -10,16 +10,16 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'GroupPolicyAssignmentIdentityArgs',
-    'GroupPolicyAssignmentNonComplianceMessageArgs',
-    'GroupPolicyAssignmentOverrideArgs',
-    'GroupPolicyAssignmentOverrideSelectorArgs',
-    'GroupPolicyAssignmentResourceSelectorArgs',
-    'GroupPolicyAssignmentResourceSelectorSelectorArgs',
+    'GroupPolicyAssignmentIdentityArrgs',
+    'GroupPolicyAssignmentNonComplianceMessageArrgs',
+    'GroupPolicyAssignmentOverrideArrgs',
+    'GroupPolicyAssignmentOverrideSelectorArrgs',
+    'GroupPolicyAssignmentResourceSelectorArrgs',
+    'GroupPolicyAssignmentResourceSelectorSelectorArrgs',
 ]
 
 @pulumi.input_type
-class GroupPolicyAssignmentIdentityArgs:
+calass GroupPolicyAssignmentIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -93,7 +93,7 @@ class GroupPolicyAssignmentIdentityArgs:
 
 
 @pulumi.input_type
-class GroupPolicyAssignmentNonComplianceMessageArgs:
+calass GroupPolicyAssignmentNonComplianceMessageArrgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  policy_definition_reference_id: Optional[pulumi.Input[str]] = None):
@@ -131,13 +131,13 @@ class GroupPolicyAssignmentNonComplianceMessageArgs:
 
 
 @pulumi.input_type
-class GroupPolicyAssignmentOverrideArgs:
+calass GroupPolicyAssignmentOverrideArrgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str],
-                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArgs']]]] = None):
+                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArrgs']]]] = None):
         """
         :param pulumi.Input[str] value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
-        :param pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArgs']]] selectors: One or more `override_selector` as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArrgs']]] selectors: One or more `override_selector` as defined below.
         """
         pulumi.set(__self__, "value", value)
         if selectors is not None:
@@ -157,19 +157,19 @@ class GroupPolicyAssignmentOverrideArgs:
 
     @property
     @pulumi.getter
-    def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArgs']]]]:
+    def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArrgs']]]]:
         """
         One or more `override_selector` as defined below.
         """
         return pulumi.get(self, "selectors")
 
     @selectors.setter
-    def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArgs']]]]):
+    def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentOverrideSelectorArrgs']]]]):
         pulumi.set(self, "selectors", value)
 
 
 @pulumi.input_type
-class GroupPolicyAssignmentOverrideSelectorArgs:
+calass GroupPolicyAssignmentOverrideSelectorArrgs:
     def __init__(__self__, *,
                  ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -224,12 +224,12 @@ class GroupPolicyAssignmentOverrideSelectorArgs:
 
 
 @pulumi.input_type
-class GroupPolicyAssignmentResourceSelectorArgs:
+calass GroupPolicyAssignmentResourceSelectorArrgs:
     def __init__(__self__, *,
-                 selectors: pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorSelectorArgs']]],
+                 selectors: pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorSelectorArrgs']]],
                  name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorSelectorArgs']]] selectors: One or more `resource_selector` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorSelectorArrgs']]] selectors: One or more `resource_selector` block as defined below.
         :param pulumi.Input[str] name: Specifies a name for the resource selector.
         """
         pulumi.set(__self__, "selectors", selectors)
@@ -238,14 +238,14 @@ class GroupPolicyAssignmentResourceSelectorArgs:
 
     @property
     @pulumi.getter
-    def selectors(self) -> pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorSelectorArgs']]]:
+    def selectors(self) -> pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorSelectorArrgs']]]:
         """
         One or more `resource_selector` block as defined below.
         """
         return pulumi.get(self, "selectors")
 
     @selectors.setter
-    def selectors(self, value: pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorSelectorArgs']]]):
+    def selectors(self, value: pulumi.Input[Sequence[pulumi.Input['GroupPolicyAssignmentResourceSelectorSelectorArrgs']]]):
         pulumi.set(self, "selectors", value)
 
     @property
@@ -262,7 +262,7 @@ class GroupPolicyAssignmentResourceSelectorArgs:
 
 
 @pulumi.input_type
-class GroupPolicyAssignmentResourceSelectorSelectorArgs:
+calass GroupPolicyAssignmentResourceSelectorSelectorArrgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[str],
                  ins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ClusterArgs', 'Cluster']
+__all__ = ['ClusterArrgs', 'Cluster']
 
 @pulumi.input_type
-class ClusterArgs:
+calass ClusterArrgs:
     def __init__(__self__, *,
                  agent_public_key_certificate: pulumi.Input[str],
-                 identity: pulumi.Input['ClusterIdentityArgs'],
+                 identity: pulumi.Input['ClusterIdentityArrgs'],
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -25,7 +25,7 @@ class ClusterArgs:
         """
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] agent_public_key_certificate: Specifies the base64-encoded public certificate used by the agent to do the initial handshake to the backend services in Azure. Changing this forces a new Arc Kubernetes Cluster to be created.
-        :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
+        :param pulumi.Input['ClusterIdentityArrgs'] identity: An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Arc Kubernetes Cluster. Changing this forces a new Arc Kubernetes Cluster to be created.
@@ -55,14 +55,14 @@ class ClusterArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Input['ClusterIdentityArgs']:
+    def identity(self) -> pulumi.Input['ClusterIdentityArrgs']:
         """
         An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: pulumi.Input['ClusterIdentityArgs']):
+    def identity(self, value: pulumi.Input['ClusterIdentityArrgs']):
         pulumi.set(self, "identity", value)
 
     @property
@@ -115,12 +115,12 @@ class ClusterArgs:
 
 
 @pulumi.input_type
-class _ClusterState:
+calass _ClusterState:
     def __init__(__self__, *,
                  agent_public_key_certificate: Optional[pulumi.Input[str]] = None,
                  agent_version: Optional[pulumi.Input[str]] = None,
                  distribution: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ClusterIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ClusterIdentityArrgs']] = None,
                  infrastructure: Optional[pulumi.Input[str]] = None,
                  kubernetes_version: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -135,7 +135,7 @@ class _ClusterState:
         :param pulumi.Input[str] agent_public_key_certificate: Specifies the base64-encoded public certificate used by the agent to do the initial handshake to the backend services in Azure. Changing this forces a new Arc Kubernetes Cluster to be created.
         :param pulumi.Input[str] agent_version: Version of the agent running on the cluster resource.
         :param pulumi.Input[str] distribution: The distribution running on this Arc Kubernetes Cluster.
-        :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
+        :param pulumi.Input['ClusterIdentityArrgs'] identity: An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
         :param pulumi.Input[str] infrastructure: The infrastructure on which the Arc Kubernetes Cluster is running on.
         :param pulumi.Input[str] kubernetes_version: The Kubernetes version of the cluster resource.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created.
@@ -211,14 +211,14 @@ class _ClusterState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ClusterIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ClusterIdentityArrgs']]:
         """
         An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ClusterIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ClusterIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -330,13 +330,13 @@ class _ClusterState:
         pulumi.set(self, "total_node_count", value)
 
 
-class Cluster(pulumi.CustomResource):
+calass Cluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_public_key_certificate: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ClusterIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ClusterIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -354,7 +354,7 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_public_key_certificate: Specifies the base64-encoded public certificate used by the agent to do the initial handshake to the backend services in Azure. Changing this forces a new Arc Kubernetes Cluster to be created.
-        :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
+        :param pulumi.Input[pulumi.InputType['ClusterIdentityArrgs']] identity: An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created.
         :param pulumi.Input[str] name: Specifies the name which should be used for this Arc Kubernetes Cluster. Changing this forces a new Arc Kubernetes Cluster to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created.
@@ -364,7 +364,7 @@ class Cluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ClusterArgs,
+                 args: ClusterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Import
@@ -376,12 +376,12 @@ class Cluster(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ClusterArgs args: The arguments to use to populate this resource's properties.
+        :param ClusterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -391,7 +391,7 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  agent_public_key_certificate: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ClusterIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ClusterIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -403,7 +403,7 @@ class Cluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ClusterArgs.__new__(ClusterArgs)
+            __props__ = ClusterArrgs.__new__(ClusterArrgs)
 
             if agent_public_key_certificate is None and not opts.urn:
                 raise TypeError("Missing required property 'agent_public_key_certificate'")
@@ -437,7 +437,7 @@ class Cluster(pulumi.CustomResource):
             agent_public_key_certificate: Optional[pulumi.Input[str]] = None,
             agent_version: Optional[pulumi.Input[str]] = None,
             distribution: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['ClusterIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['ClusterIdentityArrgs']]] = None,
             infrastructure: Optional[pulumi.Input[str]] = None,
             kubernetes_version: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -457,7 +457,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] agent_public_key_certificate: Specifies the base64-encoded public certificate used by the agent to do the initial handshake to the backend services in Azure. Changing this forces a new Arc Kubernetes Cluster to be created.
         :param pulumi.Input[str] agent_version: Version of the agent running on the cluster resource.
         :param pulumi.Input[str] distribution: The distribution running on this Arc Kubernetes Cluster.
-        :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
+        :param pulumi.Input[pulumi.InputType['ClusterIdentityArrgs']] identity: An `identity` block as defined below. Changing this forces a new Arc Kubernetes Cluster to be created.
         :param pulumi.Input[str] infrastructure: The infrastructure on which the Arc Kubernetes Cluster is running on.
         :param pulumi.Input[str] kubernetes_version: The Kubernetes version of the cluster resource.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Arc Kubernetes Cluster should exist. Changing this forces a new Arc Kubernetes Cluster to be created.

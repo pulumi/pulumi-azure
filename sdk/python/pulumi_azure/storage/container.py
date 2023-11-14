@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ContainerArgs', 'Container']
+__all__ = ['ContainerArrgs', 'Container']
 
 @pulumi.input_type
-class ContainerArgs:
+calass ContainerArrgs:
     def __init__(__self__, *,
                  storage_account_name: pulumi.Input[str],
                  container_access_type: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class ContainerArgs:
 
 
 @pulumi.input_type
-class _ContainerState:
+calass _ContainerState:
     def __init__(__self__, *,
                  container_access_type: Optional[pulumi.Input[str]] = None,
                  has_immutability_policy: Optional[pulumi.Input[bool]] = None,
@@ -202,7 +202,7 @@ class _ContainerState:
         pulumi.set(self, "storage_account_name", value)
 
 
-class Container(pulumi.CustomResource):
+calass Container(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -254,7 +254,7 @@ class Container(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ContainerArgs,
+                 args: ContainerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Container within an Azure Storage Account.
@@ -288,12 +288,12 @@ class Container(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ContainerArgs args: The arguments to use to populate this resource's properties.
+        :param ContainerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ContainerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ContainerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -313,7 +313,7 @@ class Container(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ContainerArgs.__new__(ContainerArgs)
+            __props__ = ContainerArrgs.__new__(ContainerArrgs)
 
             __props__.__dict__["container_access_type"] = container_access_type
             __props__.__dict__["metadata"] = metadata

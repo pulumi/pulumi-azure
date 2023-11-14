@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SpringCloudStorageArgs', 'SpringCloudStorage']
+__all__ = ['SpringCloudStorageArrgs', 'SpringCloudStorage']
 
 @pulumi.input_type
-class SpringCloudStorageArgs:
+calass SpringCloudStorageArrgs:
     def __init__(__self__, *,
                  spring_cloud_service_id: pulumi.Input[str],
                  storage_account_key: pulumi.Input[str],
@@ -81,7 +81,7 @@ class SpringCloudStorageArgs:
 
 
 @pulumi.input_type
-class _SpringCloudStorageState:
+calass _SpringCloudStorageState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  spring_cloud_service_id: Optional[pulumi.Input[str]] = None,
@@ -152,7 +152,7 @@ class _SpringCloudStorageState:
         pulumi.set(self, "storage_account_name", value)
 
 
-class SpringCloudStorage(pulumi.CustomResource):
+calass SpringCloudStorage(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -205,7 +205,7 @@ class SpringCloudStorage(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SpringCloudStorageArgs,
+                 args: SpringCloudStorageArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Spring Cloud Storage.
@@ -240,12 +240,12 @@ class SpringCloudStorage(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SpringCloudStorageArgs args: The arguments to use to populate this resource's properties.
+        :param SpringCloudStorageArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudStorageArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudStorageArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -265,7 +265,7 @@ class SpringCloudStorage(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SpringCloudStorageArgs.__new__(SpringCloudStorageArgs)
+            __props__ = SpringCloudStorageArrgs.__new__(SpringCloudStorageArrgs)
 
             __props__.__dict__["name"] = name
             if spring_cloud_service_id is None and not opts.urn:

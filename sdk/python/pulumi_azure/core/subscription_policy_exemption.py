@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SubscriptionPolicyExemptionArgs', 'SubscriptionPolicyExemption']
+__all__ = ['SubscriptionPolicyExemptionArrgs', 'SubscriptionPolicyExemption']
 
 @pulumi.input_type
-class SubscriptionPolicyExemptionArgs:
+calass SubscriptionPolicyExemptionArrgs:
     def __init__(__self__, *,
                  exemption_category: pulumi.Input[str],
                  policy_assignment_id: pulumi.Input[str],
@@ -161,7 +161,7 @@ class SubscriptionPolicyExemptionArgs:
 
 
 @pulumi.input_type
-class _SubscriptionPolicyExemptionState:
+calass _SubscriptionPolicyExemptionState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -312,7 +312,7 @@ class _SubscriptionPolicyExemptionState:
         pulumi.set(self, "subscription_id", value)
 
 
-class SubscriptionPolicyExemption(pulumi.CustomResource):
+calass SubscriptionPolicyExemption(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -342,7 +342,7 @@ class SubscriptionPolicyExemption(pulumi.CustomResource):
             subscription_id=example_subscription.id,
             policy_definition_id=example_policy_set_definition.id,
             location="westus",
-            identity=azure.core.SubscriptionPolicyAssignmentIdentityArgs(
+            identity=azure.core.SubscriptionPolicyAssignmentIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_subscription_policy_exemption = azure.core.SubscriptionPolicyExemption("exampleSubscriptionPolicyExemption",
@@ -375,7 +375,7 @@ class SubscriptionPolicyExemption(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SubscriptionPolicyExemptionArgs,
+                 args: SubscriptionPolicyExemptionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Subscription Policy Exemption.
@@ -392,7 +392,7 @@ class SubscriptionPolicyExemption(pulumi.CustomResource):
             subscription_id=example_subscription.id,
             policy_definition_id=example_policy_set_definition.id,
             location="westus",
-            identity=azure.core.SubscriptionPolicyAssignmentIdentityArgs(
+            identity=azure.core.SubscriptionPolicyAssignmentIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_subscription_policy_exemption = azure.core.SubscriptionPolicyExemption("exampleSubscriptionPolicyExemption",
@@ -410,12 +410,12 @@ class SubscriptionPolicyExemption(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SubscriptionPolicyExemptionArgs args: The arguments to use to populate this resource's properties.
+        :param SubscriptionPolicyExemptionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SubscriptionPolicyExemptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SubscriptionPolicyExemptionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -440,7 +440,7 @@ class SubscriptionPolicyExemption(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SubscriptionPolicyExemptionArgs.__new__(SubscriptionPolicyExemptionArgs)
+            __props__ = SubscriptionPolicyExemptionArrgs.__new__(SubscriptionPolicyExemptionArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DataExportRuleArgs', 'DataExportRule']
+__all__ = ['DataExportRuleArrgs', 'DataExportRule']
 
 @pulumi.input_type
-class DataExportRuleArgs:
+calass DataExportRuleArrgs:
     def __init__(__self__, *,
                  destination_resource_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -112,7 +112,7 @@ class DataExportRuleArgs:
 
 
 @pulumi.input_type
-class _DataExportRuleState:
+calass _DataExportRuleState:
     def __init__(__self__, *,
                  destination_resource_id: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -231,7 +231,7 @@ class _DataExportRuleState:
         pulumi.set(self, "workspace_resource_id", value)
 
 
-class DataExportRule(pulumi.CustomResource):
+calass DataExportRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -292,7 +292,7 @@ class DataExportRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DataExportRuleArgs,
+                 args: DataExportRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Log Analytics Data Export Rule.
@@ -331,12 +331,12 @@ class DataExportRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DataExportRuleArgs args: The arguments to use to populate this resource's properties.
+        :param DataExportRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DataExportRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DataExportRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -358,7 +358,7 @@ class DataExportRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DataExportRuleArgs.__new__(DataExportRuleArgs)
+            __props__ = DataExportRuleArrgs.__new__(DataExportRuleArrgs)
 
             if destination_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_resource_id'")

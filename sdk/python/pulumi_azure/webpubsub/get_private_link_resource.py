@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPrivateLinkResourceResult:
+calass GetPrivateLinkResourceResult:
     """
     A collection of values returned by getPrivateLinkResource.
     """
@@ -55,7 +55,7 @@ class GetPrivateLinkResourceResult:
         return pulumi.get(self, "web_pubsub_id")
 
 
-class AwaitableGetPrivateLinkResourceResult(GetPrivateLinkResourceResult):
+calass AwaitableGetPrivateLinkResourceResult(GetPrivateLinkResourceResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

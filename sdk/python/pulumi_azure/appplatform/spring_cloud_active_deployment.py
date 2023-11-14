@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SpringCloudActiveDeploymentArgs', 'SpringCloudActiveDeployment']
+__all__ = ['SpringCloudActiveDeploymentArrgs', 'SpringCloudActiveDeployment']
 
 @pulumi.input_type
-class SpringCloudActiveDeploymentArgs:
+calass SpringCloudActiveDeploymentArrgs:
     def __init__(__self__, *,
                  deployment_name: pulumi.Input[str],
                  spring_cloud_app_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class SpringCloudActiveDeploymentArgs:
 
 
 @pulumi.input_type
-class _SpringCloudActiveDeploymentState:
+calass _SpringCloudActiveDeploymentState:
     def __init__(__self__, *,
                  deployment_name: Optional[pulumi.Input[str]] = None,
                  spring_cloud_app_id: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _SpringCloudActiveDeploymentState:
         pulumi.set(self, "spring_cloud_app_id", value)
 
 
-class SpringCloudActiveDeployment(pulumi.CustomResource):
+calass SpringCloudActiveDeployment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -113,7 +113,7 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
         example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
             resource_group_name=example_resource_group.name,
             service_name=example_spring_cloud_service.name,
-            identity=azure.appplatform.SpringCloudAppIdentityArgs(
+            identity=azure.appplatform.SpringCloudAppIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment",
@@ -121,7 +121,7 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
             instance_count=2,
             jvm_options="-XX:+PrintGC",
             runtime_version="Java_11",
-            quota=azure.appplatform.SpringCloudJavaDeploymentQuotaArgs(
+            quota=azure.appplatform.SpringCloudJavaDeploymentQuotaArrgs(
                 cpu="2",
                 memory="4Gi",
             ),
@@ -150,7 +150,7 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SpringCloudActiveDeploymentArgs,
+                 args: SpringCloudActiveDeploymentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Active Azure Spring Cloud Deployment.
@@ -168,7 +168,7 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
         example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
             resource_group_name=example_resource_group.name,
             service_name=example_spring_cloud_service.name,
-            identity=azure.appplatform.SpringCloudAppIdentityArgs(
+            identity=azure.appplatform.SpringCloudAppIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment",
@@ -176,7 +176,7 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
             instance_count=2,
             jvm_options="-XX:+PrintGC",
             runtime_version="Java_11",
-            quota=azure.appplatform.SpringCloudJavaDeploymentQuotaArgs(
+            quota=azure.appplatform.SpringCloudJavaDeploymentQuotaArrgs(
                 cpu="2",
                 memory="4Gi",
             ),
@@ -197,12 +197,12 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SpringCloudActiveDeploymentArgs args: The arguments to use to populate this resource's properties.
+        :param SpringCloudActiveDeploymentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudActiveDeploymentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudActiveDeploymentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -220,7 +220,7 @@ class SpringCloudActiveDeployment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SpringCloudActiveDeploymentArgs.__new__(SpringCloudActiveDeploymentArgs)
+            __props__ = SpringCloudActiveDeploymentArrgs.__new__(SpringCloudActiveDeploymentArrgs)
 
             if deployment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'deployment_name'")

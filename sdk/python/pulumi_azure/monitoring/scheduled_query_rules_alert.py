@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ScheduledQueryRulesAlertArgs', 'ScheduledQueryRulesAlert']
+__all__ = ['ScheduledQueryRulesAlertArrgs', 'ScheduledQueryRulesAlert']
 
 @pulumi.input_type
-class ScheduledQueryRulesAlertArgs:
+calass ScheduledQueryRulesAlertArrgs:
     def __init__(__self__, *,
-                 action: pulumi.Input['ScheduledQueryRulesAlertActionArgs'],
+                 action: pulumi.Input['ScheduledQueryRulesAlertActionArrgs'],
                  data_source_id: pulumi.Input[str],
                  frequency: pulumi.Input[int],
                  query: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  time_window: pulumi.Input[int],
-                 trigger: pulumi.Input['ScheduledQueryRulesAlertTriggerArgs'],
+                 trigger: pulumi.Input['ScheduledQueryRulesAlertTriggerArrgs'],
                  authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_mitigation_enabled: Optional[pulumi.Input[bool]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -35,13 +35,13 @@ class ScheduledQueryRulesAlertArgs:
                  throttling: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a ScheduledQueryRulesAlert resource.
-        :param pulumi.Input['ScheduledQueryRulesAlertActionArgs'] action: An `action` block as defined below.
+        :param pulumi.Input['ScheduledQueryRulesAlertActionArrgs'] action: An `action` block as defined below.
         :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run.
         :param pulumi.Input[int] frequency: Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive).
         :param pulumi.Input[str] query: Log search query.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
         :param pulumi.Input[int] time_window: Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
-        :param pulumi.Input['ScheduledQueryRulesAlertTriggerArgs'] trigger: A `trigger` block as defined below.
+        :param pulumi.Input['ScheduledQueryRulesAlertTriggerArrgs'] trigger: A `trigger` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resource_ids: List of Resource IDs referred into query.
         :param pulumi.Input[bool] auto_mitigation_enabled: Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
                > **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
@@ -84,14 +84,14 @@ class ScheduledQueryRulesAlertArgs:
 
     @property
     @pulumi.getter
-    def action(self) -> pulumi.Input['ScheduledQueryRulesAlertActionArgs']:
+    def action(self) -> pulumi.Input['ScheduledQueryRulesAlertActionArrgs']:
         """
         An `action` block as defined below.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: pulumi.Input['ScheduledQueryRulesAlertActionArgs']):
+    def action(self, value: pulumi.Input['ScheduledQueryRulesAlertActionArrgs']):
         pulumi.set(self, "action", value)
 
     @property
@@ -156,14 +156,14 @@ class ScheduledQueryRulesAlertArgs:
 
     @property
     @pulumi.getter
-    def trigger(self) -> pulumi.Input['ScheduledQueryRulesAlertTriggerArgs']:
+    def trigger(self) -> pulumi.Input['ScheduledQueryRulesAlertTriggerArrgs']:
         """
         A `trigger` block as defined below.
         """
         return pulumi.get(self, "trigger")
 
     @trigger.setter
-    def trigger(self, value: pulumi.Input['ScheduledQueryRulesAlertTriggerArgs']):
+    def trigger(self, value: pulumi.Input['ScheduledQueryRulesAlertTriggerArrgs']):
         pulumi.set(self, "trigger", value)
 
     @property
@@ -289,9 +289,9 @@ class ScheduledQueryRulesAlertArgs:
 
 
 @pulumi.input_type
-class _ScheduledQueryRulesAlertState:
+calass _ScheduledQueryRulesAlertState:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input['ScheduledQueryRulesAlertActionArgs']] = None,
+                 action: Optional[pulumi.Input['ScheduledQueryRulesAlertActionArrgs']] = None,
                  authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_mitigation_enabled: Optional[pulumi.Input[bool]] = None,
                  data_source_id: Optional[pulumi.Input[str]] = None,
@@ -307,10 +307,10 @@ class _ScheduledQueryRulesAlertState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throttling: Optional[pulumi.Input[int]] = None,
                  time_window: Optional[pulumi.Input[int]] = None,
-                 trigger: Optional[pulumi.Input['ScheduledQueryRulesAlertTriggerArgs']] = None):
+                 trigger: Optional[pulumi.Input['ScheduledQueryRulesAlertTriggerArrgs']] = None):
         """
         Input properties used for looking up and filtering ScheduledQueryRulesAlert resources.
-        :param pulumi.Input['ScheduledQueryRulesAlertActionArgs'] action: An `action` block as defined below.
+        :param pulumi.Input['ScheduledQueryRulesAlertActionArrgs'] action: An `action` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resource_ids: List of Resource IDs referred into query.
         :param pulumi.Input[bool] auto_mitigation_enabled: Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
                > **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
@@ -327,7 +327,7 @@ class _ScheduledQueryRulesAlertState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] throttling: Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
         :param pulumi.Input[int] time_window: Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
-        :param pulumi.Input['ScheduledQueryRulesAlertTriggerArgs'] trigger: A `trigger` block as defined below.
+        :param pulumi.Input['ScheduledQueryRulesAlertTriggerArrgs'] trigger: A `trigger` block as defined below.
         """
         if action is not None:
             pulumi.set(__self__, "action", action)
@@ -366,14 +366,14 @@ class _ScheduledQueryRulesAlertState:
 
     @property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input['ScheduledQueryRulesAlertActionArgs']]:
+    def action(self) -> Optional[pulumi.Input['ScheduledQueryRulesAlertActionArrgs']]:
         """
         An `action` block as defined below.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input['ScheduledQueryRulesAlertActionArgs']]):
+    def action(self, value: Optional[pulumi.Input['ScheduledQueryRulesAlertActionArrgs']]):
         pulumi.set(self, "action", value)
 
     @property
@@ -559,23 +559,23 @@ class _ScheduledQueryRulesAlertState:
 
     @property
     @pulumi.getter
-    def trigger(self) -> Optional[pulumi.Input['ScheduledQueryRulesAlertTriggerArgs']]:
+    def trigger(self) -> Optional[pulumi.Input['ScheduledQueryRulesAlertTriggerArrgs']]:
         """
         A `trigger` block as defined below.
         """
         return pulumi.get(self, "trigger")
 
     @trigger.setter
-    def trigger(self, value: Optional[pulumi.Input['ScheduledQueryRulesAlertTriggerArgs']]):
+    def trigger(self, value: Optional[pulumi.Input['ScheduledQueryRulesAlertTriggerArrgs']]):
         pulumi.set(self, "trigger", value)
 
 
-class ScheduledQueryRulesAlert(pulumi.CustomResource):
+calass ScheduledQueryRulesAlert(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertActionArgs']]] = None,
+                 action: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertActionArrgs']]] = None,
                  authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_mitigation_enabled: Optional[pulumi.Input[bool]] = None,
                  data_source_id: Optional[pulumi.Input[str]] = None,
@@ -591,7 +591,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throttling: Optional[pulumi.Input[int]] = None,
                  time_window: Optional[pulumi.Input[int]] = None,
-                 trigger: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertTriggerArgs']]] = None,
+                 trigger: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertTriggerArrgs']]] = None,
                  __props__=None):
         """
         Manages an AlertingAction Scheduled Query Rules resource within Azure Monitor.
@@ -606,7 +606,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertActionArgs']] action: An `action` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertActionArrgs']] action: An `action` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resource_ids: List of Resource IDs referred into query.
         :param pulumi.Input[bool] auto_mitigation_enabled: Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
                > **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
@@ -623,13 +623,13 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] throttling: Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
         :param pulumi.Input[int] time_window: Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
-        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertTriggerArgs']] trigger: A `trigger` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertTriggerArrgs']] trigger: A `trigger` block as defined below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ScheduledQueryRulesAlertArgs,
+                 args: ScheduledQueryRulesAlertArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AlertingAction Scheduled Query Rules resource within Azure Monitor.
@@ -643,12 +643,12 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ScheduledQueryRulesAlertArgs args: The arguments to use to populate this resource's properties.
+        :param ScheduledQueryRulesAlertArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ScheduledQueryRulesAlertArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ScheduledQueryRulesAlertArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -657,7 +657,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertActionArgs']]] = None,
+                 action: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertActionArrgs']]] = None,
                  authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  auto_mitigation_enabled: Optional[pulumi.Input[bool]] = None,
                  data_source_id: Optional[pulumi.Input[str]] = None,
@@ -673,7 +673,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  throttling: Optional[pulumi.Input[int]] = None,
                  time_window: Optional[pulumi.Input[int]] = None,
-                 trigger: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertTriggerArgs']]] = None,
+                 trigger: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertTriggerArrgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -681,7 +681,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ScheduledQueryRulesAlertArgs.__new__(ScheduledQueryRulesAlertArgs)
+            __props__ = ScheduledQueryRulesAlertArrgs.__new__(ScheduledQueryRulesAlertArrgs)
 
             if action is None and not opts.urn:
                 raise TypeError("Missing required property 'action'")
@@ -724,7 +724,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            action: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertActionArgs']]] = None,
+            action: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertActionArrgs']]] = None,
             authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             auto_mitigation_enabled: Optional[pulumi.Input[bool]] = None,
             data_source_id: Optional[pulumi.Input[str]] = None,
@@ -740,7 +740,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             throttling: Optional[pulumi.Input[int]] = None,
             time_window: Optional[pulumi.Input[int]] = None,
-            trigger: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertTriggerArgs']]] = None) -> 'ScheduledQueryRulesAlert':
+            trigger: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertTriggerArrgs']]] = None) -> 'ScheduledQueryRulesAlert':
         """
         Get an existing ScheduledQueryRulesAlert resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -748,7 +748,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertActionArgs']] action: An `action` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertActionArrgs']] action: An `action` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resource_ids: List of Resource IDs referred into query.
         :param pulumi.Input[bool] auto_mitigation_enabled: Should the alerts in this Metric Alert be auto resolved? Defaults to `false`.
                > **NOTE** `auto_mitigation_enabled` and `throttling` are mutually exclusive and cannot both be set.
@@ -765,7 +765,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[int] throttling: Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive).
         :param pulumi.Input[int] time_window: Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive).
-        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertTriggerArgs']] trigger: A `trigger` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesAlertTriggerArrgs']] trigger: A `trigger` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

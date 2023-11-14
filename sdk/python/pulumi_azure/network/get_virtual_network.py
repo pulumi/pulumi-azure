@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVirtualNetworkResult:
+calass GetVirtualNetworkResult:
     """
     A collection of values returned by getVirtualNetwork.
     """
@@ -139,7 +139,7 @@ class GetVirtualNetworkResult:
         return pulumi.get(self, "vnet_peerings_addresses")
 
 
-class AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
+calass AwaitableGetVirtualNetworkResult(GetVirtualNetworkResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

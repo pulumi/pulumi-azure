@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EmbeddedArgs', 'Embedded']
+__all__ = ['EmbeddedArrgs', 'Embedded']
 
 @pulumi.input_type
-class EmbeddedArgs:
+calass EmbeddedArrgs:
     def __init__(__self__, *,
                  administrators: pulumi.Input[Sequence[pulumi.Input[str]]],
                  resource_group_name: pulumi.Input[str],
@@ -129,7 +129,7 @@ class EmbeddedArgs:
 
 
 @pulumi.input_type
-class _EmbeddedState:
+calass _EmbeddedState:
     def __init__(__self__, *,
                  administrators: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -248,7 +248,7 @@ class _EmbeddedState:
         pulumi.set(self, "tags", value)
 
 
-class Embedded(pulumi.CustomResource):
+calass Embedded(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -300,7 +300,7 @@ class Embedded(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EmbeddedArgs,
+                 args: EmbeddedArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a PowerBI Embedded.
@@ -328,12 +328,12 @@ class Embedded(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EmbeddedArgs args: The arguments to use to populate this resource's properties.
+        :param EmbeddedArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EmbeddedArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EmbeddedArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -356,7 +356,7 @@ class Embedded(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EmbeddedArgs.__new__(EmbeddedArgs)
+            __props__ = EmbeddedArrgs.__new__(EmbeddedArrgs)
 
             if administrators is None and not opts.urn:
                 raise TypeError("Missing required property 'administrators'")

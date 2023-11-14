@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SubnetRouteTableAssociationArgs', 'SubnetRouteTableAssociation']
+__all__ = ['SubnetRouteTableAssociationArrgs', 'SubnetRouteTableAssociation']
 
 @pulumi.input_type
-class SubnetRouteTableAssociationArgs:
+calass SubnetRouteTableAssociationArrgs:
     def __init__(__self__, *,
                  route_table_id: pulumi.Input[str],
                  subnet_id: pulumi.Input[str]):
@@ -50,7 +50,7 @@ class SubnetRouteTableAssociationArgs:
 
 
 @pulumi.input_type
-class _SubnetRouteTableAssociationState:
+calass _SubnetRouteTableAssociationState:
     def __init__(__self__, *,
                  route_table_id: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None):
@@ -89,7 +89,7 @@ class _SubnetRouteTableAssociationState:
         pulumi.set(self, "subnet_id", value)
 
 
-class SubnetRouteTableAssociation(pulumi.CustomResource):
+calass SubnetRouteTableAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -118,7 +118,7 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
         example_route_table = azure.network.RouteTable("exampleRouteTable",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            routes=[azure.network.RouteTableRouteArgs(
+            routes=[azure.network.RouteTableRouteArrgs(
                 name="example",
                 address_prefix="10.100.0.0/14",
                 next_hop_type="VirtualAppliance",
@@ -146,7 +146,7 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SubnetRouteTableAssociationArgs,
+                 args: SubnetRouteTableAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Associates a Route Table with a Subnet within a Virtual Network.
@@ -169,7 +169,7 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
         example_route_table = azure.network.RouteTable("exampleRouteTable",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            routes=[azure.network.RouteTableRouteArgs(
+            routes=[azure.network.RouteTableRouteArrgs(
                 name="example",
                 address_prefix="10.100.0.0/14",
                 next_hop_type="VirtualAppliance",
@@ -189,12 +189,12 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SubnetRouteTableAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param SubnetRouteTableAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SubnetRouteTableAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SubnetRouteTableAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -212,7 +212,7 @@ class SubnetRouteTableAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SubnetRouteTableAssociationArgs.__new__(SubnetRouteTableAssociationArgs)
+            __props__ = SubnetRouteTableAssociationArrgs.__new__(SubnetRouteTableAssociationArrgs)
 
             if route_table_id is None and not opts.urn:
                 raise TypeError("Missing required property 'route_table_id'")

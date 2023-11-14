@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Databricks Virtual Network Peering
@@ -303,12 +302,6 @@ func (i *VirtualNetworkPeering) ToVirtualNetworkPeeringOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringOutput)
 }
 
-func (i *VirtualNetworkPeering) ToOutput(ctx context.Context) pulumix.Output[*VirtualNetworkPeering] {
-	return pulumix.Output[*VirtualNetworkPeering]{
-		OutputState: i.ToVirtualNetworkPeeringOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualNetworkPeeringArrayInput is an input type that accepts VirtualNetworkPeeringArray and VirtualNetworkPeeringArrayOutput values.
 // You can construct a concrete instance of `VirtualNetworkPeeringArrayInput` via:
 //
@@ -332,12 +325,6 @@ func (i VirtualNetworkPeeringArray) ToVirtualNetworkPeeringArrayOutput() Virtual
 
 func (i VirtualNetworkPeeringArray) ToVirtualNetworkPeeringArrayOutputWithContext(ctx context.Context) VirtualNetworkPeeringArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringArrayOutput)
-}
-
-func (i VirtualNetworkPeeringArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualNetworkPeering] {
-	return pulumix.Output[[]*VirtualNetworkPeering]{
-		OutputState: i.ToVirtualNetworkPeeringArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualNetworkPeeringMapInput is an input type that accepts VirtualNetworkPeeringMap and VirtualNetworkPeeringMapOutput values.
@@ -365,12 +352,6 @@ func (i VirtualNetworkPeeringMap) ToVirtualNetworkPeeringMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkPeeringMapOutput)
 }
 
-func (i VirtualNetworkPeeringMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualNetworkPeering] {
-	return pulumix.Output[map[string]*VirtualNetworkPeering]{
-		OutputState: i.ToVirtualNetworkPeeringMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualNetworkPeeringOutput struct{ *pulumi.OutputState }
 
 func (VirtualNetworkPeeringOutput) ElementType() reflect.Type {
@@ -383,12 +364,6 @@ func (o VirtualNetworkPeeringOutput) ToVirtualNetworkPeeringOutput() VirtualNetw
 
 func (o VirtualNetworkPeeringOutput) ToVirtualNetworkPeeringOutputWithContext(ctx context.Context) VirtualNetworkPeeringOutput {
 	return o
-}
-
-func (o VirtualNetworkPeeringOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualNetworkPeering] {
-	return pulumix.Output[*VirtualNetworkPeering]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of address blocks reserved for this virtual network in CIDR notation. Changing this forces a new resource to be created.
@@ -466,12 +441,6 @@ func (o VirtualNetworkPeeringArrayOutput) ToVirtualNetworkPeeringArrayOutputWith
 	return o
 }
 
-func (o VirtualNetworkPeeringArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualNetworkPeering] {
-	return pulumix.Output[[]*VirtualNetworkPeering]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualNetworkPeeringArrayOutput) Index(i pulumi.IntInput) VirtualNetworkPeeringOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualNetworkPeering {
 		return vs[0].([]*VirtualNetworkPeering)[vs[1].(int)]
@@ -490,12 +459,6 @@ func (o VirtualNetworkPeeringMapOutput) ToVirtualNetworkPeeringMapOutput() Virtu
 
 func (o VirtualNetworkPeeringMapOutput) ToVirtualNetworkPeeringMapOutputWithContext(ctx context.Context) VirtualNetworkPeeringMapOutput {
 	return o
-}
-
-func (o VirtualNetworkPeeringMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualNetworkPeering] {
-	return pulumix.Output[map[string]*VirtualNetworkPeering]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualNetworkPeeringMapOutput) MapIndex(k pulumi.StringInput) VirtualNetworkPeeringOutput {

@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'HubApnsCredentialArgs',
-    'HubGcmCredentialArgs',
+    'HubApnsCredentialArrgs',
+    'HubGcmCredentialArrgs',
 ]
 
 @pulumi.input_type
-class HubApnsCredentialArgs:
+calass HubApnsCredentialArrgs:
     def __init__(__self__, *,
                  application_mode: pulumi.Input[str],
                  bundle_id: pulumi.Input[str],
@@ -97,7 +97,7 @@ class HubApnsCredentialArgs:
 
 
 @pulumi.input_type
-class HubGcmCredentialArgs:
+calass HubGcmCredentialArrgs:
     def __init__(__self__, *,
                  api_key: pulumi.Input[str]):
         """

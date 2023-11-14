@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TimeSeriesInsightsEventSourceIothubArgs', 'TimeSeriesInsightsEventSourceIothub']
+__all__ = ['TimeSeriesInsightsEventSourceIothubArrgs', 'TimeSeriesInsightsEventSourceIothub']
 
 @pulumi.input_type
-class TimeSeriesInsightsEventSourceIothubArgs:
+calass TimeSeriesInsightsEventSourceIothubArrgs:
     def __init__(__self__, *,
                  consumer_group_name: pulumi.Input[str],
                  environment_id: pulumi.Input[str],
@@ -174,7 +174,7 @@ class TimeSeriesInsightsEventSourceIothubArgs:
 
 
 @pulumi.input_type
-class _TimeSeriesInsightsEventSourceIothubState:
+calass _TimeSeriesInsightsEventSourceIothubState:
     def __init__(__self__, *,
                  consumer_group_name: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
@@ -341,7 +341,7 @@ class _TimeSeriesInsightsEventSourceIothubState:
         pulumi.set(self, "timestamp_property_name", value)
 
 
-class TimeSeriesInsightsEventSourceIothub(pulumi.CustomResource):
+calass TimeSeriesInsightsEventSourceIothub(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -370,7 +370,7 @@ class TimeSeriesInsightsEventSourceIothub(pulumi.CustomResource):
         example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
+            sku=azure.iot.IoTHubSkuArrgs(
                 name="B1",
                 capacity=1,
             ))
@@ -388,7 +388,7 @@ class TimeSeriesInsightsEventSourceIothub(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku_name="L1",
             id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
+            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArrgs(
                 name=storage.name,
                 key=storage.primary_access_key,
             ))
@@ -427,7 +427,7 @@ class TimeSeriesInsightsEventSourceIothub(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TimeSeriesInsightsEventSourceIothubArgs,
+                 args: TimeSeriesInsightsEventSourceIothubArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure IoT Time Series Insights IoTHub Event Source.
@@ -442,7 +442,7 @@ class TimeSeriesInsightsEventSourceIothub(pulumi.CustomResource):
         example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
+            sku=azure.iot.IoTHubSkuArrgs(
                 name="B1",
                 capacity=1,
             ))
@@ -460,7 +460,7 @@ class TimeSeriesInsightsEventSourceIothub(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku_name="L1",
             id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
+            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArrgs(
                 name=storage.name,
                 key=storage.primary_access_key,
             ))
@@ -483,12 +483,12 @@ class TimeSeriesInsightsEventSourceIothub(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TimeSeriesInsightsEventSourceIothubArgs args: The arguments to use to populate this resource's properties.
+        :param TimeSeriesInsightsEventSourceIothubArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TimeSeriesInsightsEventSourceIothubArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TimeSeriesInsightsEventSourceIothubArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -514,7 +514,7 @@ class TimeSeriesInsightsEventSourceIothub(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TimeSeriesInsightsEventSourceIothubArgs.__new__(TimeSeriesInsightsEventSourceIothubArgs)
+            __props__ = TimeSeriesInsightsEventSourceIothubArrgs.__new__(TimeSeriesInsightsEventSourceIothubArrgs)
 
             if consumer_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'consumer_group_name'")

@@ -54,7 +54,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class BudgetManagementGroupFilter(dict):
+calass BudgetManagementGroupFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -77,9 +77,9 @@ class BudgetManagementGroupFilter(dict):
                  not_: Optional['outputs.BudgetManagementGroupFilterNot'] = None,
                  tags: Optional[Sequence['outputs.BudgetManagementGroupFilterTag']] = None):
         """
-        :param Sequence['BudgetManagementGroupFilterDimensionArgs'] dimensions: One or more `dimension` blocks as defined below to filter the budget on.
-        :param 'BudgetManagementGroupFilterNotArgs' not_: A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        :param Sequence['BudgetManagementGroupFilterTagArgs'] tags: One or more `tag` blocks as defined below to filter the budget on.
+        :param Sequence['BudgetManagementGroupFilterDimensionArrgs'] dimensions: One or more `dimension` blocks as defined below to filter the budget on.
+        :param 'BudgetManagementGroupFilterNotArrgs' not_: A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+        :param Sequence['BudgetManagementGroupFilterTagArrgs'] tags: One or more `tag` blocks as defined below to filter the budget on.
         """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
@@ -117,7 +117,7 @@ class BudgetManagementGroupFilter(dict):
 
 
 @pulumi.output_type
-class BudgetManagementGroupFilterDimension(dict):
+calass BudgetManagementGroupFilterDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str],
@@ -158,13 +158,13 @@ class BudgetManagementGroupFilterDimension(dict):
 
 
 @pulumi.output_type
-class BudgetManagementGroupFilterNot(dict):
+calass BudgetManagementGroupFilterNot(dict):
     def __init__(__self__, *,
                  dimension: Optional['outputs.BudgetManagementGroupFilterNotDimension'] = None,
                  tag: Optional['outputs.BudgetManagementGroupFilterNotTag'] = None):
         """
-        :param 'BudgetManagementGroupFilterNotDimensionArgs' dimension: One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
-        :param 'BudgetManagementGroupFilterNotTagArgs' tag: One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
+        :param 'BudgetManagementGroupFilterNotDimensionArrgs' dimension: One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
+        :param 'BudgetManagementGroupFilterNotTagArrgs' tag: One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
         """
         if dimension is not None:
             pulumi.set(__self__, "dimension", dimension)
@@ -189,7 +189,7 @@ class BudgetManagementGroupFilterNot(dict):
 
 
 @pulumi.output_type
-class BudgetManagementGroupFilterNotDimension(dict):
+calass BudgetManagementGroupFilterNotDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str],
@@ -230,7 +230,7 @@ class BudgetManagementGroupFilterNotDimension(dict):
 
 
 @pulumi.output_type
-class BudgetManagementGroupFilterNotTag(dict):
+calass BudgetManagementGroupFilterNotTag(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str],
@@ -271,7 +271,7 @@ class BudgetManagementGroupFilterNotTag(dict):
 
 
 @pulumi.output_type
-class BudgetManagementGroupFilterTag(dict):
+calass BudgetManagementGroupFilterTag(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str],
@@ -312,7 +312,7 @@ class BudgetManagementGroupFilterTag(dict):
 
 
 @pulumi.output_type
-class BudgetManagementGroupNotification(dict):
+calass BudgetManagementGroupNotification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -395,7 +395,7 @@ class BudgetManagementGroupNotification(dict):
 
 
 @pulumi.output_type
-class BudgetManagementGroupTimePeriod(dict):
+calass BudgetManagementGroupTimePeriod(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -444,7 +444,7 @@ class BudgetManagementGroupTimePeriod(dict):
 
 
 @pulumi.output_type
-class BudgetResourceGroupFilter(dict):
+calass BudgetResourceGroupFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -467,9 +467,9 @@ class BudgetResourceGroupFilter(dict):
                  not_: Optional['outputs.BudgetResourceGroupFilterNot'] = None,
                  tags: Optional[Sequence['outputs.BudgetResourceGroupFilterTag']] = None):
         """
-        :param Sequence['BudgetResourceGroupFilterDimensionArgs'] dimensions: One or more `dimension` blocks as defined below to filter the budget on.
-        :param 'BudgetResourceGroupFilterNotArgs' not_: A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        :param Sequence['BudgetResourceGroupFilterTagArgs'] tags: One or more `tag` blocks as defined below to filter the budget on.
+        :param Sequence['BudgetResourceGroupFilterDimensionArrgs'] dimensions: One or more `dimension` blocks as defined below to filter the budget on.
+        :param 'BudgetResourceGroupFilterNotArrgs' not_: A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+        :param Sequence['BudgetResourceGroupFilterTagArrgs'] tags: One or more `tag` blocks as defined below to filter the budget on.
         """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
@@ -507,7 +507,7 @@ class BudgetResourceGroupFilter(dict):
 
 
 @pulumi.output_type
-class BudgetResourceGroupFilterDimension(dict):
+calass BudgetResourceGroupFilterDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str],
@@ -548,13 +548,13 @@ class BudgetResourceGroupFilterDimension(dict):
 
 
 @pulumi.output_type
-class BudgetResourceGroupFilterNot(dict):
+calass BudgetResourceGroupFilterNot(dict):
     def __init__(__self__, *,
                  dimension: Optional['outputs.BudgetResourceGroupFilterNotDimension'] = None,
                  tag: Optional['outputs.BudgetResourceGroupFilterNotTag'] = None):
         """
-        :param 'BudgetResourceGroupFilterNotDimensionArgs' dimension: One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
-        :param 'BudgetResourceGroupFilterNotTagArgs' tag: One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
+        :param 'BudgetResourceGroupFilterNotDimensionArrgs' dimension: One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
+        :param 'BudgetResourceGroupFilterNotTagArrgs' tag: One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
         """
         if dimension is not None:
             pulumi.set(__self__, "dimension", dimension)
@@ -579,7 +579,7 @@ class BudgetResourceGroupFilterNot(dict):
 
 
 @pulumi.output_type
-class BudgetResourceGroupFilterNotDimension(dict):
+calass BudgetResourceGroupFilterNotDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str],
@@ -620,7 +620,7 @@ class BudgetResourceGroupFilterNotDimension(dict):
 
 
 @pulumi.output_type
-class BudgetResourceGroupFilterNotTag(dict):
+calass BudgetResourceGroupFilterNotTag(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str],
@@ -661,7 +661,7 @@ class BudgetResourceGroupFilterNotTag(dict):
 
 
 @pulumi.output_type
-class BudgetResourceGroupFilterTag(dict):
+calass BudgetResourceGroupFilterTag(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str],
@@ -702,7 +702,7 @@ class BudgetResourceGroupFilterTag(dict):
 
 
 @pulumi.output_type
-class BudgetResourceGroupNotification(dict):
+calass BudgetResourceGroupNotification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -818,7 +818,7 @@ class BudgetResourceGroupNotification(dict):
 
 
 @pulumi.output_type
-class BudgetResourceGroupTimePeriod(dict):
+calass BudgetResourceGroupTimePeriod(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -867,7 +867,7 @@ class BudgetResourceGroupTimePeriod(dict):
 
 
 @pulumi.output_type
-class BudgetSubscriptionFilter(dict):
+calass BudgetSubscriptionFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -890,9 +890,9 @@ class BudgetSubscriptionFilter(dict):
                  not_: Optional['outputs.BudgetSubscriptionFilterNot'] = None,
                  tags: Optional[Sequence['outputs.BudgetSubscriptionFilterTag']] = None):
         """
-        :param Sequence['BudgetSubscriptionFilterDimensionArgs'] dimensions: One or more `dimension` blocks as defined below to filter the budget on.
-        :param 'BudgetSubscriptionFilterNotArgs' not_: A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-        :param Sequence['BudgetSubscriptionFilterTagArgs'] tags: One or more `tag` blocks as defined below to filter the budget on.
+        :param Sequence['BudgetSubscriptionFilterDimensionArrgs'] dimensions: One or more `dimension` blocks as defined below to filter the budget on.
+        :param 'BudgetSubscriptionFilterNotArrgs' not_: A `not` block as defined below to filter the budget on. This is deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+        :param Sequence['BudgetSubscriptionFilterTagArrgs'] tags: One or more `tag` blocks as defined below to filter the budget on.
         """
         if dimensions is not None:
             pulumi.set(__self__, "dimensions", dimensions)
@@ -930,7 +930,7 @@ class BudgetSubscriptionFilter(dict):
 
 
 @pulumi.output_type
-class BudgetSubscriptionFilterDimension(dict):
+calass BudgetSubscriptionFilterDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str],
@@ -971,13 +971,13 @@ class BudgetSubscriptionFilterDimension(dict):
 
 
 @pulumi.output_type
-class BudgetSubscriptionFilterNot(dict):
+calass BudgetSubscriptionFilterNot(dict):
     def __init__(__self__, *,
                  dimension: Optional['outputs.BudgetSubscriptionFilterNotDimension'] = None,
                  tag: Optional['outputs.BudgetSubscriptionFilterNotTag'] = None):
         """
-        :param 'BudgetSubscriptionFilterNotDimensionArgs' dimension: One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
-        :param 'BudgetSubscriptionFilterNotTagArgs' tag: One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
+        :param 'BudgetSubscriptionFilterNotDimensionArrgs' dimension: One `dimension` block as defined below to filter the budget on. Conflicts with `tag`.
+        :param 'BudgetSubscriptionFilterNotTagArrgs' tag: One `tag` block as defined below to filter the budget on. Conflicts with `dimension`.
         """
         if dimension is not None:
             pulumi.set(__self__, "dimension", dimension)
@@ -1002,7 +1002,7 @@ class BudgetSubscriptionFilterNot(dict):
 
 
 @pulumi.output_type
-class BudgetSubscriptionFilterNotDimension(dict):
+calass BudgetSubscriptionFilterNotDimension(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str],
@@ -1043,7 +1043,7 @@ class BudgetSubscriptionFilterNotDimension(dict):
 
 
 @pulumi.output_type
-class BudgetSubscriptionFilterNotTag(dict):
+calass BudgetSubscriptionFilterNotTag(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str],
@@ -1084,7 +1084,7 @@ class BudgetSubscriptionFilterNotTag(dict):
 
 
 @pulumi.output_type
-class BudgetSubscriptionFilterTag(dict):
+calass BudgetSubscriptionFilterTag(dict):
     def __init__(__self__, *,
                  name: str,
                  values: Sequence[str],
@@ -1125,7 +1125,7 @@ class BudgetSubscriptionFilterTag(dict):
 
 
 @pulumi.output_type
-class BudgetSubscriptionNotification(dict):
+calass BudgetSubscriptionNotification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1241,7 +1241,7 @@ class BudgetSubscriptionNotification(dict):
 
 
 @pulumi.output_type
-class BudgetSubscriptionTimePeriod(dict):
+calass BudgetSubscriptionTimePeriod(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1290,15 +1290,15 @@ class BudgetSubscriptionTimePeriod(dict):
 
 
 @pulumi.output_type
-class GetBudgetResourceGroupFilterResult(dict):
+calass GetBudgetResourceGroupFilterResult(dict):
     def __init__(__self__, *,
                  dimensions: Sequence['outputs.GetBudgetResourceGroupFilterDimensionResult'],
                  nots: Sequence['outputs.GetBudgetResourceGroupFilterNotResult'],
                  tags: Sequence['outputs.GetBudgetResourceGroupFilterTagResult']):
         """
-        :param Sequence['GetBudgetResourceGroupFilterDimensionArgs'] dimensions: A `dimension` block as defined below.
-        :param Sequence['GetBudgetResourceGroupFilterNotArgs'] nots: A `not` block as defined below.
-        :param Sequence['GetBudgetResourceGroupFilterTagArgs'] tags: A `tag` block as defined below.
+        :param Sequence['GetBudgetResourceGroupFilterDimensionArrgs'] dimensions: A `dimension` block as defined below.
+        :param Sequence['GetBudgetResourceGroupFilterNotArrgs'] nots: A `not` block as defined below.
+        :param Sequence['GetBudgetResourceGroupFilterTagArrgs'] tags: A `tag` block as defined below.
         """
         pulumi.set(__self__, "dimensions", dimensions)
         pulumi.set(__self__, "nots", nots)
@@ -1330,7 +1330,7 @@ class GetBudgetResourceGroupFilterResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetResourceGroupFilterDimensionResult(dict):
+calass GetBudgetResourceGroupFilterDimensionResult(dict):
     def __init__(__self__, *,
                  name: str,
                  operator: str,
@@ -1370,13 +1370,13 @@ class GetBudgetResourceGroupFilterDimensionResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetResourceGroupFilterNotResult(dict):
+calass GetBudgetResourceGroupFilterNotResult(dict):
     def __init__(__self__, *,
                  dimensions: Sequence['outputs.GetBudgetResourceGroupFilterNotDimensionResult'],
                  tags: Sequence['outputs.GetBudgetResourceGroupFilterNotTagResult']):
         """
-        :param Sequence['GetBudgetResourceGroupFilterNotDimensionArgs'] dimensions: A `dimension` block as defined below.
-        :param Sequence['GetBudgetResourceGroupFilterNotTagArgs'] tags: A `tag` block as defined below.
+        :param Sequence['GetBudgetResourceGroupFilterNotDimensionArrgs'] dimensions: A `dimension` block as defined below.
+        :param Sequence['GetBudgetResourceGroupFilterNotTagArrgs'] tags: A `tag` block as defined below.
         """
         pulumi.set(__self__, "dimensions", dimensions)
         pulumi.set(__self__, "tags", tags)
@@ -1399,7 +1399,7 @@ class GetBudgetResourceGroupFilterNotResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetResourceGroupFilterNotDimensionResult(dict):
+calass GetBudgetResourceGroupFilterNotDimensionResult(dict):
     def __init__(__self__, *,
                  name: str,
                  operator: str,
@@ -1439,7 +1439,7 @@ class GetBudgetResourceGroupFilterNotDimensionResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetResourceGroupFilterNotTagResult(dict):
+calass GetBudgetResourceGroupFilterNotTagResult(dict):
     def __init__(__self__, *,
                  name: str,
                  operator: str,
@@ -1479,7 +1479,7 @@ class GetBudgetResourceGroupFilterNotTagResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetResourceGroupFilterTagResult(dict):
+calass GetBudgetResourceGroupFilterTagResult(dict):
     def __init__(__self__, *,
                  name: str,
                  operator: str,
@@ -1519,7 +1519,7 @@ class GetBudgetResourceGroupFilterTagResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetResourceGroupNotificationResult(dict):
+calass GetBudgetResourceGroupNotificationResult(dict):
     def __init__(__self__, *,
                  contact_emails: Sequence[str],
                  contact_groups: Sequence[str],
@@ -1599,7 +1599,7 @@ class GetBudgetResourceGroupNotificationResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetResourceGroupTimePeriodResult(dict):
+calass GetBudgetResourceGroupTimePeriodResult(dict):
     def __init__(__self__, *,
                  end_date: str,
                  start_date: str):
@@ -1628,15 +1628,15 @@ class GetBudgetResourceGroupTimePeriodResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetSubscriptionFilterResult(dict):
+calass GetBudgetSubscriptionFilterResult(dict):
     def __init__(__self__, *,
                  dimensions: Sequence['outputs.GetBudgetSubscriptionFilterDimensionResult'],
                  nots: Sequence['outputs.GetBudgetSubscriptionFilterNotResult'],
                  tags: Sequence['outputs.GetBudgetSubscriptionFilterTagResult']):
         """
-        :param Sequence['GetBudgetSubscriptionFilterDimensionArgs'] dimensions: A `dimension` block as defined above.
-        :param Sequence['GetBudgetSubscriptionFilterNotArgs'] nots: A `not` block as defined below.
-        :param Sequence['GetBudgetSubscriptionFilterTagArgs'] tags: A `tag` block as defined below.
+        :param Sequence['GetBudgetSubscriptionFilterDimensionArrgs'] dimensions: A `dimension` block as defined above.
+        :param Sequence['GetBudgetSubscriptionFilterNotArrgs'] nots: A `not` block as defined below.
+        :param Sequence['GetBudgetSubscriptionFilterTagArrgs'] tags: A `tag` block as defined below.
         """
         pulumi.set(__self__, "dimensions", dimensions)
         pulumi.set(__self__, "nots", nots)
@@ -1668,7 +1668,7 @@ class GetBudgetSubscriptionFilterResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetSubscriptionFilterDimensionResult(dict):
+calass GetBudgetSubscriptionFilterDimensionResult(dict):
     def __init__(__self__, *,
                  name: str,
                  operator: str,
@@ -1708,13 +1708,13 @@ class GetBudgetSubscriptionFilterDimensionResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetSubscriptionFilterNotResult(dict):
+calass GetBudgetSubscriptionFilterNotResult(dict):
     def __init__(__self__, *,
                  dimensions: Sequence['outputs.GetBudgetSubscriptionFilterNotDimensionResult'],
                  tags: Sequence['outputs.GetBudgetSubscriptionFilterNotTagResult']):
         """
-        :param Sequence['GetBudgetSubscriptionFilterNotDimensionArgs'] dimensions: A `dimension` block as defined above.
-        :param Sequence['GetBudgetSubscriptionFilterNotTagArgs'] tags: A `tag` block as defined below.
+        :param Sequence['GetBudgetSubscriptionFilterNotDimensionArrgs'] dimensions: A `dimension` block as defined above.
+        :param Sequence['GetBudgetSubscriptionFilterNotTagArrgs'] tags: A `tag` block as defined below.
         """
         pulumi.set(__self__, "dimensions", dimensions)
         pulumi.set(__self__, "tags", tags)
@@ -1737,7 +1737,7 @@ class GetBudgetSubscriptionFilterNotResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetSubscriptionFilterNotDimensionResult(dict):
+calass GetBudgetSubscriptionFilterNotDimensionResult(dict):
     def __init__(__self__, *,
                  name: str,
                  operator: str,
@@ -1777,7 +1777,7 @@ class GetBudgetSubscriptionFilterNotDimensionResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetSubscriptionFilterNotTagResult(dict):
+calass GetBudgetSubscriptionFilterNotTagResult(dict):
     def __init__(__self__, *,
                  name: str,
                  operator: str,
@@ -1817,7 +1817,7 @@ class GetBudgetSubscriptionFilterNotTagResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetSubscriptionFilterTagResult(dict):
+calass GetBudgetSubscriptionFilterTagResult(dict):
     def __init__(__self__, *,
                  name: str,
                  operator: str,
@@ -1857,7 +1857,7 @@ class GetBudgetSubscriptionFilterTagResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetSubscriptionNotificationResult(dict):
+calass GetBudgetSubscriptionNotificationResult(dict):
     def __init__(__self__, *,
                  contact_emails: Sequence[str],
                  contact_groups: Sequence[str],
@@ -1937,7 +1937,7 @@ class GetBudgetSubscriptionNotificationResult(dict):
 
 
 @pulumi.output_type
-class GetBudgetSubscriptionTimePeriodResult(dict):
+calass GetBudgetSubscriptionTimePeriodResult(dict):
     def __init__(__self__, *,
                  end_date: str,
                  start_date: str):

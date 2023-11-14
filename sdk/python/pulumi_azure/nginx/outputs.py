@@ -20,7 +20,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ConfigurationConfigFile(dict):
+calass ConfigurationConfigFile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -66,7 +66,7 @@ class ConfigurationConfigFile(dict):
 
 
 @pulumi.output_type
-class ConfigurationProtectedFile(dict):
+calass ConfigurationProtectedFile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -112,7 +112,7 @@ class ConfigurationProtectedFile(dict):
 
 
 @pulumi.output_type
-class DeploymentFrontendPrivate(dict):
+calass DeploymentFrontendPrivate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -173,7 +173,7 @@ class DeploymentFrontendPrivate(dict):
 
 
 @pulumi.output_type
-class DeploymentFrontendPublic(dict):
+calass DeploymentFrontendPublic(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -209,7 +209,7 @@ class DeploymentFrontendPublic(dict):
 
 
 @pulumi.output_type
-class DeploymentIdentity(dict):
+calass DeploymentIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -276,7 +276,7 @@ class DeploymentIdentity(dict):
 
 
 @pulumi.output_type
-class DeploymentLoggingStorageAccount(dict):
+calass DeploymentLoggingStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -324,7 +324,7 @@ class DeploymentLoggingStorageAccount(dict):
 
 
 @pulumi.output_type
-class DeploymentNetworkInterface(dict):
+calass DeploymentNetworkInterface(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

@@ -11,23 +11,23 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AssetFilterArgs', 'AssetFilter']
+__all__ = ['AssetFilterArrgs', 'AssetFilter']
 
 @pulumi.input_type
-class AssetFilterArgs:
+calass AssetFilterArrgs:
     def __init__(__self__, *,
                  asset_id: pulumi.Input[str],
                  first_quality_bitrate: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 presentation_time_range: Optional[pulumi.Input['AssetFilterPresentationTimeRangeArgs']] = None,
-                 track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArgs']]]] = None):
+                 presentation_time_range: Optional[pulumi.Input['AssetFilterPresentationTimeRangeArrgs']] = None,
+                 track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArrgs']]]] = None):
         """
         The set of arguments for constructing a AssetFilter resource.
         :param pulumi.Input[str] asset_id: The Asset ID for which the Asset Filter should be created. Changing this forces a new Asset Filter to be created.
         :param pulumi.Input[int] first_quality_bitrate: The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
         :param pulumi.Input[str] name: The name which should be used for this Asset Filter. Changing this forces a new Asset Filter to be created.
-        :param pulumi.Input['AssetFilterPresentationTimeRangeArgs'] presentation_time_range: A `presentation_time_range` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArgs']]] track_selections: One or more `track_selection` blocks as defined below.
+        :param pulumi.Input['AssetFilterPresentationTimeRangeArrgs'] presentation_time_range: A `presentation_time_range` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArrgs']]] track_selections: One or more `track_selection` blocks as defined below.
         """
         pulumi.set(__self__, "asset_id", asset_id)
         if first_quality_bitrate is not None:
@@ -77,44 +77,44 @@ class AssetFilterArgs:
 
     @property
     @pulumi.getter(name="presentationTimeRange")
-    def presentation_time_range(self) -> Optional[pulumi.Input['AssetFilterPresentationTimeRangeArgs']]:
+    def presentation_time_range(self) -> Optional[pulumi.Input['AssetFilterPresentationTimeRangeArrgs']]:
         """
         A `presentation_time_range` block as defined below.
         """
         return pulumi.get(self, "presentation_time_range")
 
     @presentation_time_range.setter
-    def presentation_time_range(self, value: Optional[pulumi.Input['AssetFilterPresentationTimeRangeArgs']]):
+    def presentation_time_range(self, value: Optional[pulumi.Input['AssetFilterPresentationTimeRangeArrgs']]):
         pulumi.set(self, "presentation_time_range", value)
 
     @property
     @pulumi.getter(name="trackSelections")
-    def track_selections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArgs']]]]:
+    def track_selections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArrgs']]]]:
         """
         One or more `track_selection` blocks as defined below.
         """
         return pulumi.get(self, "track_selections")
 
     @track_selections.setter
-    def track_selections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArgs']]]]):
+    def track_selections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArrgs']]]]):
         pulumi.set(self, "track_selections", value)
 
 
 @pulumi.input_type
-class _AssetFilterState:
+calass _AssetFilterState:
     def __init__(__self__, *,
                  asset_id: Optional[pulumi.Input[str]] = None,
                  first_quality_bitrate: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 presentation_time_range: Optional[pulumi.Input['AssetFilterPresentationTimeRangeArgs']] = None,
-                 track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArgs']]]] = None):
+                 presentation_time_range: Optional[pulumi.Input['AssetFilterPresentationTimeRangeArrgs']] = None,
+                 track_selections: Optional[pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArrgs']]]] = None):
         """
         Input properties used for looking up and filtering AssetFilter resources.
         :param pulumi.Input[str] asset_id: The Asset ID for which the Asset Filter should be created. Changing this forces a new Asset Filter to be created.
         :param pulumi.Input[int] first_quality_bitrate: The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
         :param pulumi.Input[str] name: The name which should be used for this Asset Filter. Changing this forces a new Asset Filter to be created.
-        :param pulumi.Input['AssetFilterPresentationTimeRangeArgs'] presentation_time_range: A `presentation_time_range` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArgs']]] track_selections: One or more `track_selection` blocks as defined below.
+        :param pulumi.Input['AssetFilterPresentationTimeRangeArrgs'] presentation_time_range: A `presentation_time_range` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArrgs']]] track_selections: One or more `track_selection` blocks as defined below.
         """
         if asset_id is not None:
             pulumi.set(__self__, "asset_id", asset_id)
@@ -165,30 +165,30 @@ class _AssetFilterState:
 
     @property
     @pulumi.getter(name="presentationTimeRange")
-    def presentation_time_range(self) -> Optional[pulumi.Input['AssetFilterPresentationTimeRangeArgs']]:
+    def presentation_time_range(self) -> Optional[pulumi.Input['AssetFilterPresentationTimeRangeArrgs']]:
         """
         A `presentation_time_range` block as defined below.
         """
         return pulumi.get(self, "presentation_time_range")
 
     @presentation_time_range.setter
-    def presentation_time_range(self, value: Optional[pulumi.Input['AssetFilterPresentationTimeRangeArgs']]):
+    def presentation_time_range(self, value: Optional[pulumi.Input['AssetFilterPresentationTimeRangeArrgs']]):
         pulumi.set(self, "presentation_time_range", value)
 
     @property
     @pulumi.getter(name="trackSelections")
-    def track_selections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArgs']]]]:
+    def track_selections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArrgs']]]]:
         """
         One or more `track_selection` blocks as defined below.
         """
         return pulumi.get(self, "track_selections")
 
     @track_selections.setter
-    def track_selections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArgs']]]]):
+    def track_selections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AssetFilterTrackSelectionArrgs']]]]):
         pulumi.set(self, "track_selections", value)
 
 
-class AssetFilter(pulumi.CustomResource):
+calass AssetFilter(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -196,8 +196,8 @@ class AssetFilter(pulumi.CustomResource):
                  asset_id: Optional[pulumi.Input[str]] = None,
                  first_quality_bitrate: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 presentation_time_range: Optional[pulumi.Input[pulumi.InputType['AssetFilterPresentationTimeRangeArgs']]] = None,
-                 track_selections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetFilterTrackSelectionArgs']]]]] = None,
+                 presentation_time_range: Optional[pulumi.Input[pulumi.InputType['AssetFilterPresentationTimeRangeArrgs']]] = None,
+                 track_selections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetFilterTrackSelectionArrgs']]]]] = None,
                  __props__=None):
         """
         Manages an Azure Media Asset Filter.
@@ -217,7 +217,7 @@ class AssetFilter(pulumi.CustomResource):
         example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArrgs(
                 id=example_account.id,
                 is_primary=True,
             )])
@@ -228,7 +228,7 @@ class AssetFilter(pulumi.CustomResource):
         example_asset_filter = azure.media.AssetFilter("exampleAssetFilter",
             asset_id=example_asset.id,
             first_quality_bitrate=128000,
-            presentation_time_range=azure.media.AssetFilterPresentationTimeRangeArgs(
+            presentation_time_range=azure.media.AssetFilterPresentationTimeRangeArrgs(
                 start_in_units=0,
                 end_in_units=15,
                 presentation_window_in_units=90,
@@ -237,33 +237,33 @@ class AssetFilter(pulumi.CustomResource):
                 force_end=False,
             ),
             track_selections=[
-                azure.media.AssetFilterTrackSelectionArgs(
+                azure.media.AssetFilterTrackSelectionArrgs(
                     conditions=[
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
+                        azure.media.AssetFilterTrackSelectionConditionArrgs(
                             property="Type",
                             operation="Equal",
                             value="Audio",
                         ),
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
+                        azure.media.AssetFilterTrackSelectionConditionArrgs(
                             property="Language",
                             operation="NotEqual",
                             value="en",
                         ),
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
+                        azure.media.AssetFilterTrackSelectionConditionArrgs(
                             property="FourCC",
                             operation="NotEqual",
                             value="EC-3",
                         ),
                     ],
                 ),
-                azure.media.AssetFilterTrackSelectionArgs(
+                azure.media.AssetFilterTrackSelectionArrgs(
                     conditions=[
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
+                        azure.media.AssetFilterTrackSelectionConditionArrgs(
                             property="Type",
                             operation="Equal",
                             value="Video",
                         ),
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
+                        azure.media.AssetFilterTrackSelectionConditionArrgs(
                             property="Bitrate",
                             operation="Equal",
                             value="3000000-5000000",
@@ -286,14 +286,14 @@ class AssetFilter(pulumi.CustomResource):
         :param pulumi.Input[str] asset_id: The Asset ID for which the Asset Filter should be created. Changing this forces a new Asset Filter to be created.
         :param pulumi.Input[int] first_quality_bitrate: The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
         :param pulumi.Input[str] name: The name which should be used for this Asset Filter. Changing this forces a new Asset Filter to be created.
-        :param pulumi.Input[pulumi.InputType['AssetFilterPresentationTimeRangeArgs']] presentation_time_range: A `presentation_time_range` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetFilterTrackSelectionArgs']]]] track_selections: One or more `track_selection` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['AssetFilterPresentationTimeRangeArrgs']] presentation_time_range: A `presentation_time_range` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetFilterTrackSelectionArrgs']]]] track_selections: One or more `track_selection` blocks as defined below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AssetFilterArgs,
+                 args: AssetFilterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Media Asset Filter.
@@ -313,7 +313,7 @@ class AssetFilter(pulumi.CustomResource):
         example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArrgs(
                 id=example_account.id,
                 is_primary=True,
             )])
@@ -324,7 +324,7 @@ class AssetFilter(pulumi.CustomResource):
         example_asset_filter = azure.media.AssetFilter("exampleAssetFilter",
             asset_id=example_asset.id,
             first_quality_bitrate=128000,
-            presentation_time_range=azure.media.AssetFilterPresentationTimeRangeArgs(
+            presentation_time_range=azure.media.AssetFilterPresentationTimeRangeArrgs(
                 start_in_units=0,
                 end_in_units=15,
                 presentation_window_in_units=90,
@@ -333,33 +333,33 @@ class AssetFilter(pulumi.CustomResource):
                 force_end=False,
             ),
             track_selections=[
-                azure.media.AssetFilterTrackSelectionArgs(
+                azure.media.AssetFilterTrackSelectionArrgs(
                     conditions=[
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
+                        azure.media.AssetFilterTrackSelectionConditionArrgs(
                             property="Type",
                             operation="Equal",
                             value="Audio",
                         ),
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
+                        azure.media.AssetFilterTrackSelectionConditionArrgs(
                             property="Language",
                             operation="NotEqual",
                             value="en",
                         ),
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
+                        azure.media.AssetFilterTrackSelectionConditionArrgs(
                             property="FourCC",
                             operation="NotEqual",
                             value="EC-3",
                         ),
                     ],
                 ),
-                azure.media.AssetFilterTrackSelectionArgs(
+                azure.media.AssetFilterTrackSelectionArrgs(
                     conditions=[
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
+                        azure.media.AssetFilterTrackSelectionConditionArrgs(
                             property="Type",
                             operation="Equal",
                             value="Video",
                         ),
-                        azure.media.AssetFilterTrackSelectionConditionArgs(
+                        azure.media.AssetFilterTrackSelectionConditionArrgs(
                             property="Bitrate",
                             operation="Equal",
                             value="3000000-5000000",
@@ -378,12 +378,12 @@ class AssetFilter(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AssetFilterArgs args: The arguments to use to populate this resource's properties.
+        :param AssetFilterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AssetFilterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AssetFilterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -395,8 +395,8 @@ class AssetFilter(pulumi.CustomResource):
                  asset_id: Optional[pulumi.Input[str]] = None,
                  first_quality_bitrate: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 presentation_time_range: Optional[pulumi.Input[pulumi.InputType['AssetFilterPresentationTimeRangeArgs']]] = None,
-                 track_selections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetFilterTrackSelectionArgs']]]]] = None,
+                 presentation_time_range: Optional[pulumi.Input[pulumi.InputType['AssetFilterPresentationTimeRangeArrgs']]] = None,
+                 track_selections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetFilterTrackSelectionArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -404,7 +404,7 @@ class AssetFilter(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AssetFilterArgs.__new__(AssetFilterArgs)
+            __props__ = AssetFilterArrgs.__new__(AssetFilterArrgs)
 
             if asset_id is None and not opts.urn:
                 raise TypeError("Missing required property 'asset_id'")
@@ -426,8 +426,8 @@ class AssetFilter(pulumi.CustomResource):
             asset_id: Optional[pulumi.Input[str]] = None,
             first_quality_bitrate: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            presentation_time_range: Optional[pulumi.Input[pulumi.InputType['AssetFilterPresentationTimeRangeArgs']]] = None,
-            track_selections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetFilterTrackSelectionArgs']]]]] = None) -> 'AssetFilter':
+            presentation_time_range: Optional[pulumi.Input[pulumi.InputType['AssetFilterPresentationTimeRangeArrgs']]] = None,
+            track_selections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetFilterTrackSelectionArrgs']]]]] = None) -> 'AssetFilter':
         """
         Get an existing AssetFilter resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -438,8 +438,8 @@ class AssetFilter(pulumi.CustomResource):
         :param pulumi.Input[str] asset_id: The Asset ID for which the Asset Filter should be created. Changing this forces a new Asset Filter to be created.
         :param pulumi.Input[int] first_quality_bitrate: The first quality bitrate. Sets the first video track to appear in the Live Streaming playlist to allow HLS native players to start downloading from this quality level at the beginning.
         :param pulumi.Input[str] name: The name which should be used for this Asset Filter. Changing this forces a new Asset Filter to be created.
-        :param pulumi.Input[pulumi.InputType['AssetFilterPresentationTimeRangeArgs']] presentation_time_range: A `presentation_time_range` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetFilterTrackSelectionArgs']]]] track_selections: One or more `track_selection` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['AssetFilterPresentationTimeRangeArrgs']] presentation_time_range: A `presentation_time_range` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssetFilterTrackSelectionArrgs']]]] track_selections: One or more `track_selection` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

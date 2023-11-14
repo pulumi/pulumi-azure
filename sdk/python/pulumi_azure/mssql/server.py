@@ -11,18 +11,18 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ServerArgs', 'Server']
+__all__ = ['ServerArrgs', 'Server']
 
 @pulumi.input_type
-class ServerArgs:
+calass ServerArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  version: pulumi.Input[str],
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 azuread_administrator: Optional[pulumi.Input['ServerAzureadAdministratorArgs']] = None,
+                 azuread_administrator: Optional[pulumi.Input['ServerAzureadAdministratorArrgs']] = None,
                  connection_policy: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ServerIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -37,9 +37,9 @@ class ServerArgs:
         :param pulumi.Input[str] version: The version for the new server. Valid values are: 2.0 (for v11 server) and 12.0 (for v12 server). Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
-        :param pulumi.Input['ServerAzureadAdministratorArgs'] azuread_administrator: An `azuread_administrator` block as defined below.
+        :param pulumi.Input['ServerAzureadAdministratorArrgs'] azuread_administrator: An `azuread_administrator` block as defined below.
         :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
-        :param pulumi.Input['ServerIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['ServerIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
                
@@ -138,14 +138,14 @@ class ServerArgs:
 
     @property
     @pulumi.getter(name="azureadAdministrator")
-    def azuread_administrator(self) -> Optional[pulumi.Input['ServerAzureadAdministratorArgs']]:
+    def azuread_administrator(self) -> Optional[pulumi.Input['ServerAzureadAdministratorArrgs']]:
         """
         An `azuread_administrator` block as defined below.
         """
         return pulumi.get(self, "azuread_administrator")
 
     @azuread_administrator.setter
-    def azuread_administrator(self, value: Optional[pulumi.Input['ServerAzureadAdministratorArgs']]):
+    def azuread_administrator(self, value: Optional[pulumi.Input['ServerAzureadAdministratorArrgs']]):
         pulumi.set(self, "azuread_administrator", value)
 
     @property
@@ -162,14 +162,14 @@ class ServerArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ServerIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ServerIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ServerIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ServerIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -280,14 +280,14 @@ class ServerArgs:
 
 
 @pulumi.input_type
-class _ServerState:
+calass _ServerState:
     def __init__(__self__, *,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 azuread_administrator: Optional[pulumi.Input['ServerAzureadAdministratorArgs']] = None,
+                 azuread_administrator: Optional[pulumi.Input['ServerAzureadAdministratorArrgs']] = None,
                  connection_policy: Optional[pulumi.Input[str]] = None,
                  fully_qualified_domain_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ServerIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -303,10 +303,10 @@ class _ServerState:
         Input properties used for looking up and filtering Server resources.
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
-        :param pulumi.Input['ServerAzureadAdministratorArgs'] azuread_administrator: An `azuread_administrator` block as defined below.
+        :param pulumi.Input['ServerAzureadAdministratorArrgs'] azuread_administrator: An `azuread_administrator` block as defined below.
         :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
         :param pulumi.Input[str] fully_qualified_domain_name: The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
-        :param pulumi.Input['ServerIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['ServerIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
                
@@ -390,14 +390,14 @@ class _ServerState:
 
     @property
     @pulumi.getter(name="azureadAdministrator")
-    def azuread_administrator(self) -> Optional[pulumi.Input['ServerAzureadAdministratorArgs']]:
+    def azuread_administrator(self) -> Optional[pulumi.Input['ServerAzureadAdministratorArrgs']]:
         """
         An `azuread_administrator` block as defined below.
         """
         return pulumi.get(self, "azuread_administrator")
 
     @azuread_administrator.setter
-    def azuread_administrator(self, value: Optional[pulumi.Input['ServerAzureadAdministratorArgs']]):
+    def azuread_administrator(self, value: Optional[pulumi.Input['ServerAzureadAdministratorArrgs']]):
         pulumi.set(self, "azuread_administrator", value)
 
     @property
@@ -426,14 +426,14 @@ class _ServerState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ServerIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ServerIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ServerIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ServerIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -579,16 +579,16 @@ class _ServerState:
         pulumi.set(self, "version", value)
 
 
-class Server(pulumi.CustomResource):
+calass Server(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 azuread_administrator: Optional[pulumi.Input[pulumi.InputType['ServerAzureadAdministratorArgs']]] = None,
+                 azuread_administrator: Optional[pulumi.Input[pulumi.InputType['ServerAzureadAdministratorArrgs']]] = None,
                  connection_policy: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -617,7 +617,7 @@ class Server(pulumi.CustomResource):
             administrator_login="missadministrator",
             administrator_login_password="thisIsKat11",
             minimum_tls_version="1.2",
-            azuread_administrator=azure.mssql.ServerAzureadAdministratorArgs(
+            azuread_administrator=azure.mssql.ServerAzureadAdministratorArrgs(
                 login_username="AzureAD Admin",
                 object_id="00000000-0000-0000-0000-000000000000",
             ),
@@ -646,7 +646,7 @@ class Server(pulumi.CustomResource):
             purge_protection_enabled=True,
             sku_name="standard",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=current.object_id,
                     key_permissions=[
@@ -660,7 +660,7 @@ class Server(pulumi.CustomResource):
                         "GetRotationPolicy",
                     ],
                 ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=example_user_assigned_identity.tenant_id,
                     object_id=example_user_assigned_identity.principal_id,
                     key_permissions=[
@@ -686,11 +686,11 @@ class Server(pulumi.CustomResource):
             administrator_login="Example-Administrator",
             administrator_login_password="Example_Password!",
             minimum_tls_version="1.2",
-            azuread_administrator=azure.mssql.ServerAzureadAdministratorArgs(
+            azuread_administrator=azure.mssql.ServerAzureadAdministratorArrgs(
                 login_username=example_user_assigned_identity.name,
                 object_id=example_user_assigned_identity.principal_id,
             ),
-            identity=azure.mssql.ServerIdentityArgs(
+            identity=azure.mssql.ServerIdentityArrgs(
                 type="UserAssigned",
                 identity_ids=[example_user_assigned_identity.id],
             ),
@@ -710,9 +710,9 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
-        :param pulumi.Input[pulumi.InputType['ServerAzureadAdministratorArgs']] azuread_administrator: An `azuread_administrator` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServerAzureadAdministratorArrgs']] azuread_administrator: An `azuread_administrator` block as defined below.
         :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
-        :param pulumi.Input[pulumi.InputType['ServerIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServerIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
                
@@ -738,7 +738,7 @@ class Server(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServerArgs,
+                 args: ServerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Microsoft SQL Azure Database Server.
@@ -757,7 +757,7 @@ class Server(pulumi.CustomResource):
             administrator_login="missadministrator",
             administrator_login_password="thisIsKat11",
             minimum_tls_version="1.2",
-            azuread_administrator=azure.mssql.ServerAzureadAdministratorArgs(
+            azuread_administrator=azure.mssql.ServerAzureadAdministratorArrgs(
                 login_username="AzureAD Admin",
                 object_id="00000000-0000-0000-0000-000000000000",
             ),
@@ -786,7 +786,7 @@ class Server(pulumi.CustomResource):
             purge_protection_enabled=True,
             sku_name="standard",
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=current.object_id,
                     key_permissions=[
@@ -800,7 +800,7 @@ class Server(pulumi.CustomResource):
                         "GetRotationPolicy",
                     ],
                 ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=example_user_assigned_identity.tenant_id,
                     object_id=example_user_assigned_identity.principal_id,
                     key_permissions=[
@@ -826,11 +826,11 @@ class Server(pulumi.CustomResource):
             administrator_login="Example-Administrator",
             administrator_login_password="Example_Password!",
             minimum_tls_version="1.2",
-            azuread_administrator=azure.mssql.ServerAzureadAdministratorArgs(
+            azuread_administrator=azure.mssql.ServerAzureadAdministratorArrgs(
                 login_username=example_user_assigned_identity.name,
                 object_id=example_user_assigned_identity.principal_id,
             ),
-            identity=azure.mssql.ServerIdentityArgs(
+            identity=azure.mssql.ServerIdentityArrgs(
                 type="UserAssigned",
                 identity_ids=[example_user_assigned_identity.id],
             ),
@@ -847,12 +847,12 @@ class Server(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServerArgs args: The arguments to use to populate this resource's properties.
+        :param ServerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -863,9 +863,9 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
-                 azuread_administrator: Optional[pulumi.Input[pulumi.InputType['ServerAzureadAdministratorArgs']]] = None,
+                 azuread_administrator: Optional[pulumi.Input[pulumi.InputType['ServerAzureadAdministratorArrgs']]] = None,
                  connection_policy: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -883,7 +883,7 @@ class Server(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServerArgs.__new__(ServerArgs)
+            __props__ = ServerArrgs.__new__(ServerArrgs)
 
             __props__.__dict__["administrator_login"] = administrator_login
             __props__.__dict__["administrator_login_password"] = None if administrator_login_password is None else pulumi.Output.secret(administrator_login_password)
@@ -920,10 +920,10 @@ class Server(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             administrator_login: Optional[pulumi.Input[str]] = None,
             administrator_login_password: Optional[pulumi.Input[str]] = None,
-            azuread_administrator: Optional[pulumi.Input[pulumi.InputType['ServerAzureadAdministratorArgs']]] = None,
+            azuread_administrator: Optional[pulumi.Input[pulumi.InputType['ServerAzureadAdministratorArrgs']]] = None,
             connection_policy: Optional[pulumi.Input[str]] = None,
             fully_qualified_domain_name: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArrgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             minimum_tls_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -944,10 +944,10 @@ class Server(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The administrator login name for the new server. Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`. When omitted, Azure will generate a default username which cannot be subsequently changed. Changing this forces a new resource to be created.
         :param pulumi.Input[str] administrator_login_password: The password associated with the `administrator_login` user. Needs to comply with Azure's [Password Policy](https://msdn.microsoft.com/library/ms161959.aspx). Required unless `azuread_authentication_only` in the `azuread_administrator` block is `true`.
-        :param pulumi.Input[pulumi.InputType['ServerAzureadAdministratorArgs']] azuread_administrator: An `azuread_administrator` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServerAzureadAdministratorArrgs']] azuread_administrator: An `azuread_administrator` block as defined below.
         :param pulumi.Input[str] connection_policy: The connection policy the server will use. Possible values are `Default`, `Proxy`, and `Redirect`. Defaults to `Default`.
         :param pulumi.Input[str] fully_qualified_domain_name: The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net)
-        :param pulumi.Input[pulumi.InputType['ServerIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServerIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] minimum_tls_version: The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
                

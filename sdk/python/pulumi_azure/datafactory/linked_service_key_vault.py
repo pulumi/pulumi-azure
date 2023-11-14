@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LinkedServiceKeyVaultArgs', 'LinkedServiceKeyVault']
+__all__ = ['LinkedServiceKeyVaultArrgs', 'LinkedServiceKeyVault']
 
 @pulumi.input_type
-class LinkedServiceKeyVaultArgs:
+calass LinkedServiceKeyVaultArrgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[str],
                  key_vault_id: pulumi.Input[str],
@@ -146,7 +146,7 @@ class LinkedServiceKeyVaultArgs:
 
 
 @pulumi.input_type
-class _LinkedServiceKeyVaultState:
+calass _LinkedServiceKeyVaultState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -281,7 +281,7 @@ class _LinkedServiceKeyVaultState:
         pulumi.set(self, "parameters", value)
 
 
-class LinkedServiceKeyVault(pulumi.CustomResource):
+calass LinkedServiceKeyVault(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -342,7 +342,7 @@ class LinkedServiceKeyVault(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LinkedServiceKeyVaultArgs,
+                 args: LinkedServiceKeyVaultArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between Key Vault and Azure Data Factory.
@@ -377,12 +377,12 @@ class LinkedServiceKeyVault(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LinkedServiceKeyVaultArgs args: The arguments to use to populate this resource's properties.
+        :param LinkedServiceKeyVaultArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceKeyVaultArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceKeyVaultArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -406,7 +406,7 @@ class LinkedServiceKeyVault(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LinkedServiceKeyVaultArgs.__new__(LinkedServiceKeyVaultArgs)
+            __props__ = LinkedServiceKeyVaultArrgs.__new__(LinkedServiceKeyVaultArrgs)
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations

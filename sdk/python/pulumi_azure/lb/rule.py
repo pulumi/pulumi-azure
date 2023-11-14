@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RuleArgs', 'Rule']
+__all__ = ['RuleArrgs', 'Rule']
 
 @pulumi.input_type
-class RuleArgs:
+calass RuleArrgs:
     def __init__(__self__, *,
                  backend_port: pulumi.Input[int],
                  frontend_ip_configuration_name: pulumi.Input[str],
@@ -227,7 +227,7 @@ class RuleArgs:
 
 
 @pulumi.input_type
-class _RuleState:
+calass _RuleState:
     def __init__(__self__, *,
                  backend_address_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  backend_port: Optional[pulumi.Input[int]] = None,
@@ -458,7 +458,7 @@ class _RuleState:
         pulumi.set(self, "protocol", value)
 
 
-class Rule(pulumi.CustomResource):
+calass Rule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -496,7 +496,7 @@ class Rule(pulumi.CustomResource):
         example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
             location="West US",
             resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArrgs(
                 name="PublicIPAddress",
                 public_ip_address_id=example_public_ip.id,
             )])
@@ -538,7 +538,7 @@ class Rule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RuleArgs,
+                 args: RuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Load Balancer Rule.
@@ -559,7 +559,7 @@ class Rule(pulumi.CustomResource):
         example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
             location="West US",
             resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArrgs(
                 name="PublicIPAddress",
                 public_ip_address_id=example_public_ip.id,
             )])
@@ -580,12 +580,12 @@ class Rule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RuleArgs args: The arguments to use to populate this resource's properties.
+        :param RuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -614,7 +614,7 @@ class Rule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RuleArgs.__new__(RuleArgs)
+            __props__ = RuleArrgs.__new__(RuleArrgs)
 
             __props__.__dict__["backend_address_pool_ids"] = backend_address_pool_ids
             if backend_port is None and not opts.urn:

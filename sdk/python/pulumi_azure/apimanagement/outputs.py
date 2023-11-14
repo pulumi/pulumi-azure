@@ -117,7 +117,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ApiContact(dict):
+calass ApiContact(dict):
     def __init__(__self__, *,
                  email: Optional[str] = None,
                  name: Optional[str] = None,
@@ -160,7 +160,7 @@ class ApiContact(dict):
 
 
 @pulumi.output_type
-class ApiDiagnosticBackendRequest(dict):
+calass ApiDiagnosticBackendRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -188,7 +188,7 @@ class ApiDiagnosticBackendRequest(dict):
                  headers_to_logs: Optional[Sequence[str]] = None):
         """
         :param int body_bytes: Number of payload bytes to log (up to 8192).
-        :param 'ApiDiagnosticBackendRequestDataMaskingArgs' data_masking: A `data_masking` block as defined below.
+        :param 'ApiDiagnosticBackendRequestDataMaskingArrgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
@@ -224,7 +224,7 @@ class ApiDiagnosticBackendRequest(dict):
 
 
 @pulumi.output_type
-class ApiDiagnosticBackendRequestDataMasking(dict):
+calass ApiDiagnosticBackendRequestDataMasking(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -246,8 +246,8 @@ class ApiDiagnosticBackendRequestDataMasking(dict):
                  headers: Optional[Sequence['outputs.ApiDiagnosticBackendRequestDataMaskingHeader']] = None,
                  query_params: Optional[Sequence['outputs.ApiDiagnosticBackendRequestDataMaskingQueryParam']] = None):
         """
-        :param Sequence['ApiDiagnosticBackendRequestDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
-        :param Sequence['ApiDiagnosticBackendRequestDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
+        :param Sequence['ApiDiagnosticBackendRequestDataMaskingHeaderArrgs'] headers: A `headers` block as defined below.
+        :param Sequence['ApiDiagnosticBackendRequestDataMaskingQueryParamArrgs'] query_params: A `query_params` block as defined below.
         """
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
@@ -272,7 +272,7 @@ class ApiDiagnosticBackendRequestDataMasking(dict):
 
 
 @pulumi.output_type
-class ApiDiagnosticBackendRequestDataMaskingHeader(dict):
+calass ApiDiagnosticBackendRequestDataMaskingHeader(dict):
     def __init__(__self__, *,
                  mode: str,
                  value: str):
@@ -301,7 +301,7 @@ class ApiDiagnosticBackendRequestDataMaskingHeader(dict):
 
 
 @pulumi.output_type
-class ApiDiagnosticBackendRequestDataMaskingQueryParam(dict):
+calass ApiDiagnosticBackendRequestDataMaskingQueryParam(dict):
     def __init__(__self__, *,
                  mode: str,
                  value: str):
@@ -330,7 +330,7 @@ class ApiDiagnosticBackendRequestDataMaskingQueryParam(dict):
 
 
 @pulumi.output_type
-class ApiDiagnosticBackendResponse(dict):
+calass ApiDiagnosticBackendResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -358,7 +358,7 @@ class ApiDiagnosticBackendResponse(dict):
                  headers_to_logs: Optional[Sequence[str]] = None):
         """
         :param int body_bytes: Number of payload bytes to log (up to 8192).
-        :param 'ApiDiagnosticBackendResponseDataMaskingArgs' data_masking: A `data_masking` block as defined below.
+        :param 'ApiDiagnosticBackendResponseDataMaskingArrgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
@@ -394,7 +394,7 @@ class ApiDiagnosticBackendResponse(dict):
 
 
 @pulumi.output_type
-class ApiDiagnosticBackendResponseDataMasking(dict):
+calass ApiDiagnosticBackendResponseDataMasking(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -416,8 +416,8 @@ class ApiDiagnosticBackendResponseDataMasking(dict):
                  headers: Optional[Sequence['outputs.ApiDiagnosticBackendResponseDataMaskingHeader']] = None,
                  query_params: Optional[Sequence['outputs.ApiDiagnosticBackendResponseDataMaskingQueryParam']] = None):
         """
-        :param Sequence['ApiDiagnosticBackendResponseDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
-        :param Sequence['ApiDiagnosticBackendResponseDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
+        :param Sequence['ApiDiagnosticBackendResponseDataMaskingHeaderArrgs'] headers: A `headers` block as defined below.
+        :param Sequence['ApiDiagnosticBackendResponseDataMaskingQueryParamArrgs'] query_params: A `query_params` block as defined below.
         """
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
@@ -442,7 +442,7 @@ class ApiDiagnosticBackendResponseDataMasking(dict):
 
 
 @pulumi.output_type
-class ApiDiagnosticBackendResponseDataMaskingHeader(dict):
+calass ApiDiagnosticBackendResponseDataMaskingHeader(dict):
     def __init__(__self__, *,
                  mode: str,
                  value: str):
@@ -471,7 +471,7 @@ class ApiDiagnosticBackendResponseDataMaskingHeader(dict):
 
 
 @pulumi.output_type
-class ApiDiagnosticBackendResponseDataMaskingQueryParam(dict):
+calass ApiDiagnosticBackendResponseDataMaskingQueryParam(dict):
     def __init__(__self__, *,
                  mode: str,
                  value: str):
@@ -500,7 +500,7 @@ class ApiDiagnosticBackendResponseDataMaskingQueryParam(dict):
 
 
 @pulumi.output_type
-class ApiDiagnosticFrontendRequest(dict):
+calass ApiDiagnosticFrontendRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -528,7 +528,7 @@ class ApiDiagnosticFrontendRequest(dict):
                  headers_to_logs: Optional[Sequence[str]] = None):
         """
         :param int body_bytes: Number of payload bytes to log (up to 8192).
-        :param 'ApiDiagnosticFrontendRequestDataMaskingArgs' data_masking: A `data_masking` block as defined below.
+        :param 'ApiDiagnosticFrontendRequestDataMaskingArrgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
@@ -564,7 +564,7 @@ class ApiDiagnosticFrontendRequest(dict):
 
 
 @pulumi.output_type
-class ApiDiagnosticFrontendRequestDataMasking(dict):
+calass ApiDiagnosticFrontendRequestDataMasking(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -586,8 +586,8 @@ class ApiDiagnosticFrontendRequestDataMasking(dict):
                  headers: Optional[Sequence['outputs.ApiDiagnosticFrontendRequestDataMaskingHeader']] = None,
                  query_params: Optional[Sequence['outputs.ApiDiagnosticFrontendRequestDataMaskingQueryParam']] = None):
         """
-        :param Sequence['ApiDiagnosticFrontendRequestDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
-        :param Sequence['ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
+        :param Sequence['ApiDiagnosticFrontendRequestDataMaskingHeaderArrgs'] headers: A `headers` block as defined below.
+        :param Sequence['ApiDiagnosticFrontendRequestDataMaskingQueryParamArrgs'] query_params: A `query_params` block as defined below.
         """
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
@@ -612,7 +612,7 @@ class ApiDiagnosticFrontendRequestDataMasking(dict):
 
 
 @pulumi.output_type
-class ApiDiagnosticFrontendRequestDataMaskingHeader(dict):
+calass ApiDiagnosticFrontendRequestDataMaskingHeader(dict):
     def __init__(__self__, *,
                  mode: str,
                  value: str):
@@ -641,7 +641,7 @@ class ApiDiagnosticFrontendRequestDataMaskingHeader(dict):
 
 
 @pulumi.output_type
-class ApiDiagnosticFrontendRequestDataMaskingQueryParam(dict):
+calass ApiDiagnosticFrontendRequestDataMaskingQueryParam(dict):
     def __init__(__self__, *,
                  mode: str,
                  value: str):
@@ -670,7 +670,7 @@ class ApiDiagnosticFrontendRequestDataMaskingQueryParam(dict):
 
 
 @pulumi.output_type
-class ApiDiagnosticFrontendResponse(dict):
+calass ApiDiagnosticFrontendResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -698,7 +698,7 @@ class ApiDiagnosticFrontendResponse(dict):
                  headers_to_logs: Optional[Sequence[str]] = None):
         """
         :param int body_bytes: Number of payload bytes to log (up to 8192).
-        :param 'ApiDiagnosticFrontendResponseDataMaskingArgs' data_masking: A `data_masking` block as defined below.
+        :param 'ApiDiagnosticFrontendResponseDataMaskingArrgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
@@ -734,7 +734,7 @@ class ApiDiagnosticFrontendResponse(dict):
 
 
 @pulumi.output_type
-class ApiDiagnosticFrontendResponseDataMasking(dict):
+calass ApiDiagnosticFrontendResponseDataMasking(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -756,8 +756,8 @@ class ApiDiagnosticFrontendResponseDataMasking(dict):
                  headers: Optional[Sequence['outputs.ApiDiagnosticFrontendResponseDataMaskingHeader']] = None,
                  query_params: Optional[Sequence['outputs.ApiDiagnosticFrontendResponseDataMaskingQueryParam']] = None):
         """
-        :param Sequence['ApiDiagnosticFrontendResponseDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
-        :param Sequence['ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
+        :param Sequence['ApiDiagnosticFrontendResponseDataMaskingHeaderArrgs'] headers: A `headers` block as defined below.
+        :param Sequence['ApiDiagnosticFrontendResponseDataMaskingQueryParamArrgs'] query_params: A `query_params` block as defined below.
         """
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
@@ -782,7 +782,7 @@ class ApiDiagnosticFrontendResponseDataMasking(dict):
 
 
 @pulumi.output_type
-class ApiDiagnosticFrontendResponseDataMaskingHeader(dict):
+calass ApiDiagnosticFrontendResponseDataMaskingHeader(dict):
     def __init__(__self__, *,
                  mode: str,
                  value: str):
@@ -811,7 +811,7 @@ class ApiDiagnosticFrontendResponseDataMaskingHeader(dict):
 
 
 @pulumi.output_type
-class ApiDiagnosticFrontendResponseDataMaskingQueryParam(dict):
+calass ApiDiagnosticFrontendResponseDataMaskingQueryParam(dict):
     def __init__(__self__, *,
                  mode: str,
                  value: str):
@@ -840,7 +840,7 @@ class ApiDiagnosticFrontendResponseDataMaskingQueryParam(dict):
 
 
 @pulumi.output_type
-class ApiImport(dict):
+calass ApiImport(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -869,7 +869,7 @@ class ApiImport(dict):
         """
         :param str content_format: The format of the content from which the API Definition should be imported. Possible values are: `openapi`, `openapi+json`, `openapi+json-link`, `openapi-link`, `swagger-json`, `swagger-link-json`, `wadl-link-json`, `wadl-xml`, `wsdl` and `wsdl-link`.
         :param str content_value: The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline.
-        :param 'ApiImportWsdlSelectorArgs' wsdl_selector: A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
+        :param 'ApiImportWsdlSelectorArrgs' wsdl_selector: A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
         """
         pulumi.set(__self__, "content_format", content_format)
         pulumi.set(__self__, "content_value", content_value)
@@ -902,7 +902,7 @@ class ApiImport(dict):
 
 
 @pulumi.output_type
-class ApiImportWsdlSelector(dict):
+calass ApiImportWsdlSelector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -950,7 +950,7 @@ class ApiImportWsdlSelector(dict):
 
 
 @pulumi.output_type
-class ApiLicense(dict):
+calass ApiLicense(dict):
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  url: Optional[str] = None):
@@ -981,7 +981,7 @@ class ApiLicense(dict):
 
 
 @pulumi.output_type
-class ApiOauth2Authorization(dict):
+calass ApiOauth2Authorization(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1028,7 +1028,7 @@ class ApiOauth2Authorization(dict):
 
 
 @pulumi.output_type
-class ApiOpenidAuthentication(dict):
+calass ApiOpenidAuthentication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1077,7 +1077,7 @@ class ApiOpenidAuthentication(dict):
 
 
 @pulumi.output_type
-class ApiOperationRequest(dict):
+calass ApiOperationRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1102,9 +1102,9 @@ class ApiOperationRequest(dict):
                  representations: Optional[Sequence['outputs.ApiOperationRequestRepresentation']] = None):
         """
         :param str description: A description of the HTTP Request, which may include HTML tags.
-        :param Sequence['ApiOperationRequestHeaderArgs'] headers: One or more `header` blocks as defined above.
-        :param Sequence['ApiOperationRequestQueryParameterArgs'] query_parameters: One or more `query_parameter` blocks as defined above.
-        :param Sequence['ApiOperationRequestRepresentationArgs'] representations: One or more `representation` blocks as defined below.
+        :param Sequence['ApiOperationRequestHeaderArrgs'] headers: One or more `header` blocks as defined above.
+        :param Sequence['ApiOperationRequestQueryParameterArrgs'] query_parameters: One or more `query_parameter` blocks as defined above.
+        :param Sequence['ApiOperationRequestRepresentationArrgs'] representations: One or more `representation` blocks as defined below.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -1149,7 +1149,7 @@ class ApiOperationRequest(dict):
 
 
 @pulumi.output_type
-class ApiOperationRequestHeader(dict):
+calass ApiOperationRequestHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1187,7 +1187,7 @@ class ApiOperationRequestHeader(dict):
         :param str type: The Type of this Header, such as a `string`.
         :param str default_value: The default value for this Header.
         :param str description: A description of this Header.
-        :param Sequence['ApiOperationRequestHeaderExampleArgs'] examples: One or more `example` blocks as defined above.
+        :param Sequence['ApiOperationRequestHeaderExampleArrgs'] examples: One or more `example` blocks as defined above.
         :param str schema_id: The name of the Schema.
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Header.
@@ -1282,7 +1282,7 @@ class ApiOperationRequestHeader(dict):
 
 
 @pulumi.output_type
-class ApiOperationRequestHeaderExample(dict):
+calass ApiOperationRequestHeaderExample(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1365,7 +1365,7 @@ class ApiOperationRequestHeaderExample(dict):
 
 
 @pulumi.output_type
-class ApiOperationRequestQueryParameter(dict):
+calass ApiOperationRequestQueryParameter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1403,7 +1403,7 @@ class ApiOperationRequestQueryParameter(dict):
         :param str type: The Type of this Query Parameter, such as a `string`.
         :param str default_value: The default value for this Query Parameter.
         :param str description: A description of this Query Parameter.
-        :param Sequence['ApiOperationRequestQueryParameterExampleArgs'] examples: One or more `example` blocks as defined above.
+        :param Sequence['ApiOperationRequestQueryParameterExampleArrgs'] examples: One or more `example` blocks as defined above.
         :param str schema_id: The name of the Schema.
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Query Parameter.
@@ -1498,7 +1498,7 @@ class ApiOperationRequestQueryParameter(dict):
 
 
 @pulumi.output_type
-class ApiOperationRequestQueryParameterExample(dict):
+calass ApiOperationRequestQueryParameterExample(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1581,7 +1581,7 @@ class ApiOperationRequestQueryParameterExample(dict):
 
 
 @pulumi.output_type
-class ApiOperationRequestRepresentation(dict):
+calass ApiOperationRequestRepresentation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1613,8 +1613,8 @@ class ApiOperationRequestRepresentation(dict):
                  type_name: Optional[str] = None):
         """
         :param str content_type: The Content Type of this representation, such as `application/json`.
-        :param Sequence['ApiOperationRequestRepresentationExampleArgs'] examples: One or more `example` blocks as defined above.
-        :param Sequence['ApiOperationRequestRepresentationFormParameterArgs'] form_parameters: One or more `form_parameter` block as defined above.
+        :param Sequence['ApiOperationRequestRepresentationExampleArrgs'] examples: One or more `example` blocks as defined above.
+        :param Sequence['ApiOperationRequestRepresentationFormParameterArrgs'] form_parameters: One or more `form_parameter` block as defined above.
                
                > **NOTE:** This is Required when `content_type` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         :param str schema_id: The ID of an API Management Schema which represents this Response.
@@ -1682,7 +1682,7 @@ class ApiOperationRequestRepresentation(dict):
 
 
 @pulumi.output_type
-class ApiOperationRequestRepresentationExample(dict):
+calass ApiOperationRequestRepresentationExample(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1765,7 +1765,7 @@ class ApiOperationRequestRepresentationExample(dict):
 
 
 @pulumi.output_type
-class ApiOperationRequestRepresentationFormParameter(dict):
+calass ApiOperationRequestRepresentationFormParameter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1803,7 +1803,7 @@ class ApiOperationRequestRepresentationFormParameter(dict):
         :param str type: The Type of this Form Parameter, such as a `string`.
         :param str default_value: The default value for this Form Parameter.
         :param str description: A description of this Form Parameter.
-        :param Sequence['ApiOperationRequestRepresentationFormParameterExampleArgs'] examples: One or more `example` blocks as defined above.
+        :param Sequence['ApiOperationRequestRepresentationFormParameterExampleArrgs'] examples: One or more `example` blocks as defined above.
         :param str schema_id: The name of the Schema.
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Form Parameter.
@@ -1898,7 +1898,7 @@ class ApiOperationRequestRepresentationFormParameter(dict):
 
 
 @pulumi.output_type
-class ApiOperationRequestRepresentationFormParameterExample(dict):
+calass ApiOperationRequestRepresentationFormParameterExample(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1981,7 +1981,7 @@ class ApiOperationRequestRepresentationFormParameterExample(dict):
 
 
 @pulumi.output_type
-class ApiOperationResponse(dict):
+calass ApiOperationResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2007,8 +2007,8 @@ class ApiOperationResponse(dict):
         """
         :param int status_code: The HTTP Status Code.
         :param str description: A description of the HTTP Response, which may include HTML tags.
-        :param Sequence['ApiOperationResponseHeaderArgs'] headers: One or more `header` blocks as defined above.
-        :param Sequence['ApiOperationResponseRepresentationArgs'] representations: One or more `representation` blocks as defined below.
+        :param Sequence['ApiOperationResponseHeaderArrgs'] headers: One or more `header` blocks as defined above.
+        :param Sequence['ApiOperationResponseRepresentationArrgs'] representations: One or more `representation` blocks as defined below.
         """
         pulumi.set(__self__, "status_code", status_code)
         if description is not None:
@@ -2052,7 +2052,7 @@ class ApiOperationResponse(dict):
 
 
 @pulumi.output_type
-class ApiOperationResponseHeader(dict):
+calass ApiOperationResponseHeader(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2090,7 +2090,7 @@ class ApiOperationResponseHeader(dict):
         :param str type: The Type of this Header, such as a `string`.
         :param str default_value: The default value for this Header.
         :param str description: A description of this Header.
-        :param Sequence['ApiOperationResponseHeaderExampleArgs'] examples: One or more `example` blocks as defined above.
+        :param Sequence['ApiOperationResponseHeaderExampleArrgs'] examples: One or more `example` blocks as defined above.
         :param str schema_id: The name of the Schema.
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Header.
@@ -2185,7 +2185,7 @@ class ApiOperationResponseHeader(dict):
 
 
 @pulumi.output_type
-class ApiOperationResponseHeaderExample(dict):
+calass ApiOperationResponseHeaderExample(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2268,7 +2268,7 @@ class ApiOperationResponseHeaderExample(dict):
 
 
 @pulumi.output_type
-class ApiOperationResponseRepresentation(dict):
+calass ApiOperationResponseRepresentation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2300,8 +2300,8 @@ class ApiOperationResponseRepresentation(dict):
                  type_name: Optional[str] = None):
         """
         :param str content_type: The Content Type of this representation, such as `application/json`.
-        :param Sequence['ApiOperationResponseRepresentationExampleArgs'] examples: One or more `example` blocks as defined above.
-        :param Sequence['ApiOperationResponseRepresentationFormParameterArgs'] form_parameters: One or more `form_parameter` block as defined above.
+        :param Sequence['ApiOperationResponseRepresentationExampleArrgs'] examples: One or more `example` blocks as defined above.
+        :param Sequence['ApiOperationResponseRepresentationFormParameterArrgs'] form_parameters: One or more `form_parameter` block as defined above.
                
                > **NOTE:** This is Required when `content_type` is set to `application/x-www-form-urlencoded` or `multipart/form-data`.
         :param str schema_id: The ID of an API Management Schema which represents this Response.
@@ -2369,7 +2369,7 @@ class ApiOperationResponseRepresentation(dict):
 
 
 @pulumi.output_type
-class ApiOperationResponseRepresentationExample(dict):
+calass ApiOperationResponseRepresentationExample(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2452,7 +2452,7 @@ class ApiOperationResponseRepresentationExample(dict):
 
 
 @pulumi.output_type
-class ApiOperationResponseRepresentationFormParameter(dict):
+calass ApiOperationResponseRepresentationFormParameter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2490,7 +2490,7 @@ class ApiOperationResponseRepresentationFormParameter(dict):
         :param str type: The Type of this Form Parameter, such as a `string`.
         :param str default_value: The default value for this Form Parameter.
         :param str description: A description of this Form Parameter.
-        :param Sequence['ApiOperationResponseRepresentationFormParameterExampleArgs'] examples: One or more `example` blocks as defined above.
+        :param Sequence['ApiOperationResponseRepresentationFormParameterExampleArrgs'] examples: One or more `example` blocks as defined above.
         :param str schema_id: The name of the Schema.
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Form Parameter.
@@ -2585,7 +2585,7 @@ class ApiOperationResponseRepresentationFormParameter(dict):
 
 
 @pulumi.output_type
-class ApiOperationResponseRepresentationFormParameterExample(dict):
+calass ApiOperationResponseRepresentationFormParameterExample(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2668,7 +2668,7 @@ class ApiOperationResponseRepresentationFormParameterExample(dict):
 
 
 @pulumi.output_type
-class ApiOperationTemplateParameter(dict):
+calass ApiOperationTemplateParameter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2706,7 +2706,7 @@ class ApiOperationTemplateParameter(dict):
         :param str type: The Type of this Template Parameter, such as a `string`.
         :param str default_value: The default value for this Template Parameter.
         :param str description: A description of this Template Parameter.
-        :param Sequence['ApiOperationTemplateParameterExampleArgs'] examples: One or more `example` blocks as defined above.
+        :param Sequence['ApiOperationTemplateParameterExampleArrgs'] examples: One or more `example` blocks as defined above.
         :param str schema_id: The name of the Schema.
         :param str type_name: The type name defined by the Schema.
         :param Sequence[str] values: One or more acceptable values for this Template Parameter.
@@ -2801,7 +2801,7 @@ class ApiOperationTemplateParameter(dict):
 
 
 @pulumi.output_type
-class ApiOperationTemplateParameterExample(dict):
+calass ApiOperationTemplateParameterExample(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2884,7 +2884,7 @@ class ApiOperationTemplateParameterExample(dict):
 
 
 @pulumi.output_type
-class ApiSubscriptionKeyParameterNames(dict):
+calass ApiSubscriptionKeyParameterNames(dict):
     def __init__(__self__, *,
                  header: str,
                  query: str):
@@ -2913,7 +2913,7 @@ class ApiSubscriptionKeyParameterNames(dict):
 
 
 @pulumi.output_type
-class AuthorizationServerTokenBodyParameter(dict):
+calass AuthorizationServerTokenBodyParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):
@@ -2942,14 +2942,14 @@ class AuthorizationServerTokenBodyParameter(dict):
 
 
 @pulumi.output_type
-class BackendCredentials(dict):
+calass BackendCredentials(dict):
     def __init__(__self__, *,
                  authorization: Optional['outputs.BackendCredentialsAuthorization'] = None,
                  certificates: Optional[Sequence[str]] = None,
                  header: Optional[Mapping[str, str]] = None,
                  query: Optional[Mapping[str, str]] = None):
         """
-        :param 'BackendCredentialsAuthorizationArgs' authorization: An `authorization` block as defined below.
+        :param 'BackendCredentialsAuthorizationArrgs' authorization: An `authorization` block as defined below.
         :param Sequence[str] certificates: A list of client certificate thumbprints to present to the backend host. The certificates must exist within the API Management Service.
         :param Mapping[str, str] header: A mapping of header parameters to pass to the backend host. The keys are the header names and the values are a comma separated string of header values. This is converted to a list before being passed to the API.
         :param Mapping[str, str] query: A mapping of query parameters to pass to the backend host. The keys are the query names and the values are a comma separated string of query values. This is converted to a list before being passed to the API.
@@ -2997,7 +2997,7 @@ class BackendCredentials(dict):
 
 
 @pulumi.output_type
-class BackendCredentialsAuthorization(dict):
+calass BackendCredentialsAuthorization(dict):
     def __init__(__self__, *,
                  parameter: Optional[str] = None,
                  scheme: Optional[str] = None):
@@ -3028,7 +3028,7 @@ class BackendCredentialsAuthorization(dict):
 
 
 @pulumi.output_type
-class BackendProxy(dict):
+calass BackendProxy(dict):
     def __init__(__self__, *,
                  url: str,
                  username: str,
@@ -3069,7 +3069,7 @@ class BackendProxy(dict):
 
 
 @pulumi.output_type
-class BackendServiceFabricCluster(dict):
+calass BackendServiceFabricCluster(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3113,7 +3113,7 @@ class BackendServiceFabricCluster(dict):
                >
         :param str client_certificate_thumbprint: The client certificate thumbprint for the management endpoint.
         :param Sequence[str] server_certificate_thumbprints: A list of thumbprints of the server certificates of the Service Fabric cluster.
-        :param Sequence['BackendServiceFabricClusterServerX509NameArgs'] server_x509_names: One or more `server_x509_name` blocks as documented below.
+        :param Sequence['BackendServiceFabricClusterServerX509NameArrgs'] server_x509_names: One or more `server_x509_name` blocks as documented below.
         """
         pulumi.set(__self__, "management_endpoints", management_endpoints)
         pulumi.set(__self__, "max_partition_resolution_retries", max_partition_resolution_retries)
@@ -3179,7 +3179,7 @@ class BackendServiceFabricCluster(dict):
 
 
 @pulumi.output_type
-class BackendServiceFabricClusterServerX509Name(dict):
+calass BackendServiceFabricClusterServerX509Name(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3225,7 +3225,7 @@ class BackendServiceFabricClusterServerX509Name(dict):
 
 
 @pulumi.output_type
-class BackendTls(dict):
+calass BackendTls(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3275,7 +3275,7 @@ class BackendTls(dict):
 
 
 @pulumi.output_type
-class CustomDomainDeveloperPortal(dict):
+calass CustomDomainDeveloperPortal(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3426,7 +3426,7 @@ class CustomDomainDeveloperPortal(dict):
 
 
 @pulumi.output_type
-class CustomDomainGateway(dict):
+calass CustomDomainGateway(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3591,7 +3591,7 @@ class CustomDomainGateway(dict):
 
 
 @pulumi.output_type
-class CustomDomainManagement(dict):
+calass CustomDomainManagement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3742,7 +3742,7 @@ class CustomDomainManagement(dict):
 
 
 @pulumi.output_type
-class CustomDomainPortal(dict):
+calass CustomDomainPortal(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3893,7 +3893,7 @@ class CustomDomainPortal(dict):
 
 
 @pulumi.output_type
-class CustomDomainScm(dict):
+calass CustomDomainScm(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4044,7 +4044,7 @@ class CustomDomainScm(dict):
 
 
 @pulumi.output_type
-class DiagnosticBackendRequest(dict):
+calass DiagnosticBackendRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4072,7 +4072,7 @@ class DiagnosticBackendRequest(dict):
                  headers_to_logs: Optional[Sequence[str]] = None):
         """
         :param int body_bytes: Number of payload bytes to log (up to 8192).
-        :param 'DiagnosticBackendRequestDataMaskingArgs' data_masking: A `data_masking` block as defined below.
+        :param 'DiagnosticBackendRequestDataMaskingArrgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
@@ -4108,7 +4108,7 @@ class DiagnosticBackendRequest(dict):
 
 
 @pulumi.output_type
-class DiagnosticBackendRequestDataMasking(dict):
+calass DiagnosticBackendRequestDataMasking(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4130,8 +4130,8 @@ class DiagnosticBackendRequestDataMasking(dict):
                  headers: Optional[Sequence['outputs.DiagnosticBackendRequestDataMaskingHeader']] = None,
                  query_params: Optional[Sequence['outputs.DiagnosticBackendRequestDataMaskingQueryParam']] = None):
         """
-        :param Sequence['DiagnosticBackendRequestDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
-        :param Sequence['DiagnosticBackendRequestDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
+        :param Sequence['DiagnosticBackendRequestDataMaskingHeaderArrgs'] headers: A `headers` block as defined below.
+        :param Sequence['DiagnosticBackendRequestDataMaskingQueryParamArrgs'] query_params: A `query_params` block as defined below.
         """
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
@@ -4156,7 +4156,7 @@ class DiagnosticBackendRequestDataMasking(dict):
 
 
 @pulumi.output_type
-class DiagnosticBackendRequestDataMaskingHeader(dict):
+calass DiagnosticBackendRequestDataMaskingHeader(dict):
     def __init__(__self__, *,
                  mode: str,
                  value: str):
@@ -4185,7 +4185,7 @@ class DiagnosticBackendRequestDataMaskingHeader(dict):
 
 
 @pulumi.output_type
-class DiagnosticBackendRequestDataMaskingQueryParam(dict):
+calass DiagnosticBackendRequestDataMaskingQueryParam(dict):
     def __init__(__self__, *,
                  mode: str,
                  value: str):
@@ -4214,7 +4214,7 @@ class DiagnosticBackendRequestDataMaskingQueryParam(dict):
 
 
 @pulumi.output_type
-class DiagnosticBackendResponse(dict):
+calass DiagnosticBackendResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4242,7 +4242,7 @@ class DiagnosticBackendResponse(dict):
                  headers_to_logs: Optional[Sequence[str]] = None):
         """
         :param int body_bytes: Number of payload bytes to log (up to 8192).
-        :param 'DiagnosticBackendResponseDataMaskingArgs' data_masking: A `data_masking` block as defined below.
+        :param 'DiagnosticBackendResponseDataMaskingArrgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
@@ -4278,7 +4278,7 @@ class DiagnosticBackendResponse(dict):
 
 
 @pulumi.output_type
-class DiagnosticBackendResponseDataMasking(dict):
+calass DiagnosticBackendResponseDataMasking(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4300,8 +4300,8 @@ class DiagnosticBackendResponseDataMasking(dict):
                  headers: Optional[Sequence['outputs.DiagnosticBackendResponseDataMaskingHeader']] = None,
                  query_params: Optional[Sequence['outputs.DiagnosticBackendResponseDataMaskingQueryParam']] = None):
         """
-        :param Sequence['DiagnosticBackendResponseDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
-        :param Sequence['DiagnosticBackendResponseDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
+        :param Sequence['DiagnosticBackendResponseDataMaskingHeaderArrgs'] headers: A `headers` block as defined below.
+        :param Sequence['DiagnosticBackendResponseDataMaskingQueryParamArrgs'] query_params: A `query_params` block as defined below.
         """
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
@@ -4326,7 +4326,7 @@ class DiagnosticBackendResponseDataMasking(dict):
 
 
 @pulumi.output_type
-class DiagnosticBackendResponseDataMaskingHeader(dict):
+calass DiagnosticBackendResponseDataMaskingHeader(dict):
     def __init__(__self__, *,
                  mode: str,
                  value: str):
@@ -4355,7 +4355,7 @@ class DiagnosticBackendResponseDataMaskingHeader(dict):
 
 
 @pulumi.output_type
-class DiagnosticBackendResponseDataMaskingQueryParam(dict):
+calass DiagnosticBackendResponseDataMaskingQueryParam(dict):
     def __init__(__self__, *,
                  mode: str,
                  value: str):
@@ -4384,7 +4384,7 @@ class DiagnosticBackendResponseDataMaskingQueryParam(dict):
 
 
 @pulumi.output_type
-class DiagnosticFrontendRequest(dict):
+calass DiagnosticFrontendRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4412,7 +4412,7 @@ class DiagnosticFrontendRequest(dict):
                  headers_to_logs: Optional[Sequence[str]] = None):
         """
         :param int body_bytes: Number of payload bytes to log (up to 8192).
-        :param 'DiagnosticFrontendRequestDataMaskingArgs' data_masking: A `data_masking` block as defined below.
+        :param 'DiagnosticFrontendRequestDataMaskingArrgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
@@ -4448,7 +4448,7 @@ class DiagnosticFrontendRequest(dict):
 
 
 @pulumi.output_type
-class DiagnosticFrontendRequestDataMasking(dict):
+calass DiagnosticFrontendRequestDataMasking(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4470,8 +4470,8 @@ class DiagnosticFrontendRequestDataMasking(dict):
                  headers: Optional[Sequence['outputs.DiagnosticFrontendRequestDataMaskingHeader']] = None,
                  query_params: Optional[Sequence['outputs.DiagnosticFrontendRequestDataMaskingQueryParam']] = None):
         """
-        :param Sequence['DiagnosticFrontendRequestDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
-        :param Sequence['DiagnosticFrontendRequestDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
+        :param Sequence['DiagnosticFrontendRequestDataMaskingHeaderArrgs'] headers: A `headers` block as defined below.
+        :param Sequence['DiagnosticFrontendRequestDataMaskingQueryParamArrgs'] query_params: A `query_params` block as defined below.
         """
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
@@ -4496,7 +4496,7 @@ class DiagnosticFrontendRequestDataMasking(dict):
 
 
 @pulumi.output_type
-class DiagnosticFrontendRequestDataMaskingHeader(dict):
+calass DiagnosticFrontendRequestDataMaskingHeader(dict):
     def __init__(__self__, *,
                  mode: str,
                  value: str):
@@ -4525,7 +4525,7 @@ class DiagnosticFrontendRequestDataMaskingHeader(dict):
 
 
 @pulumi.output_type
-class DiagnosticFrontendRequestDataMaskingQueryParam(dict):
+calass DiagnosticFrontendRequestDataMaskingQueryParam(dict):
     def __init__(__self__, *,
                  mode: str,
                  value: str):
@@ -4554,7 +4554,7 @@ class DiagnosticFrontendRequestDataMaskingQueryParam(dict):
 
 
 @pulumi.output_type
-class DiagnosticFrontendResponse(dict):
+calass DiagnosticFrontendResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4582,7 +4582,7 @@ class DiagnosticFrontendResponse(dict):
                  headers_to_logs: Optional[Sequence[str]] = None):
         """
         :param int body_bytes: Number of payload bytes to log (up to 8192).
-        :param 'DiagnosticFrontendResponseDataMaskingArgs' data_masking: A `data_masking` block as defined below.
+        :param 'DiagnosticFrontendResponseDataMaskingArrgs' data_masking: A `data_masking` block as defined below.
         :param Sequence[str] headers_to_logs: Specifies a list of headers to log.
         """
         if body_bytes is not None:
@@ -4618,7 +4618,7 @@ class DiagnosticFrontendResponse(dict):
 
 
 @pulumi.output_type
-class DiagnosticFrontendResponseDataMasking(dict):
+calass DiagnosticFrontendResponseDataMasking(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4640,8 +4640,8 @@ class DiagnosticFrontendResponseDataMasking(dict):
                  headers: Optional[Sequence['outputs.DiagnosticFrontendResponseDataMaskingHeader']] = None,
                  query_params: Optional[Sequence['outputs.DiagnosticFrontendResponseDataMaskingQueryParam']] = None):
         """
-        :param Sequence['DiagnosticFrontendResponseDataMaskingHeaderArgs'] headers: A `headers` block as defined below.
-        :param Sequence['DiagnosticFrontendResponseDataMaskingQueryParamArgs'] query_params: A `query_params` block as defined below.
+        :param Sequence['DiagnosticFrontendResponseDataMaskingHeaderArrgs'] headers: A `headers` block as defined below.
+        :param Sequence['DiagnosticFrontendResponseDataMaskingQueryParamArrgs'] query_params: A `query_params` block as defined below.
         """
         if headers is not None:
             pulumi.set(__self__, "headers", headers)
@@ -4666,7 +4666,7 @@ class DiagnosticFrontendResponseDataMasking(dict):
 
 
 @pulumi.output_type
-class DiagnosticFrontendResponseDataMaskingHeader(dict):
+calass DiagnosticFrontendResponseDataMaskingHeader(dict):
     def __init__(__self__, *,
                  mode: str,
                  value: str):
@@ -4695,7 +4695,7 @@ class DiagnosticFrontendResponseDataMaskingHeader(dict):
 
 
 @pulumi.output_type
-class DiagnosticFrontendResponseDataMaskingQueryParam(dict):
+calass DiagnosticFrontendResponseDataMaskingQueryParam(dict):
     def __init__(__self__, *,
                  mode: str,
                  value: str):
@@ -4724,7 +4724,7 @@ class DiagnosticFrontendResponseDataMaskingQueryParam(dict):
 
 
 @pulumi.output_type
-class GatewayLocationData(dict):
+calass GatewayLocationData(dict):
     def __init__(__self__, *,
                  name: str,
                  city: Optional[str] = None,
@@ -4778,7 +4778,7 @@ class GatewayLocationData(dict):
 
 
 @pulumi.output_type
-class LoggerApplicationInsights(dict):
+calass LoggerApplicationInsights(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4813,7 +4813,7 @@ class LoggerApplicationInsights(dict):
 
 
 @pulumi.output_type
-class LoggerEventhub(dict):
+calass LoggerEventhub(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4859,7 +4859,7 @@ class LoggerEventhub(dict):
 
 
 @pulumi.output_type
-class NamedValueValueFromKeyVault(dict):
+calass NamedValueValueFromKeyVault(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4908,7 +4908,7 @@ class NamedValueValueFromKeyVault(dict):
 
 
 @pulumi.output_type
-class ServiceAdditionalLocation(dict):
+calass ServiceAdditionalLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4956,7 +4956,7 @@ class ServiceAdditionalLocation(dict):
                
                > **NOTE:** Availability zones and custom public IPs are only supported in the Premium tier.
         :param Sequence[str] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
-        :param 'ServiceAdditionalLocationVirtualNetworkConfigurationArgs' virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
+        :param 'ServiceAdditionalLocationVirtualNetworkConfigurationArrgs' virtual_network_configuration: A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
         :param Sequence[str] zones: A list of availability zones. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "location", location)
@@ -5053,7 +5053,7 @@ class ServiceAdditionalLocation(dict):
 
 
 @pulumi.output_type
-class ServiceAdditionalLocationVirtualNetworkConfiguration(dict):
+calass ServiceAdditionalLocationVirtualNetworkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5088,7 +5088,7 @@ class ServiceAdditionalLocationVirtualNetworkConfiguration(dict):
 
 
 @pulumi.output_type
-class ServiceCertificate(dict):
+calass ServiceCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5186,7 +5186,7 @@ class ServiceCertificate(dict):
 
 
 @pulumi.output_type
-class ServiceDelegation(dict):
+calass ServiceDelegation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5262,7 +5262,7 @@ class ServiceDelegation(dict):
 
 
 @pulumi.output_type
-class ServiceHostnameConfiguration(dict):
+calass ServiceHostnameConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5287,11 +5287,11 @@ class ServiceHostnameConfiguration(dict):
                  proxies: Optional[Sequence['outputs.ServiceHostnameConfigurationProxy']] = None,
                  scms: Optional[Sequence['outputs.ServiceHostnameConfigurationScm']] = None):
         """
-        :param Sequence['ServiceHostnameConfigurationDeveloperPortalArgs'] developer_portals: One or more `developer_portal` blocks as documented below.
-        :param Sequence['ServiceHostnameConfigurationManagementArgs'] managements: One or more `management` blocks as documented below.
-        :param Sequence['ServiceHostnameConfigurationPortalArgs'] portals: One or more `portal` blocks as documented below.
-        :param Sequence['ServiceHostnameConfigurationProxyArgs'] proxies: One or more `proxy` blocks as documented below.
-        :param Sequence['ServiceHostnameConfigurationScmArgs'] scms: One or more `scm` blocks as documented below.
+        :param Sequence['ServiceHostnameConfigurationDeveloperPortalArrgs'] developer_portals: One or more `developer_portal` blocks as documented below.
+        :param Sequence['ServiceHostnameConfigurationManagementArrgs'] managements: One or more `management` blocks as documented below.
+        :param Sequence['ServiceHostnameConfigurationPortalArrgs'] portals: One or more `portal` blocks as documented below.
+        :param Sequence['ServiceHostnameConfigurationProxyArrgs'] proxies: One or more `proxy` blocks as documented below.
+        :param Sequence['ServiceHostnameConfigurationScmArrgs'] scms: One or more `scm` blocks as documented below.
         """
         if developer_portals is not None:
             pulumi.set(__self__, "developer_portals", developer_portals)
@@ -5346,7 +5346,7 @@ class ServiceHostnameConfiguration(dict):
 
 
 @pulumi.output_type
-class ServiceHostnameConfigurationDeveloperPortal(dict):
+calass ServiceHostnameConfigurationDeveloperPortal(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5521,7 +5521,7 @@ class ServiceHostnameConfigurationDeveloperPortal(dict):
 
 
 @pulumi.output_type
-class ServiceHostnameConfigurationManagement(dict):
+calass ServiceHostnameConfigurationManagement(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5700,7 +5700,7 @@ class ServiceHostnameConfigurationManagement(dict):
 
 
 @pulumi.output_type
-class ServiceHostnameConfigurationPortal(dict):
+calass ServiceHostnameConfigurationPortal(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5875,7 +5875,7 @@ class ServiceHostnameConfigurationPortal(dict):
 
 
 @pulumi.output_type
-class ServiceHostnameConfigurationProxy(dict):
+calass ServiceHostnameConfigurationProxy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6064,7 +6064,7 @@ class ServiceHostnameConfigurationProxy(dict):
 
 
 @pulumi.output_type
-class ServiceHostnameConfigurationScm(dict):
+calass ServiceHostnameConfigurationScm(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6239,7 +6239,7 @@ class ServiceHostnameConfigurationScm(dict):
 
 
 @pulumi.output_type
-class ServiceIdentity(dict):
+calass ServiceIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6318,7 +6318,7 @@ class ServiceIdentity(dict):
 
 
 @pulumi.output_type
-class ServicePolicy(dict):
+calass ServicePolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6368,7 +6368,7 @@ class ServicePolicy(dict):
 
 
 @pulumi.output_type
-class ServiceProtocols(dict):
+calass ServiceProtocols(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6404,7 +6404,7 @@ class ServiceProtocols(dict):
 
 
 @pulumi.output_type
-class ServiceSecurity(dict):
+calass ServiceSecurity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6732,7 +6732,7 @@ class ServiceSecurity(dict):
 
 
 @pulumi.output_type
-class ServiceSignIn(dict):
+calass ServiceSignIn(dict):
     def __init__(__self__, *,
                  enabled: bool):
         """
@@ -6750,7 +6750,7 @@ class ServiceSignIn(dict):
 
 
 @pulumi.output_type
-class ServiceSignUp(dict):
+calass ServiceSignUp(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6773,7 +6773,7 @@ class ServiceSignUp(dict):
                  terms_of_service: 'outputs.ServiceSignUpTermsOfService'):
         """
         :param bool enabled: Can users sign up on the development portal?
-        :param 'ServiceSignUpTermsOfServiceArgs' terms_of_service: A `terms_of_service` block as defined below.
+        :param 'ServiceSignUpTermsOfServiceArrgs' terms_of_service: A `terms_of_service` block as defined below.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "terms_of_service", terms_of_service)
@@ -6796,7 +6796,7 @@ class ServiceSignUp(dict):
 
 
 @pulumi.output_type
-class ServiceSignUpTermsOfService(dict):
+calass ServiceSignUpTermsOfService(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6854,7 +6854,7 @@ class ServiceSignUpTermsOfService(dict):
 
 
 @pulumi.output_type
-class ServiceTenantAccess(dict):
+calass ServiceTenantAccess(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6929,7 +6929,7 @@ class ServiceTenantAccess(dict):
 
 
 @pulumi.output_type
-class ServiceVirtualNetworkConfiguration(dict):
+calass ServiceVirtualNetworkConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6964,7 +6964,7 @@ class ServiceVirtualNetworkConfiguration(dict):
 
 
 @pulumi.output_type
-class GetApiSubscriptionKeyParameterNameResult(dict):
+calass GetApiSubscriptionKeyParameterNameResult(dict):
     def __init__(__self__, *,
                  header: str,
                  query: str):
@@ -6993,7 +6993,7 @@ class GetApiSubscriptionKeyParameterNameResult(dict):
 
 
 @pulumi.output_type
-class GetGatewayLocationDataResult(dict):
+calass GetGatewayLocationDataResult(dict):
     def __init__(__self__, *,
                  city: str,
                  district: str,
@@ -7040,7 +7040,7 @@ class GetGatewayLocationDataResult(dict):
 
 
 @pulumi.output_type
-class GetServiceAdditionalLocationResult(dict):
+calass GetServiceAdditionalLocationResult(dict):
     def __init__(__self__, *,
                  capacity: int,
                  gateway_regional_url: str,
@@ -7124,7 +7124,7 @@ class GetServiceAdditionalLocationResult(dict):
 
 
 @pulumi.output_type
-class GetServiceHostnameConfigurationResult(dict):
+calass GetServiceHostnameConfigurationResult(dict):
     def __init__(__self__, *,
                  developer_portals: Sequence['outputs.GetServiceHostnameConfigurationDeveloperPortalResult'],
                  managements: Sequence['outputs.GetServiceHostnameConfigurationManagementResult'],
@@ -7132,11 +7132,11 @@ class GetServiceHostnameConfigurationResult(dict):
                  proxies: Sequence['outputs.GetServiceHostnameConfigurationProxyResult'],
                  scms: Sequence['outputs.GetServiceHostnameConfigurationScmResult']):
         """
-        :param Sequence['GetServiceHostnameConfigurationDeveloperPortalArgs'] developer_portals: One or more `developer_portal` blocks as documented below.
-        :param Sequence['GetServiceHostnameConfigurationManagementArgs'] managements: One or more `management` blocks as documented below.
-        :param Sequence['GetServiceHostnameConfigurationPortalArgs'] portals: One or more `portal` blocks as documented below.
-        :param Sequence['GetServiceHostnameConfigurationProxyArgs'] proxies: One or more `proxy` blocks as documented below.
-        :param Sequence['GetServiceHostnameConfigurationScmArgs'] scms: One or more `scm` blocks as documented below.
+        :param Sequence['GetServiceHostnameConfigurationDeveloperPortalArrgs'] developer_portals: One or more `developer_portal` blocks as documented below.
+        :param Sequence['GetServiceHostnameConfigurationManagementArrgs'] managements: One or more `management` blocks as documented below.
+        :param Sequence['GetServiceHostnameConfigurationPortalArrgs'] portals: One or more `portal` blocks as documented below.
+        :param Sequence['GetServiceHostnameConfigurationProxyArrgs'] proxies: One or more `proxy` blocks as documented below.
+        :param Sequence['GetServiceHostnameConfigurationScmArrgs'] scms: One or more `scm` blocks as documented below.
         """
         pulumi.set(__self__, "developer_portals", developer_portals)
         pulumi.set(__self__, "managements", managements)
@@ -7186,7 +7186,7 @@ class GetServiceHostnameConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetServiceHostnameConfigurationDeveloperPortalResult(dict):
+calass GetServiceHostnameConfigurationDeveloperPortalResult(dict):
     def __init__(__self__, *,
                  host_name: str,
                  key_vault_id: str,
@@ -7226,7 +7226,7 @@ class GetServiceHostnameConfigurationDeveloperPortalResult(dict):
 
 
 @pulumi.output_type
-class GetServiceHostnameConfigurationManagementResult(dict):
+calass GetServiceHostnameConfigurationManagementResult(dict):
     def __init__(__self__, *,
                  host_name: str,
                  key_vault_id: str,
@@ -7266,7 +7266,7 @@ class GetServiceHostnameConfigurationManagementResult(dict):
 
 
 @pulumi.output_type
-class GetServiceHostnameConfigurationPortalResult(dict):
+calass GetServiceHostnameConfigurationPortalResult(dict):
     def __init__(__self__, *,
                  host_name: str,
                  key_vault_id: str,
@@ -7306,7 +7306,7 @@ class GetServiceHostnameConfigurationPortalResult(dict):
 
 
 @pulumi.output_type
-class GetServiceHostnameConfigurationProxyResult(dict):
+calass GetServiceHostnameConfigurationProxyResult(dict):
     def __init__(__self__, *,
                  default_ssl_binding: bool,
                  host_name: str,
@@ -7357,7 +7357,7 @@ class GetServiceHostnameConfigurationProxyResult(dict):
 
 
 @pulumi.output_type
-class GetServiceHostnameConfigurationScmResult(dict):
+calass GetServiceHostnameConfigurationScmResult(dict):
     def __init__(__self__, *,
                  host_name: str,
                  key_vault_id: str,
@@ -7397,7 +7397,7 @@ class GetServiceHostnameConfigurationScmResult(dict):
 
 
 @pulumi.output_type
-class GetServiceIdentityResult(dict):
+calass GetServiceIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -7448,7 +7448,7 @@ class GetServiceIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetServiceTenantAccessResult(dict):
+calass GetServiceTenantAccessResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  primary_key: str,

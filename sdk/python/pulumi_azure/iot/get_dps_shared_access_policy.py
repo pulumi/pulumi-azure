@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDpsSharedAccessPolicyResult:
+calass GetDpsSharedAccessPolicyResult:
     """
     A collection of values returned by getDpsSharedAccessPolicy.
     """
@@ -103,7 +103,7 @@ class GetDpsSharedAccessPolicyResult:
         return pulumi.get(self, "secondary_key")
 
 
-class AwaitableGetDpsSharedAccessPolicyResult(GetDpsSharedAccessPolicyResult):
+calass AwaitableGetDpsSharedAccessPolicyResult(GetDpsSharedAccessPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

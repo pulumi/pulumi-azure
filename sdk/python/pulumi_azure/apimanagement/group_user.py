@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['GroupUserArgs', 'GroupUser']
+__all__ = ['GroupUserArrgs', 'GroupUser']
 
 @pulumi.input_type
-class GroupUserArgs:
+calass GroupUserArrgs:
     def __init__(__self__, *,
                  api_management_name: pulumi.Input[str],
                  group_name: pulumi.Input[str],
@@ -80,7 +80,7 @@ class GroupUserArgs:
 
 
 @pulumi.input_type
-class _GroupUserState:
+calass _GroupUserState:
     def __init__(__self__, *,
                  api_management_name: Optional[pulumi.Input[str]] = None,
                  group_name: Optional[pulumi.Input[str]] = None,
@@ -151,7 +151,7 @@ class _GroupUserState:
         pulumi.set(self, "user_id", value)
 
 
-class GroupUser(pulumi.CustomResource):
+calass GroupUser(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -199,7 +199,7 @@ class GroupUser(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GroupUserArgs,
+                 args: GroupUserArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an API Management User Assignment to a Group.
@@ -229,12 +229,12 @@ class GroupUser(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param GroupUserArgs args: The arguments to use to populate this resource's properties.
+        :param GroupUserArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GroupUserArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GroupUserArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -254,7 +254,7 @@ class GroupUser(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GroupUserArgs.__new__(GroupUserArgs)
+            __props__ = GroupUserArrgs.__new__(GroupUserArrgs)
 
             if api_management_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_name'")

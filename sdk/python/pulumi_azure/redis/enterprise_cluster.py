@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EnterpriseClusterArgs', 'EnterpriseCluster']
+__all__ = ['EnterpriseClusterArrgs', 'EnterpriseCluster']
 
 @pulumi.input_type
-class EnterpriseClusterArgs:
+calass EnterpriseClusterArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
@@ -130,7 +130,7 @@ class EnterpriseClusterArgs:
 
 
 @pulumi.input_type
-class _EnterpriseClusterState:
+calass _EnterpriseClusterState:
     def __init__(__self__, *,
                  hostname: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -265,7 +265,7 @@ class _EnterpriseClusterState:
         pulumi.set(self, "zones", value)
 
 
-class EnterpriseCluster(pulumi.CustomResource):
+calass EnterpriseCluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -316,7 +316,7 @@ class EnterpriseCluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EnterpriseClusterArgs,
+                 args: EnterpriseClusterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Redis Enterprise Cluster.
@@ -343,12 +343,12 @@ class EnterpriseCluster(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EnterpriseClusterArgs args: The arguments to use to populate this resource's properties.
+        :param EnterpriseClusterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EnterpriseClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EnterpriseClusterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -371,7 +371,7 @@ class EnterpriseCluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EnterpriseClusterArgs.__new__(EnterpriseClusterArgs)
+            __props__ = EnterpriseClusterArrgs.__new__(EnterpriseClusterArrgs)
 
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_tls_version"] = minimum_tls_version

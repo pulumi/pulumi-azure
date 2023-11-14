@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ShareDirectoryArgs', 'ShareDirectory']
+__all__ = ['ShareDirectoryArrgs', 'ShareDirectory']
 
 @pulumi.input_type
-class ShareDirectoryArgs:
+calass ShareDirectoryArrgs:
     def __init__(__self__, *,
                  share_name: pulumi.Input[str],
                  storage_account_name: pulumi.Input[str],
@@ -82,7 +82,7 @@ class ShareDirectoryArgs:
 
 
 @pulumi.input_type
-class _ShareDirectoryState:
+calass _ShareDirectoryState:
     def __init__(__self__, *,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -153,7 +153,7 @@ class _ShareDirectoryState:
         pulumi.set(self, "storage_account_name", value)
 
 
-class ShareDirectory(pulumi.CustomResource):
+calass ShareDirectory(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -205,7 +205,7 @@ class ShareDirectory(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ShareDirectoryArgs,
+                 args: ShareDirectoryArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Directory within an Azure Storage File Share.
@@ -239,12 +239,12 @@ class ShareDirectory(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ShareDirectoryArgs args: The arguments to use to populate this resource's properties.
+        :param ShareDirectoryArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ShareDirectoryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ShareDirectoryArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -264,7 +264,7 @@ class ShareDirectory(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ShareDirectoryArgs.__new__(ShareDirectoryArgs)
+            __props__ = ShareDirectoryArrgs.__new__(ShareDirectoryArrgs)
 
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["name"] = name

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['OutputFunctionArgs', 'OutputFunction']
+__all__ = ['OutputFunctionArrgs', 'OutputFunction']
 
 @pulumi.input_type
-class OutputFunctionArgs:
+calass OutputFunctionArrgs:
     def __init__(__self__, *,
                  api_key: pulumi.Input[str],
                  function_app: pulumi.Input[str],
@@ -143,7 +143,7 @@ class OutputFunctionArgs:
 
 
 @pulumi.input_type
-class _OutputFunctionState:
+calass _OutputFunctionState:
     def __init__(__self__, *,
                  api_key: Optional[pulumi.Input[str]] = None,
                  batch_max_count: Optional[pulumi.Input[int]] = None,
@@ -278,7 +278,7 @@ class _OutputFunctionState:
         pulumi.set(self, "stream_analytics_job_name", value)
 
 
-class OutputFunction(pulumi.CustomResource):
+calass OutputFunction(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -312,7 +312,7 @@ class OutputFunction(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             kind="FunctionApp",
             reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Dynamic",
                 size="Y1",
             ))
@@ -363,7 +363,7 @@ class OutputFunction(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OutputFunctionArgs,
+                 args: OutputFunctionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Stream Analytics Output Function.
@@ -385,7 +385,7 @@ class OutputFunction(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             kind="FunctionApp",
             reserved=True,
-            sku=azure.appservice.PlanSkuArgs(
+            sku=azure.appservice.PlanSkuArrgs(
                 tier="Dynamic",
                 size="Y1",
             ))
@@ -422,12 +422,12 @@ class OutputFunction(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param OutputFunctionArgs args: The arguments to use to populate this resource's properties.
+        :param OutputFunctionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OutputFunctionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OutputFunctionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -451,7 +451,7 @@ class OutputFunction(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OutputFunctionArgs.__new__(OutputFunctionArgs)
+            __props__ = OutputFunctionArrgs.__new__(OutputFunctionArrgs)
 
             if api_key is None and not opts.urn:
                 raise TypeError("Missing required property 'api_key'")

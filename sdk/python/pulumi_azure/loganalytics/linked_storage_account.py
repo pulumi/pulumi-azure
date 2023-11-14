@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LinkedStorageAccountArgs', 'LinkedStorageAccount']
+__all__ = ['LinkedStorageAccountArrgs', 'LinkedStorageAccount']
 
 @pulumi.input_type
-class LinkedStorageAccountArgs:
+calass LinkedStorageAccountArrgs:
     def __init__(__self__, *,
                  data_source_type: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -84,7 +84,7 @@ class LinkedStorageAccountArgs:
 
 
 @pulumi.input_type
-class _LinkedStorageAccountState:
+calass _LinkedStorageAccountState:
     def __init__(__self__, *,
                  data_source_type: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -159,7 +159,7 @@ class _LinkedStorageAccountState:
         pulumi.set(self, "workspace_resource_id", value)
 
 
-class LinkedStorageAccount(pulumi.CustomResource):
+calass LinkedStorageAccount(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -216,7 +216,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LinkedStorageAccountArgs,
+                 args: LinkedStorageAccountArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Log Analytics Linked Storage Account.
@@ -253,12 +253,12 @@ class LinkedStorageAccount(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LinkedStorageAccountArgs args: The arguments to use to populate this resource's properties.
+        :param LinkedStorageAccountArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LinkedStorageAccountArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LinkedStorageAccountArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -278,7 +278,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LinkedStorageAccountArgs.__new__(LinkedStorageAccountArgs)
+            __props__ = LinkedStorageAccountArrgs.__new__(LinkedStorageAccountArrgs)
 
             if data_source_type is None and not opts.urn:
                 raise TypeError("Missing required property 'data_source_type'")

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NetworkManagerSubscriptionConnectionArgs', 'NetworkManagerSubscriptionConnection']
+__all__ = ['NetworkManagerSubscriptionConnectionArrgs', 'NetworkManagerSubscriptionConnection']
 
 @pulumi.input_type
-class NetworkManagerSubscriptionConnectionArgs:
+calass NetworkManagerSubscriptionConnectionArrgs:
     def __init__(__self__, *,
                  network_manager_id: pulumi.Input[str],
                  subscription_id: pulumi.Input[str],
@@ -82,7 +82,7 @@ class NetworkManagerSubscriptionConnectionArgs:
 
 
 @pulumi.input_type
-class _NetworkManagerSubscriptionConnectionState:
+calass _NetworkManagerSubscriptionConnectionState:
     def __init__(__self__, *,
                  connection_state: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -169,7 +169,7 @@ class _NetworkManagerSubscriptionConnectionState:
         pulumi.set(self, "subscription_id", value)
 
 
-class NetworkManagerSubscriptionConnection(pulumi.CustomResource):
+calass NetworkManagerSubscriptionConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -193,7 +193,7 @@ class NetworkManagerSubscriptionConnection(pulumi.CustomResource):
         example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
+            scope=azure.network.NetworkManagerScopeArrgs(
                 subscription_ids=[current.id],
             ),
             scope_accesses=["SecurityAdmin"])
@@ -222,7 +222,7 @@ class NetworkManagerSubscriptionConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkManagerSubscriptionConnectionArgs,
+                 args: NetworkManagerSubscriptionConnectionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Manager Subscription Connection which may cross tenants.
@@ -238,7 +238,7 @@ class NetworkManagerSubscriptionConnection(pulumi.CustomResource):
         example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
+            scope=azure.network.NetworkManagerScopeArrgs(
                 subscription_ids=[current.id],
             ),
             scope_accesses=["SecurityAdmin"])
@@ -257,12 +257,12 @@ class NetworkManagerSubscriptionConnection(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkManagerSubscriptionConnectionArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkManagerSubscriptionConnectionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkManagerSubscriptionConnectionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkManagerSubscriptionConnectionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -282,7 +282,7 @@ class NetworkManagerSubscriptionConnection(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkManagerSubscriptionConnectionArgs.__new__(NetworkManagerSubscriptionConnectionArgs)
+            __props__ = NetworkManagerSubscriptionConnectionArrgs.__new__(NetworkManagerSubscriptionConnectionArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name

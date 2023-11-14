@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ResourceGroupArgs', 'ResourceGroup']
+__all__ = ['ResourceGroupArrgs', 'ResourceGroup']
 
 @pulumi.input_type
-class ResourceGroupArgs:
+calass ResourceGroupArrgs:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
@@ -84,7 +84,7 @@ class ResourceGroupArgs:
 
 
 @pulumi.input_type
-class _ResourceGroupState:
+calass _ResourceGroupState:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_by: Optional[pulumi.Input[str]] = None,
@@ -155,7 +155,7 @@ class _ResourceGroupState:
         pulumi.set(self, "tags", value)
 
 
-class ResourceGroup(pulumi.CustomResource):
+calass ResourceGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -194,7 +194,7 @@ class ResourceGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ResourceGroupArgs] = None,
+                 args: Optional[ResourceGroupArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
@@ -215,12 +215,12 @@ class ResourceGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ResourceGroupArgs args: The arguments to use to populate this resource's properties.
+        :param ResourceGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ResourceGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ResourceGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -240,7 +240,7 @@ class ResourceGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ResourceGroupArgs.__new__(ResourceGroupArgs)
+            __props__ = ResourceGroupArrgs.__new__(ResourceGroupArrgs)
 
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_by"] = managed_by

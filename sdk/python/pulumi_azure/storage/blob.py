@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['BlobArgs', 'Blob']
+__all__ = ['BlobArrgs', 'Blob']
 
 @pulumi.input_type
-class BlobArgs:
+calass BlobArrgs:
     def __init__(__self__, *,
                  storage_account_name: pulumi.Input[str],
                  storage_container_name: pulumi.Input[str],
@@ -251,7 +251,7 @@ class BlobArgs:
 
 
 @pulumi.input_type
-class _BlobState:
+calass _BlobState:
     def __init__(__self__, *,
                  access_tier: Optional[pulumi.Input[str]] = None,
                  cache_control: Optional[pulumi.Input[str]] = None,
@@ -508,7 +508,7 @@ class _BlobState:
         pulumi.set(self, "url", value)
 
 
-class Blob(pulumi.CustomResource):
+calass Blob(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -587,7 +587,7 @@ class Blob(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BlobArgs,
+                 args: BlobArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Blob within a Storage Container.
@@ -623,12 +623,12 @@ class Blob(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param BlobArgs args: The arguments to use to populate this resource's properties.
+        :param BlobArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BlobArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BlobArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -658,7 +658,7 @@ class Blob(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BlobArgs.__new__(BlobArgs)
+            __props__ = BlobArrgs.__new__(BlobArrgs)
 
             __props__.__dict__["access_tier"] = access_tier
             __props__.__dict__["cache_control"] = cache_control

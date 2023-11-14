@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SqlPoolWorkloadClassifierArgs', 'SqlPoolWorkloadClassifier']
+__all__ = ['SqlPoolWorkloadClassifierArrgs', 'SqlPoolWorkloadClassifier']
 
 @pulumi.input_type
-class SqlPoolWorkloadClassifierArgs:
+calass SqlPoolWorkloadClassifierArrgs:
     def __init__(__self__, *,
                  member_name: pulumi.Input[str],
                  workload_group_id: pulumi.Input[str],
@@ -146,7 +146,7 @@ class SqlPoolWorkloadClassifierArgs:
 
 
 @pulumi.input_type
-class _SqlPoolWorkloadClassifierState:
+calass _SqlPoolWorkloadClassifierState:
     def __init__(__self__, *,
                  context: Optional[pulumi.Input[str]] = None,
                  end_time: Optional[pulumi.Input[str]] = None,
@@ -281,7 +281,7 @@ class _SqlPoolWorkloadClassifierState:
         pulumi.set(self, "workload_group_id", value)
 
 
-class SqlPoolWorkloadClassifier(pulumi.CustomResource):
+calass SqlPoolWorkloadClassifier(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -318,7 +318,7 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_sql_pool = azure.synapse.SqlPool("exampleSqlPool",
@@ -366,7 +366,7 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SqlPoolWorkloadClassifierArgs,
+                 args: SqlPoolWorkloadClassifierArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Synapse SQL Pool Workload Classifier.
@@ -391,7 +391,7 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
-            identity=azure.synapse.WorkspaceIdentityArgs(
+            identity=azure.synapse.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_sql_pool = azure.synapse.SqlPool("exampleSqlPool",
@@ -425,12 +425,12 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SqlPoolWorkloadClassifierArgs args: The arguments to use to populate this resource's properties.
+        :param SqlPoolWorkloadClassifierArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SqlPoolWorkloadClassifierArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SqlPoolWorkloadClassifierArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -454,7 +454,7 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SqlPoolWorkloadClassifierArgs.__new__(SqlPoolWorkloadClassifierArgs)
+            __props__ = SqlPoolWorkloadClassifierArrgs.__new__(SqlPoolWorkloadClassifierArrgs)
 
             __props__.__dict__["context"] = context
             __props__.__dict__["end_time"] = end_time

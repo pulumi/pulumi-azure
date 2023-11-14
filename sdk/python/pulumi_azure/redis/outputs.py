@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class CacheIdentity(dict):
+calass CacheIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -90,7 +90,7 @@ class CacheIdentity(dict):
 
 
 @pulumi.output_type
-class CachePatchSchedule(dict):
+calass CachePatchSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -157,7 +157,7 @@ class CachePatchSchedule(dict):
 
 
 @pulumi.output_type
-class CacheRedisConfiguration(dict):
+calass CacheRedisConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -409,7 +409,7 @@ class CacheRedisConfiguration(dict):
 
 
 @pulumi.output_type
-class EnterpriseDatabaseModule(dict):
+calass EnterpriseDatabaseModule(dict):
     def __init__(__self__, *,
                  name: str,
                  args: Optional[str] = None,
@@ -447,7 +447,7 @@ class EnterpriseDatabaseModule(dict):
 
 
 @pulumi.output_type
-class GetCachePatchScheduleResult(dict):
+calass GetCachePatchScheduleResult(dict):
     def __init__(__self__, *,
                  day_of_week: str,
                  maintenance_window: str,
@@ -487,7 +487,7 @@ class GetCachePatchScheduleResult(dict):
 
 
 @pulumi.output_type
-class GetCacheRedisConfigurationResult(dict):
+calass GetCacheRedisConfigurationResult(dict):
     def __init__(__self__, *,
                  aof_backup_enabled: bool,
                  aof_storage_connection_string0: str,

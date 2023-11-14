@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SpringCloudAppArgs', 'SpringCloudApp']
+__all__ = ['SpringCloudAppArrgs', 'SpringCloudApp']
 
 @pulumi.input_type
-class SpringCloudAppArgs:
+calass SpringCloudAppArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  service_name: pulumi.Input[str],
                  addon_json: Optional[pulumi.Input[str]] = None,
-                 custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArgs']]]] = None,
+                 custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArrgs']]]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input['SpringCloudAppIdentityArgs']] = None,
-                 ingress_settings: Optional[pulumi.Input['SpringCloudAppIngressSettingsArgs']] = None,
+                 identity: Optional[pulumi.Input['SpringCloudAppIdentityArrgs']] = None,
+                 ingress_settings: Optional[pulumi.Input['SpringCloudAppIngressSettingsArrgs']] = None,
                  is_public: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 persistent_disk: Optional[pulumi.Input['SpringCloudAppPersistentDiskArgs']] = None,
+                 persistent_disk: Optional[pulumi.Input['SpringCloudAppPersistentDiskArrgs']] = None,
                  public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  tls_enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -33,13 +33,13 @@ class SpringCloudAppArgs:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
         :param pulumi.Input[str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Service.
-        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArgs']]] custom_persistent_disks: A `custom_persistent_disk` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArrgs']]] custom_persistent_disks: A `custom_persistent_disk` block as defined below.
         :param pulumi.Input[bool] https_only: Is only HTTPS allowed? Defaults to `false`.
-        :param pulumi.Input['SpringCloudAppIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input['SpringCloudAppIngressSettingsArgs'] ingress_settings: An `ingress_settings` block as defined below.
+        :param pulumi.Input['SpringCloudAppIdentityArrgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['SpringCloudAppIngressSettingsArrgs'] ingress_settings: An `ingress_settings` block as defined below.
         :param pulumi.Input[bool] is_public: Does the Spring Cloud Application have public endpoint? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
-        :param pulumi.Input['SpringCloudAppPersistentDiskArgs'] persistent_disk: An `persistent_disk` block as defined below.
+        :param pulumi.Input['SpringCloudAppPersistentDiskArrgs'] persistent_disk: An `persistent_disk` block as defined below.
         :param pulumi.Input[bool] public_endpoint_enabled: Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
         :param pulumi.Input[bool] tls_enabled: Is End to End TLS Enabled? Defaults to `false`.
         """
@@ -104,14 +104,14 @@ class SpringCloudAppArgs:
 
     @property
     @pulumi.getter(name="customPersistentDisks")
-    def custom_persistent_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArgs']]]]:
+    def custom_persistent_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArrgs']]]]:
         """
         A `custom_persistent_disk` block as defined below.
         """
         return pulumi.get(self, "custom_persistent_disks")
 
     @custom_persistent_disks.setter
-    def custom_persistent_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArgs']]]]):
+    def custom_persistent_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArrgs']]]]):
         pulumi.set(self, "custom_persistent_disks", value)
 
     @property
@@ -128,26 +128,26 @@ class SpringCloudAppArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['SpringCloudAppIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['SpringCloudAppIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['SpringCloudAppIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['SpringCloudAppIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="ingressSettings")
-    def ingress_settings(self) -> Optional[pulumi.Input['SpringCloudAppIngressSettingsArgs']]:
+    def ingress_settings(self) -> Optional[pulumi.Input['SpringCloudAppIngressSettingsArrgs']]:
         """
         An `ingress_settings` block as defined below.
         """
         return pulumi.get(self, "ingress_settings")
 
     @ingress_settings.setter
-    def ingress_settings(self, value: Optional[pulumi.Input['SpringCloudAppIngressSettingsArgs']]):
+    def ingress_settings(self, value: Optional[pulumi.Input['SpringCloudAppIngressSettingsArrgs']]):
         pulumi.set(self, "ingress_settings", value)
 
     @property
@@ -176,14 +176,14 @@ class SpringCloudAppArgs:
 
     @property
     @pulumi.getter(name="persistentDisk")
-    def persistent_disk(self) -> Optional[pulumi.Input['SpringCloudAppPersistentDiskArgs']]:
+    def persistent_disk(self) -> Optional[pulumi.Input['SpringCloudAppPersistentDiskArrgs']]:
         """
         An `persistent_disk` block as defined below.
         """
         return pulumi.get(self, "persistent_disk")
 
     @persistent_disk.setter
-    def persistent_disk(self, value: Optional[pulumi.Input['SpringCloudAppPersistentDiskArgs']]):
+    def persistent_disk(self, value: Optional[pulumi.Input['SpringCloudAppPersistentDiskArrgs']]):
         pulumi.set(self, "persistent_disk", value)
 
     @property
@@ -212,17 +212,17 @@ class SpringCloudAppArgs:
 
 
 @pulumi.input_type
-class _SpringCloudAppState:
+calass _SpringCloudAppState:
     def __init__(__self__, *,
                  addon_json: Optional[pulumi.Input[str]] = None,
-                 custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArgs']]]] = None,
+                 custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArrgs']]]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input['SpringCloudAppIdentityArgs']] = None,
-                 ingress_settings: Optional[pulumi.Input['SpringCloudAppIngressSettingsArgs']] = None,
+                 identity: Optional[pulumi.Input['SpringCloudAppIdentityArrgs']] = None,
+                 ingress_settings: Optional[pulumi.Input['SpringCloudAppIngressSettingsArrgs']] = None,
                  is_public: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 persistent_disk: Optional[pulumi.Input['SpringCloudAppPersistentDiskArgs']] = None,
+                 persistent_disk: Optional[pulumi.Input['SpringCloudAppPersistentDiskArrgs']] = None,
                  public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
@@ -231,14 +231,14 @@ class _SpringCloudAppState:
         """
         Input properties used for looking up and filtering SpringCloudApp resources.
         :param pulumi.Input[str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Service.
-        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArgs']]] custom_persistent_disks: A `custom_persistent_disk` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArrgs']]] custom_persistent_disks: A `custom_persistent_disk` block as defined below.
         :param pulumi.Input[str] fqdn: The Fully Qualified DNS Name of the Spring Application in the service.
         :param pulumi.Input[bool] https_only: Is only HTTPS allowed? Defaults to `false`.
-        :param pulumi.Input['SpringCloudAppIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input['SpringCloudAppIngressSettingsArgs'] ingress_settings: An `ingress_settings` block as defined below.
+        :param pulumi.Input['SpringCloudAppIdentityArrgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['SpringCloudAppIngressSettingsArrgs'] ingress_settings: An `ingress_settings` block as defined below.
         :param pulumi.Input[bool] is_public: Does the Spring Cloud Application have public endpoint? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
-        :param pulumi.Input['SpringCloudAppPersistentDiskArgs'] persistent_disk: An `persistent_disk` block as defined below.
+        :param pulumi.Input['SpringCloudAppPersistentDiskArrgs'] persistent_disk: An `persistent_disk` block as defined below.
         :param pulumi.Input[bool] public_endpoint_enabled: Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
@@ -288,14 +288,14 @@ class _SpringCloudAppState:
 
     @property
     @pulumi.getter(name="customPersistentDisks")
-    def custom_persistent_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArgs']]]]:
+    def custom_persistent_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArrgs']]]]:
         """
         A `custom_persistent_disk` block as defined below.
         """
         return pulumi.get(self, "custom_persistent_disks")
 
     @custom_persistent_disks.setter
-    def custom_persistent_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArgs']]]]):
+    def custom_persistent_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudAppCustomPersistentDiskArrgs']]]]):
         pulumi.set(self, "custom_persistent_disks", value)
 
     @property
@@ -324,26 +324,26 @@ class _SpringCloudAppState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['SpringCloudAppIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['SpringCloudAppIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['SpringCloudAppIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['SpringCloudAppIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="ingressSettings")
-    def ingress_settings(self) -> Optional[pulumi.Input['SpringCloudAppIngressSettingsArgs']]:
+    def ingress_settings(self) -> Optional[pulumi.Input['SpringCloudAppIngressSettingsArrgs']]:
         """
         An `ingress_settings` block as defined below.
         """
         return pulumi.get(self, "ingress_settings")
 
     @ingress_settings.setter
-    def ingress_settings(self, value: Optional[pulumi.Input['SpringCloudAppIngressSettingsArgs']]):
+    def ingress_settings(self, value: Optional[pulumi.Input['SpringCloudAppIngressSettingsArrgs']]):
         pulumi.set(self, "ingress_settings", value)
 
     @property
@@ -372,14 +372,14 @@ class _SpringCloudAppState:
 
     @property
     @pulumi.getter(name="persistentDisk")
-    def persistent_disk(self) -> Optional[pulumi.Input['SpringCloudAppPersistentDiskArgs']]:
+    def persistent_disk(self) -> Optional[pulumi.Input['SpringCloudAppPersistentDiskArrgs']]:
         """
         An `persistent_disk` block as defined below.
         """
         return pulumi.get(self, "persistent_disk")
 
     @persistent_disk.setter
-    def persistent_disk(self, value: Optional[pulumi.Input['SpringCloudAppPersistentDiskArgs']]):
+    def persistent_disk(self, value: Optional[pulumi.Input['SpringCloudAppPersistentDiskArrgs']]):
         pulumi.set(self, "persistent_disk", value)
 
     @property
@@ -443,19 +443,19 @@ class _SpringCloudAppState:
         pulumi.set(self, "url", value)
 
 
-class SpringCloudApp(pulumi.CustomResource):
+calass SpringCloudApp(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  addon_json: Optional[pulumi.Input[str]] = None,
-                 custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudAppCustomPersistentDiskArgs']]]]] = None,
+                 custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudAppCustomPersistentDiskArrgs']]]]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArgs']]] = None,
-                 ingress_settings: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIngressSettingsArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArrgs']]] = None,
+                 ingress_settings: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIngressSettingsArrgs']]] = None,
                  is_public: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 persistent_disk: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']]] = None,
+                 persistent_disk: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArrgs']]] = None,
                  public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
@@ -477,7 +477,7 @@ class SpringCloudApp(pulumi.CustomResource):
         example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
             resource_group_name=example_resource_group.name,
             service_name=example_spring_cloud_service.name,
-            identity=azure.appplatform.SpringCloudAppIdentityArgs(
+            identity=azure.appplatform.SpringCloudAppIdentityArrgs(
                 type="SystemAssigned",
             ))
         ```
@@ -493,13 +493,13 @@ class SpringCloudApp(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudAppCustomPersistentDiskArgs']]]] custom_persistent_disks: A `custom_persistent_disk` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudAppCustomPersistentDiskArrgs']]]] custom_persistent_disks: A `custom_persistent_disk` block as defined below.
         :param pulumi.Input[bool] https_only: Is only HTTPS allowed? Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[pulumi.InputType['SpringCloudAppIngressSettingsArgs']] ingress_settings: An `ingress_settings` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArrgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SpringCloudAppIngressSettingsArrgs']] ingress_settings: An `ingress_settings` block as defined below.
         :param pulumi.Input[bool] is_public: Does the Spring Cloud Application have public endpoint? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']] persistent_disk: An `persistent_disk` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArrgs']] persistent_disk: An `persistent_disk` block as defined below.
         :param pulumi.Input[bool] public_endpoint_enabled: Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
@@ -509,7 +509,7 @@ class SpringCloudApp(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SpringCloudAppArgs,
+                 args: SpringCloudAppArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manage an Azure Spring Cloud Application.
@@ -527,7 +527,7 @@ class SpringCloudApp(pulumi.CustomResource):
         example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
             resource_group_name=example_resource_group.name,
             service_name=example_spring_cloud_service.name,
-            identity=azure.appplatform.SpringCloudAppIdentityArgs(
+            identity=azure.appplatform.SpringCloudAppIdentityArrgs(
                 type="SystemAssigned",
             ))
         ```
@@ -541,12 +541,12 @@ class SpringCloudApp(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SpringCloudAppArgs args: The arguments to use to populate this resource's properties.
+        :param SpringCloudAppArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudAppArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudAppArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -556,13 +556,13 @@ class SpringCloudApp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  addon_json: Optional[pulumi.Input[str]] = None,
-                 custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudAppCustomPersistentDiskArgs']]]]] = None,
+                 custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudAppCustomPersistentDiskArrgs']]]]] = None,
                  https_only: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArgs']]] = None,
-                 ingress_settings: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIngressSettingsArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArrgs']]] = None,
+                 ingress_settings: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIngressSettingsArrgs']]] = None,
                  is_public: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 persistent_disk: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']]] = None,
+                 persistent_disk: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArrgs']]] = None,
                  public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
@@ -574,7 +574,7 @@ class SpringCloudApp(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SpringCloudAppArgs.__new__(SpringCloudAppArgs)
+            __props__ = SpringCloudAppArrgs.__new__(SpringCloudAppArrgs)
 
             __props__.__dict__["addon_json"] = addon_json
             __props__.__dict__["custom_persistent_disks"] = custom_persistent_disks
@@ -605,14 +605,14 @@ class SpringCloudApp(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             addon_json: Optional[pulumi.Input[str]] = None,
-            custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudAppCustomPersistentDiskArgs']]]]] = None,
+            custom_persistent_disks: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudAppCustomPersistentDiskArrgs']]]]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
             https_only: Optional[pulumi.Input[bool]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArgs']]] = None,
-            ingress_settings: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIngressSettingsArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArrgs']]] = None,
+            ingress_settings: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppIngressSettingsArrgs']]] = None,
             is_public: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            persistent_disk: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']]] = None,
+            persistent_disk: Optional[pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArrgs']]] = None,
             public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             service_name: Optional[pulumi.Input[str]] = None,
@@ -626,14 +626,14 @@ class SpringCloudApp(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] addon_json: A JSON object that contains the addon configurations of the Spring Cloud Service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudAppCustomPersistentDiskArgs']]]] custom_persistent_disks: A `custom_persistent_disk` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudAppCustomPersistentDiskArrgs']]]] custom_persistent_disks: A `custom_persistent_disk` block as defined below.
         :param pulumi.Input[str] fqdn: The Fully Qualified DNS Name of the Spring Application in the service.
         :param pulumi.Input[bool] https_only: Is only HTTPS allowed? Defaults to `false`.
-        :param pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArgs']] identity: An `identity` block as defined below.
-        :param pulumi.Input[pulumi.InputType['SpringCloudAppIngressSettingsArgs']] ingress_settings: An `ingress_settings` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SpringCloudAppIdentityArrgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SpringCloudAppIngressSettingsArrgs']] ingress_settings: An `ingress_settings` block as defined below.
         :param pulumi.Input[bool] is_public: Does the Spring Cloud Application have public endpoint? Defaults to `false`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Application. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArgs']] persistent_disk: An `persistent_disk` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SpringCloudAppPersistentDiskArrgs']] persistent_disk: An `persistent_disk` block as defined below.
         :param pulumi.Input[bool] public_endpoint_enabled: Should the App in vnet injection instance exposes endpoint which could be accessed from Internet?
         :param pulumi.Input[str] resource_group_name: Specifies the name of the resource group in which to create the Spring Cloud Application. Changing this forces a new resource to be created.
         :param pulumi.Input[str] service_name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.

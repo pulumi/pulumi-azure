@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['QueueAuthorizationRuleArgs', 'QueueAuthorizationRule']
+__all__ = ['QueueAuthorizationRuleArrgs', 'QueueAuthorizationRule']
 
 @pulumi.input_type
-class QueueAuthorizationRuleArgs:
+calass QueueAuthorizationRuleArrgs:
     def __init__(__self__, *,
                  queue_id: pulumi.Input[str],
                  listen: Optional[pulumi.Input[bool]] = None,
@@ -103,7 +103,7 @@ class QueueAuthorizationRuleArgs:
 
 
 @pulumi.input_type
-class _QueueAuthorizationRuleState:
+calass _QueueAuthorizationRuleState:
     def __init__(__self__, *,
                  listen: Optional[pulumi.Input[bool]] = None,
                  manage: Optional[pulumi.Input[bool]] = None,
@@ -290,7 +290,7 @@ class _QueueAuthorizationRuleState:
         pulumi.set(self, "send", value)
 
 
-class QueueAuthorizationRule(pulumi.CustomResource):
+calass QueueAuthorizationRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -350,7 +350,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: QueueAuthorizationRuleArgs,
+                 args: QueueAuthorizationRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Authorization Rule for a ServiceBus Queue.
@@ -388,12 +388,12 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param QueueAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.
+        :param QueueAuthorizationRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(QueueAuthorizationRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(QueueAuthorizationRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -414,7 +414,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = QueueAuthorizationRuleArgs.__new__(QueueAuthorizationRuleArgs)
+            __props__ = QueueAuthorizationRuleArrgs.__new__(QueueAuthorizationRuleArrgs)
 
             __props__.__dict__["listen"] = listen
             __props__.__dict__["manage"] = manage

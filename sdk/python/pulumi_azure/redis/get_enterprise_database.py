@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetEnterpriseDatabaseResult:
+calass GetEnterpriseDatabaseResult:
     """
     A collection of values returned by getEnterpriseDatabase.
     """
@@ -112,7 +112,7 @@ class GetEnterpriseDatabaseResult:
         return pulumi.get(self, "secondary_access_key")
 
 
-class AwaitableGetEnterpriseDatabaseResult(GetEnterpriseDatabaseResult):
+calass AwaitableGetEnterpriseDatabaseResult(GetEnterpriseDatabaseResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

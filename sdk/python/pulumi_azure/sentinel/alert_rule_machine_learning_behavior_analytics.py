@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AlertRuleMachineLearningBehaviorAnalyticsArgs', 'AlertRuleMachineLearningBehaviorAnalytics']
+__all__ = ['AlertRuleMachineLearningBehaviorAnalyticsArrgs', 'AlertRuleMachineLearningBehaviorAnalytics']
 
 @pulumi.input_type
-class AlertRuleMachineLearningBehaviorAnalyticsArgs:
+calass AlertRuleMachineLearningBehaviorAnalyticsArrgs:
     def __init__(__self__, *,
                  alert_rule_template_guid: pulumi.Input[str],
                  log_analytics_workspace_id: pulumi.Input[str],
@@ -82,7 +82,7 @@ class AlertRuleMachineLearningBehaviorAnalyticsArgs:
 
 
 @pulumi.input_type
-class _AlertRuleMachineLearningBehaviorAnalyticsState:
+calass _AlertRuleMachineLearningBehaviorAnalyticsState:
     def __init__(__self__, *,
                  alert_rule_template_guid: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -153,7 +153,7 @@ class _AlertRuleMachineLearningBehaviorAnalyticsState:
         pulumi.set(self, "name", value)
 
 
-class AlertRuleMachineLearningBehaviorAnalytics(pulumi.CustomResource):
+calass AlertRuleMachineLearningBehaviorAnalytics(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -202,7 +202,7 @@ class AlertRuleMachineLearningBehaviorAnalytics(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AlertRuleMachineLearningBehaviorAnalyticsArgs,
+                 args: AlertRuleMachineLearningBehaviorAnalyticsArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Sentinel Machine Learning Behavior Analytics Alert Rule.
@@ -233,12 +233,12 @@ class AlertRuleMachineLearningBehaviorAnalytics(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AlertRuleMachineLearningBehaviorAnalyticsArgs args: The arguments to use to populate this resource's properties.
+        :param AlertRuleMachineLearningBehaviorAnalyticsArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AlertRuleMachineLearningBehaviorAnalyticsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AlertRuleMachineLearningBehaviorAnalyticsArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -258,7 +258,7 @@ class AlertRuleMachineLearningBehaviorAnalytics(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AlertRuleMachineLearningBehaviorAnalyticsArgs.__new__(AlertRuleMachineLearningBehaviorAnalyticsArgs)
+            __props__ = AlertRuleMachineLearningBehaviorAnalyticsArrgs.__new__(AlertRuleMachineLearningBehaviorAnalyticsArrgs)
 
             if alert_rule_template_guid is None and not opts.urn:
                 raise TypeError("Missing required property 'alert_rule_template_guid'")

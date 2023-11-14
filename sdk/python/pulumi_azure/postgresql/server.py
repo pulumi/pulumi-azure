@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ServerArgs', 'Server']
+__all__ = ['ServerArrgs', 'Server']
 
 @pulumi.input_type
-class ServerArgs:
+calass ServerArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  sku_name: pulumi.Input[str],
@@ -27,7 +27,7 @@ class ServerArgs:
                  create_mode: Optional[pulumi.Input[str]] = None,
                  creation_source_server_id: Optional[pulumi.Input[str]] = None,
                  geo_redundant_backup_enabled: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ServerIdentityArrgs']] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -36,7 +36,7 @@ class ServerArgs:
                  ssl_minimal_tls_version_enforced: Optional[pulumi.Input[str]] = None,
                  storage_mb: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 threat_detection_policy: Optional[pulumi.Input['ServerThreatDetectionPolicyArgs']] = None):
+                 threat_detection_policy: Optional[pulumi.Input['ServerThreatDetectionPolicyArrgs']] = None):
         """
         The set of arguments for constructing a Server resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the PostgreSQL Server. Changing this forces a new resource to be created.
@@ -54,7 +54,7 @@ class ServerArgs:
         :param pulumi.Input[str] create_mode: The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
         :param pulumi.Input[str] creation_source_server_id: For creation modes other than `Default`, the source server ID to use.
         :param pulumi.Input[bool] geo_redundant_backup_enabled: Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier. Changing this forces a new resource to be created.
-        :param pulumi.Input['ServerIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['ServerIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
                
                > **NOTE:** This property is currently still in development and not supported by Microsoft. If the `infrastructure_encryption_enabled` attribute is set to `true` the PostgreSQL instance will incur a substantial performance degradation due to a second encryption pass on top of the existing default encryption that is already provided by Azure Storage. It is strongly suggested to leave this value `false` as not doing so can lead to unclear error messages.
@@ -65,7 +65,7 @@ class ServerArgs:
         :param pulumi.Input[str] ssl_minimal_tls_version_enforced: The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
         :param pulumi.Input[int] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input['ServerThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input['ServerThreatDetectionPolicyArrgs'] threat_detection_policy: Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku_name", sku_name)
@@ -244,14 +244,14 @@ class ServerArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ServerIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ServerIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ServerIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ServerIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -354,19 +354,19 @@ class ServerArgs:
 
     @property
     @pulumi.getter(name="threatDetectionPolicy")
-    def threat_detection_policy(self) -> Optional[pulumi.Input['ServerThreatDetectionPolicyArgs']]:
+    def threat_detection_policy(self) -> Optional[pulumi.Input['ServerThreatDetectionPolicyArrgs']]:
         """
         Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
         """
         return pulumi.get(self, "threat_detection_policy")
 
     @threat_detection_policy.setter
-    def threat_detection_policy(self, value: Optional[pulumi.Input['ServerThreatDetectionPolicyArgs']]):
+    def threat_detection_policy(self, value: Optional[pulumi.Input['ServerThreatDetectionPolicyArrgs']]):
         pulumi.set(self, "threat_detection_policy", value)
 
 
 @pulumi.input_type
-class _ServerState:
+calass _ServerState:
     def __init__(__self__, *,
                  administrator_login: Optional[pulumi.Input[str]] = None,
                  administrator_login_password: Optional[pulumi.Input[str]] = None,
@@ -376,7 +376,7 @@ class _ServerState:
                  creation_source_server_id: Optional[pulumi.Input[str]] = None,
                  fqdn: Optional[pulumi.Input[str]] = None,
                  geo_redundant_backup_enabled: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input['ServerIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ServerIdentityArrgs']] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -388,7 +388,7 @@ class _ServerState:
                  ssl_minimal_tls_version_enforced: Optional[pulumi.Input[str]] = None,
                  storage_mb: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 threat_detection_policy: Optional[pulumi.Input['ServerThreatDetectionPolicyArgs']] = None,
+                 threat_detection_policy: Optional[pulumi.Input['ServerThreatDetectionPolicyArrgs']] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Server resources.
@@ -400,7 +400,7 @@ class _ServerState:
         :param pulumi.Input[str] creation_source_server_id: For creation modes other than `Default`, the source server ID to use.
         :param pulumi.Input[str] fqdn: The FQDN of the PostgreSQL Server.
         :param pulumi.Input[bool] geo_redundant_backup_enabled: Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier. Changing this forces a new resource to be created.
-        :param pulumi.Input['ServerIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input['ServerIdentityArrgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
                
                > **NOTE:** This property is currently still in development and not supported by Microsoft. If the `infrastructure_encryption_enabled` attribute is set to `true` the PostgreSQL instance will incur a substantial performance degradation due to a second encryption pass on top of the existing default encryption that is already provided by Azure Storage. It is strongly suggested to leave this value `false` as not doing so can lead to unclear error messages.
@@ -418,7 +418,7 @@ class _ServerState:
         :param pulumi.Input[str] ssl_minimal_tls_version_enforced: The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
         :param pulumi.Input[int] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input['ServerThreatDetectionPolicyArgs'] threat_detection_policy: Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input['ServerThreatDetectionPolicyArrgs'] threat_detection_policy: Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[str] version: Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, `10.2` and `11`. Changing this forces a new resource to be created.
         """
         if administrator_login is not None:
@@ -564,14 +564,14 @@ class _ServerState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ServerIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ServerIdentityArrgs']]:
         """
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ServerIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ServerIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -714,14 +714,14 @@ class _ServerState:
 
     @property
     @pulumi.getter(name="threatDetectionPolicy")
-    def threat_detection_policy(self) -> Optional[pulumi.Input['ServerThreatDetectionPolicyArgs']]:
+    def threat_detection_policy(self) -> Optional[pulumi.Input['ServerThreatDetectionPolicyArrgs']]:
         """
         Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
         """
         return pulumi.get(self, "threat_detection_policy")
 
     @threat_detection_policy.setter
-    def threat_detection_policy(self, value: Optional[pulumi.Input['ServerThreatDetectionPolicyArgs']]):
+    def threat_detection_policy(self, value: Optional[pulumi.Input['ServerThreatDetectionPolicyArrgs']]):
         pulumi.set(self, "threat_detection_policy", value)
 
     @property
@@ -737,7 +737,7 @@ class _ServerState:
         pulumi.set(self, "version", value)
 
 
-class Server(pulumi.CustomResource):
+calass Server(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -749,7 +749,7 @@ class Server(pulumi.CustomResource):
                  create_mode: Optional[pulumi.Input[str]] = None,
                  creation_source_server_id: Optional[pulumi.Input[str]] = None,
                  geo_redundant_backup_enabled: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArrgs']]] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -761,7 +761,7 @@ class Server(pulumi.CustomResource):
                  ssl_minimal_tls_version_enforced: Optional[pulumi.Input[str]] = None,
                  storage_mb: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['ServerThreatDetectionPolicyArgs']]] = None,
+                 threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['ServerThreatDetectionPolicyArrgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -807,7 +807,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] create_mode: The creation mode. Can be used to restore or replicate existing servers. Possible values are `Default`, `Replica`, `GeoRestore`, and `PointInTimeRestore`. Defaults to `Default.`
         :param pulumi.Input[str] creation_source_server_id: For creation modes other than `Default`, the source server ID to use.
         :param pulumi.Input[bool] geo_redundant_backup_enabled: Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ServerIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServerIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
                
                > **NOTE:** This property is currently still in development and not supported by Microsoft. If the `infrastructure_encryption_enabled` attribute is set to `true` the PostgreSQL instance will incur a substantial performance degradation due to a second encryption pass on top of the existing default encryption that is already provided by Azure Storage. It is strongly suggested to leave this value `false` as not doing so can lead to unclear error messages.
@@ -825,14 +825,14 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] ssl_minimal_tls_version_enforced: The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
         :param pulumi.Input[int] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[pulumi.InputType['ServerThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input[pulumi.InputType['ServerThreatDetectionPolicyArrgs']] threat_detection_policy: Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[str] version: Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, `10.2` and `11`. Changing this forces a new resource to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServerArgs,
+                 args: ServerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a PostgreSQL Server.
@@ -869,12 +869,12 @@ class Server(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServerArgs args: The arguments to use to populate this resource's properties.
+        :param ServerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -890,7 +890,7 @@ class Server(pulumi.CustomResource):
                  create_mode: Optional[pulumi.Input[str]] = None,
                  creation_source_server_id: Optional[pulumi.Input[str]] = None,
                  geo_redundant_backup_enabled: Optional[pulumi.Input[bool]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArrgs']]] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -902,7 +902,7 @@ class Server(pulumi.CustomResource):
                  ssl_minimal_tls_version_enforced: Optional[pulumi.Input[str]] = None,
                  storage_mb: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['ServerThreatDetectionPolicyArgs']]] = None,
+                 threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['ServerThreatDetectionPolicyArrgs']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -911,7 +911,7 @@ class Server(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServerArgs.__new__(ServerArgs)
+            __props__ = ServerArrgs.__new__(ServerArrgs)
 
             __props__.__dict__["administrator_login"] = administrator_login
             __props__.__dict__["administrator_login_password"] = None if administrator_login_password is None else pulumi.Output.secret(administrator_login_password)
@@ -963,7 +963,7 @@ class Server(pulumi.CustomResource):
             creation_source_server_id: Optional[pulumi.Input[str]] = None,
             fqdn: Optional[pulumi.Input[str]] = None,
             geo_redundant_backup_enabled: Optional[pulumi.Input[bool]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['ServerIdentityArrgs']]] = None,
             infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -975,7 +975,7 @@ class Server(pulumi.CustomResource):
             ssl_minimal_tls_version_enforced: Optional[pulumi.Input[str]] = None,
             storage_mb: Optional[pulumi.Input[int]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['ServerThreatDetectionPolicyArgs']]] = None,
+            threat_detection_policy: Optional[pulumi.Input[pulumi.InputType['ServerThreatDetectionPolicyArrgs']]] = None,
             version: Optional[pulumi.Input[str]] = None) -> 'Server':
         """
         Get an existing Server resource's state with the given name, id, and optional extra
@@ -992,7 +992,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] creation_source_server_id: For creation modes other than `Default`, the source server ID to use.
         :param pulumi.Input[str] fqdn: The FQDN of the PostgreSQL Server.
         :param pulumi.Input[bool] geo_redundant_backup_enabled: Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not support for the Basic tier. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['ServerIdentityArgs']] identity: An `identity` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServerIdentityArrgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[bool] infrastructure_encryption_enabled: Whether or not infrastructure is encrypted for this server. Changing this forces a new resource to be created.
                
                > **NOTE:** This property is currently still in development and not supported by Microsoft. If the `infrastructure_encryption_enabled` attribute is set to `true` the PostgreSQL instance will incur a substantial performance degradation due to a second encryption pass on top of the existing default encryption that is already provided by Azure Storage. It is strongly suggested to leave this value `false` as not doing so can lead to unclear error messages.
@@ -1010,7 +1010,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] ssl_minimal_tls_version_enforced: The minimum TLS version to support on the sever. Possible values are `TLSEnforcementDisabled`, `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2`.
         :param pulumi.Input[int] storage_mb: Max storage allowed for a server. Possible values are between `5120` MB(5GB) and `1048576` MB(1TB) for the Basic SKU and between `5120` MB(5GB) and `16777216` MB(16TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers#storage).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[pulumi.InputType['ServerThreatDetectionPolicyArgs']] threat_detection_policy: Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
+        :param pulumi.Input[pulumi.InputType['ServerThreatDetectionPolicyArrgs']] threat_detection_policy: Threat detection policy configuration, known in the API as Server Security Alerts Policy. The `threat_detection_policy` block supports fields documented below.
         :param pulumi.Input[str] version: Specifies the version of PostgreSQL to use. Valid values are `9.5`, `9.6`, `10`, `10.0`, `10.2` and `11`. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

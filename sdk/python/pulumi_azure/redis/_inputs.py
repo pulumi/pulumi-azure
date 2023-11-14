@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'CacheIdentityArgs',
-    'CachePatchScheduleArgs',
-    'CacheRedisConfigurationArgs',
-    'EnterpriseDatabaseModuleArgs',
+    'CacheIdentityArrgs',
+    'CachePatchScheduleArrgs',
+    'CacheRedisConfigurationArrgs',
+    'EnterpriseDatabaseModuleArrgs',
 ]
 
 @pulumi.input_type
-class CacheIdentityArgs:
+calass CacheIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -83,7 +83,7 @@ class CacheIdentityArgs:
 
 
 @pulumi.input_type
-class CachePatchScheduleArgs:
+calass CachePatchScheduleArrgs:
     def __init__(__self__, *,
                  day_of_week: pulumi.Input[str],
                  maintenance_window: Optional[pulumi.Input[str]] = None,
@@ -141,7 +141,7 @@ class CachePatchScheduleArgs:
 
 
 @pulumi.input_type
-class CacheRedisConfigurationArgs:
+calass CacheRedisConfigurationArrgs:
     def __init__(__self__, *,
                  aof_backup_enabled: Optional[pulumi.Input[bool]] = None,
                  aof_storage_connection_string0: Optional[pulumi.Input[str]] = None,
@@ -408,7 +408,7 @@ class CacheRedisConfigurationArgs:
 
 
 @pulumi.input_type
-class EnterpriseDatabaseModuleArgs:
+calass EnterpriseDatabaseModuleArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  args: Optional[pulumi.Input[str]] = None,

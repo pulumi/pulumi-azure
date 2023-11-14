@@ -15,7 +15,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AnalyzerIdentity(dict):
+calass AnalyzerIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -61,7 +61,7 @@ class AnalyzerIdentity(dict):
 
 
 @pulumi.output_type
-class AnalyzerStorageAccount(dict):
+calass AnalyzerStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

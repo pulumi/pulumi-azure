@@ -33,7 +33,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DicomServiceAuthentication(dict):
+calass DicomServiceAuthentication(dict):
     def __init__(__self__, *,
                  audiences: Optional[Sequence[str]] = None,
                  authority: Optional[str] = None):
@@ -60,7 +60,7 @@ class DicomServiceAuthentication(dict):
 
 
 @pulumi.output_type
-class DicomServiceIdentity(dict):
+calass DicomServiceIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -127,7 +127,7 @@ class DicomServiceIdentity(dict):
 
 
 @pulumi.output_type
-class DicomServicePrivateEndpoint(dict):
+calass DicomServicePrivateEndpoint(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  name: Optional[str] = None):
@@ -158,7 +158,7 @@ class DicomServicePrivateEndpoint(dict):
 
 
 @pulumi.output_type
-class FhirServiceAuthentication(dict):
+calass FhirServiceAuthentication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -212,7 +212,7 @@ class FhirServiceAuthentication(dict):
 
 
 @pulumi.output_type
-class FhirServiceCors(dict):
+calass FhirServiceCors(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -301,7 +301,7 @@ class FhirServiceCors(dict):
 
 
 @pulumi.output_type
-class FhirServiceIdentity(dict):
+calass FhirServiceIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -368,7 +368,7 @@ class FhirServiceIdentity(dict):
 
 
 @pulumi.output_type
-class FhirServiceOciArtifact(dict):
+calass FhirServiceOciArtifact(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -429,7 +429,7 @@ class FhirServiceOciArtifact(dict):
 
 
 @pulumi.output_type
-class MedtechServiceIdentity(dict):
+calass MedtechServiceIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -500,7 +500,7 @@ class MedtechServiceIdentity(dict):
 
 
 @pulumi.output_type
-class ServiceAuthenticationConfiguration(dict):
+calass ServiceAuthenticationConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -562,7 +562,7 @@ class ServiceAuthenticationConfiguration(dict):
 
 
 @pulumi.output_type
-class ServiceCorsConfiguration(dict):
+calass ServiceCorsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -654,7 +654,7 @@ class ServiceCorsConfiguration(dict):
 
 
 @pulumi.output_type
-class WorkspacePrivateEndpointConnection(dict):
+calass WorkspacePrivateEndpointConnection(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  name: Optional[str] = None):
@@ -685,7 +685,7 @@ class WorkspacePrivateEndpointConnection(dict):
 
 
 @pulumi.output_type
-class GetDicomServiceAuthenticationResult(dict):
+calass GetDicomServiceAuthenticationResult(dict):
     def __init__(__self__, *,
                  audiences: Sequence[str],
                  authority: str):
@@ -710,7 +710,7 @@ class GetDicomServiceAuthenticationResult(dict):
 
 
 @pulumi.output_type
-class GetDicomServiceIdentityResult(dict):
+calass GetDicomServiceIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -743,7 +743,7 @@ class GetDicomServiceIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetDicomServicePrivateEndpointResult(dict):
+calass GetDicomServicePrivateEndpointResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str):
@@ -772,7 +772,7 @@ class GetDicomServicePrivateEndpointResult(dict):
 
 
 @pulumi.output_type
-class GetFhirServiceAuthenticationResult(dict):
+calass GetFhirServiceAuthenticationResult(dict):
     def __init__(__self__, *,
                  audience: str,
                  authority: str,
@@ -804,7 +804,7 @@ class GetFhirServiceAuthenticationResult(dict):
 
 
 @pulumi.output_type
-class GetFhirServiceCorResult(dict):
+calass GetFhirServiceCorResult(dict):
     def __init__(__self__, *,
                  allowed_headers: Sequence[str],
                  allowed_methods: Sequence[str],
@@ -866,7 +866,7 @@ class GetFhirServiceCorResult(dict):
 
 
 @pulumi.output_type
-class GetFhirServiceIdentityResult(dict):
+calass GetFhirServiceIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -913,7 +913,7 @@ class GetFhirServiceIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetMedtechServiceIdentityResult(dict):
+calass GetMedtechServiceIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -960,7 +960,7 @@ class GetMedtechServiceIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetServiceAuthenticationConfigurationResult(dict):
+calass GetServiceAuthenticationConfigurationResult(dict):
     def __init__(__self__, *,
                  audience: str,
                  authority: str,
@@ -1000,7 +1000,7 @@ class GetServiceAuthenticationConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetServiceCorsConfigurationResult(dict):
+calass GetServiceCorsConfigurationResult(dict):
     def __init__(__self__, *,
                  allow_credentials: bool,
                  allowed_headers: Sequence[str],

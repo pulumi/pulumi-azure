@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NotebookWorkspaceArgs', 'NotebookWorkspace']
+__all__ = ['NotebookWorkspaceArrgs', 'NotebookWorkspace']
 
 @pulumi.input_type
-class NotebookWorkspaceArgs:
+calass NotebookWorkspaceArrgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -66,7 +66,7 @@ class NotebookWorkspaceArgs:
 
 
 @pulumi.input_type
-class _NotebookWorkspaceState:
+calass _NotebookWorkspaceState:
     def __init__(__self__, *,
                  account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -137,7 +137,7 @@ class _NotebookWorkspaceState:
         pulumi.set(self, "server_endpoint", value)
 
 
-class NotebookWorkspace(pulumi.CustomResource):
+calass NotebookWorkspace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -167,10 +167,10 @@ class NotebookWorkspace(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="BoundedStaleness",
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -197,7 +197,7 @@ class NotebookWorkspace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NotebookWorkspaceArgs,
+                 args: NotebookWorkspaceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an SQL Notebook Workspace.
@@ -220,10 +220,10 @@ class NotebookWorkspace(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="BoundedStaleness",
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -241,12 +241,12 @@ class NotebookWorkspace(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NotebookWorkspaceArgs args: The arguments to use to populate this resource's properties.
+        :param NotebookWorkspaceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NotebookWorkspaceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NotebookWorkspaceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -265,7 +265,7 @@ class NotebookWorkspace(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NotebookWorkspaceArgs.__new__(NotebookWorkspaceArgs)
+            __props__ = NotebookWorkspaceArrgs.__new__(NotebookWorkspaceArrgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")

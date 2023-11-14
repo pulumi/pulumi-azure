@@ -10,17 +10,17 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AccountCustomerManagedKeyArgs',
-    'AccountIdentityArgs',
-    'AccountNetworkAclsArgs',
-    'AccountNetworkAclsVirtualNetworkRuleArgs',
-    'AccountStorageArgs',
-    'DeploymentModelArgs',
-    'DeploymentScaleArgs',
+    'AccountCustomerManagedKeyArrgs',
+    'AccountIdentityArrgs',
+    'AccountNetworkAclsArrgs',
+    'AccountNetworkAclsVirtualNetworkRuleArrgs',
+    'AccountStorageArrgs',
+    'DeploymentModelArrgs',
+    'DeploymentScaleArrgs',
 ]
 
 @pulumi.input_type
-class AccountCustomerManagedKeyArgs:
+calass AccountCustomerManagedKeyArrgs:
     def __init__(__self__, *,
                  key_vault_key_id: pulumi.Input[str],
                  identity_client_id: Optional[pulumi.Input[str]] = None):
@@ -58,7 +58,7 @@ class AccountCustomerManagedKeyArgs:
 
 
 @pulumi.input_type
-class AccountIdentityArgs:
+calass AccountIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -132,15 +132,15 @@ class AccountIdentityArgs:
 
 
 @pulumi.input_type
-class AccountNetworkAclsArgs:
+calass AccountNetworkAclsArrgs:
     def __init__(__self__, *,
                  default_action: pulumi.Input[str],
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkAclsVirtualNetworkRuleArgs']]]] = None):
+                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkAclsVirtualNetworkRuleArrgs']]]] = None):
         """
         :param pulumi.Input[str] default_action: The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkAclsVirtualNetworkRuleArgs']]] virtual_network_rules: A `virtual_network_rules` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkAclsVirtualNetworkRuleArrgs']]] virtual_network_rules: A `virtual_network_rules` block as defined below.
         """
         pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
@@ -174,19 +174,19 @@ class AccountNetworkAclsArgs:
 
     @property
     @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkAclsVirtualNetworkRuleArgs']]]]:
+    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkAclsVirtualNetworkRuleArrgs']]]]:
         """
         A `virtual_network_rules` block as defined below.
         """
         return pulumi.get(self, "virtual_network_rules")
 
     @virtual_network_rules.setter
-    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkAclsVirtualNetworkRuleArgs']]]]):
+    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkAclsVirtualNetworkRuleArrgs']]]]):
         pulumi.set(self, "virtual_network_rules", value)
 
 
 @pulumi.input_type
-class AccountNetworkAclsVirtualNetworkRuleArgs:
+calass AccountNetworkAclsVirtualNetworkRuleArrgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[str],
                  ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None):
@@ -224,7 +224,7 @@ class AccountNetworkAclsVirtualNetworkRuleArgs:
 
 
 @pulumi.input_type
-class AccountStorageArgs:
+calass AccountStorageArrgs:
     def __init__(__self__, *,
                  storage_account_id: pulumi.Input[str],
                  identity_client_id: Optional[pulumi.Input[str]] = None):
@@ -262,7 +262,7 @@ class AccountStorageArgs:
 
 
 @pulumi.input_type
-class DeploymentModelArgs:
+calass DeploymentModelArrgs:
     def __init__(__self__, *,
                  format: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -314,7 +314,7 @@ class DeploymentModelArgs:
 
 
 @pulumi.input_type
-class DeploymentScaleArgs:
+calass DeploymentScaleArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  capacity: Optional[pulumi.Input[int]] = None,

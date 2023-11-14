@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ContactArgs', 'Contact']
+__all__ = ['ContactArrgs', 'Contact']
 
 @pulumi.input_type
-class ContactArgs:
+calass ContactArrgs:
     def __init__(__self__, *,
                  contact_profile_id: pulumi.Input[str],
                  ground_station_name: pulumi.Input[str],
@@ -111,7 +111,7 @@ class ContactArgs:
 
 
 @pulumi.input_type
-class _ContactState:
+calass _ContactState:
     def __init__(__self__, *,
                  contact_profile_id: Optional[pulumi.Input[str]] = None,
                  ground_station_name: Optional[pulumi.Input[str]] = None,
@@ -214,7 +214,7 @@ class _ContactState:
         pulumi.set(self, "spacecraft_id", value)
 
 
-class Contact(pulumi.CustomResource):
+calass Contact(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -240,7 +240,7 @@ class Contact(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location="westeurope",
             norad_id="12345",
-            links=[azure.orbital.SpacecraftLinkArgs(
+            links=[azure.orbital.SpacecraftLinkArrgs(
                 bandwidth_mhz=100,
                 center_frequency_mhz=101,
                 direction="Uplink",
@@ -263,9 +263,9 @@ class Contact(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="orbitalgateway",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     name="Microsoft.Orbital/orbitalGateways",
                     actions=[
                         "Microsoft.Network/publicIPAddresses/join/action",
@@ -280,12 +280,12 @@ class Contact(pulumi.CustomResource):
             location=example_resource_group.location,
             minimum_variable_contact_duration="PT1M",
             auto_tracking="disabled",
-            links=[azure.orbital.ContactProfileLinkArgs(
-                channels=[azure.orbital.ContactProfileLinkChannelArgs(
+            links=[azure.orbital.ContactProfileLinkArrgs(
+                channels=[azure.orbital.ContactProfileLinkChannelArrgs(
                     name="channelname",
                     bandwidth_mhz=100,
                     center_frequency_mhz=101,
-                    end_points=[azure.orbital.ContactProfileLinkChannelEndPointArgs(
+                    end_points=[azure.orbital.ContactProfileLinkChannelEndPointArrgs(
                         end_point_name="AQUA_command",
                         ip_address="10.0.1.0",
                         port="49153",
@@ -326,7 +326,7 @@ class Contact(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ContactArgs,
+                 args: ContactArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an orbital contact.
@@ -342,7 +342,7 @@ class Contact(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location="westeurope",
             norad_id="12345",
-            links=[azure.orbital.SpacecraftLinkArgs(
+            links=[azure.orbital.SpacecraftLinkArrgs(
                 bandwidth_mhz=100,
                 center_frequency_mhz=101,
                 direction="Uplink",
@@ -365,9 +365,9 @@ class Contact(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="orbitalgateway",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     name="Microsoft.Orbital/orbitalGateways",
                     actions=[
                         "Microsoft.Network/publicIPAddresses/join/action",
@@ -382,12 +382,12 @@ class Contact(pulumi.CustomResource):
             location=example_resource_group.location,
             minimum_variable_contact_duration="PT1M",
             auto_tracking="disabled",
-            links=[azure.orbital.ContactProfileLinkArgs(
-                channels=[azure.orbital.ContactProfileLinkChannelArgs(
+            links=[azure.orbital.ContactProfileLinkArrgs(
+                channels=[azure.orbital.ContactProfileLinkChannelArrgs(
                     name="channelname",
                     bandwidth_mhz=100,
                     center_frequency_mhz=101,
-                    end_points=[azure.orbital.ContactProfileLinkChannelEndPointArgs(
+                    end_points=[azure.orbital.ContactProfileLinkChannelEndPointArrgs(
                         end_point_name="AQUA_command",
                         ip_address="10.0.1.0",
                         port="49153",
@@ -416,12 +416,12 @@ class Contact(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ContactArgs args: The arguments to use to populate this resource's properties.
+        :param ContactArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ContactArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ContactArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -443,7 +443,7 @@ class Contact(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ContactArgs.__new__(ContactArgs)
+            __props__ = ContactArrgs.__new__(ContactArrgs)
 
             if contact_profile_id is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_profile_id'")

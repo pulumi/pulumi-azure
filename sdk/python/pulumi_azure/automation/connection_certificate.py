@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ConnectionCertificateArgs', 'ConnectionCertificate']
+__all__ = ['ConnectionCertificateArrgs', 'ConnectionCertificate']
 
 @pulumi.input_type
-class ConnectionCertificateArgs:
+calass ConnectionCertificateArrgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[str],
                  automation_certificate_name: pulumi.Input[str],
@@ -112,7 +112,7 @@ class ConnectionCertificateArgs:
 
 
 @pulumi.input_type
-class _ConnectionCertificateState:
+calass _ConnectionCertificateState:
     def __init__(__self__, *,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  automation_certificate_name: Optional[pulumi.Input[str]] = None,
@@ -215,7 +215,7 @@ class _ConnectionCertificateState:
         pulumi.set(self, "subscription_id", value)
 
 
-class ConnectionCertificate(pulumi.CustomResource):
+calass ConnectionCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -275,7 +275,7 @@ class ConnectionCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConnectionCertificateArgs,
+                 args: ConnectionCertificateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Automation Connection with type `Azure`.
@@ -313,12 +313,12 @@ class ConnectionCertificate(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ConnectionCertificateArgs args: The arguments to use to populate this resource's properties.
+        :param ConnectionCertificateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ConnectionCertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ConnectionCertificateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -340,7 +340,7 @@ class ConnectionCertificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ConnectionCertificateArgs.__new__(ConnectionCertificateArgs)
+            __props__ = ConnectionCertificateArrgs.__new__(ConnectionCertificateArrgs)
 
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")

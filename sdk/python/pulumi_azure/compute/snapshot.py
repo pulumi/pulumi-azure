@@ -11,15 +11,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SnapshotArgs', 'Snapshot']
+__all__ = ['SnapshotArrgs', 'Snapshot']
 
 @pulumi.input_type
-class SnapshotArgs:
+calass SnapshotArrgs:
     def __init__(__self__, *,
                  create_option: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
-                 encryption_settings: Optional[pulumi.Input['SnapshotEncryptionSettingsArgs']] = None,
+                 encryption_settings: Optional[pulumi.Input['SnapshotEncryptionSettingsArrgs']] = None,
                  incremental_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -34,7 +34,7 @@ class SnapshotArgs:
                > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
         :param pulumi.Input[int] disk_size_gb: The size of the Snapshotted Disk in GB.
-        :param pulumi.Input['SnapshotEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
+        :param pulumi.Input['SnapshotEncryptionSettingsArrgs'] encryption_settings: A `encryption_settings` block as defined below.
                
                > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         :param pulumi.Input[bool] incremental_enabled: Specifies if the Snapshot is incremental.
@@ -106,7 +106,7 @@ class SnapshotArgs:
 
     @property
     @pulumi.getter(name="encryptionSettings")
-    def encryption_settings(self) -> Optional[pulumi.Input['SnapshotEncryptionSettingsArgs']]:
+    def encryption_settings(self) -> Optional[pulumi.Input['SnapshotEncryptionSettingsArrgs']]:
         """
         A `encryption_settings` block as defined below.
 
@@ -115,7 +115,7 @@ class SnapshotArgs:
         return pulumi.get(self, "encryption_settings")
 
     @encryption_settings.setter
-    def encryption_settings(self, value: Optional[pulumi.Input['SnapshotEncryptionSettingsArgs']]):
+    def encryption_settings(self, value: Optional[pulumi.Input['SnapshotEncryptionSettingsArrgs']]):
         pulumi.set(self, "encryption_settings", value)
 
     @property
@@ -204,11 +204,11 @@ class SnapshotArgs:
 
 
 @pulumi.input_type
-class _SnapshotState:
+calass _SnapshotState:
     def __init__(__self__, *,
                  create_option: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
-                 encryption_settings: Optional[pulumi.Input['SnapshotEncryptionSettingsArgs']] = None,
+                 encryption_settings: Optional[pulumi.Input['SnapshotEncryptionSettingsArrgs']] = None,
                  incremental_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -224,7 +224,7 @@ class _SnapshotState:
                
                > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         :param pulumi.Input[int] disk_size_gb: The size of the Snapshotted Disk in GB.
-        :param pulumi.Input['SnapshotEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
+        :param pulumi.Input['SnapshotEncryptionSettingsArrgs'] encryption_settings: A `encryption_settings` block as defined below.
                
                > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         :param pulumi.Input[bool] incremental_enabled: Specifies if the Snapshot is incremental.
@@ -290,7 +290,7 @@ class _SnapshotState:
 
     @property
     @pulumi.getter(name="encryptionSettings")
-    def encryption_settings(self) -> Optional[pulumi.Input['SnapshotEncryptionSettingsArgs']]:
+    def encryption_settings(self) -> Optional[pulumi.Input['SnapshotEncryptionSettingsArrgs']]:
         """
         A `encryption_settings` block as defined below.
 
@@ -299,7 +299,7 @@ class _SnapshotState:
         return pulumi.get(self, "encryption_settings")
 
     @encryption_settings.setter
-    def encryption_settings(self, value: Optional[pulumi.Input['SnapshotEncryptionSettingsArgs']]):
+    def encryption_settings(self, value: Optional[pulumi.Input['SnapshotEncryptionSettingsArrgs']]):
         pulumi.set(self, "encryption_settings", value)
 
     @property
@@ -411,14 +411,14 @@ class _SnapshotState:
         pulumi.set(self, "trusted_launch_enabled", value)
 
 
-class Snapshot(pulumi.CustomResource):
+calass Snapshot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  create_option: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
-                 encryption_settings: Optional[pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArgs']]] = None,
+                 encryption_settings: Optional[pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArrgs']]] = None,
                  incremental_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -465,7 +465,7 @@ class Snapshot(pulumi.CustomResource):
                
                > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         :param pulumi.Input[int] disk_size_gb: The size of the Snapshotted Disk in GB.
-        :param pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArrgs']] encryption_settings: A `encryption_settings` block as defined below.
                
                > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         :param pulumi.Input[bool] incremental_enabled: Specifies if the Snapshot is incremental.
@@ -481,7 +481,7 @@ class Snapshot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SnapshotArgs,
+                 args: SnapshotArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Disk Snapshot.
@@ -515,12 +515,12 @@ class Snapshot(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SnapshotArgs args: The arguments to use to populate this resource's properties.
+        :param SnapshotArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SnapshotArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SnapshotArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -531,7 +531,7 @@ class Snapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  create_option: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
-                 encryption_settings: Optional[pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArgs']]] = None,
+                 encryption_settings: Optional[pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArrgs']]] = None,
                  incremental_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -547,7 +547,7 @@ class Snapshot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SnapshotArgs.__new__(SnapshotArgs)
+            __props__ = SnapshotArrgs.__new__(SnapshotArrgs)
 
             if create_option is None and not opts.urn:
                 raise TypeError("Missing required property 'create_option'")
@@ -577,7 +577,7 @@ class Snapshot(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             create_option: Optional[pulumi.Input[str]] = None,
             disk_size_gb: Optional[pulumi.Input[int]] = None,
-            encryption_settings: Optional[pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArgs']]] = None,
+            encryption_settings: Optional[pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArrgs']]] = None,
             incremental_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -598,7 +598,7 @@ class Snapshot(pulumi.CustomResource):
                
                > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
         :param pulumi.Input[int] disk_size_gb: The size of the Snapshotted Disk in GB.
-        :param pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArgs']] encryption_settings: A `encryption_settings` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SnapshotEncryptionSettingsArrgs']] encryption_settings: A `encryption_settings` block as defined below.
                
                > **NOTE:** Removing `encryption_settings` forces a new resource to be created.
         :param pulumi.Input[bool] incremental_enabled: Specifies if the Snapshot is incremental.

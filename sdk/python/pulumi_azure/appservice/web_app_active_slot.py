@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['WebAppActiveSlotArgs', 'WebAppActiveSlot']
+__all__ = ['WebAppActiveSlotArrgs', 'WebAppActiveSlot']
 
 @pulumi.input_type
-class WebAppActiveSlotArgs:
+calass WebAppActiveSlotArrgs:
     def __init__(__self__, *,
                  slot_id: pulumi.Input[str],
                  overwrite_network_config: Optional[pulumi.Input[bool]] = None):
@@ -51,7 +51,7 @@ class WebAppActiveSlotArgs:
 
 
 @pulumi.input_type
-class _WebAppActiveSlotState:
+calass _WebAppActiveSlotState:
     def __init__(__self__, *,
                  last_successful_swap: Optional[pulumi.Input[str]] = None,
                  overwrite_network_config: Optional[pulumi.Input[bool]] = None,
@@ -106,7 +106,7 @@ class _WebAppActiveSlotState:
         pulumi.set(self, "slot_id", value)
 
 
-class WebAppActiveSlot(pulumi.CustomResource):
+calass WebAppActiveSlot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -134,10 +134,10 @@ class WebAppActiveSlot(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_service_plan.location,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
+            site_config=azure.appservice.WindowsWebAppSiteConfigArrgs())
         example_windows_web_app_slot = azure.appservice.WindowsWebAppSlot("exampleWindowsWebAppSlot",
             app_service_id=example_windows_web_app.name,
-            site_config=azure.appservice.WindowsWebAppSlotSiteConfigArgs())
+            site_config=azure.appservice.WindowsWebAppSlotSiteConfigArrgs())
         example_web_app_active_slot = azure.appservice.WebAppActiveSlot("exampleWebAppActiveSlot", slot_id=example_windows_web_app_slot.id)
         ```
 
@@ -158,7 +158,7 @@ class WebAppActiveSlot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WebAppActiveSlotArgs,
+                 args: WebAppActiveSlotArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Web App Active Slot.
@@ -180,10 +180,10 @@ class WebAppActiveSlot(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_service_plan.location,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
+            site_config=azure.appservice.WindowsWebAppSiteConfigArrgs())
         example_windows_web_app_slot = azure.appservice.WindowsWebAppSlot("exampleWindowsWebAppSlot",
             app_service_id=example_windows_web_app.name,
-            site_config=azure.appservice.WindowsWebAppSlotSiteConfigArgs())
+            site_config=azure.appservice.WindowsWebAppSlotSiteConfigArrgs())
         example_web_app_active_slot = azure.appservice.WebAppActiveSlot("exampleWebAppActiveSlot", slot_id=example_windows_web_app_slot.id)
         ```
 
@@ -196,12 +196,12 @@ class WebAppActiveSlot(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WebAppActiveSlotArgs args: The arguments to use to populate this resource's properties.
+        :param WebAppActiveSlotArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WebAppActiveSlotArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WebAppActiveSlotArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -219,7 +219,7 @@ class WebAppActiveSlot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WebAppActiveSlotArgs.__new__(WebAppActiveSlotArgs)
+            __props__ = WebAppActiveSlotArrgs.__new__(WebAppActiveSlotArrgs)
 
             __props__.__dict__["overwrite_network_config"] = overwrite_network_config
             if slot_id is None and not opts.urn:

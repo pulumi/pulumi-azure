@@ -11,25 +11,25 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DatasetParquetArgs', 'DatasetParquet']
+__all__ = ['DatasetParquetArrgs', 'DatasetParquet']
 
 @pulumi.input_type
-class DatasetParquetArgs:
+calass DatasetParquetArrgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[str],
                  linked_service_name: pulumi.Input[str],
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 azure_blob_fs_location: Optional[pulumi.Input['DatasetParquetAzureBlobFsLocationArgs']] = None,
-                 azure_blob_storage_location: Optional[pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs']] = None,
+                 azure_blob_fs_location: Optional[pulumi.Input['DatasetParquetAzureBlobFsLocationArrgs']] = None,
+                 azure_blob_storage_location: Optional[pulumi.Input['DatasetParquetAzureBlobStorageLocationArrgs']] = None,
                  compression_codec: Optional[pulumi.Input[str]] = None,
                  compression_level: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
-                 http_server_location: Optional[pulumi.Input['DatasetParquetHttpServerLocationArgs']] = None,
+                 http_server_location: Optional[pulumi.Input['DatasetParquetHttpServerLocationArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArgs']]]] = None):
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArrgs']]]] = None):
         """
         The set of arguments for constructing a DatasetParquet resource.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
@@ -38,18 +38,18 @@ class DatasetParquetArgs:
                
                The following supported locations for a Parquet Dataset:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
-        :param pulumi.Input['DatasetParquetAzureBlobFsLocationArgs'] azure_blob_fs_location: A `azure_blob_fs_location` block as defined below.
-        :param pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs'] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
+        :param pulumi.Input['DatasetParquetAzureBlobFsLocationArrgs'] azure_blob_fs_location: A `azure_blob_fs_location` block as defined below.
+        :param pulumi.Input['DatasetParquetAzureBlobStorageLocationArrgs'] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
                
                The following supported arguments are specific to Parquet Dataset:
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
         :param pulumi.Input[str] compression_level: Specifies the compression level. Possible values are `Optimal` and `Fastest`,
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
-        :param pulumi.Input['DatasetParquetHttpServerLocationArgs'] http_server_location: A `http_server_location` block as defined below.
+        :param pulumi.Input['DatasetParquetHttpServerLocationArrgs'] http_server_location: A `http_server_location` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
-        :param pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArrgs']]] schema_columns: A `schema_column` block as defined below.
         """
         pulumi.set(__self__, "data_factory_id", data_factory_id)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -130,19 +130,19 @@ class DatasetParquetArgs:
 
     @property
     @pulumi.getter(name="azureBlobFsLocation")
-    def azure_blob_fs_location(self) -> Optional[pulumi.Input['DatasetParquetAzureBlobFsLocationArgs']]:
+    def azure_blob_fs_location(self) -> Optional[pulumi.Input['DatasetParquetAzureBlobFsLocationArrgs']]:
         """
         A `azure_blob_fs_location` block as defined below.
         """
         return pulumi.get(self, "azure_blob_fs_location")
 
     @azure_blob_fs_location.setter
-    def azure_blob_fs_location(self, value: Optional[pulumi.Input['DatasetParquetAzureBlobFsLocationArgs']]):
+    def azure_blob_fs_location(self, value: Optional[pulumi.Input['DatasetParquetAzureBlobFsLocationArrgs']]):
         pulumi.set(self, "azure_blob_fs_location", value)
 
     @property
     @pulumi.getter(name="azureBlobStorageLocation")
-    def azure_blob_storage_location(self) -> Optional[pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs']]:
+    def azure_blob_storage_location(self) -> Optional[pulumi.Input['DatasetParquetAzureBlobStorageLocationArrgs']]:
         """
         A `azure_blob_storage_location` block as defined below.
 
@@ -151,7 +151,7 @@ class DatasetParquetArgs:
         return pulumi.get(self, "azure_blob_storage_location")
 
     @azure_blob_storage_location.setter
-    def azure_blob_storage_location(self, value: Optional[pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs']]):
+    def azure_blob_storage_location(self, value: Optional[pulumi.Input['DatasetParquetAzureBlobStorageLocationArrgs']]):
         pulumi.set(self, "azure_blob_storage_location", value)
 
     @property
@@ -204,14 +204,14 @@ class DatasetParquetArgs:
 
     @property
     @pulumi.getter(name="httpServerLocation")
-    def http_server_location(self) -> Optional[pulumi.Input['DatasetParquetHttpServerLocationArgs']]:
+    def http_server_location(self) -> Optional[pulumi.Input['DatasetParquetHttpServerLocationArrgs']]:
         """
         A `http_server_location` block as defined below.
         """
         return pulumi.get(self, "http_server_location")
 
     @http_server_location.setter
-    def http_server_location(self, value: Optional[pulumi.Input['DatasetParquetHttpServerLocationArgs']]):
+    def http_server_location(self, value: Optional[pulumi.Input['DatasetParquetHttpServerLocationArrgs']]):
         pulumi.set(self, "http_server_location", value)
 
     @property
@@ -240,42 +240,42 @@ class DatasetParquetArgs:
 
     @property
     @pulumi.getter(name="schemaColumns")
-    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArgs']]]]:
+    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArrgs']]]]:
         """
         A `schema_column` block as defined below.
         """
         return pulumi.get(self, "schema_columns")
 
     @schema_columns.setter
-    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArgs']]]]):
+    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArrgs']]]]):
         pulumi.set(self, "schema_columns", value)
 
 
 @pulumi.input_type
-class _DatasetParquetState:
+calass _DatasetParquetState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 azure_blob_fs_location: Optional[pulumi.Input['DatasetParquetAzureBlobFsLocationArgs']] = None,
-                 azure_blob_storage_location: Optional[pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs']] = None,
+                 azure_blob_fs_location: Optional[pulumi.Input['DatasetParquetAzureBlobFsLocationArrgs']] = None,
+                 azure_blob_storage_location: Optional[pulumi.Input['DatasetParquetAzureBlobStorageLocationArrgs']] = None,
                  compression_codec: Optional[pulumi.Input[str]] = None,
                  compression_level: Optional[pulumi.Input[str]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
-                 http_server_location: Optional[pulumi.Input['DatasetParquetHttpServerLocationArgs']] = None,
+                 http_server_location: Optional[pulumi.Input['DatasetParquetHttpServerLocationArrgs']] = None,
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArgs']]]] = None):
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArrgs']]]] = None):
         """
         Input properties used for looking up and filtering DatasetParquet resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
                
                The following supported locations for a Parquet Dataset:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
-        :param pulumi.Input['DatasetParquetAzureBlobFsLocationArgs'] azure_blob_fs_location: A `azure_blob_fs_location` block as defined below.
-        :param pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs'] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
+        :param pulumi.Input['DatasetParquetAzureBlobFsLocationArrgs'] azure_blob_fs_location: A `azure_blob_fs_location` block as defined below.
+        :param pulumi.Input['DatasetParquetAzureBlobStorageLocationArrgs'] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
                
                The following supported arguments are specific to Parquet Dataset:
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
@@ -283,11 +283,11 @@ class _DatasetParquetState:
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
-        :param pulumi.Input['DatasetParquetHttpServerLocationArgs'] http_server_location: A `http_server_location` block as defined below.
+        :param pulumi.Input['DatasetParquetHttpServerLocationArrgs'] http_server_location: A `http_server_location` block as defined below.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
-        :param pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArrgs']]] schema_columns: A `schema_column` block as defined below.
         """
         if additional_properties is not None:
             pulumi.set(__self__, "additional_properties", additional_properties)
@@ -346,19 +346,19 @@ class _DatasetParquetState:
 
     @property
     @pulumi.getter(name="azureBlobFsLocation")
-    def azure_blob_fs_location(self) -> Optional[pulumi.Input['DatasetParquetAzureBlobFsLocationArgs']]:
+    def azure_blob_fs_location(self) -> Optional[pulumi.Input['DatasetParquetAzureBlobFsLocationArrgs']]:
         """
         A `azure_blob_fs_location` block as defined below.
         """
         return pulumi.get(self, "azure_blob_fs_location")
 
     @azure_blob_fs_location.setter
-    def azure_blob_fs_location(self, value: Optional[pulumi.Input['DatasetParquetAzureBlobFsLocationArgs']]):
+    def azure_blob_fs_location(self, value: Optional[pulumi.Input['DatasetParquetAzureBlobFsLocationArrgs']]):
         pulumi.set(self, "azure_blob_fs_location", value)
 
     @property
     @pulumi.getter(name="azureBlobStorageLocation")
-    def azure_blob_storage_location(self) -> Optional[pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs']]:
+    def azure_blob_storage_location(self) -> Optional[pulumi.Input['DatasetParquetAzureBlobStorageLocationArrgs']]:
         """
         A `azure_blob_storage_location` block as defined below.
 
@@ -367,7 +367,7 @@ class _DatasetParquetState:
         return pulumi.get(self, "azure_blob_storage_location")
 
     @azure_blob_storage_location.setter
-    def azure_blob_storage_location(self, value: Optional[pulumi.Input['DatasetParquetAzureBlobStorageLocationArgs']]):
+    def azure_blob_storage_location(self, value: Optional[pulumi.Input['DatasetParquetAzureBlobStorageLocationArrgs']]):
         pulumi.set(self, "azure_blob_storage_location", value)
 
     @property
@@ -432,14 +432,14 @@ class _DatasetParquetState:
 
     @property
     @pulumi.getter(name="httpServerLocation")
-    def http_server_location(self) -> Optional[pulumi.Input['DatasetParquetHttpServerLocationArgs']]:
+    def http_server_location(self) -> Optional[pulumi.Input['DatasetParquetHttpServerLocationArrgs']]:
         """
         A `http_server_location` block as defined below.
         """
         return pulumi.get(self, "http_server_location")
 
     @http_server_location.setter
-    def http_server_location(self, value: Optional[pulumi.Input['DatasetParquetHttpServerLocationArgs']]):
+    def http_server_location(self, value: Optional[pulumi.Input['DatasetParquetHttpServerLocationArrgs']]):
         pulumi.set(self, "http_server_location", value)
 
     @property
@@ -480,36 +480,36 @@ class _DatasetParquetState:
 
     @property
     @pulumi.getter(name="schemaColumns")
-    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArgs']]]]:
+    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArrgs']]]]:
         """
         A `schema_column` block as defined below.
         """
         return pulumi.get(self, "schema_columns")
 
     @schema_columns.setter
-    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArgs']]]]):
+    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetParquetSchemaColumnArrgs']]]]):
         pulumi.set(self, "schema_columns", value)
 
 
-class DatasetParquet(pulumi.CustomResource):
+calass DatasetParquet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 azure_blob_fs_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobFsLocationArgs']]] = None,
-                 azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobStorageLocationArgs']]] = None,
+                 azure_blob_fs_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobFsLocationArrgs']]] = None,
+                 azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobStorageLocationArrgs']]] = None,
                  compression_codec: Optional[pulumi.Input[str]] = None,
                  compression_level: Optional[pulumi.Input[str]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
-                 http_server_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetHttpServerLocationArgs']]] = None,
+                 http_server_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetHttpServerLocationArrgs']]] = None,
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetParquetSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetParquetSchemaColumnArrgs']]]]] = None,
                  __props__=None):
         """
         Manages an Azure Parquet Dataset inside an Azure Data Factory.
@@ -531,7 +531,7 @@ class DatasetParquet(pulumi.CustomResource):
         example_dataset_parquet = azure.datafactory.DatasetParquet("exampleDatasetParquet",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_web.name,
-            http_server_location=azure.datafactory.DatasetParquetHttpServerLocationArgs(
+            http_server_location=azure.datafactory.DatasetParquetHttpServerLocationArrgs(
                 relative_url="http://www.bing.com",
                 path="foo/bar/",
                 filename="fizz.txt",
@@ -552,8 +552,8 @@ class DatasetParquet(pulumi.CustomResource):
                
                The following supported locations for a Parquet Dataset:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
-        :param pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobFsLocationArgs']] azure_blob_fs_location: A `azure_blob_fs_location` block as defined below.
-        :param pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobStorageLocationArgs']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobFsLocationArrgs']] azure_blob_fs_location: A `azure_blob_fs_location` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobStorageLocationArrgs']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
                
                The following supported arguments are specific to Parquet Dataset:
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
@@ -561,17 +561,17 @@ class DatasetParquet(pulumi.CustomResource):
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
-        :param pulumi.Input[pulumi.InputType['DatasetParquetHttpServerLocationArgs']] http_server_location: A `http_server_location` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DatasetParquetHttpServerLocationArrgs']] http_server_location: A `http_server_location` block as defined below.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetParquetSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetParquetSchemaColumnArrgs']]]] schema_columns: A `schema_column` block as defined below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DatasetParquetArgs,
+                 args: DatasetParquetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Parquet Dataset inside an Azure Data Factory.
@@ -593,7 +593,7 @@ class DatasetParquet(pulumi.CustomResource):
         example_dataset_parquet = azure.datafactory.DatasetParquet("exampleDatasetParquet",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_web.name,
-            http_server_location=azure.datafactory.DatasetParquetHttpServerLocationArgs(
+            http_server_location=azure.datafactory.DatasetParquetHttpServerLocationArrgs(
                 relative_url="http://www.bing.com",
                 path="foo/bar/",
                 filename="fizz.txt",
@@ -609,12 +609,12 @@ class DatasetParquet(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DatasetParquetArgs args: The arguments to use to populate this resource's properties.
+        :param DatasetParquetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DatasetParquetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DatasetParquetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -625,18 +625,18 @@ class DatasetParquet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 azure_blob_fs_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobFsLocationArgs']]] = None,
-                 azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobStorageLocationArgs']]] = None,
+                 azure_blob_fs_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobFsLocationArrgs']]] = None,
+                 azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobStorageLocationArrgs']]] = None,
                  compression_codec: Optional[pulumi.Input[str]] = None,
                  compression_level: Optional[pulumi.Input[str]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
-                 http_server_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetHttpServerLocationArgs']]] = None,
+                 http_server_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetHttpServerLocationArrgs']]] = None,
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetParquetSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetParquetSchemaColumnArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -644,7 +644,7 @@ class DatasetParquet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DatasetParquetArgs.__new__(DatasetParquetArgs)
+            __props__ = DatasetParquetArrgs.__new__(DatasetParquetArrgs)
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
@@ -676,18 +676,18 @@ class DatasetParquet(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            azure_blob_fs_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobFsLocationArgs']]] = None,
-            azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobStorageLocationArgs']]] = None,
+            azure_blob_fs_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobFsLocationArrgs']]] = None,
+            azure_blob_storage_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobStorageLocationArrgs']]] = None,
             compression_codec: Optional[pulumi.Input[str]] = None,
             compression_level: Optional[pulumi.Input[str]] = None,
             data_factory_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             folder: Optional[pulumi.Input[str]] = None,
-            http_server_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetHttpServerLocationArgs']]] = None,
+            http_server_location: Optional[pulumi.Input[pulumi.InputType['DatasetParquetHttpServerLocationArrgs']]] = None,
             linked_service_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetParquetSchemaColumnArgs']]]]] = None) -> 'DatasetParquet':
+            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetParquetSchemaColumnArrgs']]]]] = None) -> 'DatasetParquet':
         """
         Get an existing DatasetParquet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -699,8 +699,8 @@ class DatasetParquet(pulumi.CustomResource):
                
                The following supported locations for a Parquet Dataset:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] annotations: List of tags that can be used for describing the Data Factory Dataset.
-        :param pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobFsLocationArgs']] azure_blob_fs_location: A `azure_blob_fs_location` block as defined below.
-        :param pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobStorageLocationArgs']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobFsLocationArrgs']] azure_blob_fs_location: A `azure_blob_fs_location` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DatasetParquetAzureBlobStorageLocationArrgs']] azure_blob_storage_location: A `azure_blob_storage_location` block as defined below.
                
                The following supported arguments are specific to Parquet Dataset:
         :param pulumi.Input[str] compression_codec: The compression codec used to read/write text files. Valid values are `bzip2`, `gzip`, `deflate`, `ZipDeflate`, `TarGzip`, `Tar`, `snappy`, or `lz4`. Please note these values are case-sensitive.
@@ -708,11 +708,11 @@ class DatasetParquet(pulumi.CustomResource):
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
-        :param pulumi.Input[pulumi.InputType['DatasetParquetHttpServerLocationArgs']] http_server_location: A `http_server_location` block as defined below.
+        :param pulumi.Input[pulumi.InputType['DatasetParquetHttpServerLocationArrgs']] http_server_location: A `http_server_location` block as defined below.
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetParquetSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetParquetSchemaColumnArrgs']]]] schema_columns: A `schema_column` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

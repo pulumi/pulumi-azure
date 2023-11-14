@@ -15,7 +15,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AccountIdentity(dict):
+calass AccountIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -94,7 +94,7 @@ class AccountIdentity(dict):
 
 
 @pulumi.output_type
-class AccountManagedResource(dict):
+calass AccountManagedResource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

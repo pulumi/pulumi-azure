@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetKeyResult:
+calass GetKeyResult:
     """
     A collection of values returned by getKey.
     """
@@ -216,7 +216,7 @@ class GetKeyResult:
         return pulumi.get(self, "y")
 
 
-class AwaitableGetKeyResult(GetKeyResult):
+calass AwaitableGetKeyResult(GetKeyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

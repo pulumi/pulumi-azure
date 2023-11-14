@@ -10,22 +10,22 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AccountActiveDirectoryArgs',
-    'SnapshotPolicyDailyScheduleArgs',
-    'SnapshotPolicyHourlyScheduleArgs',
-    'SnapshotPolicyMonthlyScheduleArgs',
-    'SnapshotPolicyWeeklyScheduleArgs',
-    'VolumeDataProtectionReplicationArgs',
-    'VolumeDataProtectionSnapshotPolicyArgs',
-    'VolumeExportPolicyRuleArgs',
-    'VolumeGroupSapHanaVolumeArgs',
-    'VolumeGroupSapHanaVolumeDataProtectionReplicationArgs',
-    'VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs',
-    'VolumeGroupSapHanaVolumeExportPolicyRuleArgs',
+    'AccountActiveDirectoryArrgs',
+    'SnapshotPolicyDailyScheduleArrgs',
+    'SnapshotPolicyHourlyScheduleArrgs',
+    'SnapshotPolicyMonthlyScheduleArrgs',
+    'SnapshotPolicyWeeklyScheduleArrgs',
+    'VolumeDataProtectionReplicationArrgs',
+    'VolumeDataProtectionSnapshotPolicyArrgs',
+    'VolumeExportPolicyRuleArrgs',
+    'VolumeGroupSapHanaVolumeArrgs',
+    'VolumeGroupSapHanaVolumeDataProtectionReplicationArrgs',
+    'VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrgs',
+    'VolumeGroupSapHanaVolumeExportPolicyRuleArrgs',
 ]
 
 @pulumi.input_type
-class AccountActiveDirectoryArgs:
+calass AccountActiveDirectoryArrgs:
     def __init__(__self__, *,
                  dns_servers: pulumi.Input[Sequence[pulumi.Input[str]]],
                  domain: pulumi.Input[str],
@@ -123,7 +123,7 @@ class AccountActiveDirectoryArgs:
 
 
 @pulumi.input_type
-class SnapshotPolicyDailyScheduleArgs:
+calass SnapshotPolicyDailyScheduleArrgs:
     def __init__(__self__, *,
                  hour: pulumi.Input[int],
                  minute: pulumi.Input[int],
@@ -175,7 +175,7 @@ class SnapshotPolicyDailyScheduleArgs:
 
 
 @pulumi.input_type
-class SnapshotPolicyHourlyScheduleArgs:
+calass SnapshotPolicyHourlyScheduleArrgs:
     def __init__(__self__, *,
                  minute: pulumi.Input[int],
                  snapshots_to_keep: pulumi.Input[int]):
@@ -212,7 +212,7 @@ class SnapshotPolicyHourlyScheduleArgs:
 
 
 @pulumi.input_type
-class SnapshotPolicyMonthlyScheduleArgs:
+calass SnapshotPolicyMonthlyScheduleArrgs:
     def __init__(__self__, *,
                  days_of_months: pulumi.Input[Sequence[pulumi.Input[int]]],
                  hour: pulumi.Input[int],
@@ -279,7 +279,7 @@ class SnapshotPolicyMonthlyScheduleArgs:
 
 
 @pulumi.input_type
-class SnapshotPolicyWeeklyScheduleArgs:
+calass SnapshotPolicyWeeklyScheduleArrgs:
     def __init__(__self__, *,
                  days_of_weeks: pulumi.Input[Sequence[pulumi.Input[str]]],
                  hour: pulumi.Input[int],
@@ -346,7 +346,7 @@ class SnapshotPolicyWeeklyScheduleArgs:
 
 
 @pulumi.input_type
-class VolumeDataProtectionReplicationArgs:
+calass VolumeDataProtectionReplicationArrgs:
     def __init__(__self__, *,
                  remote_volume_location: pulumi.Input[str],
                  remote_volume_resource_id: pulumi.Input[str],
@@ -410,7 +410,7 @@ class VolumeDataProtectionReplicationArgs:
 
 
 @pulumi.input_type
-class VolumeDataProtectionSnapshotPolicyArgs:
+calass VolumeDataProtectionSnapshotPolicyArrgs:
     def __init__(__self__, *,
                  snapshot_policy_id: pulumi.Input[str]):
         pulumi.set(__self__, "snapshot_policy_id", snapshot_policy_id)
@@ -426,7 +426,7 @@ class VolumeDataProtectionSnapshotPolicyArgs:
 
 
 @pulumi.input_type
-class VolumeExportPolicyRuleArgs:
+calass VolumeExportPolicyRuleArrgs:
     def __init__(__self__, *,
                  allowed_clients: pulumi.Input[Sequence[pulumi.Input[str]]],
                  rule_index: pulumi.Input[int],
@@ -527,10 +527,10 @@ class VolumeExportPolicyRuleArgs:
 
 
 @pulumi.input_type
-class VolumeGroupSapHanaVolumeArgs:
+calass VolumeGroupSapHanaVolumeArrgs:
     def __init__(__self__, *,
                  capacity_pool_id: pulumi.Input[str],
-                 export_policy_rules: pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeExportPolicyRuleArgs']]],
+                 export_policy_rules: pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeExportPolicyRuleArrgs']]],
                  name: pulumi.Input[str],
                  protocols: pulumi.Input[str],
                  security_style: pulumi.Input[str],
@@ -541,15 +541,15 @@ class VolumeGroupSapHanaVolumeArgs:
                  throughput_in_mibps: pulumi.Input[float],
                  volume_path: pulumi.Input[str],
                  volume_spec_name: pulumi.Input[str],
-                 data_protection_replication: Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArgs']] = None,
-                 data_protection_snapshot_policy: Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs']] = None,
+                 data_protection_replication: Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArrgs']] = None,
+                 data_protection_snapshot_policy: Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrgs']] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  mount_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  proximity_placement_group_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] capacity_pool_id: The ID of the Capacity Pool. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeExportPolicyRuleArgs']]] export_policy_rules: One or more `export_policy_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeExportPolicyRuleArrgs']]] export_policy_rules: One or more `export_policy_rule` blocks as defined below.
         :param pulumi.Input[str] name: The name which should be used for this volume. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[str] protocols: The target volume protocol expressed as a list. Changing this forces a new Application Volume Group to be created and data will be lost. Supported values for Application Volume Group include `NFSv3` or `NFSv4.1`, multi-protocol is not supported and there are certain rules on which protocol is supporteed per volume spec, please check [Configure application volume groups for the SAP HANA REST API](https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-application-volume-group-sap-hana-api) document for details.
         :param pulumi.Input[str] security_style: Volume security style. Possible value is `unix`. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -560,8 +560,8 @@ class VolumeGroupSapHanaVolumeArgs:
         :param pulumi.Input[float] throughput_in_mibps: Throughput of this volume in Mibps.
         :param pulumi.Input[str] volume_path: A unique file path for the volume. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[str] volume_spec_name: Volume specification name. Possible values are `data`, `log`, `shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArgs'] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs'] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
+        :param pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArrgs'] data_protection_replication: A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrgs'] data_protection_snapshot_policy: A `data_protection_snapshot_policy` block as defined below.
         :param pulumi.Input[str] id: The ID of the Application Volume Group.
         :param pulumi.Input[str] proximity_placement_group_id: The ID of the proximity placement group. Changing this forces a new Application Volume Group to be created and data will be lost. For SAP-HANA application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for SAP HANA](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-considerations) for details and other requirements.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags which should be assigned to the Application Volume Group.
@@ -605,14 +605,14 @@ class VolumeGroupSapHanaVolumeArgs:
 
     @property
     @pulumi.getter(name="exportPolicyRules")
-    def export_policy_rules(self) -> pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeExportPolicyRuleArgs']]]:
+    def export_policy_rules(self) -> pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeExportPolicyRuleArrgs']]]:
         """
         One or more `export_policy_rule` blocks as defined below.
         """
         return pulumi.get(self, "export_policy_rules")
 
     @export_policy_rules.setter
-    def export_policy_rules(self, value: pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeExportPolicyRuleArgs']]]):
+    def export_policy_rules(self, value: pulumi.Input[Sequence[pulumi.Input['VolumeGroupSapHanaVolumeExportPolicyRuleArrgs']]]):
         pulumi.set(self, "export_policy_rules", value)
 
     @property
@@ -737,26 +737,26 @@ class VolumeGroupSapHanaVolumeArgs:
 
     @property
     @pulumi.getter(name="dataProtectionReplication")
-    def data_protection_replication(self) -> Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArgs']]:
+    def data_protection_replication(self) -> Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArrgs']]:
         """
         A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "data_protection_replication")
 
     @data_protection_replication.setter
-    def data_protection_replication(self, value: Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArgs']]):
+    def data_protection_replication(self, value: Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionReplicationArrgs']]):
         pulumi.set(self, "data_protection_replication", value)
 
     @property
     @pulumi.getter(name="dataProtectionSnapshotPolicy")
-    def data_protection_snapshot_policy(self) -> Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs']]:
+    def data_protection_snapshot_policy(self) -> Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrgs']]:
         """
         A `data_protection_snapshot_policy` block as defined below.
         """
         return pulumi.get(self, "data_protection_snapshot_policy")
 
     @data_protection_snapshot_policy.setter
-    def data_protection_snapshot_policy(self, value: Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs']]):
+    def data_protection_snapshot_policy(self, value: Optional[pulumi.Input['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrgs']]):
         pulumi.set(self, "data_protection_snapshot_policy", value)
 
     @property
@@ -806,7 +806,7 @@ class VolumeGroupSapHanaVolumeArgs:
 
 
 @pulumi.input_type
-class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs:
+calass VolumeGroupSapHanaVolumeDataProtectionReplicationArrgs:
     def __init__(__self__, *,
                  remote_volume_location: pulumi.Input[str],
                  remote_volume_resource_id: pulumi.Input[str],
@@ -874,7 +874,7 @@ class VolumeGroupSapHanaVolumeDataProtectionReplicationArgs:
 
 
 @pulumi.input_type
-class VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs:
+calass VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArrgs:
     def __init__(__self__, *,
                  snapshot_policy_id: pulumi.Input[str]):
         """
@@ -896,7 +896,7 @@ class VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs:
 
 
 @pulumi.input_type
-class VolumeGroupSapHanaVolumeExportPolicyRuleArgs:
+calass VolumeGroupSapHanaVolumeExportPolicyRuleArrgs:
     def __init__(__self__, *,
                  allowed_clients: pulumi.Input[str],
                  nfsv3_enabled: pulumi.Input[bool],

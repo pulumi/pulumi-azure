@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DiskPoolIscsiTargetArgs', 'DiskPoolIscsiTarget']
+__all__ = ['DiskPoolIscsiTargetArrgs', 'DiskPoolIscsiTarget']
 
 @pulumi.input_type
-class DiskPoolIscsiTargetArgs:
+calass DiskPoolIscsiTargetArrgs:
     def __init__(__self__, *,
                  acl_mode: pulumi.Input[str],
                  disks_pool_id: pulumi.Input[str],
@@ -82,7 +82,7 @@ class DiskPoolIscsiTargetArgs:
 
 
 @pulumi.input_type
-class _DiskPoolIscsiTargetState:
+calass _DiskPoolIscsiTargetState:
     def __init__(__self__, *,
                  acl_mode: Optional[pulumi.Input[str]] = None,
                  disks_pool_id: Optional[pulumi.Input[str]] = None,
@@ -185,7 +185,7 @@ class _DiskPoolIscsiTargetState:
         pulumi.set(self, "target_iqn", value)
 
 
-class DiskPoolIscsiTarget(pulumi.CustomResource):
+calass DiskPoolIscsiTarget(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -218,9 +218,9 @@ class DiskPoolIscsiTarget(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="diskspool",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     actions=["Microsoft.Network/virtualNetworks/read"],
                     name="Microsoft.StoragePool/diskPools",
                 ),
@@ -280,7 +280,7 @@ class DiskPoolIscsiTarget(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DiskPoolIscsiTargetArgs,
+                 args: DiskPoolIscsiTargetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an iSCSI Target.
@@ -305,9 +305,9 @@ class DiskPoolIscsiTarget(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="diskspool",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     actions=["Microsoft.Network/virtualNetworks/read"],
                     name="Microsoft.StoragePool/diskPools",
                 ),
@@ -357,12 +357,12 @@ class DiskPoolIscsiTarget(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DiskPoolIscsiTargetArgs args: The arguments to use to populate this resource's properties.
+        :param DiskPoolIscsiTargetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DiskPoolIscsiTargetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DiskPoolIscsiTargetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -382,7 +382,7 @@ class DiskPoolIscsiTarget(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DiskPoolIscsiTargetArgs.__new__(DiskPoolIscsiTargetArgs)
+            __props__ = DiskPoolIscsiTargetArrgs.__new__(DiskPoolIscsiTargetArrgs)
 
             if acl_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'acl_mode'")

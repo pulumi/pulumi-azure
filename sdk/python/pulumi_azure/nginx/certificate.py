@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['CertificateArgs', 'Certificate']
+__all__ = ['CertificateArrgs', 'Certificate']
 
 @pulumi.input_type
-class CertificateArgs:
+calass CertificateArrgs:
     def __init__(__self__, *,
                  certificate_virtual_path: pulumi.Input[str],
                  key_vault_secret_id: pulumi.Input[str],
@@ -96,7 +96,7 @@ class CertificateArgs:
 
 
 @pulumi.input_type
-class _CertificateState:
+calass _CertificateState:
     def __init__(__self__, *,
                  certificate_virtual_path: Optional[pulumi.Input[str]] = None,
                  key_vault_secret_id: Optional[pulumi.Input[str]] = None,
@@ -183,7 +183,7 @@ class _CertificateState:
         pulumi.set(self, "nginx_deployment_id", value)
 
 
-class Certificate(pulumi.CustomResource):
+calass Certificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -221,9 +221,9 @@ class Certificate(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     name="NGINX.NGINXPLUS/nginxDeployments",
                     actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 ),
@@ -234,10 +234,10 @@ class Certificate(pulumi.CustomResource):
             location=example_resource_group.location,
             managed_resource_group="example",
             diagnose_support_enabled=True,
-            frontend_public=azure.nginx.DeploymentFrontendPublicArgs(
+            frontend_public=azure.nginx.DeploymentFrontendPublicArrgs(
                 ip_addresses=[example_public_ip.id],
             ),
-            network_interfaces=[azure.nginx.DeploymentNetworkInterfaceArgs(
+            network_interfaces=[azure.nginx.DeploymentNetworkInterfaceArrgs(
                 subnet_id=example_subnet.id,
             )])
         current = azure.core.get_client_config()
@@ -246,7 +246,7 @@ class Certificate(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             tenant_id=current.tenant_id,
             sku_name="premium",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArrgs(
                 tenant_id=current.tenant_id,
                 object_id=current.object_id,
                 certificate_permissions=[
@@ -266,7 +266,7 @@ class Certificate(pulumi.CustomResource):
             )])
         example_certificate = azure.keyvault.Certificate("exampleCertificate",
             key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
+            certificate=azure.keyvault.CertificateCertificateArrgs(
                 contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
                 password="",
             ))
@@ -297,7 +297,7 @@ class Certificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CertificateArgs,
+                 args: CertificateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Certificate for an NGinx Deployment.
@@ -326,9 +326,9 @@ class Certificate(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     name="NGINX.NGINXPLUS/nginxDeployments",
                     actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 ),
@@ -339,10 +339,10 @@ class Certificate(pulumi.CustomResource):
             location=example_resource_group.location,
             managed_resource_group="example",
             diagnose_support_enabled=True,
-            frontend_public=azure.nginx.DeploymentFrontendPublicArgs(
+            frontend_public=azure.nginx.DeploymentFrontendPublicArrgs(
                 ip_addresses=[example_public_ip.id],
             ),
-            network_interfaces=[azure.nginx.DeploymentNetworkInterfaceArgs(
+            network_interfaces=[azure.nginx.DeploymentNetworkInterfaceArrgs(
                 subnet_id=example_subnet.id,
             )])
         current = azure.core.get_client_config()
@@ -351,7 +351,7 @@ class Certificate(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             tenant_id=current.tenant_id,
             sku_name="premium",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArrgs(
                 tenant_id=current.tenant_id,
                 object_id=current.object_id,
                 certificate_permissions=[
@@ -371,7 +371,7 @@ class Certificate(pulumi.CustomResource):
             )])
         example_certificate = azure.keyvault.Certificate("exampleCertificate",
             key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
+            certificate=azure.keyvault.CertificateCertificateArrgs(
                 contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
                 password="",
             ))
@@ -391,12 +391,12 @@ class Certificate(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CertificateArgs args: The arguments to use to populate this resource's properties.
+        :param CertificateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CertificateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -417,7 +417,7 @@ class Certificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CertificateArgs.__new__(CertificateArgs)
+            __props__ = CertificateArrgs.__new__(CertificateArrgs)
 
             if certificate_virtual_path is None and not opts.urn:
                 raise TypeError("Missing required property 'certificate_virtual_path'")

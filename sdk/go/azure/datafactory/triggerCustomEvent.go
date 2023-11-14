@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Custom Event Trigger inside an Azure Data Factory.
@@ -309,12 +308,6 @@ func (i *TriggerCustomEvent) ToTriggerCustomEventOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerCustomEventOutput)
 }
 
-func (i *TriggerCustomEvent) ToOutput(ctx context.Context) pulumix.Output[*TriggerCustomEvent] {
-	return pulumix.Output[*TriggerCustomEvent]{
-		OutputState: i.ToTriggerCustomEventOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TriggerCustomEventArrayInput is an input type that accepts TriggerCustomEventArray and TriggerCustomEventArrayOutput values.
 // You can construct a concrete instance of `TriggerCustomEventArrayInput` via:
 //
@@ -338,12 +331,6 @@ func (i TriggerCustomEventArray) ToTriggerCustomEventArrayOutput() TriggerCustom
 
 func (i TriggerCustomEventArray) ToTriggerCustomEventArrayOutputWithContext(ctx context.Context) TriggerCustomEventArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerCustomEventArrayOutput)
-}
-
-func (i TriggerCustomEventArray) ToOutput(ctx context.Context) pulumix.Output[[]*TriggerCustomEvent] {
-	return pulumix.Output[[]*TriggerCustomEvent]{
-		OutputState: i.ToTriggerCustomEventArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TriggerCustomEventMapInput is an input type that accepts TriggerCustomEventMap and TriggerCustomEventMapOutput values.
@@ -371,12 +358,6 @@ func (i TriggerCustomEventMap) ToTriggerCustomEventMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerCustomEventMapOutput)
 }
 
-func (i TriggerCustomEventMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TriggerCustomEvent] {
-	return pulumix.Output[map[string]*TriggerCustomEvent]{
-		OutputState: i.ToTriggerCustomEventMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TriggerCustomEventOutput struct{ *pulumi.OutputState }
 
 func (TriggerCustomEventOutput) ElementType() reflect.Type {
@@ -389,12 +370,6 @@ func (o TriggerCustomEventOutput) ToTriggerCustomEventOutput() TriggerCustomEven
 
 func (o TriggerCustomEventOutput) ToTriggerCustomEventOutputWithContext(ctx context.Context) TriggerCustomEventOutput {
 	return o
-}
-
-func (o TriggerCustomEventOutput) ToOutput(ctx context.Context) pulumix.Output[*TriggerCustomEvent] {
-	return pulumix.Output[*TriggerCustomEvent]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies if the Data Factory Custom Event Trigger is activated. Defaults to `true`.
@@ -468,12 +443,6 @@ func (o TriggerCustomEventArrayOutput) ToTriggerCustomEventArrayOutputWithContex
 	return o
 }
 
-func (o TriggerCustomEventArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TriggerCustomEvent] {
-	return pulumix.Output[[]*TriggerCustomEvent]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TriggerCustomEventArrayOutput) Index(i pulumi.IntInput) TriggerCustomEventOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TriggerCustomEvent {
 		return vs[0].([]*TriggerCustomEvent)[vs[1].(int)]
@@ -492,12 +461,6 @@ func (o TriggerCustomEventMapOutput) ToTriggerCustomEventMapOutput() TriggerCust
 
 func (o TriggerCustomEventMapOutput) ToTriggerCustomEventMapOutputWithContext(ctx context.Context) TriggerCustomEventMapOutput {
 	return o
-}
-
-func (o TriggerCustomEventMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TriggerCustomEvent] {
-	return pulumix.Output[map[string]*TriggerCustomEvent]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TriggerCustomEventMapOutput) MapIndex(k pulumi.StringInput) TriggerCustomEventOutput {

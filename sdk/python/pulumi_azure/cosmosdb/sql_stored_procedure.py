@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SqlStoredProcedureArgs', 'SqlStoredProcedure']
+__all__ = ['SqlStoredProcedureArrgs', 'SqlStoredProcedure']
 
 @pulumi.input_type
-class SqlStoredProcedureArgs:
+calass SqlStoredProcedureArrgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  body: pulumi.Input[str],
@@ -111,7 +111,7 @@ class SqlStoredProcedureArgs:
 
 
 @pulumi.input_type
-class _SqlStoredProcedureState:
+calass _SqlStoredProcedureState:
     def __init__(__self__, *,
                  account_name: Optional[pulumi.Input[str]] = None,
                  body: Optional[pulumi.Input[str]] = None,
@@ -214,7 +214,7 @@ class _SqlStoredProcedureState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class SqlStoredProcedure(pulumi.CustomResource):
+calass SqlStoredProcedure(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -275,7 +275,7 @@ class SqlStoredProcedure(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SqlStoredProcedureArgs,
+                 args: SqlStoredProcedureArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a SQL Stored Procedure within a Cosmos DB Account SQL Database.
@@ -314,12 +314,12 @@ class SqlStoredProcedure(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SqlStoredProcedureArgs args: The arguments to use to populate this resource's properties.
+        :param SqlStoredProcedureArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SqlStoredProcedureArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SqlStoredProcedureArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -341,7 +341,7 @@ class SqlStoredProcedure(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SqlStoredProcedureArgs.__new__(SqlStoredProcedureArgs)
+            __props__ = SqlStoredProcedureArrgs.__new__(SqlStoredProcedureArrgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")

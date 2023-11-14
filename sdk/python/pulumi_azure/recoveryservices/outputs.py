@@ -16,7 +16,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class VaultEncryption(dict):
+calass VaultEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -100,7 +100,7 @@ class VaultEncryption(dict):
 
 
 @pulumi.output_type
-class VaultIdentity(dict):
+calass VaultIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -179,7 +179,7 @@ class VaultIdentity(dict):
 
 
 @pulumi.output_type
-class VaultMonitoring(dict):
+calass VaultMonitoring(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

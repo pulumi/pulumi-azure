@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AzureTrafficCollectorArgs', 'AzureTrafficCollector']
+__all__ = ['AzureTrafficCollectorArrgs', 'AzureTrafficCollector']
 
 @pulumi.input_type
-class AzureTrafficCollectorArgs:
+calass AzureTrafficCollectorArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class AzureTrafficCollectorArgs:
 
 
 @pulumi.input_type
-class _AzureTrafficCollectorState:
+calass _AzureTrafficCollectorState:
     def __init__(__self__, *,
                  collector_policy_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -186,7 +186,7 @@ class _AzureTrafficCollectorState:
         pulumi.set(self, "virtual_hub_ids", value)
 
 
-class AzureTrafficCollector(pulumi.CustomResource):
+calass AzureTrafficCollector(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -233,7 +233,7 @@ class AzureTrafficCollector(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AzureTrafficCollectorArgs,
+                 args: AzureTrafficCollectorArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Function Azure Traffic Collector.
@@ -262,12 +262,12 @@ class AzureTrafficCollector(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AzureTrafficCollectorArgs args: The arguments to use to populate this resource's properties.
+        :param AzureTrafficCollectorArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AzureTrafficCollectorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AzureTrafficCollectorArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -287,7 +287,7 @@ class AzureTrafficCollector(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AzureTrafficCollectorArgs.__new__(AzureTrafficCollectorArgs)
+            __props__ = AzureTrafficCollectorArrgs.__new__(AzureTrafficCollectorArrgs)
 
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

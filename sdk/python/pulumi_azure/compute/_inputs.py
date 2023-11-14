@@ -10,174 +10,174 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'BastionHostIpConfigurationArgs',
-    'CapacityReservationSkuArgs',
-    'DiskEncryptionSetIdentityArgs',
-    'ExtensionProtectedSettingsFromKeyVaultArgs',
-    'GalleryApplicationVersionManageActionArgs',
-    'GalleryApplicationVersionSourceArgs',
-    'GalleryApplicationVersionTargetRegionArgs',
-    'ImageDataDiskArgs',
-    'ImageOsDiskArgs',
-    'LinuxVirtualMachineAdditionalCapabilitiesArgs',
-    'LinuxVirtualMachineAdminSshKeyArgs',
-    'LinuxVirtualMachineBootDiagnosticsArgs',
-    'LinuxVirtualMachineGalleryApplicationArgs',
-    'LinuxVirtualMachineIdentityArgs',
-    'LinuxVirtualMachineOsDiskArgs',
-    'LinuxVirtualMachineOsDiskDiffDiskSettingsArgs',
-    'LinuxVirtualMachinePlanArgs',
-    'LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs',
-    'LinuxVirtualMachineScaleSetAdminSshKeyArgs',
-    'LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs',
-    'LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs',
-    'LinuxVirtualMachineScaleSetBootDiagnosticsArgs',
-    'LinuxVirtualMachineScaleSetDataDiskArgs',
-    'LinuxVirtualMachineScaleSetExtensionArgs',
-    'LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs',
-    'LinuxVirtualMachineScaleSetGalleryApplicationArgs',
-    'LinuxVirtualMachineScaleSetIdentityArgs',
-    'LinuxVirtualMachineScaleSetNetworkInterfaceArgs',
-    'LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs',
-    'LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs',
-    'LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs',
-    'LinuxVirtualMachineScaleSetOsDiskArgs',
-    'LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs',
-    'LinuxVirtualMachineScaleSetPlanArgs',
-    'LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs',
-    'LinuxVirtualMachineScaleSetScaleInArgs',
-    'LinuxVirtualMachineScaleSetSecretArgs',
-    'LinuxVirtualMachineScaleSetSecretCertificateArgs',
-    'LinuxVirtualMachineScaleSetSourceImageReferenceArgs',
-    'LinuxVirtualMachineScaleSetSpotRestoreArgs',
-    'LinuxVirtualMachineScaleSetTerminateNotificationArgs',
-    'LinuxVirtualMachineScaleSetTerminationNotificationArgs',
-    'LinuxVirtualMachineSecretArgs',
-    'LinuxVirtualMachineSecretCertificateArgs',
-    'LinuxVirtualMachineSourceImageReferenceArgs',
-    'LinuxVirtualMachineTerminationNotificationArgs',
-    'ManagedDiskEncryptionSettingsArgs',
-    'ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs',
-    'ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs',
-    'OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs',
-    'OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs',
-    'OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs',
-    'OrchestratedVirtualMachineScaleSetDataDiskArgs',
-    'OrchestratedVirtualMachineScaleSetExtensionArgs',
-    'OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs',
-    'OrchestratedVirtualMachineScaleSetIdentityArgs',
-    'OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs',
-    'OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs',
-    'OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs',
-    'OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs',
-    'OrchestratedVirtualMachineScaleSetOsDiskArgs',
-    'OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs',
-    'OrchestratedVirtualMachineScaleSetOsProfileArgs',
-    'OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs',
-    'OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs',
-    'OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs',
-    'OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs',
-    'OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs',
-    'OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs',
-    'OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs',
-    'OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs',
-    'OrchestratedVirtualMachineScaleSetPlanArgs',
-    'OrchestratedVirtualMachineScaleSetPriorityMixArgs',
-    'OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs',
-    'OrchestratedVirtualMachineScaleSetTerminationNotificationArgs',
-    'PacketCaptureFilterArgs',
-    'PacketCaptureStorageLocationArgs',
-    'ScaleSetBootDiagnosticsArgs',
-    'ScaleSetExtensionArgs',
-    'ScaleSetIdentityArgs',
-    'ScaleSetNetworkProfileArgs',
-    'ScaleSetNetworkProfileDnsSettingsArgs',
-    'ScaleSetNetworkProfileIpConfigurationArgs',
-    'ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs',
-    'ScaleSetOsProfileArgs',
-    'ScaleSetOsProfileLinuxConfigArgs',
-    'ScaleSetOsProfileLinuxConfigSshKeyArgs',
-    'ScaleSetOsProfileSecretArgs',
-    'ScaleSetOsProfileSecretVaultCertificateArgs',
-    'ScaleSetOsProfileWindowsConfigArgs',
-    'ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs',
-    'ScaleSetOsProfileWindowsConfigWinrmArgs',
-    'ScaleSetPacketCaptureFilterArgs',
-    'ScaleSetPacketCaptureMachineScopeArgs',
-    'ScaleSetPacketCaptureStorageLocationArgs',
-    'ScaleSetPlanArgs',
-    'ScaleSetRollingUpgradePolicyArgs',
-    'ScaleSetSkuArgs',
-    'ScaleSetStorageProfileDataDiskArgs',
-    'ScaleSetStorageProfileImageReferenceArgs',
-    'ScaleSetStorageProfileOsDiskArgs',
-    'SharedImageGallerySharingArgs',
-    'SharedImageGallerySharingCommunityGalleryArgs',
-    'SharedImageIdentifierArgs',
-    'SharedImagePurchasePlanArgs',
-    'SharedImageVersionTargetRegionArgs',
-    'SnapshotEncryptionSettingsArgs',
-    'SnapshotEncryptionSettingsDiskEncryptionKeyArgs',
-    'SnapshotEncryptionSettingsKeyEncryptionKeyArgs',
-    'VirtualMachineAdditionalCapabilitiesArgs',
-    'VirtualMachineBootDiagnosticsArgs',
-    'VirtualMachineIdentityArgs',
-    'VirtualMachineOsProfileArgs',
-    'VirtualMachineOsProfileLinuxConfigArgs',
-    'VirtualMachineOsProfileLinuxConfigSshKeyArgs',
-    'VirtualMachineOsProfileSecretArgs',
-    'VirtualMachineOsProfileSecretVaultCertificateArgs',
-    'VirtualMachineOsProfileWindowsConfigArgs',
-    'VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs',
-    'VirtualMachineOsProfileWindowsConfigWinrmArgs',
-    'VirtualMachinePlanArgs',
-    'VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs',
-    'VirtualMachineStorageDataDiskArgs',
-    'VirtualMachineStorageImageReferenceArgs',
-    'VirtualMachineStorageOsDiskArgs',
-    'WindowsVirtualMachineAdditionalCapabilitiesArgs',
-    'WindowsVirtualMachineAdditionalUnattendContentArgs',
-    'WindowsVirtualMachineBootDiagnosticsArgs',
-    'WindowsVirtualMachineGalleryApplicationArgs',
-    'WindowsVirtualMachineIdentityArgs',
-    'WindowsVirtualMachineOsDiskArgs',
-    'WindowsVirtualMachineOsDiskDiffDiskSettingsArgs',
-    'WindowsVirtualMachinePlanArgs',
-    'WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs',
-    'WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs',
-    'WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs',
-    'WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs',
-    'WindowsVirtualMachineScaleSetBootDiagnosticsArgs',
-    'WindowsVirtualMachineScaleSetDataDiskArgs',
-    'WindowsVirtualMachineScaleSetExtensionArgs',
-    'WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs',
-    'WindowsVirtualMachineScaleSetGalleryApplicationArgs',
-    'WindowsVirtualMachineScaleSetIdentityArgs',
-    'WindowsVirtualMachineScaleSetNetworkInterfaceArgs',
-    'WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs',
-    'WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs',
-    'WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs',
-    'WindowsVirtualMachineScaleSetOsDiskArgs',
-    'WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs',
-    'WindowsVirtualMachineScaleSetPlanArgs',
-    'WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs',
-    'WindowsVirtualMachineScaleSetScaleInArgs',
-    'WindowsVirtualMachineScaleSetSecretArgs',
-    'WindowsVirtualMachineScaleSetSecretCertificateArgs',
-    'WindowsVirtualMachineScaleSetSourceImageReferenceArgs',
-    'WindowsVirtualMachineScaleSetSpotRestoreArgs',
-    'WindowsVirtualMachineScaleSetTerminateNotificationArgs',
-    'WindowsVirtualMachineScaleSetTerminationNotificationArgs',
-    'WindowsVirtualMachineScaleSetWinrmListenerArgs',
-    'WindowsVirtualMachineSecretArgs',
-    'WindowsVirtualMachineSecretCertificateArgs',
-    'WindowsVirtualMachineSourceImageReferenceArgs',
-    'WindowsVirtualMachineTerminationNotificationArgs',
-    'WindowsVirtualMachineWinrmListenerArgs',
+    'BastionHostIpConfigurationArrgs',
+    'CapacityReservationSkuArrgs',
+    'DiskEncryptionSetIdentityArrgs',
+    'ExtensionProtectedSettingsFromKeyVaultArrgs',
+    'GalleryApplicationVersionManageActionArrgs',
+    'GalleryApplicationVersionSourceArrgs',
+    'GalleryApplicationVersionTargetRegionArrgs',
+    'ImageDataDiskArrgs',
+    'ImageOsDiskArrgs',
+    'LinuxVirtualMachineAdditionalCapabilitiesArrgs',
+    'LinuxVirtualMachineAdminSshKeyArrgs',
+    'LinuxVirtualMachineBootDiagnosticsArrgs',
+    'LinuxVirtualMachineGalleryApplicationArrgs',
+    'LinuxVirtualMachineIdentityArrgs',
+    'LinuxVirtualMachineOsDiskArrgs',
+    'LinuxVirtualMachineOsDiskDiffDiskSettingsArrgs',
+    'LinuxVirtualMachinePlanArrgs',
+    'LinuxVirtualMachineScaleSetAdditionalCapabilitiesArrgs',
+    'LinuxVirtualMachineScaleSetAdminSshKeyArrgs',
+    'LinuxVirtualMachineScaleSetAutomaticInstanceRepairArrgs',
+    'LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArrgs',
+    'LinuxVirtualMachineScaleSetBootDiagnosticsArrgs',
+    'LinuxVirtualMachineScaleSetDataDiskArrgs',
+    'LinuxVirtualMachineScaleSetExtensionArrgs',
+    'LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArrgs',
+    'LinuxVirtualMachineScaleSetGalleryApplicationArrgs',
+    'LinuxVirtualMachineScaleSetIdentityArrgs',
+    'LinuxVirtualMachineScaleSetNetworkInterfaceArrgs',
+    'LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs',
+    'LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs',
+    'LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs',
+    'LinuxVirtualMachineScaleSetOsDiskArrgs',
+    'LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArrgs',
+    'LinuxVirtualMachineScaleSetPlanArrgs',
+    'LinuxVirtualMachineScaleSetRollingUpgradePolicyArrgs',
+    'LinuxVirtualMachineScaleSetScaleInArrgs',
+    'LinuxVirtualMachineScaleSetSecretArrgs',
+    'LinuxVirtualMachineScaleSetSecretCertificateArrgs',
+    'LinuxVirtualMachineScaleSetSourceImageReferenceArrgs',
+    'LinuxVirtualMachineScaleSetSpotRestoreArrgs',
+    'LinuxVirtualMachineScaleSetTerminateNotificationArrgs',
+    'LinuxVirtualMachineScaleSetTerminationNotificationArrgs',
+    'LinuxVirtualMachineSecretArrgs',
+    'LinuxVirtualMachineSecretCertificateArrgs',
+    'LinuxVirtualMachineSourceImageReferenceArrgs',
+    'LinuxVirtualMachineTerminationNotificationArrgs',
+    'ManagedDiskEncryptionSettingsArrgs',
+    'ManagedDiskEncryptionSettingsDiskEncryptionKeyArrgs',
+    'ManagedDiskEncryptionSettingsKeyEncryptionKeyArrgs',
+    'OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArrgs',
+    'OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArrgs',
+    'OrchestratedVirtualMachineScaleSetBootDiagnosticsArrgs',
+    'OrchestratedVirtualMachineScaleSetDataDiskArrgs',
+    'OrchestratedVirtualMachineScaleSetExtensionArrgs',
+    'OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArrgs',
+    'OrchestratedVirtualMachineScaleSetIdentityArrgs',
+    'OrchestratedVirtualMachineScaleSetNetworkInterfaceArrgs',
+    'OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs',
+    'OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs',
+    'OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs',
+    'OrchestratedVirtualMachineScaleSetOsDiskArrgs',
+    'OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArrgs',
+    'OrchestratedVirtualMachineScaleSetOsProfileArrgs',
+    'OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArrgs',
+    'OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrgs',
+    'OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrgs',
+    'OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrgs',
+    'OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArrgs',
+    'OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrgs',
+    'OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrgs',
+    'OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrgs',
+    'OrchestratedVirtualMachineScaleSetPlanArrgs',
+    'OrchestratedVirtualMachineScaleSetPriorityMixArrgs',
+    'OrchestratedVirtualMachineScaleSetSourceImageReferenceArrgs',
+    'OrchestratedVirtualMachineScaleSetTerminationNotificationArrgs',
+    'PacketCaptureFilterArrgs',
+    'PacketCaptureStorageLocationArrgs',
+    'ScaleSetBootDiagnosticsArrgs',
+    'ScaleSetExtensionArrgs',
+    'ScaleSetIdentityArrgs',
+    'ScaleSetNetworkProfileArrgs',
+    'ScaleSetNetworkProfileDnsSettingsArrgs',
+    'ScaleSetNetworkProfileIpConfigurationArrgs',
+    'ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArrgs',
+    'ScaleSetOsProfileArrgs',
+    'ScaleSetOsProfileLinuxConfigArrgs',
+    'ScaleSetOsProfileLinuxConfigSshKeyArrgs',
+    'ScaleSetOsProfileSecretArrgs',
+    'ScaleSetOsProfileSecretVaultCertificateArrgs',
+    'ScaleSetOsProfileWindowsConfigArrgs',
+    'ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrgs',
+    'ScaleSetOsProfileWindowsConfigWinrmArrgs',
+    'ScaleSetPacketCaptureFilterArrgs',
+    'ScaleSetPacketCaptureMachineScopeArrgs',
+    'ScaleSetPacketCaptureStorageLocationArrgs',
+    'ScaleSetPlanArrgs',
+    'ScaleSetRollingUpgradePolicyArrgs',
+    'ScaleSetSkuArrgs',
+    'ScaleSetStorageProfileDataDiskArrgs',
+    'ScaleSetStorageProfileImageReferenceArrgs',
+    'ScaleSetStorageProfileOsDiskArrgs',
+    'SharedImageGallerySharingArrgs',
+    'SharedImageGallerySharingCommunityGalleryArrgs',
+    'SharedImageIdentifierArrgs',
+    'SharedImagePurchasePlanArrgs',
+    'SharedImageVersionTargetRegionArrgs',
+    'SnapshotEncryptionSettingsArrgs',
+    'SnapshotEncryptionSettingsDiskEncryptionKeyArrgs',
+    'SnapshotEncryptionSettingsKeyEncryptionKeyArrgs',
+    'VirtualMachineAdditionalCapabilitiesArrgs',
+    'VirtualMachineBootDiagnosticsArrgs',
+    'VirtualMachineIdentityArrgs',
+    'VirtualMachineOsProfileArrgs',
+    'VirtualMachineOsProfileLinuxConfigArrgs',
+    'VirtualMachineOsProfileLinuxConfigSshKeyArrgs',
+    'VirtualMachineOsProfileSecretArrgs',
+    'VirtualMachineOsProfileSecretVaultCertificateArrgs',
+    'VirtualMachineOsProfileWindowsConfigArrgs',
+    'VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrgs',
+    'VirtualMachineOsProfileWindowsConfigWinrmArrgs',
+    'VirtualMachinePlanArrgs',
+    'VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArrgs',
+    'VirtualMachineStorageDataDiskArrgs',
+    'VirtualMachineStorageImageReferenceArrgs',
+    'VirtualMachineStorageOsDiskArrgs',
+    'WindowsVirtualMachineAdditionalCapabilitiesArrgs',
+    'WindowsVirtualMachineAdditionalUnattendContentArrgs',
+    'WindowsVirtualMachineBootDiagnosticsArrgs',
+    'WindowsVirtualMachineGalleryApplicationArrgs',
+    'WindowsVirtualMachineIdentityArrgs',
+    'WindowsVirtualMachineOsDiskArrgs',
+    'WindowsVirtualMachineOsDiskDiffDiskSettingsArrgs',
+    'WindowsVirtualMachinePlanArrgs',
+    'WindowsVirtualMachineScaleSetAdditionalCapabilitiesArrgs',
+    'WindowsVirtualMachineScaleSetAdditionalUnattendContentArrgs',
+    'WindowsVirtualMachineScaleSetAutomaticInstanceRepairArrgs',
+    'WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArrgs',
+    'WindowsVirtualMachineScaleSetBootDiagnosticsArrgs',
+    'WindowsVirtualMachineScaleSetDataDiskArrgs',
+    'WindowsVirtualMachineScaleSetExtensionArrgs',
+    'WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArrgs',
+    'WindowsVirtualMachineScaleSetGalleryApplicationArrgs',
+    'WindowsVirtualMachineScaleSetIdentityArrgs',
+    'WindowsVirtualMachineScaleSetNetworkInterfaceArrgs',
+    'WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs',
+    'WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs',
+    'WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs',
+    'WindowsVirtualMachineScaleSetOsDiskArrgs',
+    'WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArrgs',
+    'WindowsVirtualMachineScaleSetPlanArrgs',
+    'WindowsVirtualMachineScaleSetRollingUpgradePolicyArrgs',
+    'WindowsVirtualMachineScaleSetScaleInArrgs',
+    'WindowsVirtualMachineScaleSetSecretArrgs',
+    'WindowsVirtualMachineScaleSetSecretCertificateArrgs',
+    'WindowsVirtualMachineScaleSetSourceImageReferenceArrgs',
+    'WindowsVirtualMachineScaleSetSpotRestoreArrgs',
+    'WindowsVirtualMachineScaleSetTerminateNotificationArrgs',
+    'WindowsVirtualMachineScaleSetTerminationNotificationArrgs',
+    'WindowsVirtualMachineScaleSetWinrmListenerArrgs',
+    'WindowsVirtualMachineSecretArrgs',
+    'WindowsVirtualMachineSecretCertificateArrgs',
+    'WindowsVirtualMachineSourceImageReferenceArrgs',
+    'WindowsVirtualMachineTerminationNotificationArrgs',
+    'WindowsVirtualMachineWinrmListenerArrgs',
 ]
 
 @pulumi.input_type
-class BastionHostIpConfigurationArgs:
+calass BastionHostIpConfigurationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  public_ip_address_id: pulumi.Input[str],
@@ -233,7 +233,7 @@ class BastionHostIpConfigurationArgs:
 
 
 @pulumi.input_type
-class CapacityReservationSkuArgs:
+calass CapacityReservationSkuArrgs:
     def __init__(__self__, *,
                  capacity: pulumi.Input[int],
                  name: pulumi.Input[str]):
@@ -270,7 +270,7 @@ class CapacityReservationSkuArgs:
 
 
 @pulumi.input_type
-class DiskEncryptionSetIdentityArgs:
+calass DiskEncryptionSetIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -344,7 +344,7 @@ class DiskEncryptionSetIdentityArgs:
 
 
 @pulumi.input_type
-class ExtensionProtectedSettingsFromKeyVaultArgs:
+calass ExtensionProtectedSettingsFromKeyVaultArrgs:
     def __init__(__self__, *,
                  secret_url: pulumi.Input[str],
                  source_vault_id: pulumi.Input[str]):
@@ -381,7 +381,7 @@ class ExtensionProtectedSettingsFromKeyVaultArgs:
 
 
 @pulumi.input_type
-class GalleryApplicationVersionManageActionArgs:
+calass GalleryApplicationVersionManageActionArrgs:
     def __init__(__self__, *,
                  install: pulumi.Input[str],
                  remove: pulumi.Input[str],
@@ -434,7 +434,7 @@ class GalleryApplicationVersionManageActionArgs:
 
 
 @pulumi.input_type
-class GalleryApplicationVersionSourceArgs:
+calass GalleryApplicationVersionSourceArrgs:
     def __init__(__self__, *,
                  media_link: pulumi.Input[str],
                  default_configuration_link: Optional[pulumi.Input[str]] = None):
@@ -472,7 +472,7 @@ class GalleryApplicationVersionSourceArgs:
 
 
 @pulumi.input_type
-class GalleryApplicationVersionTargetRegionArgs:
+calass GalleryApplicationVersionTargetRegionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  regional_replica_count: pulumi.Input[int],
@@ -525,7 +525,7 @@ class GalleryApplicationVersionTargetRegionArgs:
 
 
 @pulumi.input_type
-class ImageDataDiskArgs:
+calass ImageDataDiskArrgs:
     def __init__(__self__, *,
                  blob_uri: Optional[pulumi.Input[str]] = None,
                  caching: Optional[pulumi.Input[str]] = None,
@@ -612,7 +612,7 @@ class ImageDataDiskArgs:
 
 
 @pulumi.input_type
-class ImageOsDiskArgs:
+calass ImageOsDiskArrgs:
     def __init__(__self__, *,
                  blob_uri: Optional[pulumi.Input[str]] = None,
                  caching: Optional[pulumi.Input[str]] = None,
@@ -731,7 +731,7 @@ class ImageOsDiskArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineAdditionalCapabilitiesArgs:
+calass LinuxVirtualMachineAdditionalCapabilitiesArrgs:
     def __init__(__self__, *,
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -754,7 +754,7 @@ class LinuxVirtualMachineAdditionalCapabilitiesArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineAdminSshKeyArgs:
+calass LinuxVirtualMachineAdminSshKeyArrgs:
     def __init__(__self__, *,
                  public_key: pulumi.Input[str],
                  username: pulumi.Input[str]):
@@ -795,7 +795,7 @@ class LinuxVirtualMachineAdminSshKeyArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineBootDiagnosticsArgs:
+calass LinuxVirtualMachineBootDiagnosticsArrgs:
     def __init__(__self__, *,
                  storage_account_uri: Optional[pulumi.Input[str]] = None):
         """
@@ -822,7 +822,7 @@ class LinuxVirtualMachineBootDiagnosticsArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineGalleryApplicationArgs:
+calass LinuxVirtualMachineGalleryApplicationArrgs:
     def __init__(__self__, *,
                  version_id: pulumi.Input[str],
                  configuration_blob_uri: Optional[pulumi.Input[str]] = None,
@@ -892,7 +892,7 @@ class LinuxVirtualMachineGalleryApplicationArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineIdentityArgs:
+calass LinuxVirtualMachineIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -966,11 +966,11 @@ class LinuxVirtualMachineIdentityArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineOsDiskArgs:
+calass LinuxVirtualMachineOsDiskArrgs:
     def __init__(__self__, *,
                  caching: pulumi.Input[str],
                  storage_account_type: pulumi.Input[str],
-                 diff_disk_settings: Optional[pulumi.Input['LinuxVirtualMachineOsDiskDiffDiskSettingsArgs']] = None,
+                 diff_disk_settings: Optional[pulumi.Input['LinuxVirtualMachineOsDiskDiffDiskSettingsArrgs']] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -980,7 +980,7 @@ class LinuxVirtualMachineOsDiskArgs:
         """
         :param pulumi.Input[str] caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        :param pulumi.Input['LinuxVirtualMachineOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+        :param pulumi.Input['LinuxVirtualMachineOsDiskDiffDiskSettingsArrgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
                
                > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
@@ -1045,7 +1045,7 @@ class LinuxVirtualMachineOsDiskArgs:
 
     @property
     @pulumi.getter(name="diffDiskSettings")
-    def diff_disk_settings(self) -> Optional[pulumi.Input['LinuxVirtualMachineOsDiskDiffDiskSettingsArgs']]:
+    def diff_disk_settings(self) -> Optional[pulumi.Input['LinuxVirtualMachineOsDiskDiffDiskSettingsArrgs']]:
         """
         A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
 
@@ -1054,7 +1054,7 @@ class LinuxVirtualMachineOsDiskArgs:
         return pulumi.get(self, "diff_disk_settings")
 
     @diff_disk_settings.setter
-    def diff_disk_settings(self, value: Optional[pulumi.Input['LinuxVirtualMachineOsDiskDiffDiskSettingsArgs']]):
+    def diff_disk_settings(self, value: Optional[pulumi.Input['LinuxVirtualMachineOsDiskDiffDiskSettingsArrgs']]):
         pulumi.set(self, "diff_disk_settings", value)
 
     @property
@@ -1143,7 +1143,7 @@ class LinuxVirtualMachineOsDiskArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineOsDiskDiffDiskSettingsArgs:
+calass LinuxVirtualMachineOsDiskDiffDiskSettingsArrgs:
     def __init__(__self__, *,
                  option: pulumi.Input[str],
                  placement: Optional[pulumi.Input[str]] = None):
@@ -1181,7 +1181,7 @@ class LinuxVirtualMachineOsDiskDiffDiskSettingsArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachinePlanArgs:
+calass LinuxVirtualMachinePlanArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  product: pulumi.Input[str],
@@ -1233,7 +1233,7 @@ class LinuxVirtualMachinePlanArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs:
+calass LinuxVirtualMachineScaleSetAdditionalCapabilitiesArrgs:
     def __init__(__self__, *,
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -1256,7 +1256,7 @@ class LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetAdminSshKeyArgs:
+calass LinuxVirtualMachineScaleSetAdminSshKeyArrgs:
     def __init__(__self__, *,
                  public_key: pulumi.Input[str],
                  username: pulumi.Input[str]):
@@ -1297,7 +1297,7 @@ class LinuxVirtualMachineScaleSetAdminSshKeyArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs:
+calass LinuxVirtualMachineScaleSetAutomaticInstanceRepairArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  grace_period: Optional[pulumi.Input[str]] = None):
@@ -1335,7 +1335,7 @@ class LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs:
+calass LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArrgs:
     def __init__(__self__, *,
                  disable_automatic_rollback: pulumi.Input[bool],
                  enable_automatic_os_upgrade: pulumi.Input[bool]):
@@ -1372,7 +1372,7 @@ class LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetBootDiagnosticsArgs:
+calass LinuxVirtualMachineScaleSetBootDiagnosticsArrgs:
     def __init__(__self__, *,
                  storage_account_uri: Optional[pulumi.Input[str]] = None):
         """
@@ -1399,7 +1399,7 @@ class LinuxVirtualMachineScaleSetBootDiagnosticsArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetDataDiskArgs:
+calass LinuxVirtualMachineScaleSetDataDiskArrgs:
     def __init__(__self__, *,
                  caching: pulumi.Input[str],
                  disk_size_gb: pulumi.Input[int],
@@ -1578,7 +1578,7 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetExtensionArgs:
+calass LinuxVirtualMachineScaleSetExtensionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  publisher: pulumi.Input[str],
@@ -1588,7 +1588,7 @@ class LinuxVirtualMachineScaleSetExtensionArgs:
                  automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
-                 protected_settings_from_key_vault: Optional[pulumi.Input['LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']] = None,
+                 protected_settings_from_key_vault: Optional[pulumi.Input['LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArrgs']] = None,
                  provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  settings: Optional[pulumi.Input[str]] = None):
         """
@@ -1726,11 +1726,11 @@ class LinuxVirtualMachineScaleSetExtensionArgs:
 
     @property
     @pulumi.getter(name="protectedSettingsFromKeyVault")
-    def protected_settings_from_key_vault(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']]:
+    def protected_settings_from_key_vault(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArrgs']]:
         return pulumi.get(self, "protected_settings_from_key_vault")
 
     @protected_settings_from_key_vault.setter
-    def protected_settings_from_key_vault(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']]):
+    def protected_settings_from_key_vault(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArrgs']]):
         pulumi.set(self, "protected_settings_from_key_vault", value)
 
     @property
@@ -1761,7 +1761,7 @@ class LinuxVirtualMachineScaleSetExtensionArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs:
+calass LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArrgs:
     def __init__(__self__, *,
                  secret_url: pulumi.Input[str],
                  source_vault_id: pulumi.Input[str]):
@@ -1798,7 +1798,7 @@ class LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetGalleryApplicationArgs:
+calass LinuxVirtualMachineScaleSetGalleryApplicationArrgs:
     def __init__(__self__, *,
                  package_reference_id: pulumi.Input[str],
                  configuration_reference_blob_uri: Optional[pulumi.Input[str]] = None,
@@ -1872,7 +1872,7 @@ class LinuxVirtualMachineScaleSetGalleryApplicationArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetIdentityArgs:
+calass LinuxVirtualMachineScaleSetIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1946,9 +1946,9 @@ class LinuxVirtualMachineScaleSetIdentityArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetNetworkInterfaceArgs:
+calass LinuxVirtualMachineScaleSetNetworkInterfaceArrgs:
     def __init__(__self__, *,
-                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs']]],
+                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs']]],
                  name: pulumi.Input[str],
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
@@ -1956,7 +1956,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceArgs:
                  network_security_group_id: Optional[pulumi.Input[str]] = None,
                  primary: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs']]] ip_configurations: One or more `ip_configuration` blocks as defined above.
         :param pulumi.Input[str] name: The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
         :param pulumi.Input[bool] enable_accelerated_networking: Does this Network Interface support Accelerated Networking? Defaults to `false`.
@@ -1981,14 +1981,14 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceArgs:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs']]]:
+    def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs']]]:
         """
         One or more `ip_configuration` blocks as defined above.
         """
         return pulumi.get(self, "ip_configurations")
 
     @ip_configurations.setter
-    def ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs']]]):
+    def ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs']]]):
         pulumi.set(self, "ip_configurations", value)
 
     @property
@@ -2067,7 +2067,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
+calass LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  application_gateway_backend_address_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2075,7 +2075,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
                  load_balancer_backend_address_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  load_balancer_inbound_nat_rules_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  primary: Optional[pulumi.Input[bool]] = None,
-                 public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]]] = None,
+                 public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs']]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
@@ -2093,7 +2093,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
         :param pulumi.Input[bool] primary: Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
                
                > **NOTE:** One `ip_configuration` block must be marked as Primary for each Network Interface.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]] public_ip_addresses: A `public_ip_address` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs']]] public_ip_addresses: A `public_ip_address` block as defined below.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet which this IP Configuration should be connected to.
                
                > `subnet_id` is required if `version` is set to `IPv4`.
@@ -2199,14 +2199,14 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
 
     @property
     @pulumi.getter(name="publicIpAddresses")
-    def public_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]]]:
+    def public_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs']]]]:
         """
         A `public_ip_address` block as defined below.
         """
         return pulumi.get(self, "public_ip_addresses")
 
     @public_ip_addresses.setter
-    def public_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]]]):
+    def public_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs']]]]):
         pulumi.set(self, "public_ip_addresses", value)
 
     @property
@@ -2237,19 +2237,19 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs:
+calass LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  domain_name_label: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
-                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs']]]] = None,
+                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs']]]] = None,
                  public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The Name of the Public IP Address Configuration.
         :param pulumi.Input[str] domain_name_label: The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
         :param pulumi.Input[int] idle_timeout_in_minutes: The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs']]] ip_tags: One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs']]] ip_tags: One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_ip_prefix_id: The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
                
                > **NOTE:** This functionality is in Preview and must be opted into via `az feature register --namespace Microsoft.Network --name AllowBringYourOwnPublicIpAddress` and then `az provider register -n Microsoft.Network`.
@@ -2305,14 +2305,14 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressA
 
     @property
     @pulumi.getter(name="ipTags")
-    def ip_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs']]]]:
+    def ip_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs']]]]:
         """
         One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ip_tags")
 
     @ip_tags.setter
-    def ip_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs']]]]):
+    def ip_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs']]]]):
         pulumi.set(self, "ip_tags", value)
 
     @property
@@ -2343,7 +2343,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressA
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs:
+calass LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs:
     def __init__(__self__, *,
                  tag: pulumi.Input[str],
                  type: pulumi.Input[str]):
@@ -2380,11 +2380,11 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressI
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetOsDiskArgs:
+calass LinuxVirtualMachineScaleSetOsDiskArrgs:
     def __init__(__self__, *,
                  caching: pulumi.Input[str],
                  storage_account_type: pulumi.Input[str],
-                 diff_disk_settings: Optional[pulumi.Input['LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs']] = None,
+                 diff_disk_settings: Optional[pulumi.Input['LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArrgs']] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
@@ -2393,7 +2393,7 @@ class LinuxVirtualMachineScaleSetOsDiskArgs:
         """
         :param pulumi.Input[str] caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        :param pulumi.Input['LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+        :param pulumi.Input['LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArrgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
                
                > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
@@ -2455,14 +2455,14 @@ class LinuxVirtualMachineScaleSetOsDiskArgs:
 
     @property
     @pulumi.getter(name="diffDiskSettings")
-    def diff_disk_settings(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs']]:
+    def diff_disk_settings(self) -> Optional[pulumi.Input['LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArrgs']]:
         """
         A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "diff_disk_settings")
 
     @diff_disk_settings.setter
-    def diff_disk_settings(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs']]):
+    def diff_disk_settings(self, value: Optional[pulumi.Input['LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArrgs']]):
         pulumi.set(self, "diff_disk_settings", value)
 
     @property
@@ -2541,7 +2541,7 @@ class LinuxVirtualMachineScaleSetOsDiskArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs:
+calass LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArrgs:
     def __init__(__self__, *,
                  option: pulumi.Input[str],
                  placement: Optional[pulumi.Input[str]] = None):
@@ -2579,7 +2579,7 @@ class LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetPlanArgs:
+calass LinuxVirtualMachineScaleSetPlanArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  product: pulumi.Input[str],
@@ -2631,7 +2631,7 @@ class LinuxVirtualMachineScaleSetPlanArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs:
+calass LinuxVirtualMachineScaleSetRollingUpgradePolicyArrgs:
     def __init__(__self__, *,
                  max_batch_instance_percent: pulumi.Input[int],
                  max_unhealthy_instance_percent: pulumi.Input[int],
@@ -2730,7 +2730,7 @@ class LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetScaleInArgs:
+calass LinuxVirtualMachineScaleSetScaleInArrgs:
     def __init__(__self__, *,
                  force_deletion_enabled: Optional[pulumi.Input[bool]] = None,
                  rule: Optional[pulumi.Input[str]] = None):
@@ -2769,12 +2769,12 @@ class LinuxVirtualMachineScaleSetScaleInArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetSecretArgs:
+calass LinuxVirtualMachineScaleSetSecretArrgs:
     def __init__(__self__, *,
-                 certificates: pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretCertificateArgs']]],
+                 certificates: pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretCertificateArrgs']]],
                  key_vault_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretCertificateArgs']]] certificates: One or more `certificate` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretCertificateArrgs']]] certificates: One or more `certificate` blocks as defined above.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault from which all Secrets should be sourced.
         """
         pulumi.set(__self__, "certificates", certificates)
@@ -2782,14 +2782,14 @@ class LinuxVirtualMachineScaleSetSecretArgs:
 
     @property
     @pulumi.getter
-    def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretCertificateArgs']]]:
+    def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretCertificateArrgs']]]:
         """
         One or more `certificate` blocks as defined above.
         """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretCertificateArgs']]]):
+    def certificates(self, value: pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretCertificateArrgs']]]):
         pulumi.set(self, "certificates", value)
 
     @property
@@ -2806,7 +2806,7 @@ class LinuxVirtualMachineScaleSetSecretArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetSecretCertificateArgs:
+calass LinuxVirtualMachineScaleSetSecretCertificateArrgs:
     def __init__(__self__, *,
                  url: pulumi.Input[str]):
         """
@@ -2836,7 +2836,7 @@ class LinuxVirtualMachineScaleSetSecretCertificateArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetSourceImageReferenceArgs:
+calass LinuxVirtualMachineScaleSetSourceImageReferenceArrgs:
     def __init__(__self__, *,
                  offer: pulumi.Input[str],
                  publisher: pulumi.Input[str],
@@ -2903,7 +2903,7 @@ class LinuxVirtualMachineScaleSetSourceImageReferenceArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetSpotRestoreArgs:
+calass LinuxVirtualMachineScaleSetSpotRestoreArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  timeout: Optional[pulumi.Input[str]] = None):
@@ -2942,7 +2942,7 @@ class LinuxVirtualMachineScaleSetSpotRestoreArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetTerminateNotificationArgs:
+calass LinuxVirtualMachineScaleSetTerminateNotificationArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  timeout: Optional[pulumi.Input[str]] = None):
@@ -2984,7 +2984,7 @@ class LinuxVirtualMachineScaleSetTerminateNotificationArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineScaleSetTerminationNotificationArgs:
+calass LinuxVirtualMachineScaleSetTerminationNotificationArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  timeout: Optional[pulumi.Input[str]] = None):
@@ -3026,12 +3026,12 @@ class LinuxVirtualMachineScaleSetTerminationNotificationArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineSecretArgs:
+calass LinuxVirtualMachineSecretArrgs:
     def __init__(__self__, *,
-                 certificates: pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretCertificateArgs']]],
+                 certificates: pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretCertificateArrgs']]],
                  key_vault_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretCertificateArgs']]] certificates: One or more `certificate` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretCertificateArrgs']]] certificates: One or more `certificate` blocks as defined above.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault from which all Secrets should be sourced.
         """
         pulumi.set(__self__, "certificates", certificates)
@@ -3039,14 +3039,14 @@ class LinuxVirtualMachineSecretArgs:
 
     @property
     @pulumi.getter
-    def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretCertificateArgs']]]:
+    def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretCertificateArrgs']]]:
         """
         One or more `certificate` blocks as defined above.
         """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretCertificateArgs']]]):
+    def certificates(self, value: pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineSecretCertificateArrgs']]]):
         pulumi.set(self, "certificates", value)
 
     @property
@@ -3063,7 +3063,7 @@ class LinuxVirtualMachineSecretArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineSecretCertificateArgs:
+calass LinuxVirtualMachineSecretCertificateArrgs:
     def __init__(__self__, *,
                  url: pulumi.Input[str]):
         """
@@ -3089,7 +3089,7 @@ class LinuxVirtualMachineSecretCertificateArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineSourceImageReferenceArgs:
+calass LinuxVirtualMachineSourceImageReferenceArrgs:
     def __init__(__self__, *,
                  offer: pulumi.Input[str],
                  publisher: pulumi.Input[str],
@@ -3156,7 +3156,7 @@ class LinuxVirtualMachineSourceImageReferenceArgs:
 
 
 @pulumi.input_type
-class LinuxVirtualMachineTerminationNotificationArgs:
+calass LinuxVirtualMachineTerminationNotificationArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  timeout: Optional[pulumi.Input[str]] = None):
@@ -3198,14 +3198,14 @@ class LinuxVirtualMachineTerminationNotificationArgs:
 
 
 @pulumi.input_type
-class ManagedDiskEncryptionSettingsArgs:
+calass ManagedDiskEncryptionSettingsArrgs:
     def __init__(__self__, *,
-                 disk_encryption_key: Optional[pulumi.Input['ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs']] = None,
+                 disk_encryption_key: Optional[pulumi.Input['ManagedDiskEncryptionSettingsDiskEncryptionKeyArrgs']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 key_encryption_key: Optional[pulumi.Input['ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs']] = None):
+                 key_encryption_key: Optional[pulumi.Input['ManagedDiskEncryptionSettingsKeyEncryptionKeyArrgs']] = None):
         """
-        :param pulumi.Input['ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs'] disk_encryption_key: A `disk_encryption_key` block as defined above.
-        :param pulumi.Input['ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs'] key_encryption_key: A `key_encryption_key` block as defined below.
+        :param pulumi.Input['ManagedDiskEncryptionSettingsDiskEncryptionKeyArrgs'] disk_encryption_key: A `disk_encryption_key` block as defined above.
+        :param pulumi.Input['ManagedDiskEncryptionSettingsKeyEncryptionKeyArrgs'] key_encryption_key: A `key_encryption_key` block as defined below.
         """
         if disk_encryption_key is not None:
             pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
@@ -3219,14 +3219,14 @@ class ManagedDiskEncryptionSettingsArgs:
 
     @property
     @pulumi.getter(name="diskEncryptionKey")
-    def disk_encryption_key(self) -> Optional[pulumi.Input['ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs']]:
+    def disk_encryption_key(self) -> Optional[pulumi.Input['ManagedDiskEncryptionSettingsDiskEncryptionKeyArrgs']]:
         """
         A `disk_encryption_key` block as defined above.
         """
         return pulumi.get(self, "disk_encryption_key")
 
     @disk_encryption_key.setter
-    def disk_encryption_key(self, value: Optional[pulumi.Input['ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs']]):
+    def disk_encryption_key(self, value: Optional[pulumi.Input['ManagedDiskEncryptionSettingsDiskEncryptionKeyArrgs']]):
         pulumi.set(self, "disk_encryption_key", value)
 
     @property
@@ -3243,19 +3243,19 @@ class ManagedDiskEncryptionSettingsArgs:
 
     @property
     @pulumi.getter(name="keyEncryptionKey")
-    def key_encryption_key(self) -> Optional[pulumi.Input['ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs']]:
+    def key_encryption_key(self) -> Optional[pulumi.Input['ManagedDiskEncryptionSettingsKeyEncryptionKeyArrgs']]:
         """
         A `key_encryption_key` block as defined below.
         """
         return pulumi.get(self, "key_encryption_key")
 
     @key_encryption_key.setter
-    def key_encryption_key(self, value: Optional[pulumi.Input['ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs']]):
+    def key_encryption_key(self, value: Optional[pulumi.Input['ManagedDiskEncryptionSettingsKeyEncryptionKeyArrgs']]):
         pulumi.set(self, "key_encryption_key", value)
 
 
 @pulumi.input_type
-class ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs:
+calass ManagedDiskEncryptionSettingsDiskEncryptionKeyArrgs:
     def __init__(__self__, *,
                  secret_url: pulumi.Input[str],
                  source_vault_id: pulumi.Input[str]):
@@ -3292,7 +3292,7 @@ class ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs:
 
 
 @pulumi.input_type
-class ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs:
+calass ManagedDiskEncryptionSettingsKeyEncryptionKeyArrgs:
     def __init__(__self__, *,
                  key_url: pulumi.Input[str],
                  source_vault_id: pulumi.Input[str]):
@@ -3329,7 +3329,7 @@ class ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs:
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs:
+calass OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArrgs:
     def __init__(__self__, *,
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -3352,7 +3352,7 @@ class OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesArgs:
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs:
+calass OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  grace_period: Optional[pulumi.Input[str]] = None):
@@ -3390,7 +3390,7 @@ class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs:
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs:
+calass OrchestratedVirtualMachineScaleSetBootDiagnosticsArrgs:
     def __init__(__self__, *,
                  storage_account_uri: Optional[pulumi.Input[str]] = None):
         """
@@ -3413,7 +3413,7 @@ class OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs:
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetDataDiskArgs:
+calass OrchestratedVirtualMachineScaleSetDataDiskArrgs:
     def __init__(__self__, *,
                  caching: pulumi.Input[str],
                  disk_size_gb: pulumi.Input[int],
@@ -3552,7 +3552,7 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetExtensionArgs:
+calass OrchestratedVirtualMachineScaleSetExtensionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  publisher: pulumi.Input[str],
@@ -3563,7 +3563,7 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
                  failure_suppression_enabled: Optional[pulumi.Input[bool]] = None,
                  force_extension_execution_on_change: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
-                 protected_settings_from_key_vault: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']] = None,
+                 protected_settings_from_key_vault: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArrgs']] = None,
                  settings: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The name for the Virtual Machine Scale Set Extension.
@@ -3579,7 +3579,7 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
         :param pulumi.Input[str] protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
                
                > **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Orchestrated Virtual Machine Extension you're looking to use for more information.
-        :param pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs'] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
+        :param pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArrgs'] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
                > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
         :param pulumi.Input[str] settings: A JSON String which specifies Settings for the Extension.
@@ -3717,7 +3717,7 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
 
     @property
     @pulumi.getter(name="protectedSettingsFromKeyVault")
-    def protected_settings_from_key_vault(self) -> Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']]:
+    def protected_settings_from_key_vault(self) -> Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArrgs']]:
         """
         A `protected_settings_from_key_vault` block as defined below.
 
@@ -3726,7 +3726,7 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
         return pulumi.get(self, "protected_settings_from_key_vault")
 
     @protected_settings_from_key_vault.setter
-    def protected_settings_from_key_vault(self, value: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']]):
+    def protected_settings_from_key_vault(self, value: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArrgs']]):
         pulumi.set(self, "protected_settings_from_key_vault", value)
 
     @property
@@ -3743,7 +3743,7 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs:
+calass OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArrgs:
     def __init__(__self__, *,
                  secret_url: pulumi.Input[str],
                  source_vault_id: pulumi.Input[str]):
@@ -3780,7 +3780,7 @@ class OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultAr
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetIdentityArgs:
+calass OrchestratedVirtualMachineScaleSetIdentityArrgs:
     def __init__(__self__, *,
                  identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  type: pulumi.Input[str]):
@@ -3817,9 +3817,9 @@ class OrchestratedVirtualMachineScaleSetIdentityArgs:
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
+calass OrchestratedVirtualMachineScaleSetNetworkInterfaceArrgs:
     def __init__(__self__, *,
-                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs']]],
+                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs']]],
                  name: pulumi.Input[str],
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
@@ -3827,7 +3827,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
                  network_security_group_id: Optional[pulumi.Input[str]] = None,
                  primary: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs']]] ip_configurations: One or more `ip_configuration` blocks as defined above.
         :param pulumi.Input[str] name: The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
         :param pulumi.Input[bool] enable_accelerated_networking: Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
@@ -3852,14 +3852,14 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs']]]:
+    def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs']]]:
         """
         One or more `ip_configuration` blocks as defined above.
         """
         return pulumi.get(self, "ip_configurations")
 
     @ip_configurations.setter
-    def ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs']]]):
+    def ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs']]]):
         pulumi.set(self, "ip_configurations", value)
 
     @property
@@ -3938,14 +3938,14 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
+calass OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  application_gateway_backend_address_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  application_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  load_balancer_backend_address_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  primary: Optional[pulumi.Input[bool]] = None,
-                 public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]]] = None,
+                 public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs']]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
@@ -3958,7 +3958,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
         :param pulumi.Input[bool] primary: Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
                
                > **NOTE:** One `ip_configuration` block must be marked as Primary for each Network Interface.
-        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]] public_ip_addresses: A `public_ip_address` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs']]] public_ip_addresses: A `public_ip_address` block as defined below.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet which this IP Configuration should be connected to.
                
                > **NOTE:** `subnet_id` is required if version is set to `IPv4`.
@@ -4046,14 +4046,14 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
 
     @property
     @pulumi.getter(name="publicIpAddresses")
-    def public_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]]]:
+    def public_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs']]]]:
         """
         A `public_ip_address` block as defined below.
         """
         return pulumi.get(self, "public_ip_addresses")
 
     @public_ip_addresses.setter
-    def public_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]]]):
+    def public_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs']]]]):
         pulumi.set(self, "public_ip_addresses", value)
 
     @property
@@ -4084,12 +4084,12 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs:
+calass OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  domain_name_label: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
-                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs']]]] = None,
+                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs']]]] = None,
                  public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
@@ -4097,7 +4097,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
         :param pulumi.Input[str] name: The Name of the Public IP Address Configuration.
         :param pulumi.Input[str] domain_name_label: The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number and contains only `a-z`, `0-9` and `hyphens`.
         :param pulumi.Input[int] idle_timeout_in_minutes: The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
-        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs']]] ip_tags: One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs']]] ip_tags: One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_ip_prefix_id: The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
         :param pulumi.Input[str] sku_name: Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
         :param pulumi.Input[str] version: The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
@@ -4154,14 +4154,14 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
 
     @property
     @pulumi.getter(name="ipTags")
-    def ip_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs']]]]:
+    def ip_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs']]]]:
         """
         One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ip_tags")
 
     @ip_tags.setter
-    def ip_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs']]]]):
+    def ip_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs']]]]):
         pulumi.set(self, "ip_tags", value)
 
     @property
@@ -4202,7 +4202,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs:
+calass OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs:
     def __init__(__self__, *,
                  tag: pulumi.Input[str],
                  type: pulumi.Input[str]):
@@ -4239,18 +4239,18 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetOsDiskArgs:
+calass OrchestratedVirtualMachineScaleSetOsDiskArrgs:
     def __init__(__self__, *,
                  caching: pulumi.Input[str],
                  storage_account_type: pulumi.Input[str],
-                 diff_disk_settings: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs']] = None,
+                 diff_disk_settings: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArrgs']] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  write_accelerator_enabled: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+        :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArrgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
                
                > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
@@ -4294,14 +4294,14 @@ class OrchestratedVirtualMachineScaleSetOsDiskArgs:
 
     @property
     @pulumi.getter(name="diffDiskSettings")
-    def diff_disk_settings(self) -> Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs']]:
+    def diff_disk_settings(self) -> Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArrgs']]:
         """
         A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "diff_disk_settings")
 
     @diff_disk_settings.setter
-    def diff_disk_settings(self, value: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs']]):
+    def diff_disk_settings(self, value: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArrgs']]):
         pulumi.set(self, "diff_disk_settings", value)
 
     @property
@@ -4344,7 +4344,7 @@ class OrchestratedVirtualMachineScaleSetOsDiskArgs:
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs:
+calass OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArrgs:
     def __init__(__self__, *,
                  option: pulumi.Input[str],
                  placement: Optional[pulumi.Input[str]] = None):
@@ -4382,17 +4382,17 @@ class OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs:
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetOsProfileArgs:
+calass OrchestratedVirtualMachineScaleSetOsProfileArrgs:
     def __init__(__self__, *,
                  custom_data: Optional[pulumi.Input[str]] = None,
-                 linux_configuration: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs']] = None,
-                 windows_configuration: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs']] = None):
+                 linux_configuration: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArrgs']] = None,
+                 windows_configuration: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArrgs']] = None):
         """
         :param pulumi.Input[str] custom_data: The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
                
                > **NOTE:** When Custom Data has been configured, it's not possible to remove it without tainting the Orchestrated Virtual Machine Scale Set, due to a limitation of the Azure API.
-        :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs'] linux_configuration: A `linux_configuration` block as documented below.
-        :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs'] windows_configuration: A `windows_configuration` block as documented below.
+        :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArrgs'] linux_configuration: A `linux_configuration` block as documented below.
+        :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArrgs'] windows_configuration: A `windows_configuration` block as documented below.
         """
         if custom_data is not None:
             pulumi.set(__self__, "custom_data", custom_data)
@@ -4417,45 +4417,45 @@ class OrchestratedVirtualMachineScaleSetOsProfileArgs:
 
     @property
     @pulumi.getter(name="linuxConfiguration")
-    def linux_configuration(self) -> Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs']]:
+    def linux_configuration(self) -> Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArrgs']]:
         """
         A `linux_configuration` block as documented below.
         """
         return pulumi.get(self, "linux_configuration")
 
     @linux_configuration.setter
-    def linux_configuration(self, value: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs']]):
+    def linux_configuration(self, value: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArrgs']]):
         pulumi.set(self, "linux_configuration", value)
 
     @property
     @pulumi.getter(name="windowsConfiguration")
-    def windows_configuration(self) -> Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs']]:
+    def windows_configuration(self) -> Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArrgs']]:
         """
         A `windows_configuration` block as documented below.
         """
         return pulumi.get(self, "windows_configuration")
 
     @windows_configuration.setter
-    def windows_configuration(self, value: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs']]):
+    def windows_configuration(self, value: Optional[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArrgs']]):
         pulumi.set(self, "windows_configuration", value)
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
+calass OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArrgs:
     def __init__(__self__, *,
                  admin_username: pulumi.Input[str],
                  admin_password: Optional[pulumi.Input[str]] = None,
-                 admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs']]]] = None,
+                 admin_ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrgs']]]] = None,
                  computer_name_prefix: Optional[pulumi.Input[str]] = None,
                  disable_password_authentication: Optional[pulumi.Input[bool]] = None,
                  patch_assessment_mode: Optional[pulumi.Input[str]] = None,
                  patch_mode: Optional[pulumi.Input[str]] = None,
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs']]]] = None):
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrgs']]]] = None):
         """
         :param pulumi.Input[str] admin_username: The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs']]] admin_ssh_keys: A `admin_ssh_key` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrgs']]] admin_ssh_keys: A `admin_ssh_key` block as documented below.
         :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] disable_password_authentication: When an `admin_password` is specified `disable_password_authentication` must be set to `false`. Defaults to `true`.
                
@@ -4464,7 +4464,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs']]] secrets: One or more `secret` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrgs']]] secrets: One or more `secret` blocks as defined below.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         if admin_password is not None:
@@ -4510,14 +4510,14 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
 
     @property
     @pulumi.getter(name="adminSshKeys")
-    def admin_ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs']]]]:
+    def admin_ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrgs']]]]:
         """
         A `admin_ssh_key` block as documented below.
         """
         return pulumi.get(self, "admin_ssh_keys")
 
     @admin_ssh_keys.setter
-    def admin_ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs']]]]):
+    def admin_ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrgs']]]]):
         pulumi.set(self, "admin_ssh_keys", value)
 
     @property
@@ -4583,19 +4583,19 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs']]]]:
+    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrgs']]]]:
         """
         One or more `secret` blocks as defined below.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs']]]]):
+    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrgs']]]]):
         pulumi.set(self, "secrets", value)
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs:
+calass OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrgs:
     def __init__(__self__, *,
                  public_key: pulumi.Input[str],
                  username: pulumi.Input[str]):
@@ -4636,12 +4636,12 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyAr
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs:
+calass OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrgs:
     def __init__(__self__, *,
-                 certificates: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs']]],
+                 certificates: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrgs']]],
                  key_vault_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs']]] certificates: One or more `certificate` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrgs']]] certificates: One or more `certificate` blocks as defined below.
                
                > **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windows_configuration` or a `linux_configuration`.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault from which all Secrets should be sourced.
@@ -4651,7 +4651,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs:
 
     @property
     @pulumi.getter
-    def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs']]]:
+    def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrgs']]]:
         """
         One or more `certificate` blocks as defined below.
 
@@ -4660,7 +4660,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs:
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs']]]):
+    def certificates(self, value: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrgs']]]):
         pulumi.set(self, "certificates", value)
 
     @property
@@ -4677,7 +4677,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs:
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs:
+calass OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrgs:
     def __init__(__self__, *,
                  url: pulumi.Input[str]):
         """
@@ -4703,7 +4703,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertifi
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
+calass OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArrgs:
     def __init__(__self__, *,
                  admin_password: pulumi.Input[str],
                  admin_username: pulumi.Input[str],
@@ -4713,9 +4713,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
                  patch_assessment_mode: Optional[pulumi.Input[str]] = None,
                  patch_mode: Optional[pulumi.Input[str]] = None,
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
-                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs']]]] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrgs']]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
-                 winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs']]]] = None):
+                 winrm_listeners: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrgs']]]] = None):
         """
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_username: The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
@@ -4728,9 +4728,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
                
                > **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs']]] secrets: One or more `secret` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrgs']]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[str] timezone: Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
-        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs']]] winrm_listeners: One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrgs']]] winrm_listeners: One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "admin_password", admin_password)
         pulumi.set(__self__, "admin_username", admin_username)
@@ -4852,14 +4852,14 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
 
     @property
     @pulumi.getter
-    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs']]]]:
+    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrgs']]]]:
         """
         One or more `secret` blocks as defined below.
         """
         return pulumi.get(self, "secrets")
 
     @secrets.setter
-    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs']]]]):
+    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrgs']]]]):
         pulumi.set(self, "secrets", value)
 
     @property
@@ -4876,24 +4876,24 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
 
     @property
     @pulumi.getter(name="winrmListeners")
-    def winrm_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs']]]]:
+    def winrm_listeners(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrgs']]]]:
         """
         One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "winrm_listeners")
 
     @winrm_listeners.setter
-    def winrm_listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs']]]]):
+    def winrm_listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrgs']]]]):
         pulumi.set(self, "winrm_listeners", value)
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs:
+calass OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrgs:
     def __init__(__self__, *,
-                 certificates: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs']]],
+                 certificates: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrgs']]],
                  key_vault_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs']]] certificates: One or more `certificate` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrgs']]] certificates: One or more `certificate` blocks as defined below.
                
                > **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windows_configuration` or a `linux_configuration`.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault from which all Secrets should be sourced.
@@ -4903,7 +4903,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs:
 
     @property
     @pulumi.getter
-    def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs']]]:
+    def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrgs']]]:
         """
         One or more `certificate` blocks as defined below.
 
@@ -4912,7 +4912,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs:
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs']]]):
+    def certificates(self, value: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrgs']]]):
         pulumi.set(self, "certificates", value)
 
     @property
@@ -4929,7 +4929,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs:
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs:
+calass OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrgs:
     def __init__(__self__, *,
                  store: pulumi.Input[str],
                  url: pulumi.Input[str]):
@@ -4970,7 +4970,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCerti
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs:
+calass OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrgs:
     def __init__(__self__, *,
                  protocol: pulumi.Input[str],
                  certificate_url: Optional[pulumi.Input[str]] = None):
@@ -5012,7 +5012,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListen
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetPlanArgs:
+calass OrchestratedVirtualMachineScaleSetPlanArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  product: pulumi.Input[str],
@@ -5064,7 +5064,7 @@ class OrchestratedVirtualMachineScaleSetPlanArgs:
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetPriorityMixArgs:
+calass OrchestratedVirtualMachineScaleSetPriorityMixArrgs:
     def __init__(__self__, *,
                  base_regular_count: Optional[pulumi.Input[int]] = None,
                  regular_percentage_above_base: Optional[pulumi.Input[int]] = None):
@@ -5103,7 +5103,7 @@ class OrchestratedVirtualMachineScaleSetPriorityMixArgs:
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs:
+calass OrchestratedVirtualMachineScaleSetSourceImageReferenceArrgs:
     def __init__(__self__, *,
                  offer: pulumi.Input[str],
                  publisher: pulumi.Input[str],
@@ -5170,7 +5170,7 @@ class OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs:
 
 
 @pulumi.input_type
-class OrchestratedVirtualMachineScaleSetTerminationNotificationArgs:
+calass OrchestratedVirtualMachineScaleSetTerminationNotificationArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  timeout: Optional[pulumi.Input[str]] = None):
@@ -5208,7 +5208,7 @@ class OrchestratedVirtualMachineScaleSetTerminationNotificationArgs:
 
 
 @pulumi.input_type
-class PacketCaptureFilterArgs:
+calass PacketCaptureFilterArrgs:
     def __init__(__self__, *,
                  protocol: pulumi.Input[str],
                  local_ip_address: Optional[pulumi.Input[str]] = None,
@@ -5294,7 +5294,7 @@ class PacketCaptureFilterArgs:
 
 
 @pulumi.input_type
-class PacketCaptureStorageLocationArgs:
+calass PacketCaptureStorageLocationArrgs:
     def __init__(__self__, *,
                  file_path: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
@@ -5353,7 +5353,7 @@ class PacketCaptureStorageLocationArgs:
 
 
 @pulumi.input_type
-class ScaleSetBootDiagnosticsArgs:
+calass ScaleSetBootDiagnosticsArrgs:
     def __init__(__self__, *,
                  storage_uri: pulumi.Input[str],
                  enabled: Optional[pulumi.Input[bool]] = None):
@@ -5391,7 +5391,7 @@ class ScaleSetBootDiagnosticsArgs:
 
 
 @pulumi.input_type
-class ScaleSetExtensionArgs:
+calass ScaleSetExtensionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  publisher: pulumi.Input[str],
@@ -5522,7 +5522,7 @@ class ScaleSetExtensionArgs:
 
 
 @pulumi.input_type
-class ScaleSetIdentityArgs:
+calass ScaleSetIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -5538,15 +5538,15 @@ class ScaleSetIdentityArgs:
                example = azure.compute.ScaleSet("example",
                    resource_group_name=azurerm_resource_group["example"]["name"],
                    location=azurerm_resource_group["example"]["location"],
-                   sku=azure.compute.ScaleSetSkuArgs(
+                   sku=azure.compute.ScaleSetSkuArrgs(
                        name=var["vm_sku"],
                        tier="Standard",
                        capacity=var["instance_count"],
                    ),
-                   identity=azure.compute.ScaleSetIdentityArgs(
+                   identity=azure.compute.ScaleSetIdentityArrgs(
                        type="SystemAssigned",
                    ),
-                   extensions=[azure.compute.ScaleSetExtensionArgs(
+                   extensions=[azure.compute.ScaleSetExtensionArrgs(
                        name="MSILinuxExtension",
                        publisher="Microsoft.ManagedIdentity",
                        type="ManagedIdentityExtensionForLinux",
@@ -5588,15 +5588,15 @@ class ScaleSetIdentityArgs:
         example = azure.compute.ScaleSet("example",
             resource_group_name=azurerm_resource_group["example"]["name"],
             location=azurerm_resource_group["example"]["location"],
-            sku=azure.compute.ScaleSetSkuArgs(
+            sku=azure.compute.ScaleSetSkuArrgs(
                 name=var["vm_sku"],
                 tier="Standard",
                 capacity=var["instance_count"],
             ),
-            identity=azure.compute.ScaleSetIdentityArgs(
+            identity=azure.compute.ScaleSetIdentityArrgs(
                 type="SystemAssigned",
             ),
-            extensions=[azure.compute.ScaleSetExtensionArgs(
+            extensions=[azure.compute.ScaleSetExtensionArrgs(
                 name="MSILinuxExtension",
                 publisher="Microsoft.ManagedIdentity",
                 type="ManagedIdentityExtensionForLinux",
@@ -5624,21 +5624,21 @@ class ScaleSetIdentityArgs:
 
 
 @pulumi.input_type
-class ScaleSetNetworkProfileArgs:
+calass ScaleSetNetworkProfileArrgs:
     def __init__(__self__, *,
-                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileIpConfigurationArgs']]],
+                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileIpConfigurationArrgs']]],
                  name: pulumi.Input[str],
                  primary: pulumi.Input[bool],
                  accelerated_networking: Optional[pulumi.Input[bool]] = None,
-                 dns_settings: Optional[pulumi.Input['ScaleSetNetworkProfileDnsSettingsArgs']] = None,
+                 dns_settings: Optional[pulumi.Input['ScaleSetNetworkProfileDnsSettingsArrgs']] = None,
                  ip_forwarding: Optional[pulumi.Input[bool]] = None,
                  network_security_group_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileIpConfigurationArgs']]] ip_configurations: An ip_configuration block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileIpConfigurationArrgs']]] ip_configurations: An ip_configuration block as documented below.
         :param pulumi.Input[str] name: Specifies the name of the network interface configuration.
         :param pulumi.Input[bool] primary: Indicates whether network interfaces created from the network interface configuration will be the primary NIC of the VM.
         :param pulumi.Input[bool] accelerated_networking: Specifies whether to enable accelerated networking or not.
-        :param pulumi.Input['ScaleSetNetworkProfileDnsSettingsArgs'] dns_settings: A dns_settings block as documented below.
+        :param pulumi.Input['ScaleSetNetworkProfileDnsSettingsArrgs'] dns_settings: A dns_settings block as documented below.
         :param pulumi.Input[bool] ip_forwarding: Whether IP forwarding is enabled on this NIC. Defaults to `false`.
         :param pulumi.Input[str] network_security_group_id: Specifies the identifier for the network security group.
         """
@@ -5656,14 +5656,14 @@ class ScaleSetNetworkProfileArgs:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileIpConfigurationArgs']]]:
+    def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileIpConfigurationArrgs']]]:
         """
         An ip_configuration block as documented below.
         """
         return pulumi.get(self, "ip_configurations")
 
     @ip_configurations.setter
-    def ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileIpConfigurationArgs']]]):
+    def ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['ScaleSetNetworkProfileIpConfigurationArrgs']]]):
         pulumi.set(self, "ip_configurations", value)
 
     @property
@@ -5704,14 +5704,14 @@ class ScaleSetNetworkProfileArgs:
 
     @property
     @pulumi.getter(name="dnsSettings")
-    def dns_settings(self) -> Optional[pulumi.Input['ScaleSetNetworkProfileDnsSettingsArgs']]:
+    def dns_settings(self) -> Optional[pulumi.Input['ScaleSetNetworkProfileDnsSettingsArrgs']]:
         """
         A dns_settings block as documented below.
         """
         return pulumi.get(self, "dns_settings")
 
     @dns_settings.setter
-    def dns_settings(self, value: Optional[pulumi.Input['ScaleSetNetworkProfileDnsSettingsArgs']]):
+    def dns_settings(self, value: Optional[pulumi.Input['ScaleSetNetworkProfileDnsSettingsArrgs']]):
         pulumi.set(self, "dns_settings", value)
 
     @property
@@ -5740,7 +5740,7 @@ class ScaleSetNetworkProfileArgs:
 
 
 @pulumi.input_type
-class ScaleSetNetworkProfileDnsSettingsArgs:
+calass ScaleSetNetworkProfileDnsSettingsArrgs:
     def __init__(__self__, *,
                  dns_servers: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -5762,7 +5762,7 @@ class ScaleSetNetworkProfileDnsSettingsArgs:
 
 
 @pulumi.input_type
-class ScaleSetNetworkProfileIpConfigurationArgs:
+calass ScaleSetNetworkProfileIpConfigurationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  primary: pulumi.Input[bool],
@@ -5771,7 +5771,7 @@ class ScaleSetNetworkProfileIpConfigurationArgs:
                  application_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  load_balancer_backend_address_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  load_balancer_inbound_nat_rules_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 public_ip_address_configuration: Optional[pulumi.Input['ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs']] = None):
+                 public_ip_address_configuration: Optional[pulumi.Input['ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArrgs']] = None):
         """
         :param pulumi.Input[str] name: Specifies name of the IP configuration.
         :param pulumi.Input[bool] primary: Specifies if this ip_configuration is the primary one.
@@ -5784,7 +5784,7 @@ class ScaleSetNetworkProfileIpConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] load_balancer_inbound_nat_rules_ids: Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
                
                > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
-        :param pulumi.Input['ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs'] public_ip_address_configuration: Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The public_ip_address_configuration is documented below.
+        :param pulumi.Input['ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArrgs'] public_ip_address_configuration: Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The public_ip_address_configuration is documented below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "primary", primary)
@@ -5890,19 +5890,19 @@ class ScaleSetNetworkProfileIpConfigurationArgs:
 
     @property
     @pulumi.getter(name="publicIpAddressConfiguration")
-    def public_ip_address_configuration(self) -> Optional[pulumi.Input['ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs']]:
+    def public_ip_address_configuration(self) -> Optional[pulumi.Input['ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArrgs']]:
         """
         Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The public_ip_address_configuration is documented below.
         """
         return pulumi.get(self, "public_ip_address_configuration")
 
     @public_ip_address_configuration.setter
-    def public_ip_address_configuration(self, value: Optional[pulumi.Input['ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs']]):
+    def public_ip_address_configuration(self, value: Optional[pulumi.Input['ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArrgs']]):
         pulumi.set(self, "public_ip_address_configuration", value)
 
 
 @pulumi.input_type
-class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs:
+calass ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArrgs:
     def __init__(__self__, *,
                  domain_name_label: pulumi.Input[str],
                  idle_timeout: pulumi.Input[int],
@@ -5954,7 +5954,7 @@ class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs:
 
 
 @pulumi.input_type
-class ScaleSetOsProfileArgs:
+calass ScaleSetOsProfileArrgs:
     def __init__(__self__, *,
                  admin_username: pulumi.Input[str],
                  computer_name_prefix: pulumi.Input[str],
@@ -6023,13 +6023,13 @@ class ScaleSetOsProfileArgs:
 
 
 @pulumi.input_type
-class ScaleSetOsProfileLinuxConfigArgs:
+calass ScaleSetOsProfileLinuxConfigArrgs:
     def __init__(__self__, *,
                  disable_password_authentication: Optional[pulumi.Input[bool]] = None,
-                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileLinuxConfigSshKeyArgs']]]] = None):
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileLinuxConfigSshKeyArrgs']]]] = None):
         """
         :param pulumi.Input[bool] disable_password_authentication: Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileLinuxConfigSshKeyArgs']]] ssh_keys: One or more `ssh_keys` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileLinuxConfigSshKeyArrgs']]] ssh_keys: One or more `ssh_keys` blocks as defined below.
                
                > **Note:** Please note that the only allowed `path` is `/home/<username>/.ssh/authorized_keys` due to a limitation of Azure.
                
@@ -6054,7 +6054,7 @@ class ScaleSetOsProfileLinuxConfigArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileLinuxConfigSshKeyArgs']]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileLinuxConfigSshKeyArrgs']]]]:
         """
         One or more `ssh_keys` blocks as defined below.
 
@@ -6065,12 +6065,12 @@ class ScaleSetOsProfileLinuxConfigArgs:
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileLinuxConfigSshKeyArgs']]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileLinuxConfigSshKeyArrgs']]]]):
         pulumi.set(self, "ssh_keys", value)
 
 
 @pulumi.input_type
-class ScaleSetOsProfileLinuxConfigSshKeyArgs:
+calass ScaleSetOsProfileLinuxConfigSshKeyArrgs:
     def __init__(__self__, *,
                  path: pulumi.Input[str],
                  key_data: Optional[pulumi.Input[str]] = None):
@@ -6120,13 +6120,13 @@ class ScaleSetOsProfileLinuxConfigSshKeyArgs:
 
 
 @pulumi.input_type
-class ScaleSetOsProfileSecretArgs:
+calass ScaleSetOsProfileSecretArrgs:
     def __init__(__self__, *,
                  source_vault_id: pulumi.Input[str],
-                 vault_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretVaultCertificateArgs']]]] = None):
+                 vault_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretVaultCertificateArrgs']]]] = None):
         """
         :param pulumi.Input[str] source_vault_id: Specifies the key vault to use.
-        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretVaultCertificateArgs']]] vault_certificates: (Required, on Windows machines) One or more `vault_certificates` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretVaultCertificateArrgs']]] vault_certificates: (Required, on Windows machines) One or more `vault_certificates` blocks as defined below.
         """
         pulumi.set(__self__, "source_vault_id", source_vault_id)
         if vault_certificates is not None:
@@ -6146,19 +6146,19 @@ class ScaleSetOsProfileSecretArgs:
 
     @property
     @pulumi.getter(name="vaultCertificates")
-    def vault_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretVaultCertificateArgs']]]]:
+    def vault_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretVaultCertificateArrgs']]]]:
         """
         (Required, on Windows machines) One or more `vault_certificates` blocks as defined below.
         """
         return pulumi.get(self, "vault_certificates")
 
     @vault_certificates.setter
-    def vault_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretVaultCertificateArgs']]]]):
+    def vault_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileSecretVaultCertificateArrgs']]]]):
         pulumi.set(self, "vault_certificates", value)
 
 
 @pulumi.input_type
-class ScaleSetOsProfileSecretVaultCertificateArgs:
+calass ScaleSetOsProfileSecretVaultCertificateArrgs:
     def __init__(__self__, *,
                  certificate_url: pulumi.Input[str],
                  certificate_store: Optional[pulumi.Input[str]] = None):
@@ -6196,17 +6196,17 @@ class ScaleSetOsProfileSecretVaultCertificateArgs:
 
 
 @pulumi.input_type
-class ScaleSetOsProfileWindowsConfigArgs:
+calass ScaleSetOsProfileWindowsConfigArrgs:
     def __init__(__self__, *,
-                 additional_unattend_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs']]]] = None,
+                 additional_unattend_configs: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrgs']]]] = None,
                  enable_automatic_upgrades: Optional[pulumi.Input[bool]] = None,
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
-                 winrms: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigWinrmArgs']]]] = None):
+                 winrms: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigWinrmArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs']]] additional_unattend_configs: An Additional Unattended Config block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrgs']]] additional_unattend_configs: An Additional Unattended Config block as documented below.
         :param pulumi.Input[bool] enable_automatic_upgrades: Indicates whether virtual machines in the scale set are enabled for automatic updates.
         :param pulumi.Input[bool] provision_vm_agent: Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
-        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigWinrmArgs']]] winrms: A collection of WinRM configuration blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigWinrmArrgs']]] winrms: A collection of WinRM configuration blocks as documented below.
         """
         if additional_unattend_configs is not None:
             pulumi.set(__self__, "additional_unattend_configs", additional_unattend_configs)
@@ -6219,14 +6219,14 @@ class ScaleSetOsProfileWindowsConfigArgs:
 
     @property
     @pulumi.getter(name="additionalUnattendConfigs")
-    def additional_unattend_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs']]]]:
+    def additional_unattend_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrgs']]]]:
         """
         An Additional Unattended Config block as documented below.
         """
         return pulumi.get(self, "additional_unattend_configs")
 
     @additional_unattend_configs.setter
-    def additional_unattend_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs']]]]):
+    def additional_unattend_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrgs']]]]):
         pulumi.set(self, "additional_unattend_configs", value)
 
     @property
@@ -6255,19 +6255,19 @@ class ScaleSetOsProfileWindowsConfigArgs:
 
     @property
     @pulumi.getter
-    def winrms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigWinrmArgs']]]]:
+    def winrms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigWinrmArrgs']]]]:
         """
         A collection of WinRM configuration blocks as documented below.
         """
         return pulumi.get(self, "winrms")
 
     @winrms.setter
-    def winrms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigWinrmArgs']]]]):
+    def winrms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigWinrmArrgs']]]]):
         pulumi.set(self, "winrms", value)
 
 
 @pulumi.input_type
-class ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs:
+calass ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrgs:
     def __init__(__self__, *,
                  component: pulumi.Input[str],
                  content: pulumi.Input[str],
@@ -6334,7 +6334,7 @@ class ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs:
 
 
 @pulumi.input_type
-class ScaleSetOsProfileWindowsConfigWinrmArgs:
+calass ScaleSetOsProfileWindowsConfigWinrmArrgs:
     def __init__(__self__, *,
                  protocol: pulumi.Input[str],
                  certificate_url: Optional[pulumi.Input[str]] = None):
@@ -6372,7 +6372,7 @@ class ScaleSetOsProfileWindowsConfigWinrmArgs:
 
 
 @pulumi.input_type
-class ScaleSetPacketCaptureFilterArgs:
+calass ScaleSetPacketCaptureFilterArrgs:
     def __init__(__self__, *,
                  protocol: pulumi.Input[str],
                  local_ip_address: Optional[pulumi.Input[str]] = None,
@@ -6458,7 +6458,7 @@ class ScaleSetPacketCaptureFilterArgs:
 
 
 @pulumi.input_type
-class ScaleSetPacketCaptureMachineScopeArgs:
+calass ScaleSetPacketCaptureMachineScopeArrgs:
     def __init__(__self__, *,
                  exclude_instance_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  include_instance_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -6497,7 +6497,7 @@ class ScaleSetPacketCaptureMachineScopeArgs:
 
 
 @pulumi.input_type
-class ScaleSetPacketCaptureStorageLocationArgs:
+calass ScaleSetPacketCaptureStorageLocationArrgs:
     def __init__(__self__, *,
                  file_path: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
@@ -6556,7 +6556,7 @@ class ScaleSetPacketCaptureStorageLocationArgs:
 
 
 @pulumi.input_type
-class ScaleSetPlanArgs:
+calass ScaleSetPlanArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  product: pulumi.Input[str],
@@ -6608,7 +6608,7 @@ class ScaleSetPlanArgs:
 
 
 @pulumi.input_type
-class ScaleSetRollingUpgradePolicyArgs:
+calass ScaleSetRollingUpgradePolicyArrgs:
     def __init__(__self__, *,
                  max_batch_instance_percent: Optional[pulumi.Input[int]] = None,
                  max_unhealthy_instance_percent: Optional[pulumi.Input[int]] = None,
@@ -6679,7 +6679,7 @@ class ScaleSetRollingUpgradePolicyArgs:
 
 
 @pulumi.input_type
-class ScaleSetSkuArgs:
+calass ScaleSetSkuArrgs:
     def __init__(__self__, *,
                  capacity: pulumi.Input[int],
                  name: pulumi.Input[str],
@@ -6732,7 +6732,7 @@ class ScaleSetSkuArgs:
 
 
 @pulumi.input_type
-class ScaleSetStorageProfileDataDiskArgs:
+calass ScaleSetStorageProfileDataDiskArrgs:
     def __init__(__self__, *,
                  create_option: pulumi.Input[str],
                  lun: pulumi.Input[int],
@@ -6817,7 +6817,7 @@ class ScaleSetStorageProfileDataDiskArgs:
 
 
 @pulumi.input_type
-class ScaleSetStorageProfileImageReferenceArgs:
+calass ScaleSetStorageProfileImageReferenceArrgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  offer: Optional[pulumi.Input[str]] = None,
@@ -6904,7 +6904,7 @@ class ScaleSetStorageProfileImageReferenceArgs:
 
 
 @pulumi.input_type
-class ScaleSetStorageProfileOsDiskArgs:
+calass ScaleSetStorageProfileOsDiskArrgs:
     def __init__(__self__, *,
                  create_option: pulumi.Input[str],
                  caching: Optional[pulumi.Input[str]] = None,
@@ -7026,15 +7026,15 @@ class ScaleSetStorageProfileOsDiskArgs:
 
 
 @pulumi.input_type
-class SharedImageGallerySharingArgs:
+calass SharedImageGallerySharingArrgs:
     def __init__(__self__, *,
                  permission: pulumi.Input[str],
-                 community_gallery: Optional[pulumi.Input['SharedImageGallerySharingCommunityGalleryArgs']] = None):
+                 community_gallery: Optional[pulumi.Input['SharedImageGallerySharingCommunityGalleryArrgs']] = None):
         """
         :param pulumi.Input[str] permission: The permission of the Shared Image Gallery when sharing. Possible values are `Community`, `Groups` and `Private`. Changing this forces a new resource to be created.
                
                > **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
-        :param pulumi.Input['SharedImageGallerySharingCommunityGalleryArgs'] community_gallery: A `community_gallery` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['SharedImageGallerySharingCommunityGalleryArrgs'] community_gallery: A `community_gallery` block as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** `community_gallery` must be set when `permission` is set to `Community`.
         """
@@ -7058,7 +7058,7 @@ class SharedImageGallerySharingArgs:
 
     @property
     @pulumi.getter(name="communityGallery")
-    def community_gallery(self) -> Optional[pulumi.Input['SharedImageGallerySharingCommunityGalleryArgs']]:
+    def community_gallery(self) -> Optional[pulumi.Input['SharedImageGallerySharingCommunityGalleryArrgs']]:
         """
         A `community_gallery` block as defined below. Changing this forces a new resource to be created.
 
@@ -7067,12 +7067,12 @@ class SharedImageGallerySharingArgs:
         return pulumi.get(self, "community_gallery")
 
     @community_gallery.setter
-    def community_gallery(self, value: Optional[pulumi.Input['SharedImageGallerySharingCommunityGalleryArgs']]):
+    def community_gallery(self, value: Optional[pulumi.Input['SharedImageGallerySharingCommunityGalleryArrgs']]):
         pulumi.set(self, "community_gallery", value)
 
 
 @pulumi.input_type
-class SharedImageGallerySharingCommunityGalleryArgs:
+calass SharedImageGallerySharingCommunityGalleryArrgs:
     def __init__(__self__, *,
                  eula: pulumi.Input[str],
                  prefix: pulumi.Input[str],
@@ -7155,7 +7155,7 @@ class SharedImageGallerySharingCommunityGalleryArgs:
 
 
 @pulumi.input_type
-class SharedImageIdentifierArgs:
+calass SharedImageIdentifierArrgs:
     def __init__(__self__, *,
                  offer: pulumi.Input[str],
                  publisher: pulumi.Input[str],
@@ -7207,7 +7207,7 @@ class SharedImageIdentifierArgs:
 
 
 @pulumi.input_type
-class SharedImagePurchasePlanArgs:
+calass SharedImagePurchasePlanArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  product: Optional[pulumi.Input[str]] = None,
@@ -7261,7 +7261,7 @@ class SharedImagePurchasePlanArgs:
 
 
 @pulumi.input_type
-class SharedImageVersionTargetRegionArgs:
+calass SharedImageVersionTargetRegionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  regional_replica_count: pulumi.Input[int],
@@ -7346,14 +7346,14 @@ class SharedImageVersionTargetRegionArgs:
 
 
 @pulumi.input_type
-class SnapshotEncryptionSettingsArgs:
+calass SnapshotEncryptionSettingsArrgs:
     def __init__(__self__, *,
-                 disk_encryption_key: Optional[pulumi.Input['SnapshotEncryptionSettingsDiskEncryptionKeyArgs']] = None,
+                 disk_encryption_key: Optional[pulumi.Input['SnapshotEncryptionSettingsDiskEncryptionKeyArrgs']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 key_encryption_key: Optional[pulumi.Input['SnapshotEncryptionSettingsKeyEncryptionKeyArgs']] = None):
+                 key_encryption_key: Optional[pulumi.Input['SnapshotEncryptionSettingsKeyEncryptionKeyArrgs']] = None):
         """
-        :param pulumi.Input['SnapshotEncryptionSettingsDiskEncryptionKeyArgs'] disk_encryption_key: A `disk_encryption_key` block as defined below.
-        :param pulumi.Input['SnapshotEncryptionSettingsKeyEncryptionKeyArgs'] key_encryption_key: A `key_encryption_key` block as defined below.
+        :param pulumi.Input['SnapshotEncryptionSettingsDiskEncryptionKeyArrgs'] disk_encryption_key: A `disk_encryption_key` block as defined below.
+        :param pulumi.Input['SnapshotEncryptionSettingsKeyEncryptionKeyArrgs'] key_encryption_key: A `key_encryption_key` block as defined below.
         """
         if disk_encryption_key is not None:
             pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
@@ -7367,14 +7367,14 @@ class SnapshotEncryptionSettingsArgs:
 
     @property
     @pulumi.getter(name="diskEncryptionKey")
-    def disk_encryption_key(self) -> Optional[pulumi.Input['SnapshotEncryptionSettingsDiskEncryptionKeyArgs']]:
+    def disk_encryption_key(self) -> Optional[pulumi.Input['SnapshotEncryptionSettingsDiskEncryptionKeyArrgs']]:
         """
         A `disk_encryption_key` block as defined below.
         """
         return pulumi.get(self, "disk_encryption_key")
 
     @disk_encryption_key.setter
-    def disk_encryption_key(self, value: Optional[pulumi.Input['SnapshotEncryptionSettingsDiskEncryptionKeyArgs']]):
+    def disk_encryption_key(self, value: Optional[pulumi.Input['SnapshotEncryptionSettingsDiskEncryptionKeyArrgs']]):
         pulumi.set(self, "disk_encryption_key", value)
 
     @property
@@ -7391,19 +7391,19 @@ class SnapshotEncryptionSettingsArgs:
 
     @property
     @pulumi.getter(name="keyEncryptionKey")
-    def key_encryption_key(self) -> Optional[pulumi.Input['SnapshotEncryptionSettingsKeyEncryptionKeyArgs']]:
+    def key_encryption_key(self) -> Optional[pulumi.Input['SnapshotEncryptionSettingsKeyEncryptionKeyArrgs']]:
         """
         A `key_encryption_key` block as defined below.
         """
         return pulumi.get(self, "key_encryption_key")
 
     @key_encryption_key.setter
-    def key_encryption_key(self, value: Optional[pulumi.Input['SnapshotEncryptionSettingsKeyEncryptionKeyArgs']]):
+    def key_encryption_key(self, value: Optional[pulumi.Input['SnapshotEncryptionSettingsKeyEncryptionKeyArrgs']]):
         pulumi.set(self, "key_encryption_key", value)
 
 
 @pulumi.input_type
-class SnapshotEncryptionSettingsDiskEncryptionKeyArgs:
+calass SnapshotEncryptionSettingsDiskEncryptionKeyArrgs:
     def __init__(__self__, *,
                  secret_url: pulumi.Input[str],
                  source_vault_id: pulumi.Input[str]):
@@ -7440,7 +7440,7 @@ class SnapshotEncryptionSettingsDiskEncryptionKeyArgs:
 
 
 @pulumi.input_type
-class SnapshotEncryptionSettingsKeyEncryptionKeyArgs:
+calass SnapshotEncryptionSettingsKeyEncryptionKeyArrgs:
     def __init__(__self__, *,
                  key_url: pulumi.Input[str],
                  source_vault_id: pulumi.Input[str]):
@@ -7477,7 +7477,7 @@ class SnapshotEncryptionSettingsKeyEncryptionKeyArgs:
 
 
 @pulumi.input_type
-class VirtualMachineAdditionalCapabilitiesArgs:
+calass VirtualMachineAdditionalCapabilitiesArrgs:
     def __init__(__self__, *,
                  ultra_ssd_enabled: pulumi.Input[bool]):
         """
@@ -7503,7 +7503,7 @@ class VirtualMachineAdditionalCapabilitiesArgs:
 
 
 @pulumi.input_type
-class VirtualMachineBootDiagnosticsArgs:
+calass VirtualMachineBootDiagnosticsArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  storage_uri: pulumi.Input[str]):
@@ -7544,7 +7544,7 @@ class VirtualMachineBootDiagnosticsArgs:
 
 
 @pulumi.input_type
-class VirtualMachineIdentityArgs:
+calass VirtualMachineIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -7610,7 +7610,7 @@ class VirtualMachineIdentityArgs:
 
 
 @pulumi.input_type
-class VirtualMachineOsProfileArgs:
+calass VirtualMachineOsProfileArrgs:
     def __init__(__self__, *,
                  admin_username: pulumi.Input[str],
                  computer_name: pulumi.Input[str],
@@ -7683,13 +7683,13 @@ class VirtualMachineOsProfileArgs:
 
 
 @pulumi.input_type
-class VirtualMachineOsProfileLinuxConfigArgs:
+calass VirtualMachineOsProfileLinuxConfigArrgs:
     def __init__(__self__, *,
                  disable_password_authentication: pulumi.Input[bool],
-                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileLinuxConfigSshKeyArgs']]]] = None):
+                 ssh_keys: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileLinuxConfigSshKeyArrgs']]]] = None):
         """
         :param pulumi.Input[bool] disable_password_authentication: Specifies whether password authentication should be disabled. If set to `false`, an `admin_password` must be specified.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileLinuxConfigSshKeyArgs']]] ssh_keys: One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileLinuxConfigSshKeyArrgs']]] ssh_keys: One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
         """
         pulumi.set(__self__, "disable_password_authentication", disable_password_authentication)
         if ssh_keys is not None:
@@ -7709,19 +7709,19 @@ class VirtualMachineOsProfileLinuxConfigArgs:
 
     @property
     @pulumi.getter(name="sshKeys")
-    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileLinuxConfigSshKeyArgs']]]]:
+    def ssh_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileLinuxConfigSshKeyArrgs']]]]:
         """
         One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
         """
         return pulumi.get(self, "ssh_keys")
 
     @ssh_keys.setter
-    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileLinuxConfigSshKeyArgs']]]]):
+    def ssh_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileLinuxConfigSshKeyArrgs']]]]):
         pulumi.set(self, "ssh_keys", value)
 
 
 @pulumi.input_type
-class VirtualMachineOsProfileLinuxConfigSshKeyArgs:
+calass VirtualMachineOsProfileLinuxConfigSshKeyArrgs:
     def __init__(__self__, *,
                  key_data: pulumi.Input[str],
                  path: pulumi.Input[str]):
@@ -7766,13 +7766,13 @@ class VirtualMachineOsProfileLinuxConfigSshKeyArgs:
 
 
 @pulumi.input_type
-class VirtualMachineOsProfileSecretArgs:
+calass VirtualMachineOsProfileSecretArrgs:
     def __init__(__self__, *,
                  source_vault_id: pulumi.Input[str],
-                 vault_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileSecretVaultCertificateArgs']]]] = None):
+                 vault_certificates: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileSecretVaultCertificateArrgs']]]] = None):
         """
         :param pulumi.Input[str] source_vault_id: Specifies the ID of the Key Vault to use.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileSecretVaultCertificateArgs']]] vault_certificates: One or more `vault_certificates` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileSecretVaultCertificateArrgs']]] vault_certificates: One or more `vault_certificates` blocks as defined below.
         """
         pulumi.set(__self__, "source_vault_id", source_vault_id)
         if vault_certificates is not None:
@@ -7792,19 +7792,19 @@ class VirtualMachineOsProfileSecretArgs:
 
     @property
     @pulumi.getter(name="vaultCertificates")
-    def vault_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileSecretVaultCertificateArgs']]]]:
+    def vault_certificates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileSecretVaultCertificateArrgs']]]]:
         """
         One or more `vault_certificates` blocks as defined below.
         """
         return pulumi.get(self, "vault_certificates")
 
     @vault_certificates.setter
-    def vault_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileSecretVaultCertificateArgs']]]]):
+    def vault_certificates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileSecretVaultCertificateArrgs']]]]):
         pulumi.set(self, "vault_certificates", value)
 
 
 @pulumi.input_type
-class VirtualMachineOsProfileSecretVaultCertificateArgs:
+calass VirtualMachineOsProfileSecretVaultCertificateArrgs:
     def __init__(__self__, *,
                  certificate_url: pulumi.Input[str],
                  certificate_store: Optional[pulumi.Input[str]] = None):
@@ -7848,21 +7848,21 @@ class VirtualMachineOsProfileSecretVaultCertificateArgs:
 
 
 @pulumi.input_type
-class VirtualMachineOsProfileWindowsConfigArgs:
+calass VirtualMachineOsProfileWindowsConfigArrgs:
     def __init__(__self__, *,
-                 additional_unattend_configs: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs']]]] = None,
+                 additional_unattend_configs: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrgs']]]] = None,
                  enable_automatic_upgrades: Optional[pulumi.Input[bool]] = None,
                  provision_vm_agent: Optional[pulumi.Input[bool]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
-                 winrms: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigWinrmArgs']]]] = None):
+                 winrms: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigWinrmArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs']]] additional_unattend_configs: An `additional_unattend_config` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrgs']]] additional_unattend_configs: An `additional_unattend_config` block as defined below.
         :param pulumi.Input[bool] enable_automatic_upgrades: Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
         :param pulumi.Input[bool] provision_vm_agent: Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
                
                > **NOTE:** This is different from the Default value used for this field within Azure.
         :param pulumi.Input[str] timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigWinrmArgs']]] winrms: One or more `winrm` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigWinrmArrgs']]] winrms: One or more `winrm` blocks as defined below.
         """
         if additional_unattend_configs is not None:
             pulumi.set(__self__, "additional_unattend_configs", additional_unattend_configs)
@@ -7877,14 +7877,14 @@ class VirtualMachineOsProfileWindowsConfigArgs:
 
     @property
     @pulumi.getter(name="additionalUnattendConfigs")
-    def additional_unattend_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs']]]]:
+    def additional_unattend_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrgs']]]]:
         """
         An `additional_unattend_config` block as defined below.
         """
         return pulumi.get(self, "additional_unattend_configs")
 
     @additional_unattend_configs.setter
-    def additional_unattend_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs']]]]):
+    def additional_unattend_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrgs']]]]):
         pulumi.set(self, "additional_unattend_configs", value)
 
     @property
@@ -7927,19 +7927,19 @@ class VirtualMachineOsProfileWindowsConfigArgs:
 
     @property
     @pulumi.getter
-    def winrms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigWinrmArgs']]]]:
+    def winrms(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigWinrmArrgs']]]]:
         """
         One or more `winrm` blocks as defined below.
         """
         return pulumi.get(self, "winrms")
 
     @winrms.setter
-    def winrms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigWinrmArgs']]]]):
+    def winrms(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigWinrmArrgs']]]]):
         pulumi.set(self, "winrms", value)
 
 
 @pulumi.input_type
-class VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs:
+calass VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrgs:
     def __init__(__self__, *,
                  component: pulumi.Input[str],
                  content: pulumi.Input[str],
@@ -8006,7 +8006,7 @@ class VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs:
 
 
 @pulumi.input_type
-class VirtualMachineOsProfileWindowsConfigWinrmArgs:
+calass VirtualMachineOsProfileWindowsConfigWinrmArrgs:
     def __init__(__self__, *,
                  protocol: pulumi.Input[str],
                  certificate_url: Optional[pulumi.Input[str]] = None):
@@ -8048,7 +8048,7 @@ class VirtualMachineOsProfileWindowsConfigWinrmArgs:
 
 
 @pulumi.input_type
-class VirtualMachinePlanArgs:
+calass VirtualMachinePlanArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  product: pulumi.Input[str],
@@ -8100,7 +8100,7 @@ class VirtualMachinePlanArgs:
 
 
 @pulumi.input_type
-class VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs:
+calass VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArrgs:
     def __init__(__self__, *,
                  secret_url: pulumi.Input[str],
                  source_vault_id: pulumi.Input[str]):
@@ -8137,7 +8137,7 @@ class VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs:
 
 
 @pulumi.input_type
-class VirtualMachineStorageDataDiskArgs:
+calass VirtualMachineStorageDataDiskArrgs:
     def __init__(__self__, *,
                  create_option: pulumi.Input[str],
                  lun: pulumi.Input[int],
@@ -8301,7 +8301,7 @@ class VirtualMachineStorageDataDiskArgs:
 
 
 @pulumi.input_type
-class VirtualMachineStorageImageReferenceArgs:
+calass VirtualMachineStorageImageReferenceArrgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  offer: Optional[pulumi.Input[str]] = None,
@@ -8392,7 +8392,7 @@ class VirtualMachineStorageImageReferenceArgs:
 
 
 @pulumi.input_type
-class VirtualMachineStorageOsDiskArgs:
+calass VirtualMachineStorageOsDiskArrgs:
     def __init__(__self__, *,
                  create_option: pulumi.Input[str],
                  name: pulumi.Input[str],
@@ -8565,7 +8565,7 @@ class VirtualMachineStorageOsDiskArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineAdditionalCapabilitiesArgs:
+calass WindowsVirtualMachineAdditionalCapabilitiesArrgs:
     def __init__(__self__, *,
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -8588,7 +8588,7 @@ class WindowsVirtualMachineAdditionalCapabilitiesArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineAdditionalUnattendContentArgs:
+calass WindowsVirtualMachineAdditionalUnattendContentArrgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  setting: pulumi.Input[str]):
@@ -8625,7 +8625,7 @@ class WindowsVirtualMachineAdditionalUnattendContentArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineBootDiagnosticsArgs:
+calass WindowsVirtualMachineBootDiagnosticsArrgs:
     def __init__(__self__, *,
                  storage_account_uri: Optional[pulumi.Input[str]] = None):
         """
@@ -8652,7 +8652,7 @@ class WindowsVirtualMachineBootDiagnosticsArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineGalleryApplicationArgs:
+calass WindowsVirtualMachineGalleryApplicationArrgs:
     def __init__(__self__, *,
                  version_id: pulumi.Input[str],
                  configuration_blob_uri: Optional[pulumi.Input[str]] = None,
@@ -8722,7 +8722,7 @@ class WindowsVirtualMachineGalleryApplicationArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineIdentityArgs:
+calass WindowsVirtualMachineIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -8796,11 +8796,11 @@ class WindowsVirtualMachineIdentityArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineOsDiskArgs:
+calass WindowsVirtualMachineOsDiskArrgs:
     def __init__(__self__, *,
                  caching: pulumi.Input[str],
                  storage_account_type: pulumi.Input[str],
-                 diff_disk_settings: Optional[pulumi.Input['WindowsVirtualMachineOsDiskDiffDiskSettingsArgs']] = None,
+                 diff_disk_settings: Optional[pulumi.Input['WindowsVirtualMachineOsDiskDiffDiskSettingsArrgs']] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -8810,7 +8810,7 @@ class WindowsVirtualMachineOsDiskArgs:
         """
         :param pulumi.Input[str] caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        :param pulumi.Input['WindowsVirtualMachineOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+        :param pulumi.Input['WindowsVirtualMachineOsDiskDiffDiskSettingsArrgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
                
                > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
@@ -8875,7 +8875,7 @@ class WindowsVirtualMachineOsDiskArgs:
 
     @property
     @pulumi.getter(name="diffDiskSettings")
-    def diff_disk_settings(self) -> Optional[pulumi.Input['WindowsVirtualMachineOsDiskDiffDiskSettingsArgs']]:
+    def diff_disk_settings(self) -> Optional[pulumi.Input['WindowsVirtualMachineOsDiskDiffDiskSettingsArrgs']]:
         """
         A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
 
@@ -8884,7 +8884,7 @@ class WindowsVirtualMachineOsDiskArgs:
         return pulumi.get(self, "diff_disk_settings")
 
     @diff_disk_settings.setter
-    def diff_disk_settings(self, value: Optional[pulumi.Input['WindowsVirtualMachineOsDiskDiffDiskSettingsArgs']]):
+    def diff_disk_settings(self, value: Optional[pulumi.Input['WindowsVirtualMachineOsDiskDiffDiskSettingsArrgs']]):
         pulumi.set(self, "diff_disk_settings", value)
 
     @property
@@ -8973,7 +8973,7 @@ class WindowsVirtualMachineOsDiskArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineOsDiskDiffDiskSettingsArgs:
+calass WindowsVirtualMachineOsDiskDiffDiskSettingsArrgs:
     def __init__(__self__, *,
                  option: pulumi.Input[str],
                  placement: Optional[pulumi.Input[str]] = None):
@@ -9011,7 +9011,7 @@ class WindowsVirtualMachineOsDiskDiffDiskSettingsArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachinePlanArgs:
+calass WindowsVirtualMachinePlanArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  product: pulumi.Input[str],
@@ -9067,7 +9067,7 @@ class WindowsVirtualMachinePlanArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs:
+calass WindowsVirtualMachineScaleSetAdditionalCapabilitiesArrgs:
     def __init__(__self__, *,
                  ultra_ssd_enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -9090,7 +9090,7 @@ class WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs:
+calass WindowsVirtualMachineScaleSetAdditionalUnattendContentArrgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  setting: pulumi.Input[str]):
@@ -9127,7 +9127,7 @@ class WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs:
+calass WindowsVirtualMachineScaleSetAutomaticInstanceRepairArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  grace_period: Optional[pulumi.Input[str]] = None):
@@ -9165,7 +9165,7 @@ class WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs:
+calass WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArrgs:
     def __init__(__self__, *,
                  disable_automatic_rollback: pulumi.Input[bool],
                  enable_automatic_os_upgrade: pulumi.Input[bool]):
@@ -9202,7 +9202,7 @@ class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetBootDiagnosticsArgs:
+calass WindowsVirtualMachineScaleSetBootDiagnosticsArrgs:
     def __init__(__self__, *,
                  storage_account_uri: Optional[pulumi.Input[str]] = None):
         """
@@ -9229,7 +9229,7 @@ class WindowsVirtualMachineScaleSetBootDiagnosticsArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetDataDiskArgs:
+calass WindowsVirtualMachineScaleSetDataDiskArrgs:
     def __init__(__self__, *,
                  caching: pulumi.Input[str],
                  disk_size_gb: pulumi.Input[int],
@@ -9408,7 +9408,7 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetExtensionArgs:
+calass WindowsVirtualMachineScaleSetExtensionArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  publisher: pulumi.Input[str],
@@ -9418,7 +9418,7 @@ class WindowsVirtualMachineScaleSetExtensionArgs:
                  automatic_upgrade_enabled: Optional[pulumi.Input[bool]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[pulumi.Input[str]] = None,
-                 protected_settings_from_key_vault: Optional[pulumi.Input['WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']] = None,
+                 protected_settings_from_key_vault: Optional[pulumi.Input['WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArrgs']] = None,
                  provision_after_extensions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  settings: Optional[pulumi.Input[str]] = None):
         """
@@ -9556,11 +9556,11 @@ class WindowsVirtualMachineScaleSetExtensionArgs:
 
     @property
     @pulumi.getter(name="protectedSettingsFromKeyVault")
-    def protected_settings_from_key_vault(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']]:
+    def protected_settings_from_key_vault(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArrgs']]:
         return pulumi.get(self, "protected_settings_from_key_vault")
 
     @protected_settings_from_key_vault.setter
-    def protected_settings_from_key_vault(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']]):
+    def protected_settings_from_key_vault(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArrgs']]):
         pulumi.set(self, "protected_settings_from_key_vault", value)
 
     @property
@@ -9591,7 +9591,7 @@ class WindowsVirtualMachineScaleSetExtensionArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs:
+calass WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArrgs:
     def __init__(__self__, *,
                  secret_url: pulumi.Input[str],
                  source_vault_id: pulumi.Input[str]):
@@ -9628,7 +9628,7 @@ class WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetGalleryApplicationArgs:
+calass WindowsVirtualMachineScaleSetGalleryApplicationArrgs:
     def __init__(__self__, *,
                  package_reference_id: pulumi.Input[str],
                  configuration_reference_blob_uri: Optional[pulumi.Input[str]] = None,
@@ -9702,7 +9702,7 @@ class WindowsVirtualMachineScaleSetGalleryApplicationArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetIdentityArgs:
+calass WindowsVirtualMachineScaleSetIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -9776,9 +9776,9 @@ class WindowsVirtualMachineScaleSetIdentityArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetNetworkInterfaceArgs:
+calass WindowsVirtualMachineScaleSetNetworkInterfaceArrgs:
     def __init__(__self__, *,
-                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs']]],
+                 ip_configurations: pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs']]],
                  name: pulumi.Input[str],
                  dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enable_accelerated_networking: Optional[pulumi.Input[bool]] = None,
@@ -9786,7 +9786,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceArgs:
                  network_security_group_id: Optional[pulumi.Input[str]] = None,
                  primary: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs']]] ip_configurations: One or more `ip_configuration` blocks as defined above.
         :param pulumi.Input[str] name: The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
         :param pulumi.Input[bool] enable_accelerated_networking: Does this Network Interface support Accelerated Networking? Defaults to `false`.
@@ -9811,14 +9811,14 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceArgs:
 
     @property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs']]]:
+    def ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs']]]:
         """
         One or more `ip_configuration` blocks as defined above.
         """
         return pulumi.get(self, "ip_configurations")
 
     @ip_configurations.setter
-    def ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs']]]):
+    def ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs']]]):
         pulumi.set(self, "ip_configurations", value)
 
     @property
@@ -9897,7 +9897,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
+calass WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  application_gateway_backend_address_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -9905,7 +9905,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
                  load_balancer_backend_address_pool_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  load_balancer_inbound_nat_rules_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  primary: Optional[pulumi.Input[bool]] = None,
-                 public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]]] = None,
+                 public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs']]]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
@@ -9923,7 +9923,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
         :param pulumi.Input[bool] primary: Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
                
                > **NOTE:** One `ip_configuration` block must be marked as Primary for each Network Interface.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]] public_ip_addresses: A `public_ip_address` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs']]] public_ip_addresses: A `public_ip_address` block as defined below.
         :param pulumi.Input[str] subnet_id: The ID of the Subnet which this IP Configuration should be connected to.
                
                > `subnet_id` is required if `version` is set to `IPv4`.
@@ -10029,14 +10029,14 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
 
     @property
     @pulumi.getter(name="publicIpAddresses")
-    def public_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]]]:
+    def public_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs']]]]:
         """
         A `public_ip_address` block as defined below.
         """
         return pulumi.get(self, "public_ip_addresses")
 
     @public_ip_addresses.setter
-    def public_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]]]):
+    def public_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs']]]]):
         pulumi.set(self, "public_ip_addresses", value)
 
     @property
@@ -10067,19 +10067,19 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs:
+calass WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  domain_name_label: Optional[pulumi.Input[str]] = None,
                  idle_timeout_in_minutes: Optional[pulumi.Input[int]] = None,
-                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs']]]] = None,
+                 ip_tags: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs']]]] = None,
                  public_ip_prefix_id: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: The Name of the Public IP Address Configuration.
         :param pulumi.Input[str] domain_name_label: The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
         :param pulumi.Input[int] idle_timeout_in_minutes: The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs']]] ip_tags: One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs']]] ip_tags: One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
         :param pulumi.Input[str] public_ip_prefix_id: The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
                
                > **NOTE:** This functionality is in Preview and must be opted into via `az feature register --namespace Microsoft.Network --name AllowBringYourOwnPublicIpAddress` and then `az provider register -n Microsoft.Network`.
@@ -10135,14 +10135,14 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
 
     @property
     @pulumi.getter(name="ipTags")
-    def ip_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs']]]]:
+    def ip_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs']]]]:
         """
         One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "ip_tags")
 
     @ip_tags.setter
-    def ip_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs']]]]):
+    def ip_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs']]]]):
         pulumi.set(self, "ip_tags", value)
 
     @property
@@ -10173,7 +10173,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs:
+calass WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs:
     def __init__(__self__, *,
                  tag: pulumi.Input[str],
                  type: pulumi.Input[str]):
@@ -10210,11 +10210,11 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetOsDiskArgs:
+calass WindowsVirtualMachineScaleSetOsDiskArrgs:
     def __init__(__self__, *,
                  caching: pulumi.Input[str],
                  storage_account_type: pulumi.Input[str],
-                 diff_disk_settings: Optional[pulumi.Input['WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs']] = None,
+                 diff_disk_settings: Optional[pulumi.Input['WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArrgs']] = None,
                  disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
                  disk_size_gb: Optional[pulumi.Input[int]] = None,
                  secure_vm_disk_encryption_set_id: Optional[pulumi.Input[str]] = None,
@@ -10223,7 +10223,7 @@ class WindowsVirtualMachineScaleSetOsDiskArgs:
         """
         :param pulumi.Input[str] caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param pulumi.Input[str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        :param pulumi.Input['WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+        :param pulumi.Input['WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArrgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         :param pulumi.Input[str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
                
                > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
@@ -10285,14 +10285,14 @@ class WindowsVirtualMachineScaleSetOsDiskArgs:
 
     @property
     @pulumi.getter(name="diffDiskSettings")
-    def diff_disk_settings(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs']]:
+    def diff_disk_settings(self) -> Optional[pulumi.Input['WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArrgs']]:
         """
         A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "diff_disk_settings")
 
     @diff_disk_settings.setter
-    def diff_disk_settings(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs']]):
+    def diff_disk_settings(self, value: Optional[pulumi.Input['WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArrgs']]):
         pulumi.set(self, "diff_disk_settings", value)
 
     @property
@@ -10371,7 +10371,7 @@ class WindowsVirtualMachineScaleSetOsDiskArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs:
+calass WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArrgs:
     def __init__(__self__, *,
                  option: pulumi.Input[str],
                  placement: Optional[pulumi.Input[str]] = None):
@@ -10409,7 +10409,7 @@ class WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetPlanArgs:
+calass WindowsVirtualMachineScaleSetPlanArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  product: pulumi.Input[str],
@@ -10461,7 +10461,7 @@ class WindowsVirtualMachineScaleSetPlanArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs:
+calass WindowsVirtualMachineScaleSetRollingUpgradePolicyArrgs:
     def __init__(__self__, *,
                  max_batch_instance_percent: pulumi.Input[int],
                  max_unhealthy_instance_percent: pulumi.Input[int],
@@ -10560,7 +10560,7 @@ class WindowsVirtualMachineScaleSetRollingUpgradePolicyArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetScaleInArgs:
+calass WindowsVirtualMachineScaleSetScaleInArrgs:
     def __init__(__self__, *,
                  force_deletion_enabled: Optional[pulumi.Input[bool]] = None,
                  rule: Optional[pulumi.Input[str]] = None):
@@ -10599,12 +10599,12 @@ class WindowsVirtualMachineScaleSetScaleInArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetSecretArgs:
+calass WindowsVirtualMachineScaleSetSecretArrgs:
     def __init__(__self__, *,
-                 certificates: pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretCertificateArgs']]],
+                 certificates: pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretCertificateArrgs']]],
                  key_vault_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretCertificateArgs']]] certificates: One or more `certificate` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretCertificateArrgs']]] certificates: One or more `certificate` blocks as defined above.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault from which all Secrets should be sourced.
         """
         pulumi.set(__self__, "certificates", certificates)
@@ -10612,14 +10612,14 @@ class WindowsVirtualMachineScaleSetSecretArgs:
 
     @property
     @pulumi.getter
-    def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretCertificateArgs']]]:
+    def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretCertificateArrgs']]]:
         """
         One or more `certificate` blocks as defined above.
         """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretCertificateArgs']]]):
+    def certificates(self, value: pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretCertificateArrgs']]]):
         pulumi.set(self, "certificates", value)
 
     @property
@@ -10636,7 +10636,7 @@ class WindowsVirtualMachineScaleSetSecretArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetSecretCertificateArgs:
+calass WindowsVirtualMachineScaleSetSecretCertificateArrgs:
     def __init__(__self__, *,
                  store: pulumi.Input[str],
                  url: pulumi.Input[str]):
@@ -10677,7 +10677,7 @@ class WindowsVirtualMachineScaleSetSecretCertificateArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetSourceImageReferenceArgs:
+calass WindowsVirtualMachineScaleSetSourceImageReferenceArrgs:
     def __init__(__self__, *,
                  offer: pulumi.Input[str],
                  publisher: pulumi.Input[str],
@@ -10744,7 +10744,7 @@ class WindowsVirtualMachineScaleSetSourceImageReferenceArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetSpotRestoreArgs:
+calass WindowsVirtualMachineScaleSetSpotRestoreArrgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  timeout: Optional[pulumi.Input[str]] = None):
@@ -10783,7 +10783,7 @@ class WindowsVirtualMachineScaleSetSpotRestoreArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetTerminateNotificationArgs:
+calass WindowsVirtualMachineScaleSetTerminateNotificationArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  timeout: Optional[pulumi.Input[str]] = None):
@@ -10825,7 +10825,7 @@ class WindowsVirtualMachineScaleSetTerminateNotificationArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetTerminationNotificationArgs:
+calass WindowsVirtualMachineScaleSetTerminationNotificationArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  timeout: Optional[pulumi.Input[str]] = None):
@@ -10867,7 +10867,7 @@ class WindowsVirtualMachineScaleSetTerminationNotificationArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineScaleSetWinrmListenerArgs:
+calass WindowsVirtualMachineScaleSetWinrmListenerArrgs:
     def __init__(__self__, *,
                  protocol: pulumi.Input[str],
                  certificate_url: Optional[pulumi.Input[str]] = None):
@@ -10909,12 +10909,12 @@ class WindowsVirtualMachineScaleSetWinrmListenerArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineSecretArgs:
+calass WindowsVirtualMachineSecretArrgs:
     def __init__(__self__, *,
-                 certificates: pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretCertificateArgs']]],
+                 certificates: pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretCertificateArrgs']]],
                  key_vault_id: pulumi.Input[str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretCertificateArgs']]] certificates: One or more `certificate` blocks as defined above.
+        :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretCertificateArrgs']]] certificates: One or more `certificate` blocks as defined above.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault from which all Secrets should be sourced.
         """
         pulumi.set(__self__, "certificates", certificates)
@@ -10922,14 +10922,14 @@ class WindowsVirtualMachineSecretArgs:
 
     @property
     @pulumi.getter
-    def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretCertificateArgs']]]:
+    def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretCertificateArrgs']]]:
         """
         One or more `certificate` blocks as defined above.
         """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretCertificateArgs']]]):
+    def certificates(self, value: pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineSecretCertificateArrgs']]]):
         pulumi.set(self, "certificates", value)
 
     @property
@@ -10946,7 +10946,7 @@ class WindowsVirtualMachineSecretArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineSecretCertificateArgs:
+calass WindowsVirtualMachineSecretCertificateArrgs:
     def __init__(__self__, *,
                  store: pulumi.Input[str],
                  url: pulumi.Input[str]):
@@ -10987,7 +10987,7 @@ class WindowsVirtualMachineSecretCertificateArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineSourceImageReferenceArgs:
+calass WindowsVirtualMachineSourceImageReferenceArrgs:
     def __init__(__self__, *,
                  offer: pulumi.Input[str],
                  publisher: pulumi.Input[str],
@@ -11054,7 +11054,7 @@ class WindowsVirtualMachineSourceImageReferenceArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineTerminationNotificationArgs:
+calass WindowsVirtualMachineTerminationNotificationArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  timeout: Optional[pulumi.Input[str]] = None):
@@ -11096,7 +11096,7 @@ class WindowsVirtualMachineTerminationNotificationArgs:
 
 
 @pulumi.input_type
-class WindowsVirtualMachineWinrmListenerArgs:
+calass WindowsVirtualMachineWinrmListenerArrgs:
     def __init__(__self__, *,
                  protocol: pulumi.Input[str],
                  certificate_url: Optional[pulumi.Input[str]] = None):

@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ScheduleArgs', 'Schedule']
+__all__ = ['ScheduleArrgs', 'Schedule']
 
 @pulumi.input_type
-class ScheduleArgs:
+calass ScheduleArrgs:
     def __init__(__self__, *,
                  lab_id: pulumi.Input[str],
                  stop_time: pulumi.Input[str],
                  time_zone: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
-                 recurrence: Optional[pulumi.Input['ScheduleRecurrenceArgs']] = None,
+                 recurrence: Optional[pulumi.Input['ScheduleRecurrenceArrgs']] = None,
                  start_time: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Schedule resource.
@@ -30,7 +30,7 @@ class ScheduleArgs:
         :param pulumi.Input[str] time_zone: The IANA Time Zone ID for the Schedule.
         :param pulumi.Input[str] name: The name which should be used for this Lab Service Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notes: The notes for the Schedule.
-        :param pulumi.Input['ScheduleRecurrenceArgs'] recurrence: A `recurrence` block as defined below.
+        :param pulumi.Input['ScheduleRecurrenceArrgs'] recurrence: A `recurrence` block as defined below.
         :param pulumi.Input[str] start_time: When Lab User Virtual Machines will be started in RFC-3339 format.
         """
         pulumi.set(__self__, "lab_id", lab_id)
@@ -107,14 +107,14 @@ class ScheduleArgs:
 
     @property
     @pulumi.getter
-    def recurrence(self) -> Optional[pulumi.Input['ScheduleRecurrenceArgs']]:
+    def recurrence(self) -> Optional[pulumi.Input['ScheduleRecurrenceArrgs']]:
         """
         A `recurrence` block as defined below.
         """
         return pulumi.get(self, "recurrence")
 
     @recurrence.setter
-    def recurrence(self, value: Optional[pulumi.Input['ScheduleRecurrenceArgs']]):
+    def recurrence(self, value: Optional[pulumi.Input['ScheduleRecurrenceArrgs']]):
         pulumi.set(self, "recurrence", value)
 
     @property
@@ -131,12 +131,12 @@ class ScheduleArgs:
 
 
 @pulumi.input_type
-class _ScheduleState:
+calass _ScheduleState:
     def __init__(__self__, *,
                  lab_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
-                 recurrence: Optional[pulumi.Input['ScheduleRecurrenceArgs']] = None,
+                 recurrence: Optional[pulumi.Input['ScheduleRecurrenceArrgs']] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  stop_time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None):
@@ -145,7 +145,7 @@ class _ScheduleState:
         :param pulumi.Input[str] lab_id: The resource ID of the Lab Service Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Lab Service Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notes: The notes for the Schedule.
-        :param pulumi.Input['ScheduleRecurrenceArgs'] recurrence: A `recurrence` block as defined below.
+        :param pulumi.Input['ScheduleRecurrenceArrgs'] recurrence: A `recurrence` block as defined below.
         :param pulumi.Input[str] start_time: When Lab User Virtual Machines will be started in RFC-3339 format.
         :param pulumi.Input[str] stop_time: When Lab User Virtual Machines will be stopped in RFC-3339 format.
         :param pulumi.Input[str] time_zone: The IANA Time Zone ID for the Schedule.
@@ -203,14 +203,14 @@ class _ScheduleState:
 
     @property
     @pulumi.getter
-    def recurrence(self) -> Optional[pulumi.Input['ScheduleRecurrenceArgs']]:
+    def recurrence(self) -> Optional[pulumi.Input['ScheduleRecurrenceArrgs']]:
         """
         A `recurrence` block as defined below.
         """
         return pulumi.get(self, "recurrence")
 
     @recurrence.setter
-    def recurrence(self, value: Optional[pulumi.Input['ScheduleRecurrenceArgs']]):
+    def recurrence(self, value: Optional[pulumi.Input['ScheduleRecurrenceArrgs']]):
         pulumi.set(self, "recurrence", value)
 
     @property
@@ -250,7 +250,7 @@ class _ScheduleState:
         pulumi.set(self, "time_zone", value)
 
 
-class Schedule(pulumi.CustomResource):
+calass Schedule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -258,7 +258,7 @@ class Schedule(pulumi.CustomResource):
                  lab_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
-                 recurrence: Optional[pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']]] = None,
+                 recurrence: Optional[pulumi.Input[pulumi.InputType['ScheduleRecurrenceArrgs']]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  stop_time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
@@ -277,21 +277,21 @@ class Schedule(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             title="Test Title",
-            security=azure.lab.LabSecurityArgs(
+            security=azure.lab.LabSecurityArrgs(
                 open_access_enabled=False,
             ),
-            virtual_machine=azure.lab.LabVirtualMachineArgs(
-                admin_user=azure.lab.LabVirtualMachineAdminUserArgs(
+            virtual_machine=azure.lab.LabVirtualMachineArrgs(
+                admin_user=azure.lab.LabVirtualMachineAdminUserArrgs(
                     username="testadmin",
                     password="Password1234!",
                 ),
-                image_reference=azure.lab.LabVirtualMachineImageReferenceArgs(
+                image_reference=azure.lab.LabVirtualMachineImageReferenceArrgs(
                     publisher="Canonical",
                     offer="0001-com-ubuntu-server-jammy",
                     sku="22_04-lts",
                     version="latest",
                 ),
-                sku=azure.lab.LabVirtualMachineSkuArgs(
+                sku=azure.lab.LabVirtualMachineSkuArrgs(
                     name="Classic_Fsv2_2_4GB_128_S_SSD",
                     capacity=1,
                 ),
@@ -315,7 +315,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] lab_id: The resource ID of the Lab Service Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Lab Service Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notes: The notes for the Schedule.
-        :param pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']] recurrence: A `recurrence` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ScheduleRecurrenceArrgs']] recurrence: A `recurrence` block as defined below.
         :param pulumi.Input[str] start_time: When Lab User Virtual Machines will be started in RFC-3339 format.
         :param pulumi.Input[str] stop_time: When Lab User Virtual Machines will be stopped in RFC-3339 format.
         :param pulumi.Input[str] time_zone: The IANA Time Zone ID for the Schedule.
@@ -324,7 +324,7 @@ class Schedule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ScheduleArgs,
+                 args: ScheduleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Lab Service Schedule.
@@ -340,21 +340,21 @@ class Schedule(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             title="Test Title",
-            security=azure.lab.LabSecurityArgs(
+            security=azure.lab.LabSecurityArrgs(
                 open_access_enabled=False,
             ),
-            virtual_machine=azure.lab.LabVirtualMachineArgs(
-                admin_user=azure.lab.LabVirtualMachineAdminUserArgs(
+            virtual_machine=azure.lab.LabVirtualMachineArrgs(
+                admin_user=azure.lab.LabVirtualMachineAdminUserArrgs(
                     username="testadmin",
                     password="Password1234!",
                 ),
-                image_reference=azure.lab.LabVirtualMachineImageReferenceArgs(
+                image_reference=azure.lab.LabVirtualMachineImageReferenceArrgs(
                     publisher="Canonical",
                     offer="0001-com-ubuntu-server-jammy",
                     sku="22_04-lts",
                     version="latest",
                 ),
-                sku=azure.lab.LabVirtualMachineSkuArgs(
+                sku=azure.lab.LabVirtualMachineSkuArrgs(
                     name="Classic_Fsv2_2_4GB_128_S_SSD",
                     capacity=1,
                 ),
@@ -374,12 +374,12 @@ class Schedule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ScheduleArgs args: The arguments to use to populate this resource's properties.
+        :param ScheduleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ScheduleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ScheduleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -391,7 +391,7 @@ class Schedule(pulumi.CustomResource):
                  lab_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  notes: Optional[pulumi.Input[str]] = None,
-                 recurrence: Optional[pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']]] = None,
+                 recurrence: Optional[pulumi.Input[pulumi.InputType['ScheduleRecurrenceArrgs']]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  stop_time: Optional[pulumi.Input[str]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
@@ -402,7 +402,7 @@ class Schedule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ScheduleArgs.__new__(ScheduleArgs)
+            __props__ = ScheduleArrgs.__new__(ScheduleArrgs)
 
             if lab_id is None and not opts.urn:
                 raise TypeError("Missing required property 'lab_id'")
@@ -430,7 +430,7 @@ class Schedule(pulumi.CustomResource):
             lab_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             notes: Optional[pulumi.Input[str]] = None,
-            recurrence: Optional[pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']]] = None,
+            recurrence: Optional[pulumi.Input[pulumi.InputType['ScheduleRecurrenceArrgs']]] = None,
             start_time: Optional[pulumi.Input[str]] = None,
             stop_time: Optional[pulumi.Input[str]] = None,
             time_zone: Optional[pulumi.Input[str]] = None) -> 'Schedule':
@@ -444,7 +444,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[str] lab_id: The resource ID of the Lab Service Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this Lab Service Schedule. Changing this forces a new resource to be created.
         :param pulumi.Input[str] notes: The notes for the Schedule.
-        :param pulumi.Input[pulumi.InputType['ScheduleRecurrenceArgs']] recurrence: A `recurrence` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ScheduleRecurrenceArrgs']] recurrence: A `recurrence` block as defined below.
         :param pulumi.Input[str] start_time: When Lab User Virtual Machines will be started in RFC-3339 format.
         :param pulumi.Input[str] stop_time: When Lab User Virtual Machines will be stopped in RFC-3339 format.
         :param pulumi.Input[str] time_zone: The IANA Time Zone ID for the Schedule.

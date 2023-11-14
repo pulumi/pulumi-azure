@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ApiReleaseArgs', 'ApiRelease']
+__all__ = ['ApiReleaseArrgs', 'ApiRelease']
 
 @pulumi.input_type
-class ApiReleaseArgs:
+calass ApiReleaseArrgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
@@ -67,7 +67,7 @@ class ApiReleaseArgs:
 
 
 @pulumi.input_type
-class _ApiReleaseState:
+calass _ApiReleaseState:
     def __init__(__self__, *,
                  api_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class _ApiReleaseState:
         pulumi.set(self, "notes", value)
 
 
-class ApiRelease(pulumi.CustomResource):
+calass ApiRelease(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -154,7 +154,7 @@ class ApiRelease(pulumi.CustomResource):
             display_name="Example API",
             path="example",
             protocols=["https"],
-            import_=azure.apimanagement.ApiImportArgs(
+            import_=azure.apimanagement.ApiImportArrgs(
                 content_format="swagger-link-json",
                 content_value="http://conferenceapi.azurewebsites.net/?format=json",
             ))
@@ -179,7 +179,7 @@ class ApiRelease(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ApiReleaseArgs,
+                 args: ApiReleaseArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a API Management API Release.
@@ -204,7 +204,7 @@ class ApiRelease(pulumi.CustomResource):
             display_name="Example API",
             path="example",
             protocols=["https"],
-            import_=azure.apimanagement.ApiImportArgs(
+            import_=azure.apimanagement.ApiImportArrgs(
                 content_format="swagger-link-json",
                 content_value="http://conferenceapi.azurewebsites.net/?format=json",
             ))
@@ -220,12 +220,12 @@ class ApiRelease(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ApiReleaseArgs args: The arguments to use to populate this resource's properties.
+        :param ApiReleaseArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ApiReleaseArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ApiReleaseArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -244,7 +244,7 @@ class ApiRelease(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ApiReleaseArgs.__new__(ApiReleaseArgs)
+            __props__ = ApiReleaseArrgs.__new__(ApiReleaseArrgs)
 
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")

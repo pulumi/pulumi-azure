@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DatasetHttpArgs', 'DatasetHttp']
+__all__ = ['DatasetHttpArrgs', 'DatasetHttp']
 
 @pulumi.input_type
-class DatasetHttpArgs:
+calass DatasetHttpArrgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[str],
                  linked_service_name: pulumi.Input[str],
@@ -27,7 +27,7 @@ class DatasetHttpArgs:
                  relative_url: Optional[pulumi.Input[str]] = None,
                  request_body: Optional[pulumi.Input[str]] = None,
                  request_method: Optional[pulumi.Input[str]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]]] = None):
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArrgs']]]] = None):
         """
         The set of arguments for constructing a DatasetHttp resource.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
@@ -43,7 +43,7 @@ class DatasetHttpArgs:
         :param pulumi.Input[str] relative_url: The relative URL based on the URL in the HTTP Linked Service.
         :param pulumi.Input[str] request_body: The body for the HTTP request.
         :param pulumi.Input[str] request_method: The HTTP method for the HTTP request. (e.g. GET, POST)
-        :param pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArrgs']]] schema_columns: A `schema_column` block as defined below.
         """
         pulumi.set(__self__, "data_factory_id", data_factory_id)
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -204,19 +204,19 @@ class DatasetHttpArgs:
 
     @property
     @pulumi.getter(name="schemaColumns")
-    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]]]:
+    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArrgs']]]]:
         """
         A `schema_column` block as defined below.
         """
         return pulumi.get(self, "schema_columns")
 
     @schema_columns.setter
-    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]]]):
+    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArrgs']]]]):
         pulumi.set(self, "schema_columns", value)
 
 
 @pulumi.input_type
-class _DatasetHttpState:
+calass _DatasetHttpState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -229,7 +229,7 @@ class _DatasetHttpState:
                  relative_url: Optional[pulumi.Input[str]] = None,
                  request_body: Optional[pulumi.Input[str]] = None,
                  request_method: Optional[pulumi.Input[str]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]]] = None):
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArrgs']]]] = None):
         """
         Input properties used for looking up and filtering DatasetHttp resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
@@ -245,7 +245,7 @@ class _DatasetHttpState:
         :param pulumi.Input[str] relative_url: The relative URL based on the URL in the HTTP Linked Service.
         :param pulumi.Input[str] request_body: The body for the HTTP request.
         :param pulumi.Input[str] request_method: The HTTP method for the HTTP request. (e.g. GET, POST)
-        :param pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArrgs']]] schema_columns: A `schema_column` block as defined below.
         """
         if additional_properties is not None:
             pulumi.set(__self__, "additional_properties", additional_properties)
@@ -408,18 +408,18 @@ class _DatasetHttpState:
 
     @property
     @pulumi.getter(name="schemaColumns")
-    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]]]:
+    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArrgs']]]]:
         """
         A `schema_column` block as defined below.
         """
         return pulumi.get(self, "schema_columns")
 
     @schema_columns.setter
-    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArgs']]]]):
+    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetHttpSchemaColumnArrgs']]]]):
         pulumi.set(self, "schema_columns", value)
 
 
-class DatasetHttp(pulumi.CustomResource):
+calass DatasetHttp(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -435,7 +435,7 @@ class DatasetHttp(pulumi.CustomResource):
                  relative_url: Optional[pulumi.Input[str]] = None,
                  request_body: Optional[pulumi.Input[str]] = None,
                  request_method: Optional[pulumi.Input[str]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetHttpSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetHttpSchemaColumnArrgs']]]]] = None,
                  __props__=None):
         """
         Manages an Azure HTTP Dataset inside an Azure Data Factory.
@@ -485,13 +485,13 @@ class DatasetHttp(pulumi.CustomResource):
         :param pulumi.Input[str] relative_url: The relative URL based on the URL in the HTTP Linked Service.
         :param pulumi.Input[str] request_body: The body for the HTTP request.
         :param pulumi.Input[str] request_method: The HTTP method for the HTTP request. (e.g. GET, POST)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetHttpSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetHttpSchemaColumnArrgs']]]] schema_columns: A `schema_column` block as defined below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DatasetHttpArgs,
+                 args: DatasetHttpArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure HTTP Dataset inside an Azure Data Factory.
@@ -527,12 +527,12 @@ class DatasetHttp(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DatasetHttpArgs args: The arguments to use to populate this resource's properties.
+        :param DatasetHttpArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DatasetHttpArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DatasetHttpArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -552,7 +552,7 @@ class DatasetHttp(pulumi.CustomResource):
                  relative_url: Optional[pulumi.Input[str]] = None,
                  request_body: Optional[pulumi.Input[str]] = None,
                  request_method: Optional[pulumi.Input[str]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetHttpSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetHttpSchemaColumnArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -560,7 +560,7 @@ class DatasetHttp(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DatasetHttpArgs.__new__(DatasetHttpArgs)
+            __props__ = DatasetHttpArrgs.__new__(DatasetHttpArrgs)
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
@@ -599,7 +599,7 @@ class DatasetHttp(pulumi.CustomResource):
             relative_url: Optional[pulumi.Input[str]] = None,
             request_body: Optional[pulumi.Input[str]] = None,
             request_method: Optional[pulumi.Input[str]] = None,
-            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetHttpSchemaColumnArgs']]]]] = None) -> 'DatasetHttp':
+            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetHttpSchemaColumnArrgs']]]]] = None) -> 'DatasetHttp':
         """
         Get an existing DatasetHttp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -620,7 +620,7 @@ class DatasetHttp(pulumi.CustomResource):
         :param pulumi.Input[str] relative_url: The relative URL based on the URL in the HTTP Linked Service.
         :param pulumi.Input[str] request_body: The body for the HTTP request.
         :param pulumi.Input[str] request_method: The HTTP method for the HTTP request. (e.g. GET, POST)
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetHttpSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetHttpSchemaColumnArrgs']]]] schema_columns: A `schema_column` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

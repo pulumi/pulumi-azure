@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FirewallPolicyArgs', 'FirewallPolicy']
+__all__ = ['FirewallPolicyArrgs', 'FirewallPolicy']
 
 @pulumi.input_type
-class FirewallPolicyArgs:
+calass FirewallPolicyArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  custom_block_response_body: Optional[pulumi.Input[str]] = None,
                  custom_block_response_status_code: Optional[pulumi.Input[int]] = None,
-                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleArgs']]]] = None,
+                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleArrgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleArgs']]]] = None,
+                 managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleArrgs']]]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
@@ -31,9 +31,9 @@ class FirewallPolicyArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. Changing this forces a new resource to be created.
         :param pulumi.Input[str] custom_block_response_body: If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         :param pulumi.Input[int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleArgs']]] custom_rules: One or more `custom_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleArrgs']]] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the policy a enabled state or disabled state. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleArgs']]] managed_rules: One or more `managed_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleArrgs']]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] mode: The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
@@ -97,14 +97,14 @@ class FirewallPolicyArgs:
 
     @property
     @pulumi.getter(name="customRules")
-    def custom_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleArgs']]]]:
+    def custom_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleArrgs']]]]:
         """
         One or more `custom_rule` blocks as defined below.
         """
         return pulumi.get(self, "custom_rules")
 
     @custom_rules.setter
-    def custom_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleArgs']]]]):
+    def custom_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleArrgs']]]]):
         pulumi.set(self, "custom_rules", value)
 
     @property
@@ -121,14 +121,14 @@ class FirewallPolicyArgs:
 
     @property
     @pulumi.getter(name="managedRules")
-    def managed_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleArgs']]]]:
+    def managed_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleArrgs']]]]:
         """
         One or more `managed_rule` blocks as defined below.
         """
         return pulumi.get(self, "managed_rules")
 
     @managed_rules.setter
-    def managed_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleArgs']]]]):
+    def managed_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleArrgs']]]]):
         pulumi.set(self, "managed_rules", value)
 
     @property
@@ -181,15 +181,15 @@ class FirewallPolicyArgs:
 
 
 @pulumi.input_type
-class _FirewallPolicyState:
+calass _FirewallPolicyState:
     def __init__(__self__, *,
                  custom_block_response_body: Optional[pulumi.Input[str]] = None,
                  custom_block_response_status_code: Optional[pulumi.Input[int]] = None,
-                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleArgs']]]] = None,
+                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleArrgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  frontend_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleArgs']]]] = None,
+                 managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleArrgs']]]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
@@ -199,11 +199,11 @@ class _FirewallPolicyState:
         Input properties used for looking up and filtering FirewallPolicy resources.
         :param pulumi.Input[str] custom_block_response_body: If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         :param pulumi.Input[int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleArgs']]] custom_rules: One or more `custom_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleArrgs']]] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the policy a enabled state or disabled state. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] frontend_endpoint_ids: The Frontend Endpoints associated with this Front Door Web Application Firewall policy.
         :param pulumi.Input[str] location: The Azure Region where this Front Door Firewall Policy exists.
-        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleArgs']]] managed_rules: One or more `managed_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleArrgs']]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] mode: The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
@@ -261,14 +261,14 @@ class _FirewallPolicyState:
 
     @property
     @pulumi.getter(name="customRules")
-    def custom_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleArgs']]]]:
+    def custom_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleArrgs']]]]:
         """
         One or more `custom_rule` blocks as defined below.
         """
         return pulumi.get(self, "custom_rules")
 
     @custom_rules.setter
-    def custom_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleArgs']]]]):
+    def custom_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyCustomRuleArrgs']]]]):
         pulumi.set(self, "custom_rules", value)
 
     @property
@@ -309,14 +309,14 @@ class _FirewallPolicyState:
 
     @property
     @pulumi.getter(name="managedRules")
-    def managed_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleArgs']]]]:
+    def managed_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleArrgs']]]]:
         """
         One or more `managed_rule` blocks as defined below.
         """
         return pulumi.get(self, "managed_rules")
 
     @managed_rules.setter
-    def managed_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleArgs']]]]):
+    def managed_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyManagedRuleArrgs']]]]):
         pulumi.set(self, "managed_rules", value)
 
     @property
@@ -380,16 +380,16 @@ class _FirewallPolicyState:
         pulumi.set(self, "tags", value)
 
 
-class FirewallPolicy(pulumi.CustomResource):
+calass FirewallPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_block_response_body: Optional[pulumi.Input[str]] = None,
                  custom_block_response_status_code: Optional[pulumi.Input[int]] = None,
-                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyCustomRuleArgs']]]]] = None,
+                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyCustomRuleArrgs']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyManagedRuleArgs']]]]] = None,
+                 managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyManagedRuleArrgs']]]]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
@@ -412,7 +412,7 @@ class FirewallPolicy(pulumi.CustomResource):
             custom_block_response_status_code=403,
             custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
             custom_rules=[
-                azure.frontdoor.FirewallPolicyCustomRuleArgs(
+                azure.frontdoor.FirewallPolicyCustomRuleArrgs(
                     name="Rule1",
                     enabled=True,
                     priority=1,
@@ -420,7 +420,7 @@ class FirewallPolicy(pulumi.CustomResource):
                     rate_limit_threshold=10,
                     type="MatchRule",
                     action="Block",
-                    match_conditions=[azure.frontdoor.FirewallPolicyCustomRuleMatchConditionArgs(
+                    match_conditions=[azure.frontdoor.FirewallPolicyCustomRuleMatchConditionArrgs(
                         match_variable="RemoteAddr",
                         operator="IPMatch",
                         negation_condition=False,
@@ -430,7 +430,7 @@ class FirewallPolicy(pulumi.CustomResource):
                         ],
                     )],
                 ),
-                azure.frontdoor.FirewallPolicyCustomRuleArgs(
+                azure.frontdoor.FirewallPolicyCustomRuleArrgs(
                     name="Rule2",
                     enabled=True,
                     priority=2,
@@ -439,13 +439,13 @@ class FirewallPolicy(pulumi.CustomResource):
                     type="MatchRule",
                     action="Block",
                     match_conditions=[
-                        azure.frontdoor.FirewallPolicyCustomRuleMatchConditionArgs(
+                        azure.frontdoor.FirewallPolicyCustomRuleMatchConditionArrgs(
                             match_variable="RemoteAddr",
                             operator="IPMatch",
                             negation_condition=False,
                             match_values=["192.168.1.0/24"],
                         ),
-                        azure.frontdoor.FirewallPolicyCustomRuleMatchConditionArgs(
+                        azure.frontdoor.FirewallPolicyCustomRuleMatchConditionArrgs(
                             match_variable="RequestHeader",
                             selector="UserAgent",
                             operator="Contains",
@@ -460,34 +460,34 @@ class FirewallPolicy(pulumi.CustomResource):
                 ),
             ],
             managed_rules=[
-                azure.frontdoor.FirewallPolicyManagedRuleArgs(
+                azure.frontdoor.FirewallPolicyManagedRuleArrgs(
                     type="DefaultRuleSet",
                     version="1.0",
-                    exclusions=[azure.frontdoor.FirewallPolicyManagedRuleExclusionArgs(
+                    exclusions=[azure.frontdoor.FirewallPolicyManagedRuleExclusionArrgs(
                         match_variable="QueryStringArgNames",
                         operator="Equals",
                         selector="not_suspicious",
                     )],
                     overrides=[
-                        azure.frontdoor.FirewallPolicyManagedRuleOverrideArgs(
+                        azure.frontdoor.FirewallPolicyManagedRuleOverrideArrgs(
                             rule_group_name="PHP",
-                            rules=[azure.frontdoor.FirewallPolicyManagedRuleOverrideRuleArgs(
+                            rules=[azure.frontdoor.FirewallPolicyManagedRuleOverrideRuleArrgs(
                                 rule_id="933100",
                                 enabled=False,
                                 action="Block",
                             )],
                         ),
-                        azure.frontdoor.FirewallPolicyManagedRuleOverrideArgs(
+                        azure.frontdoor.FirewallPolicyManagedRuleOverrideArrgs(
                             rule_group_name="SQLI",
-                            exclusions=[azure.frontdoor.FirewallPolicyManagedRuleOverrideExclusionArgs(
+                            exclusions=[azure.frontdoor.FirewallPolicyManagedRuleOverrideExclusionArrgs(
                                 match_variable="QueryStringArgNames",
                                 operator="Equals",
                                 selector="really_not_suspicious",
                             )],
-                            rules=[azure.frontdoor.FirewallPolicyManagedRuleOverrideRuleArgs(
+                            rules=[azure.frontdoor.FirewallPolicyManagedRuleOverrideRuleArrgs(
                                 rule_id="942200",
                                 action="Block",
-                                exclusions=[azure.frontdoor.FirewallPolicyManagedRuleOverrideRuleExclusionArgs(
+                                exclusions=[azure.frontdoor.FirewallPolicyManagedRuleOverrideRuleExclusionArrgs(
                                     match_variable="QueryStringArgNames",
                                     operator="Equals",
                                     selector="innocent",
@@ -496,7 +496,7 @@ class FirewallPolicy(pulumi.CustomResource):
                         ),
                     ],
                 ),
-                azure.frontdoor.FirewallPolicyManagedRuleArgs(
+                azure.frontdoor.FirewallPolicyManagedRuleArrgs(
                     type="Microsoft_BotManagerRuleSet",
                     version="1.0",
                 ),
@@ -515,9 +515,9 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_block_response_body: If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         :param pulumi.Input[int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyCustomRuleArgs']]]] custom_rules: One or more `custom_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyCustomRuleArrgs']]]] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the policy a enabled state or disabled state. Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyManagedRuleArgs']]]] managed_rules: One or more `managed_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyManagedRuleArrgs']]]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] mode: The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.
@@ -528,7 +528,7 @@ class FirewallPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FirewallPolicyArgs,
+                 args: FirewallPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
@@ -546,7 +546,7 @@ class FirewallPolicy(pulumi.CustomResource):
             custom_block_response_status_code=403,
             custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
             custom_rules=[
-                azure.frontdoor.FirewallPolicyCustomRuleArgs(
+                azure.frontdoor.FirewallPolicyCustomRuleArrgs(
                     name="Rule1",
                     enabled=True,
                     priority=1,
@@ -554,7 +554,7 @@ class FirewallPolicy(pulumi.CustomResource):
                     rate_limit_threshold=10,
                     type="MatchRule",
                     action="Block",
-                    match_conditions=[azure.frontdoor.FirewallPolicyCustomRuleMatchConditionArgs(
+                    match_conditions=[azure.frontdoor.FirewallPolicyCustomRuleMatchConditionArrgs(
                         match_variable="RemoteAddr",
                         operator="IPMatch",
                         negation_condition=False,
@@ -564,7 +564,7 @@ class FirewallPolicy(pulumi.CustomResource):
                         ],
                     )],
                 ),
-                azure.frontdoor.FirewallPolicyCustomRuleArgs(
+                azure.frontdoor.FirewallPolicyCustomRuleArrgs(
                     name="Rule2",
                     enabled=True,
                     priority=2,
@@ -573,13 +573,13 @@ class FirewallPolicy(pulumi.CustomResource):
                     type="MatchRule",
                     action="Block",
                     match_conditions=[
-                        azure.frontdoor.FirewallPolicyCustomRuleMatchConditionArgs(
+                        azure.frontdoor.FirewallPolicyCustomRuleMatchConditionArrgs(
                             match_variable="RemoteAddr",
                             operator="IPMatch",
                             negation_condition=False,
                             match_values=["192.168.1.0/24"],
                         ),
-                        azure.frontdoor.FirewallPolicyCustomRuleMatchConditionArgs(
+                        azure.frontdoor.FirewallPolicyCustomRuleMatchConditionArrgs(
                             match_variable="RequestHeader",
                             selector="UserAgent",
                             operator="Contains",
@@ -594,34 +594,34 @@ class FirewallPolicy(pulumi.CustomResource):
                 ),
             ],
             managed_rules=[
-                azure.frontdoor.FirewallPolicyManagedRuleArgs(
+                azure.frontdoor.FirewallPolicyManagedRuleArrgs(
                     type="DefaultRuleSet",
                     version="1.0",
-                    exclusions=[azure.frontdoor.FirewallPolicyManagedRuleExclusionArgs(
+                    exclusions=[azure.frontdoor.FirewallPolicyManagedRuleExclusionArrgs(
                         match_variable="QueryStringArgNames",
                         operator="Equals",
                         selector="not_suspicious",
                     )],
                     overrides=[
-                        azure.frontdoor.FirewallPolicyManagedRuleOverrideArgs(
+                        azure.frontdoor.FirewallPolicyManagedRuleOverrideArrgs(
                             rule_group_name="PHP",
-                            rules=[azure.frontdoor.FirewallPolicyManagedRuleOverrideRuleArgs(
+                            rules=[azure.frontdoor.FirewallPolicyManagedRuleOverrideRuleArrgs(
                                 rule_id="933100",
                                 enabled=False,
                                 action="Block",
                             )],
                         ),
-                        azure.frontdoor.FirewallPolicyManagedRuleOverrideArgs(
+                        azure.frontdoor.FirewallPolicyManagedRuleOverrideArrgs(
                             rule_group_name="SQLI",
-                            exclusions=[azure.frontdoor.FirewallPolicyManagedRuleOverrideExclusionArgs(
+                            exclusions=[azure.frontdoor.FirewallPolicyManagedRuleOverrideExclusionArrgs(
                                 match_variable="QueryStringArgNames",
                                 operator="Equals",
                                 selector="really_not_suspicious",
                             )],
-                            rules=[azure.frontdoor.FirewallPolicyManagedRuleOverrideRuleArgs(
+                            rules=[azure.frontdoor.FirewallPolicyManagedRuleOverrideRuleArrgs(
                                 rule_id="942200",
                                 action="Block",
-                                exclusions=[azure.frontdoor.FirewallPolicyManagedRuleOverrideRuleExclusionArgs(
+                                exclusions=[azure.frontdoor.FirewallPolicyManagedRuleOverrideRuleExclusionArrgs(
                                     match_variable="QueryStringArgNames",
                                     operator="Equals",
                                     selector="innocent",
@@ -630,7 +630,7 @@ class FirewallPolicy(pulumi.CustomResource):
                         ),
                     ],
                 ),
-                azure.frontdoor.FirewallPolicyManagedRuleArgs(
+                azure.frontdoor.FirewallPolicyManagedRuleArrgs(
                     type="Microsoft_BotManagerRuleSet",
                     version="1.0",
                 ),
@@ -646,12 +646,12 @@ class FirewallPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FirewallPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param FirewallPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FirewallPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FirewallPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -662,9 +662,9 @@ class FirewallPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_block_response_body: Optional[pulumi.Input[str]] = None,
                  custom_block_response_status_code: Optional[pulumi.Input[int]] = None,
-                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyCustomRuleArgs']]]]] = None,
+                 custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyCustomRuleArrgs']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyManagedRuleArgs']]]]] = None,
+                 managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyManagedRuleArrgs']]]]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  redirect_url: Optional[pulumi.Input[str]] = None,
@@ -677,7 +677,7 @@ class FirewallPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FirewallPolicyArgs.__new__(FirewallPolicyArgs)
+            __props__ = FirewallPolicyArrgs.__new__(FirewallPolicyArrgs)
 
             __props__.__dict__["custom_block_response_body"] = custom_block_response_body
             __props__.__dict__["custom_block_response_status_code"] = custom_block_response_status_code
@@ -705,11 +705,11 @@ class FirewallPolicy(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             custom_block_response_body: Optional[pulumi.Input[str]] = None,
             custom_block_response_status_code: Optional[pulumi.Input[int]] = None,
-            custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyCustomRuleArgs']]]]] = None,
+            custom_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyCustomRuleArrgs']]]]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             frontend_endpoint_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             location: Optional[pulumi.Input[str]] = None,
-            managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyManagedRuleArgs']]]]] = None,
+            managed_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyManagedRuleArrgs']]]]] = None,
             mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             redirect_url: Optional[pulumi.Input[str]] = None,
@@ -724,11 +724,11 @@ class FirewallPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_block_response_body: If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
         :param pulumi.Input[int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyCustomRuleArgs']]]] custom_rules: One or more `custom_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyCustomRuleArrgs']]]] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the policy a enabled state or disabled state. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] frontend_endpoint_ids: The Frontend Endpoints associated with this Front Door Web Application Firewall policy.
         :param pulumi.Input[str] location: The Azure Region where this Front Door Firewall Policy exists.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyManagedRuleArgs']]]] managed_rules: One or more `managed_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FirewallPolicyManagedRuleArrgs']]]] managed_rules: One or more `managed_rule` blocks as defined below.
         :param pulumi.Input[str] mode: The firewall policy mode. Possible values are `Detection`, `Prevention` and defaults to `Prevention`.
         :param pulumi.Input[str] name: The name of the policy. Changing this forces a new resource to be created.
         :param pulumi.Input[str] redirect_url: If action type is redirect, this field represents redirect URL for the client.

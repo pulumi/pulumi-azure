@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ExpressRouteAuthorizationArgs', 'ExpressRouteAuthorization']
+__all__ = ['ExpressRouteAuthorizationArrgs', 'ExpressRouteAuthorization']
 
 @pulumi.input_type
-class ExpressRouteAuthorizationArgs:
+calass ExpressRouteAuthorizationArrgs:
     def __init__(__self__, *,
                  private_cloud_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
@@ -51,7 +51,7 @@ class ExpressRouteAuthorizationArgs:
 
 
 @pulumi.input_type
-class _ExpressRouteAuthorizationState:
+calass _ExpressRouteAuthorizationState:
     def __init__(__self__, *,
                  express_route_authorization_id: Optional[pulumi.Input[str]] = None,
                  express_route_authorization_key: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class _ExpressRouteAuthorizationState:
         pulumi.set(self, "private_cloud_id", value)
 
 
-class ExpressRouteAuthorization(pulumi.CustomResource):
+calass ExpressRouteAuthorization(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -144,7 +144,7 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             sku_name="av36",
-            management_cluster=azure.avs.PrivateCloudManagementClusterArgs(
+            management_cluster=azure.avs.PrivateCloudManagementClusterArrgs(
                 size=3,
             ),
             network_subnet_cidr="192.168.48.0/22",
@@ -171,7 +171,7 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ExpressRouteAuthorizationArgs,
+                 args: ExpressRouteAuthorizationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Express Route VMware Authorization.
@@ -187,7 +187,7 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             sku_name="av36",
-            management_cluster=azure.avs.PrivateCloudManagementClusterArgs(
+            management_cluster=azure.avs.PrivateCloudManagementClusterArrgs(
                 size=3,
             ),
             network_subnet_cidr="192.168.48.0/22",
@@ -206,12 +206,12 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ExpressRouteAuthorizationArgs args: The arguments to use to populate this resource's properties.
+        :param ExpressRouteAuthorizationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteAuthorizationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteAuthorizationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -229,7 +229,7 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ExpressRouteAuthorizationArgs.__new__(ExpressRouteAuthorizationArgs)
+            __props__ = ExpressRouteAuthorizationArrgs.__new__(ExpressRouteAuthorizationArrgs)
 
             __props__.__dict__["name"] = name
             if private_cloud_id is None and not opts.urn:

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['UserArgs', 'User']
+__all__ = ['UserArrgs', 'User']
 
 @pulumi.input_type
-class UserArgs:
+calass UserArrgs:
     def __init__(__self__, *,
                  email: pulumi.Input[str],
                  lab_id: pulumi.Input[str],
@@ -82,7 +82,7 @@ class UserArgs:
 
 
 @pulumi.input_type
-class _UserState:
+calass _UserState:
     def __init__(__self__, *,
                  additional_usage_quota: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
@@ -153,7 +153,7 @@ class _UserState:
         pulumi.set(self, "name", value)
 
 
-class User(pulumi.CustomResource):
+calass User(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -177,21 +177,21 @@ class User(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             title="Test Title",
-            security=azure.lab.LabSecurityArgs(
+            security=azure.lab.LabSecurityArrgs(
                 open_access_enabled=False,
             ),
-            virtual_machine=azure.lab.LabVirtualMachineArgs(
-                admin_user=azure.lab.LabVirtualMachineAdminUserArgs(
+            virtual_machine=azure.lab.LabVirtualMachineArrgs(
+                admin_user=azure.lab.LabVirtualMachineAdminUserArrgs(
                     username="testadmin",
                     password="Password1234!",
                 ),
-                image_reference=azure.lab.LabVirtualMachineImageReferenceArgs(
+                image_reference=azure.lab.LabVirtualMachineImageReferenceArrgs(
                     publisher="Canonical",
                     offer="0001-com-ubuntu-server-jammy",
                     sku="22_04-lts",
                     version="latest",
                 ),
-                sku=azure.lab.LabVirtualMachineSkuArgs(
+                sku=azure.lab.LabVirtualMachineSkuArrgs(
                     name="Classic_Fsv2_2_4GB_128_S_SSD",
                     capacity=1,
                 ),
@@ -220,7 +220,7 @@ class User(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: UserArgs,
+                 args: UserArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Lab Service User.
@@ -236,21 +236,21 @@ class User(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             title="Test Title",
-            security=azure.lab.LabSecurityArgs(
+            security=azure.lab.LabSecurityArrgs(
                 open_access_enabled=False,
             ),
-            virtual_machine=azure.lab.LabVirtualMachineArgs(
-                admin_user=azure.lab.LabVirtualMachineAdminUserArgs(
+            virtual_machine=azure.lab.LabVirtualMachineArrgs(
+                admin_user=azure.lab.LabVirtualMachineAdminUserArrgs(
                     username="testadmin",
                     password="Password1234!",
                 ),
-                image_reference=azure.lab.LabVirtualMachineImageReferenceArgs(
+                image_reference=azure.lab.LabVirtualMachineImageReferenceArrgs(
                     publisher="Canonical",
                     offer="0001-com-ubuntu-server-jammy",
                     sku="22_04-lts",
                     version="latest",
                 ),
-                sku=azure.lab.LabVirtualMachineSkuArgs(
+                sku=azure.lab.LabVirtualMachineSkuArrgs(
                     name="Classic_Fsv2_2_4GB_128_S_SSD",
                     capacity=1,
                 ),
@@ -269,12 +269,12 @@ class User(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param UserArgs args: The arguments to use to populate this resource's properties.
+        :param UserArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(UserArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(UserArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -294,7 +294,7 @@ class User(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = UserArgs.__new__(UserArgs)
+            __props__ = UserArrgs.__new__(UserArrgs)
 
             __props__.__dict__["additional_usage_quota"] = additional_usage_quota
             if email is None and not opts.urn:

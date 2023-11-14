@@ -19,7 +19,7 @@ __all__ = [
 warnings.warn("""azure.managementgroups.getManagementGroup has been deprecated in favor of azure.management.getGroup""", DeprecationWarning)
 
 @pulumi.output_type
-class GetManagementGroupResult:
+calass GetManagementGroupResult:
     """
     A collection of values returned by getManagementGroup.
     """
@@ -108,7 +108,7 @@ class GetManagementGroupResult:
         return pulumi.get(self, "subscription_ids")
 
 
-class AwaitableGetManagementGroupResult(GetManagementGroupResult):
+calass AwaitableGetManagementGroupResult(GetManagementGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

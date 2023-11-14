@@ -48,7 +48,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AccountEncryption(dict):
+calass AccountEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -110,7 +110,7 @@ class AccountEncryption(dict):
 
 
 @pulumi.output_type
-class AccountIdentity(dict):
+calass AccountIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -189,7 +189,7 @@ class AccountIdentity(dict):
 
 
 @pulumi.output_type
-class AccountPrivateEndpointConnection(dict):
+calass AccountPrivateEndpointConnection(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  name: Optional[str] = None):
@@ -220,7 +220,7 @@ class AccountPrivateEndpointConnection(dict):
 
 
 @pulumi.output_type
-class ConnectionTypeField(dict):
+calass ConnectionTypeField(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -292,13 +292,13 @@ class ConnectionTypeField(dict):
 
 
 @pulumi.output_type
-class ModuleModuleLink(dict):
+calass ModuleModuleLink(dict):
     def __init__(__self__, *,
                  uri: str,
                  hash: Optional['outputs.ModuleModuleLinkHash'] = None):
         """
         :param str uri: The URI of the module content (zip or nupkg).
-        :param 'ModuleModuleLinkHashArgs' hash: A `hash` block as defined below.
+        :param 'ModuleModuleLinkHashArrgs' hash: A `hash` block as defined below.
         """
         pulumi.set(__self__, "uri", uri)
         if hash is not None:
@@ -322,7 +322,7 @@ class ModuleModuleLink(dict):
 
 
 @pulumi.output_type
-class ModuleModuleLinkHash(dict):
+calass ModuleModuleLinkHash(dict):
     def __init__(__self__, *,
                  algorithm: str,
                  value: str):
@@ -351,7 +351,7 @@ class ModuleModuleLinkHash(dict):
 
 
 @pulumi.output_type
-class RunBookDraft(dict):
+calass RunBookDraft(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -385,10 +385,10 @@ class RunBookDraft(dict):
                  output_types: Optional[Sequence[str]] = None,
                  parameters: Optional[Sequence['outputs.RunBookDraftParameter']] = None):
         """
-        :param 'RunBookDraftContentLinkArgs' content_link: A `publish_content_link` block as defined above.
+        :param 'RunBookDraftContentLinkArrgs' content_link: A `publish_content_link` block as defined above.
         :param bool edit_mode_enabled: Whether the draft in edit mode.
         :param Sequence[str] output_types: Specifies the output types of the runbook.
-        :param Sequence['RunBookDraftParameterArgs'] parameters: A list of `parameters` block as defined below.
+        :param Sequence['RunBookDraftParameterArrgs'] parameters: A list of `parameters` block as defined below.
         """
         if content_link is not None:
             pulumi.set(__self__, "content_link", content_link)
@@ -447,14 +447,14 @@ class RunBookDraft(dict):
 
 
 @pulumi.output_type
-class RunBookDraftContentLink(dict):
+calass RunBookDraftContentLink(dict):
     def __init__(__self__, *,
                  uri: str,
                  hash: Optional['outputs.RunBookDraftContentLinkHash'] = None,
                  version: Optional[str] = None):
         """
         :param str uri: The URI of the runbook content.
-        :param 'RunBookDraftContentLinkHashArgs' hash: A `hash` block as defined below.
+        :param 'RunBookDraftContentLinkHashArrgs' hash: A `hash` block as defined below.
         :param str version: Specifies the version of the content
         """
         pulumi.set(__self__, "uri", uri)
@@ -489,7 +489,7 @@ class RunBookDraftContentLink(dict):
 
 
 @pulumi.output_type
-class RunBookDraftContentLinkHash(dict):
+calass RunBookDraftContentLinkHash(dict):
     def __init__(__self__, *,
                  algorithm: str,
                  value: str):
@@ -518,7 +518,7 @@ class RunBookDraftContentLinkHash(dict):
 
 
 @pulumi.output_type
-class RunBookDraftParameter(dict):
+calass RunBookDraftParameter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -600,7 +600,7 @@ class RunBookDraftParameter(dict):
 
 
 @pulumi.output_type
-class RunBookJobSchedule(dict):
+calass RunBookJobSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -663,14 +663,14 @@ class RunBookJobSchedule(dict):
 
 
 @pulumi.output_type
-class RunBookPublishContentLink(dict):
+calass RunBookPublishContentLink(dict):
     def __init__(__self__, *,
                  uri: str,
                  hash: Optional['outputs.RunBookPublishContentLinkHash'] = None,
                  version: Optional[str] = None):
         """
         :param str uri: The URI of the runbook content.
-        :param 'RunBookPublishContentLinkHashArgs' hash: A `hash` block as defined below.
+        :param 'RunBookPublishContentLinkHashArrgs' hash: A `hash` block as defined below.
         :param str version: Specifies the version of the content
         """
         pulumi.set(__self__, "uri", uri)
@@ -705,7 +705,7 @@ class RunBookPublishContentLink(dict):
 
 
 @pulumi.output_type
-class RunBookPublishContentLinkHash(dict):
+calass RunBookPublishContentLinkHash(dict):
     def __init__(__self__, *,
                  algorithm: str,
                  value: str):
@@ -734,7 +734,7 @@ class RunBookPublishContentLinkHash(dict):
 
 
 @pulumi.output_type
-class ScheduleMonthlyOccurrence(dict):
+calass ScheduleMonthlyOccurrence(dict):
     def __init__(__self__, *,
                  day: str,
                  occurrence: int):
@@ -763,7 +763,7 @@ class ScheduleMonthlyOccurrence(dict):
 
 
 @pulumi.output_type
-class SoftwareUpdateConfigurationLinux(dict):
+calass SoftwareUpdateConfigurationLinux(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -849,7 +849,7 @@ class SoftwareUpdateConfigurationLinux(dict):
 
 
 @pulumi.output_type
-class SoftwareUpdateConfigurationPostTask(dict):
+calass SoftwareUpdateConfigurationPostTask(dict):
     def __init__(__self__, *,
                  parameters: Optional[Mapping[str, str]] = None,
                  source: Optional[str] = None):
@@ -880,7 +880,7 @@ class SoftwareUpdateConfigurationPostTask(dict):
 
 
 @pulumi.output_type
-class SoftwareUpdateConfigurationPreTask(dict):
+calass SoftwareUpdateConfigurationPreTask(dict):
     def __init__(__self__, *,
                  parameters: Optional[Mapping[str, str]] = None,
                  source: Optional[str] = None):
@@ -911,7 +911,7 @@ class SoftwareUpdateConfigurationPreTask(dict):
 
 
 @pulumi.output_type
-class SoftwareUpdateConfigurationSchedule(dict):
+calass SoftwareUpdateConfigurationSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -978,7 +978,7 @@ class SoftwareUpdateConfigurationSchedule(dict):
         :param str expiry_time: The end time of the schedule.
         :param int interval: The number of `frequency`s between runs. Only valid when frequency is `Day`, `Hour`, `Week`, or `Month`.
         :param bool is_enabled: Whether the schedule is enabled.
-        :param Sequence['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs'] monthly_occurrences: List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
+        :param Sequence['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArrgs'] monthly_occurrences: List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
         :param str start_time: Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created.
         :param str time_zone: The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows>
         """
@@ -1126,7 +1126,7 @@ class SoftwareUpdateConfigurationSchedule(dict):
 
 
 @pulumi.output_type
-class SoftwareUpdateConfigurationScheduleMonthlyOccurrence(dict):
+calass SoftwareUpdateConfigurationScheduleMonthlyOccurrence(dict):
     def __init__(__self__, *,
                  day: str,
                  occurrence: int):
@@ -1155,7 +1155,7 @@ class SoftwareUpdateConfigurationScheduleMonthlyOccurrence(dict):
 
 
 @pulumi.output_type
-class SoftwareUpdateConfigurationTarget(dict):
+calass SoftwareUpdateConfigurationTarget(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1179,8 +1179,8 @@ class SoftwareUpdateConfigurationTarget(dict):
                  azure_queries: Optional[Sequence['outputs.SoftwareUpdateConfigurationTargetAzureQuery']] = None,
                  non_azure_queries: Optional[Sequence['outputs.SoftwareUpdateConfigurationTargetNonAzureQuery']] = None):
         """
-        :param Sequence['SoftwareUpdateConfigurationTargetAzureQueryArgs'] azure_queries: One or more `azure_query` blocks as defined above.
-        :param Sequence['SoftwareUpdateConfigurationTargetNonAzureQueryArgs'] non_azure_queries: One or more `non_azure_query` blocks as defined above.
+        :param Sequence['SoftwareUpdateConfigurationTargetAzureQueryArrgs'] azure_queries: One or more `azure_query` blocks as defined above.
+        :param Sequence['SoftwareUpdateConfigurationTargetNonAzureQueryArrgs'] non_azure_queries: One or more `non_azure_query` blocks as defined above.
         """
         if azure_queries is not None:
             pulumi.set(__self__, "azure_queries", azure_queries)
@@ -1205,7 +1205,7 @@ class SoftwareUpdateConfigurationTarget(dict):
 
 
 @pulumi.output_type
-class SoftwareUpdateConfigurationTargetAzureQuery(dict):
+calass SoftwareUpdateConfigurationTargetAzureQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1232,7 +1232,7 @@ class SoftwareUpdateConfigurationTargetAzureQuery(dict):
         :param Sequence[str] locations: Specifies a list of locations to scope the query to.
         :param Sequence[str] scopes: Specifies a list of Subscription or Resource Group ARM Ids to query.
         :param str tag_filter: Specifies how the specified tags to filter VMs. Possible values are `Any` and `All`.
-        :param Sequence['SoftwareUpdateConfigurationTargetAzureQueryTagArgs'] tags: A mapping of tags used for query filter as defined below.
+        :param Sequence['SoftwareUpdateConfigurationTargetAzureQueryTagArrgs'] tags: A mapping of tags used for query filter as defined below.
         """
         if locations is not None:
             pulumi.set(__self__, "locations", locations)
@@ -1277,7 +1277,7 @@ class SoftwareUpdateConfigurationTargetAzureQuery(dict):
 
 
 @pulumi.output_type
-class SoftwareUpdateConfigurationTargetAzureQueryTag(dict):
+calass SoftwareUpdateConfigurationTargetAzureQueryTag(dict):
     def __init__(__self__, *,
                  tag: str,
                  values: Sequence[str]):
@@ -1306,7 +1306,7 @@ class SoftwareUpdateConfigurationTargetAzureQueryTag(dict):
 
 
 @pulumi.output_type
-class SoftwareUpdateConfigurationTargetNonAzureQuery(dict):
+calass SoftwareUpdateConfigurationTargetNonAzureQuery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1356,7 +1356,7 @@ class SoftwareUpdateConfigurationTargetNonAzureQuery(dict):
 
 
 @pulumi.output_type
-class SoftwareUpdateConfigurationWindows(dict):
+calass SoftwareUpdateConfigurationWindows(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1445,7 +1445,7 @@ class SoftwareUpdateConfigurationWindows(dict):
 
 
 @pulumi.output_type
-class SourceControlSecurity(dict):
+calass SourceControlSecurity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1505,7 +1505,7 @@ class SourceControlSecurity(dict):
 
 
 @pulumi.output_type
-class GetAccountIdentityResult(dict):
+calass GetAccountIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -1556,7 +1556,7 @@ class GetAccountIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetAccountPrivateEndpointConnectionResult(dict):
+calass GetAccountPrivateEndpointConnectionResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str):
@@ -1585,7 +1585,7 @@ class GetAccountPrivateEndpointConnectionResult(dict):
 
 
 @pulumi.output_type
-class GetVariablesBoolResult(dict):
+calass GetVariablesBoolResult(dict):
     def __init__(__self__, *,
                  description: str,
                  encrypted: bool,
@@ -1643,7 +1643,7 @@ class GetVariablesBoolResult(dict):
 
 
 @pulumi.output_type
-class GetVariablesDatetimeResult(dict):
+calass GetVariablesDatetimeResult(dict):
     def __init__(__self__, *,
                  description: str,
                  encrypted: bool,
@@ -1701,7 +1701,7 @@ class GetVariablesDatetimeResult(dict):
 
 
 @pulumi.output_type
-class GetVariablesEncryptedResult(dict):
+calass GetVariablesEncryptedResult(dict):
     def __init__(__self__, *,
                  description: str,
                  encrypted: bool,
@@ -1759,7 +1759,7 @@ class GetVariablesEncryptedResult(dict):
 
 
 @pulumi.output_type
-class GetVariablesIntResult(dict):
+calass GetVariablesIntResult(dict):
     def __init__(__self__, *,
                  description: str,
                  encrypted: bool,
@@ -1817,7 +1817,7 @@ class GetVariablesIntResult(dict):
 
 
 @pulumi.output_type
-class GetVariablesNullResult(dict):
+calass GetVariablesNullResult(dict):
     def __init__(__self__, *,
                  description: str,
                  encrypted: bool,
@@ -1875,7 +1875,7 @@ class GetVariablesNullResult(dict):
 
 
 @pulumi.output_type
-class GetVariablesObjectResult(dict):
+calass GetVariablesObjectResult(dict):
     def __init__(__self__, *,
                  description: str,
                  encrypted: bool,
@@ -1933,7 +1933,7 @@ class GetVariablesObjectResult(dict):
 
 
 @pulumi.output_type
-class GetVariablesStringResult(dict):
+calass GetVariablesStringResult(dict):
     def __init__(__self__, *,
                  description: str,
                  encrypted: bool,

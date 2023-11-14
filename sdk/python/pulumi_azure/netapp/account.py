@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AccountArgs', 'Account']
+__all__ = ['AccountArrgs', 'Account']
 
 @pulumi.input_type
-class AccountArgs:
+calass AccountArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 active_directory: Optional[pulumi.Input['AccountActiveDirectoryArgs']] = None,
+                 active_directory: Optional[pulumi.Input['AccountActiveDirectoryArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input['AccountActiveDirectoryArgs'] active_directory: A `active_directory` block as defined below.
+        :param pulumi.Input['AccountActiveDirectoryArrgs'] active_directory: A `active_directory` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Account. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
@@ -53,14 +53,14 @@ class AccountArgs:
 
     @property
     @pulumi.getter(name="activeDirectory")
-    def active_directory(self) -> Optional[pulumi.Input['AccountActiveDirectoryArgs']]:
+    def active_directory(self) -> Optional[pulumi.Input['AccountActiveDirectoryArrgs']]:
         """
         A `active_directory` block as defined below.
         """
         return pulumi.get(self, "active_directory")
 
     @active_directory.setter
-    def active_directory(self, value: Optional[pulumi.Input['AccountActiveDirectoryArgs']]):
+    def active_directory(self, value: Optional[pulumi.Input['AccountActiveDirectoryArrgs']]):
         pulumi.set(self, "active_directory", value)
 
     @property
@@ -101,16 +101,16 @@ class AccountArgs:
 
 
 @pulumi.input_type
-class _AccountState:
+calass _AccountState:
     def __init__(__self__, *,
-                 active_directory: Optional[pulumi.Input['AccountActiveDirectoryArgs']] = None,
+                 active_directory: Optional[pulumi.Input['AccountActiveDirectoryArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Account resources.
-        :param pulumi.Input['AccountActiveDirectoryArgs'] active_directory: A `active_directory` block as defined below.
+        :param pulumi.Input['AccountActiveDirectoryArrgs'] active_directory: A `active_directory` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
@@ -129,14 +129,14 @@ class _AccountState:
 
     @property
     @pulumi.getter(name="activeDirectory")
-    def active_directory(self) -> Optional[pulumi.Input['AccountActiveDirectoryArgs']]:
+    def active_directory(self) -> Optional[pulumi.Input['AccountActiveDirectoryArrgs']]:
         """
         A `active_directory` block as defined below.
         """
         return pulumi.get(self, "active_directory")
 
     @active_directory.setter
-    def active_directory(self, value: Optional[pulumi.Input['AccountActiveDirectoryArgs']]):
+    def active_directory(self, value: Optional[pulumi.Input['AccountActiveDirectoryArrgs']]):
         pulumi.set(self, "active_directory", value)
 
     @property
@@ -188,12 +188,12 @@ class _AccountState:
         pulumi.set(self, "tags", value)
 
 
-class Account(pulumi.CustomResource):
+calass Account(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_directory: Optional[pulumi.Input[pulumi.InputType['AccountActiveDirectoryArgs']]] = None,
+                 active_directory: Optional[pulumi.Input[pulumi.InputType['AccountActiveDirectoryArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -214,7 +214,7 @@ class Account(pulumi.CustomResource):
         example_account = azure.netapp.Account("exampleAccount",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            active_directory=azure.netapp.AccountActiveDirectoryArgs(
+            active_directory=azure.netapp.AccountActiveDirectoryArrgs(
                 username="aduser",
                 password="aduserpwd",
                 smb_server_name="SMBSERVER",
@@ -234,7 +234,7 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AccountActiveDirectoryArgs']] active_directory: A `active_directory` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AccountActiveDirectoryArrgs']] active_directory: A `active_directory` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.
@@ -244,7 +244,7 @@ class Account(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AccountArgs,
+                 args: AccountArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a NetApp Account.
@@ -261,7 +261,7 @@ class Account(pulumi.CustomResource):
         example_account = azure.netapp.Account("exampleAccount",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            active_directory=azure.netapp.AccountActiveDirectoryArgs(
+            active_directory=azure.netapp.AccountActiveDirectoryArrgs(
                 username="aduser",
                 password="aduserpwd",
                 smb_server_name="SMBSERVER",
@@ -280,12 +280,12 @@ class Account(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AccountArgs args: The arguments to use to populate this resource's properties.
+        :param AccountArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AccountArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AccountArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -294,7 +294,7 @@ class Account(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 active_directory: Optional[pulumi.Input[pulumi.InputType['AccountActiveDirectoryArgs']]] = None,
+                 active_directory: Optional[pulumi.Input[pulumi.InputType['AccountActiveDirectoryArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -306,7 +306,7 @@ class Account(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AccountArgs.__new__(AccountArgs)
+            __props__ = AccountArrgs.__new__(AccountArrgs)
 
             __props__.__dict__["active_directory"] = active_directory
             __props__.__dict__["location"] = location
@@ -325,7 +325,7 @@ class Account(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            active_directory: Optional[pulumi.Input[pulumi.InputType['AccountActiveDirectoryArgs']]] = None,
+            active_directory: Optional[pulumi.Input[pulumi.InputType['AccountActiveDirectoryArrgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -337,7 +337,7 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AccountActiveDirectoryArgs']] active_directory: A `active_directory` block as defined below.
+        :param pulumi.Input[pulumi.InputType['AccountActiveDirectoryArrgs']] active_directory: A `active_directory` block as defined below.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name of the NetApp Account. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the NetApp Account should be created. Changing this forces a new resource to be created.

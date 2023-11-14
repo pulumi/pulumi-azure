@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetNetworkPacketCoreDataPlaneResult:
+calass GetNetworkPacketCoreDataPlaneResult:
     """
     A collection of values returned by getNetworkPacketCoreDataPlane.
     """
@@ -117,7 +117,7 @@ class GetNetworkPacketCoreDataPlaneResult:
         return pulumi.get(self, "user_plane_access_name")
 
 
-class AwaitableGetNetworkPacketCoreDataPlaneResult(GetNetworkPacketCoreDataPlaneResult):
+calass AwaitableGetNetworkPacketCoreDataPlaneResult(GetNetworkPacketCoreDataPlaneResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

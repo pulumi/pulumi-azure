@@ -32,7 +32,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ConfigurationFeatureTargetingFilter(dict):
+calass ConfigurationFeatureTargetingFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -56,7 +56,7 @@ class ConfigurationFeatureTargetingFilter(dict):
                  users: Optional[Sequence[str]] = None):
         """
         :param int default_rollout_percentage: A number representing the percentage of the entire user base.
-        :param Sequence['ConfigurationFeatureTargetingFilterGroupArgs'] groups: One or more blocks of type `groups` as defined below.
+        :param Sequence['ConfigurationFeatureTargetingFilterGroupArrgs'] groups: One or more blocks of type `groups` as defined below.
         :param Sequence[str] users: A list of users to target for this feature.
         """
         pulumi.set(__self__, "default_rollout_percentage", default_rollout_percentage)
@@ -91,7 +91,7 @@ class ConfigurationFeatureTargetingFilter(dict):
 
 
 @pulumi.output_type
-class ConfigurationFeatureTargetingFilterGroup(dict):
+calass ConfigurationFeatureTargetingFilterGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -137,7 +137,7 @@ class ConfigurationFeatureTargetingFilterGroup(dict):
 
 
 @pulumi.output_type
-class ConfigurationFeatureTimewindowFilter(dict):
+calass ConfigurationFeatureTimewindowFilter(dict):
     def __init__(__self__, *,
                  end: Optional[str] = None,
                  start: Optional[str] = None):
@@ -168,7 +168,7 @@ class ConfigurationFeatureTimewindowFilter(dict):
 
 
 @pulumi.output_type
-class ConfigurationStoreEncryption(dict):
+calass ConfigurationStoreEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -218,7 +218,7 @@ class ConfigurationStoreEncryption(dict):
 
 
 @pulumi.output_type
-class ConfigurationStoreIdentity(dict):
+calass ConfigurationStoreIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -297,7 +297,7 @@ class ConfigurationStoreIdentity(dict):
 
 
 @pulumi.output_type
-class ConfigurationStorePrimaryReadKey(dict):
+calass ConfigurationStorePrimaryReadKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -357,7 +357,7 @@ class ConfigurationStorePrimaryReadKey(dict):
 
 
 @pulumi.output_type
-class ConfigurationStorePrimaryWriteKey(dict):
+calass ConfigurationStorePrimaryWriteKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -417,7 +417,7 @@ class ConfigurationStorePrimaryWriteKey(dict):
 
 
 @pulumi.output_type
-class ConfigurationStoreReplica(dict):
+calass ConfigurationStoreReplica(dict):
     def __init__(__self__, *,
                  location: str,
                  name: str,
@@ -470,7 +470,7 @@ class ConfigurationStoreReplica(dict):
 
 
 @pulumi.output_type
-class ConfigurationStoreSecondaryReadKey(dict):
+calass ConfigurationStoreSecondaryReadKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -530,7 +530,7 @@ class ConfigurationStoreSecondaryReadKey(dict):
 
 
 @pulumi.output_type
-class ConfigurationStoreSecondaryWriteKey(dict):
+calass ConfigurationStoreSecondaryWriteKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -590,7 +590,7 @@ class ConfigurationStoreSecondaryWriteKey(dict):
 
 
 @pulumi.output_type
-class GetConfigurationKeysItemResult(dict):
+calass GetConfigurationKeysItemResult(dict):
     def __init__(__self__, *,
                  content_type: str,
                  etag: str,
@@ -696,7 +696,7 @@ class GetConfigurationKeysItemResult(dict):
 
 
 @pulumi.output_type
-class GetConfigurationStoreEncryptionResult(dict):
+calass GetConfigurationStoreEncryptionResult(dict):
     def __init__(__self__, *,
                  identity_client_id: str,
                  key_vault_key_identifier: str):
@@ -715,7 +715,7 @@ class GetConfigurationStoreEncryptionResult(dict):
 
 
 @pulumi.output_type
-class GetConfigurationStoreIdentityResult(dict):
+calass GetConfigurationStoreIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -748,7 +748,7 @@ class GetConfigurationStoreIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetConfigurationStorePrimaryReadKeyResult(dict):
+calass GetConfigurationStorePrimaryReadKeyResult(dict):
     def __init__(__self__, *,
                  connection_string: str,
                  id: str,
@@ -788,7 +788,7 @@ class GetConfigurationStorePrimaryReadKeyResult(dict):
 
 
 @pulumi.output_type
-class GetConfigurationStorePrimaryWriteKeyResult(dict):
+calass GetConfigurationStorePrimaryWriteKeyResult(dict):
     def __init__(__self__, *,
                  connection_string: str,
                  id: str,
@@ -828,7 +828,7 @@ class GetConfigurationStorePrimaryWriteKeyResult(dict):
 
 
 @pulumi.output_type
-class GetConfigurationStoreReplicaResult(dict):
+calass GetConfigurationStoreReplicaResult(dict):
     def __init__(__self__, *,
                  endpoint: str,
                  id: str,
@@ -879,7 +879,7 @@ class GetConfigurationStoreReplicaResult(dict):
 
 
 @pulumi.output_type
-class GetConfigurationStoreSecondaryReadKeyResult(dict):
+calass GetConfigurationStoreSecondaryReadKeyResult(dict):
     def __init__(__self__, *,
                  connection_string: str,
                  id: str,
@@ -919,7 +919,7 @@ class GetConfigurationStoreSecondaryReadKeyResult(dict):
 
 
 @pulumi.output_type
-class GetConfigurationStoreSecondaryWriteKeyResult(dict):
+calass GetConfigurationStoreSecondaryWriteKeyResult(dict):
     def __init__(__self__, *,
                  connection_string: str,
                  id: str,

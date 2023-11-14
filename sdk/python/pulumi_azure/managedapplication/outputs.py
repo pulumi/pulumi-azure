@@ -15,7 +15,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ApplicationPlan(dict):
+calass ApplicationPlan(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -99,7 +99,7 @@ class ApplicationPlan(dict):
 
 
 @pulumi.output_type
-class DefinitionAuthorization(dict):
+calass DefinitionAuthorization(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

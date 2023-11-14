@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VnpGatewayNatRuleArgs', 'VnpGatewayNatRule']
+__all__ = ['VnpGatewayNatRuleArrgs', 'VnpGatewayNatRule']
 
 @pulumi.input_type
-class VnpGatewayNatRuleArgs:
+calass VnpGatewayNatRuleArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  vpn_gateway_id: pulumi.Input[str],
                  external_address_space_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]] = None,
+                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArrgs']]]] = None,
                  internal_address_space_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]]] = None,
+                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArrgs']]]] = None,
                  ip_configuration_id: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -33,11 +33,11 @@ class VnpGatewayNatRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
                
                > **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
-        :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]] external_mappings: One or more `external_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArrgs']]] external_mappings: One or more `external_mapping` blocks as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
                
                > **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
-        :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]] internal_mappings: One or more `internal_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArrgs']]] internal_mappings: One or more `internal_mapping` blocks as documented below.
         :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
         :param pulumi.Input[str] mode: The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
@@ -111,14 +111,14 @@ class VnpGatewayNatRuleArgs:
 
     @property
     @pulumi.getter(name="externalMappings")
-    def external_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]]:
+    def external_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArrgs']]]]:
         """
         One or more `external_mapping` blocks as documented below.
         """
         return pulumi.get(self, "external_mappings")
 
     @external_mappings.setter
-    def external_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]]):
+    def external_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArrgs']]]]):
         pulumi.set(self, "external_mappings", value)
 
     @property
@@ -140,14 +140,14 @@ class VnpGatewayNatRuleArgs:
 
     @property
     @pulumi.getter(name="internalMappings")
-    def internal_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]]]:
+    def internal_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArrgs']]]]:
         """
         One or more `internal_mapping` blocks as documented below.
         """
         return pulumi.get(self, "internal_mappings")
 
     @internal_mappings.setter
-    def internal_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]]]):
+    def internal_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArrgs']]]]):
         pulumi.set(self, "internal_mappings", value)
 
     @property
@@ -200,12 +200,12 @@ class VnpGatewayNatRuleArgs:
 
 
 @pulumi.input_type
-class _VnpGatewayNatRuleState:
+calass _VnpGatewayNatRuleState:
     def __init__(__self__, *,
                  external_address_space_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]] = None,
+                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArrgs']]]] = None,
                  internal_address_space_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]]] = None,
+                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArrgs']]]] = None,
                  ip_configuration_id: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -217,11 +217,11 @@ class _VnpGatewayNatRuleState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
                
                > **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
-        :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]] external_mappings: One or more `external_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArrgs']]] external_mappings: One or more `external_mapping` blocks as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
                
                > **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
-        :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]] internal_mappings: One or more `internal_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArrgs']]] internal_mappings: One or more `internal_mapping` blocks as documented below.
         :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
         :param pulumi.Input[str] mode: The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
@@ -275,14 +275,14 @@ class _VnpGatewayNatRuleState:
 
     @property
     @pulumi.getter(name="externalMappings")
-    def external_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]]:
+    def external_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArrgs']]]]:
         """
         One or more `external_mapping` blocks as documented below.
         """
         return pulumi.get(self, "external_mappings")
 
     @external_mappings.setter
-    def external_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArgs']]]]):
+    def external_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleExternalMappingArrgs']]]]):
         pulumi.set(self, "external_mappings", value)
 
     @property
@@ -304,14 +304,14 @@ class _VnpGatewayNatRuleState:
 
     @property
     @pulumi.getter(name="internalMappings")
-    def internal_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]]]:
+    def internal_mappings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArrgs']]]]:
         """
         One or more `internal_mapping` blocks as documented below.
         """
         return pulumi.get(self, "internal_mappings")
 
     @internal_mappings.setter
-    def internal_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArgs']]]]):
+    def internal_mappings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VnpGatewayNatRuleInternalMappingArrgs']]]]):
         pulumi.set(self, "internal_mappings", value)
 
     @property
@@ -387,15 +387,15 @@ class _VnpGatewayNatRuleState:
         pulumi.set(self, "vpn_gateway_id", value)
 
 
-class VnpGatewayNatRule(pulumi.CustomResource):
+calass VnpGatewayNatRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  external_address_space_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleExternalMappingArgs']]]]] = None,
+                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleExternalMappingArrgs']]]]] = None,
                  internal_address_space_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleInternalMappingArgs']]]]] = None,
+                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleInternalMappingArrgs']]]]] = None,
                  ip_configuration_id: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -428,10 +428,10 @@ class VnpGatewayNatRule(pulumi.CustomResource):
         example_vnp_gateway_nat_rule = azure.network.VnpGatewayNatRule("exampleVnpGatewayNatRule",
             resource_group_name=example_resource_group.name,
             vpn_gateway_id=example_vpn_gateway.id,
-            external_mappings=[azure.network.VnpGatewayNatRuleExternalMappingArgs(
+            external_mappings=[azure.network.VnpGatewayNatRuleExternalMappingArrgs(
                 address_space="192.168.21.0/26",
             )],
-            internal_mappings=[azure.network.VnpGatewayNatRuleInternalMappingArgs(
+            internal_mappings=[azure.network.VnpGatewayNatRuleInternalMappingArrgs(
                 address_space="10.4.0.0/26",
             )])
         ```
@@ -449,11 +449,11 @@ class VnpGatewayNatRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
                
                > **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleExternalMappingArgs']]]] external_mappings: One or more `external_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleExternalMappingArrgs']]]] external_mappings: One or more `external_mapping` blocks as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
                
                > **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleInternalMappingArgs']]]] internal_mappings: One or more `internal_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleInternalMappingArrgs']]]] internal_mappings: One or more `internal_mapping` blocks as documented below.
         :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
         :param pulumi.Input[str] mode: The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.
@@ -465,7 +465,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VnpGatewayNatRuleArgs,
+                 args: VnpGatewayNatRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a VPN Gateway NAT Rule.
@@ -492,10 +492,10 @@ class VnpGatewayNatRule(pulumi.CustomResource):
         example_vnp_gateway_nat_rule = azure.network.VnpGatewayNatRule("exampleVnpGatewayNatRule",
             resource_group_name=example_resource_group.name,
             vpn_gateway_id=example_vpn_gateway.id,
-            external_mappings=[azure.network.VnpGatewayNatRuleExternalMappingArgs(
+            external_mappings=[azure.network.VnpGatewayNatRuleExternalMappingArrgs(
                 address_space="192.168.21.0/26",
             )],
-            internal_mappings=[azure.network.VnpGatewayNatRuleInternalMappingArgs(
+            internal_mappings=[azure.network.VnpGatewayNatRuleInternalMappingArrgs(
                 address_space="10.4.0.0/26",
             )])
         ```
@@ -509,12 +509,12 @@ class VnpGatewayNatRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VnpGatewayNatRuleArgs args: The arguments to use to populate this resource's properties.
+        :param VnpGatewayNatRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VnpGatewayNatRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VnpGatewayNatRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -524,9 +524,9 @@ class VnpGatewayNatRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  external_address_space_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleExternalMappingArgs']]]]] = None,
+                 external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleExternalMappingArrgs']]]]] = None,
                  internal_address_space_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleInternalMappingArgs']]]]] = None,
+                 internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleInternalMappingArrgs']]]]] = None,
                  ip_configuration_id: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -540,7 +540,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VnpGatewayNatRuleArgs.__new__(VnpGatewayNatRuleArgs)
+            __props__ = VnpGatewayNatRuleArrgs.__new__(VnpGatewayNatRuleArrgs)
 
             __props__.__dict__["external_address_space_mappings"] = external_address_space_mappings
             __props__.__dict__["external_mappings"] = external_mappings
@@ -567,9 +567,9 @@ class VnpGatewayNatRule(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             external_address_space_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleExternalMappingArgs']]]]] = None,
+            external_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleExternalMappingArrgs']]]]] = None,
             internal_address_space_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleInternalMappingArgs']]]]] = None,
+            internal_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleInternalMappingArrgs']]]]] = None,
             ip_configuration_id: Optional[pulumi.Input[str]] = None,
             mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -586,11 +586,11 @@ class VnpGatewayNatRule(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule.
                
                > **NOTE:** `external_address_space_mappings` is deprecated and will be removed in favour of the property `external_mapping` in version 4.0 of the AzureRM Provider.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleExternalMappingArgs']]]] external_mappings: One or more `external_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleExternalMappingArrgs']]]] external_mappings: One or more `external_mapping` blocks as documented below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] internal_address_space_mappings: (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule.
                
                > **NOTE:** `internal_address_space_mappings` is deprecated and will be removed in favour of the property `internal_mapping` in version 4.0 of the AzureRM Provider.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleInternalMappingArgs']]]] internal_mappings: One or more `internal_mapping` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VnpGatewayNatRuleInternalMappingArrgs']]]] internal_mappings: One or more `internal_mapping` blocks as documented below.
         :param pulumi.Input[str] ip_configuration_id: The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`.
         :param pulumi.Input[str] mode: The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: The name which should be used for this VPN Gateway NAT Rule. Changing this forces a new resource to be created.

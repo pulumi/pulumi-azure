@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ResolverVirtualNetworkLinkArgs', 'ResolverVirtualNetworkLink']
+__all__ = ['ResolverVirtualNetworkLinkArrgs', 'ResolverVirtualNetworkLink']
 
 @pulumi.input_type
-class ResolverVirtualNetworkLinkArgs:
+calass ResolverVirtualNetworkLinkArrgs:
     def __init__(__self__, *,
                  dns_forwarding_ruleset_id: pulumi.Input[str],
                  virtual_network_id: pulumi.Input[str],
@@ -82,7 +82,7 @@ class ResolverVirtualNetworkLinkArgs:
 
 
 @pulumi.input_type
-class _ResolverVirtualNetworkLinkState:
+calass _ResolverVirtualNetworkLinkState:
     def __init__(__self__, *,
                  dns_forwarding_ruleset_id: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -153,7 +153,7 @@ class _ResolverVirtualNetworkLinkState:
         pulumi.set(self, "virtual_network_id", value)
 
 
-class ResolverVirtualNetworkLink(pulumi.CustomResource):
+calass ResolverVirtualNetworkLink(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -181,9 +181,9 @@ class ResolverVirtualNetworkLink(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.64/28"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="Microsoft.Network.dnsResolvers",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
                     name="Microsoft.Network/dnsResolvers",
                 ),
@@ -233,7 +233,7 @@ class ResolverVirtualNetworkLink(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ResolverVirtualNetworkLinkArgs,
+                 args: ResolverVirtualNetworkLinkArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Private DNS Resolver Virtual Network Link.
@@ -253,9 +253,9 @@ class ResolverVirtualNetworkLink(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.64/28"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="Microsoft.Network.dnsResolvers",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
                     name="Microsoft.Network/dnsResolvers",
                 ),
@@ -295,12 +295,12 @@ class ResolverVirtualNetworkLink(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ResolverVirtualNetworkLinkArgs args: The arguments to use to populate this resource's properties.
+        :param ResolverVirtualNetworkLinkArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ResolverVirtualNetworkLinkArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ResolverVirtualNetworkLinkArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -320,7 +320,7 @@ class ResolverVirtualNetworkLink(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ResolverVirtualNetworkLinkArgs.__new__(ResolverVirtualNetworkLinkArgs)
+            __props__ = ResolverVirtualNetworkLinkArrgs.__new__(ResolverVirtualNetworkLinkArrgs)
 
             if dns_forwarding_ruleset_id is None and not opts.urn:
                 raise TypeError("Missing required property 'dns_forwarding_ruleset_id'")

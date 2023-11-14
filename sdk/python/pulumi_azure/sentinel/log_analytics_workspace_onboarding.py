@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LogAnalyticsWorkspaceOnboardingArgs', 'LogAnalyticsWorkspaceOnboarding']
+__all__ = ['LogAnalyticsWorkspaceOnboardingArrgs', 'LogAnalyticsWorkspaceOnboarding']
 
 @pulumi.input_type
-class LogAnalyticsWorkspaceOnboardingArgs:
+calass LogAnalyticsWorkspaceOnboardingArrgs:
     def __init__(__self__, *,
                  customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -100,7 +100,7 @@ class LogAnalyticsWorkspaceOnboardingArgs:
 
 
 @pulumi.input_type
-class _LogAnalyticsWorkspaceOnboardingState:
+calass _LogAnalyticsWorkspaceOnboardingState:
     def __init__(__self__, *,
                  customer_managed_key_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -187,7 +187,7 @@ class _LogAnalyticsWorkspaceOnboardingState:
         pulumi.set(self, "workspace_name", value)
 
 
-class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
+calass LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -239,7 +239,7 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[LogAnalyticsWorkspaceOnboardingArgs] = None,
+                 args: Optional[LogAnalyticsWorkspaceOnboardingArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Security Insights Sentinel Onboarding.
@@ -270,12 +270,12 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LogAnalyticsWorkspaceOnboardingArgs args: The arguments to use to populate this resource's properties.
+        :param LogAnalyticsWorkspaceOnboardingArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LogAnalyticsWorkspaceOnboardingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LogAnalyticsWorkspaceOnboardingArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -295,7 +295,7 @@ class LogAnalyticsWorkspaceOnboarding(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LogAnalyticsWorkspaceOnboardingArgs.__new__(LogAnalyticsWorkspaceOnboardingArgs)
+            __props__ = LogAnalyticsWorkspaceOnboardingArrgs.__new__(LogAnalyticsWorkspaceOnboardingArrgs)
 
             __props__.__dict__["customer_managed_key_enabled"] = customer_managed_key_enabled
             __props__.__dict__["resource_group_name"] = resource_group_name

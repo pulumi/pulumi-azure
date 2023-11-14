@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ProfileDnsConfig(dict):
+calass ProfileDnsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -63,7 +63,7 @@ class ProfileDnsConfig(dict):
 
 
 @pulumi.output_type
-class ProfileMonitorConfig(dict):
+calass ProfileMonitorConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -101,7 +101,7 @@ class ProfileMonitorConfig(dict):
         """
         :param int port: The port number used by the monitoring checks.
         :param str protocol: The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
-        :param Sequence['ProfileMonitorConfigCustomHeaderArgs'] custom_headers: One or more `custom_header` blocks as defined below.
+        :param Sequence['ProfileMonitorConfigCustomHeaderArrgs'] custom_headers: One or more `custom_header` blocks as defined below.
         :param Sequence[str] expected_status_code_ranges: A list of status code ranges in the format of `100-101`.
         :param int interval_in_seconds: The interval used to check the endpoint health from a Traffic Manager probing agent. You can specify two values here: `30` (normal probing) and `10` (fast probing). The default value is `30`.
         :param str path: The path used by the monitoring checks. Required when `protocol` is set to `HTTP` or `HTTPS` - cannot be set when `protocol` is set to `TCP`.
@@ -189,7 +189,7 @@ class ProfileMonitorConfig(dict):
 
 
 @pulumi.output_type
-class ProfileMonitorConfigCustomHeader(dict):
+calass ProfileMonitorConfigCustomHeader(dict):
     def __init__(__self__, *,
                  name: str,
                  value: str):

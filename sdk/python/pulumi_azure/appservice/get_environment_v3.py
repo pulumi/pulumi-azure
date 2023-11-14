@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetEnvironmentV3Result:
+calass GetEnvironmentV3Result:
     """
     A collection of values returned by getEnvironmentV3.
     """
@@ -228,7 +228,7 @@ class GetEnvironmentV3Result:
         return pulumi.get(self, "zone_redundant")
 
 
-class AwaitableGetEnvironmentV3Result(GetEnvironmentV3Result):
+calass AwaitableGetEnvironmentV3Result(GetEnvironmentV3Result):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

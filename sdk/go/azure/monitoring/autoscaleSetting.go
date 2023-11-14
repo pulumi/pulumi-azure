@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a AutoScale Setting which can be applied to Virtual Machine Scale Sets, App Services and other scalable resources.
@@ -524,12 +523,6 @@ func (i *AutoscaleSetting) ToAutoscaleSettingOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingOutput)
 }
 
-func (i *AutoscaleSetting) ToOutput(ctx context.Context) pulumix.Output[*AutoscaleSetting] {
-	return pulumix.Output[*AutoscaleSetting]{
-		OutputState: i.ToAutoscaleSettingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AutoscaleSettingArrayInput is an input type that accepts AutoscaleSettingArray and AutoscaleSettingArrayOutput values.
 // You can construct a concrete instance of `AutoscaleSettingArrayInput` via:
 //
@@ -553,12 +546,6 @@ func (i AutoscaleSettingArray) ToAutoscaleSettingArrayOutput() AutoscaleSettingA
 
 func (i AutoscaleSettingArray) ToAutoscaleSettingArrayOutputWithContext(ctx context.Context) AutoscaleSettingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingArrayOutput)
-}
-
-func (i AutoscaleSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]*AutoscaleSetting] {
-	return pulumix.Output[[]*AutoscaleSetting]{
-		OutputState: i.ToAutoscaleSettingArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AutoscaleSettingMapInput is an input type that accepts AutoscaleSettingMap and AutoscaleSettingMapOutput values.
@@ -586,12 +573,6 @@ func (i AutoscaleSettingMap) ToAutoscaleSettingMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(AutoscaleSettingMapOutput)
 }
 
-func (i AutoscaleSettingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AutoscaleSetting] {
-	return pulumix.Output[map[string]*AutoscaleSetting]{
-		OutputState: i.ToAutoscaleSettingMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AutoscaleSettingOutput struct{ *pulumi.OutputState }
 
 func (AutoscaleSettingOutput) ElementType() reflect.Type {
@@ -604,12 +585,6 @@ func (o AutoscaleSettingOutput) ToAutoscaleSettingOutput() AutoscaleSettingOutpu
 
 func (o AutoscaleSettingOutput) ToAutoscaleSettingOutputWithContext(ctx context.Context) AutoscaleSettingOutput {
 	return o
-}
-
-func (o AutoscaleSettingOutput) ToOutput(ctx context.Context) pulumix.Output[*AutoscaleSetting] {
-	return pulumix.Output[*AutoscaleSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies whether automatic scaling is enabled for the target resource. Defaults to `true`.
@@ -671,12 +646,6 @@ func (o AutoscaleSettingArrayOutput) ToAutoscaleSettingArrayOutputWithContext(ct
 	return o
 }
 
-func (o AutoscaleSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AutoscaleSetting] {
-	return pulumix.Output[[]*AutoscaleSetting]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AutoscaleSettingArrayOutput) Index(i pulumi.IntInput) AutoscaleSettingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AutoscaleSetting {
 		return vs[0].([]*AutoscaleSetting)[vs[1].(int)]
@@ -695,12 +664,6 @@ func (o AutoscaleSettingMapOutput) ToAutoscaleSettingMapOutput() AutoscaleSettin
 
 func (o AutoscaleSettingMapOutput) ToAutoscaleSettingMapOutputWithContext(ctx context.Context) AutoscaleSettingMapOutput {
 	return o
-}
-
-func (o AutoscaleSettingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AutoscaleSetting] {
-	return pulumix.Output[map[string]*AutoscaleSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AutoscaleSettingMapOutput) MapIndex(k pulumi.StringInput) AutoscaleSettingOutput {

@@ -10,11 +10,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ServerIpv4FirewallRuleArgs',
+    'ServerIpv4FirewallRuleArrgs',
 ]
 
 @pulumi.input_type
-class ServerIpv4FirewallRuleArgs:
+calass ServerIpv4FirewallRuleArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  range_end: pulumi.Input[str],

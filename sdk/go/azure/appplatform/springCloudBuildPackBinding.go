@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Spring Cloud Build Pack Binding.
@@ -213,12 +212,6 @@ func (i *SpringCloudBuildPackBinding) ToSpringCloudBuildPackBindingOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudBuildPackBindingOutput)
 }
 
-func (i *SpringCloudBuildPackBinding) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudBuildPackBinding] {
-	return pulumix.Output[*SpringCloudBuildPackBinding]{
-		OutputState: i.ToSpringCloudBuildPackBindingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SpringCloudBuildPackBindingArrayInput is an input type that accepts SpringCloudBuildPackBindingArray and SpringCloudBuildPackBindingArrayOutput values.
 // You can construct a concrete instance of `SpringCloudBuildPackBindingArrayInput` via:
 //
@@ -242,12 +235,6 @@ func (i SpringCloudBuildPackBindingArray) ToSpringCloudBuildPackBindingArrayOutp
 
 func (i SpringCloudBuildPackBindingArray) ToSpringCloudBuildPackBindingArrayOutputWithContext(ctx context.Context) SpringCloudBuildPackBindingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudBuildPackBindingArrayOutput)
-}
-
-func (i SpringCloudBuildPackBindingArray) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudBuildPackBinding] {
-	return pulumix.Output[[]*SpringCloudBuildPackBinding]{
-		OutputState: i.ToSpringCloudBuildPackBindingArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SpringCloudBuildPackBindingMapInput is an input type that accepts SpringCloudBuildPackBindingMap and SpringCloudBuildPackBindingMapOutput values.
@@ -275,12 +262,6 @@ func (i SpringCloudBuildPackBindingMap) ToSpringCloudBuildPackBindingMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudBuildPackBindingMapOutput)
 }
 
-func (i SpringCloudBuildPackBindingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudBuildPackBinding] {
-	return pulumix.Output[map[string]*SpringCloudBuildPackBinding]{
-		OutputState: i.ToSpringCloudBuildPackBindingMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SpringCloudBuildPackBindingOutput struct{ *pulumi.OutputState }
 
 func (SpringCloudBuildPackBindingOutput) ElementType() reflect.Type {
@@ -293,12 +274,6 @@ func (o SpringCloudBuildPackBindingOutput) ToSpringCloudBuildPackBindingOutput()
 
 func (o SpringCloudBuildPackBindingOutput) ToSpringCloudBuildPackBindingOutputWithContext(ctx context.Context) SpringCloudBuildPackBindingOutput {
 	return o
-}
-
-func (o SpringCloudBuildPackBindingOutput) ToOutput(ctx context.Context) pulumix.Output[*SpringCloudBuildPackBinding] {
-	return pulumix.Output[*SpringCloudBuildPackBinding]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Build Pack Binding Type. Allowed values are `ApacheSkyWalking`, `AppDynamics`, `ApplicationInsights`, `Dynatrace`, `ElasticAPM` and `NewRelic`.
@@ -335,12 +310,6 @@ func (o SpringCloudBuildPackBindingArrayOutput) ToSpringCloudBuildPackBindingArr
 	return o
 }
 
-func (o SpringCloudBuildPackBindingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SpringCloudBuildPackBinding] {
-	return pulumix.Output[[]*SpringCloudBuildPackBinding]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SpringCloudBuildPackBindingArrayOutput) Index(i pulumi.IntInput) SpringCloudBuildPackBindingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpringCloudBuildPackBinding {
 		return vs[0].([]*SpringCloudBuildPackBinding)[vs[1].(int)]
@@ -359,12 +328,6 @@ func (o SpringCloudBuildPackBindingMapOutput) ToSpringCloudBuildPackBindingMapOu
 
 func (o SpringCloudBuildPackBindingMapOutput) ToSpringCloudBuildPackBindingMapOutputWithContext(ctx context.Context) SpringCloudBuildPackBindingMapOutput {
 	return o
-}
-
-func (o SpringCloudBuildPackBindingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SpringCloudBuildPackBinding] {
-	return pulumix.Output[map[string]*SpringCloudBuildPackBinding]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SpringCloudBuildPackBindingMapOutput) MapIndex(k pulumi.StringInput) SpringCloudBuildPackBindingOutput {

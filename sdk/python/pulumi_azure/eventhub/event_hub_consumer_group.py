@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EventHubConsumerGroupArgs', 'EventHubConsumerGroup']
+__all__ = ['EventHubConsumerGroupArrgs', 'EventHubConsumerGroup']
 
 @pulumi.input_type
-class EventHubConsumerGroupArgs:
+calass EventHubConsumerGroupArrgs:
     def __init__(__self__, *,
                  eventhub_name: pulumi.Input[str],
                  namespace_name: pulumi.Input[str],
@@ -97,7 +97,7 @@ class EventHubConsumerGroupArgs:
 
 
 @pulumi.input_type
-class _EventHubConsumerGroupState:
+calass _EventHubConsumerGroupState:
     def __init__(__self__, *,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -187,7 +187,7 @@ class _EventHubConsumerGroupState:
 warnings.warn("""azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup""", DeprecationWarning)
 
 
-class EventHubConsumerGroup(pulumi.CustomResource):
+calass EventHubConsumerGroup(pulumi.CustomResource):
     warnings.warn("""azure.eventhub.EventHubConsumerGroup has been deprecated in favor of azure.eventhub.ConsumerGroup""", DeprecationWarning)
 
     @overload
@@ -250,7 +250,7 @@ class EventHubConsumerGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EventHubConsumerGroupArgs,
+                 args: EventHubConsumerGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Event Hubs Consumer Group as a nested resource within an Event Hub.
@@ -291,12 +291,12 @@ class EventHubConsumerGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EventHubConsumerGroupArgs args: The arguments to use to populate this resource's properties.
+        :param EventHubConsumerGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EventHubConsumerGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EventHubConsumerGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -318,7 +318,7 @@ class EventHubConsumerGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EventHubConsumerGroupArgs.__new__(EventHubConsumerGroupArgs)
+            __props__ = EventHubConsumerGroupArrgs.__new__(EventHubConsumerGroupArrgs)
 
             if eventhub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'eventhub_name'")

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DataConnectorMicrosoftThreatIntelligenceArgs', 'DataConnectorMicrosoftThreatIntelligence']
+__all__ = ['DataConnectorMicrosoftThreatIntelligenceArrgs', 'DataConnectorMicrosoftThreatIntelligence']
 
 @pulumi.input_type
-class DataConnectorMicrosoftThreatIntelligenceArgs:
+calass DataConnectorMicrosoftThreatIntelligenceArrgs:
     def __init__(__self__, *,
                  log_analytics_workspace_id: pulumi.Input[str],
                  bing_safety_phishing_url_lookback_date: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class DataConnectorMicrosoftThreatIntelligenceArgs:
 
 
 @pulumi.input_type
-class _DataConnectorMicrosoftThreatIntelligenceState:
+calass _DataConnectorMicrosoftThreatIntelligenceState:
     def __init__(__self__, *,
                  bing_safety_phishing_url_lookback_date: Optional[pulumi.Input[str]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
@@ -230,7 +230,7 @@ class _DataConnectorMicrosoftThreatIntelligenceState:
         pulumi.set(self, "tenant_id", value)
 
 
-class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
+calass DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -289,7 +289,7 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DataConnectorMicrosoftThreatIntelligenceArgs,
+                 args: DataConnectorMicrosoftThreatIntelligenceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Microsoft Threat Intelligence Data Connector.
@@ -320,12 +320,12 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DataConnectorMicrosoftThreatIntelligenceArgs args: The arguments to use to populate this resource's properties.
+        :param DataConnectorMicrosoftThreatIntelligenceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DataConnectorMicrosoftThreatIntelligenceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DataConnectorMicrosoftThreatIntelligenceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -346,7 +346,7 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DataConnectorMicrosoftThreatIntelligenceArgs.__new__(DataConnectorMicrosoftThreatIntelligenceArgs)
+            __props__ = DataConnectorMicrosoftThreatIntelligenceArrgs.__new__(DataConnectorMicrosoftThreatIntelligenceArrgs)
 
             __props__.__dict__["bing_safety_phishing_url_lookback_date"] = bing_safety_phishing_url_lookback_date
             if log_analytics_workspace_id is None and not opts.urn:

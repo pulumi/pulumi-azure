@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVolumeGroupSapHanaResult:
+calass GetVolumeGroupSapHanaResult:
     """
     A collection of values returned by getVolumeGroupSapHana.
     """
@@ -107,7 +107,7 @@ class GetVolumeGroupSapHanaResult:
         return pulumi.get(self, "volumes")
 
 
-class AwaitableGetVolumeGroupSapHanaResult(GetVolumeGroupSapHanaResult):
+calass AwaitableGetVolumeGroupSapHanaResult(GetVolumeGroupSapHanaResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

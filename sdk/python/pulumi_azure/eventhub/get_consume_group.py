@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetConsumeGroupResult:
+calass GetConsumeGroupResult:
     """
     A collection of values returned by getConsumeGroup.
     """
@@ -78,7 +78,7 @@ class GetConsumeGroupResult:
         return pulumi.get(self, "user_metadata")
 
 
-class AwaitableGetConsumeGroupResult(GetConsumeGroupResult):
+calass AwaitableGetConsumeGroupResult(GetConsumeGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

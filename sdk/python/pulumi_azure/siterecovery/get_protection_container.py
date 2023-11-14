@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetProtectionContainerResult:
+calass GetProtectionContainerResult:
     """
     A collection of values returned by getProtectionContainer.
     """
@@ -67,7 +67,7 @@ class GetProtectionContainerResult:
         return pulumi.get(self, "resource_group_name")
 
 
-class AwaitableGetProtectionContainerResult(GetProtectionContainerResult):
+calass AwaitableGetProtectionContainerResult(GetProtectionContainerResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

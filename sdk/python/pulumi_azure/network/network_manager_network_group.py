@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NetworkManagerNetworkGroupArgs', 'NetworkManagerNetworkGroup']
+__all__ = ['NetworkManagerNetworkGroupArrgs', 'NetworkManagerNetworkGroup']
 
 @pulumi.input_type
-class NetworkManagerNetworkGroupArgs:
+calass NetworkManagerNetworkGroupArrgs:
     def __init__(__self__, *,
                  network_manager_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
@@ -67,7 +67,7 @@ class NetworkManagerNetworkGroupArgs:
 
 
 @pulumi.input_type
-class _NetworkManagerNetworkGroupState:
+calass _NetworkManagerNetworkGroupState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class _NetworkManagerNetworkGroupState:
         pulumi.set(self, "network_manager_id", value)
 
 
-class NetworkManagerNetworkGroup(pulumi.CustomResource):
+calass NetworkManagerNetworkGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -145,7 +145,7 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
         example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
+            scope=azure.network.NetworkManagerScopeArrgs(
                 subscription_ids=[current.id],
             ),
             scope_accesses=[
@@ -174,7 +174,7 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NetworkManagerNetworkGroupArgs,
+                 args: NetworkManagerNetworkGroupArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Network Manager Network Group.
@@ -190,7 +190,7 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
         example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            scope=azure.network.NetworkManagerScopeArgs(
+            scope=azure.network.NetworkManagerScopeArrgs(
                 subscription_ids=[current.id],
             ),
             scope_accesses=[
@@ -210,12 +210,12 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NetworkManagerNetworkGroupArgs args: The arguments to use to populate this resource's properties.
+        :param NetworkManagerNetworkGroupArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NetworkManagerNetworkGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NetworkManagerNetworkGroupArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -234,7 +234,7 @@ class NetworkManagerNetworkGroup(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NetworkManagerNetworkGroupArgs.__new__(NetworkManagerNetworkGroupArgs)
+            __props__ = NetworkManagerNetworkGroupArrgs.__new__(NetworkManagerNetworkGroupArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name

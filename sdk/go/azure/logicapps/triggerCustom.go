@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Custom Trigger within a Logic App Workflow
@@ -194,12 +193,6 @@ func (i *TriggerCustom) ToTriggerCustomOutputWithContext(ctx context.Context) Tr
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerCustomOutput)
 }
 
-func (i *TriggerCustom) ToOutput(ctx context.Context) pulumix.Output[*TriggerCustom] {
-	return pulumix.Output[*TriggerCustom]{
-		OutputState: i.ToTriggerCustomOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TriggerCustomArrayInput is an input type that accepts TriggerCustomArray and TriggerCustomArrayOutput values.
 // You can construct a concrete instance of `TriggerCustomArrayInput` via:
 //
@@ -223,12 +216,6 @@ func (i TriggerCustomArray) ToTriggerCustomArrayOutput() TriggerCustomArrayOutpu
 
 func (i TriggerCustomArray) ToTriggerCustomArrayOutputWithContext(ctx context.Context) TriggerCustomArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerCustomArrayOutput)
-}
-
-func (i TriggerCustomArray) ToOutput(ctx context.Context) pulumix.Output[[]*TriggerCustom] {
-	return pulumix.Output[[]*TriggerCustom]{
-		OutputState: i.ToTriggerCustomArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TriggerCustomMapInput is an input type that accepts TriggerCustomMap and TriggerCustomMapOutput values.
@@ -256,12 +243,6 @@ func (i TriggerCustomMap) ToTriggerCustomMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerCustomMapOutput)
 }
 
-func (i TriggerCustomMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TriggerCustom] {
-	return pulumix.Output[map[string]*TriggerCustom]{
-		OutputState: i.ToTriggerCustomMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TriggerCustomOutput struct{ *pulumi.OutputState }
 
 func (TriggerCustomOutput) ElementType() reflect.Type {
@@ -274,12 +255,6 @@ func (o TriggerCustomOutput) ToTriggerCustomOutput() TriggerCustomOutput {
 
 func (o TriggerCustomOutput) ToTriggerCustomOutputWithContext(ctx context.Context) TriggerCustomOutput {
 	return o
-}
-
-func (o TriggerCustomOutput) ToOutput(ctx context.Context) pulumix.Output[*TriggerCustom] {
-	return pulumix.Output[*TriggerCustom]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the JSON Blob defining the Body of this Custom Trigger.
@@ -313,12 +288,6 @@ func (o TriggerCustomArrayOutput) ToTriggerCustomArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o TriggerCustomArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TriggerCustom] {
-	return pulumix.Output[[]*TriggerCustom]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TriggerCustomArrayOutput) Index(i pulumi.IntInput) TriggerCustomOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TriggerCustom {
 		return vs[0].([]*TriggerCustom)[vs[1].(int)]
@@ -337,12 +306,6 @@ func (o TriggerCustomMapOutput) ToTriggerCustomMapOutput() TriggerCustomMapOutpu
 
 func (o TriggerCustomMapOutput) ToTriggerCustomMapOutputWithContext(ctx context.Context) TriggerCustomMapOutput {
 	return o
-}
-
-func (o TriggerCustomMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TriggerCustom] {
-	return pulumix.Output[map[string]*TriggerCustom]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TriggerCustomMapOutput) MapIndex(k pulumi.StringInput) TriggerCustomOutput {

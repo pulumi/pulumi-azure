@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AnalyzerIdentityArgs',
-    'AnalyzerStorageAccountArgs',
+    'AnalyzerIdentityArrgs',
+    'AnalyzerStorageAccountArrgs',
 ]
 
 @pulumi.input_type
-class AnalyzerIdentityArgs:
+calass AnalyzerIdentityArrgs:
     def __init__(__self__, *,
                  identity_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  type: pulumi.Input[str]):
@@ -52,7 +52,7 @@ class AnalyzerIdentityArgs:
 
 
 @pulumi.input_type
-class AnalyzerStorageAccountArgs:
+calass AnalyzerStorageAccountArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  user_assigned_identity_id: pulumi.Input[str]):

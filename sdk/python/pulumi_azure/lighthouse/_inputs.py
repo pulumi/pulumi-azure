@@ -10,15 +10,15 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'DefinitionAuthorizationArgs',
-    'DefinitionEligibleAuthorizationArgs',
-    'DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs',
-    'DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs',
-    'DefinitionPlanArgs',
+    'DefinitionAuthorizationArrgs',
+    'DefinitionEligibleAuthorizationArrgs',
+    'DefinitionEligibleAuthorizationJustInTimeAccessPolicyArrgs',
+    'DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrgs',
+    'DefinitionPlanArrgs',
 ]
 
 @pulumi.input_type
-class DefinitionAuthorizationArgs:
+calass DefinitionAuthorizationArrgs:
     def __init__(__self__, *,
                  principal_id: pulumi.Input[str],
                  role_definition_id: pulumi.Input[str],
@@ -87,16 +87,16 @@ class DefinitionAuthorizationArgs:
 
 
 @pulumi.input_type
-class DefinitionEligibleAuthorizationArgs:
+calass DefinitionEligibleAuthorizationArrgs:
     def __init__(__self__, *,
                  principal_id: pulumi.Input[str],
                  role_definition_id: pulumi.Input[str],
-                 just_in_time_access_policy: Optional[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs']] = None,
+                 just_in_time_access_policy: Optional[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyArrgs']] = None,
                  principal_display_name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] principal_id: Principal ID of the security group/service principal/user that would be assigned permissions to the projected subscription.
         :param pulumi.Input[str] role_definition_id: The Principal ID of the Azure built-in role that defines the permissions that the Azure Active Directory will have on the projected scope.
-        :param pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs'] just_in_time_access_policy: A `just_in_time_access_policy` block as defined below.
+        :param pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyArrgs'] just_in_time_access_policy: A `just_in_time_access_policy` block as defined below.
         :param pulumi.Input[str] principal_display_name: The display name of the Azure Active Directory Principal.
         """
         pulumi.set(__self__, "principal_id", principal_id)
@@ -132,14 +132,14 @@ class DefinitionEligibleAuthorizationArgs:
 
     @property
     @pulumi.getter(name="justInTimeAccessPolicy")
-    def just_in_time_access_policy(self) -> Optional[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs']]:
+    def just_in_time_access_policy(self) -> Optional[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyArrgs']]:
         """
         A `just_in_time_access_policy` block as defined below.
         """
         return pulumi.get(self, "just_in_time_access_policy")
 
     @just_in_time_access_policy.setter
-    def just_in_time_access_policy(self, value: Optional[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs']]):
+    def just_in_time_access_policy(self, value: Optional[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyArrgs']]):
         pulumi.set(self, "just_in_time_access_policy", value)
 
     @property
@@ -156,13 +156,13 @@ class DefinitionEligibleAuthorizationArgs:
 
 
 @pulumi.input_type
-class DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs:
+calass DefinitionEligibleAuthorizationJustInTimeAccessPolicyArrgs:
     def __init__(__self__, *,
-                 approvers: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs']]]] = None,
+                 approvers: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrgs']]]] = None,
                  maximum_activation_duration: Optional[pulumi.Input[str]] = None,
                  multi_factor_auth_provider: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs']]] approvers: An `approver` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrgs']]] approvers: An `approver` block as defined below.
         :param pulumi.Input[str] maximum_activation_duration: The maximum access duration in ISO 8601 format for just-in-time access requests. Defaults to `PT8H`.
         :param pulumi.Input[str] multi_factor_auth_provider: The multi-factor authorization provider to be used for just-in-time access requests. Possible value is `Azure`.
                
@@ -177,14 +177,14 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs:
 
     @property
     @pulumi.getter
-    def approvers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs']]]]:
+    def approvers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrgs']]]]:
         """
         An `approver` block as defined below.
         """
         return pulumi.get(self, "approvers")
 
     @approvers.setter
-    def approvers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs']]]]):
+    def approvers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrgs']]]]):
         pulumi.set(self, "approvers", value)
 
     @property
@@ -215,7 +215,7 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs:
 
 
 @pulumi.input_type
-class DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs:
+calass DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArrgs:
     def __init__(__self__, *,
                  principal_id: pulumi.Input[str],
                  principal_display_name: Optional[pulumi.Input[str]] = None):
@@ -253,7 +253,7 @@ class DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs:
 
 
 @pulumi.input_type
-class DefinitionPlanArgs:
+calass DefinitionPlanArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  product: pulumi.Input[str],

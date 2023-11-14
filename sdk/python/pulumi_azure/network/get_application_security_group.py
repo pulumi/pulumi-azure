@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetApplicationSecurityGroupResult:
+calass GetApplicationSecurityGroupResult:
     """
     A collection of values returned by getApplicationSecurityGroup.
     """
@@ -73,7 +73,7 @@ class GetApplicationSecurityGroupResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetApplicationSecurityGroupResult(GetApplicationSecurityGroupResult):
+calass AwaitableGetApplicationSecurityGroupResult(GetApplicationSecurityGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EndpointCosmosdbAccountArgs', 'EndpointCosmosdbAccount']
+__all__ = ['EndpointCosmosdbAccountArrgs', 'EndpointCosmosdbAccount']
 
 @pulumi.input_type
-class EndpointCosmosdbAccountArgs:
+calass EndpointCosmosdbAccountArrgs:
     def __init__(__self__, *,
                  container_name: pulumi.Input[str],
                  database_name: pulumi.Input[str],
@@ -219,7 +219,7 @@ class EndpointCosmosdbAccountArgs:
 
 
 @pulumi.input_type
-class _EndpointCosmosdbAccountState:
+calass _EndpointCosmosdbAccountState:
     def __init__(__self__, *,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  container_name: Optional[pulumi.Input[str]] = None,
@@ -430,7 +430,7 @@ class _EndpointCosmosdbAccountState:
         pulumi.set(self, "secondary_key", value)
 
 
-class EndpointCosmosdbAccount(pulumi.CustomResource):
+calass EndpointCosmosdbAccount(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -463,7 +463,7 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
         example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
+            sku=azure.iot.IoTHubSkuArrgs(
                 name="B1",
                 capacity=1,
             ),
@@ -475,10 +475,10 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="Strong",
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -533,7 +533,7 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EndpointCosmosdbAccountArgs,
+                 args: EndpointCosmosdbAccountArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IotHub Cosmos DB Account Endpoint
@@ -550,7 +550,7 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
         example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
+            sku=azure.iot.IoTHubSkuArrgs(
                 name="B1",
                 capacity=1,
             ),
@@ -562,10 +562,10 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="Strong",
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -596,12 +596,12 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EndpointCosmosdbAccountArgs args: The arguments to use to populate this resource's properties.
+        :param EndpointCosmosdbAccountArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EndpointCosmosdbAccountArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EndpointCosmosdbAccountArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -629,7 +629,7 @@ class EndpointCosmosdbAccount(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EndpointCosmosdbAccountArgs.__new__(EndpointCosmosdbAccountArgs)
+            __props__ = EndpointCosmosdbAccountArrgs.__new__(EndpointCosmosdbAccountArrgs)
 
             __props__.__dict__["authentication_type"] = authentication_type
             if container_name is None and not opts.urn:

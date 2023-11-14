@@ -62,7 +62,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class CustomProviderAction(dict):
+calass CustomProviderAction(dict):
     def __init__(__self__, *,
                  endpoint: str,
                  name: str):
@@ -91,7 +91,7 @@ class CustomProviderAction(dict):
 
 
 @pulumi.output_type
-class CustomProviderResourceType(dict):
+calass CustomProviderResourceType(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -149,7 +149,7 @@ class CustomProviderResourceType(dict):
 
 
 @pulumi.output_type
-class CustomProviderValidation(dict):
+calass CustomProviderValidation(dict):
     def __init__(__self__, *,
                  specification: str):
         """
@@ -167,7 +167,7 @@ class CustomProviderValidation(dict):
 
 
 @pulumi.output_type
-class ResourceDeploymentScriptAzureCliContainer(dict):
+calass ResourceDeploymentScriptAzureCliContainer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -203,7 +203,7 @@ class ResourceDeploymentScriptAzureCliContainer(dict):
 
 
 @pulumi.output_type
-class ResourceDeploymentScriptAzureCliEnvironmentVariable(dict):
+calass ResourceDeploymentScriptAzureCliEnvironmentVariable(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -262,7 +262,7 @@ class ResourceDeploymentScriptAzureCliEnvironmentVariable(dict):
 
 
 @pulumi.output_type
-class ResourceDeploymentScriptAzureCliIdentity(dict):
+calass ResourceDeploymentScriptAzureCliIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -308,7 +308,7 @@ class ResourceDeploymentScriptAzureCliIdentity(dict):
 
 
 @pulumi.output_type
-class ResourceDeploymentScriptAzureCliStorageAccount(dict):
+calass ResourceDeploymentScriptAzureCliStorageAccount(dict):
     def __init__(__self__, *,
                  key: str,
                  name: str):
@@ -337,7 +337,7 @@ class ResourceDeploymentScriptAzureCliStorageAccount(dict):
 
 
 @pulumi.output_type
-class ResourceDeploymentScriptPowerShellContainer(dict):
+calass ResourceDeploymentScriptPowerShellContainer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -373,7 +373,7 @@ class ResourceDeploymentScriptPowerShellContainer(dict):
 
 
 @pulumi.output_type
-class ResourceDeploymentScriptPowerShellEnvironmentVariable(dict):
+calass ResourceDeploymentScriptPowerShellEnvironmentVariable(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -432,7 +432,7 @@ class ResourceDeploymentScriptPowerShellEnvironmentVariable(dict):
 
 
 @pulumi.output_type
-class ResourceDeploymentScriptPowerShellIdentity(dict):
+calass ResourceDeploymentScriptPowerShellIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -478,7 +478,7 @@ class ResourceDeploymentScriptPowerShellIdentity(dict):
 
 
 @pulumi.output_type
-class ResourceDeploymentScriptPowerShellStorageAccount(dict):
+calass ResourceDeploymentScriptPowerShellStorageAccount(dict):
     def __init__(__self__, *,
                  key: str,
                  name: str):
@@ -507,7 +507,7 @@ class ResourceDeploymentScriptPowerShellStorageAccount(dict):
 
 
 @pulumi.output_type
-class ResourceGroupCostManagementExportExportDataOptions(dict):
+calass ResourceGroupCostManagementExportExportDataOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -553,7 +553,7 @@ class ResourceGroupCostManagementExportExportDataOptions(dict):
 
 
 @pulumi.output_type
-class ResourceGroupCostManagementExportExportDataStorageLocation(dict):
+calass ResourceGroupCostManagementExportExportDataStorageLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -605,17 +605,17 @@ class ResourceGroupCostManagementExportExportDataStorageLocation(dict):
 
 
 @pulumi.output_type
-class ResourceGroupCostManagementViewDataset(dict):
+calass ResourceGroupCostManagementViewDataset(dict):
     def __init__(__self__, *,
                  aggregations: Sequence['outputs.ResourceGroupCostManagementViewDatasetAggregation'],
                  granularity: str,
                  groupings: Optional[Sequence['outputs.ResourceGroupCostManagementViewDatasetGrouping']] = None,
                  sortings: Optional[Sequence['outputs.ResourceGroupCostManagementViewDatasetSorting']] = None):
         """
-        :param Sequence['ResourceGroupCostManagementViewDatasetAggregationArgs'] aggregations: One or more `aggregation` blocks as defined above.
+        :param Sequence['ResourceGroupCostManagementViewDatasetAggregationArrgs'] aggregations: One or more `aggregation` blocks as defined above.
         :param str granularity: The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
-        :param Sequence['ResourceGroupCostManagementViewDatasetGroupingArgs'] groupings: One or more `grouping` blocks as defined below.
-        :param Sequence['ResourceGroupCostManagementViewDatasetSortingArgs'] sortings: One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
+        :param Sequence['ResourceGroupCostManagementViewDatasetGroupingArrgs'] groupings: One or more `grouping` blocks as defined below.
+        :param Sequence['ResourceGroupCostManagementViewDatasetSortingArrgs'] sortings: One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
         """
         pulumi.set(__self__, "aggregations", aggregations)
         pulumi.set(__self__, "granularity", granularity)
@@ -658,7 +658,7 @@ class ResourceGroupCostManagementViewDataset(dict):
 
 
 @pulumi.output_type
-class ResourceGroupCostManagementViewDatasetAggregation(dict):
+calass ResourceGroupCostManagementViewDatasetAggregation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -704,7 +704,7 @@ class ResourceGroupCostManagementViewDatasetAggregation(dict):
 
 
 @pulumi.output_type
-class ResourceGroupCostManagementViewDatasetGrouping(dict):
+calass ResourceGroupCostManagementViewDatasetGrouping(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
@@ -733,7 +733,7 @@ class ResourceGroupCostManagementViewDatasetGrouping(dict):
 
 
 @pulumi.output_type
-class ResourceGroupCostManagementViewDatasetSorting(dict):
+calass ResourceGroupCostManagementViewDatasetSorting(dict):
     def __init__(__self__, *,
                  direction: str,
                  name: str):
@@ -762,7 +762,7 @@ class ResourceGroupCostManagementViewDatasetSorting(dict):
 
 
 @pulumi.output_type
-class ResourceGroupCostManagementViewKpi(dict):
+calass ResourceGroupCostManagementViewKpi(dict):
     def __init__(__self__, *,
                  type: str):
         """
@@ -780,7 +780,7 @@ class ResourceGroupCostManagementViewKpi(dict):
 
 
 @pulumi.output_type
-class ResourceGroupCostManagementViewPivot(dict):
+calass ResourceGroupCostManagementViewPivot(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
@@ -809,7 +809,7 @@ class ResourceGroupCostManagementViewPivot(dict):
 
 
 @pulumi.output_type
-class ResourceGroupPolicyAssignmentIdentity(dict):
+calass ResourceGroupPolicyAssignmentIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -888,7 +888,7 @@ class ResourceGroupPolicyAssignmentIdentity(dict):
 
 
 @pulumi.output_type
-class ResourceGroupPolicyAssignmentNonComplianceMessage(dict):
+calass ResourceGroupPolicyAssignmentNonComplianceMessage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -935,13 +935,13 @@ class ResourceGroupPolicyAssignmentNonComplianceMessage(dict):
 
 
 @pulumi.output_type
-class ResourceGroupPolicyAssignmentOverride(dict):
+calass ResourceGroupPolicyAssignmentOverride(dict):
     def __init__(__self__, *,
                  value: str,
                  selectors: Optional[Sequence['outputs.ResourceGroupPolicyAssignmentOverrideSelector']] = None):
         """
         :param str value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
-        :param Sequence['ResourceGroupPolicyAssignmentOverrideSelectorArgs'] selectors: One or more `override_selector` as defined below.
+        :param Sequence['ResourceGroupPolicyAssignmentOverrideSelectorArrgs'] selectors: One or more `override_selector` as defined below.
         """
         pulumi.set(__self__, "value", value)
         if selectors is not None:
@@ -965,7 +965,7 @@ class ResourceGroupPolicyAssignmentOverride(dict):
 
 
 @pulumi.output_type
-class ResourceGroupPolicyAssignmentOverrideSelector(dict):
+calass ResourceGroupPolicyAssignmentOverrideSelector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1025,12 +1025,12 @@ class ResourceGroupPolicyAssignmentOverrideSelector(dict):
 
 
 @pulumi.output_type
-class ResourceGroupPolicyAssignmentResourceSelector(dict):
+calass ResourceGroupPolicyAssignmentResourceSelector(dict):
     def __init__(__self__, *,
                  selectors: Sequence['outputs.ResourceGroupPolicyAssignmentResourceSelectorSelector'],
                  name: Optional[str] = None):
         """
-        :param Sequence['ResourceGroupPolicyAssignmentResourceSelectorSelectorArgs'] selectors: One or more `resource_selector` block as defined below.
+        :param Sequence['ResourceGroupPolicyAssignmentResourceSelectorSelectorArrgs'] selectors: One or more `resource_selector` block as defined below.
         :param str name: Specifies a name for the resource selector.
         """
         pulumi.set(__self__, "selectors", selectors)
@@ -1055,7 +1055,7 @@ class ResourceGroupPolicyAssignmentResourceSelector(dict):
 
 
 @pulumi.output_type
-class ResourceGroupPolicyAssignmentResourceSelectorSelector(dict):
+calass ResourceGroupPolicyAssignmentResourceSelectorSelector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1114,7 +1114,7 @@ class ResourceGroupPolicyAssignmentResourceSelectorSelector(dict):
 
 
 @pulumi.output_type
-class ResourcePolicyAssignmentIdentity(dict):
+calass ResourcePolicyAssignmentIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1193,7 +1193,7 @@ class ResourcePolicyAssignmentIdentity(dict):
 
 
 @pulumi.output_type
-class ResourcePolicyAssignmentNonComplianceMessage(dict):
+calass ResourcePolicyAssignmentNonComplianceMessage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1240,13 +1240,13 @@ class ResourcePolicyAssignmentNonComplianceMessage(dict):
 
 
 @pulumi.output_type
-class ResourcePolicyAssignmentOverride(dict):
+calass ResourcePolicyAssignmentOverride(dict):
     def __init__(__self__, *,
                  value: str,
                  selectors: Optional[Sequence['outputs.ResourcePolicyAssignmentOverrideSelector']] = None):
         """
         :param str value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
-        :param Sequence['ResourcePolicyAssignmentOverrideSelectorArgs'] selectors: One or more `override_selector` as defined below.
+        :param Sequence['ResourcePolicyAssignmentOverrideSelectorArrgs'] selectors: One or more `override_selector` as defined below.
         """
         pulumi.set(__self__, "value", value)
         if selectors is not None:
@@ -1270,7 +1270,7 @@ class ResourcePolicyAssignmentOverride(dict):
 
 
 @pulumi.output_type
-class ResourcePolicyAssignmentOverrideSelector(dict):
+calass ResourcePolicyAssignmentOverrideSelector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1330,12 +1330,12 @@ class ResourcePolicyAssignmentOverrideSelector(dict):
 
 
 @pulumi.output_type
-class ResourcePolicyAssignmentResourceSelector(dict):
+calass ResourcePolicyAssignmentResourceSelector(dict):
     def __init__(__self__, *,
                  selectors: Sequence['outputs.ResourcePolicyAssignmentResourceSelectorSelector'],
                  name: Optional[str] = None):
         """
-        :param Sequence['ResourcePolicyAssignmentResourceSelectorSelectorArgs'] selectors: One or more `resource_selector` block as defined below.
+        :param Sequence['ResourcePolicyAssignmentResourceSelectorSelectorArrgs'] selectors: One or more `resource_selector` block as defined below.
         :param str name: Specifies a name for the resource selector.
         """
         pulumi.set(__self__, "selectors", selectors)
@@ -1360,7 +1360,7 @@ class ResourcePolicyAssignmentResourceSelector(dict):
 
 
 @pulumi.output_type
-class ResourcePolicyAssignmentResourceSelectorSelector(dict):
+calass ResourcePolicyAssignmentResourceSelectorSelector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1419,7 +1419,7 @@ class ResourcePolicyAssignmentResourceSelectorSelector(dict):
 
 
 @pulumi.output_type
-class ResourceProviderRegistrationFeature(dict):
+calass ResourceProviderRegistrationFeature(dict):
     def __init__(__self__, *,
                  name: str,
                  registered: bool):
@@ -1444,7 +1444,7 @@ class ResourceProviderRegistrationFeature(dict):
 
 
 @pulumi.output_type
-class SubscriptionCostManagementExportExportDataOptions(dict):
+calass SubscriptionCostManagementExportExportDataOptions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1490,7 +1490,7 @@ class SubscriptionCostManagementExportExportDataOptions(dict):
 
 
 @pulumi.output_type
-class SubscriptionCostManagementExportExportDataStorageLocation(dict):
+calass SubscriptionCostManagementExportExportDataStorageLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1542,17 +1542,17 @@ class SubscriptionCostManagementExportExportDataStorageLocation(dict):
 
 
 @pulumi.output_type
-class SubscriptionCostManagementViewDataset(dict):
+calass SubscriptionCostManagementViewDataset(dict):
     def __init__(__self__, *,
                  aggregations: Sequence['outputs.SubscriptionCostManagementViewDatasetAggregation'],
                  granularity: str,
                  groupings: Optional[Sequence['outputs.SubscriptionCostManagementViewDatasetGrouping']] = None,
                  sortings: Optional[Sequence['outputs.SubscriptionCostManagementViewDatasetSorting']] = None):
         """
-        :param Sequence['SubscriptionCostManagementViewDatasetAggregationArgs'] aggregations: One or more `aggregation` blocks as defined above.
+        :param Sequence['SubscriptionCostManagementViewDatasetAggregationArrgs'] aggregations: One or more `aggregation` blocks as defined above.
         :param str granularity: The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
-        :param Sequence['SubscriptionCostManagementViewDatasetGroupingArgs'] groupings: One or more `grouping` blocks as defined below.
-        :param Sequence['SubscriptionCostManagementViewDatasetSortingArgs'] sortings: One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
+        :param Sequence['SubscriptionCostManagementViewDatasetGroupingArrgs'] groupings: One or more `grouping` blocks as defined below.
+        :param Sequence['SubscriptionCostManagementViewDatasetSortingArrgs'] sortings: One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
         """
         pulumi.set(__self__, "aggregations", aggregations)
         pulumi.set(__self__, "granularity", granularity)
@@ -1595,7 +1595,7 @@ class SubscriptionCostManagementViewDataset(dict):
 
 
 @pulumi.output_type
-class SubscriptionCostManagementViewDatasetAggregation(dict):
+calass SubscriptionCostManagementViewDatasetAggregation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1641,7 +1641,7 @@ class SubscriptionCostManagementViewDatasetAggregation(dict):
 
 
 @pulumi.output_type
-class SubscriptionCostManagementViewDatasetGrouping(dict):
+calass SubscriptionCostManagementViewDatasetGrouping(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
@@ -1670,7 +1670,7 @@ class SubscriptionCostManagementViewDatasetGrouping(dict):
 
 
 @pulumi.output_type
-class SubscriptionCostManagementViewDatasetSorting(dict):
+calass SubscriptionCostManagementViewDatasetSorting(dict):
     def __init__(__self__, *,
                  direction: str,
                  name: str):
@@ -1699,7 +1699,7 @@ class SubscriptionCostManagementViewDatasetSorting(dict):
 
 
 @pulumi.output_type
-class SubscriptionCostManagementViewKpi(dict):
+calass SubscriptionCostManagementViewKpi(dict):
     def __init__(__self__, *,
                  type: str):
         """
@@ -1717,7 +1717,7 @@ class SubscriptionCostManagementViewKpi(dict):
 
 
 @pulumi.output_type
-class SubscriptionCostManagementViewPivot(dict):
+calass SubscriptionCostManagementViewPivot(dict):
     def __init__(__self__, *,
                  name: str,
                  type: str):
@@ -1746,7 +1746,7 @@ class SubscriptionCostManagementViewPivot(dict):
 
 
 @pulumi.output_type
-class SubscriptionPolicyAssignmentIdentity(dict):
+calass SubscriptionPolicyAssignmentIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1825,7 +1825,7 @@ class SubscriptionPolicyAssignmentIdentity(dict):
 
 
 @pulumi.output_type
-class SubscriptionPolicyAssignmentNonComplianceMessage(dict):
+calass SubscriptionPolicyAssignmentNonComplianceMessage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1872,13 +1872,13 @@ class SubscriptionPolicyAssignmentNonComplianceMessage(dict):
 
 
 @pulumi.output_type
-class SubscriptionPolicyAssignmentOverride(dict):
+calass SubscriptionPolicyAssignmentOverride(dict):
     def __init__(__self__, *,
                  value: str,
                  selectors: Optional[Sequence['outputs.SubscriptionPolicyAssignmentOverrideSelector']] = None):
         """
         :param str value: Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
-        :param Sequence['SubscriptionPolicyAssignmentOverrideSelectorArgs'] selectors: One or more `override_selector` as defined below.
+        :param Sequence['SubscriptionPolicyAssignmentOverrideSelectorArrgs'] selectors: One or more `override_selector` as defined below.
         """
         pulumi.set(__self__, "value", value)
         if selectors is not None:
@@ -1902,7 +1902,7 @@ class SubscriptionPolicyAssignmentOverride(dict):
 
 
 @pulumi.output_type
-class SubscriptionPolicyAssignmentOverrideSelector(dict):
+calass SubscriptionPolicyAssignmentOverrideSelector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1962,12 +1962,12 @@ class SubscriptionPolicyAssignmentOverrideSelector(dict):
 
 
 @pulumi.output_type
-class SubscriptionPolicyAssignmentResourceSelector(dict):
+calass SubscriptionPolicyAssignmentResourceSelector(dict):
     def __init__(__self__, *,
                  selectors: Sequence['outputs.SubscriptionPolicyAssignmentResourceSelectorSelector'],
                  name: Optional[str] = None):
         """
-        :param Sequence['SubscriptionPolicyAssignmentResourceSelectorSelectorArgs'] selectors: One or more `resource_selector` block as defined below.
+        :param Sequence['SubscriptionPolicyAssignmentResourceSelectorSelectorArrgs'] selectors: One or more `resource_selector` block as defined below.
         :param str name: Specifies a name for the resource selector.
         """
         pulumi.set(__self__, "selectors", selectors)
@@ -1992,7 +1992,7 @@ class SubscriptionPolicyAssignmentResourceSelector(dict):
 
 
 @pulumi.output_type
-class SubscriptionPolicyAssignmentResourceSelectorSelector(dict):
+calass SubscriptionPolicyAssignmentResourceSelectorSelector(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2051,7 +2051,7 @@ class SubscriptionPolicyAssignmentResourceSelectorSelector(dict):
 
 
 @pulumi.output_type
-class GetResourcesResourceResult(dict):
+calass GetResourcesResourceResult(dict):
     def __init__(__self__, *,
                  id: str,
                  location: str,
@@ -2124,7 +2124,7 @@ class GetResourcesResourceResult(dict):
 
 
 @pulumi.output_type
-class GetSubscriptionsSubscriptionResult(dict):
+calass GetSubscriptionsSubscriptionResult(dict):
     def __init__(__self__, *,
                  display_name: str,
                  id: str,

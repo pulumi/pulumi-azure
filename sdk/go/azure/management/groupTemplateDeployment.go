@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Template Deployment at a Management Group Scope.
@@ -353,12 +352,6 @@ func (i *GroupTemplateDeployment) ToGroupTemplateDeploymentOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(GroupTemplateDeploymentOutput)
 }
 
-func (i *GroupTemplateDeployment) ToOutput(ctx context.Context) pulumix.Output[*GroupTemplateDeployment] {
-	return pulumix.Output[*GroupTemplateDeployment]{
-		OutputState: i.ToGroupTemplateDeploymentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GroupTemplateDeploymentArrayInput is an input type that accepts GroupTemplateDeploymentArray and GroupTemplateDeploymentArrayOutput values.
 // You can construct a concrete instance of `GroupTemplateDeploymentArrayInput` via:
 //
@@ -382,12 +375,6 @@ func (i GroupTemplateDeploymentArray) ToGroupTemplateDeploymentArrayOutput() Gro
 
 func (i GroupTemplateDeploymentArray) ToGroupTemplateDeploymentArrayOutputWithContext(ctx context.Context) GroupTemplateDeploymentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupTemplateDeploymentArrayOutput)
-}
-
-func (i GroupTemplateDeploymentArray) ToOutput(ctx context.Context) pulumix.Output[[]*GroupTemplateDeployment] {
-	return pulumix.Output[[]*GroupTemplateDeployment]{
-		OutputState: i.ToGroupTemplateDeploymentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GroupTemplateDeploymentMapInput is an input type that accepts GroupTemplateDeploymentMap and GroupTemplateDeploymentMapOutput values.
@@ -415,12 +402,6 @@ func (i GroupTemplateDeploymentMap) ToGroupTemplateDeploymentMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(GroupTemplateDeploymentMapOutput)
 }
 
-func (i GroupTemplateDeploymentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GroupTemplateDeployment] {
-	return pulumix.Output[map[string]*GroupTemplateDeployment]{
-		OutputState: i.ToGroupTemplateDeploymentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GroupTemplateDeploymentOutput struct{ *pulumi.OutputState }
 
 func (GroupTemplateDeploymentOutput) ElementType() reflect.Type {
@@ -433,12 +414,6 @@ func (o GroupTemplateDeploymentOutput) ToGroupTemplateDeploymentOutput() GroupTe
 
 func (o GroupTemplateDeploymentOutput) ToGroupTemplateDeploymentOutputWithContext(ctx context.Context) GroupTemplateDeploymentOutput {
 	return o
-}
-
-func (o GroupTemplateDeploymentOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupTemplateDeployment] {
-	return pulumix.Output[*GroupTemplateDeployment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Debug Level which should be used for this Resource Group Template Deployment. Possible values are `none`, `requestContent`, `responseContent` and `requestContent, responseContent`.
@@ -500,12 +475,6 @@ func (o GroupTemplateDeploymentArrayOutput) ToGroupTemplateDeploymentArrayOutput
 	return o
 }
 
-func (o GroupTemplateDeploymentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GroupTemplateDeployment] {
-	return pulumix.Output[[]*GroupTemplateDeployment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GroupTemplateDeploymentArrayOutput) Index(i pulumi.IntInput) GroupTemplateDeploymentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GroupTemplateDeployment {
 		return vs[0].([]*GroupTemplateDeployment)[vs[1].(int)]
@@ -524,12 +493,6 @@ func (o GroupTemplateDeploymentMapOutput) ToGroupTemplateDeploymentMapOutput() G
 
 func (o GroupTemplateDeploymentMapOutput) ToGroupTemplateDeploymentMapOutputWithContext(ctx context.Context) GroupTemplateDeploymentMapOutput {
 	return o
-}
-
-func (o GroupTemplateDeploymentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GroupTemplateDeployment] {
-	return pulumix.Output[map[string]*GroupTemplateDeployment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupTemplateDeploymentMapOutput) MapIndex(k pulumi.StringInput) GroupTemplateDeploymentOutput {

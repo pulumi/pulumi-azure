@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetAgreementResult:
+calass GetAgreementResult:
     """
     A collection of values returned by getAgreement.
     """
@@ -75,7 +75,7 @@ class GetAgreementResult:
         return pulumi.get(self, "publisher")
 
 
-class AwaitableGetAgreementResult(GetAgreementResult):
+calass AwaitableGetAgreementResult(GetAgreementResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

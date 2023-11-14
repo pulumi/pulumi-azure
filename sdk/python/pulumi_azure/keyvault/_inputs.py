@@ -10,40 +10,40 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'CertifiateCertificateArgs',
-    'CertifiateCertificateAttributeArgs',
-    'CertifiateCertificatePolicyArgs',
-    'CertifiateCertificatePolicyIssuerParametersArgs',
-    'CertifiateCertificatePolicyKeyPropertiesArgs',
-    'CertifiateCertificatePolicyLifetimeActionArgs',
-    'CertifiateCertificatePolicyLifetimeActionActionArgs',
-    'CertifiateCertificatePolicyLifetimeActionTriggerArgs',
-    'CertifiateCertificatePolicySecretPropertiesArgs',
-    'CertifiateCertificatePolicyX509CertificatePropertiesArgs',
-    'CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs',
-    'CertificateCertificateArgs',
-    'CertificateCertificateAttributeArgs',
-    'CertificateCertificatePolicyArgs',
-    'CertificateCertificatePolicyIssuerParametersArgs',
-    'CertificateCertificatePolicyKeyPropertiesArgs',
-    'CertificateCertificatePolicyLifetimeActionArgs',
-    'CertificateCertificatePolicyLifetimeActionActionArgs',
-    'CertificateCertificatePolicyLifetimeActionTriggerArgs',
-    'CertificateCertificatePolicySecretPropertiesArgs',
-    'CertificateCertificatePolicyX509CertificatePropertiesArgs',
-    'CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs',
-    'CertificateContactsContactArgs',
-    'CertificateIssuerAdminArgs',
-    'KeyRotationPolicyArgs',
-    'KeyRotationPolicyAutomaticArgs',
-    'KeyVaultAccessPolicyArgs',
-    'KeyVaultContactArgs',
-    'KeyVaultNetworkAclsArgs',
-    'ManagedHardwareSecurityModuleNetworkAclsArgs',
+    'CertifiateCertificateArrgs',
+    'CertifiateCertificateAttributeArrgs',
+    'CertifiateCertificatePolicyArrgs',
+    'CertifiateCertificatePolicyIssuerParametersArrgs',
+    'CertifiateCertificatePolicyKeyPropertiesArrgs',
+    'CertifiateCertificatePolicyLifetimeActionArrgs',
+    'CertifiateCertificatePolicyLifetimeActionActionArrgs',
+    'CertifiateCertificatePolicyLifetimeActionTriggerArrgs',
+    'CertifiateCertificatePolicySecretPropertiesArrgs',
+    'CertifiateCertificatePolicyX509CertificatePropertiesArrgs',
+    'CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArrgs',
+    'CertificateCertificateArrgs',
+    'CertificateCertificateAttributeArrgs',
+    'CertificateCertificatePolicyArrgs',
+    'CertificateCertificatePolicyIssuerParametersArrgs',
+    'CertificateCertificatePolicyKeyPropertiesArrgs',
+    'CertificateCertificatePolicyLifetimeActionArrgs',
+    'CertificateCertificatePolicyLifetimeActionActionArrgs',
+    'CertificateCertificatePolicyLifetimeActionTriggerArrgs',
+    'CertificateCertificatePolicySecretPropertiesArrgs',
+    'CertificateCertificatePolicyX509CertificatePropertiesArrgs',
+    'CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArrgs',
+    'CertificateContactsContactArrgs',
+    'CertificateIssuerAdminArrgs',
+    'KeyRotationPolicyArrgs',
+    'KeyRotationPolicyAutomaticArrgs',
+    'KeyVaultAccessPolicyArrgs',
+    'KeyVaultContactArrgs',
+    'KeyVaultNetworkAclsArrgs',
+    'ManagedHardwareSecurityModuleNetworkAclsArrgs',
 ]
 
 @pulumi.input_type
-class CertifiateCertificateArgs:
+calass CertifiateCertificateArrgs:
     def __init__(__self__, *,
                  contents: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None):
@@ -99,7 +99,7 @@ class CertifiateCertificateArgs:
 
 
 @pulumi.input_type
-class CertifiateCertificateAttributeArgs:
+calass CertifiateCertificateAttributeArrgs:
     def __init__(__self__, *,
                  created: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -202,19 +202,19 @@ class CertifiateCertificateAttributeArgs:
 
 
 @pulumi.input_type
-class CertifiateCertificatePolicyArgs:
+calass CertifiateCertificatePolicyArrgs:
     def __init__(__self__, *,
-                 issuer_parameters: pulumi.Input['CertifiateCertificatePolicyIssuerParametersArgs'],
-                 key_properties: pulumi.Input['CertifiateCertificatePolicyKeyPropertiesArgs'],
-                 secret_properties: pulumi.Input['CertifiateCertificatePolicySecretPropertiesArgs'],
-                 lifetime_actions: Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgs']]]] = None,
-                 x509_certificate_properties: Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesArgs']] = None):
+                 issuer_parameters: pulumi.Input['CertifiateCertificatePolicyIssuerParametersArrgs'],
+                 key_properties: pulumi.Input['CertifiateCertificatePolicyKeyPropertiesArrgs'],
+                 secret_properties: pulumi.Input['CertifiateCertificatePolicySecretPropertiesArrgs'],
+                 lifetime_actions: Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArrgs']]]] = None,
+                 x509_certificate_properties: Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesArrgs']] = None):
         """
-        :param pulumi.Input['CertifiateCertificatePolicyIssuerParametersArgs'] issuer_parameters: A `issuer_parameters` block as defined below.
-        :param pulumi.Input['CertifiateCertificatePolicyKeyPropertiesArgs'] key_properties: A `key_properties` block as defined below.
-        :param pulumi.Input['CertifiateCertificatePolicySecretPropertiesArgs'] secret_properties: A `secret_properties` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgs']]] lifetime_actions: A `lifetime_action` block as defined below.
-        :param pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesArgs'] x509_certificate_properties: A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
+        :param pulumi.Input['CertifiateCertificatePolicyIssuerParametersArrgs'] issuer_parameters: A `issuer_parameters` block as defined below.
+        :param pulumi.Input['CertifiateCertificatePolicyKeyPropertiesArrgs'] key_properties: A `key_properties` block as defined below.
+        :param pulumi.Input['CertifiateCertificatePolicySecretPropertiesArrgs'] secret_properties: A `secret_properties` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArrgs']]] lifetime_actions: A `lifetime_action` block as defined below.
+        :param pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesArrgs'] x509_certificate_properties: A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
         """
         pulumi.set(__self__, "issuer_parameters", issuer_parameters)
         pulumi.set(__self__, "key_properties", key_properties)
@@ -226,67 +226,67 @@ class CertifiateCertificatePolicyArgs:
 
     @property
     @pulumi.getter(name="issuerParameters")
-    def issuer_parameters(self) -> pulumi.Input['CertifiateCertificatePolicyIssuerParametersArgs']:
+    def issuer_parameters(self) -> pulumi.Input['CertifiateCertificatePolicyIssuerParametersArrgs']:
         """
         A `issuer_parameters` block as defined below.
         """
         return pulumi.get(self, "issuer_parameters")
 
     @issuer_parameters.setter
-    def issuer_parameters(self, value: pulumi.Input['CertifiateCertificatePolicyIssuerParametersArgs']):
+    def issuer_parameters(self, value: pulumi.Input['CertifiateCertificatePolicyIssuerParametersArrgs']):
         pulumi.set(self, "issuer_parameters", value)
 
     @property
     @pulumi.getter(name="keyProperties")
-    def key_properties(self) -> pulumi.Input['CertifiateCertificatePolicyKeyPropertiesArgs']:
+    def key_properties(self) -> pulumi.Input['CertifiateCertificatePolicyKeyPropertiesArrgs']:
         """
         A `key_properties` block as defined below.
         """
         return pulumi.get(self, "key_properties")
 
     @key_properties.setter
-    def key_properties(self, value: pulumi.Input['CertifiateCertificatePolicyKeyPropertiesArgs']):
+    def key_properties(self, value: pulumi.Input['CertifiateCertificatePolicyKeyPropertiesArrgs']):
         pulumi.set(self, "key_properties", value)
 
     @property
     @pulumi.getter(name="secretProperties")
-    def secret_properties(self) -> pulumi.Input['CertifiateCertificatePolicySecretPropertiesArgs']:
+    def secret_properties(self) -> pulumi.Input['CertifiateCertificatePolicySecretPropertiesArrgs']:
         """
         A `secret_properties` block as defined below.
         """
         return pulumi.get(self, "secret_properties")
 
     @secret_properties.setter
-    def secret_properties(self, value: pulumi.Input['CertifiateCertificatePolicySecretPropertiesArgs']):
+    def secret_properties(self, value: pulumi.Input['CertifiateCertificatePolicySecretPropertiesArrgs']):
         pulumi.set(self, "secret_properties", value)
 
     @property
     @pulumi.getter(name="lifetimeActions")
-    def lifetime_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgs']]]]:
+    def lifetime_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArrgs']]]]:
         """
         A `lifetime_action` block as defined below.
         """
         return pulumi.get(self, "lifetime_actions")
 
     @lifetime_actions.setter
-    def lifetime_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgs']]]]):
+    def lifetime_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArrgs']]]]):
         pulumi.set(self, "lifetime_actions", value)
 
     @property
     @pulumi.getter(name="x509CertificateProperties")
-    def x509_certificate_properties(self) -> Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesArgs']]:
+    def x509_certificate_properties(self) -> Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesArrgs']]:
         """
         A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
         """
         return pulumi.get(self, "x509_certificate_properties")
 
     @x509_certificate_properties.setter
-    def x509_certificate_properties(self, value: Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesArgs']]):
+    def x509_certificate_properties(self, value: Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesArrgs']]):
         pulumi.set(self, "x509_certificate_properties", value)
 
 
 @pulumi.input_type
-class CertifiateCertificatePolicyIssuerParametersArgs:
+calass CertifiateCertificatePolicyIssuerParametersArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str]):
         """
@@ -308,7 +308,7 @@ class CertifiateCertificatePolicyIssuerParametersArgs:
 
 
 @pulumi.input_type
-class CertifiateCertificatePolicyKeyPropertiesArgs:
+calass CertifiateCertificatePolicyKeyPropertiesArrgs:
     def __init__(__self__, *,
                  exportable: pulumi.Input[bool],
                  key_type: pulumi.Input[str],
@@ -392,44 +392,44 @@ class CertifiateCertificatePolicyKeyPropertiesArgs:
 
 
 @pulumi.input_type
-class CertifiateCertificatePolicyLifetimeActionArgs:
+calass CertifiateCertificatePolicyLifetimeActionArrgs:
     def __init__(__self__, *,
-                 action: pulumi.Input['CertifiateCertificatePolicyLifetimeActionActionArgs'],
-                 trigger: pulumi.Input['CertifiateCertificatePolicyLifetimeActionTriggerArgs']):
+                 action: pulumi.Input['CertifiateCertificatePolicyLifetimeActionActionArrgs'],
+                 trigger: pulumi.Input['CertifiateCertificatePolicyLifetimeActionTriggerArrgs']):
         """
-        :param pulumi.Input['CertifiateCertificatePolicyLifetimeActionActionArgs'] action: A `action` block as defined below.
-        :param pulumi.Input['CertifiateCertificatePolicyLifetimeActionTriggerArgs'] trigger: A `trigger` block as defined below.
+        :param pulumi.Input['CertifiateCertificatePolicyLifetimeActionActionArrgs'] action: A `action` block as defined below.
+        :param pulumi.Input['CertifiateCertificatePolicyLifetimeActionTriggerArrgs'] trigger: A `trigger` block as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "trigger", trigger)
 
     @property
     @pulumi.getter
-    def action(self) -> pulumi.Input['CertifiateCertificatePolicyLifetimeActionActionArgs']:
+    def action(self) -> pulumi.Input['CertifiateCertificatePolicyLifetimeActionActionArrgs']:
         """
         A `action` block as defined below.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: pulumi.Input['CertifiateCertificatePolicyLifetimeActionActionArgs']):
+    def action(self, value: pulumi.Input['CertifiateCertificatePolicyLifetimeActionActionArrgs']):
         pulumi.set(self, "action", value)
 
     @property
     @pulumi.getter
-    def trigger(self) -> pulumi.Input['CertifiateCertificatePolicyLifetimeActionTriggerArgs']:
+    def trigger(self) -> pulumi.Input['CertifiateCertificatePolicyLifetimeActionTriggerArrgs']:
         """
         A `trigger` block as defined below.
         """
         return pulumi.get(self, "trigger")
 
     @trigger.setter
-    def trigger(self, value: pulumi.Input['CertifiateCertificatePolicyLifetimeActionTriggerArgs']):
+    def trigger(self, value: pulumi.Input['CertifiateCertificatePolicyLifetimeActionTriggerArrgs']):
         pulumi.set(self, "trigger", value)
 
 
 @pulumi.input_type
-class CertifiateCertificatePolicyLifetimeActionActionArgs:
+calass CertifiateCertificatePolicyLifetimeActionActionArrgs:
     def __init__(__self__, *,
                  action_type: pulumi.Input[str]):
         """
@@ -451,7 +451,7 @@ class CertifiateCertificatePolicyLifetimeActionActionArgs:
 
 
 @pulumi.input_type
-class CertifiateCertificatePolicyLifetimeActionTriggerArgs:
+calass CertifiateCertificatePolicyLifetimeActionTriggerArrgs:
     def __init__(__self__, *,
                  days_before_expiry: Optional[pulumi.Input[int]] = None,
                  lifetime_percentage: Optional[pulumi.Input[int]] = None):
@@ -490,7 +490,7 @@ class CertifiateCertificatePolicyLifetimeActionTriggerArgs:
 
 
 @pulumi.input_type
-class CertifiateCertificatePolicySecretPropertiesArgs:
+calass CertifiateCertificatePolicySecretPropertiesArrgs:
     def __init__(__self__, *,
                  content_type: pulumi.Input[str]):
         """
@@ -512,19 +512,19 @@ class CertifiateCertificatePolicySecretPropertiesArgs:
 
 
 @pulumi.input_type
-class CertifiateCertificatePolicyX509CertificatePropertiesArgs:
+calass CertifiateCertificatePolicyX509CertificatePropertiesArrgs:
     def __init__(__self__, *,
                  key_usages: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subject: pulumi.Input[str],
                  validity_in_months: pulumi.Input[int],
                  extended_key_usages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 subject_alternative_names: Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']] = None):
+                 subject_alternative_names: Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArrgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] key_usages: A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subject: The Certificate's Subject. Changing this forces a new resource to be created.
         :param pulumi.Input[int] validity_in_months: The Certificates Validity Period in Months. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extended_key_usages: A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
-        :param pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs'] subject_alternative_names: A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArrgs'] subject_alternative_names: A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "key_usages", key_usages)
         pulumi.set(__self__, "subject", subject)
@@ -584,19 +584,19 @@ class CertifiateCertificatePolicyX509CertificatePropertiesArgs:
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
-    def subject_alternative_names(self) -> Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']]:
+    def subject_alternative_names(self) -> Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArrgs']]:
         """
         A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subject_alternative_names")
 
     @subject_alternative_names.setter
-    def subject_alternative_names(self, value: Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']]):
+    def subject_alternative_names(self, value: Optional[pulumi.Input['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArrgs']]):
         pulumi.set(self, "subject_alternative_names", value)
 
 
 @pulumi.input_type
-class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs:
+calass CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArrgs:
     def __init__(__self__, *,
                  dns_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -651,7 +651,7 @@ class CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeName
 
 
 @pulumi.input_type
-class CertificateCertificateArgs:
+calass CertificateCertificateArrgs:
     def __init__(__self__, *,
                  contents: pulumi.Input[str],
                  password: Optional[pulumi.Input[str]] = None):
@@ -707,7 +707,7 @@ class CertificateCertificateArgs:
 
 
 @pulumi.input_type
-class CertificateCertificateAttributeArgs:
+calass CertificateCertificateAttributeArrgs:
     def __init__(__self__, *,
                  created: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -810,19 +810,19 @@ class CertificateCertificateAttributeArgs:
 
 
 @pulumi.input_type
-class CertificateCertificatePolicyArgs:
+calass CertificateCertificatePolicyArrgs:
     def __init__(__self__, *,
-                 issuer_parameters: pulumi.Input['CertificateCertificatePolicyIssuerParametersArgs'],
-                 key_properties: pulumi.Input['CertificateCertificatePolicyKeyPropertiesArgs'],
-                 secret_properties: pulumi.Input['CertificateCertificatePolicySecretPropertiesArgs'],
-                 lifetime_actions: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgs']]]] = None,
-                 x509_certificate_properties: Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesArgs']] = None):
+                 issuer_parameters: pulumi.Input['CertificateCertificatePolicyIssuerParametersArrgs'],
+                 key_properties: pulumi.Input['CertificateCertificatePolicyKeyPropertiesArrgs'],
+                 secret_properties: pulumi.Input['CertificateCertificatePolicySecretPropertiesArrgs'],
+                 lifetime_actions: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArrgs']]]] = None,
+                 x509_certificate_properties: Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesArrgs']] = None):
         """
-        :param pulumi.Input['CertificateCertificatePolicyIssuerParametersArgs'] issuer_parameters: A `issuer_parameters` block as defined below.
-        :param pulumi.Input['CertificateCertificatePolicyKeyPropertiesArgs'] key_properties: A `key_properties` block as defined below.
-        :param pulumi.Input['CertificateCertificatePolicySecretPropertiesArgs'] secret_properties: A `secret_properties` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgs']]] lifetime_actions: A `lifetime_action` block as defined below.
-        :param pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesArgs'] x509_certificate_properties: A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
+        :param pulumi.Input['CertificateCertificatePolicyIssuerParametersArrgs'] issuer_parameters: A `issuer_parameters` block as defined below.
+        :param pulumi.Input['CertificateCertificatePolicyKeyPropertiesArrgs'] key_properties: A `key_properties` block as defined below.
+        :param pulumi.Input['CertificateCertificatePolicySecretPropertiesArrgs'] secret_properties: A `secret_properties` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArrgs']]] lifetime_actions: A `lifetime_action` block as defined below.
+        :param pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesArrgs'] x509_certificate_properties: A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
         """
         pulumi.set(__self__, "issuer_parameters", issuer_parameters)
         pulumi.set(__self__, "key_properties", key_properties)
@@ -834,67 +834,67 @@ class CertificateCertificatePolicyArgs:
 
     @property
     @pulumi.getter(name="issuerParameters")
-    def issuer_parameters(self) -> pulumi.Input['CertificateCertificatePolicyIssuerParametersArgs']:
+    def issuer_parameters(self) -> pulumi.Input['CertificateCertificatePolicyIssuerParametersArrgs']:
         """
         A `issuer_parameters` block as defined below.
         """
         return pulumi.get(self, "issuer_parameters")
 
     @issuer_parameters.setter
-    def issuer_parameters(self, value: pulumi.Input['CertificateCertificatePolicyIssuerParametersArgs']):
+    def issuer_parameters(self, value: pulumi.Input['CertificateCertificatePolicyIssuerParametersArrgs']):
         pulumi.set(self, "issuer_parameters", value)
 
     @property
     @pulumi.getter(name="keyProperties")
-    def key_properties(self) -> pulumi.Input['CertificateCertificatePolicyKeyPropertiesArgs']:
+    def key_properties(self) -> pulumi.Input['CertificateCertificatePolicyKeyPropertiesArrgs']:
         """
         A `key_properties` block as defined below.
         """
         return pulumi.get(self, "key_properties")
 
     @key_properties.setter
-    def key_properties(self, value: pulumi.Input['CertificateCertificatePolicyKeyPropertiesArgs']):
+    def key_properties(self, value: pulumi.Input['CertificateCertificatePolicyKeyPropertiesArrgs']):
         pulumi.set(self, "key_properties", value)
 
     @property
     @pulumi.getter(name="secretProperties")
-    def secret_properties(self) -> pulumi.Input['CertificateCertificatePolicySecretPropertiesArgs']:
+    def secret_properties(self) -> pulumi.Input['CertificateCertificatePolicySecretPropertiesArrgs']:
         """
         A `secret_properties` block as defined below.
         """
         return pulumi.get(self, "secret_properties")
 
     @secret_properties.setter
-    def secret_properties(self, value: pulumi.Input['CertificateCertificatePolicySecretPropertiesArgs']):
+    def secret_properties(self, value: pulumi.Input['CertificateCertificatePolicySecretPropertiesArrgs']):
         pulumi.set(self, "secret_properties", value)
 
     @property
     @pulumi.getter(name="lifetimeActions")
-    def lifetime_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgs']]]]:
+    def lifetime_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArrgs']]]]:
         """
         A `lifetime_action` block as defined below.
         """
         return pulumi.get(self, "lifetime_actions")
 
     @lifetime_actions.setter
-    def lifetime_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgs']]]]):
+    def lifetime_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArrgs']]]]):
         pulumi.set(self, "lifetime_actions", value)
 
     @property
     @pulumi.getter(name="x509CertificateProperties")
-    def x509_certificate_properties(self) -> Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesArgs']]:
+    def x509_certificate_properties(self) -> Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesArrgs']]:
         """
         A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
         """
         return pulumi.get(self, "x509_certificate_properties")
 
     @x509_certificate_properties.setter
-    def x509_certificate_properties(self, value: Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesArgs']]):
+    def x509_certificate_properties(self, value: Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesArrgs']]):
         pulumi.set(self, "x509_certificate_properties", value)
 
 
 @pulumi.input_type
-class CertificateCertificatePolicyIssuerParametersArgs:
+calass CertificateCertificatePolicyIssuerParametersArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str]):
         """
@@ -916,7 +916,7 @@ class CertificateCertificatePolicyIssuerParametersArgs:
 
 
 @pulumi.input_type
-class CertificateCertificatePolicyKeyPropertiesArgs:
+calass CertificateCertificatePolicyKeyPropertiesArrgs:
     def __init__(__self__, *,
                  exportable: pulumi.Input[bool],
                  key_type: pulumi.Input[str],
@@ -1000,44 +1000,44 @@ class CertificateCertificatePolicyKeyPropertiesArgs:
 
 
 @pulumi.input_type
-class CertificateCertificatePolicyLifetimeActionArgs:
+calass CertificateCertificatePolicyLifetimeActionArrgs:
     def __init__(__self__, *,
-                 action: pulumi.Input['CertificateCertificatePolicyLifetimeActionActionArgs'],
-                 trigger: pulumi.Input['CertificateCertificatePolicyLifetimeActionTriggerArgs']):
+                 action: pulumi.Input['CertificateCertificatePolicyLifetimeActionActionArrgs'],
+                 trigger: pulumi.Input['CertificateCertificatePolicyLifetimeActionTriggerArrgs']):
         """
-        :param pulumi.Input['CertificateCertificatePolicyLifetimeActionActionArgs'] action: A `action` block as defined below.
-        :param pulumi.Input['CertificateCertificatePolicyLifetimeActionTriggerArgs'] trigger: A `trigger` block as defined below.
+        :param pulumi.Input['CertificateCertificatePolicyLifetimeActionActionArrgs'] action: A `action` block as defined below.
+        :param pulumi.Input['CertificateCertificatePolicyLifetimeActionTriggerArrgs'] trigger: A `trigger` block as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "trigger", trigger)
 
     @property
     @pulumi.getter
-    def action(self) -> pulumi.Input['CertificateCertificatePolicyLifetimeActionActionArgs']:
+    def action(self) -> pulumi.Input['CertificateCertificatePolicyLifetimeActionActionArrgs']:
         """
         A `action` block as defined below.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: pulumi.Input['CertificateCertificatePolicyLifetimeActionActionArgs']):
+    def action(self, value: pulumi.Input['CertificateCertificatePolicyLifetimeActionActionArrgs']):
         pulumi.set(self, "action", value)
 
     @property
     @pulumi.getter
-    def trigger(self) -> pulumi.Input['CertificateCertificatePolicyLifetimeActionTriggerArgs']:
+    def trigger(self) -> pulumi.Input['CertificateCertificatePolicyLifetimeActionTriggerArrgs']:
         """
         A `trigger` block as defined below.
         """
         return pulumi.get(self, "trigger")
 
     @trigger.setter
-    def trigger(self, value: pulumi.Input['CertificateCertificatePolicyLifetimeActionTriggerArgs']):
+    def trigger(self, value: pulumi.Input['CertificateCertificatePolicyLifetimeActionTriggerArrgs']):
         pulumi.set(self, "trigger", value)
 
 
 @pulumi.input_type
-class CertificateCertificatePolicyLifetimeActionActionArgs:
+calass CertificateCertificatePolicyLifetimeActionActionArrgs:
     def __init__(__self__, *,
                  action_type: pulumi.Input[str]):
         """
@@ -1059,7 +1059,7 @@ class CertificateCertificatePolicyLifetimeActionActionArgs:
 
 
 @pulumi.input_type
-class CertificateCertificatePolicyLifetimeActionTriggerArgs:
+calass CertificateCertificatePolicyLifetimeActionTriggerArrgs:
     def __init__(__self__, *,
                  days_before_expiry: Optional[pulumi.Input[int]] = None,
                  lifetime_percentage: Optional[pulumi.Input[int]] = None):
@@ -1098,7 +1098,7 @@ class CertificateCertificatePolicyLifetimeActionTriggerArgs:
 
 
 @pulumi.input_type
-class CertificateCertificatePolicySecretPropertiesArgs:
+calass CertificateCertificatePolicySecretPropertiesArrgs:
     def __init__(__self__, *,
                  content_type: pulumi.Input[str]):
         """
@@ -1120,19 +1120,19 @@ class CertificateCertificatePolicySecretPropertiesArgs:
 
 
 @pulumi.input_type
-class CertificateCertificatePolicyX509CertificatePropertiesArgs:
+calass CertificateCertificatePolicyX509CertificatePropertiesArrgs:
     def __init__(__self__, *,
                  key_usages: pulumi.Input[Sequence[pulumi.Input[str]]],
                  subject: pulumi.Input[str],
                  validity_in_months: pulumi.Input[int],
                  extended_key_usages: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 subject_alternative_names: Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']] = None):
+                 subject_alternative_names: Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArrgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] key_usages: A list of uses associated with this Key. Possible values include `cRLSign`, `dataEncipherment`, `decipherOnly`, `digitalSignature`, `encipherOnly`, `keyAgreement`, `keyCertSign`, `keyEncipherment` and `nonRepudiation` and are case-sensitive. Changing this forces a new resource to be created.
         :param pulumi.Input[str] subject: The Certificate's Subject. Changing this forces a new resource to be created.
         :param pulumi.Input[int] validity_in_months: The Certificates Validity Period in Months. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] extended_key_usages: A list of Extended/Enhanced Key Usages. Changing this forces a new resource to be created.
-        :param pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs'] subject_alternative_names: A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArrgs'] subject_alternative_names: A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "key_usages", key_usages)
         pulumi.set(__self__, "subject", subject)
@@ -1192,19 +1192,19 @@ class CertificateCertificatePolicyX509CertificatePropertiesArgs:
 
     @property
     @pulumi.getter(name="subjectAlternativeNames")
-    def subject_alternative_names(self) -> Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']]:
+    def subject_alternative_names(self) -> Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArrgs']]:
         """
         A `subject_alternative_names` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "subject_alternative_names")
 
     @subject_alternative_names.setter
-    def subject_alternative_names(self, value: Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']]):
+    def subject_alternative_names(self, value: Optional[pulumi.Input['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArrgs']]):
         pulumi.set(self, "subject_alternative_names", value)
 
 
 @pulumi.input_type
-class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs:
+calass CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArrgs:
     def __init__(__self__, *,
                  dns_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1259,7 +1259,7 @@ class CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNam
 
 
 @pulumi.input_type
-class CertificateContactsContactArgs:
+calass CertificateContactsContactArrgs:
     def __init__(__self__, *,
                  email: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
@@ -1313,7 +1313,7 @@ class CertificateContactsContactArgs:
 
 
 @pulumi.input_type
-class CertificateIssuerAdminArgs:
+calass CertificateIssuerAdminArrgs:
     def __init__(__self__, *,
                  email_address: pulumi.Input[str],
                  first_name: Optional[pulumi.Input[str]] = None,
@@ -1383,13 +1383,13 @@ class CertificateIssuerAdminArgs:
 
 
 @pulumi.input_type
-class KeyRotationPolicyArgs:
+calass KeyRotationPolicyArrgs:
     def __init__(__self__, *,
-                 automatic: Optional[pulumi.Input['KeyRotationPolicyAutomaticArgs']] = None,
+                 automatic: Optional[pulumi.Input['KeyRotationPolicyAutomaticArrgs']] = None,
                  expire_after: Optional[pulumi.Input[str]] = None,
                  notify_before_expiry: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['KeyRotationPolicyAutomaticArgs'] automatic: An `automatic` block as defined below.
+        :param pulumi.Input['KeyRotationPolicyAutomaticArrgs'] automatic: An `automatic` block as defined below.
         :param pulumi.Input[str] expire_after: Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations).
         :param pulumi.Input[str] notify_before_expiry: Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). Default is `P30D`.
         """
@@ -1402,14 +1402,14 @@ class KeyRotationPolicyArgs:
 
     @property
     @pulumi.getter
-    def automatic(self) -> Optional[pulumi.Input['KeyRotationPolicyAutomaticArgs']]:
+    def automatic(self) -> Optional[pulumi.Input['KeyRotationPolicyAutomaticArrgs']]:
         """
         An `automatic` block as defined below.
         """
         return pulumi.get(self, "automatic")
 
     @automatic.setter
-    def automatic(self, value: Optional[pulumi.Input['KeyRotationPolicyAutomaticArgs']]):
+    def automatic(self, value: Optional[pulumi.Input['KeyRotationPolicyAutomaticArrgs']]):
         pulumi.set(self, "automatic", value)
 
     @property
@@ -1438,7 +1438,7 @@ class KeyRotationPolicyArgs:
 
 
 @pulumi.input_type
-class KeyRotationPolicyAutomaticArgs:
+calass KeyRotationPolicyAutomaticArrgs:
     def __init__(__self__, *,
                  time_after_creation: Optional[pulumi.Input[str]] = None,
                  time_before_expiry: Optional[pulumi.Input[str]] = None):
@@ -1477,7 +1477,7 @@ class KeyRotationPolicyAutomaticArgs:
 
 
 @pulumi.input_type
-class KeyVaultAccessPolicyArgs:
+calass KeyVaultAccessPolicyArrgs:
     def __init__(__self__, *,
                  object_id: pulumi.Input[str],
                  tenant_id: pulumi.Input[str],
@@ -1594,7 +1594,7 @@ class KeyVaultAccessPolicyArgs:
 
 
 @pulumi.input_type
-class KeyVaultContactArgs:
+calass KeyVaultContactArrgs:
     def __init__(__self__, *,
                  email: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
@@ -1648,7 +1648,7 @@ class KeyVaultContactArgs:
 
 
 @pulumi.input_type
-class KeyVaultNetworkAclsArgs:
+calass KeyVaultNetworkAclsArrgs:
     def __init__(__self__, *,
                  bypass: pulumi.Input[str],
                  default_action: pulumi.Input[str],
@@ -1717,7 +1717,7 @@ class KeyVaultNetworkAclsArgs:
 
 
 @pulumi.input_type
-class ManagedHardwareSecurityModuleNetworkAclsArgs:
+calass ManagedHardwareSecurityModuleNetworkAclsArrgs:
     def __init__(__self__, *,
                  bypass: pulumi.Input[str],
                  default_action: pulumi.Input[str]):

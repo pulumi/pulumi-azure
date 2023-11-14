@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ServerSecurityAlertPolicyArgs', 'ServerSecurityAlertPolicy']
+__all__ = ['ServerSecurityAlertPolicyArrgs', 'ServerSecurityAlertPolicy']
 
 @pulumi.input_type
-class ServerSecurityAlertPolicyArgs:
+calass ServerSecurityAlertPolicyArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  server_name: pulumi.Input[str],
@@ -165,7 +165,7 @@ class ServerSecurityAlertPolicyArgs:
 
 
 @pulumi.input_type
-class _ServerSecurityAlertPolicyState:
+calass _ServerSecurityAlertPolicyState:
     def __init__(__self__, *,
                  disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  email_account_admins: Optional[pulumi.Input[bool]] = None,
@@ -320,7 +320,7 @@ class _ServerSecurityAlertPolicyState:
         pulumi.set(self, "storage_endpoint", value)
 
 
-class ServerSecurityAlertPolicy(pulumi.CustomResource):
+calass ServerSecurityAlertPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -397,7 +397,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServerSecurityAlertPolicyArgs,
+                 args: ServerSecurityAlertPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Security Alert Policy for a MSSQL Server.
@@ -444,12 +444,12 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServerSecurityAlertPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param ServerSecurityAlertPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServerSecurityAlertPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServerSecurityAlertPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -474,7 +474,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServerSecurityAlertPolicyArgs.__new__(ServerSecurityAlertPolicyArgs)
+            __props__ = ServerSecurityAlertPolicyArrgs.__new__(ServerSecurityAlertPolicyArrgs)
 
             __props__.__dict__["disabled_alerts"] = disabled_alerts
             __props__.__dict__["email_account_admins"] = email_account_admins

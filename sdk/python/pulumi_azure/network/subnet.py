@@ -11,15 +11,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SubnetArgs', 'Subnet']
+__all__ = ['SubnetArrgs', 'Subnet']
 
 @pulumi.input_type
-class SubnetArgs:
+calass SubnetArrgs:
     def __init__(__self__, *,
                  address_prefixes: pulumi.Input[Sequence[pulumi.Input[str]]],
                  resource_group_name: pulumi.Input[str],
                  virtual_network_name: pulumi.Input[str],
-                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArgs']]]] = None,
+                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArrgs']]]] = None,
                  enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
                  enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -34,7 +34,7 @@ class SubnetArgs:
                > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[str] virtual_network_name: The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArgs']]] delegations: One or more `delegation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArrgs']]] delegations: One or more `delegation` blocks as defined below.
         :param pulumi.Input[str] name: The name of the subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_endpoint_network_policies_enabled: Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
                
@@ -113,14 +113,14 @@ class SubnetArgs:
 
     @property
     @pulumi.getter
-    def delegations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArgs']]]]:
+    def delegations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArrgs']]]]:
         """
         One or more `delegation` blocks as defined below.
         """
         return pulumi.get(self, "delegations")
 
     @delegations.setter
-    def delegations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArgs']]]]):
+    def delegations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArrgs']]]]):
         pulumi.set(self, "delegations", value)
 
     @property
@@ -215,10 +215,10 @@ class SubnetArgs:
 
 
 @pulumi.input_type
-class _SubnetState:
+calass _SubnetState:
     def __init__(__self__, *,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArgs']]]] = None,
+                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArrgs']]]] = None,
                  enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
                  enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -233,7 +233,7 @@ class _SubnetState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: The address prefixes to use for the subnet.
                
                > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
-        :param pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArgs']]] delegations: One or more `delegation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArrgs']]] delegations: One or more `delegation` blocks as defined below.
         :param pulumi.Input[str] name: The name of the subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_endpoint_network_policies_enabled: Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
                
@@ -293,14 +293,14 @@ class _SubnetState:
 
     @property
     @pulumi.getter
-    def delegations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArgs']]]]:
+    def delegations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArrgs']]]]:
         """
         One or more `delegation` blocks as defined below.
         """
         return pulumi.get(self, "delegations")
 
     @delegations.setter
-    def delegations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArgs']]]]):
+    def delegations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubnetDelegationArrgs']]]]):
         pulumi.set(self, "delegations", value)
 
     @property
@@ -418,13 +418,13 @@ class _SubnetState:
         pulumi.set(self, "virtual_network_name", value)
 
 
-class Subnet(pulumi.CustomResource):
+calass Subnet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetDelegationArgs']]]]] = None,
+                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetDelegationArrgs']]]]] = None,
                  enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
                  enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -457,9 +457,9 @@ class Subnet(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     name="Microsoft.ContainerInstance/containerGroups",
                     actions=[
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
@@ -482,7 +482,7 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: The address prefixes to use for the subnet.
                
                > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetDelegationArgs']]]] delegations: One or more `delegation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetDelegationArrgs']]]] delegations: One or more `delegation` blocks as defined below.
         :param pulumi.Input[str] name: The name of the subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_endpoint_network_policies_enabled: Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
                
@@ -501,7 +501,7 @@ class Subnet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SubnetArgs,
+                 args: SubnetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a subnet. Subnets represent network segments within the IP space defined by the virtual network.
@@ -525,9 +525,9 @@ class Subnet(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="delegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     name="Microsoft.ContainerInstance/containerGroups",
                     actions=[
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
@@ -546,12 +546,12 @@ class Subnet(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SubnetArgs args: The arguments to use to populate this resource's properties.
+        :param SubnetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SubnetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SubnetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -561,7 +561,7 @@ class Subnet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetDelegationArgs']]]]] = None,
+                 delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetDelegationArrgs']]]]] = None,
                  enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
                  enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -578,7 +578,7 @@ class Subnet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SubnetArgs.__new__(SubnetArgs)
+            __props__ = SubnetArrgs.__new__(SubnetArrgs)
 
             if address_prefixes is None and not opts.urn:
                 raise TypeError("Missing required property 'address_prefixes'")
@@ -608,7 +608,7 @@ class Subnet(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetDelegationArgs']]]]] = None,
+            delegations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetDelegationArrgs']]]]] = None,
             enforce_private_link_endpoint_network_policies: Optional[pulumi.Input[bool]] = None,
             enforce_private_link_service_network_policies: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -628,7 +628,7 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_prefixes: The address prefixes to use for the subnet.
                
                > **NOTE:** Currently only a single address prefix can be set as the [Multiple Subnet Address Prefixes Feature](https://github.com/Azure/azure-cli/issues/18194#issuecomment-880484269) is not yet in public preview or general availability.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetDelegationArgs']]]] delegations: One or more `delegation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetDelegationArrgs']]]] delegations: One or more `delegation` blocks as defined below.
         :param pulumi.Input[str] name: The name of the subnet. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] private_endpoint_network_policies_enabled: Enable or Disable network policies for the private endpoint on the subnet. Setting this to `true` will **Enable** the policy and setting this to `false` will **Disable** the policy. Defaults to `true`.
                

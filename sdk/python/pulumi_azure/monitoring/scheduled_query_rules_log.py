@@ -11,12 +11,12 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ScheduledQueryRulesLogArgs', 'ScheduledQueryRulesLog']
+__all__ = ['ScheduledQueryRulesLogArrgs', 'ScheduledQueryRulesLog']
 
 @pulumi.input_type
-class ScheduledQueryRulesLogArgs:
+calass ScheduledQueryRulesLogArrgs:
     def __init__(__self__, *,
-                 criteria: pulumi.Input['ScheduledQueryRulesLogCriteriaArgs'],
+                 criteria: pulumi.Input['ScheduledQueryRulesLogCriteriaArrgs'],
                  data_source_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -27,7 +27,7 @@ class ScheduledQueryRulesLogArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ScheduledQueryRulesLog resource.
-        :param pulumi.Input['ScheduledQueryRulesLogCriteriaArgs'] criteria: A `criteria` block as defined below.
+        :param pulumi.Input['ScheduledQueryRulesLogCriteriaArrgs'] criteria: A `criteria` block as defined below.
         :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resource_ids: A list of IDs of Resources referred into query.
@@ -55,14 +55,14 @@ class ScheduledQueryRulesLogArgs:
 
     @property
     @pulumi.getter
-    def criteria(self) -> pulumi.Input['ScheduledQueryRulesLogCriteriaArgs']:
+    def criteria(self) -> pulumi.Input['ScheduledQueryRulesLogCriteriaArrgs']:
         """
         A `criteria` block as defined below.
         """
         return pulumi.get(self, "criteria")
 
     @criteria.setter
-    def criteria(self, value: pulumi.Input['ScheduledQueryRulesLogCriteriaArgs']):
+    def criteria(self, value: pulumi.Input['ScheduledQueryRulesLogCriteriaArrgs']):
         pulumi.set(self, "criteria", value)
 
     @property
@@ -163,10 +163,10 @@ class ScheduledQueryRulesLogArgs:
 
 
 @pulumi.input_type
-class _ScheduledQueryRulesLogState:
+calass _ScheduledQueryRulesLogState:
     def __init__(__self__, *,
                  authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 criteria: Optional[pulumi.Input['ScheduledQueryRulesLogCriteriaArgs']] = None,
+                 criteria: Optional[pulumi.Input['ScheduledQueryRulesLogCriteriaArrgs']] = None,
                  data_source_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -177,7 +177,7 @@ class _ScheduledQueryRulesLogState:
         """
         Input properties used for looking up and filtering ScheduledQueryRulesLog resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resource_ids: A list of IDs of Resources referred into query.
-        :param pulumi.Input['ScheduledQueryRulesLogCriteriaArgs'] criteria: A `criteria` block as defined below.
+        :param pulumi.Input['ScheduledQueryRulesLogCriteriaArrgs'] criteria: A `criteria` block as defined below.
         :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run.
         :param pulumi.Input[str] description: The description of the scheduled query rule.
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled. Default is `true`.
@@ -219,14 +219,14 @@ class _ScheduledQueryRulesLogState:
 
     @property
     @pulumi.getter
-    def criteria(self) -> Optional[pulumi.Input['ScheduledQueryRulesLogCriteriaArgs']]:
+    def criteria(self) -> Optional[pulumi.Input['ScheduledQueryRulesLogCriteriaArrgs']]:
         """
         A `criteria` block as defined below.
         """
         return pulumi.get(self, "criteria")
 
     @criteria.setter
-    def criteria(self, value: Optional[pulumi.Input['ScheduledQueryRulesLogCriteriaArgs']]):
+    def criteria(self, value: Optional[pulumi.Input['ScheduledQueryRulesLogCriteriaArrgs']]):
         pulumi.set(self, "criteria", value)
 
     @property
@@ -314,13 +314,13 @@ class _ScheduledQueryRulesLogState:
         pulumi.set(self, "tags", value)
 
 
-class ScheduledQueryRulesLog(pulumi.CustomResource):
+calass ScheduledQueryRulesLog(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 criteria: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesLogCriteriaArgs']]] = None,
+                 criteria: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesLogCriteriaArrgs']]] = None,
                  data_source_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -347,7 +347,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
             resource_group_name=example_resource_group.name,
             short_name="exampleact",
-            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
+            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArrgs(
                 name="callmyapi",
                 service_uri="http://example.com/alert",
             )])
@@ -358,23 +358,23 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
             description="Action will be triggered when Average_% Idle Time metric is less than 10.",
             frequency="PT1M",
             window_size="PT5M",
-            criterias=[azure.monitoring.MetricAlertCriteriaArgs(
+            criterias=[azure.monitoring.MetricAlertCriteriaArrgs(
                 metric_namespace="Microsoft.OperationalInsights/workspaces",
                 metric_name="UsedCapacity",
                 aggregation="Average",
                 operator="LessThan",
                 threshold=10,
             )],
-            actions=[azure.monitoring.MetricAlertActionArgs(
+            actions=[azure.monitoring.MetricAlertActionArrgs(
                 action_group_id=example_action_group.id,
             )])
         # Example: LogToMetric Action for the named Computer
         example_scheduled_query_rules_log = azure.monitoring.ScheduledQueryRulesLog("exampleScheduledQueryRulesLog",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            criteria=azure.monitoring.ScheduledQueryRulesLogCriteriaArgs(
+            criteria=azure.monitoring.ScheduledQueryRulesLogCriteriaArrgs(
                 metric_name="Average_% Idle Time",
-                dimensions=[azure.monitoring.ScheduledQueryRulesLogCriteriaDimensionArgs(
+                dimensions=[azure.monitoring.ScheduledQueryRulesLogCriteriaDimensionArrgs(
                     name="Computer",
                     operator="Include",
                     values=["targetVM"],
@@ -399,7 +399,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resource_ids: A list of IDs of Resources referred into query.
-        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesLogCriteriaArgs']] criteria: A `criteria` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesLogCriteriaArrgs']] criteria: A `criteria` block as defined below.
         :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run.
         :param pulumi.Input[str] description: The description of the scheduled query rule.
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled. Default is `true`.
@@ -412,7 +412,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ScheduledQueryRulesLogArgs,
+                 args: ScheduledQueryRulesLogArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a LogToMetricAction Scheduled Query Rules resource within Azure Monitor.
@@ -432,7 +432,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
             resource_group_name=example_resource_group.name,
             short_name="exampleact",
-            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
+            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArrgs(
                 name="callmyapi",
                 service_uri="http://example.com/alert",
             )])
@@ -443,23 +443,23 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
             description="Action will be triggered when Average_% Idle Time metric is less than 10.",
             frequency="PT1M",
             window_size="PT5M",
-            criterias=[azure.monitoring.MetricAlertCriteriaArgs(
+            criterias=[azure.monitoring.MetricAlertCriteriaArrgs(
                 metric_namespace="Microsoft.OperationalInsights/workspaces",
                 metric_name="UsedCapacity",
                 aggregation="Average",
                 operator="LessThan",
                 threshold=10,
             )],
-            actions=[azure.monitoring.MetricAlertActionArgs(
+            actions=[azure.monitoring.MetricAlertActionArrgs(
                 action_group_id=example_action_group.id,
             )])
         # Example: LogToMetric Action for the named Computer
         example_scheduled_query_rules_log = azure.monitoring.ScheduledQueryRulesLog("exampleScheduledQueryRulesLog",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            criteria=azure.monitoring.ScheduledQueryRulesLogCriteriaArgs(
+            criteria=azure.monitoring.ScheduledQueryRulesLogCriteriaArrgs(
                 metric_name="Average_% Idle Time",
-                dimensions=[azure.monitoring.ScheduledQueryRulesLogCriteriaDimensionArgs(
+                dimensions=[azure.monitoring.ScheduledQueryRulesLogCriteriaDimensionArrgs(
                     name="Computer",
                     operator="Include",
                     values=["targetVM"],
@@ -482,12 +482,12 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ScheduledQueryRulesLogArgs args: The arguments to use to populate this resource's properties.
+        :param ScheduledQueryRulesLogArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ScheduledQueryRulesLogArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ScheduledQueryRulesLogArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -497,7 +497,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 criteria: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesLogCriteriaArgs']]] = None,
+                 criteria: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesLogCriteriaArrgs']]] = None,
                  data_source_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
@@ -512,7 +512,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ScheduledQueryRulesLogArgs.__new__(ScheduledQueryRulesLogArgs)
+            __props__ = ScheduledQueryRulesLogArrgs.__new__(ScheduledQueryRulesLogArrgs)
 
             __props__.__dict__["authorized_resource_ids"] = authorized_resource_ids
             if criteria is None and not opts.urn:
@@ -540,7 +540,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             authorized_resource_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            criteria: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesLogCriteriaArgs']]] = None,
+            criteria: Optional[pulumi.Input[pulumi.InputType['ScheduledQueryRulesLogCriteriaArrgs']]] = None,
             data_source_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
@@ -556,7 +556,7 @@ class ScheduledQueryRulesLog(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_resource_ids: A list of IDs of Resources referred into query.
-        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesLogCriteriaArgs']] criteria: A `criteria` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ScheduledQueryRulesLogCriteriaArrgs']] criteria: A `criteria` block as defined below.
         :param pulumi.Input[str] data_source_id: The resource URI over which log search query is to be run.
         :param pulumi.Input[str] description: The description of the scheduled query rule.
         :param pulumi.Input[bool] enabled: Whether this scheduled query rule is enabled. Default is `true`.

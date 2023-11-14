@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['LocalNetworkGatewayArgs', 'LocalNetworkGateway']
+__all__ = ['LocalNetworkGatewayArrgs', 'LocalNetworkGateway']
 
 @pulumi.input_type
-class LocalNetworkGatewayArgs:
+calass LocalNetworkGatewayArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  address_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 bgp_settings: Optional[pulumi.Input['LocalNetworkGatewayBgpSettingsArgs']] = None,
+                 bgp_settings: Optional[pulumi.Input['LocalNetworkGatewayBgpSettingsArrgs']] = None,
                  gateway_address: Optional[pulumi.Input[str]] = None,
                  gateway_fqdn: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -28,7 +28,7 @@ class LocalNetworkGatewayArgs:
         The set of arguments for constructing a LocalNetworkGateway resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the local network gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_spaces: The list of string CIDRs representing the address spaces the gateway exposes.
-        :param pulumi.Input['LocalNetworkGatewayBgpSettingsArgs'] bgp_settings: A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
+        :param pulumi.Input['LocalNetworkGatewayBgpSettingsArrgs'] bgp_settings: A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
         :param pulumi.Input[str] gateway_address: The gateway IP address to connect with.
         :param pulumi.Input[str] gateway_fqdn: The gateway FQDN to connect with.
                
@@ -79,14 +79,14 @@ class LocalNetworkGatewayArgs:
 
     @property
     @pulumi.getter(name="bgpSettings")
-    def bgp_settings(self) -> Optional[pulumi.Input['LocalNetworkGatewayBgpSettingsArgs']]:
+    def bgp_settings(self) -> Optional[pulumi.Input['LocalNetworkGatewayBgpSettingsArrgs']]:
         """
         A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
         """
         return pulumi.get(self, "bgp_settings")
 
     @bgp_settings.setter
-    def bgp_settings(self, value: Optional[pulumi.Input['LocalNetworkGatewayBgpSettingsArgs']]):
+    def bgp_settings(self, value: Optional[pulumi.Input['LocalNetworkGatewayBgpSettingsArrgs']]):
         pulumi.set(self, "bgp_settings", value)
 
     @property
@@ -153,10 +153,10 @@ class LocalNetworkGatewayArgs:
 
 
 @pulumi.input_type
-class _LocalNetworkGatewayState:
+calass _LocalNetworkGatewayState:
     def __init__(__self__, *,
                  address_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 bgp_settings: Optional[pulumi.Input['LocalNetworkGatewayBgpSettingsArgs']] = None,
+                 bgp_settings: Optional[pulumi.Input['LocalNetworkGatewayBgpSettingsArrgs']] = None,
                  gateway_address: Optional[pulumi.Input[str]] = None,
                  gateway_fqdn: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -166,7 +166,7 @@ class _LocalNetworkGatewayState:
         """
         Input properties used for looking up and filtering LocalNetworkGateway resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_spaces: The list of string CIDRs representing the address spaces the gateway exposes.
-        :param pulumi.Input['LocalNetworkGatewayBgpSettingsArgs'] bgp_settings: A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
+        :param pulumi.Input['LocalNetworkGatewayBgpSettingsArrgs'] bgp_settings: A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
         :param pulumi.Input[str] gateway_address: The gateway IP address to connect with.
         :param pulumi.Input[str] gateway_fqdn: The gateway FQDN to connect with.
                
@@ -207,14 +207,14 @@ class _LocalNetworkGatewayState:
 
     @property
     @pulumi.getter(name="bgpSettings")
-    def bgp_settings(self) -> Optional[pulumi.Input['LocalNetworkGatewayBgpSettingsArgs']]:
+    def bgp_settings(self) -> Optional[pulumi.Input['LocalNetworkGatewayBgpSettingsArrgs']]:
         """
         A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
         """
         return pulumi.get(self, "bgp_settings")
 
     @bgp_settings.setter
-    def bgp_settings(self, value: Optional[pulumi.Input['LocalNetworkGatewayBgpSettingsArgs']]):
+    def bgp_settings(self, value: Optional[pulumi.Input['LocalNetworkGatewayBgpSettingsArrgs']]):
         pulumi.set(self, "bgp_settings", value)
 
     @property
@@ -292,13 +292,13 @@ class _LocalNetworkGatewayState:
         pulumi.set(self, "tags", value)
 
 
-class LocalNetworkGateway(pulumi.CustomResource):
+calass LocalNetworkGateway(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 bgp_settings: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayBgpSettingsArgs']]] = None,
+                 bgp_settings: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayBgpSettingsArrgs']]] = None,
                  gateway_address: Optional[pulumi.Input[str]] = None,
                  gateway_fqdn: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -334,7 +334,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_spaces: The list of string CIDRs representing the address spaces the gateway exposes.
-        :param pulumi.Input[pulumi.InputType['LocalNetworkGatewayBgpSettingsArgs']] bgp_settings: A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
+        :param pulumi.Input[pulumi.InputType['LocalNetworkGatewayBgpSettingsArrgs']] bgp_settings: A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
         :param pulumi.Input[str] gateway_address: The gateway IP address to connect with.
         :param pulumi.Input[str] gateway_fqdn: The gateway FQDN to connect with.
                
@@ -348,7 +348,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LocalNetworkGatewayArgs,
+                 args: LocalNetworkGatewayArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a local network gateway connection over which specific connections can be configured.
@@ -376,12 +376,12 @@ class LocalNetworkGateway(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LocalNetworkGatewayArgs args: The arguments to use to populate this resource's properties.
+        :param LocalNetworkGatewayArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LocalNetworkGatewayArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LocalNetworkGatewayArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -391,7 +391,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 bgp_settings: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayBgpSettingsArgs']]] = None,
+                 bgp_settings: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayBgpSettingsArrgs']]] = None,
                  gateway_address: Optional[pulumi.Input[str]] = None,
                  gateway_fqdn: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -405,7 +405,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LocalNetworkGatewayArgs.__new__(LocalNetworkGatewayArgs)
+            __props__ = LocalNetworkGatewayArrgs.__new__(LocalNetworkGatewayArrgs)
 
             __props__.__dict__["address_spaces"] = address_spaces
             __props__.__dict__["bgp_settings"] = bgp_settings
@@ -428,7 +428,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             address_spaces: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            bgp_settings: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayBgpSettingsArgs']]] = None,
+            bgp_settings: Optional[pulumi.Input[pulumi.InputType['LocalNetworkGatewayBgpSettingsArrgs']]] = None,
             gateway_address: Optional[pulumi.Input[str]] = None,
             gateway_fqdn: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -443,7 +443,7 @@ class LocalNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] address_spaces: The list of string CIDRs representing the address spaces the gateway exposes.
-        :param pulumi.Input[pulumi.InputType['LocalNetworkGatewayBgpSettingsArgs']] bgp_settings: A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
+        :param pulumi.Input[pulumi.InputType['LocalNetworkGatewayBgpSettingsArrgs']] bgp_settings: A `bgp_settings` block as defined below containing the Local Network Gateway's BGP speaker settings.
         :param pulumi.Input[str] gateway_address: The gateway IP address to connect with.
         :param pulumi.Input[str] gateway_fqdn: The gateway FQDN to connect with.
                

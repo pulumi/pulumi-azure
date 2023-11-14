@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ZipBlobArgs', 'ZipBlob']
+__all__ = ['ZipBlobArrgs', 'ZipBlob']
 
 @pulumi.input_type
-class ZipBlobArgs:
+calass ZipBlobArrgs:
     def __init__(__self__, *,
                  storage_account_name: pulumi.Input[str],
                  storage_container_name: pulumi.Input[str],
@@ -185,7 +185,7 @@ class ZipBlobArgs:
 
 
 @pulumi.input_type
-class _ZipBlobState:
+calass _ZipBlobState:
     def __init__(__self__, *,
                  access_tier: Optional[pulumi.Input[str]] = None,
                  cache_control: Optional[pulumi.Input[str]] = None,
@@ -375,7 +375,7 @@ class _ZipBlobState:
 warnings.warn("""ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.""", DeprecationWarning)
 
 
-class ZipBlob(pulumi.CustomResource):
+calass ZipBlob(pulumi.CustomResource):
     warnings.warn("""ZipBlob resource is deprecated in the 2.0 version of the provider. Use Blob resource instead.""", DeprecationWarning)
 
     @overload
@@ -406,17 +406,17 @@ class ZipBlob(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ZipBlobArgs,
+                 args: ZipBlobArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a ZipBlob resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param ZipBlobArgs args: The arguments to use to populate this resource's properties.
+        :param ZipBlobArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ZipBlobArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ZipBlobArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -447,7 +447,7 @@ class ZipBlob(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ZipBlobArgs.__new__(ZipBlobArgs)
+            __props__ = ZipBlobArrgs.__new__(ZipBlobArrgs)
 
             __props__.__dict__["access_tier"] = access_tier
             __props__.__dict__["cache_control"] = cache_control

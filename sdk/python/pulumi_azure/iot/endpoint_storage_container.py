@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EndpointStorageContainerArgs', 'EndpointStorageContainer']
+__all__ = ['EndpointStorageContainerArrgs', 'EndpointStorageContainer']
 
 @pulumi.input_type
-class EndpointStorageContainerArgs:
+calass EndpointStorageContainerArrgs:
     def __init__(__self__, *,
                  container_name: pulumi.Input[str],
                  iothub_id: pulumi.Input[str],
@@ -213,7 +213,7 @@ class EndpointStorageContainerArgs:
 
 
 @pulumi.input_type
-class _EndpointStorageContainerState:
+calass _EndpointStorageContainerState:
     def __init__(__self__, *,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  batch_frequency_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -416,7 +416,7 @@ class _EndpointStorageContainerState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class EndpointStorageContainer(pulumi.CustomResource):
+calass EndpointStorageContainer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -457,7 +457,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
         example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
+            sku=azure.iot.IoTHubSkuArrgs(
                 name="S1",
                 capacity=1,
             ))
@@ -501,7 +501,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EndpointStorageContainerArgs,
+                 args: EndpointStorageContainerArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IotHub Storage Container Endpoint
@@ -526,7 +526,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
         example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            sku=azure.iot.IoTHubSkuArgs(
+            sku=azure.iot.IoTHubSkuArrgs(
                 name="S1",
                 capacity=1,
             ))
@@ -550,12 +550,12 @@ class EndpointStorageContainer(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EndpointStorageContainerArgs args: The arguments to use to populate this resource's properties.
+        :param EndpointStorageContainerArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EndpointStorageContainerArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EndpointStorageContainerArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -583,7 +583,7 @@ class EndpointStorageContainer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EndpointStorageContainerArgs.__new__(EndpointStorageContainerArgs)
+            __props__ = EndpointStorageContainerArrgs.__new__(EndpointStorageContainerArrgs)
 
             __props__.__dict__["authentication_type"] = authentication_type
             __props__.__dict__["batch_frequency_in_seconds"] = batch_frequency_in_seconds

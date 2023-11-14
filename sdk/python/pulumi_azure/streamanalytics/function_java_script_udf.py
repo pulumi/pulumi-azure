@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FunctionJavaScriptUDFArgs', 'FunctionJavaScriptUDF']
+__all__ = ['FunctionJavaScriptUDFArrgs', 'FunctionJavaScriptUDF']
 
 @pulumi.input_type
-class FunctionJavaScriptUDFArgs:
+calass FunctionJavaScriptUDFArrgs:
     def __init__(__self__, *,
-                 inputs: pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArgs']]],
-                 output: pulumi.Input['FunctionJavaScriptUDFOutputArgs'],
+                 inputs: pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArrgs']]],
+                 output: pulumi.Input['FunctionJavaScriptUDFOutputArrgs'],
                  resource_group_name: pulumi.Input[str],
                  script: pulumi.Input[str],
                  stream_analytics_job_name: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FunctionJavaScriptUDF resource.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArgs']]] inputs: One or more `input` blocks as defined below.
-        :param pulumi.Input['FunctionJavaScriptUDFOutputArgs'] output: An `output` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArrgs']]] inputs: One or more `input` blocks as defined below.
+        :param pulumi.Input['FunctionJavaScriptUDFOutputArrgs'] output: An `output` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] script: The JavaScript of this UDF Function.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
@@ -41,26 +41,26 @@ class FunctionJavaScriptUDFArgs:
 
     @property
     @pulumi.getter
-    def inputs(self) -> pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArgs']]]:
+    def inputs(self) -> pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArrgs']]]:
         """
         One or more `input` blocks as defined below.
         """
         return pulumi.get(self, "inputs")
 
     @inputs.setter
-    def inputs(self, value: pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArgs']]]):
+    def inputs(self, value: pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArrgs']]]):
         pulumi.set(self, "inputs", value)
 
     @property
     @pulumi.getter
-    def output(self) -> pulumi.Input['FunctionJavaScriptUDFOutputArgs']:
+    def output(self) -> pulumi.Input['FunctionJavaScriptUDFOutputArrgs']:
         """
         An `output` blocks as defined below.
         """
         return pulumi.get(self, "output")
 
     @output.setter
-    def output(self, value: pulumi.Input['FunctionJavaScriptUDFOutputArgs']):
+    def output(self, value: pulumi.Input['FunctionJavaScriptUDFOutputArrgs']):
         pulumi.set(self, "output", value)
 
     @property
@@ -113,19 +113,19 @@ class FunctionJavaScriptUDFArgs:
 
 
 @pulumi.input_type
-class _FunctionJavaScriptUDFState:
+calass _FunctionJavaScriptUDFState:
     def __init__(__self__, *,
-                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArgs']]]] = None,
+                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output: Optional[pulumi.Input['FunctionJavaScriptUDFOutputArgs']] = None,
+                 output: Optional[pulumi.Input['FunctionJavaScriptUDFOutputArrgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  script: Optional[pulumi.Input[str]] = None,
                  stream_analytics_job_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering FunctionJavaScriptUDF resources.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArgs']]] inputs: One or more `input` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArrgs']]] inputs: One or more `input` blocks as defined below.
         :param pulumi.Input[str] name: The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
-        :param pulumi.Input['FunctionJavaScriptUDFOutputArgs'] output: An `output` blocks as defined below.
+        :param pulumi.Input['FunctionJavaScriptUDFOutputArrgs'] output: An `output` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] script: The JavaScript of this UDF Function.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
@@ -145,14 +145,14 @@ class _FunctionJavaScriptUDFState:
 
     @property
     @pulumi.getter
-    def inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArgs']]]]:
+    def inputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArrgs']]]]:
         """
         One or more `input` blocks as defined below.
         """
         return pulumi.get(self, "inputs")
 
     @inputs.setter
-    def inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArgs']]]]):
+    def inputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FunctionJavaScriptUDFInputArrgs']]]]):
         pulumi.set(self, "inputs", value)
 
     @property
@@ -169,14 +169,14 @@ class _FunctionJavaScriptUDFState:
 
     @property
     @pulumi.getter
-    def output(self) -> Optional[pulumi.Input['FunctionJavaScriptUDFOutputArgs']]:
+    def output(self) -> Optional[pulumi.Input['FunctionJavaScriptUDFOutputArrgs']]:
         """
         An `output` blocks as defined below.
         """
         return pulumi.get(self, "output")
 
     @output.setter
-    def output(self, value: Optional[pulumi.Input['FunctionJavaScriptUDFOutputArgs']]):
+    def output(self, value: Optional[pulumi.Input['FunctionJavaScriptUDFOutputArrgs']]):
         pulumi.set(self, "output", value)
 
     @property
@@ -216,14 +216,14 @@ class _FunctionJavaScriptUDFState:
         pulumi.set(self, "stream_analytics_job_name", value)
 
 
-class FunctionJavaScriptUDF(pulumi.CustomResource):
+calass FunctionJavaScriptUDF(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFInputArgs']]]]] = None,
+                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFInputArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output: Optional[pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFOutputArgs']]] = None,
+                 output: Optional[pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFOutputArrgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  script: Optional[pulumi.Input[str]] = None,
                  stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
@@ -247,10 +247,10 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
           return in;
         }
         \"\"\",
-            inputs=[azure.streamanalytics.FunctionJavaScriptUDFInputArgs(
+            inputs=[azure.streamanalytics.FunctionJavaScriptUDFInputArrgs(
                 type="bigint",
             )],
-            output=azure.streamanalytics.FunctionJavaScriptUDFOutputArgs(
+            output=azure.streamanalytics.FunctionJavaScriptUDFOutputArrgs(
                 type="bigint",
             ))
         ```
@@ -265,9 +265,9 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFInputArgs']]]] inputs: One or more `input` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFInputArrgs']]]] inputs: One or more `input` blocks as defined below.
         :param pulumi.Input[str] name: The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFOutputArgs']] output: An `output` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFOutputArrgs']] output: An `output` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] script: The JavaScript of this UDF Function.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.
@@ -276,7 +276,7 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FunctionJavaScriptUDFArgs,
+                 args: FunctionJavaScriptUDFArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a JavaScript UDF Function within Stream Analytics Streaming Job.
@@ -297,10 +297,10 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
           return in;
         }
         \"\"\",
-            inputs=[azure.streamanalytics.FunctionJavaScriptUDFInputArgs(
+            inputs=[azure.streamanalytics.FunctionJavaScriptUDFInputArrgs(
                 type="bigint",
             )],
-            output=azure.streamanalytics.FunctionJavaScriptUDFOutputArgs(
+            output=azure.streamanalytics.FunctionJavaScriptUDFOutputArrgs(
                 type="bigint",
             ))
         ```
@@ -314,12 +314,12 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FunctionJavaScriptUDFArgs args: The arguments to use to populate this resource's properties.
+        :param FunctionJavaScriptUDFArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FunctionJavaScriptUDFArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FunctionJavaScriptUDFArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -328,9 +328,9 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFInputArgs']]]]] = None,
+                 inputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFInputArrgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 output: Optional[pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFOutputArgs']]] = None,
+                 output: Optional[pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFOutputArrgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  script: Optional[pulumi.Input[str]] = None,
                  stream_analytics_job_name: Optional[pulumi.Input[str]] = None,
@@ -341,7 +341,7 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FunctionJavaScriptUDFArgs.__new__(FunctionJavaScriptUDFArgs)
+            __props__ = FunctionJavaScriptUDFArrgs.__new__(FunctionJavaScriptUDFArrgs)
 
             if inputs is None and not opts.urn:
                 raise TypeError("Missing required property 'inputs'")
@@ -369,9 +369,9 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            inputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFInputArgs']]]]] = None,
+            inputs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFInputArrgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            output: Optional[pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFOutputArgs']]] = None,
+            output: Optional[pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFOutputArrgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             script: Optional[pulumi.Input[str]] = None,
             stream_analytics_job_name: Optional[pulumi.Input[str]] = None) -> 'FunctionJavaScriptUDF':
@@ -382,9 +382,9 @@ class FunctionJavaScriptUDF(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFInputArgs']]]] inputs: One or more `input` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFInputArrgs']]]] inputs: One or more `input` blocks as defined below.
         :param pulumi.Input[str] name: The name of the JavaScript UDF Function. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFOutputArgs']] output: An `output` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['FunctionJavaScriptUDFOutputArrgs']] output: An `output` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Stream Analytics Job exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] script: The JavaScript of this UDF Function.
         :param pulumi.Input[str] stream_analytics_job_name: The name of the Stream Analytics Job where this Function should be created. Changing this forces a new resource to be created.

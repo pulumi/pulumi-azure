@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ChannelDirectLineSpeechArgs', 'ChannelDirectLineSpeech']
+__all__ = ['ChannelDirectLineSpeechArrgs', 'ChannelDirectLineSpeech']
 
 @pulumi.input_type
-class ChannelDirectLineSpeechArgs:
+calass ChannelDirectLineSpeechArrgs:
     def __init__(__self__, *,
                  bot_name: pulumi.Input[str],
                  cognitive_service_access_key: pulumi.Input[str],
@@ -144,7 +144,7 @@ class ChannelDirectLineSpeechArgs:
 
 
 @pulumi.input_type
-class _ChannelDirectLineSpeechState:
+calass _ChannelDirectLineSpeechState:
     def __init__(__self__, *,
                  bot_name: Optional[pulumi.Input[str]] = None,
                  cognitive_account_id: Optional[pulumi.Input[str]] = None,
@@ -279,7 +279,7 @@ class _ChannelDirectLineSpeechState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class ChannelDirectLineSpeech(pulumi.CustomResource):
+calass ChannelDirectLineSpeech(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -345,7 +345,7 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ChannelDirectLineSpeechArgs,
+                 args: ChannelDirectLineSpeechArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Direct Line Speech integration for a Bot Channel
@@ -385,12 +385,12 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ChannelDirectLineSpeechArgs args: The arguments to use to populate this resource's properties.
+        :param ChannelDirectLineSpeechArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ChannelDirectLineSpeechArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ChannelDirectLineSpeechArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -414,7 +414,7 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ChannelDirectLineSpeechArgs.__new__(ChannelDirectLineSpeechArgs)
+            __props__ = ChannelDirectLineSpeechArrgs.__new__(ChannelDirectLineSpeechArrgs)
 
             if bot_name is None and not opts.urn:
                 raise TypeError("Missing required property 'bot_name'")

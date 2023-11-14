@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ManagedInstanceSecurityAlertPolicyArgs', 'ManagedInstanceSecurityAlertPolicy']
+__all__ = ['ManagedInstanceSecurityAlertPolicyArrgs', 'ManagedInstanceSecurityAlertPolicy']
 
 @pulumi.input_type
-class ManagedInstanceSecurityAlertPolicyArgs:
+calass ManagedInstanceSecurityAlertPolicyArrgs:
     def __init__(__self__, *,
                  managed_instance_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -166,7 +166,7 @@ class ManagedInstanceSecurityAlertPolicyArgs:
 
 
 @pulumi.input_type
-class _ManagedInstanceSecurityAlertPolicyState:
+calass _ManagedInstanceSecurityAlertPolicyState:
     def __init__(__self__, *,
                  disabled_alerts: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  email_account_admins_enabled: Optional[pulumi.Input[bool]] = None,
@@ -321,7 +321,7 @@ class _ManagedInstanceSecurityAlertPolicyState:
         pulumi.set(self, "storage_endpoint", value)
 
 
-class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
+calass ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -455,9 +455,9 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="managedinstancedelegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     name="Microsoft.Sql/managedInstances",
                     actions=[
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
@@ -530,7 +530,7 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ManagedInstanceSecurityAlertPolicyArgs,
+                 args: ManagedInstanceSecurityAlertPolicyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Security Alert Policy for an MS SQL Managed Instance.
@@ -651,9 +651,9 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/24"],
-            delegations=[azure.network.SubnetDelegationArgs(
+            delegations=[azure.network.SubnetDelegationArrgs(
                 name="managedinstancedelegation",
-                service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                     name="Microsoft.Sql/managedInstances",
                     actions=[
                         "Microsoft.Network/virtualNetworks/subnets/join/action",
@@ -709,12 +709,12 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ManagedInstanceSecurityAlertPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param ManagedInstanceSecurityAlertPolicyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ManagedInstanceSecurityAlertPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ManagedInstanceSecurityAlertPolicyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -739,7 +739,7 @@ class ManagedInstanceSecurityAlertPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ManagedInstanceSecurityAlertPolicyArgs.__new__(ManagedInstanceSecurityAlertPolicyArgs)
+            __props__ = ManagedInstanceSecurityAlertPolicyArrgs.__new__(ManagedInstanceSecurityAlertPolicyArrgs)
 
             __props__.__dict__["disabled_alerts"] = disabled_alerts
             __props__.__dict__["email_account_admins_enabled"] = email_account_admins_enabled

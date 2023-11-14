@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a logz Sub Account.
@@ -219,12 +218,6 @@ func (i *LogzSubAccount) ToLogzSubAccountOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(LogzSubAccountOutput)
 }
 
-func (i *LogzSubAccount) ToOutput(ctx context.Context) pulumix.Output[*LogzSubAccount] {
-	return pulumix.Output[*LogzSubAccount]{
-		OutputState: i.ToLogzSubAccountOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LogzSubAccountArrayInput is an input type that accepts LogzSubAccountArray and LogzSubAccountArrayOutput values.
 // You can construct a concrete instance of `LogzSubAccountArrayInput` via:
 //
@@ -248,12 +241,6 @@ func (i LogzSubAccountArray) ToLogzSubAccountArrayOutput() LogzSubAccountArrayOu
 
 func (i LogzSubAccountArray) ToLogzSubAccountArrayOutputWithContext(ctx context.Context) LogzSubAccountArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LogzSubAccountArrayOutput)
-}
-
-func (i LogzSubAccountArray) ToOutput(ctx context.Context) pulumix.Output[[]*LogzSubAccount] {
-	return pulumix.Output[[]*LogzSubAccount]{
-		OutputState: i.ToLogzSubAccountArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LogzSubAccountMapInput is an input type that accepts LogzSubAccountMap and LogzSubAccountMapOutput values.
@@ -281,12 +268,6 @@ func (i LogzSubAccountMap) ToLogzSubAccountMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(LogzSubAccountMapOutput)
 }
 
-func (i LogzSubAccountMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogzSubAccount] {
-	return pulumix.Output[map[string]*LogzSubAccount]{
-		OutputState: i.ToLogzSubAccountMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LogzSubAccountOutput struct{ *pulumi.OutputState }
 
 func (LogzSubAccountOutput) ElementType() reflect.Type {
@@ -299,12 +280,6 @@ func (o LogzSubAccountOutput) ToLogzSubAccountOutput() LogzSubAccountOutput {
 
 func (o LogzSubAccountOutput) ToLogzSubAccountOutputWithContext(ctx context.Context) LogzSubAccountOutput {
 	return o
-}
-
-func (o LogzSubAccountOutput) ToOutput(ctx context.Context) pulumix.Output[*LogzSubAccount] {
-	return pulumix.Output[*LogzSubAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether the resource monitoring is enabled? Defaults to `true`.
@@ -346,12 +321,6 @@ func (o LogzSubAccountArrayOutput) ToLogzSubAccountArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o LogzSubAccountArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LogzSubAccount] {
-	return pulumix.Output[[]*LogzSubAccount]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LogzSubAccountArrayOutput) Index(i pulumi.IntInput) LogzSubAccountOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LogzSubAccount {
 		return vs[0].([]*LogzSubAccount)[vs[1].(int)]
@@ -370,12 +339,6 @@ func (o LogzSubAccountMapOutput) ToLogzSubAccountMapOutput() LogzSubAccountMapOu
 
 func (o LogzSubAccountMapOutput) ToLogzSubAccountMapOutputWithContext(ctx context.Context) LogzSubAccountMapOutput {
 	return o
-}
-
-func (o LogzSubAccountMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LogzSubAccount] {
-	return pulumix.Output[map[string]*LogzSubAccount]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LogzSubAccountMapOutput) MapIndex(k pulumi.StringInput) LogzSubAccountOutput {

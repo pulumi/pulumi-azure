@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSnapshotPolicyResult:
+calass GetSnapshotPolicyResult:
     """
     A collection of values returned by getSnapshotPolicy.
     """
@@ -143,7 +143,7 @@ class GetSnapshotPolicyResult:
         return pulumi.get(self, "weekly_schedules")
 
 
-class AwaitableGetSnapshotPolicyResult(GetSnapshotPolicyResult):
+calass AwaitableGetSnapshotPolicyResult(GetSnapshotPolicyResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ProbeArgs', 'Probe']
+__all__ = ['ProbeArrgs', 'Probe']
 
 @pulumi.input_type
-class ProbeArgs:
+calass ProbeArrgs:
     def __init__(__self__, *,
                  loadbalancer_id: pulumi.Input[str],
                  port: pulumi.Input[int],
@@ -146,7 +146,7 @@ class ProbeArgs:
 
 
 @pulumi.input_type
-class _ProbeState:
+calass _ProbeState:
     def __init__(__self__, *,
                  interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  load_balancer_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -293,7 +293,7 @@ class _ProbeState:
         pulumi.set(self, "request_path", value)
 
 
-class Probe(pulumi.CustomResource):
+calass Probe(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -326,7 +326,7 @@ class Probe(pulumi.CustomResource):
         example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArrgs(
                 name="PublicIPAddress",
                 public_ip_address_id=example_public_ip.id,
             )])
@@ -358,7 +358,7 @@ class Probe(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProbeArgs,
+                 args: ProbeArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a LoadBalancer Probe Resource.
@@ -379,7 +379,7 @@ class Probe(pulumi.CustomResource):
         example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArrgs(
                 name="PublicIPAddress",
                 public_ip_address_id=example_public_ip.id,
             )])
@@ -397,12 +397,12 @@ class Probe(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ProbeArgs args: The arguments to use to populate this resource's properties.
+        :param ProbeArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ProbeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ProbeArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -426,7 +426,7 @@ class Probe(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ProbeArgs.__new__(ProbeArgs)
+            __props__ = ProbeArrgs.__new__(ProbeArrgs)
 
             __props__.__dict__["interval_in_seconds"] = interval_in_seconds
             if loadbalancer_id is None and not opts.urn:

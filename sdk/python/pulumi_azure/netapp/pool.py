@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PoolArgs', 'Pool']
+__all__ = ['PoolArrgs', 'Pool']
 
 @pulumi.input_type
-class PoolArgs:
+calass PoolArrgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -148,7 +148,7 @@ class PoolArgs:
 
 
 @pulumi.input_type
-class _PoolState:
+calass _PoolState:
     def __init__(__self__, *,
                  account_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -287,7 +287,7 @@ class _PoolState:
         pulumi.set(self, "tags", value)
 
 
-class Pool(pulumi.CustomResource):
+calass Pool(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -347,7 +347,7 @@ class Pool(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PoolArgs,
+                 args: PoolArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Pool within a NetApp Account.
@@ -379,12 +379,12 @@ class Pool(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PoolArgs args: The arguments to use to populate this resource's properties.
+        :param PoolArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PoolArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PoolArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -408,7 +408,7 @@ class Pool(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PoolArgs.__new__(PoolArgs)
+            __props__ = PoolArrgs.__new__(PoolArrgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")

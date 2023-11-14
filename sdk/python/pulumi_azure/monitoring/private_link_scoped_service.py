@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PrivateLinkScopedServiceArgs', 'PrivateLinkScopedService']
+__all__ = ['PrivateLinkScopedServiceArrgs', 'PrivateLinkScopedService']
 
 @pulumi.input_type
-class PrivateLinkScopedServiceArgs:
+calass PrivateLinkScopedServiceArrgs:
     def __init__(__self__, *,
                  linked_resource_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -81,7 +81,7 @@ class PrivateLinkScopedServiceArgs:
 
 
 @pulumi.input_type
-class _PrivateLinkScopedServiceState:
+calass _PrivateLinkScopedServiceState:
     def __init__(__self__, *,
                  linked_resource_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -152,7 +152,7 @@ class _PrivateLinkScopedServiceState:
         pulumi.set(self, "scope_name", value)
 
 
-class PrivateLinkScopedService(pulumi.CustomResource):
+calass PrivateLinkScopedService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -202,7 +202,7 @@ class PrivateLinkScopedService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PrivateLinkScopedServiceArgs,
+                 args: PrivateLinkScopedServiceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Monitor Private Link Scoped Service.
@@ -234,12 +234,12 @@ class PrivateLinkScopedService(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PrivateLinkScopedServiceArgs args: The arguments to use to populate this resource's properties.
+        :param PrivateLinkScopedServiceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PrivateLinkScopedServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PrivateLinkScopedServiceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -259,7 +259,7 @@ class PrivateLinkScopedService(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PrivateLinkScopedServiceArgs.__new__(PrivateLinkScopedServiceArgs)
+            __props__ = PrivateLinkScopedServiceArrgs.__new__(PrivateLinkScopedServiceArrgs)
 
             if linked_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_resource_id'")

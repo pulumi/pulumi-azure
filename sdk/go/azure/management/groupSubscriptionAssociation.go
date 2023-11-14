@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Management Group Subscription Association.
@@ -166,12 +165,6 @@ func (i *GroupSubscriptionAssociation) ToGroupSubscriptionAssociationOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(GroupSubscriptionAssociationOutput)
 }
 
-func (i *GroupSubscriptionAssociation) ToOutput(ctx context.Context) pulumix.Output[*GroupSubscriptionAssociation] {
-	return pulumix.Output[*GroupSubscriptionAssociation]{
-		OutputState: i.ToGroupSubscriptionAssociationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GroupSubscriptionAssociationArrayInput is an input type that accepts GroupSubscriptionAssociationArray and GroupSubscriptionAssociationArrayOutput values.
 // You can construct a concrete instance of `GroupSubscriptionAssociationArrayInput` via:
 //
@@ -195,12 +188,6 @@ func (i GroupSubscriptionAssociationArray) ToGroupSubscriptionAssociationArrayOu
 
 func (i GroupSubscriptionAssociationArray) ToGroupSubscriptionAssociationArrayOutputWithContext(ctx context.Context) GroupSubscriptionAssociationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupSubscriptionAssociationArrayOutput)
-}
-
-func (i GroupSubscriptionAssociationArray) ToOutput(ctx context.Context) pulumix.Output[[]*GroupSubscriptionAssociation] {
-	return pulumix.Output[[]*GroupSubscriptionAssociation]{
-		OutputState: i.ToGroupSubscriptionAssociationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GroupSubscriptionAssociationMapInput is an input type that accepts GroupSubscriptionAssociationMap and GroupSubscriptionAssociationMapOutput values.
@@ -228,12 +215,6 @@ func (i GroupSubscriptionAssociationMap) ToGroupSubscriptionAssociationMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GroupSubscriptionAssociationMapOutput)
 }
 
-func (i GroupSubscriptionAssociationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GroupSubscriptionAssociation] {
-	return pulumix.Output[map[string]*GroupSubscriptionAssociation]{
-		OutputState: i.ToGroupSubscriptionAssociationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GroupSubscriptionAssociationOutput struct{ *pulumi.OutputState }
 
 func (GroupSubscriptionAssociationOutput) ElementType() reflect.Type {
@@ -246,12 +227,6 @@ func (o GroupSubscriptionAssociationOutput) ToGroupSubscriptionAssociationOutput
 
 func (o GroupSubscriptionAssociationOutput) ToGroupSubscriptionAssociationOutputWithContext(ctx context.Context) GroupSubscriptionAssociationOutput {
 	return o
-}
-
-func (o GroupSubscriptionAssociationOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupSubscriptionAssociation] {
-	return pulumix.Output[*GroupSubscriptionAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the Management Group to associate the Subscription with. Changing this forces a new Management to be created.
@@ -278,12 +253,6 @@ func (o GroupSubscriptionAssociationArrayOutput) ToGroupSubscriptionAssociationA
 	return o
 }
 
-func (o GroupSubscriptionAssociationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GroupSubscriptionAssociation] {
-	return pulumix.Output[[]*GroupSubscriptionAssociation]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GroupSubscriptionAssociationArrayOutput) Index(i pulumi.IntInput) GroupSubscriptionAssociationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GroupSubscriptionAssociation {
 		return vs[0].([]*GroupSubscriptionAssociation)[vs[1].(int)]
@@ -302,12 +271,6 @@ func (o GroupSubscriptionAssociationMapOutput) ToGroupSubscriptionAssociationMap
 
 func (o GroupSubscriptionAssociationMapOutput) ToGroupSubscriptionAssociationMapOutputWithContext(ctx context.Context) GroupSubscriptionAssociationMapOutput {
 	return o
-}
-
-func (o GroupSubscriptionAssociationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GroupSubscriptionAssociation] {
-	return pulumix.Output[map[string]*GroupSubscriptionAssociation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupSubscriptionAssociationMapOutput) MapIndex(k pulumi.StringInput) GroupSubscriptionAssociationOutput {

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetBackendAddressPoolResult:
+calass GetBackendAddressPoolResult:
     """
     A collection of values returned by getBackendAddressPool.
     """
@@ -110,7 +110,7 @@ class GetBackendAddressPoolResult:
         return pulumi.get(self, "outbound_rules")
 
 
-class AwaitableGetBackendAddressPoolResult(GetBackendAddressPoolResult):
+calass AwaitableGetBackendAddressPoolResult(GetBackendAddressPoolResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

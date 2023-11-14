@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetFabricResult:
+calass GetFabricResult:
     """
     A collection of values returned by getFabric.
     """
@@ -70,7 +70,7 @@ class GetFabricResult:
         return pulumi.get(self, "resource_group_name")
 
 
-class AwaitableGetFabricResult(GetFabricResult):
+calass AwaitableGetFabricResult(GetFabricResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

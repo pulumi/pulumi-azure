@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDatasetDataLakeGen2Result:
+calass GetDatasetDataLakeGen2Result:
     """
     A collection of values returned by getDatasetDataLakeGen2.
     """
@@ -106,7 +106,7 @@ class GetDatasetDataLakeGen2Result:
         return pulumi.get(self, "storage_account_id")
 
 
-class AwaitableGetDatasetDataLakeGen2Result(GetDatasetDataLakeGen2Result):
+calass AwaitableGetDatasetDataLakeGen2Result(GetDatasetDataLakeGen2Result):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetLocalNetworkGatewayResult:
+calass GetLocalNetworkGatewayResult:
     """
     A collection of values returned by getLocalNetworkGateway.
     """
@@ -118,7 +118,7 @@ class GetLocalNetworkGatewayResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetLocalNetworkGatewayResult(GetLocalNetworkGatewayResult):
+calass AwaitableGetLocalNetworkGatewayResult(GetLocalNetworkGatewayResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

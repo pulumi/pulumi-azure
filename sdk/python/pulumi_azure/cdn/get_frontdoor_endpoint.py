@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetFrontdoorEndpointResult:
+calass GetFrontdoorEndpointResult:
     """
     A collection of values returned by getFrontdoorEndpoint.
     """
@@ -92,7 +92,7 @@ class GetFrontdoorEndpointResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetFrontdoorEndpointResult(GetFrontdoorEndpointResult):
+calass AwaitableGetFrontdoorEndpointResult(GetFrontdoorEndpointResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

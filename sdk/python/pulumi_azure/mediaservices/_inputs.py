@@ -10,25 +10,25 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'AccountEncryptionArgs',
-    'AccountEncryptionManagedIdentityArgs',
-    'AccountIdentityArgs',
-    'AccountKeyDeliveryAccessControlArgs',
-    'AccountStorageAccountArgs',
-    'AccountStorageAccountManagedIdentityArgs',
+    'AccountEncryptionArrgs',
+    'AccountEncryptionManagedIdentityArrgs',
+    'AccountIdentityArrgs',
+    'AccountKeyDeliveryAccessControlArrgs',
+    'AccountStorageAccountArrgs',
+    'AccountStorageAccountManagedIdentityArrgs',
 ]
 
 @pulumi.input_type
-class AccountEncryptionArgs:
+calass AccountEncryptionArrgs:
     def __init__(__self__, *,
                  current_key_identifier: Optional[pulumi.Input[str]] = None,
                  key_vault_key_identifier: Optional[pulumi.Input[str]] = None,
-                 managed_identity: Optional[pulumi.Input['AccountEncryptionManagedIdentityArgs']] = None,
+                 managed_identity: Optional[pulumi.Input['AccountEncryptionManagedIdentityArrgs']] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] current_key_identifier: The current key used to encrypt the Media Services Account, including the key version.
         :param pulumi.Input[str] key_vault_key_identifier: Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
-        :param pulumi.Input['AccountEncryptionManagedIdentityArgs'] managed_identity: A `managed_identity` block as defined below.
+        :param pulumi.Input['AccountEncryptionManagedIdentityArrgs'] managed_identity: A `managed_identity` block as defined below.
         :param pulumi.Input[str] type: Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
         """
         if current_key_identifier is not None:
@@ -66,14 +66,14 @@ class AccountEncryptionArgs:
 
     @property
     @pulumi.getter(name="managedIdentity")
-    def managed_identity(self) -> Optional[pulumi.Input['AccountEncryptionManagedIdentityArgs']]:
+    def managed_identity(self) -> Optional[pulumi.Input['AccountEncryptionManagedIdentityArrgs']]:
         """
         A `managed_identity` block as defined below.
         """
         return pulumi.get(self, "managed_identity")
 
     @managed_identity.setter
-    def managed_identity(self, value: Optional[pulumi.Input['AccountEncryptionManagedIdentityArgs']]):
+    def managed_identity(self, value: Optional[pulumi.Input['AccountEncryptionManagedIdentityArrgs']]):
         pulumi.set(self, "managed_identity", value)
 
     @property
@@ -90,7 +90,7 @@ class AccountEncryptionArgs:
 
 
 @pulumi.input_type
-class AccountEncryptionManagedIdentityArgs:
+calass AccountEncryptionManagedIdentityArrgs:
     def __init__(__self__, *,
                  use_system_assigned_identity: Optional[pulumi.Input[bool]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):
@@ -129,7 +129,7 @@ class AccountEncryptionManagedIdentityArgs:
 
 
 @pulumi.input_type
-class AccountIdentityArgs:
+calass AccountIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -199,7 +199,7 @@ class AccountIdentityArgs:
 
 
 @pulumi.input_type
-class AccountKeyDeliveryAccessControlArgs:
+calass AccountKeyDeliveryAccessControlArrgs:
     def __init__(__self__, *,
                  default_action: Optional[pulumi.Input[str]] = None,
                  ip_allow_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -238,17 +238,17 @@ class AccountKeyDeliveryAccessControlArgs:
 
 
 @pulumi.input_type
-class AccountStorageAccountArgs:
+calass AccountStorageAccountArrgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  is_primary: Optional[pulumi.Input[bool]] = None,
-                 managed_identity: Optional[pulumi.Input['AccountStorageAccountManagedIdentityArgs']] = None):
+                 managed_identity: Optional[pulumi.Input['AccountStorageAccountManagedIdentityArrgs']] = None):
         """
         :param pulumi.Input[str] id: Specifies the ID of the Storage Account that will be associated with the Media Services instance.
         :param pulumi.Input[bool] is_primary: Specifies whether the storage account should be the primary account or not. Defaults to `false`.
                
                > **NOTE:** Whilst multiple `storage_account` blocks can be specified - one of them must be set to the primary
-        :param pulumi.Input['AccountStorageAccountManagedIdentityArgs'] managed_identity: A `managed_identity` block as defined below.
+        :param pulumi.Input['AccountStorageAccountManagedIdentityArrgs'] managed_identity: A `managed_identity` block as defined below.
         """
         pulumi.set(__self__, "id", id)
         if is_primary is not None:
@@ -284,19 +284,19 @@ class AccountStorageAccountArgs:
 
     @property
     @pulumi.getter(name="managedIdentity")
-    def managed_identity(self) -> Optional[pulumi.Input['AccountStorageAccountManagedIdentityArgs']]:
+    def managed_identity(self) -> Optional[pulumi.Input['AccountStorageAccountManagedIdentityArrgs']]:
         """
         A `managed_identity` block as defined below.
         """
         return pulumi.get(self, "managed_identity")
 
     @managed_identity.setter
-    def managed_identity(self, value: Optional[pulumi.Input['AccountStorageAccountManagedIdentityArgs']]):
+    def managed_identity(self, value: Optional[pulumi.Input['AccountStorageAccountManagedIdentityArrgs']]):
         pulumi.set(self, "managed_identity", value)
 
 
 @pulumi.input_type
-class AccountStorageAccountManagedIdentityArgs:
+calass AccountStorageAccountManagedIdentityArrgs:
     def __init__(__self__, *,
                  use_system_assigned_identity: Optional[pulumi.Input[bool]] = None,
                  user_assigned_identity_id: Optional[pulumi.Input[str]] = None):

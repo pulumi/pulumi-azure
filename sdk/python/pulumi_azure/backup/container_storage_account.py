@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ContainerStorageAccountArgs', 'ContainerStorageAccount']
+__all__ = ['ContainerStorageAccountArrgs', 'ContainerStorageAccount']
 
 @pulumi.input_type
-class ContainerStorageAccountArgs:
+calass ContainerStorageAccountArrgs:
     def __init__(__self__, *,
                  recovery_vault_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -69,7 +69,7 @@ class ContainerStorageAccountArgs:
 
 
 @pulumi.input_type
-class _ContainerStorageAccountState:
+calass _ContainerStorageAccountState:
     def __init__(__self__, *,
                  recovery_vault_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -128,7 +128,7 @@ class _ContainerStorageAccountState:
         pulumi.set(self, "storage_account_id", value)
 
 
-class ContainerStorageAccount(pulumi.CustomResource):
+calass ContainerStorageAccount(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -184,7 +184,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ContainerStorageAccountArgs,
+                 args: ContainerStorageAccountArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages registration of a storage account with Azure Backup. Storage accounts must be registered with an Azure Recovery Vault in order to backup file shares within the storage account. Registering a storage account with a vault creates what is known as a protection container within Azure Recovery Services. Once the container is created, Azure file shares within the storage account can be backed up using the `backup.ProtectedFileShare` resource.
@@ -222,12 +222,12 @@ class ContainerStorageAccount(pulumi.CustomResource):
          Note the ID requires quoting as there are semicolons
 
         :param str resource_name: The name of the resource.
-        :param ContainerStorageAccountArgs args: The arguments to use to populate this resource's properties.
+        :param ContainerStorageAccountArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ContainerStorageAccountArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ContainerStorageAccountArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -246,7 +246,7 @@ class ContainerStorageAccount(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ContainerStorageAccountArgs.__new__(ContainerStorageAccountArgs)
+            __props__ = ContainerStorageAccountArrgs.__new__(ContainerStorageAccountArrgs)
 
             if recovery_vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'recovery_vault_name'")

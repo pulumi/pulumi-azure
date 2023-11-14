@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ActionCustomArgs', 'ActionCustom']
+__all__ = ['ActionCustomArrgs', 'ActionCustom']
 
 @pulumi.input_type
-class ActionCustomArgs:
+calass ActionCustomArrgs:
     def __init__(__self__, *,
                  body: pulumi.Input[str],
                  logic_app_id: pulumi.Input[str],
@@ -70,7 +70,7 @@ class ActionCustomArgs:
 
 
 @pulumi.input_type
-class _ActionCustomState:
+calass _ActionCustomState:
     def __init__(__self__, *,
                  body: Optional[pulumi.Input[str]] = None,
                  logic_app_id: Optional[pulumi.Input[str]] = None,
@@ -129,7 +129,7 @@ class _ActionCustomState:
         pulumi.set(self, "name", value)
 
 
-class ActionCustom(pulumi.CustomResource):
+calass ActionCustom(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -190,7 +190,7 @@ class ActionCustom(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ActionCustomArgs,
+                 args: ActionCustomArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Custom Action within a Logic App Workflow
@@ -233,12 +233,12 @@ class ActionCustom(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ActionCustomArgs args: The arguments to use to populate this resource's properties.
+        :param ActionCustomArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ActionCustomArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ActionCustomArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -257,7 +257,7 @@ class ActionCustom(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ActionCustomArgs.__new__(ActionCustomArgs)
+            __props__ = ActionCustomArrgs.__new__(ActionCustomArrgs)
 
             if body is None and not opts.urn:
                 raise TypeError("Missing required property 'body'")

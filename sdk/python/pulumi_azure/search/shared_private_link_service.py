@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SharedPrivateLinkServiceArgs', 'SharedPrivateLinkService']
+__all__ = ['SharedPrivateLinkServiceArrgs', 'SharedPrivateLinkService']
 
 @pulumi.input_type
-class SharedPrivateLinkServiceArgs:
+calass SharedPrivateLinkServiceArrgs:
     def __init__(__self__, *,
                  search_service_id: pulumi.Input[str],
                  subresource_name: pulumi.Input[str],
@@ -101,7 +101,7 @@ class SharedPrivateLinkServiceArgs:
 
 
 @pulumi.input_type
-class _SharedPrivateLinkServiceState:
+calass _SharedPrivateLinkServiceState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  request_message: Optional[pulumi.Input[str]] = None,
@@ -208,7 +208,7 @@ class _SharedPrivateLinkServiceState:
         pulumi.set(self, "target_resource_id", value)
 
 
-class SharedPrivateLinkService(pulumi.CustomResource):
+calass SharedPrivateLinkService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -267,7 +267,7 @@ class SharedPrivateLinkService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SharedPrivateLinkServiceArgs,
+                 args: SharedPrivateLinkServiceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Shared Private Link Service for an Azure Search Service.
@@ -304,12 +304,12 @@ class SharedPrivateLinkService(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SharedPrivateLinkServiceArgs args: The arguments to use to populate this resource's properties.
+        :param SharedPrivateLinkServiceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SharedPrivateLinkServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SharedPrivateLinkServiceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -330,7 +330,7 @@ class SharedPrivateLinkService(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SharedPrivateLinkServiceArgs.__new__(SharedPrivateLinkServiceArgs)
+            __props__ = SharedPrivateLinkServiceArrgs.__new__(SharedPrivateLinkServiceArrgs)
 
             __props__.__dict__["name"] = name
             __props__.__dict__["request_message"] = request_message

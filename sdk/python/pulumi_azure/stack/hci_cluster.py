@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['HciClusterArgs', 'HciCluster']
+__all__ = ['HciClusterArrgs', 'HciCluster']
 
 @pulumi.input_type
-class HciClusterArgs:
+calass HciClusterArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -134,7 +134,7 @@ class HciClusterArgs:
 
 
 @pulumi.input_type
-class _HciClusterState:
+calass _HciClusterState:
     def __init__(__self__, *,
                  automanage_configuration_id: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
@@ -257,7 +257,7 @@ class _HciClusterState:
         pulumi.set(self, "tenant_id", value)
 
 
-class HciCluster(pulumi.CustomResource):
+calass HciCluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -314,7 +314,7 @@ class HciCluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: HciClusterArgs,
+                 args: HciClusterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Stack HCI Cluster.
@@ -345,12 +345,12 @@ class HciCluster(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param HciClusterArgs args: The arguments to use to populate this resource's properties.
+        :param HciClusterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(HciClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(HciClusterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -373,7 +373,7 @@ class HciCluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = HciClusterArgs.__new__(HciClusterArgs)
+            __props__ = HciClusterArrgs.__new__(HciClusterArrgs)
 
             __props__.__dict__["automanage_configuration_id"] = automanage_configuration_id
             if client_id is None and not opts.urn:

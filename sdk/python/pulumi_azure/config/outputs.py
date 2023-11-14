@@ -27,7 +27,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class Features(dict):
+calass Features(dict):
     def __init__(__self__, *,
                  api_management: Optional['outputs.FeaturesApiManagement'] = None,
                  app_configuration: Optional['outputs.FeaturesAppConfiguration'] = None,
@@ -128,7 +128,7 @@ class Features(dict):
 
 
 @pulumi.output_type
-class FeaturesApiManagement(dict):
+calass FeaturesApiManagement(dict):
     def __init__(__self__, *,
                  purge_soft_delete_on_destroy: Optional[bool] = None,
                  recover_soft_deleted: Optional[bool] = None):
@@ -149,7 +149,7 @@ class FeaturesApiManagement(dict):
 
 
 @pulumi.output_type
-class FeaturesAppConfiguration(dict):
+calass FeaturesAppConfiguration(dict):
     def __init__(__self__, *,
                  purge_soft_delete_on_destroy: Optional[bool] = None,
                  recover_soft_deleted: Optional[bool] = None):
@@ -170,7 +170,7 @@ class FeaturesAppConfiguration(dict):
 
 
 @pulumi.output_type
-class FeaturesApplicationInsights(dict):
+calass FeaturesApplicationInsights(dict):
     def __init__(__self__, *,
                  disable_generated_rule: Optional[bool] = None):
         if disable_generated_rule is not None:
@@ -183,7 +183,7 @@ class FeaturesApplicationInsights(dict):
 
 
 @pulumi.output_type
-class FeaturesCognitiveAccount(dict):
+calass FeaturesCognitiveAccount(dict):
     def __init__(__self__, *,
                  purge_soft_delete_on_destroy: Optional[bool] = None):
         if purge_soft_delete_on_destroy is not None:
@@ -196,7 +196,7 @@ class FeaturesCognitiveAccount(dict):
 
 
 @pulumi.output_type
-class FeaturesKeyVault(dict):
+calass FeaturesKeyVault(dict):
     def __init__(__self__, *,
                  purge_soft_delete_on_destroy: Optional[bool] = None,
                  purge_soft_deleted_certificates_on_destroy: Optional[bool] = None,
@@ -273,7 +273,7 @@ class FeaturesKeyVault(dict):
 
 
 @pulumi.output_type
-class FeaturesLogAnalyticsWorkspace(dict):
+calass FeaturesLogAnalyticsWorkspace(dict):
     def __init__(__self__, *,
                  permanently_delete_on_destroy: Optional[bool] = None):
         if permanently_delete_on_destroy is not None:
@@ -286,7 +286,7 @@ class FeaturesLogAnalyticsWorkspace(dict):
 
 
 @pulumi.output_type
-class FeaturesManagedDisk(dict):
+calass FeaturesManagedDisk(dict):
     def __init__(__self__, *,
                  expand_without_downtime: Optional[bool] = None):
         if expand_without_downtime is not None:
@@ -299,7 +299,7 @@ class FeaturesManagedDisk(dict):
 
 
 @pulumi.output_type
-class FeaturesResourceGroup(dict):
+calass FeaturesResourceGroup(dict):
     def __init__(__self__, *,
                  prevent_deletion_if_contains_resources: Optional[bool] = None):
         if prevent_deletion_if_contains_resources is not None:
@@ -312,7 +312,7 @@ class FeaturesResourceGroup(dict):
 
 
 @pulumi.output_type
-class FeaturesSubscription(dict):
+calass FeaturesSubscription(dict):
     def __init__(__self__, *,
                  prevent_cancellation_on_destroy: Optional[bool] = None):
         if prevent_cancellation_on_destroy is not None:
@@ -325,7 +325,7 @@ class FeaturesSubscription(dict):
 
 
 @pulumi.output_type
-class FeaturesTemplateDeployment(dict):
+calass FeaturesTemplateDeployment(dict):
     def __init__(__self__, *,
                  delete_nested_items_during_deletion: bool):
         pulumi.set(__self__, "delete_nested_items_during_deletion", delete_nested_items_during_deletion)
@@ -337,7 +337,7 @@ class FeaturesTemplateDeployment(dict):
 
 
 @pulumi.output_type
-class FeaturesVirtualMachine(dict):
+calass FeaturesVirtualMachine(dict):
     def __init__(__self__, *,
                  delete_os_disk_on_deletion: Optional[bool] = None,
                  graceful_shutdown: Optional[bool] = None,
@@ -366,7 +366,7 @@ class FeaturesVirtualMachine(dict):
 
 
 @pulumi.output_type
-class FeaturesVirtualMachineScaleSet(dict):
+calass FeaturesVirtualMachineScaleSet(dict):
     def __init__(__self__, *,
                  force_delete: Optional[bool] = None,
                  roll_instances_when_required: Optional[bool] = None,

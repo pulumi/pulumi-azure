@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['MoverTargetEndpointArgs', 'MoverTargetEndpoint']
+__all__ = ['MoverTargetEndpointArrgs', 'MoverTargetEndpoint']
 
 @pulumi.input_type
-class MoverTargetEndpointArgs:
+calass MoverTargetEndpointArrgs:
     def __init__(__self__, *,
                  storage_account_id: pulumi.Input[str],
                  storage_container_name: pulumi.Input[str],
@@ -97,7 +97,7 @@ class MoverTargetEndpointArgs:
 
 
 @pulumi.input_type
-class _MoverTargetEndpointState:
+calass _MoverTargetEndpointState:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -184,7 +184,7 @@ class _MoverTargetEndpointState:
         pulumi.set(self, "storage_mover_id", value)
 
 
-class MoverTargetEndpoint(pulumi.CustomResource):
+calass MoverTargetEndpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -244,7 +244,7 @@ class MoverTargetEndpoint(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MoverTargetEndpointArgs,
+                 args: MoverTargetEndpointArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Storage Mover Target Endpoint.
@@ -284,12 +284,12 @@ class MoverTargetEndpoint(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MoverTargetEndpointArgs args: The arguments to use to populate this resource's properties.
+        :param MoverTargetEndpointArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MoverTargetEndpointArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MoverTargetEndpointArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -310,7 +310,7 @@ class MoverTargetEndpoint(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MoverTargetEndpointArgs.__new__(MoverTargetEndpointArgs)
+            __props__ = MoverTargetEndpointArrgs.__new__(MoverTargetEndpointArrgs)
 
             __props__.__dict__["description"] = description
             __props__.__dict__["name"] = name

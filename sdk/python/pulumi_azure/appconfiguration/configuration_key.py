@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ConfigurationKeyArgs', 'ConfigurationKey']
+__all__ = ['ConfigurationKeyArrgs', 'ConfigurationKey']
 
 @pulumi.input_type
-class ConfigurationKeyArgs:
+calass ConfigurationKeyArrgs:
     def __init__(__self__, *,
                  configuration_store_id: pulumi.Input[str],
                  key: pulumi.Input[str],
@@ -182,7 +182,7 @@ class ConfigurationKeyArgs:
 
 
 @pulumi.input_type
-class _ConfigurationKeyState:
+calass _ConfigurationKeyState:
     def __init__(__self__, *,
                  configuration_store_id: Optional[pulumi.Input[str]] = None,
                  content_type: Optional[pulumi.Input[str]] = None,
@@ -353,7 +353,7 @@ class _ConfigurationKeyState:
         pulumi.set(self, "vault_key_reference", value)
 
 
-class ConfigurationKey(pulumi.CustomResource):
+calass ConfigurationKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -414,7 +414,7 @@ class ConfigurationKey(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArrgs(
                 tenant_id=current.tenant_id,
                 object_id=current.object_id,
                 key_permissions=[
@@ -478,7 +478,7 @@ class ConfigurationKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConfigurationKeyArgs,
+                 args: ConfigurationKeyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure App Configuration Key.
@@ -525,7 +525,7 @@ class ConfigurationKey(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="premium",
             soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArrgs(
                 tenant_id=current.tenant_id,
                 object_id=current.object_id,
                 key_permissions=[
@@ -571,12 +571,12 @@ class ConfigurationKey(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ConfigurationKeyArgs args: The arguments to use to populate this resource's properties.
+        :param ConfigurationKeyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ConfigurationKeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ConfigurationKeyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -602,7 +602,7 @@ class ConfigurationKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ConfigurationKeyArgs.__new__(ConfigurationKeyArgs)
+            __props__ = ConfigurationKeyArrgs.__new__(ConfigurationKeyArrgs)
 
             if configuration_store_id is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration_store_id'")

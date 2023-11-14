@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['VmwareReplicationPolicyAssociationArgs', 'VmwareReplicationPolicyAssociation']
+__all__ = ['VmwareReplicationPolicyAssociationArrgs', 'VmwareReplicationPolicyAssociation']
 
 @pulumi.input_type
-class VmwareReplicationPolicyAssociationArgs:
+calass VmwareReplicationPolicyAssociationArrgs:
     def __init__(__self__, *,
                  policy_id: pulumi.Input[str],
                  recovery_vault_id: pulumi.Input[str],
@@ -72,7 +72,7 @@ class VmwareReplicationPolicyAssociationArgs:
 
 
 @pulumi.input_type
-class _VmwareReplicationPolicyAssociationState:
+calass _VmwareReplicationPolicyAssociationState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
@@ -133,7 +133,7 @@ class _VmwareReplicationPolicyAssociationState:
         pulumi.set(self, "recovery_vault_id", value)
 
 
-class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
+calass VmwareReplicationPolicyAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -186,7 +186,7 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: VmwareReplicationPolicyAssociationArgs,
+                 args: VmwareReplicationPolicyAssociationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Site Recovery replication policy for VMWare within a Recovery Vault.
@@ -220,12 +220,12 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param VmwareReplicationPolicyAssociationArgs args: The arguments to use to populate this resource's properties.
+        :param VmwareReplicationPolicyAssociationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(VmwareReplicationPolicyAssociationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(VmwareReplicationPolicyAssociationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -244,7 +244,7 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = VmwareReplicationPolicyAssociationArgs.__new__(VmwareReplicationPolicyAssociationArgs)
+            __props__ = VmwareReplicationPolicyAssociationArrgs.__new__(VmwareReplicationPolicyAssociationArrgs)
 
             __props__.__dict__["name"] = name
             if policy_id is None and not opts.urn:

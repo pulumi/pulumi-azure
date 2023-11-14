@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetResult:
+calass GetResult:
     """
     A collection of values returned by get.
     """
@@ -352,7 +352,7 @@ class GetResult:
         return pulumi.get(self, "vm_uuid")
 
 
-class AwaitableGetResult(GetResult):
+calass AwaitableGetResult(GetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

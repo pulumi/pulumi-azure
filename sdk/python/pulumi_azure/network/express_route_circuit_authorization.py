@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ExpressRouteCircuitAuthorizationArgs', 'ExpressRouteCircuitAuthorization']
+__all__ = ['ExpressRouteCircuitAuthorizationArrgs', 'ExpressRouteCircuitAuthorization']
 
 @pulumi.input_type
-class ExpressRouteCircuitAuthorizationArgs:
+calass ExpressRouteCircuitAuthorizationArrgs:
     def __init__(__self__, *,
                  express_route_circuit_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -66,7 +66,7 @@ class ExpressRouteCircuitAuthorizationArgs:
 
 
 @pulumi.input_type
-class _ExpressRouteCircuitAuthorizationState:
+calass _ExpressRouteCircuitAuthorizationState:
     def __init__(__self__, *,
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  authorization_use_status: Optional[pulumi.Input[str]] = None,
@@ -153,7 +153,7 @@ class _ExpressRouteCircuitAuthorizationState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
+calass ExpressRouteCircuitAuthorization(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -178,7 +178,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
+            sku=azure.network.ExpressRouteCircuitSkuArrgs(
                 tier="Standard",
                 family="MeteredData",
             ),
@@ -209,7 +209,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ExpressRouteCircuitAuthorizationArgs,
+                 args: ExpressRouteCircuitAuthorizationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an ExpressRoute Circuit Authorization.
@@ -227,7 +227,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
-            sku=azure.network.ExpressRouteCircuitSkuArgs(
+            sku=azure.network.ExpressRouteCircuitSkuArrgs(
                 tier="Standard",
                 family="MeteredData",
             ),
@@ -249,12 +249,12 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ExpressRouteCircuitAuthorizationArgs args: The arguments to use to populate this resource's properties.
+        :param ExpressRouteCircuitAuthorizationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteCircuitAuthorizationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ExpressRouteCircuitAuthorizationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -273,7 +273,7 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ExpressRouteCircuitAuthorizationArgs.__new__(ExpressRouteCircuitAuthorizationArgs)
+            __props__ = ExpressRouteCircuitAuthorizationArrgs.__new__(ExpressRouteCircuitAuthorizationArrgs)
 
             if express_route_circuit_name is None and not opts.urn:
                 raise TypeError("Missing required property 'express_route_circuit_name'")

@@ -20,7 +20,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AccountEncryption(dict):
+calass AccountEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -50,7 +50,7 @@ class AccountEncryption(dict):
         """
         :param str current_key_identifier: The current key used to encrypt the Media Services Account, including the key version.
         :param str key_vault_key_identifier: Specifies the URI of the Key Vault Key used to encrypt data. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
-        :param 'AccountEncryptionManagedIdentityArgs' managed_identity: A `managed_identity` block as defined below.
+        :param 'AccountEncryptionManagedIdentityArrgs' managed_identity: A `managed_identity` block as defined below.
         :param str type: Specifies the type of key used to encrypt the account data. Possible values are `SystemKey` and `CustomerKey`.
         """
         if current_key_identifier is not None:
@@ -96,7 +96,7 @@ class AccountEncryption(dict):
 
 
 @pulumi.output_type
-class AccountEncryptionManagedIdentity(dict):
+calass AccountEncryptionManagedIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -146,7 +146,7 @@ class AccountEncryptionManagedIdentity(dict):
 
 
 @pulumi.output_type
-class AccountIdentity(dict):
+calass AccountIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -221,7 +221,7 @@ class AccountIdentity(dict):
 
 
 @pulumi.output_type
-class AccountKeyDeliveryAccessControl(dict):
+calass AccountKeyDeliveryAccessControl(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -271,7 +271,7 @@ class AccountKeyDeliveryAccessControl(dict):
 
 
 @pulumi.output_type
-class AccountStorageAccount(dict):
+calass AccountStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -300,7 +300,7 @@ class AccountStorageAccount(dict):
         :param bool is_primary: Specifies whether the storage account should be the primary account or not. Defaults to `false`.
                
                > **NOTE:** Whilst multiple `storage_account` blocks can be specified - one of them must be set to the primary
-        :param 'AccountStorageAccountManagedIdentityArgs' managed_identity: A `managed_identity` block as defined below.
+        :param 'AccountStorageAccountManagedIdentityArrgs' managed_identity: A `managed_identity` block as defined below.
         """
         pulumi.set(__self__, "id", id)
         if is_primary is not None:
@@ -336,7 +336,7 @@ class AccountStorageAccount(dict):
 
 
 @pulumi.output_type
-class AccountStorageAccountManagedIdentity(dict):
+calass AccountStorageAccountManagedIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

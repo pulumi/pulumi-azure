@@ -11,15 +11,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['NamespaceNetworkRuleSetInitArgs', 'NamespaceNetworkRuleSet']
+__all__ = ['NamespaceNetworkRuleSetInitArrgs', 'NamespaceNetworkRuleSet']
 
 @pulumi.input_type
-class NamespaceNetworkRuleSetInitArgs:
+calass NamespaceNetworkRuleSetInitArrgs:
     def __init__(__self__, *,
                  namespace_id: pulumi.Input[str],
                  default_action: Optional[pulumi.Input[str]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]] = None,
+                 network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArrgs']]]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  trusted_services_allowed: Optional[pulumi.Input[bool]] = None):
         """
@@ -29,7 +29,7 @@ class NamespaceNetworkRuleSetInitArgs:
                > **NOTE:** The ServiceBus Namespace must be `Premium` in order to attach a ServiceBus Namespace Network Rule Set.
         :param pulumi.Input[str] default_action: Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
-        :param pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]] network_rules: One or more `network_rules` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArrgs']]] network_rules: One or more `network_rules` blocks as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[bool] trusted_services_allowed: If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
         """
@@ -85,14 +85,14 @@ class NamespaceNetworkRuleSetInitArgs:
 
     @property
     @pulumi.getter(name="networkRules")
-    def network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]:
+    def network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArrgs']]]]:
         """
         One or more `network_rules` blocks as defined below.
         """
         return pulumi.get(self, "network_rules")
 
     @network_rules.setter
-    def network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]):
+    def network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArrgs']]]]):
         pulumi.set(self, "network_rules", value)
 
     @property
@@ -121,12 +121,12 @@ class NamespaceNetworkRuleSetInitArgs:
 
 
 @pulumi.input_type
-class _NamespaceNetworkRuleSetState:
+calass _NamespaceNetworkRuleSetState:
     def __init__(__self__, *,
                  default_action: Optional[pulumi.Input[str]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  namespace_id: Optional[pulumi.Input[str]] = None,
-                 network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]] = None,
+                 network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArrgs']]]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  trusted_services_allowed: Optional[pulumi.Input[bool]] = None):
         """
@@ -136,7 +136,7 @@ class _NamespaceNetworkRuleSetState:
         :param pulumi.Input[str] namespace_id: Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
                
                > **NOTE:** The ServiceBus Namespace must be `Premium` in order to attach a ServiceBus Namespace Network Rule Set.
-        :param pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]] network_rules: One or more `network_rules` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArrgs']]] network_rules: One or more `network_rules` blocks as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[bool] trusted_services_allowed: If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
         """
@@ -193,14 +193,14 @@ class _NamespaceNetworkRuleSetState:
 
     @property
     @pulumi.getter(name="networkRules")
-    def network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]:
+    def network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArrgs']]]]:
         """
         One or more `network_rules` blocks as defined below.
         """
         return pulumi.get(self, "network_rules")
 
     @network_rules.setter
-    def network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]):
+    def network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArrgs']]]]):
         pulumi.set(self, "network_rules", value)
 
     @property
@@ -228,7 +228,7 @@ class _NamespaceNetworkRuleSetState:
         pulumi.set(self, "trusted_services_allowed", value)
 
 
-class NamespaceNetworkRuleSet(pulumi.CustomResource):
+calass NamespaceNetworkRuleSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -236,7 +236,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
                  default_action: Optional[pulumi.Input[str]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  namespace_id: Optional[pulumi.Input[str]] = None,
-                 network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceNetworkRuleSetNetworkRuleArgs']]]]] = None,
+                 network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceNetworkRuleSetNetworkRuleArrgs']]]]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  trusted_services_allowed: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -272,7 +272,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
             namespace_id=example_namespace.id,
             default_action="Deny",
             public_network_access_enabled=True,
-            network_rules=[azure.servicebus.NamespaceNetworkRuleSetNetworkRuleArgs(
+            network_rules=[azure.servicebus.NamespaceNetworkRuleSetNetworkRuleArrgs(
                 subnet_id=example_subnet.id,
                 ignore_missing_vnet_service_endpoint=False,
             )],
@@ -294,7 +294,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_id: Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
                
                > **NOTE:** The ServiceBus Namespace must be `Premium` in order to attach a ServiceBus Namespace Network Rule Set.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceNetworkRuleSetNetworkRuleArgs']]]] network_rules: One or more `network_rules` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceNetworkRuleSetNetworkRuleArrgs']]]] network_rules: One or more `network_rules` blocks as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[bool] trusted_services_allowed: If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
         """
@@ -302,7 +302,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NamespaceNetworkRuleSetInitArgs,
+                 args: NamespaceNetworkRuleSetInitArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a ServiceBus Namespace Network Rule Set.
@@ -336,7 +336,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
             namespace_id=example_namespace.id,
             default_action="Deny",
             public_network_access_enabled=True,
-            network_rules=[azure.servicebus.NamespaceNetworkRuleSetNetworkRuleArgs(
+            network_rules=[azure.servicebus.NamespaceNetworkRuleSetNetworkRuleArrgs(
                 subnet_id=example_subnet.id,
                 ignore_missing_vnet_service_endpoint=False,
             )],
@@ -352,12 +352,12 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NamespaceNetworkRuleSetInitArgs args: The arguments to use to populate this resource's properties.
+        :param NamespaceNetworkRuleSetInitArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NamespaceNetworkRuleSetInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NamespaceNetworkRuleSetInitArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -369,7 +369,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
                  default_action: Optional[pulumi.Input[str]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  namespace_id: Optional[pulumi.Input[str]] = None,
-                 network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceNetworkRuleSetNetworkRuleArgs']]]]] = None,
+                 network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceNetworkRuleSetNetworkRuleArrgs']]]]] = None,
                  public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
                  trusted_services_allowed: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -379,7 +379,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NamespaceNetworkRuleSetInitArgs.__new__(NamespaceNetworkRuleSetInitArgs)
+            __props__ = NamespaceNetworkRuleSetInitArrgs.__new__(NamespaceNetworkRuleSetInitArrgs)
 
             __props__.__dict__["default_action"] = default_action
             __props__.__dict__["ip_rules"] = ip_rules
@@ -402,7 +402,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
             default_action: Optional[pulumi.Input[str]] = None,
             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             namespace_id: Optional[pulumi.Input[str]] = None,
-            network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceNetworkRuleSetNetworkRuleArgs']]]]] = None,
+            network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceNetworkRuleSetNetworkRuleArrgs']]]]] = None,
             public_network_access_enabled: Optional[pulumi.Input[bool]] = None,
             trusted_services_allowed: Optional[pulumi.Input[bool]] = None) -> 'NamespaceNetworkRuleSet':
         """
@@ -417,7 +417,7 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         :param pulumi.Input[str] namespace_id: Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespace Network Rule Set. Changing this forces a new resource to be created.
                
                > **NOTE:** The ServiceBus Namespace must be `Premium` in order to attach a ServiceBus Namespace Network Rule Set.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceNetworkRuleSetNetworkRuleArgs']]]] network_rules: One or more `network_rules` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NamespaceNetworkRuleSetNetworkRuleArrgs']]]] network_rules: One or more `network_rules` blocks as defined below.
         :param pulumi.Input[bool] public_network_access_enabled: Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
         :param pulumi.Input[bool] trusted_services_allowed: If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
         """

@@ -11,12 +11,12 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ClusterArgs', 'Cluster']
+__all__ = ['ClusterArrgs', 'Cluster']
 
 @pulumi.input_type
-class ClusterArgs:
+calass ClusterArrgs:
     def __init__(__self__, *,
-                 identity: pulumi.Input['ClusterIdentityArgs'],
+                 identity: pulumi.Input['ClusterIdentityArrgs'],
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -24,7 +24,7 @@ class ClusterArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
-        :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
+        :param pulumi.Input['ClusterIdentityArrgs'] identity: An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] location: The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Log Analytics Cluster. Changing this forces a new Log Analytics Cluster to be created.
@@ -46,14 +46,14 @@ class ClusterArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> pulumi.Input['ClusterIdentityArgs']:
+    def identity(self) -> pulumi.Input['ClusterIdentityArrgs']:
         """
         An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: pulumi.Input['ClusterIdentityArgs']):
+    def identity(self, value: pulumi.Input['ClusterIdentityArrgs']):
         pulumi.set(self, "identity", value)
 
     @property
@@ -120,10 +120,10 @@ class ClusterArgs:
 
 
 @pulumi.input_type
-class _ClusterState:
+calass _ClusterState:
     def __init__(__self__, *,
                  cluster_id: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['ClusterIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['ClusterIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -132,7 +132,7 @@ class _ClusterState:
         """
         Input properties used for looking up and filtering Cluster resources.
         :param pulumi.Input[str] cluster_id: The GUID of the cluster.
-        :param pulumi.Input['ClusterIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
+        :param pulumi.Input['ClusterIdentityArrgs'] identity: An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] location: The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Log Analytics Cluster. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
@@ -170,14 +170,14 @@ class _ClusterState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['ClusterIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ClusterIdentityArrgs']]:
         """
         An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['ClusterIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ClusterIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -243,12 +243,12 @@ class _ClusterState:
         pulumi.set(self, "tags", value)
 
 
-class Cluster(pulumi.CustomResource):
+calass Cluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ClusterIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ClusterIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -270,7 +270,7 @@ class Cluster(pulumi.CustomResource):
         example_cluster = azure.loganalytics.Cluster("exampleCluster",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            identity=azure.loganalytics.ClusterIdentityArgs(
+            identity=azure.loganalytics.ClusterIdentityArrgs(
                 type="SystemAssigned",
             ))
         ```
@@ -285,7 +285,7 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
+        :param pulumi.Input[pulumi.InputType['ClusterIdentityArrgs']] identity: An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] location: The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Log Analytics Cluster. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
@@ -298,7 +298,7 @@ class Cluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ClusterArgs,
+                 args: ClusterArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         > **Note:** Log Analytics Clusters are subject to 14-day soft delete policy. Clusters created with the same resource group & name as a previously deleted cluster will be recovered rather than creating anew.
@@ -315,7 +315,7 @@ class Cluster(pulumi.CustomResource):
         example_cluster = azure.loganalytics.Cluster("exampleCluster",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            identity=azure.loganalytics.ClusterIdentityArgs(
+            identity=azure.loganalytics.ClusterIdentityArrgs(
                 type="SystemAssigned",
             ))
         ```
@@ -329,12 +329,12 @@ class Cluster(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ClusterArgs args: The arguments to use to populate this resource's properties.
+        :param ClusterArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ClusterArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -343,7 +343,7 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['ClusterIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['ClusterIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -356,7 +356,7 @@ class Cluster(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ClusterArgs.__new__(ClusterArgs)
+            __props__ = ClusterArrgs.__new__(ClusterArrgs)
 
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
@@ -380,7 +380,7 @@ class Cluster(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             cluster_id: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['ClusterIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['ClusterIdentityArrgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -394,7 +394,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_id: The GUID of the cluster.
-        :param pulumi.Input[pulumi.InputType['ClusterIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
+        :param pulumi.Input[pulumi.InputType['ClusterIdentityArrgs']] identity: An `identity` block as defined below. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] location: The Azure Region where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] name: The name which should be used for this Log Analytics Cluster. Changing this forces a new Log Analytics Cluster to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group where the Log Analytics Cluster should exist. Changing this forces a new Log Analytics Cluster to be created.

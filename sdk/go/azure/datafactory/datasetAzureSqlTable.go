@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure SQL Table Dataset inside an Azure Data Factory.
@@ -262,12 +261,6 @@ func (i *DatasetAzureSqlTable) ToDatasetAzureSqlTableOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetAzureSqlTableOutput)
 }
 
-func (i *DatasetAzureSqlTable) ToOutput(ctx context.Context) pulumix.Output[*DatasetAzureSqlTable] {
-	return pulumix.Output[*DatasetAzureSqlTable]{
-		OutputState: i.ToDatasetAzureSqlTableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DatasetAzureSqlTableArrayInput is an input type that accepts DatasetAzureSqlTableArray and DatasetAzureSqlTableArrayOutput values.
 // You can construct a concrete instance of `DatasetAzureSqlTableArrayInput` via:
 //
@@ -291,12 +284,6 @@ func (i DatasetAzureSqlTableArray) ToDatasetAzureSqlTableArrayOutput() DatasetAz
 
 func (i DatasetAzureSqlTableArray) ToDatasetAzureSqlTableArrayOutputWithContext(ctx context.Context) DatasetAzureSqlTableArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetAzureSqlTableArrayOutput)
-}
-
-func (i DatasetAzureSqlTableArray) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetAzureSqlTable] {
-	return pulumix.Output[[]*DatasetAzureSqlTable]{
-		OutputState: i.ToDatasetAzureSqlTableArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DatasetAzureSqlTableMapInput is an input type that accepts DatasetAzureSqlTableMap and DatasetAzureSqlTableMapOutput values.
@@ -324,12 +311,6 @@ func (i DatasetAzureSqlTableMap) ToDatasetAzureSqlTableMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetAzureSqlTableMapOutput)
 }
 
-func (i DatasetAzureSqlTableMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetAzureSqlTable] {
-	return pulumix.Output[map[string]*DatasetAzureSqlTable]{
-		OutputState: i.ToDatasetAzureSqlTableMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DatasetAzureSqlTableOutput struct{ *pulumi.OutputState }
 
 func (DatasetAzureSqlTableOutput) ElementType() reflect.Type {
@@ -342,12 +323,6 @@ func (o DatasetAzureSqlTableOutput) ToDatasetAzureSqlTableOutput() DatasetAzureS
 
 func (o DatasetAzureSqlTableOutput) ToDatasetAzureSqlTableOutputWithContext(ctx context.Context) DatasetAzureSqlTableOutput {
 	return o
-}
-
-func (o DatasetAzureSqlTableOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetAzureSqlTable] {
-	return pulumix.Output[*DatasetAzureSqlTable]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of additional properties to associate with the Data Factory Dataset Azure SQL Table.
@@ -419,12 +394,6 @@ func (o DatasetAzureSqlTableArrayOutput) ToDatasetAzureSqlTableArrayOutputWithCo
 	return o
 }
 
-func (o DatasetAzureSqlTableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetAzureSqlTable] {
-	return pulumix.Output[[]*DatasetAzureSqlTable]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetAzureSqlTableArrayOutput) Index(i pulumi.IntInput) DatasetAzureSqlTableOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetAzureSqlTable {
 		return vs[0].([]*DatasetAzureSqlTable)[vs[1].(int)]
@@ -443,12 +412,6 @@ func (o DatasetAzureSqlTableMapOutput) ToDatasetAzureSqlTableMapOutput() Dataset
 
 func (o DatasetAzureSqlTableMapOutput) ToDatasetAzureSqlTableMapOutputWithContext(ctx context.Context) DatasetAzureSqlTableMapOutput {
 	return o
-}
-
-func (o DatasetAzureSqlTableMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetAzureSqlTable] {
-	return pulumix.Output[map[string]*DatasetAzureSqlTable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatasetAzureSqlTableMapOutput) MapIndex(k pulumi.StringInput) DatasetAzureSqlTableOutput {

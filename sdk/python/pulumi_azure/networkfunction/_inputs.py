@@ -10,12 +10,12 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'CollectorPolicyIpfxEmissionArgs',
-    'CollectorPolicyIpfxIngestionArgs',
+    'CollectorPolicyIpfxEmissionArrgs',
+    'CollectorPolicyIpfxIngestionArrgs',
 ]
 
 @pulumi.input_type
-class CollectorPolicyIpfxEmissionArgs:
+calass CollectorPolicyIpfxEmissionArrgs:
     def __init__(__self__, *,
                  destination_types: pulumi.Input[str]):
         """
@@ -37,7 +37,7 @@ class CollectorPolicyIpfxEmissionArgs:
 
 
 @pulumi.input_type
-class CollectorPolicyIpfxIngestionArgs:
+calass CollectorPolicyIpfxIngestionArrgs:
     def __init__(__self__, *,
                  source_resource_ids: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """

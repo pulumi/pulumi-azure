@@ -15,7 +15,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DefinitionPermission(dict):
+calass DefinitionPermission(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -91,7 +91,7 @@ class DefinitionPermission(dict):
 
 
 @pulumi.output_type
-class GetRoleDefinitionPermissionResult(dict):
+calass GetRoleDefinitionPermissionResult(dict):
     def __init__(__self__, *,
                  actions: Sequence[str],
                  not_actions: Sequence[str],

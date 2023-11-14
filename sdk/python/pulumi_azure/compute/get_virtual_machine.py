@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVirtualMachineResult:
+calass GetVirtualMachineResult:
     """
     A collection of values returned by getVirtualMachine.
     """
@@ -126,7 +126,7 @@ class GetVirtualMachineResult:
         return pulumi.get(self, "resource_group_name")
 
 
-class AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
+calass AwaitableGetVirtualMachineResult(GetVirtualMachineResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

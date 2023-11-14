@@ -145,7 +145,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ConnectedRegistryNotification(dict):
+calass ConnectedRegistryNotification(dict):
     def __init__(__self__, *,
                  action: str,
                  name: str,
@@ -202,7 +202,7 @@ class ConnectedRegistryNotification(dict):
 
 
 @pulumi.output_type
-class FluxConfigurationBlobStorage(dict):
+calass FluxConfigurationBlobStorage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -247,9 +247,9 @@ class FluxConfigurationBlobStorage(dict):
         :param str container_id: Specifies the Azure Blob container ID.
         :param str account_key: Specifies the account key (shared key) to access the storage account.
         :param str local_auth_reference: Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
-        :param 'FluxConfigurationBlobStorageManagedIdentityArgs' managed_identity: A `managed_identity` block as defined below.
+        :param 'FluxConfigurationBlobStorageManagedIdentityArrgs' managed_identity: A `managed_identity` block as defined below.
         :param str sas_token: Specifies the shared access token to access the storage container.
-        :param 'FluxConfigurationBlobStorageServicePrincipalArgs' service_principal: A `service_principal` block as defined below.
+        :param 'FluxConfigurationBlobStorageServicePrincipalArrgs' service_principal: A `service_principal` block as defined below.
         :param int sync_interval_in_seconds: Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote.
         :param int timeout_in_seconds: Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
         """
@@ -335,7 +335,7 @@ class FluxConfigurationBlobStorage(dict):
 
 
 @pulumi.output_type
-class FluxConfigurationBlobStorageManagedIdentity(dict):
+calass FluxConfigurationBlobStorageManagedIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -370,7 +370,7 @@ class FluxConfigurationBlobStorageManagedIdentity(dict):
 
 
 @pulumi.output_type
-class FluxConfigurationBlobStorageServicePrincipal(dict):
+calass FluxConfigurationBlobStorageServicePrincipal(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -474,7 +474,7 @@ class FluxConfigurationBlobStorageServicePrincipal(dict):
 
 
 @pulumi.output_type
-class FluxConfigurationBucket(dict):
+calass FluxConfigurationBucket(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -604,7 +604,7 @@ class FluxConfigurationBucket(dict):
 
 
 @pulumi.output_type
-class FluxConfigurationGitRepository(dict):
+calass FluxConfigurationGitRepository(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -775,7 +775,7 @@ class FluxConfigurationGitRepository(dict):
 
 
 @pulumi.output_type
-class FluxConfigurationKustomization(dict):
+calass FluxConfigurationKustomization(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -904,7 +904,7 @@ class FluxConfigurationKustomization(dict):
 
 
 @pulumi.output_type
-class GroupContainer(dict):
+calass GroupContainer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -959,17 +959,17 @@ class GroupContainer(dict):
         :param Sequence[str] commands: A list of commands which should be run on the container. Changing this forces a new resource to be created.
         :param float cpu_limit: The upper limit of the number of CPU cores of the containers.
         :param Mapping[str, str] environment_variables: A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
-        :param 'GroupContainerGpuArgs' gpu: A `gpu` block as defined below. Changing this forces a new resource to be created.
+        :param 'GroupContainerGpuArrgs' gpu: A `gpu` block as defined below. Changing this forces a new resource to be created.
                
                > **Note:** Gpu resources are currently only supported in Linux containers.
-        :param 'GroupContainerGpuLimitArgs' gpu_limit: A `gpu_limit` block as defined below.
-        :param 'GroupContainerLivenessProbeArgs' liveness_probe: The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
+        :param 'GroupContainerGpuLimitArrgs' gpu_limit: A `gpu_limit` block as defined below.
+        :param 'GroupContainerLivenessProbeArrgs' liveness_probe: The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
         :param float memory_limit: The the upper limit of the memory of the containers in GB.
-        :param Sequence['GroupContainerPortArgs'] ports: A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
-        :param 'GroupContainerReadinessProbeArgs' readiness_probe: The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
+        :param Sequence['GroupContainerPortArrgs'] ports: A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
+        :param 'GroupContainerReadinessProbeArrgs' readiness_probe: The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
         :param Mapping[str, str] secure_environment_variables: A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
-        :param Sequence['GroupContainerSecurityArgs'] securities: The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
-        :param Sequence['GroupContainerVolumeArgs'] volumes: The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
+        :param Sequence['GroupContainerSecurityArrgs'] securities: The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+        :param Sequence['GroupContainerVolumeArrgs'] volumes: The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "cpu", cpu)
         pulumi.set(__self__, "image", image)
@@ -1132,7 +1132,7 @@ class GroupContainer(dict):
 
 
 @pulumi.output_type
-class GroupContainerGpu(dict):
+calass GroupContainerGpu(dict):
     def __init__(__self__, *,
                  count: Optional[int] = None,
                  sku: Optional[str] = None):
@@ -1163,7 +1163,7 @@ class GroupContainerGpu(dict):
 
 
 @pulumi.output_type
-class GroupContainerGpuLimit(dict):
+calass GroupContainerGpuLimit(dict):
     def __init__(__self__, *,
                  count: Optional[int] = None,
                  sku: Optional[str] = None):
@@ -1194,7 +1194,7 @@ class GroupContainerGpuLimit(dict):
 
 
 @pulumi.output_type
-class GroupContainerLivenessProbe(dict):
+calass GroupContainerLivenessProbe(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1233,7 +1233,7 @@ class GroupContainerLivenessProbe(dict):
         """
         :param Sequence[str] execs: Commands to be run to validate container readiness. Changing this forces a new resource to be created.
         :param int failure_threshold: How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
-        :param Sequence['GroupContainerLivenessProbeHttpGetArgs'] http_gets: The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
+        :param Sequence['GroupContainerLivenessProbeHttpGetArrgs'] http_gets: The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
         :param int initial_delay_seconds: Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
         :param int period_seconds: How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
         :param int success_threshold: Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
@@ -1312,7 +1312,7 @@ class GroupContainerLivenessProbe(dict):
 
 
 @pulumi.output_type
-class GroupContainerLivenessProbeHttpGet(dict):
+calass GroupContainerLivenessProbeHttpGet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1384,7 +1384,7 @@ class GroupContainerLivenessProbeHttpGet(dict):
 
 
 @pulumi.output_type
-class GroupContainerPort(dict):
+calass GroupContainerPort(dict):
     def __init__(__self__, *,
                  port: Optional[int] = None,
                  protocol: Optional[str] = None):
@@ -1419,7 +1419,7 @@ class GroupContainerPort(dict):
 
 
 @pulumi.output_type
-class GroupContainerReadinessProbe(dict):
+calass GroupContainerReadinessProbe(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1458,7 +1458,7 @@ class GroupContainerReadinessProbe(dict):
         """
         :param Sequence[str] execs: Commands to be run to validate container readiness. Changing this forces a new resource to be created.
         :param int failure_threshold: How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). The default value is `3` and the minimum value is `1`. Changing this forces a new resource to be created.
-        :param Sequence['GroupContainerReadinessProbeHttpGetArgs'] http_gets: The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
+        :param Sequence['GroupContainerReadinessProbeHttpGetArrgs'] http_gets: The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
         :param int initial_delay_seconds: Number of seconds after the container has started before liveness or readiness probes are initiated. Changing this forces a new resource to be created.
         :param int period_seconds: How often (in seconds) to perform the probe. The default value is `10` and the minimum value is `1`. Changing this forces a new resource to be created.
         :param int success_threshold: Minimum consecutive successes for the probe to be considered successful after having failed. The default value is `1` and the minimum value is `1`. Changing this forces a new resource to be created.
@@ -1537,7 +1537,7 @@ class GroupContainerReadinessProbe(dict):
 
 
 @pulumi.output_type
-class GroupContainerReadinessProbeHttpGet(dict):
+calass GroupContainerReadinessProbeHttpGet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1609,7 +1609,7 @@ class GroupContainerReadinessProbeHttpGet(dict):
 
 
 @pulumi.output_type
-class GroupContainerSecurity(dict):
+calass GroupContainerSecurity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1648,7 +1648,7 @@ class GroupContainerSecurity(dict):
 
 
 @pulumi.output_type
-class GroupContainerVolume(dict):
+calass GroupContainerVolume(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1692,7 +1692,7 @@ class GroupContainerVolume(dict):
         :param str mount_path: The path on which this volume is to be mounted. Changing this forces a new resource to be created.
         :param str name: The name of the volume mount. Changing this forces a new resource to be created.
         :param bool empty_dir: Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
-        :param 'GroupContainerVolumeGitRepoArgs' git_repo: A `git_repo` block as defined below. Changing this forces a new resource to be created.
+        :param 'GroupContainerVolumeGitRepoArrgs' git_repo: A `git_repo` block as defined below. Changing this forces a new resource to be created.
         :param bool read_only: Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
         :param Mapping[str, str] secret: A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
                
@@ -1802,7 +1802,7 @@ class GroupContainerVolume(dict):
 
 
 @pulumi.output_type
-class GroupContainerVolumeGitRepo(dict):
+calass GroupContainerVolumeGitRepo(dict):
     def __init__(__self__, *,
                  url: str,
                  directory: Optional[str] = None,
@@ -1844,7 +1844,7 @@ class GroupContainerVolumeGitRepo(dict):
 
 
 @pulumi.output_type
-class GroupDiagnostics(dict):
+calass GroupDiagnostics(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1865,7 +1865,7 @@ class GroupDiagnostics(dict):
     def __init__(__self__, *,
                  log_analytics: 'outputs.GroupDiagnosticsLogAnalytics'):
         """
-        :param 'GroupDiagnosticsLogAnalyticsArgs' log_analytics: A `log_analytics` block as defined below. Changing this forces a new resource to be created.
+        :param 'GroupDiagnosticsLogAnalyticsArrgs' log_analytics: A `log_analytics` block as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "log_analytics", log_analytics)
 
@@ -1879,7 +1879,7 @@ class GroupDiagnostics(dict):
 
 
 @pulumi.output_type
-class GroupDiagnosticsLogAnalytics(dict):
+calass GroupDiagnosticsLogAnalytics(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1953,7 +1953,7 @@ class GroupDiagnosticsLogAnalytics(dict):
 
 
 @pulumi.output_type
-class GroupDnsConfig(dict):
+calass GroupDnsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2012,7 +2012,7 @@ class GroupDnsConfig(dict):
 
 
 @pulumi.output_type
-class GroupExposedPort(dict):
+calass GroupExposedPort(dict):
     def __init__(__self__, *,
                  port: Optional[int] = None,
                  protocol: Optional[str] = None):
@@ -2047,7 +2047,7 @@ class GroupExposedPort(dict):
 
 
 @pulumi.output_type
-class GroupIdentity(dict):
+calass GroupIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2134,7 +2134,7 @@ class GroupIdentity(dict):
 
 
 @pulumi.output_type
-class GroupImageRegistryCredential(dict):
+calass GroupImageRegistryCredential(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2205,7 +2205,7 @@ class GroupImageRegistryCredential(dict):
 
 
 @pulumi.output_type
-class GroupInitContainer(dict):
+calass GroupInitContainer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2239,8 +2239,8 @@ class GroupInitContainer(dict):
         :param Sequence[str] commands: A list of commands which should be run on the container. Changing this forces a new resource to be created.
         :param Mapping[str, str] environment_variables: A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
         :param Mapping[str, str] secure_environment_variables: A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
-        :param Sequence['GroupInitContainerSecurityArgs'] securities: The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
-        :param Sequence['GroupInitContainerVolumeArgs'] volumes: The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
+        :param Sequence['GroupInitContainerSecurityArrgs'] securities: The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
+        :param Sequence['GroupInitContainerVolumeArrgs'] volumes: The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "image", image)
         pulumi.set(__self__, "name", name)
@@ -2313,7 +2313,7 @@ class GroupInitContainer(dict):
 
 
 @pulumi.output_type
-class GroupInitContainerSecurity(dict):
+calass GroupInitContainerSecurity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2352,7 +2352,7 @@ class GroupInitContainerSecurity(dict):
 
 
 @pulumi.output_type
-class GroupInitContainerVolume(dict):
+calass GroupInitContainerVolume(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2396,7 +2396,7 @@ class GroupInitContainerVolume(dict):
         :param str mount_path: The path on which this volume is to be mounted. Changing this forces a new resource to be created.
         :param str name: The name of the volume mount. Changing this forces a new resource to be created.
         :param bool empty_dir: Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
-        :param 'GroupInitContainerVolumeGitRepoArgs' git_repo: A `git_repo` block as defined below. Changing this forces a new resource to be created.
+        :param 'GroupInitContainerVolumeGitRepoArrgs' git_repo: A `git_repo` block as defined below. Changing this forces a new resource to be created.
         :param bool read_only: Specify if the volume is to be mounted as read only or not. The default value is `false`. Changing this forces a new resource to be created.
         :param Mapping[str, str] secret: A map of secrets that will be mounted as files in the volume. Changing this forces a new resource to be created.
                
@@ -2506,7 +2506,7 @@ class GroupInitContainerVolume(dict):
 
 
 @pulumi.output_type
-class GroupInitContainerVolumeGitRepo(dict):
+calass GroupInitContainerVolumeGitRepo(dict):
     def __init__(__self__, *,
                  url: str,
                  directory: Optional[str] = None,
@@ -2548,7 +2548,7 @@ class GroupInitContainerVolumeGitRepo(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterAciConnectorLinux(dict):
+calass KubernetesClusterAciConnectorLinux(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2582,15 +2582,15 @@ class KubernetesClusterAciConnectorLinux(dict):
                import pulumi
                import pulumi_azure as azure
                
-               virtual = azure.network.Subnet("virtual", delegations=[azure.network.SubnetDelegationArgs(
+               virtual = azure.network.Subnet("virtual", delegations=[azure.network.SubnetDelegationArrgs(
                    name="aciDelegation",
-                   service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+                   service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                        actions=["Microsoft.Network/virtualNetworks/subnets/action"],
                        name="Microsoft.ContainerInstance/containerGroups",
                    ),
                )])
                ```
-        :param Sequence['KubernetesClusterAciConnectorLinuxConnectorIdentityArgs'] connector_identities: A `connector_identity` block is exported. The exported attributes are defined below.
+        :param Sequence['KubernetesClusterAciConnectorLinuxConnectorIdentityArrgs'] connector_identities: A `connector_identity` block is exported. The exported attributes are defined below.
         """
         pulumi.set(__self__, "subnet_name", subnet_name)
         if connector_identities is not None:
@@ -2610,9 +2610,9 @@ class KubernetesClusterAciConnectorLinux(dict):
         import pulumi
         import pulumi_azure as azure
 
-        virtual = azure.network.Subnet("virtual", delegations=[azure.network.SubnetDelegationArgs(
+        virtual = azure.network.Subnet("virtual", delegations=[azure.network.SubnetDelegationArrgs(
             name="aciDelegation",
-            service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
+            service_delegation=azure.network.SubnetDelegationServiceDelegationArrgs(
                 actions=["Microsoft.Network/virtualNetworks/subnets/action"],
                 name="Microsoft.ContainerInstance/containerGroups",
             ),
@@ -2631,7 +2631,7 @@ class KubernetesClusterAciConnectorLinux(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterAciConnectorLinuxConnectorIdentity(dict):
+calass KubernetesClusterAciConnectorLinuxConnectorIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2699,7 +2699,7 @@ class KubernetesClusterAciConnectorLinuxConnectorIdentity(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterApiServerAccessProfile(dict):
+calass KubernetesClusterApiServerAccessProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2767,7 +2767,7 @@ class KubernetesClusterApiServerAccessProfile(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterAutoScalerProfile(dict):
+calass KubernetesClusterAutoScalerProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3025,7 +3025,7 @@ class KubernetesClusterAutoScalerProfile(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl(dict):
+calass KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3143,7 +3143,7 @@ class KubernetesClusterAzureActiveDirectoryRoleBasedAccessControl(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterConfidentialComputing(dict):
+calass KubernetesClusterConfidentialComputing(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3178,7 +3178,7 @@ class KubernetesClusterConfidentialComputing(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterDefaultNodePool(dict):
+calass KubernetesClusterDefaultNodePool(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3317,9 +3317,9 @@ class KubernetesClusterDefaultNodePool(dict):
         :param bool enable_node_public_ip: Should nodes in this Node Pool have a Public IP Address? `temporary_name_for_rotation` must be specified when changing this property.
         :param bool fips_enabled: Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created.
         :param str host_group_id: Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
-        :param 'KubernetesClusterDefaultNodePoolKubeletConfigArgs' kubelet_config: A `kubelet_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
+        :param 'KubernetesClusterDefaultNodePoolKubeletConfigArrgs' kubelet_config: A `kubelet_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
         :param str kubelet_disk_type: The type of disk used by kubelet. Possible values are `OS` and `Temporary`.
-        :param 'KubernetesClusterDefaultNodePoolLinuxOsConfigArgs' linux_os_config: A `linux_os_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
+        :param 'KubernetesClusterDefaultNodePoolLinuxOsConfigArrgs' linux_os_config: A `linux_os_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
         :param int max_count: The maximum number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000`.
         :param int max_pods: The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. `temporary_name_for_rotation` must be specified when changing this property.
         :param str message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
@@ -3328,7 +3328,7 @@ class KubernetesClusterDefaultNodePool(dict):
                
                > **Note:** If `enable_auto_scaling` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
         :param Mapping[str, str] node_labels: A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
-        :param 'KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs' node_network_profile: A `node_network_profile` block as documented below.
+        :param 'KubernetesClusterDefaultNodePoolNodeNetworkProfileArrgs' node_network_profile: A `node_network_profile` block as documented below.
         :param str node_public_ip_prefix_id: Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created.
         :param Sequence[str] node_taints: A list of the taints added to new nodes during node pool create and scale. `temporary_name_for_rotation` must be specified when changing this property.
         :param bool only_critical_addons_enabled: Enabling this option will taint default node pool with `CriticalAddonsOnly=true:NoSchedule` taint. `temporary_name_for_rotation` must be specified when changing this property.
@@ -3350,7 +3350,7 @@ class KubernetesClusterDefaultNodePool(dict):
                
                > **Note:** When creating a cluster that supports multiple node pools, the cluster must use `VirtualMachineScaleSets`. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
         :param bool ultra_ssd_enabled: Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
-        :param 'KubernetesClusterDefaultNodePoolUpgradeSettingsArgs' upgrade_settings: A `upgrade_settings` block as documented below.
+        :param 'KubernetesClusterDefaultNodePoolUpgradeSettingsArrgs' upgrade_settings: A `upgrade_settings` block as documented below.
         :param str vnet_subnet_id: The ID of a Subnet where the Kubernetes Node Pool should exist. Changing this forces a new resource to be created.
                
                > **Note:** A Route Table must be configured on this Subnet.
@@ -3762,7 +3762,7 @@ class KubernetesClusterDefaultNodePool(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
+calass KubernetesClusterDefaultNodePoolKubeletConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3924,7 +3924,7 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterDefaultNodePoolLinuxOsConfig(dict):
+calass KubernetesClusterDefaultNodePoolLinuxOsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3955,7 +3955,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfig(dict):
                  transparent_huge_page_enabled: Optional[str] = None):
         """
         :param int swap_file_size_mb: Specifies the size of the swap file on each node in MB. Changing this forces a new resource to be created.
-        :param 'KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs' sysctl_config: A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
+        :param 'KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArrgs' sysctl_config: A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
         :param str transparent_huge_page_defrag: specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
         :param str transparent_huge_page_enabled: Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
         """
@@ -4002,7 +4002,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfig(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig(dict):
+calass KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4430,7 +4430,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterDefaultNodePoolNodeNetworkProfile(dict):
+calass KubernetesClusterDefaultNodePoolNodeNetworkProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4470,7 +4470,7 @@ class KubernetesClusterDefaultNodePoolNodeNetworkProfile(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterDefaultNodePoolUpgradeSettings(dict):
+calass KubernetesClusterDefaultNodePoolUpgradeSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4509,7 +4509,7 @@ class KubernetesClusterDefaultNodePoolUpgradeSettings(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterExtensionAksAssignedIdentity(dict):
+calass KubernetesClusterExtensionAksAssignedIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4571,7 +4571,7 @@ class KubernetesClusterExtensionAksAssignedIdentity(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterExtensionPlan(dict):
+calass KubernetesClusterExtensionPlan(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4656,7 +4656,7 @@ class KubernetesClusterExtensionPlan(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterHttpProxyConfig(dict):
+calass KubernetesClusterHttpProxyConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4730,7 +4730,7 @@ class KubernetesClusterHttpProxyConfig(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterIdentity(dict):
+calass KubernetesClusterIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4809,7 +4809,7 @@ class KubernetesClusterIdentity(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterIngressApplicationGateway(dict):
+calass KubernetesClusterIngressApplicationGateway(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4848,7 +4848,7 @@ class KubernetesClusterIngressApplicationGateway(dict):
         :param str effective_gateway_id: The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
         :param str gateway_id: The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
         :param str gateway_name: The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-        :param Sequence['KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs'] ingress_application_gateway_identities: An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
+        :param Sequence['KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrgs'] ingress_application_gateway_identities: An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
         :param str subnet_cidr: The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
         :param str subnet_id: The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
                
@@ -4923,7 +4923,7 @@ class KubernetesClusterIngressApplicationGateway(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity(dict):
+calass KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4991,7 +4991,7 @@ class KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentit
 
 
 @pulumi.output_type
-class KubernetesClusterKeyManagementService(dict):
+calass KubernetesClusterKeyManagementService(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5040,7 +5040,7 @@ class KubernetesClusterKeyManagementService(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterKeyVaultSecretsProvider(dict):
+calass KubernetesClusterKeyVaultSecretsProvider(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5067,7 +5067,7 @@ class KubernetesClusterKeyVaultSecretsProvider(dict):
                  secret_rotation_enabled: Optional[bool] = None,
                  secret_rotation_interval: Optional[str] = None):
         """
-        :param Sequence['KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs'] secret_identities: An `secret_identity` block is exported. The exported attributes are defined below.
+        :param Sequence['KubernetesClusterKeyVaultSecretsProviderSecretIdentityArrgs'] secret_identities: An `secret_identity` block is exported. The exported attributes are defined below.
         :param bool secret_rotation_enabled: Should the secret store CSI driver on the AKS cluster be enabled?
         :param str secret_rotation_interval: The interval to poll for secret rotation. This attribute is only set when `secret_rotation` is true and defaults to `2m`.
                
@@ -5108,7 +5108,7 @@ class KubernetesClusterKeyVaultSecretsProvider(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterKeyVaultSecretsProviderSecretIdentity(dict):
+calass KubernetesClusterKeyVaultSecretsProviderSecretIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5176,7 +5176,7 @@ class KubernetesClusterKeyVaultSecretsProviderSecretIdentity(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterKubeAdminConfig(dict):
+calass KubernetesClusterKubeAdminConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5276,7 +5276,7 @@ class KubernetesClusterKubeAdminConfig(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterKubeConfig(dict):
+calass KubernetesClusterKubeConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5376,7 +5376,7 @@ class KubernetesClusterKubeConfig(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterKubeletIdentity(dict):
+calass KubernetesClusterKubeletIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5444,7 +5444,7 @@ class KubernetesClusterKubeletIdentity(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterLinuxProfile(dict):
+calass KubernetesClusterLinuxProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5469,7 +5469,7 @@ class KubernetesClusterLinuxProfile(dict):
                  ssh_key: 'outputs.KubernetesClusterLinuxProfileSshKey'):
         """
         :param str admin_username: The Admin Username for the Cluster. Changing this forces a new resource to be created.
-        :param 'KubernetesClusterLinuxProfileSshKeyArgs' ssh_key: An `ssh_key` block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
+        :param 'KubernetesClusterLinuxProfileSshKeyArrgs' ssh_key: An `ssh_key` block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
         """
         pulumi.set(__self__, "admin_username", admin_username)
         pulumi.set(__self__, "ssh_key", ssh_key)
@@ -5492,7 +5492,7 @@ class KubernetesClusterLinuxProfile(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterLinuxProfileSshKey(dict):
+calass KubernetesClusterLinuxProfileSshKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5527,7 +5527,7 @@ class KubernetesClusterLinuxProfileSshKey(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterMaintenanceWindow(dict):
+calass KubernetesClusterMaintenanceWindow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5549,8 +5549,8 @@ class KubernetesClusterMaintenanceWindow(dict):
                  alloweds: Optional[Sequence['outputs.KubernetesClusterMaintenanceWindowAllowed']] = None,
                  not_alloweds: Optional[Sequence['outputs.KubernetesClusterMaintenanceWindowNotAllowed']] = None):
         """
-        :param Sequence['KubernetesClusterMaintenanceWindowAllowedArgs'] alloweds: One or more `allowed` blocks as defined below.
-        :param Sequence['KubernetesClusterMaintenanceWindowNotAllowedArgs'] not_alloweds: One or more `not_allowed` block as defined below.
+        :param Sequence['KubernetesClusterMaintenanceWindowAllowedArrgs'] alloweds: One or more `allowed` blocks as defined below.
+        :param Sequence['KubernetesClusterMaintenanceWindowNotAllowedArrgs'] not_alloweds: One or more `not_allowed` block as defined below.
         """
         if alloweds is not None:
             pulumi.set(__self__, "alloweds", alloweds)
@@ -5575,7 +5575,7 @@ class KubernetesClusterMaintenanceWindow(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterMaintenanceWindowAllowed(dict):
+calass KubernetesClusterMaintenanceWindowAllowed(dict):
     def __init__(__self__, *,
                  day: str,
                  hours: Sequence[int]):
@@ -5604,7 +5604,7 @@ class KubernetesClusterMaintenanceWindowAllowed(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterMaintenanceWindowAutoUpgrade(dict):
+calass KubernetesClusterMaintenanceWindowAutoUpgrade(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5650,7 +5650,7 @@ class KubernetesClusterMaintenanceWindowAutoUpgrade(dict):
         :param str frequency: Frequency of maintenance. Possible options are `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
         :param int interval: The interval for maintenance runs. Depending on the frequency this interval is week or month based.
         :param str day_of_week: The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
-        :param Sequence['KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs'] not_alloweds: One or more `not_allowed` block as defined below.
+        :param Sequence['KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArrgs'] not_alloweds: One or more `not_allowed` block as defined below.
         :param str start_date: The date on which the maintenance window begins to take effect.
         :param str start_time: The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
         :param str utc_offset: Used to determine the timezone for cluster maintenance.
@@ -5755,7 +5755,7 @@ class KubernetesClusterMaintenanceWindowAutoUpgrade(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed(dict):
+calass KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed(dict):
     def __init__(__self__, *,
                  end: str,
                  start: str):
@@ -5784,7 +5784,7 @@ class KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowed(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterMaintenanceWindowNodeOs(dict):
+calass KubernetesClusterMaintenanceWindowNodeOs(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5830,7 +5830,7 @@ class KubernetesClusterMaintenanceWindowNodeOs(dict):
         :param str frequency: Frequency of maintenance. Possible options are `Daily`, `Weekly`, `AbsoluteMonthly` and `RelativeMonthly`.
         :param int interval: The interval for maintenance runs. Depending on the frequency this interval is week or month based.
         :param str day_of_week: The day of the week for the maintenance run. Options are `Monday`, `Tuesday`, `Wednesday`, `Thurday`, `Friday`, `Saturday` and `Sunday`. Required in combination with weekly frequency.
-        :param Sequence['KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs'] not_alloweds: One or more `not_allowed` block as defined below.
+        :param Sequence['KubernetesClusterMaintenanceWindowNodeOsNotAllowedArrgs'] not_alloweds: One or more `not_allowed` block as defined below.
         :param str start_date: The date on which the maintenance window begins to take effect.
         :param str start_time: The time for maintenance to begin, based on the timezone determined by `utc_offset`. Format is `HH:mm`.
         :param str utc_offset: Used to determine the timezone for cluster maintenance.
@@ -5933,7 +5933,7 @@ class KubernetesClusterMaintenanceWindowNodeOs(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterMaintenanceWindowNodeOsNotAllowed(dict):
+calass KubernetesClusterMaintenanceWindowNodeOsNotAllowed(dict):
     def __init__(__self__, *,
                  end: str,
                  start: str):
@@ -5962,7 +5962,7 @@ class KubernetesClusterMaintenanceWindowNodeOsNotAllowed(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterMaintenanceWindowNotAllowed(dict):
+calass KubernetesClusterMaintenanceWindowNotAllowed(dict):
     def __init__(__self__, *,
                  end: str,
                  start: str):
@@ -5991,7 +5991,7 @@ class KubernetesClusterMaintenanceWindowNotAllowed(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterMicrosoftDefender(dict):
+calass KubernetesClusterMicrosoftDefender(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6026,7 +6026,7 @@ class KubernetesClusterMicrosoftDefender(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterMonitorMetrics(dict):
+calass KubernetesClusterMonitorMetrics(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6076,7 +6076,7 @@ class KubernetesClusterMonitorMetrics(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterNetworkProfile(dict):
+calass KubernetesClusterNetworkProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6161,9 +6161,9 @@ class KubernetesClusterNetworkProfile(dict):
                ->**Note:** To configure dual-stack networking `ip_versions` should be set to `["IPv4", "IPv6"]`.
                
                ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
-        :param 'KubernetesClusterNetworkProfileLoadBalancerProfileArgs' load_balancer_profile: A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`. Changing this forces a new resource to be created.
+        :param 'KubernetesClusterNetworkProfileLoadBalancerProfileArrgs' load_balancer_profile: A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`. Changing this forces a new resource to be created.
         :param str load_balancer_sku: Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
-        :param 'KubernetesClusterNetworkProfileNatGatewayProfileArgs' nat_gateway_profile: A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
+        :param 'KubernetesClusterNetworkProfileNatGatewayProfileArrgs' nat_gateway_profile: A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
         :param str network_mode: Network mode to be used with Azure CNI. Possible values are `bridge` and `transparent`. Changing this forces a new resource to be created.
                
                > **Note:** `network_mode` can only be set to `bridge` for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future.
@@ -6376,7 +6376,7 @@ class KubernetesClusterNetworkProfile(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterNetworkProfileLoadBalancerProfile(dict):
+calass KubernetesClusterNetworkProfileLoadBalancerProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6508,7 +6508,7 @@ class KubernetesClusterNetworkProfileLoadBalancerProfile(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterNetworkProfileNatGatewayProfile(dict):
+calass KubernetesClusterNetworkProfileNatGatewayProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6572,7 +6572,7 @@ class KubernetesClusterNetworkProfileNatGatewayProfile(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterNodePoolKubeletConfig(dict):
+calass KubernetesClusterNodePoolKubeletConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6734,7 +6734,7 @@ class KubernetesClusterNodePoolKubeletConfig(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterNodePoolLinuxOsConfig(dict):
+calass KubernetesClusterNodePoolLinuxOsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6765,7 +6765,7 @@ class KubernetesClusterNodePoolLinuxOsConfig(dict):
                  transparent_huge_page_enabled: Optional[str] = None):
         """
         :param int swap_file_size_mb: Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
-        :param 'KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs' sysctl_config: A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
+        :param 'KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArrgs' sysctl_config: A `sysctl_config` block as defined below. Changing this forces a new resource to be created.
         :param str transparent_huge_page_defrag: specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`. Changing this forces a new resource to be created.
         :param str transparent_huge_page_enabled: Specifies the Transparent Huge Page enabled configuration. Possible values are `always`, `madvise` and `never`. Changing this forces a new resource to be created.
         """
@@ -6812,7 +6812,7 @@ class KubernetesClusterNodePoolLinuxOsConfig(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterNodePoolLinuxOsConfigSysctlConfig(dict):
+calass KubernetesClusterNodePoolLinuxOsConfigSysctlConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7240,7 +7240,7 @@ class KubernetesClusterNodePoolLinuxOsConfigSysctlConfig(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterNodePoolNodeNetworkProfile(dict):
+calass KubernetesClusterNodePoolNodeNetworkProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7280,7 +7280,7 @@ class KubernetesClusterNodePoolNodeNetworkProfile(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterNodePoolUpgradeSettings(dict):
+calass KubernetesClusterNodePoolUpgradeSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7315,7 +7315,7 @@ class KubernetesClusterNodePoolUpgradeSettings(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterNodePoolWindowsProfile(dict):
+calass KubernetesClusterNodePoolWindowsProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7355,7 +7355,7 @@ class KubernetesClusterNodePoolWindowsProfile(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterOmsAgent(dict):
+calass KubernetesClusterOmsAgent(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7384,7 +7384,7 @@ class KubernetesClusterOmsAgent(dict):
         """
         :param str log_analytics_workspace_id: The ID of the Log Analytics Workspace which the OMS Agent should send data to.
         :param bool msi_auth_for_monitoring_enabled: Is managed identity authentication for monitoring enabled?
-        :param Sequence['KubernetesClusterOmsAgentOmsAgentIdentityArgs'] oms_agent_identities: An `oms_agent_identity` block is exported. The exported attributes are defined below.
+        :param Sequence['KubernetesClusterOmsAgentOmsAgentIdentityArrgs'] oms_agent_identities: An `oms_agent_identity` block is exported. The exported attributes are defined below.
         """
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if msi_auth_for_monitoring_enabled is not None:
@@ -7418,7 +7418,7 @@ class KubernetesClusterOmsAgent(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterOmsAgentOmsAgentIdentity(dict):
+calass KubernetesClusterOmsAgentOmsAgentIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7486,7 +7486,7 @@ class KubernetesClusterOmsAgentOmsAgentIdentity(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterServiceMeshProfile(dict):
+calass KubernetesClusterServiceMeshProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7555,7 +7555,7 @@ class KubernetesClusterServiceMeshProfile(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterServicePrincipal(dict):
+calass KubernetesClusterServicePrincipal(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7603,7 +7603,7 @@ class KubernetesClusterServicePrincipal(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterStorageProfile(dict):
+calass KubernetesClusterStorageProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7699,7 +7699,7 @@ class KubernetesClusterStorageProfile(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterWebAppRouting(dict):
+calass KubernetesClusterWebAppRouting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7724,7 +7724,7 @@ class KubernetesClusterWebAppRouting(dict):
                  web_app_routing_identities: Optional[Sequence['outputs.KubernetesClusterWebAppRoutingWebAppRoutingIdentity']] = None):
         """
         :param str dns_zone_id: Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string `""`.
-        :param Sequence['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs'] web_app_routing_identities: A `web_app_routing_identity` block is exported. The exported attributes are defined below.
+        :param Sequence['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArrgs'] web_app_routing_identities: A `web_app_routing_identity` block is exported. The exported attributes are defined below.
         """
         pulumi.set(__self__, "dns_zone_id", dns_zone_id)
         if web_app_routing_identities is not None:
@@ -7748,7 +7748,7 @@ class KubernetesClusterWebAppRouting(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterWebAppRoutingWebAppRoutingIdentity(dict):
+calass KubernetesClusterWebAppRoutingWebAppRoutingIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7816,7 +7816,7 @@ class KubernetesClusterWebAppRoutingWebAppRoutingIdentity(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterWindowsProfile(dict):
+calass KubernetesClusterWindowsProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7844,7 +7844,7 @@ class KubernetesClusterWindowsProfile(dict):
         """
         :param str admin_username: The Admin Username for Windows VMs. Changing this forces a new resource to be created.
         :param str admin_password: The Admin Password for Windows VMs. Length must be between 14 and 123 characters.
-        :param 'KubernetesClusterWindowsProfileGmsaArgs' gmsa: A `gmsa` block as defined below.
+        :param 'KubernetesClusterWindowsProfileGmsaArrgs' gmsa: A `gmsa` block as defined below.
         :param str license: Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is `Windows_Server`.
         """
         pulumi.set(__self__, "admin_username", admin_username)
@@ -7889,7 +7889,7 @@ class KubernetesClusterWindowsProfile(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterWindowsProfileGmsa(dict):
+calass KubernetesClusterWindowsProfileGmsa(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7941,7 +7941,7 @@ class KubernetesClusterWindowsProfileGmsa(dict):
 
 
 @pulumi.output_type
-class KubernetesClusterWorkloadAutoscalerProfile(dict):
+calass KubernetesClusterWorkloadAutoscalerProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8027,7 +8027,7 @@ class KubernetesClusterWorkloadAutoscalerProfile(dict):
 
 
 @pulumi.output_type
-class KubernetesFleetManagerHubProfile(dict):
+calass KubernetesFleetManagerHubProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8074,7 +8074,7 @@ class KubernetesFleetManagerHubProfile(dict):
 
 
 @pulumi.output_type
-class RegistryEncryption(dict):
+calass RegistryEncryption(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8138,7 +8138,7 @@ class RegistryEncryption(dict):
 
 
 @pulumi.output_type
-class RegistryGeoreplication(dict):
+calass RegistryGeoreplication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8215,7 +8215,7 @@ class RegistryGeoreplication(dict):
 
 
 @pulumi.output_type
-class RegistryIdentity(dict):
+calass RegistryIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8294,7 +8294,7 @@ class RegistryIdentity(dict):
 
 
 @pulumi.output_type
-class RegistryNetworkRuleSet(dict):
+calass RegistryNetworkRuleSet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8322,8 +8322,8 @@ class RegistryNetworkRuleSet(dict):
                  virtual_networks: Optional[Sequence['outputs.RegistryNetworkRuleSetVirtualNetwork']] = None):
         """
         :param str default_action: The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
-        :param Sequence['RegistryNetworkRuleSetIpRuleArgs'] ip_rules: One or more `ip_rule` blocks as defined below.
-        :param Sequence['RegistryNetworkRuleSetVirtualNetworkArgs'] virtual_networks: One or more `virtual_network` blocks as defined below.
+        :param Sequence['RegistryNetworkRuleSetIpRuleArrgs'] ip_rules: One or more `ip_rule` blocks as defined below.
+        :param Sequence['RegistryNetworkRuleSetVirtualNetworkArrgs'] virtual_networks: One or more `virtual_network` blocks as defined below.
                
                > **NOTE:** `network_rule_set` is only supported with the `Premium` SKU at this time.
                
@@ -8366,7 +8366,7 @@ class RegistryNetworkRuleSet(dict):
 
 
 @pulumi.output_type
-class RegistryNetworkRuleSetIpRule(dict):
+calass RegistryNetworkRuleSetIpRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8412,7 +8412,7 @@ class RegistryNetworkRuleSetIpRule(dict):
 
 
 @pulumi.output_type
-class RegistryNetworkRuleSetVirtualNetwork(dict):
+calass RegistryNetworkRuleSetVirtualNetwork(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8458,7 +8458,7 @@ class RegistryNetworkRuleSetVirtualNetwork(dict):
 
 
 @pulumi.output_type
-class RegistryRetentionPolicy(dict):
+calass RegistryRetentionPolicy(dict):
     def __init__(__self__, *,
                  days: Optional[int] = None,
                  enabled: Optional[bool] = None):
@@ -8489,7 +8489,7 @@ class RegistryRetentionPolicy(dict):
 
 
 @pulumi.output_type
-class RegistryTaskAgentSetting(dict):
+calass RegistryTaskAgentSetting(dict):
     def __init__(__self__, *,
                  cpu: int):
         """
@@ -8507,7 +8507,7 @@ class RegistryTaskAgentSetting(dict):
 
 
 @pulumi.output_type
-class RegistryTaskBaseImageTrigger(dict):
+calass RegistryTaskBaseImageTrigger(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8591,7 +8591,7 @@ class RegistryTaskBaseImageTrigger(dict):
 
 
 @pulumi.output_type
-class RegistryTaskDockerStep(dict):
+calass RegistryTaskDockerStep(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8732,7 +8732,7 @@ class RegistryTaskDockerStep(dict):
 
 
 @pulumi.output_type
-class RegistryTaskEncodedStep(dict):
+calass RegistryTaskEncodedStep(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8835,7 +8835,7 @@ class RegistryTaskEncodedStep(dict):
 
 
 @pulumi.output_type
-class RegistryTaskFileStep(dict):
+calass RegistryTaskFileStep(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8938,7 +8938,7 @@ class RegistryTaskFileStep(dict):
 
 
 @pulumi.output_type
-class RegistryTaskIdentity(dict):
+calass RegistryTaskIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9017,7 +9017,7 @@ class RegistryTaskIdentity(dict):
 
 
 @pulumi.output_type
-class RegistryTaskPlatform(dict):
+calass RegistryTaskPlatform(dict):
     def __init__(__self__, *,
                  os: str,
                  architecture: Optional[str] = None,
@@ -9059,13 +9059,13 @@ class RegistryTaskPlatform(dict):
 
 
 @pulumi.output_type
-class RegistryTaskRegistryCredential(dict):
+calass RegistryTaskRegistryCredential(dict):
     def __init__(__self__, *,
                  customs: Optional[Sequence['outputs.RegistryTaskRegistryCredentialCustom']] = None,
                  source: Optional['outputs.RegistryTaskRegistryCredentialSource'] = None):
         """
-        :param Sequence['RegistryTaskRegistryCredentialCustomArgs'] customs: One or more `custom` blocks as defined above.
-        :param 'RegistryTaskRegistryCredentialSourceArgs' source: One `source` block as defined below.
+        :param Sequence['RegistryTaskRegistryCredentialCustomArrgs'] customs: One or more `custom` blocks as defined above.
+        :param 'RegistryTaskRegistryCredentialSourceArrgs' source: One `source` block as defined below.
         """
         if customs is not None:
             pulumi.set(__self__, "customs", customs)
@@ -9090,7 +9090,7 @@ class RegistryTaskRegistryCredential(dict):
 
 
 @pulumi.output_type
-class RegistryTaskRegistryCredentialCustom(dict):
+calass RegistryTaskRegistryCredentialCustom(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9161,7 +9161,7 @@ class RegistryTaskRegistryCredentialCustom(dict):
 
 
 @pulumi.output_type
-class RegistryTaskRegistryCredentialSource(dict):
+calass RegistryTaskRegistryCredentialSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9196,7 +9196,7 @@ class RegistryTaskRegistryCredentialSource(dict):
 
 
 @pulumi.output_type
-class RegistryTaskSourceTrigger(dict):
+calass RegistryTaskSourceTrigger(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9229,7 +9229,7 @@ class RegistryTaskSourceTrigger(dict):
         :param str name: The name which should be used for this trigger.
         :param str repository_url: The full URL to the source code repository.
         :param str source_type: The type of the source control service. Possible values are `Github` and `VisualStudioTeamService`.
-        :param 'RegistryTaskSourceTriggerAuthenticationArgs' authentication: A `authentication` block as defined above.
+        :param 'RegistryTaskSourceTriggerAuthenticationArrgs' authentication: A `authentication` block as defined above.
         :param str branch: The branch name of the source code.
         :param bool enabled: Should the trigger be enabled? Defaults to `true`.
         """
@@ -9302,7 +9302,7 @@ class RegistryTaskSourceTrigger(dict):
 
 
 @pulumi.output_type
-class RegistryTaskSourceTriggerAuthentication(dict):
+calass RegistryTaskSourceTriggerAuthentication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9388,7 +9388,7 @@ class RegistryTaskSourceTriggerAuthentication(dict):
 
 
 @pulumi.output_type
-class RegistryTaskTimerTrigger(dict):
+calass RegistryTaskTimerTrigger(dict):
     def __init__(__self__, *,
                  name: str,
                  schedule: str,
@@ -9429,7 +9429,7 @@ class RegistryTaskTimerTrigger(dict):
 
 
 @pulumi.output_type
-class RegistryTrustPolicy(dict):
+calass RegistryTrustPolicy(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None):
         """
@@ -9448,7 +9448,7 @@ class RegistryTrustPolicy(dict):
 
 
 @pulumi.output_type
-class TokenPasswordPassword1(dict):
+calass TokenPasswordPassword1(dict):
     def __init__(__self__, *,
                  expiry: Optional[str] = None,
                  value: Optional[str] = None):
@@ -9479,7 +9479,7 @@ class TokenPasswordPassword1(dict):
 
 
 @pulumi.output_type
-class TokenPasswordPassword2(dict):
+calass TokenPasswordPassword2(dict):
     def __init__(__self__, *,
                  expiry: Optional[str] = None,
                  value: Optional[str] = None):
@@ -9510,7 +9510,7 @@ class TokenPasswordPassword2(dict):
 
 
 @pulumi.output_type
-class GetClusterNodePoolUpgradeSettingResult(dict):
+calass GetClusterNodePoolUpgradeSettingResult(dict):
     def __init__(__self__, *,
                  max_surge: str):
         """
@@ -9528,7 +9528,7 @@ class GetClusterNodePoolUpgradeSettingResult(dict):
 
 
 @pulumi.output_type
-class GetGroupIdentityResult(dict):
+calass GetGroupIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -9579,7 +9579,7 @@ class GetGroupIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetKubernetesClusterAciConnectorLinuxResult(dict):
+calass GetKubernetesClusterAciConnectorLinuxResult(dict):
     def __init__(__self__, *,
                  subnet_name: str):
         """
@@ -9597,7 +9597,7 @@ class GetKubernetesClusterAciConnectorLinuxResult(dict):
 
 
 @pulumi.output_type
-class GetKubernetesClusterAgentPoolProfileResult(dict):
+calass GetKubernetesClusterAgentPoolProfileResult(dict):
     def __init__(__self__, *,
                  count: int,
                  enable_auto_scaling: bool,
@@ -9632,7 +9632,7 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
         :param str os_type: The Operating System used for the Agents.
         :param Mapping[str, str] tags: A mapping of tags to assign to the resource.
         :param str type: The type of Managed Service Identity that is configured on this Kubernetes Cluster.
-        :param Sequence['GetKubernetesClusterAgentPoolProfileUpgradeSettingArgs'] upgrade_settings: A `upgrade_settings` block as documented below.
+        :param Sequence['GetKubernetesClusterAgentPoolProfileUpgradeSettingArrgs'] upgrade_settings: A `upgrade_settings` block as documented below.
         :param str vm_size: The size of each VM in the Agent Pool (e.g. `Standard_F1`).
         :param str vnet_subnet_id: The ID of the Subnet where the Agents in the Pool are provisioned.
         :param Sequence[str] zones: A list of Availability Zones in which this Kubernetes Cluster is located.
@@ -9805,7 +9805,7 @@ class GetKubernetesClusterAgentPoolProfileResult(dict):
 
 
 @pulumi.output_type
-class GetKubernetesClusterAgentPoolProfileUpgradeSettingResult(dict):
+calass GetKubernetesClusterAgentPoolProfileUpgradeSettingResult(dict):
     def __init__(__self__, *,
                  max_surge: str):
         """
@@ -9823,7 +9823,7 @@ class GetKubernetesClusterAgentPoolProfileUpgradeSettingResult(dict):
 
 
 @pulumi.output_type
-class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlResult(dict):
+calass GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlResult(dict):
     def __init__(__self__, *,
                  admin_group_object_ids: Sequence[str],
                  azure_rbac_enabled: bool,
@@ -9896,7 +9896,7 @@ class GetKubernetesClusterAzureActiveDirectoryRoleBasedAccessControlResult(dict)
 
 
 @pulumi.output_type
-class GetKubernetesClusterIdentityResult(dict):
+calass GetKubernetesClusterIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -9947,7 +9947,7 @@ class GetKubernetesClusterIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetKubernetesClusterIngressApplicationGatewayResult(dict):
+calass GetKubernetesClusterIngressApplicationGatewayResult(dict):
     def __init__(__self__, *,
                  effective_gateway_id: str,
                  gateway_id: str,
@@ -9958,7 +9958,7 @@ class GetKubernetesClusterIngressApplicationGatewayResult(dict):
         """
         :param str effective_gateway_id: The ID of the Application Gateway associated with the ingress controller deployed to this Kubernetes Cluster.
         :param str gateway_id: The ID of the Application Gateway integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when gateway_id is specified when configuring the `ingress_application_gateway` addon.
-        :param Sequence['GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs'] ingress_application_gateway_identities: An `ingress_application_gateway_identity` block as defined below.
+        :param Sequence['GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArrgs'] ingress_application_gateway_identities: An `ingress_application_gateway_identity` block as defined below.
         :param str subnet_cidr: The subnet CIDR used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnet_cidr` is specified when configuring the `ingress_application_gateway` addon.
         :param str subnet_id: The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. This attribute is only set when `subnet_id` is specified when configuring the `ingress_application_gateway` addon.
         """
@@ -10016,7 +10016,7 @@ class GetKubernetesClusterIngressApplicationGatewayResult(dict):
 
 
 @pulumi.output_type
-class GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityResult(dict):
+calass GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityResult(dict):
     def __init__(__self__, *,
                  client_id: str,
                  object_id: str,
@@ -10056,7 +10056,7 @@ class GetKubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIden
 
 
 @pulumi.output_type
-class GetKubernetesClusterKeyManagementServiceResult(dict):
+calass GetKubernetesClusterKeyManagementServiceResult(dict):
     def __init__(__self__, *,
                  key_vault_key_id: str,
                  key_vault_network_access: str):
@@ -10085,13 +10085,13 @@ class GetKubernetesClusterKeyManagementServiceResult(dict):
 
 
 @pulumi.output_type
-class GetKubernetesClusterKeyVaultSecretsProviderResult(dict):
+calass GetKubernetesClusterKeyVaultSecretsProviderResult(dict):
     def __init__(__self__, *,
                  secret_identities: Sequence['outputs.GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityResult'],
                  secret_rotation_enabled: bool,
                  secret_rotation_interval: str):
         """
-        :param Sequence['GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs'] secret_identities: A `secret_identity` block as documented below.
+        :param Sequence['GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityArrgs'] secret_identities: A `secret_identity` block as documented below.
         :param bool secret_rotation_enabled: Is secret rotation enabled?
         :param str secret_rotation_interval: The interval to poll for secret rotation.
         """
@@ -10125,7 +10125,7 @@ class GetKubernetesClusterKeyVaultSecretsProviderResult(dict):
 
 
 @pulumi.output_type
-class GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityResult(dict):
+calass GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityResult(dict):
     def __init__(__self__, *,
                  client_id: str,
                  object_id: str,
@@ -10165,7 +10165,7 @@ class GetKubernetesClusterKeyVaultSecretsProviderSecretIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetKubernetesClusterKubeAdminConfigResult(dict):
+calass GetKubernetesClusterKubeAdminConfigResult(dict):
     def __init__(__self__, *,
                  client_certificate: str,
                  client_key: str,
@@ -10238,7 +10238,7 @@ class GetKubernetesClusterKubeAdminConfigResult(dict):
 
 
 @pulumi.output_type
-class GetKubernetesClusterKubeConfigResult(dict):
+calass GetKubernetesClusterKubeConfigResult(dict):
     def __init__(__self__, *,
                  client_certificate: str,
                  client_key: str,
@@ -10311,7 +10311,7 @@ class GetKubernetesClusterKubeConfigResult(dict):
 
 
 @pulumi.output_type
-class GetKubernetesClusterKubeletIdentityResult(dict):
+calass GetKubernetesClusterKubeletIdentityResult(dict):
     def __init__(__self__, *,
                  client_id: str,
                  object_id: str,
@@ -10351,13 +10351,13 @@ class GetKubernetesClusterKubeletIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetKubernetesClusterLinuxProfileResult(dict):
+calass GetKubernetesClusterLinuxProfileResult(dict):
     def __init__(__self__, *,
                  admin_username: str,
                  ssh_keys: Sequence['outputs.GetKubernetesClusterLinuxProfileSshKeyResult']):
         """
         :param str admin_username: The username associated with the administrator account of the Windows VMs.
-        :param Sequence['GetKubernetesClusterLinuxProfileSshKeyArgs'] ssh_keys: An `ssh_key` block as defined below.
+        :param Sequence['GetKubernetesClusterLinuxProfileSshKeyArrgs'] ssh_keys: An `ssh_key` block as defined below.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         pulumi.set(__self__, "ssh_keys", ssh_keys)
@@ -10380,7 +10380,7 @@ class GetKubernetesClusterLinuxProfileResult(dict):
 
 
 @pulumi.output_type
-class GetKubernetesClusterLinuxProfileSshKeyResult(dict):
+calass GetKubernetesClusterLinuxProfileSshKeyResult(dict):
     def __init__(__self__, *,
                  key_data: str):
         """
@@ -10398,7 +10398,7 @@ class GetKubernetesClusterLinuxProfileSshKeyResult(dict):
 
 
 @pulumi.output_type
-class GetKubernetesClusterMicrosoftDefenderResult(dict):
+calass GetKubernetesClusterMicrosoftDefenderResult(dict):
     def __init__(__self__, *,
                  log_analytics_workspace_id: str):
         """
@@ -10416,7 +10416,7 @@ class GetKubernetesClusterMicrosoftDefenderResult(dict):
 
 
 @pulumi.output_type
-class GetKubernetesClusterNetworkProfileResult(dict):
+calass GetKubernetesClusterNetworkProfileResult(dict):
     def __init__(__self__, *,
                  dns_service_ip: str,
                  docker_bridge_cidr: str,
@@ -10496,7 +10496,7 @@ class GetKubernetesClusterNetworkProfileResult(dict):
 
 
 @pulumi.output_type
-class GetKubernetesClusterOmsAgentResult(dict):
+calass GetKubernetesClusterOmsAgentResult(dict):
     def __init__(__self__, *,
                  log_analytics_workspace_id: str,
                  msi_auth_for_monitoring_enabled: bool,
@@ -10504,7 +10504,7 @@ class GetKubernetesClusterOmsAgentResult(dict):
         """
         :param str log_analytics_workspace_id: The ID of the Log Analytics Workspace to which the OMS Agent should send data.
         :param bool msi_auth_for_monitoring_enabled: Is managed identity authentication for monitoring enabled?
-        :param Sequence['GetKubernetesClusterOmsAgentOmsAgentIdentityArgs'] oms_agent_identities: An `oms_agent_identity` block as defined below.
+        :param Sequence['GetKubernetesClusterOmsAgentOmsAgentIdentityArrgs'] oms_agent_identities: An `oms_agent_identity` block as defined below.
         """
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         pulumi.set(__self__, "msi_auth_for_monitoring_enabled", msi_auth_for_monitoring_enabled)
@@ -10536,7 +10536,7 @@ class GetKubernetesClusterOmsAgentResult(dict):
 
 
 @pulumi.output_type
-class GetKubernetesClusterOmsAgentOmsAgentIdentityResult(dict):
+calass GetKubernetesClusterOmsAgentOmsAgentIdentityResult(dict):
     def __init__(__self__, *,
                  client_id: str,
                  object_id: str,
@@ -10576,7 +10576,7 @@ class GetKubernetesClusterOmsAgentOmsAgentIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetKubernetesClusterServiceMeshProfileResult(dict):
+calass GetKubernetesClusterServiceMeshProfileResult(dict):
     def __init__(__self__, *,
                  external_ingress_gateway_enabled: bool,
                  internal_ingress_gateway_enabled: bool,
@@ -10616,7 +10616,7 @@ class GetKubernetesClusterServiceMeshProfileResult(dict):
 
 
 @pulumi.output_type
-class GetKubernetesClusterServicePrincipalResult(dict):
+calass GetKubernetesClusterServicePrincipalResult(dict):
     def __init__(__self__, *,
                  client_id: str):
         """
@@ -10634,7 +10634,7 @@ class GetKubernetesClusterServicePrincipalResult(dict):
 
 
 @pulumi.output_type
-class GetKubernetesClusterStorageProfileResult(dict):
+calass GetKubernetesClusterStorageProfileResult(dict):
     def __init__(__self__, *,
                  blob_driver_enabled: bool,
                  disk_driver_enabled: bool,
@@ -10696,7 +10696,7 @@ class GetKubernetesClusterStorageProfileResult(dict):
 
 
 @pulumi.output_type
-class GetKubernetesClusterWindowsProfileResult(dict):
+calass GetKubernetesClusterWindowsProfileResult(dict):
     def __init__(__self__, *,
                  admin_username: str):
         """

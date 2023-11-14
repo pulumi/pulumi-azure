@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetManagedDiskResult:
+calass GetManagedDiskResult:
     """
     A collection of values returned by getManagedDisk.
     """
@@ -225,7 +225,7 @@ class GetManagedDiskResult:
         return pulumi.get(self, "zones")
 
 
-class AwaitableGetManagedDiskResult(GetManagedDiskResult):
+calass AwaitableGetManagedDiskResult(GetManagedDiskResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

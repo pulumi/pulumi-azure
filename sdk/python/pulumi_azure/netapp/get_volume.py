@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVolumeResult:
+calass GetVolumeResult:
     """
     A collection of values returned by getVolume.
     """
@@ -189,7 +189,7 @@ class GetVolumeResult:
         return pulumi.get(self, "zone")
 
 
-class AwaitableGetVolumeResult(GetVolumeResult):
+calass AwaitableGetVolumeResult(GetVolumeResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['FunctionAppActiveSlotArgs', 'FunctionAppActiveSlot']
+__all__ = ['FunctionAppActiveSlotArrgs', 'FunctionAppActiveSlot']
 
 @pulumi.input_type
-class FunctionAppActiveSlotArgs:
+calass FunctionAppActiveSlotArrgs:
     def __init__(__self__, *,
                  slot_id: pulumi.Input[str],
                  overwrite_network_config: Optional[pulumi.Input[bool]] = None):
@@ -51,7 +51,7 @@ class FunctionAppActiveSlotArgs:
 
 
 @pulumi.input_type
-class _FunctionAppActiveSlotState:
+calass _FunctionAppActiveSlotState:
     def __init__(__self__, *,
                  last_successful_swap: Optional[pulumi.Input[str]] = None,
                  overwrite_network_config: Optional[pulumi.Input[bool]] = None,
@@ -106,7 +106,7 @@ class _FunctionAppActiveSlotState:
         pulumi.set(self, "slot_id", value)
 
 
-class FunctionAppActiveSlot(pulumi.CustomResource):
+calass FunctionAppActiveSlot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -140,11 +140,11 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
             location=example_resource_group.location,
             storage_account_name=example_account.name,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs())
+            site_config=azure.appservice.WindowsFunctionAppSiteConfigArrgs())
         example_windows_function_app_slot = azure.appservice.WindowsFunctionAppSlot("exampleWindowsFunctionAppSlot",
             function_app_id=example_windows_function_app.id,
             storage_account_name=example_account.name,
-            site_config=azure.appservice.WindowsFunctionAppSlotSiteConfigArgs())
+            site_config=azure.appservice.WindowsFunctionAppSlotSiteConfigArrgs())
         example_function_app_active_slot = azure.appservice.FunctionAppActiveSlot("exampleFunctionAppActiveSlot", slot_id=example_windows_function_app_slot.id)
         ```
         ### Linux Function App
@@ -169,11 +169,11 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
             location=example_resource_group.location,
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
-            site_config=azure.appservice.LinuxFunctionAppSiteConfigArgs())
+            site_config=azure.appservice.LinuxFunctionAppSiteConfigArrgs())
         example_linux_function_app_slot = azure.appservice.LinuxFunctionAppSlot("exampleLinuxFunctionAppSlot",
             function_app_id=example_linux_function_app.name,
             storage_account_name=example_account.name,
-            site_config=azure.appservice.LinuxFunctionAppSlotSiteConfigArgs())
+            site_config=azure.appservice.LinuxFunctionAppSlotSiteConfigArrgs())
         example_function_app_active_slot = azure.appservice.FunctionAppActiveSlot("exampleFunctionAppActiveSlot", slot_id=example_linux_function_app_slot.id)
         ```
 
@@ -194,7 +194,7 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FunctionAppActiveSlotArgs,
+                 args: FunctionAppActiveSlotArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Function App Active Slot.
@@ -222,11 +222,11 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
             location=example_resource_group.location,
             storage_account_name=example_account.name,
             service_plan_id=example_service_plan.id,
-            site_config=azure.appservice.WindowsFunctionAppSiteConfigArgs())
+            site_config=azure.appservice.WindowsFunctionAppSiteConfigArrgs())
         example_windows_function_app_slot = azure.appservice.WindowsFunctionAppSlot("exampleWindowsFunctionAppSlot",
             function_app_id=example_windows_function_app.id,
             storage_account_name=example_account.name,
-            site_config=azure.appservice.WindowsFunctionAppSlotSiteConfigArgs())
+            site_config=azure.appservice.WindowsFunctionAppSlotSiteConfigArrgs())
         example_function_app_active_slot = azure.appservice.FunctionAppActiveSlot("exampleFunctionAppActiveSlot", slot_id=example_windows_function_app_slot.id)
         ```
         ### Linux Function App
@@ -251,11 +251,11 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
             location=example_resource_group.location,
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
-            site_config=azure.appservice.LinuxFunctionAppSiteConfigArgs())
+            site_config=azure.appservice.LinuxFunctionAppSiteConfigArrgs())
         example_linux_function_app_slot = azure.appservice.LinuxFunctionAppSlot("exampleLinuxFunctionAppSlot",
             function_app_id=example_linux_function_app.name,
             storage_account_name=example_account.name,
-            site_config=azure.appservice.LinuxFunctionAppSlotSiteConfigArgs())
+            site_config=azure.appservice.LinuxFunctionAppSlotSiteConfigArrgs())
         example_function_app_active_slot = azure.appservice.FunctionAppActiveSlot("exampleFunctionAppActiveSlot", slot_id=example_linux_function_app_slot.id)
         ```
 
@@ -268,12 +268,12 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FunctionAppActiveSlotArgs args: The arguments to use to populate this resource's properties.
+        :param FunctionAppActiveSlotArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FunctionAppActiveSlotArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FunctionAppActiveSlotArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -291,7 +291,7 @@ class FunctionAppActiveSlot(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FunctionAppActiveSlotArgs.__new__(FunctionAppActiveSlotArgs)
+            __props__ = FunctionAppActiveSlotArrgs.__new__(FunctionAppActiveSlotArrgs)
 
             __props__.__dict__["overwrite_network_config"] = overwrite_network_config
             if slot_id is None and not opts.urn:

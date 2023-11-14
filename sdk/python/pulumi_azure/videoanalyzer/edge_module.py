@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EdgeModuleArgs', 'EdgeModule']
+__all__ = ['EdgeModuleArrgs', 'EdgeModule']
 
 @pulumi.input_type
-class EdgeModuleArgs:
+calass EdgeModuleArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  video_analyzer_name: pulumi.Input[str],
@@ -66,7 +66,7 @@ class EdgeModuleArgs:
 
 
 @pulumi.input_type
-class _EdgeModuleState:
+calass _EdgeModuleState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _EdgeModuleState:
         pulumi.set(self, "video_analyzer_name", value)
 
 
-class EdgeModule(pulumi.CustomResource):
+calass EdgeModule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -161,11 +161,11 @@ class EdgeModule(pulumi.CustomResource):
         example_analyzer = azure.videoanalyzer.Analyzer("exampleAnalyzer",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            storage_account=azure.videoanalyzer.AnalyzerStorageAccountArgs(
+            storage_account=azure.videoanalyzer.AnalyzerStorageAccountArrgs(
                 id=example_account.id,
                 user_assigned_identity_id=example_user_assigned_identity.id,
             ),
-            identity=azure.videoanalyzer.AnalyzerIdentityArgs(
+            identity=azure.videoanalyzer.AnalyzerIdentityArrgs(
                 type="UserAssigned",
                 identity_ids=[example_user_assigned_identity.id],
             ),
@@ -200,7 +200,7 @@ class EdgeModule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EdgeModuleArgs,
+                 args: EdgeModuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Video Analyzer Edge Module.
@@ -233,11 +233,11 @@ class EdgeModule(pulumi.CustomResource):
         example_analyzer = azure.videoanalyzer.Analyzer("exampleAnalyzer",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            storage_account=azure.videoanalyzer.AnalyzerStorageAccountArgs(
+            storage_account=azure.videoanalyzer.AnalyzerStorageAccountArrgs(
                 id=example_account.id,
                 user_assigned_identity_id=example_user_assigned_identity.id,
             ),
-            identity=azure.videoanalyzer.AnalyzerIdentityArgs(
+            identity=azure.videoanalyzer.AnalyzerIdentityArrgs(
                 type="UserAssigned",
                 identity_ids=[example_user_assigned_identity.id],
             ),
@@ -263,12 +263,12 @@ class EdgeModule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EdgeModuleArgs args: The arguments to use to populate this resource's properties.
+        :param EdgeModuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EdgeModuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EdgeModuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -287,7 +287,7 @@ class EdgeModule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EdgeModuleArgs.__new__(EdgeModuleArgs)
+            __props__ = EdgeModuleArrgs.__new__(EdgeModuleArrgs)
 
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:

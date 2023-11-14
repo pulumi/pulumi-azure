@@ -50,7 +50,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DatabaseImport(dict):
+calass DatabaseImport(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -164,7 +164,7 @@ class DatabaseImport(dict):
 
 
 @pulumi.output_type
-class DatabaseLongTermRetentionPolicy(dict):
+calass DatabaseLongTermRetentionPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -242,7 +242,7 @@ class DatabaseLongTermRetentionPolicy(dict):
 
 
 @pulumi.output_type
-class DatabaseShortTermRetentionPolicy(dict):
+calass DatabaseShortTermRetentionPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -291,7 +291,7 @@ class DatabaseShortTermRetentionPolicy(dict):
 
 
 @pulumi.output_type
-class DatabaseThreatDetectionPolicy(dict):
+calass DatabaseThreatDetectionPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -409,7 +409,7 @@ class DatabaseThreatDetectionPolicy(dict):
 
 
 @pulumi.output_type
-class DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult(dict):
+calass DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult(dict):
     def __init__(__self__, *,
                  results: Sequence[str]):
         """
@@ -427,7 +427,7 @@ class DatabaseVulnerabilityAssessmentRuleBaselineBaselineResult(dict):
 
 
 @pulumi.output_type
-class ElasticPoolPerDatabaseSettings(dict):
+calass ElasticPoolPerDatabaseSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -475,7 +475,7 @@ class ElasticPoolPerDatabaseSettings(dict):
 
 
 @pulumi.output_type
-class ElasticPoolSku(dict):
+calass ElasticPoolSku(dict):
     def __init__(__self__, *,
                  capacity: int,
                  name: str,
@@ -527,7 +527,7 @@ class ElasticPoolSku(dict):
 
 
 @pulumi.output_type
-class FailoverGroupPartnerServer(dict):
+calass FailoverGroupPartnerServer(dict):
     def __init__(__self__, *,
                  id: str,
                  location: Optional[str] = None,
@@ -569,7 +569,7 @@ class FailoverGroupPartnerServer(dict):
 
 
 @pulumi.output_type
-class FailoverGroupReadWriteEndpointFailoverPolicy(dict):
+calass FailoverGroupReadWriteEndpointFailoverPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -616,7 +616,7 @@ class FailoverGroupReadWriteEndpointFailoverPolicy(dict):
 
 
 @pulumi.output_type
-class ManagedDatabaseLongTermRetentionPolicy(dict):
+calass ManagedDatabaseLongTermRetentionPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -694,7 +694,7 @@ class ManagedDatabaseLongTermRetentionPolicy(dict):
 
 
 @pulumi.output_type
-class ManagedInstanceFailoverGroupPartnerRegion(dict):
+calass ManagedInstanceFailoverGroupPartnerRegion(dict):
     def __init__(__self__, *,
                  location: Optional[str] = None,
                  role: Optional[str] = None):
@@ -725,7 +725,7 @@ class ManagedInstanceFailoverGroupPartnerRegion(dict):
 
 
 @pulumi.output_type
-class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy(dict):
+calass ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -772,7 +772,7 @@ class ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicy(dict):
 
 
 @pulumi.output_type
-class ManagedInstanceIdentity(dict):
+calass ManagedInstanceIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -851,7 +851,7 @@ class ManagedInstanceIdentity(dict):
 
 
 @pulumi.output_type
-class ManagedInstanceVulnerabilityAssessmentRecurringScans(dict):
+calass ManagedInstanceVulnerabilityAssessmentRecurringScans(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -911,7 +911,7 @@ class ManagedInstanceVulnerabilityAssessmentRecurringScans(dict):
 
 
 @pulumi.output_type
-class ServerAzureadAdministrator(dict):
+calass ServerAzureadAdministrator(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -987,7 +987,7 @@ class ServerAzureadAdministrator(dict):
 
 
 @pulumi.output_type
-class ServerIdentity(dict):
+calass ServerIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1070,7 +1070,7 @@ class ServerIdentity(dict):
 
 
 @pulumi.output_type
-class ServerVulnerabilityAssessmentRecurringScans(dict):
+calass ServerVulnerabilityAssessmentRecurringScans(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1130,7 +1130,7 @@ class ServerVulnerabilityAssessmentRecurringScans(dict):
 
 
 @pulumi.output_type
-class VirtualMachineAssessment(dict):
+calass VirtualMachineAssessment(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1155,7 +1155,7 @@ class VirtualMachineAssessment(dict):
         """
         :param bool enabled: Should Assessment be enabled? Defaults to `true`.
         :param bool run_immediately: Should Assessment be run immediately? Defaults to `false`.
-        :param 'VirtualMachineAssessmentScheduleArgs' schedule: An `schedule` block as defined below.
+        :param 'VirtualMachineAssessmentScheduleArrgs' schedule: An `schedule` block as defined below.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -1190,7 +1190,7 @@ class VirtualMachineAssessment(dict):
 
 
 @pulumi.output_type
-class VirtualMachineAssessmentSchedule(dict):
+calass VirtualMachineAssessmentSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1270,7 +1270,7 @@ class VirtualMachineAssessmentSchedule(dict):
 
 
 @pulumi.output_type
-class VirtualMachineAutoBackup(dict):
+calass VirtualMachineAutoBackup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1314,7 +1314,7 @@ class VirtualMachineAutoBackup(dict):
         :param str storage_blob_endpoint: Blob endpoint for the storage account where backups will be kept.
         :param bool encryption_enabled: Enable or disable encryption for backups. Defaults to `false`.
         :param str encryption_password: Encryption password to use. Must be specified when encryption is enabled.
-        :param 'VirtualMachineAutoBackupManualScheduleArgs' manual_schedule: A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
+        :param 'VirtualMachineAutoBackupManualScheduleArrgs' manual_schedule: A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
         :param bool system_databases_backup_enabled: Include or exclude system databases from auto backup.
         """
         pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
@@ -1387,7 +1387,7 @@ class VirtualMachineAutoBackup(dict):
 
 
 @pulumi.output_type
-class VirtualMachineAutoBackupManualSchedule(dict):
+calass VirtualMachineAutoBackupManualSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1479,7 +1479,7 @@ class VirtualMachineAutoBackupManualSchedule(dict):
 
 
 @pulumi.output_type
-class VirtualMachineAutoPatching(dict):
+calass VirtualMachineAutoPatching(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1540,7 +1540,7 @@ class VirtualMachineAutoPatching(dict):
 
 
 @pulumi.output_type
-class VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration(dict):
+calass VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1631,7 +1631,7 @@ class VirtualMachineAvailabilityGroupListenerLoadBalancerConfiguration(dict):
 
 
 @pulumi.output_type
-class VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration(dict):
+calass VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1696,7 +1696,7 @@ class VirtualMachineAvailabilityGroupListenerMultiSubnetIpConfiguration(dict):
 
 
 @pulumi.output_type
-class VirtualMachineAvailabilityGroupListenerReplica(dict):
+calass VirtualMachineAvailabilityGroupListenerReplica(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1779,7 +1779,7 @@ class VirtualMachineAvailabilityGroupListenerReplica(dict):
 
 
 @pulumi.output_type
-class VirtualMachineGroupWsfcDomainProfile(dict):
+calass VirtualMachineGroupWsfcDomainProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1909,7 +1909,7 @@ class VirtualMachineGroupWsfcDomainProfile(dict):
 
 
 @pulumi.output_type
-class VirtualMachineKeyVaultCredential(dict):
+calass VirtualMachineKeyVaultCredential(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1981,7 +1981,7 @@ class VirtualMachineKeyVaultCredential(dict):
 
 
 @pulumi.output_type
-class VirtualMachineSqlInstance(dict):
+calass VirtualMachineSqlInstance(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2103,7 +2103,7 @@ class VirtualMachineSqlInstance(dict):
 
 
 @pulumi.output_type
-class VirtualMachineStorageConfiguration(dict):
+calass VirtualMachineStorageConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2141,10 +2141,10 @@ class VirtualMachineStorageConfiguration(dict):
         """
         :param str disk_type: The type of disk configuration to apply to the SQL Server. Valid values include `NEW`, `EXTEND`, or `ADD`.
         :param str storage_workload_type: The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
-        :param 'VirtualMachineStorageConfigurationDataSettingsArgs' data_settings: A `storage_settings` block as defined below.
-        :param 'VirtualMachineStorageConfigurationLogSettingsArgs' log_settings: A `storage_settings` block as defined below.
+        :param 'VirtualMachineStorageConfigurationDataSettingsArrgs' data_settings: A `storage_settings` block as defined below.
+        :param 'VirtualMachineStorageConfigurationLogSettingsArrgs' log_settings: A `storage_settings` block as defined below.
         :param bool system_db_on_data_disk_enabled: Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
-        :param 'VirtualMachineStorageConfigurationTempDbSettingsArgs' temp_db_settings: An `temp_db_settings` as defined below.
+        :param 'VirtualMachineStorageConfigurationTempDbSettingsArrgs' temp_db_settings: An `temp_db_settings` as defined below.
         """
         pulumi.set(__self__, "disk_type", disk_type)
         pulumi.set(__self__, "storage_workload_type", storage_workload_type)
@@ -2207,7 +2207,7 @@ class VirtualMachineStorageConfiguration(dict):
 
 
 @pulumi.output_type
-class VirtualMachineStorageConfigurationDataSettings(dict):
+calass VirtualMachineStorageConfigurationDataSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2253,7 +2253,7 @@ class VirtualMachineStorageConfigurationDataSettings(dict):
 
 
 @pulumi.output_type
-class VirtualMachineStorageConfigurationLogSettings(dict):
+calass VirtualMachineStorageConfigurationLogSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2299,7 +2299,7 @@ class VirtualMachineStorageConfigurationLogSettings(dict):
 
 
 @pulumi.output_type
-class VirtualMachineStorageConfigurationTempDbSettings(dict):
+calass VirtualMachineStorageConfigurationTempDbSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2415,7 +2415,7 @@ class VirtualMachineStorageConfigurationTempDbSettings(dict):
 
 
 @pulumi.output_type
-class VirtualMachineWsfcDomainCredential(dict):
+calass VirtualMachineWsfcDomainCredential(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2476,7 +2476,7 @@ class VirtualMachineWsfcDomainCredential(dict):
 
 
 @pulumi.output_type
-class GetElasticPoolSkusResult(dict):
+calass GetElasticPoolSkusResult(dict):
     def __init__(__self__, *,
                  capacity: int,
                  family: str,
@@ -2527,7 +2527,7 @@ class GetElasticPoolSkusResult(dict):
 
 
 @pulumi.output_type
-class GetManagedInstanceIdentityResult(dict):
+calass GetManagedInstanceIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -2578,7 +2578,7 @@ class GetManagedInstanceIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetServerIdentityResult(dict):
+calass GetServerIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,

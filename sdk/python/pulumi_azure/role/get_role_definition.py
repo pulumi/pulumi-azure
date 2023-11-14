@@ -20,7 +20,7 @@ __all__ = [
 warnings.warn("""azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition""", DeprecationWarning)
 
 @pulumi.output_type
-class GetRoleDefinitionResult:
+calass GetRoleDefinitionResult:
     """
     A collection of values returned by getRoleDefinition.
     """
@@ -106,7 +106,7 @@ class GetRoleDefinitionResult:
         return pulumi.get(self, "type")
 
 
-class AwaitableGetRoleDefinitionResult(GetRoleDefinitionResult):
+calass AwaitableGetRoleDefinitionResult(GetRoleDefinitionResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

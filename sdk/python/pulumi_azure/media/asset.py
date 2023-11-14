@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AssetArgs', 'Asset']
+__all__ = ['AssetArrgs', 'Asset']
 
 @pulumi.input_type
-class AssetArgs:
+calass AssetArrgs:
     def __init__(__self__, *,
                  media_services_account_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -130,7 +130,7 @@ class AssetArgs:
 
 
 @pulumi.input_type
-class _AssetState:
+calass _AssetState:
     def __init__(__self__, *,
                  alternate_id: Optional[pulumi.Input[str]] = None,
                  container: Optional[pulumi.Input[str]] = None,
@@ -249,7 +249,7 @@ class _AssetState:
         pulumi.set(self, "storage_account_name", value)
 
 
-class Asset(pulumi.CustomResource):
+calass Asset(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -280,7 +280,7 @@ class Asset(pulumi.CustomResource):
         example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArrgs(
                 id=example_account.id,
                 is_primary=True,
             )])
@@ -312,7 +312,7 @@ class Asset(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AssetArgs,
+                 args: AssetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Media Asset.
@@ -332,7 +332,7 @@ class Asset(pulumi.CustomResource):
         example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
+            storage_accounts=[azure.media.ServiceAccountStorageAccountArrgs(
                 id=example_account.id,
                 is_primary=True,
             )])
@@ -351,12 +351,12 @@ class Asset(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AssetArgs args: The arguments to use to populate this resource's properties.
+        :param AssetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AssetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AssetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -379,7 +379,7 @@ class Asset(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AssetArgs.__new__(AssetArgs)
+            __props__ = AssetArrgs.__new__(AssetArrgs)
 
             __props__.__dict__["alternate_id"] = alternate_id
             __props__.__dict__["container"] = container

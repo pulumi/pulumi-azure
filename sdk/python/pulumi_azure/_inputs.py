@@ -10,36 +10,36 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
-    'ProviderFeaturesArgs',
-    'ProviderFeaturesApiManagementArgs',
-    'ProviderFeaturesAppConfigurationArgs',
-    'ProviderFeaturesApplicationInsightsArgs',
-    'ProviderFeaturesCognitiveAccountArgs',
-    'ProviderFeaturesKeyVaultArgs',
-    'ProviderFeaturesLogAnalyticsWorkspaceArgs',
-    'ProviderFeaturesManagedDiskArgs',
-    'ProviderFeaturesResourceGroupArgs',
-    'ProviderFeaturesSubscriptionArgs',
-    'ProviderFeaturesTemplateDeploymentArgs',
-    'ProviderFeaturesVirtualMachineArgs',
-    'ProviderFeaturesVirtualMachineScaleSetArgs',
+    'ProviderFeaturesArrgs',
+    'ProviderFeaturesApiManagementArrgs',
+    'ProviderFeaturesAppConfigurationArrgs',
+    'ProviderFeaturesApplicationInsightsArrgs',
+    'ProviderFeaturesCognitiveAccountArrgs',
+    'ProviderFeaturesKeyVaultArrgs',
+    'ProviderFeaturesLogAnalyticsWorkspaceArrgs',
+    'ProviderFeaturesManagedDiskArrgs',
+    'ProviderFeaturesResourceGroupArrgs',
+    'ProviderFeaturesSubscriptionArrgs',
+    'ProviderFeaturesTemplateDeploymentArrgs',
+    'ProviderFeaturesVirtualMachineArrgs',
+    'ProviderFeaturesVirtualMachineScaleSetArrgs',
 ]
 
 @pulumi.input_type
-class ProviderFeaturesArgs:
+calass ProviderFeaturesArrgs:
     def __init__(__self__, *,
-                 api_management: Optional[pulumi.Input['ProviderFeaturesApiManagementArgs']] = None,
-                 app_configuration: Optional[pulumi.Input['ProviderFeaturesAppConfigurationArgs']] = None,
-                 application_insights: Optional[pulumi.Input['ProviderFeaturesApplicationInsightsArgs']] = None,
-                 cognitive_account: Optional[pulumi.Input['ProviderFeaturesCognitiveAccountArgs']] = None,
-                 key_vault: Optional[pulumi.Input['ProviderFeaturesKeyVaultArgs']] = None,
-                 log_analytics_workspace: Optional[pulumi.Input['ProviderFeaturesLogAnalyticsWorkspaceArgs']] = None,
-                 managed_disk: Optional[pulumi.Input['ProviderFeaturesManagedDiskArgs']] = None,
-                 resource_group: Optional[pulumi.Input['ProviderFeaturesResourceGroupArgs']] = None,
-                 subscription: Optional[pulumi.Input['ProviderFeaturesSubscriptionArgs']] = None,
-                 template_deployment: Optional[pulumi.Input['ProviderFeaturesTemplateDeploymentArgs']] = None,
-                 virtual_machine: Optional[pulumi.Input['ProviderFeaturesVirtualMachineArgs']] = None,
-                 virtual_machine_scale_set: Optional[pulumi.Input['ProviderFeaturesVirtualMachineScaleSetArgs']] = None):
+                 api_management: Optional[pulumi.Input['ProviderFeaturesApiManagementArrgs']] = None,
+                 app_configuration: Optional[pulumi.Input['ProviderFeaturesAppConfigurationArrgs']] = None,
+                 application_insights: Optional[pulumi.Input['ProviderFeaturesApplicationInsightsArrgs']] = None,
+                 cognitive_account: Optional[pulumi.Input['ProviderFeaturesCognitiveAccountArrgs']] = None,
+                 key_vault: Optional[pulumi.Input['ProviderFeaturesKeyVaultArrgs']] = None,
+                 log_analytics_workspace: Optional[pulumi.Input['ProviderFeaturesLogAnalyticsWorkspaceArrgs']] = None,
+                 managed_disk: Optional[pulumi.Input['ProviderFeaturesManagedDiskArrgs']] = None,
+                 resource_group: Optional[pulumi.Input['ProviderFeaturesResourceGroupArrgs']] = None,
+                 subscription: Optional[pulumi.Input['ProviderFeaturesSubscriptionArrgs']] = None,
+                 template_deployment: Optional[pulumi.Input['ProviderFeaturesTemplateDeploymentArrgs']] = None,
+                 virtual_machine: Optional[pulumi.Input['ProviderFeaturesVirtualMachineArrgs']] = None,
+                 virtual_machine_scale_set: Optional[pulumi.Input['ProviderFeaturesVirtualMachineScaleSetArrgs']] = None):
         if api_management is not None:
             pulumi.set(__self__, "api_management", api_management)
         if app_configuration is not None:
@@ -67,115 +67,115 @@ class ProviderFeaturesArgs:
 
     @property
     @pulumi.getter(name="apiManagement")
-    def api_management(self) -> Optional[pulumi.Input['ProviderFeaturesApiManagementArgs']]:
+    def api_management(self) -> Optional[pulumi.Input['ProviderFeaturesApiManagementArrgs']]:
         return pulumi.get(self, "api_management")
 
     @api_management.setter
-    def api_management(self, value: Optional[pulumi.Input['ProviderFeaturesApiManagementArgs']]):
+    def api_management(self, value: Optional[pulumi.Input['ProviderFeaturesApiManagementArrgs']]):
         pulumi.set(self, "api_management", value)
 
     @property
     @pulumi.getter(name="appConfiguration")
-    def app_configuration(self) -> Optional[pulumi.Input['ProviderFeaturesAppConfigurationArgs']]:
+    def app_configuration(self) -> Optional[pulumi.Input['ProviderFeaturesAppConfigurationArrgs']]:
         return pulumi.get(self, "app_configuration")
 
     @app_configuration.setter
-    def app_configuration(self, value: Optional[pulumi.Input['ProviderFeaturesAppConfigurationArgs']]):
+    def app_configuration(self, value: Optional[pulumi.Input['ProviderFeaturesAppConfigurationArrgs']]):
         pulumi.set(self, "app_configuration", value)
 
     @property
     @pulumi.getter(name="applicationInsights")
-    def application_insights(self) -> Optional[pulumi.Input['ProviderFeaturesApplicationInsightsArgs']]:
+    def application_insights(self) -> Optional[pulumi.Input['ProviderFeaturesApplicationInsightsArrgs']]:
         return pulumi.get(self, "application_insights")
 
     @application_insights.setter
-    def application_insights(self, value: Optional[pulumi.Input['ProviderFeaturesApplicationInsightsArgs']]):
+    def application_insights(self, value: Optional[pulumi.Input['ProviderFeaturesApplicationInsightsArrgs']]):
         pulumi.set(self, "application_insights", value)
 
     @property
     @pulumi.getter(name="cognitiveAccount")
-    def cognitive_account(self) -> Optional[pulumi.Input['ProviderFeaturesCognitiveAccountArgs']]:
+    def cognitive_account(self) -> Optional[pulumi.Input['ProviderFeaturesCognitiveAccountArrgs']]:
         return pulumi.get(self, "cognitive_account")
 
     @cognitive_account.setter
-    def cognitive_account(self, value: Optional[pulumi.Input['ProviderFeaturesCognitiveAccountArgs']]):
+    def cognitive_account(self, value: Optional[pulumi.Input['ProviderFeaturesCognitiveAccountArrgs']]):
         pulumi.set(self, "cognitive_account", value)
 
     @property
     @pulumi.getter(name="keyVault")
-    def key_vault(self) -> Optional[pulumi.Input['ProviderFeaturesKeyVaultArgs']]:
+    def key_vault(self) -> Optional[pulumi.Input['ProviderFeaturesKeyVaultArrgs']]:
         return pulumi.get(self, "key_vault")
 
     @key_vault.setter
-    def key_vault(self, value: Optional[pulumi.Input['ProviderFeaturesKeyVaultArgs']]):
+    def key_vault(self, value: Optional[pulumi.Input['ProviderFeaturesKeyVaultArrgs']]):
         pulumi.set(self, "key_vault", value)
 
     @property
     @pulumi.getter(name="logAnalyticsWorkspace")
-    def log_analytics_workspace(self) -> Optional[pulumi.Input['ProviderFeaturesLogAnalyticsWorkspaceArgs']]:
+    def log_analytics_workspace(self) -> Optional[pulumi.Input['ProviderFeaturesLogAnalyticsWorkspaceArrgs']]:
         return pulumi.get(self, "log_analytics_workspace")
 
     @log_analytics_workspace.setter
-    def log_analytics_workspace(self, value: Optional[pulumi.Input['ProviderFeaturesLogAnalyticsWorkspaceArgs']]):
+    def log_analytics_workspace(self, value: Optional[pulumi.Input['ProviderFeaturesLogAnalyticsWorkspaceArrgs']]):
         pulumi.set(self, "log_analytics_workspace", value)
 
     @property
     @pulumi.getter(name="managedDisk")
-    def managed_disk(self) -> Optional[pulumi.Input['ProviderFeaturesManagedDiskArgs']]:
+    def managed_disk(self) -> Optional[pulumi.Input['ProviderFeaturesManagedDiskArrgs']]:
         return pulumi.get(self, "managed_disk")
 
     @managed_disk.setter
-    def managed_disk(self, value: Optional[pulumi.Input['ProviderFeaturesManagedDiskArgs']]):
+    def managed_disk(self, value: Optional[pulumi.Input['ProviderFeaturesManagedDiskArrgs']]):
         pulumi.set(self, "managed_disk", value)
 
     @property
     @pulumi.getter(name="resourceGroup")
-    def resource_group(self) -> Optional[pulumi.Input['ProviderFeaturesResourceGroupArgs']]:
+    def resource_group(self) -> Optional[pulumi.Input['ProviderFeaturesResourceGroupArrgs']]:
         return pulumi.get(self, "resource_group")
 
     @resource_group.setter
-    def resource_group(self, value: Optional[pulumi.Input['ProviderFeaturesResourceGroupArgs']]):
+    def resource_group(self, value: Optional[pulumi.Input['ProviderFeaturesResourceGroupArrgs']]):
         pulumi.set(self, "resource_group", value)
 
     @property
     @pulumi.getter
-    def subscription(self) -> Optional[pulumi.Input['ProviderFeaturesSubscriptionArgs']]:
+    def subscription(self) -> Optional[pulumi.Input['ProviderFeaturesSubscriptionArrgs']]:
         return pulumi.get(self, "subscription")
 
     @subscription.setter
-    def subscription(self, value: Optional[pulumi.Input['ProviderFeaturesSubscriptionArgs']]):
+    def subscription(self, value: Optional[pulumi.Input['ProviderFeaturesSubscriptionArrgs']]):
         pulumi.set(self, "subscription", value)
 
     @property
     @pulumi.getter(name="templateDeployment")
-    def template_deployment(self) -> Optional[pulumi.Input['ProviderFeaturesTemplateDeploymentArgs']]:
+    def template_deployment(self) -> Optional[pulumi.Input['ProviderFeaturesTemplateDeploymentArrgs']]:
         return pulumi.get(self, "template_deployment")
 
     @template_deployment.setter
-    def template_deployment(self, value: Optional[pulumi.Input['ProviderFeaturesTemplateDeploymentArgs']]):
+    def template_deployment(self, value: Optional[pulumi.Input['ProviderFeaturesTemplateDeploymentArrgs']]):
         pulumi.set(self, "template_deployment", value)
 
     @property
     @pulumi.getter(name="virtualMachine")
-    def virtual_machine(self) -> Optional[pulumi.Input['ProviderFeaturesVirtualMachineArgs']]:
+    def virtual_machine(self) -> Optional[pulumi.Input['ProviderFeaturesVirtualMachineArrgs']]:
         return pulumi.get(self, "virtual_machine")
 
     @virtual_machine.setter
-    def virtual_machine(self, value: Optional[pulumi.Input['ProviderFeaturesVirtualMachineArgs']]):
+    def virtual_machine(self, value: Optional[pulumi.Input['ProviderFeaturesVirtualMachineArrgs']]):
         pulumi.set(self, "virtual_machine", value)
 
     @property
     @pulumi.getter(name="virtualMachineScaleSet")
-    def virtual_machine_scale_set(self) -> Optional[pulumi.Input['ProviderFeaturesVirtualMachineScaleSetArgs']]:
+    def virtual_machine_scale_set(self) -> Optional[pulumi.Input['ProviderFeaturesVirtualMachineScaleSetArrgs']]:
         return pulumi.get(self, "virtual_machine_scale_set")
 
     @virtual_machine_scale_set.setter
-    def virtual_machine_scale_set(self, value: Optional[pulumi.Input['ProviderFeaturesVirtualMachineScaleSetArgs']]):
+    def virtual_machine_scale_set(self, value: Optional[pulumi.Input['ProviderFeaturesVirtualMachineScaleSetArrgs']]):
         pulumi.set(self, "virtual_machine_scale_set", value)
 
 
 @pulumi.input_type
-class ProviderFeaturesApiManagementArgs:
+calass ProviderFeaturesApiManagementArrgs:
     def __init__(__self__, *,
                  purge_soft_delete_on_destroy: Optional[pulumi.Input[bool]] = None,
                  recover_soft_deleted: Optional[pulumi.Input[bool]] = None):
@@ -204,7 +204,7 @@ class ProviderFeaturesApiManagementArgs:
 
 
 @pulumi.input_type
-class ProviderFeaturesAppConfigurationArgs:
+calass ProviderFeaturesAppConfigurationArrgs:
     def __init__(__self__, *,
                  purge_soft_delete_on_destroy: Optional[pulumi.Input[bool]] = None,
                  recover_soft_deleted: Optional[pulumi.Input[bool]] = None):
@@ -233,7 +233,7 @@ class ProviderFeaturesAppConfigurationArgs:
 
 
 @pulumi.input_type
-class ProviderFeaturesApplicationInsightsArgs:
+calass ProviderFeaturesApplicationInsightsArrgs:
     def __init__(__self__, *,
                  disable_generated_rule: Optional[pulumi.Input[bool]] = None):
         if disable_generated_rule is not None:
@@ -250,7 +250,7 @@ class ProviderFeaturesApplicationInsightsArgs:
 
 
 @pulumi.input_type
-class ProviderFeaturesCognitiveAccountArgs:
+calass ProviderFeaturesCognitiveAccountArrgs:
     def __init__(__self__, *,
                  purge_soft_delete_on_destroy: Optional[pulumi.Input[bool]] = None):
         if purge_soft_delete_on_destroy is not None:
@@ -267,7 +267,7 @@ class ProviderFeaturesCognitiveAccountArgs:
 
 
 @pulumi.input_type
-class ProviderFeaturesKeyVaultArgs:
+calass ProviderFeaturesKeyVaultArrgs:
     def __init__(__self__, *,
                  purge_soft_delete_on_destroy: Optional[pulumi.Input[bool]] = None,
                  purge_soft_deleted_certificates_on_destroy: Optional[pulumi.Input[bool]] = None,
@@ -380,7 +380,7 @@ class ProviderFeaturesKeyVaultArgs:
 
 
 @pulumi.input_type
-class ProviderFeaturesLogAnalyticsWorkspaceArgs:
+calass ProviderFeaturesLogAnalyticsWorkspaceArrgs:
     def __init__(__self__, *,
                  permanently_delete_on_destroy: Optional[pulumi.Input[bool]] = None):
         if permanently_delete_on_destroy is not None:
@@ -397,7 +397,7 @@ class ProviderFeaturesLogAnalyticsWorkspaceArgs:
 
 
 @pulumi.input_type
-class ProviderFeaturesManagedDiskArgs:
+calass ProviderFeaturesManagedDiskArrgs:
     def __init__(__self__, *,
                  expand_without_downtime: Optional[pulumi.Input[bool]] = None):
         if expand_without_downtime is not None:
@@ -414,7 +414,7 @@ class ProviderFeaturesManagedDiskArgs:
 
 
 @pulumi.input_type
-class ProviderFeaturesResourceGroupArgs:
+calass ProviderFeaturesResourceGroupArrgs:
     def __init__(__self__, *,
                  prevent_deletion_if_contains_resources: Optional[pulumi.Input[bool]] = None):
         if prevent_deletion_if_contains_resources is not None:
@@ -431,7 +431,7 @@ class ProviderFeaturesResourceGroupArgs:
 
 
 @pulumi.input_type
-class ProviderFeaturesSubscriptionArgs:
+calass ProviderFeaturesSubscriptionArrgs:
     def __init__(__self__, *,
                  prevent_cancellation_on_destroy: Optional[pulumi.Input[bool]] = None):
         if prevent_cancellation_on_destroy is not None:
@@ -448,7 +448,7 @@ class ProviderFeaturesSubscriptionArgs:
 
 
 @pulumi.input_type
-class ProviderFeaturesTemplateDeploymentArgs:
+calass ProviderFeaturesTemplateDeploymentArrgs:
     def __init__(__self__, *,
                  delete_nested_items_during_deletion: pulumi.Input[bool]):
         pulumi.set(__self__, "delete_nested_items_during_deletion", delete_nested_items_during_deletion)
@@ -464,7 +464,7 @@ class ProviderFeaturesTemplateDeploymentArgs:
 
 
 @pulumi.input_type
-class ProviderFeaturesVirtualMachineArgs:
+calass ProviderFeaturesVirtualMachineArrgs:
     def __init__(__self__, *,
                  delete_os_disk_on_deletion: Optional[pulumi.Input[bool]] = None,
                  graceful_shutdown: Optional[pulumi.Input[bool]] = None,
@@ -505,7 +505,7 @@ class ProviderFeaturesVirtualMachineArgs:
 
 
 @pulumi.input_type
-class ProviderFeaturesVirtualMachineScaleSetArgs:
+calass ProviderFeaturesVirtualMachineScaleSetArrgs:
     def __init__(__self__, *,
                  force_delete: Optional[pulumi.Input[bool]] = None,
                  roll_instances_when_required: Optional[pulumi.Input[bool]] = None,

@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetHubResult:
+calass GetHubResult:
     """
     A collection of values returned by getHub.
     """
@@ -104,7 +104,7 @@ class GetHubResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetHubResult(GetHubResult):
+calass AwaitableGetHubResult(GetHubResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

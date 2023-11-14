@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['CredentialArgs', 'Credential']
+__all__ = ['CredentialArrgs', 'Credential']
 
 @pulumi.input_type
-class CredentialArgs:
+calass CredentialArrgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -112,7 +112,7 @@ class CredentialArgs:
 
 
 @pulumi.input_type
-class _CredentialState:
+calass _CredentialState:
     def __init__(__self__, *,
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -215,7 +215,7 @@ class _CredentialState:
         pulumi.set(self, "username", value)
 
 
-class Credential(pulumi.CustomResource):
+calass Credential(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -270,7 +270,7 @@ class Credential(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CredentialArgs,
+                 args: CredentialArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Automation Credential.
@@ -303,12 +303,12 @@ class Credential(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CredentialArgs args: The arguments to use to populate this resource's properties.
+        :param CredentialArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CredentialArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CredentialArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -330,7 +330,7 @@ class Credential(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CredentialArgs.__new__(CredentialArgs)
+            __props__ = CredentialArrgs.__new__(CredentialArrgs)
 
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")

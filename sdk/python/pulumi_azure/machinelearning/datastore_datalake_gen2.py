@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DatastoreDatalakeGen2Args', 'DatastoreDatalakeGen2']
+__all__ = ['DatastoreDatalakeGen2Arrgs', 'DatastoreDatalakeGen2']
 
 @pulumi.input_type
-class DatastoreDatalakeGen2Args:
+calass DatastoreDatalakeGen2Arrgs:
     def __init__(__self__, *,
                  storage_container_id: pulumi.Input[str],
                  workspace_id: pulumi.Input[str],
@@ -178,7 +178,7 @@ class DatastoreDatalakeGen2Args:
 
 
 @pulumi.input_type
-class _DatastoreDatalakeGen2State:
+calass _DatastoreDatalakeGen2State:
     def __init__(__self__, *,
                  authority_url: Optional[pulumi.Input[str]] = None,
                  client_id: Optional[pulumi.Input[str]] = None,
@@ -361,7 +361,7 @@ class _DatastoreDatalakeGen2State:
         pulumi.set(self, "workspace_id", value)
 
 
-class DatastoreDatalakeGen2(pulumi.CustomResource):
+calass DatastoreDatalakeGen2(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -408,7 +408,7 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
             application_insights_id=example_insights.id,
             key_vault_id=example_key_vault.id,
             storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
+            identity=azure.machinelearning.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_container = azure.storage.Container("exampleContainer",
@@ -444,7 +444,7 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DatastoreDatalakeGen2Args,
+                 args: DatastoreDatalakeGen2Arrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Machine Learning Data Lake Gen2 DataStore.
@@ -477,7 +477,7 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
             application_insights_id=example_insights.id,
             key_vault_id=example_key_vault.id,
             storage_account_id=example_account.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
+            identity=azure.machinelearning.WorkspaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_container = azure.storage.Container("exampleContainer",
@@ -497,12 +497,12 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DatastoreDatalakeGen2Args args: The arguments to use to populate this resource's properties.
+        :param DatastoreDatalakeGen2Arrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DatastoreDatalakeGen2Args, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DatastoreDatalakeGen2Arrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -528,7 +528,7 @@ class DatastoreDatalakeGen2(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DatastoreDatalakeGen2Args.__new__(DatastoreDatalakeGen2Args)
+            __props__ = DatastoreDatalakeGen2Arrgs.__new__(DatastoreDatalakeGen2Arrgs)
 
             __props__.__dict__["authority_url"] = authority_url
             __props__.__dict__["client_id"] = client_id

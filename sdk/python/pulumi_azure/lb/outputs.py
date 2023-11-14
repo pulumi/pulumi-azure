@@ -23,7 +23,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class BackendAddressPoolAddressInboundNatRulePortMapping(dict):
+calass BackendAddressPoolAddressInboundNatRulePortMapping(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -87,7 +87,7 @@ class BackendAddressPoolAddressInboundNatRulePortMapping(dict):
 
 
 @pulumi.output_type
-class BackendAddressPoolTunnelInterface(dict):
+calass BackendAddressPoolTunnelInterface(dict):
     def __init__(__self__, *,
                  identifier: int,
                  port: int,
@@ -138,7 +138,7 @@ class BackendAddressPoolTunnelInterface(dict):
 
 
 @pulumi.output_type
-class LoadBalancerFrontendIpConfiguration(dict):
+calass LoadBalancerFrontendIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -339,7 +339,7 @@ class LoadBalancerFrontendIpConfiguration(dict):
 
 
 @pulumi.output_type
-class OutboundRuleFrontendIpConfiguration(dict):
+calass OutboundRuleFrontendIpConfiguration(dict):
     def __init__(__self__, *,
                  name: str,
                  id: Optional[str] = None):
@@ -369,14 +369,14 @@ class OutboundRuleFrontendIpConfiguration(dict):
 
 
 @pulumi.output_type
-class GetBackendAddressPoolBackendAddressResult(dict):
+calass GetBackendAddressPoolBackendAddressResult(dict):
     def __init__(__self__, *,
                  inbound_nat_rule_port_mappings: Sequence['outputs.GetBackendAddressPoolBackendAddressInboundNatRulePortMappingResult'],
                  ip_address: str,
                  name: str,
                  virtual_network_id: str):
         """
-        :param Sequence['GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArgs'] inbound_nat_rule_port_mappings: A list of `inbound_nat_rule_port_mapping` block as defined below.
+        :param Sequence['GetBackendAddressPoolBackendAddressInboundNatRulePortMappingArrgs'] inbound_nat_rule_port_mappings: A list of `inbound_nat_rule_port_mapping` block as defined below.
         :param str ip_address: The Static IP address for this Load Balancer within the Virtual Network.
         :param str name: Specifies the name of the Backend Address Pool.
         :param str virtual_network_id: The ID of the Virtual Network where the Backend Address of the Load Balancer exists.
@@ -420,7 +420,7 @@ class GetBackendAddressPoolBackendAddressResult(dict):
 
 
 @pulumi.output_type
-class GetBackendAddressPoolBackendAddressInboundNatRulePortMappingResult(dict):
+calass GetBackendAddressPoolBackendAddressInboundNatRulePortMappingResult(dict):
     def __init__(__self__, *,
                  backend_port: int,
                  frontend_port: int,
@@ -460,7 +460,7 @@ class GetBackendAddressPoolBackendAddressInboundNatRulePortMappingResult(dict):
 
 
 @pulumi.output_type
-class GetBackendAddressPoolBackendIpConfigurationResult(dict):
+calass GetBackendAddressPoolBackendIpConfigurationResult(dict):
     def __init__(__self__, *,
                  id: str):
         """
@@ -478,7 +478,7 @@ class GetBackendAddressPoolBackendIpConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetLBFrontendIpConfigurationResult(dict):
+calass GetLBFrontendIpConfigurationResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str,
@@ -573,7 +573,7 @@ class GetLBFrontendIpConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetLBOutboundRuleFrontendIpConfigurationResult(dict):
+calass GetLBOutboundRuleFrontendIpConfigurationResult(dict):
     def __init__(__self__, *,
                  id: str,
                  name: str):

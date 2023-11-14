@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['WorkbookArgs', 'Workbook']
+__all__ = ['WorkbookArrgs', 'Workbook']
 
 @pulumi.input_type
-class WorkbookArgs:
+calass WorkbookArrgs:
     def __init__(__self__, *,
                  data_json: pulumi.Input[str],
                  display_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  category: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['WorkbookIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['WorkbookIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  source_id: Optional[pulumi.Input[str]] = None,
@@ -34,7 +34,7 @@ class WorkbookArgs:
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Workbook should exist. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] category: Workbook category, as defined by the user at creation time. There may be additional category types beyond the following: `workbook`, `sentinel`. Defaults to `workbook`.
         :param pulumi.Input[str] description: Specifies the description of the workbook.
-        :param pulumi.Input['WorkbookIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Workbook to be created.
+        :param pulumi.Input['WorkbookIdentityArrgs'] identity: An `identity` block as defined below. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Workbook should exist. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] name: Specifies the name of this Workbook as a UUID/GUID. It should not contain any uppercase letters. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] source_id: Resource ID for a source resource. It should not contain any uppercase letters. Defaults to `azure monitor`.
@@ -125,14 +125,14 @@ class WorkbookArgs:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['WorkbookIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['WorkbookIdentityArrgs']]:
         """
         An `identity` block as defined below. Changing this forces a new Workbook to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['WorkbookIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['WorkbookIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -199,13 +199,13 @@ class WorkbookArgs:
 
 
 @pulumi.input_type
-class _WorkbookState:
+calass _WorkbookState:
     def __init__(__self__, *,
                  category: Optional[pulumi.Input[str]] = None,
                  data_json: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input['WorkbookIdentityArgs']] = None,
+                 identity: Optional[pulumi.Input['WorkbookIdentityArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -218,7 +218,7 @@ class _WorkbookState:
         :param pulumi.Input[str] data_json: Configuration of this particular workbook. Configuration data is a string containing valid JSON.
         :param pulumi.Input[str] description: Specifies the description of the workbook.
         :param pulumi.Input[str] display_name: Specifies the user-defined name (display name) of the workbook.
-        :param pulumi.Input['WorkbookIdentityArgs'] identity: An `identity` block as defined below. Changing this forces a new Workbook to be created.
+        :param pulumi.Input['WorkbookIdentityArrgs'] identity: An `identity` block as defined below. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Workbook should exist. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] name: Specifies the name of this Workbook as a UUID/GUID. It should not contain any uppercase letters. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Workbook should exist. Changing this forces a new Workbook to be created.
@@ -301,14 +301,14 @@ class _WorkbookState:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['WorkbookIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['WorkbookIdentityArrgs']]:
         """
         An `identity` block as defined below. Changing this forces a new Workbook to be created.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['WorkbookIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['WorkbookIdentityArrgs']]):
         pulumi.set(self, "identity", value)
 
     @property
@@ -386,7 +386,7 @@ class _WorkbookState:
         pulumi.set(self, "tags", value)
 
 
-class Workbook(pulumi.CustomResource):
+calass Workbook(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -395,7 +395,7 @@ class Workbook(pulumi.CustomResource):
                  data_json: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['WorkbookIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['WorkbookIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -449,7 +449,7 @@ class Workbook(pulumi.CustomResource):
         :param pulumi.Input[str] data_json: Configuration of this particular workbook. Configuration data is a string containing valid JSON.
         :param pulumi.Input[str] description: Specifies the description of the workbook.
         :param pulumi.Input[str] display_name: Specifies the user-defined name (display name) of the workbook.
-        :param pulumi.Input[pulumi.InputType['WorkbookIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Workbook to be created.
+        :param pulumi.Input[pulumi.InputType['WorkbookIdentityArrgs']] identity: An `identity` block as defined below. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Workbook should exist. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] name: Specifies the name of this Workbook as a UUID/GUID. It should not contain any uppercase letters. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Workbook should exist. Changing this forces a new Workbook to be created.
@@ -463,7 +463,7 @@ class Workbook(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WorkbookArgs,
+                 args: WorkbookArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Workbook.
@@ -506,12 +506,12 @@ class Workbook(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param WorkbookArgs args: The arguments to use to populate this resource's properties.
+        :param WorkbookArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WorkbookArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WorkbookArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -524,7 +524,7 @@ class Workbook(pulumi.CustomResource):
                  data_json: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
-                 identity: Optional[pulumi.Input[pulumi.InputType['WorkbookIdentityArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['WorkbookIdentityArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -538,7 +538,7 @@ class Workbook(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WorkbookArgs.__new__(WorkbookArgs)
+            __props__ = WorkbookArrgs.__new__(WorkbookArrgs)
 
             __props__.__dict__["category"] = category
             if data_json is None and not opts.urn:
@@ -571,7 +571,7 @@ class Workbook(pulumi.CustomResource):
             data_json: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             display_name: Optional[pulumi.Input[str]] = None,
-            identity: Optional[pulumi.Input[pulumi.InputType['WorkbookIdentityArgs']]] = None,
+            identity: Optional[pulumi.Input[pulumi.InputType['WorkbookIdentityArrgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -589,7 +589,7 @@ class Workbook(pulumi.CustomResource):
         :param pulumi.Input[str] data_json: Configuration of this particular workbook. Configuration data is a string containing valid JSON.
         :param pulumi.Input[str] description: Specifies the description of the workbook.
         :param pulumi.Input[str] display_name: Specifies the user-defined name (display name) of the workbook.
-        :param pulumi.Input[pulumi.InputType['WorkbookIdentityArgs']] identity: An `identity` block as defined below. Changing this forces a new Workbook to be created.
+        :param pulumi.Input[pulumi.InputType['WorkbookIdentityArrgs']] identity: An `identity` block as defined below. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] location: Specifies the Azure Region where the Workbook should exist. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] name: Specifies the name of this Workbook as a UUID/GUID. It should not contain any uppercase letters. Changing this forces a new Workbook to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Workbook should exist. Changing this forces a new Workbook to be created.

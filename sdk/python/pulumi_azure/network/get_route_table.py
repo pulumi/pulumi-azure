@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRouteTableResult:
+calass GetRouteTableResult:
     """
     A collection of values returned by getRouteTable.
     """
@@ -110,7 +110,7 @@ class GetRouteTableResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetRouteTableResult(GetRouteTableResult):
+calass AwaitableGetRouteTableResult(GetRouteTableResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

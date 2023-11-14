@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetKubernetesClusterResult:
+calass GetKubernetesClusterResult:
     """
     A collection of values returned by getKubernetesCluster.
     """
@@ -492,7 +492,7 @@ class GetKubernetesClusterResult:
         return pulumi.get(self, "windows_profiles")
 
 
-class AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
+calass AwaitableGetKubernetesClusterResult(GetKubernetesClusterResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

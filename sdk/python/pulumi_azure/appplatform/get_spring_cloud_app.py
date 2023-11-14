@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSpringCloudAppResult:
+calass GetSpringCloudAppResult:
     """
     A collection of values returned by getSpringCloudApp.
     """
@@ -137,7 +137,7 @@ class GetSpringCloudAppResult:
         return pulumi.get(self, "url")
 
 
-class AwaitableGetSpringCloudAppResult(GetSpringCloudAppResult):
+calass AwaitableGetSpringCloudAppResult(GetSpringCloudAppResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

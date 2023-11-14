@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ServicesCommunicationsGatewayTestLineArgs', 'ServicesCommunicationsGatewayTestLine']
+__all__ = ['ServicesCommunicationsGatewayTestLineArrgs', 'ServicesCommunicationsGatewayTestLine']
 
 @pulumi.input_type
-class ServicesCommunicationsGatewayTestLineArgs:
+calass ServicesCommunicationsGatewayTestLineArrgs:
     def __init__(__self__, *,
                  phone_number: pulumi.Input[str],
                  purpose: pulumi.Input[str],
@@ -113,7 +113,7 @@ class ServicesCommunicationsGatewayTestLineArgs:
 
 
 @pulumi.input_type
-class _ServicesCommunicationsGatewayTestLineState:
+calass _ServicesCommunicationsGatewayTestLineState:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -216,7 +216,7 @@ class _ServicesCommunicationsGatewayTestLineState:
         pulumi.set(self, "voice_services_communications_gateway_id", value)
 
 
-class ServicesCommunicationsGatewayTestLine(pulumi.CustomResource):
+calass ServicesCommunicationsGatewayTestLine(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -270,7 +270,7 @@ class ServicesCommunicationsGatewayTestLine(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServicesCommunicationsGatewayTestLineArgs,
+                 args: ServicesCommunicationsGatewayTestLineArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Voice Services Communications Gateway Test Line.
@@ -302,12 +302,12 @@ class ServicesCommunicationsGatewayTestLine(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServicesCommunicationsGatewayTestLineArgs args: The arguments to use to populate this resource's properties.
+        :param ServicesCommunicationsGatewayTestLineArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServicesCommunicationsGatewayTestLineArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServicesCommunicationsGatewayTestLineArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -329,7 +329,7 @@ class ServicesCommunicationsGatewayTestLine(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServicesCommunicationsGatewayTestLineArgs.__new__(ServicesCommunicationsGatewayTestLineArgs)
+            __props__ = ServicesCommunicationsGatewayTestLineArrgs.__new__(ServicesCommunicationsGatewayTestLineArrgs)
 
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

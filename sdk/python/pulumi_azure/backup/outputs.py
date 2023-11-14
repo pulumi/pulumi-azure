@@ -34,7 +34,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class PolicyFileShareBackup(dict):
+calass PolicyFileShareBackup(dict):
     def __init__(__self__, *,
                  frequency: str,
                  hourly: Optional['outputs.PolicyFileShareBackupHourly'] = None,
@@ -43,7 +43,7 @@ class PolicyFileShareBackup(dict):
         :param str frequency: Sets the backup frequency. Possible values are `Daily` and `Hourly`. 
                
                > **NOTE:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
-        :param 'PolicyFileShareBackupHourlyArgs' hourly: A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
+        :param 'PolicyFileShareBackupHourlyArrgs' hourly: A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
         :param str time: The time of day to perform the backup in 24-hour format. Times must be either on the hour or half hour (e.g. 12:00, 12:30, 13:00, etc.)
                
                > **NOTE:** `time` is required when `frequency` is set to `Daily`.
@@ -84,7 +84,7 @@ class PolicyFileShareBackup(dict):
 
 
 @pulumi.output_type
-class PolicyFileShareBackupHourly(dict):
+calass PolicyFileShareBackupHourly(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -143,7 +143,7 @@ class PolicyFileShareBackupHourly(dict):
 
 
 @pulumi.output_type
-class PolicyFileShareRetentionDaily(dict):
+calass PolicyFileShareRetentionDaily(dict):
     def __init__(__self__, *,
                  count: int):
         """
@@ -161,7 +161,7 @@ class PolicyFileShareRetentionDaily(dict):
 
 
 @pulumi.output_type
-class PolicyFileShareRetentionMonthly(dict):
+calass PolicyFileShareRetentionMonthly(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -248,7 +248,7 @@ class PolicyFileShareRetentionMonthly(dict):
 
 
 @pulumi.output_type
-class PolicyFileShareRetentionWeekly(dict):
+calass PolicyFileShareRetentionWeekly(dict):
     def __init__(__self__, *,
                  count: int,
                  weekdays: Sequence[str]):
@@ -277,7 +277,7 @@ class PolicyFileShareRetentionWeekly(dict):
 
 
 @pulumi.output_type
-class PolicyFileShareRetentionYearly(dict):
+calass PolicyFileShareRetentionYearly(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -375,7 +375,7 @@ class PolicyFileShareRetentionYearly(dict):
 
 
 @pulumi.output_type
-class PolicyVMBackup(dict):
+calass PolicyVMBackup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -463,7 +463,7 @@ class PolicyVMBackup(dict):
 
 
 @pulumi.output_type
-class PolicyVMInstantRestoreResourceGroup(dict):
+calass PolicyVMInstantRestoreResourceGroup(dict):
     def __init__(__self__, *,
                  prefix: str,
                  suffix: Optional[str] = None):
@@ -493,7 +493,7 @@ class PolicyVMInstantRestoreResourceGroup(dict):
 
 
 @pulumi.output_type
-class PolicyVMRetentionDaily(dict):
+calass PolicyVMRetentionDaily(dict):
     def __init__(__self__, *,
                  count: int):
         """
@@ -515,7 +515,7 @@ class PolicyVMRetentionDaily(dict):
 
 
 @pulumi.output_type
-class PolicyVMRetentionMonthly(dict):
+calass PolicyVMRetentionMonthly(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -602,7 +602,7 @@ class PolicyVMRetentionMonthly(dict):
 
 
 @pulumi.output_type
-class PolicyVMRetentionWeekly(dict):
+calass PolicyVMRetentionWeekly(dict):
     def __init__(__self__, *,
                  count: int,
                  weekdays: Sequence[str]):
@@ -631,7 +631,7 @@ class PolicyVMRetentionWeekly(dict):
 
 
 @pulumi.output_type
-class PolicyVMRetentionYearly(dict):
+calass PolicyVMRetentionYearly(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -729,7 +729,7 @@ class PolicyVMRetentionYearly(dict):
 
 
 @pulumi.output_type
-class PolicyVMWorkloadProtectionPolicy(dict):
+calass PolicyVMWorkloadProtectionPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -766,13 +766,13 @@ class PolicyVMWorkloadProtectionPolicy(dict):
                  retention_yearly: Optional['outputs.PolicyVMWorkloadProtectionPolicyRetentionYearly'] = None,
                  simple_retention: Optional['outputs.PolicyVMWorkloadProtectionPolicySimpleRetention'] = None):
         """
-        :param 'PolicyVMWorkloadProtectionPolicyBackupArgs' backup: A `backup` block as defined below.
+        :param 'PolicyVMWorkloadProtectionPolicyBackupArrgs' backup: A `backup` block as defined below.
         :param str policy_type: The type of the VM Workload Backup Policy. Possible values are `Differential`, `Full`, `Incremental` and `Log`.
-        :param 'PolicyVMWorkloadProtectionPolicyRetentionDailyArgs' retention_daily: A `retention_daily` block as defined below.
-        :param 'PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs' retention_monthly: A `retention_monthly` block as defined below.
-        :param 'PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs' retention_weekly: A `retention_weekly` block as defined below.
-        :param 'PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs' retention_yearly: A `retention_yearly` block as defined below.
-        :param 'PolicyVMWorkloadProtectionPolicySimpleRetentionArgs' simple_retention: A `simple_retention` block as defined below.
+        :param 'PolicyVMWorkloadProtectionPolicyRetentionDailyArrgs' retention_daily: A `retention_daily` block as defined below.
+        :param 'PolicyVMWorkloadProtectionPolicyRetentionMonthlyArrgs' retention_monthly: A `retention_monthly` block as defined below.
+        :param 'PolicyVMWorkloadProtectionPolicyRetentionWeeklyArrgs' retention_weekly: A `retention_weekly` block as defined below.
+        :param 'PolicyVMWorkloadProtectionPolicyRetentionYearlyArrgs' retention_yearly: A `retention_yearly` block as defined below.
+        :param 'PolicyVMWorkloadProtectionPolicySimpleRetentionArrgs' simple_retention: A `simple_retention` block as defined below.
         """
         pulumi.set(__self__, "backup", backup)
         pulumi.set(__self__, "policy_type", policy_type)
@@ -845,7 +845,7 @@ class PolicyVMWorkloadProtectionPolicy(dict):
 
 
 @pulumi.output_type
-class PolicyVMWorkloadProtectionPolicyBackup(dict):
+calass PolicyVMWorkloadProtectionPolicyBackup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -917,7 +917,7 @@ class PolicyVMWorkloadProtectionPolicyBackup(dict):
 
 
 @pulumi.output_type
-class PolicyVMWorkloadProtectionPolicyRetentionDaily(dict):
+calass PolicyVMWorkloadProtectionPolicyRetentionDaily(dict):
     def __init__(__self__, *,
                  count: int):
         """
@@ -935,7 +935,7 @@ class PolicyVMWorkloadProtectionPolicyRetentionDaily(dict):
 
 
 @pulumi.output_type
-class PolicyVMWorkloadProtectionPolicyRetentionMonthly(dict):
+calass PolicyVMWorkloadProtectionPolicyRetentionMonthly(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1017,7 +1017,7 @@ class PolicyVMWorkloadProtectionPolicyRetentionMonthly(dict):
 
 
 @pulumi.output_type
-class PolicyVMWorkloadProtectionPolicyRetentionWeekly(dict):
+calass PolicyVMWorkloadProtectionPolicyRetentionWeekly(dict):
     def __init__(__self__, *,
                  count: int,
                  weekdays: Sequence[str]):
@@ -1046,7 +1046,7 @@ class PolicyVMWorkloadProtectionPolicyRetentionWeekly(dict):
 
 
 @pulumi.output_type
-class PolicyVMWorkloadProtectionPolicyRetentionYearly(dict):
+calass PolicyVMWorkloadProtectionPolicyRetentionYearly(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1139,7 +1139,7 @@ class PolicyVMWorkloadProtectionPolicyRetentionYearly(dict):
 
 
 @pulumi.output_type
-class PolicyVMWorkloadProtectionPolicySimpleRetention(dict):
+calass PolicyVMWorkloadProtectionPolicySimpleRetention(dict):
     def __init__(__self__, *,
                  count: int):
         """
@@ -1157,7 +1157,7 @@ class PolicyVMWorkloadProtectionPolicySimpleRetention(dict):
 
 
 @pulumi.output_type
-class PolicyVMWorkloadSettings(dict):
+calass PolicyVMWorkloadSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetQueueAuthorizationRuleResult:
+calass GetQueueAuthorizationRuleResult:
     """
     A collection of values returned by getQueueAuthorizationRule.
     """
@@ -165,7 +165,7 @@ class GetQueueAuthorizationRuleResult:
         return pulumi.get(self, "send")
 
 
-class AwaitableGetQueueAuthorizationRuleResult(GetQueueAuthorizationRuleResult):
+calass AwaitableGetQueueAuthorizationRuleResult(GetQueueAuthorizationRuleResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

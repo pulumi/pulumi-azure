@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['RegistryTaskScheduleRunNowArgs', 'RegistryTaskScheduleRunNow']
+__all__ = ['RegistryTaskScheduleRunNowArrgs', 'RegistryTaskScheduleRunNow']
 
 @pulumi.input_type
-class RegistryTaskScheduleRunNowArgs:
+calass RegistryTaskScheduleRunNowArrgs:
     def __init__(__self__, *,
                  container_registry_task_id: pulumi.Input[str]):
         """
@@ -35,7 +35,7 @@ class RegistryTaskScheduleRunNowArgs:
 
 
 @pulumi.input_type
-class _RegistryTaskScheduleRunNowState:
+calass _RegistryTaskScheduleRunNowState:
     def __init__(__self__, *,
                  container_registry_task_id: Optional[pulumi.Input[str]] = None):
         """
@@ -58,7 +58,7 @@ class _RegistryTaskScheduleRunNowState:
         pulumi.set(self, "container_registry_task_id", value)
 
 
-class RegistryTaskScheduleRunNow(pulumi.CustomResource):
+calass RegistryTaskScheduleRunNow(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -81,10 +81,10 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
             sku="Basic")
         example_registry_task = azure.containerservice.RegistryTask("exampleRegistryTask",
             container_registry_id=example_registry.id,
-            platform=azure.containerservice.RegistryTaskPlatformArgs(
+            platform=azure.containerservice.RegistryTaskPlatformArrgs(
                 os="Linux",
             ),
-            docker_step=azure.containerservice.RegistryTaskDockerStepArgs(
+            docker_step=azure.containerservice.RegistryTaskDockerStepArrgs(
                 dockerfile_path="Dockerfile",
                 context_path="https://github.com/<user name>/acr-build-helloworld-node#main",
                 context_access_token="<github personal access token>",
@@ -101,7 +101,7 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: RegistryTaskScheduleRunNowArgs,
+                 args: RegistryTaskScheduleRunNowArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Runs a Container Registry Task Schedule.
@@ -119,10 +119,10 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
             sku="Basic")
         example_registry_task = azure.containerservice.RegistryTask("exampleRegistryTask",
             container_registry_id=example_registry.id,
-            platform=azure.containerservice.RegistryTaskPlatformArgs(
+            platform=azure.containerservice.RegistryTaskPlatformArrgs(
                 os="Linux",
             ),
-            docker_step=azure.containerservice.RegistryTaskDockerStepArgs(
+            docker_step=azure.containerservice.RegistryTaskDockerStepArrgs(
                 dockerfile_path="Dockerfile",
                 context_path="https://github.com/<user name>/acr-build-helloworld-node#main",
                 context_access_token="<github personal access token>",
@@ -132,12 +132,12 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param RegistryTaskScheduleRunNowArgs args: The arguments to use to populate this resource's properties.
+        :param RegistryTaskScheduleRunNowArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(RegistryTaskScheduleRunNowArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(RegistryTaskScheduleRunNowArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -154,7 +154,7 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = RegistryTaskScheduleRunNowArgs.__new__(RegistryTaskScheduleRunNowArgs)
+            __props__ = RegistryTaskScheduleRunNowArrgs.__new__(RegistryTaskScheduleRunNowArrgs)
 
             if container_registry_task_id is None and not opts.urn:
                 raise TypeError("Missing required property 'container_registry_task_id'")

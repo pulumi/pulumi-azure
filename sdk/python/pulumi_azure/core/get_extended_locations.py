@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetExtendedLocationsResult:
+calass GetExtendedLocationsResult:
     """
     A collection of values returned by getExtendedLocations.
     """
@@ -54,7 +54,7 @@ class GetExtendedLocationsResult:
         return pulumi.get(self, "location")
 
 
-class AwaitableGetExtendedLocationsResult(GetExtendedLocationsResult):
+calass AwaitableGetExtendedLocationsResult(GetExtendedLocationsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

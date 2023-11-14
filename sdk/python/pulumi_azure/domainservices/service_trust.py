@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ServiceTrustArgs', 'ServiceTrust']
+__all__ = ['ServiceTrustArrgs', 'ServiceTrust']
 
 @pulumi.input_type
-class ServiceTrustArgs:
+calass ServiceTrustArrgs:
     def __init__(__self__, *,
                  domain_service_id: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -96,7 +96,7 @@ class ServiceTrustArgs:
 
 
 @pulumi.input_type
-class _ServiceTrustState:
+calass _ServiceTrustState:
     def __init__(__self__, *,
                  domain_service_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -183,7 +183,7 @@ class _ServiceTrustState:
         pulumi.set(self, "trusted_domain_fqdn", value)
 
 
-class ServiceTrust(pulumi.CustomResource):
+calass ServiceTrust(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -235,7 +235,7 @@ class ServiceTrust(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServiceTrustArgs,
+                 args: ServiceTrustArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Active Directory Domain Service Trust.
@@ -267,12 +267,12 @@ class ServiceTrust(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServiceTrustArgs args: The arguments to use to populate this resource's properties.
+        :param ServiceTrustArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServiceTrustArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceTrustArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -293,7 +293,7 @@ class ServiceTrust(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServiceTrustArgs.__new__(ServiceTrustArgs)
+            __props__ = ServiceTrustArrgs.__new__(ServiceTrustArrgs)
 
             if domain_service_id is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_service_id'")

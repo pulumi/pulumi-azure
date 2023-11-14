@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ExpressRoutePortAuthorizationArgs', 'ExpressRoutePortAuthorization']
+__all__ = ['ExpressRoutePortAuthorizationArrgs', 'ExpressRoutePortAuthorization']
 
 @pulumi.input_type
-class ExpressRoutePortAuthorizationArgs:
+calass ExpressRoutePortAuthorizationArrgs:
     def __init__(__self__, *,
                  express_route_port_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -66,7 +66,7 @@ class ExpressRoutePortAuthorizationArgs:
 
 
 @pulumi.input_type
-class _ExpressRoutePortAuthorizationState:
+calass _ExpressRoutePortAuthorizationState:
     def __init__(__self__, *,
                  authorization_key: Optional[pulumi.Input[str]] = None,
                  authorization_use_status: Optional[pulumi.Input[str]] = None,
@@ -153,7 +153,7 @@ class _ExpressRoutePortAuthorizationState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class ExpressRoutePortAuthorization(pulumi.CustomResource):
+calass ExpressRoutePortAuthorization(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -201,7 +201,7 @@ class ExpressRoutePortAuthorization(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ExpressRoutePortAuthorizationArgs,
+                 args: ExpressRoutePortAuthorizationArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an ExpressRoute Port Authorization.
@@ -233,12 +233,12 @@ class ExpressRoutePortAuthorization(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ExpressRoutePortAuthorizationArgs args: The arguments to use to populate this resource's properties.
+        :param ExpressRoutePortAuthorizationArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ExpressRoutePortAuthorizationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ExpressRoutePortAuthorizationArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -257,7 +257,7 @@ class ExpressRoutePortAuthorization(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ExpressRoutePortAuthorizationArgs.__new__(ExpressRoutePortAuthorizationArgs)
+            __props__ = ExpressRoutePortAuthorizationArrgs.__new__(ExpressRoutePortAuthorizationArrgs)
 
             if express_route_port_name is None and not opts.urn:
                 raise TypeError("Missing required property 'express_route_port_name'")

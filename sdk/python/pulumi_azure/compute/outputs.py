@@ -210,7 +210,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class BastionHostIpConfiguration(dict):
+calass BastionHostIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -273,7 +273,7 @@ class BastionHostIpConfiguration(dict):
 
 
 @pulumi.output_type
-class CapacityReservationSku(dict):
+calass CapacityReservationSku(dict):
     def __init__(__self__, *,
                  capacity: int,
                  name: str):
@@ -302,7 +302,7 @@ class CapacityReservationSku(dict):
 
 
 @pulumi.output_type
-class DiskEncryptionSetIdentity(dict):
+calass DiskEncryptionSetIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -381,7 +381,7 @@ class DiskEncryptionSetIdentity(dict):
 
 
 @pulumi.output_type
-class ExtensionProtectedSettingsFromKeyVault(dict):
+calass ExtensionProtectedSettingsFromKeyVault(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -429,7 +429,7 @@ class ExtensionProtectedSettingsFromKeyVault(dict):
 
 
 @pulumi.output_type
-class GalleryApplicationVersionManageAction(dict):
+calass GalleryApplicationVersionManageAction(dict):
     def __init__(__self__, *,
                  install: str,
                  remove: str,
@@ -470,7 +470,7 @@ class GalleryApplicationVersionManageAction(dict):
 
 
 @pulumi.output_type
-class GalleryApplicationVersionSource(dict):
+calass GalleryApplicationVersionSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -519,7 +519,7 @@ class GalleryApplicationVersionSource(dict):
 
 
 @pulumi.output_type
-class GalleryApplicationVersionTargetRegion(dict):
+calass GalleryApplicationVersionTargetRegion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -579,7 +579,7 @@ class GalleryApplicationVersionTargetRegion(dict):
 
 
 @pulumi.output_type
-class ImageDataDisk(dict):
+calass ImageDataDisk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -667,7 +667,7 @@ class ImageDataDisk(dict):
 
 
 @pulumi.output_type
-class ImageOsDisk(dict):
+calass ImageOsDisk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -785,7 +785,7 @@ class ImageOsDisk(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineAdditionalCapabilities(dict):
+calass LinuxVirtualMachineAdditionalCapabilities(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -821,7 +821,7 @@ class LinuxVirtualMachineAdditionalCapabilities(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineAdminSshKey(dict):
+calass LinuxVirtualMachineAdminSshKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -871,7 +871,7 @@ class LinuxVirtualMachineAdminSshKey(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineBootDiagnostics(dict):
+calass LinuxVirtualMachineBootDiagnostics(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -911,7 +911,7 @@ class LinuxVirtualMachineBootDiagnostics(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineGalleryApplication(dict):
+calass LinuxVirtualMachineGalleryApplication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -984,7 +984,7 @@ class LinuxVirtualMachineGalleryApplication(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineIdentity(dict):
+calass LinuxVirtualMachineIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1063,7 +1063,7 @@ class LinuxVirtualMachineIdentity(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineOsDisk(dict):
+calass LinuxVirtualMachineOsDisk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1106,7 +1106,7 @@ class LinuxVirtualMachineOsDisk(dict):
         """
         :param str caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param str storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        :param 'LinuxVirtualMachineOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+        :param 'LinuxVirtualMachineOsDiskDiffDiskSettingsArrgs' diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
                
                > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
@@ -1233,7 +1233,7 @@ class LinuxVirtualMachineOsDisk(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineOsDiskDiffDiskSettings(dict):
+calass LinuxVirtualMachineOsDiskDiffDiskSettings(dict):
     def __init__(__self__, *,
                  option: str,
                  placement: Optional[str] = None):
@@ -1263,7 +1263,7 @@ class LinuxVirtualMachineOsDiskDiffDiskSettings(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachinePlan(dict):
+calass LinuxVirtualMachinePlan(dict):
     def __init__(__self__, *,
                  name: str,
                  product: str,
@@ -1303,7 +1303,7 @@ class LinuxVirtualMachinePlan(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetAdditionalCapabilities(dict):
+calass LinuxVirtualMachineScaleSetAdditionalCapabilities(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1339,7 +1339,7 @@ class LinuxVirtualMachineScaleSetAdditionalCapabilities(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetAdminSshKey(dict):
+calass LinuxVirtualMachineScaleSetAdminSshKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1389,7 +1389,7 @@ class LinuxVirtualMachineScaleSetAdminSshKey(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetAutomaticInstanceRepair(dict):
+calass LinuxVirtualMachineScaleSetAutomaticInstanceRepair(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1436,7 +1436,7 @@ class LinuxVirtualMachineScaleSetAutomaticInstanceRepair(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy(dict):
+calass LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1484,7 +1484,7 @@ class LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicy(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetBootDiagnostics(dict):
+calass LinuxVirtualMachineScaleSetBootDiagnostics(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1524,7 +1524,7 @@ class LinuxVirtualMachineScaleSetBootDiagnostics(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetDataDisk(dict):
+calass LinuxVirtualMachineScaleSetDataDisk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1692,7 +1692,7 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetExtension(dict):
+calass LinuxVirtualMachineScaleSetExtension(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1860,7 +1860,7 @@ class LinuxVirtualMachineScaleSetExtension(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault(dict):
+calass LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1908,7 +1908,7 @@ class LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetGalleryApplication(dict):
+calass LinuxVirtualMachineScaleSetGalleryApplication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1979,7 +1979,7 @@ class LinuxVirtualMachineScaleSetGalleryApplication(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetIdentity(dict):
+calass LinuxVirtualMachineScaleSetIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2058,7 +2058,7 @@ class LinuxVirtualMachineScaleSetIdentity(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetNetworkInterface(dict):
+calass LinuxVirtualMachineScaleSetNetworkInterface(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2093,7 +2093,7 @@ class LinuxVirtualMachineScaleSetNetworkInterface(dict):
                  network_security_group_id: Optional[str] = None,
                  primary: Optional[bool] = None):
         """
-        :param Sequence['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs'] ip_configurations: One or more `ip_configuration` blocks as defined above.
+        :param Sequence['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs'] ip_configurations: One or more `ip_configuration` blocks as defined above.
         :param str name: The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
         :param Sequence[str] dns_servers: A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
         :param bool enable_accelerated_networking: Does this Network Interface support Accelerated Networking? Defaults to `false`.
@@ -2176,7 +2176,7 @@ class LinuxVirtualMachineScaleSetNetworkInterface(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
+calass LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2229,7 +2229,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
         :param bool primary: Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
                
                > **NOTE:** One `ip_configuration` block must be marked as Primary for each Network Interface.
-        :param Sequence['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs'] public_ip_addresses: A `public_ip_address` block as defined below.
+        :param Sequence['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs'] public_ip_addresses: A `public_ip_address` block as defined below.
         :param str subnet_id: The ID of the Subnet which this IP Configuration should be connected to.
                
                > `subnet_id` is required if `version` is set to `IPv4`.
@@ -2337,7 +2337,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(dict):
+calass LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2372,7 +2372,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(
         :param str name: The Name of the Public IP Address Configuration.
         :param str domain_name_label: The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
         :param int idle_timeout_in_minutes: The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
-        :param Sequence['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs'] ip_tags: One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
+        :param Sequence['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs'] ip_tags: One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
         :param str public_ip_prefix_id: The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
                
                > **NOTE:** This functionality is in Preview and must be opted into via `az feature register --namespace Microsoft.Network --name AllowBringYourOwnPublicIpAddress` and then `az provider register -n Microsoft.Network`.
@@ -2442,7 +2442,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag(dict):
+calass LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag(dict):
     def __init__(__self__, *,
                  tag: str,
                  type: str):
@@ -2471,7 +2471,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressI
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetOsDisk(dict):
+calass LinuxVirtualMachineScaleSetOsDisk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2513,7 +2513,7 @@ class LinuxVirtualMachineScaleSetOsDisk(dict):
         """
         :param str caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param str storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        :param 'LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+        :param 'LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArrgs' diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
                
                > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
@@ -2629,7 +2629,7 @@ class LinuxVirtualMachineScaleSetOsDisk(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
+calass LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
     def __init__(__self__, *,
                  option: str,
                  placement: Optional[str] = None):
@@ -2659,7 +2659,7 @@ class LinuxVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetPlan(dict):
+calass LinuxVirtualMachineScaleSetPlan(dict):
     def __init__(__self__, *,
                  name: str,
                  product: str,
@@ -2699,7 +2699,7 @@ class LinuxVirtualMachineScaleSetPlan(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetRollingUpgradePolicy(dict):
+calass LinuxVirtualMachineScaleSetRollingUpgradePolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2801,7 +2801,7 @@ class LinuxVirtualMachineScaleSetRollingUpgradePolicy(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetScaleIn(dict):
+calass LinuxVirtualMachineScaleSetScaleIn(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2849,7 +2849,7 @@ class LinuxVirtualMachineScaleSetScaleIn(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetSecret(dict):
+calass LinuxVirtualMachineScaleSetSecret(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2871,7 +2871,7 @@ class LinuxVirtualMachineScaleSetSecret(dict):
                  certificates: Sequence['outputs.LinuxVirtualMachineScaleSetSecretCertificate'],
                  key_vault_id: str):
         """
-        :param Sequence['LinuxVirtualMachineScaleSetSecretCertificateArgs'] certificates: One or more `certificate` blocks as defined above.
+        :param Sequence['LinuxVirtualMachineScaleSetSecretCertificateArrgs'] certificates: One or more `certificate` blocks as defined above.
         :param str key_vault_id: The ID of the Key Vault from which all Secrets should be sourced.
         """
         pulumi.set(__self__, "certificates", certificates)
@@ -2895,7 +2895,7 @@ class LinuxVirtualMachineScaleSetSecret(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetSecretCertificate(dict):
+calass LinuxVirtualMachineScaleSetSecretCertificate(dict):
     def __init__(__self__, *,
                  url: str):
         """
@@ -2921,7 +2921,7 @@ class LinuxVirtualMachineScaleSetSecretCertificate(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetSourceImageReference(dict):
+calass LinuxVirtualMachineScaleSetSourceImageReference(dict):
     def __init__(__self__, *,
                  offer: str,
                  publisher: str,
@@ -2972,7 +2972,7 @@ class LinuxVirtualMachineScaleSetSourceImageReference(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetSpotRestore(dict):
+calass LinuxVirtualMachineScaleSetSpotRestore(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  timeout: Optional[str] = None):
@@ -3003,7 +3003,7 @@ class LinuxVirtualMachineScaleSetSpotRestore(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetTerminateNotification(dict):
+calass LinuxVirtualMachineScaleSetTerminateNotification(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  timeout: Optional[str] = None):
@@ -3037,7 +3037,7 @@ class LinuxVirtualMachineScaleSetTerminateNotification(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineScaleSetTerminationNotification(dict):
+calass LinuxVirtualMachineScaleSetTerminationNotification(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  timeout: Optional[str] = None):
@@ -3071,7 +3071,7 @@ class LinuxVirtualMachineScaleSetTerminationNotification(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineSecret(dict):
+calass LinuxVirtualMachineSecret(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3093,7 +3093,7 @@ class LinuxVirtualMachineSecret(dict):
                  certificates: Sequence['outputs.LinuxVirtualMachineSecretCertificate'],
                  key_vault_id: str):
         """
-        :param Sequence['LinuxVirtualMachineSecretCertificateArgs'] certificates: One or more `certificate` blocks as defined above.
+        :param Sequence['LinuxVirtualMachineSecretCertificateArrgs'] certificates: One or more `certificate` blocks as defined above.
         :param str key_vault_id: The ID of the Key Vault from which all Secrets should be sourced.
         """
         pulumi.set(__self__, "certificates", certificates)
@@ -3117,7 +3117,7 @@ class LinuxVirtualMachineSecret(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineSecretCertificate(dict):
+calass LinuxVirtualMachineSecretCertificate(dict):
     def __init__(__self__, *,
                  url: str):
         """
@@ -3139,7 +3139,7 @@ class LinuxVirtualMachineSecretCertificate(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineSourceImageReference(dict):
+calass LinuxVirtualMachineSourceImageReference(dict):
     def __init__(__self__, *,
                  offer: str,
                  publisher: str,
@@ -3190,7 +3190,7 @@ class LinuxVirtualMachineSourceImageReference(dict):
 
 
 @pulumi.output_type
-class LinuxVirtualMachineTerminationNotification(dict):
+calass LinuxVirtualMachineTerminationNotification(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  timeout: Optional[str] = None):
@@ -3224,7 +3224,7 @@ class LinuxVirtualMachineTerminationNotification(dict):
 
 
 @pulumi.output_type
-class ManagedDiskEncryptionSettings(dict):
+calass ManagedDiskEncryptionSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3249,8 +3249,8 @@ class ManagedDiskEncryptionSettings(dict):
                  enabled: Optional[bool] = None,
                  key_encryption_key: Optional['outputs.ManagedDiskEncryptionSettingsKeyEncryptionKey'] = None):
         """
-        :param 'ManagedDiskEncryptionSettingsDiskEncryptionKeyArgs' disk_encryption_key: A `disk_encryption_key` block as defined above.
-        :param 'ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs' key_encryption_key: A `key_encryption_key` block as defined below.
+        :param 'ManagedDiskEncryptionSettingsDiskEncryptionKeyArrgs' disk_encryption_key: A `disk_encryption_key` block as defined above.
+        :param 'ManagedDiskEncryptionSettingsKeyEncryptionKeyArrgs' key_encryption_key: A `key_encryption_key` block as defined below.
         """
         if disk_encryption_key is not None:
             pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
@@ -3285,7 +3285,7 @@ class ManagedDiskEncryptionSettings(dict):
 
 
 @pulumi.output_type
-class ManagedDiskEncryptionSettingsDiskEncryptionKey(dict):
+calass ManagedDiskEncryptionSettingsDiskEncryptionKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3333,7 +3333,7 @@ class ManagedDiskEncryptionSettingsDiskEncryptionKey(dict):
 
 
 @pulumi.output_type
-class ManagedDiskEncryptionSettingsKeyEncryptionKey(dict):
+calass ManagedDiskEncryptionSettingsKeyEncryptionKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3381,7 +3381,7 @@ class ManagedDiskEncryptionSettingsKeyEncryptionKey(dict):
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetAdditionalCapabilities(dict):
+calass OrchestratedVirtualMachineScaleSetAdditionalCapabilities(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3417,7 +3417,7 @@ class OrchestratedVirtualMachineScaleSetAdditionalCapabilities(dict):
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair(dict):
+calass OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3464,7 +3464,7 @@ class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair(dict):
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetBootDiagnostics(dict):
+calass OrchestratedVirtualMachineScaleSetBootDiagnostics(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3500,7 +3500,7 @@ class OrchestratedVirtualMachineScaleSetBootDiagnostics(dict):
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetDataDisk(dict):
+calass OrchestratedVirtualMachineScaleSetDataDisk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3632,7 +3632,7 @@ class OrchestratedVirtualMachineScaleSetDataDisk(dict):
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetExtension(dict):
+calass OrchestratedVirtualMachineScaleSetExtension(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3688,7 +3688,7 @@ class OrchestratedVirtualMachineScaleSetExtension(dict):
         :param str protected_settings: A JSON String which specifies Sensitive Settings (such as Passwords) for the Extension.
                
                > **NOTE:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Orchestrated Virtual Machine Extension you're looking to use for more information.
-        :param 'OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs' protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
+        :param 'OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArrgs' protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
                > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
         :param str settings: A JSON String which specifies Settings for the Extension.
@@ -3808,7 +3808,7 @@ class OrchestratedVirtualMachineScaleSetExtension(dict):
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault(dict):
+calass OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3856,7 +3856,7 @@ class OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault(d
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetIdentity(dict):
+calass OrchestratedVirtualMachineScaleSetIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3902,7 +3902,7 @@ class OrchestratedVirtualMachineScaleSetIdentity(dict):
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetNetworkInterface(dict):
+calass OrchestratedVirtualMachineScaleSetNetworkInterface(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3937,7 +3937,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterface(dict):
                  network_security_group_id: Optional[str] = None,
                  primary: Optional[bool] = None):
         """
-        :param Sequence['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs'] ip_configurations: One or more `ip_configuration` blocks as defined above.
+        :param Sequence['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs'] ip_configurations: One or more `ip_configuration` blocks as defined above.
         :param str name: The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
         :param Sequence[str] dns_servers: A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
         :param bool enable_accelerated_networking: Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
@@ -4020,7 +4020,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterface(dict):
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
+calass OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4065,7 +4065,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
         :param bool primary: Is this the Primary IP Configuration for this Network Interface? Possible values are `true` and `false`. Defaults to `false`.
                
                > **NOTE:** One `ip_configuration` block must be marked as Primary for each Network Interface.
-        :param Sequence['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs'] public_ip_addresses: A `public_ip_address` block as defined below.
+        :param Sequence['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs'] public_ip_addresses: A `public_ip_address` block as defined below.
         :param str subnet_id: The ID of the Subnet which this IP Configuration should be connected to.
                
                > **NOTE:** `subnet_id` is required if version is set to `IPv4`.
@@ -4159,7 +4159,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(dict):
+calass OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4197,7 +4197,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
         :param str name: The Name of the Public IP Address Configuration.
         :param str domain_name_label: The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number and contains only `a-z`, `0-9` and `hyphens`.
         :param int idle_timeout_in_minutes: The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
-        :param Sequence['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs'] ip_tags: One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
+        :param Sequence['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs'] ip_tags: One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
         :param str public_ip_prefix_id: The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
         :param str sku_name: Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
         :param str version: The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
@@ -4274,7 +4274,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag(dict):
+calass OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag(dict):
     def __init__(__self__, *,
                  tag: str,
                  type: str):
@@ -4303,7 +4303,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetOsDisk(dict):
+calass OrchestratedVirtualMachineScaleSetOsDisk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4339,7 +4339,7 @@ class OrchestratedVirtualMachineScaleSetOsDisk(dict):
         """
         :param str caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param str storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        :param 'OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+        :param 'OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArrgs' diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
                
                > **NOTE:** Disk Encryption Sets are in Public Preview in a limited set of regions
@@ -4409,7 +4409,7 @@ class OrchestratedVirtualMachineScaleSetOsDisk(dict):
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
+calass OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
     def __init__(__self__, *,
                  option: str,
                  placement: Optional[str] = None):
@@ -4439,7 +4439,7 @@ class OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetOsProfile(dict):
+calass OrchestratedVirtualMachineScaleSetOsProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4469,8 +4469,8 @@ class OrchestratedVirtualMachineScaleSetOsProfile(dict):
         :param str custom_data: The Base64-Encoded Custom Data which should be used for this Orchestrated Virtual Machine Scale Set.
                
                > **NOTE:** When Custom Data has been configured, it's not possible to remove it without tainting the Orchestrated Virtual Machine Scale Set, due to a limitation of the Azure API.
-        :param 'OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs' linux_configuration: A `linux_configuration` block as documented below.
-        :param 'OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs' windows_configuration: A `windows_configuration` block as documented below.
+        :param 'OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArrgs' linux_configuration: A `linux_configuration` block as documented below.
+        :param 'OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArrgs' windows_configuration: A `windows_configuration` block as documented below.
         """
         if custom_data is not None:
             pulumi.set(__self__, "custom_data", custom_data)
@@ -4507,7 +4507,7 @@ class OrchestratedVirtualMachineScaleSetOsProfile(dict):
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration(dict):
+calass OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4552,7 +4552,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration(dict):
         """
         :param str admin_username: The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
         :param str admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
-        :param Sequence['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs'] admin_ssh_keys: A `admin_ssh_key` block as documented below.
+        :param Sequence['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrgs'] admin_ssh_keys: A `admin_ssh_key` block as documented below.
         :param str computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         :param bool disable_password_authentication: When an `admin_password` is specified `disable_password_authentication` must be set to `false`. Defaults to `true`.
                
@@ -4561,7 +4561,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration(dict):
                
                > **NOTE:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
         :param bool provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
-        :param Sequence['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs'] secrets: One or more `secret` blocks as defined below.
+        :param Sequence['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrgs'] secrets: One or more `secret` blocks as defined below.
         """
         pulumi.set(__self__, "admin_username", admin_username)
         if admin_password is not None:
@@ -4656,7 +4656,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration(dict):
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey(dict):
+calass OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4706,7 +4706,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey(d
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret(dict):
+calass OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4728,7 +4728,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret(dict):
                  certificates: Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate'],
                  key_vault_id: str):
         """
-        :param Sequence['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs'] certificates: One or more `certificate` blocks as defined below.
+        :param Sequence['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrgs'] certificates: One or more `certificate` blocks as defined below.
                
                > **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windows_configuration` or a `linux_configuration`.
         :param str key_vault_id: The ID of the Key Vault from which all Secrets should be sourced.
@@ -4756,7 +4756,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret(dict):
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate(dict):
+calass OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate(dict):
     def __init__(__self__, *,
                  url: str):
         """
@@ -4778,7 +4778,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertifi
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration(dict):
+calass OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4836,9 +4836,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration(dict):
                
                > **NOTE:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.
         :param bool provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
-        :param Sequence['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs'] secrets: One or more `secret` blocks as defined below.
+        :param Sequence['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrgs'] secrets: One or more `secret` blocks as defined below.
         :param str timezone: Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
-        :param Sequence['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs'] winrm_listeners: One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
+        :param Sequence['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrgs'] winrm_listeners: One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "admin_password", admin_password)
         pulumi.set(__self__, "admin_username", admin_username)
@@ -4952,7 +4952,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration(dict):
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret(dict):
+calass OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4974,7 +4974,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret(dict
                  certificates: Sequence['outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate'],
                  key_vault_id: str):
         """
-        :param Sequence['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs'] certificates: One or more `certificate` blocks as defined below.
+        :param Sequence['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrgs'] certificates: One or more `certificate` blocks as defined below.
                
                > **NOTE:** The schema of the `certificate` block is slightly different depending on if you are provisioning a `windows_configuration` or a `linux_configuration`.
         :param str key_vault_id: The ID of the Key Vault from which all Secrets should be sourced.
@@ -5002,7 +5002,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret(dict
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate(dict):
+calass OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate(dict):
     def __init__(__self__, *,
                  store: str,
                  url: str):
@@ -5035,7 +5035,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCerti
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener(dict):
+calass OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5086,7 +5086,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListen
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetPlan(dict):
+calass OrchestratedVirtualMachineScaleSetPlan(dict):
     def __init__(__self__, *,
                  name: str,
                  product: str,
@@ -5126,7 +5126,7 @@ class OrchestratedVirtualMachineScaleSetPlan(dict):
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetPriorityMix(dict):
+calass OrchestratedVirtualMachineScaleSetPriorityMix(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5176,7 +5176,7 @@ class OrchestratedVirtualMachineScaleSetPriorityMix(dict):
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetSourceImageReference(dict):
+calass OrchestratedVirtualMachineScaleSetSourceImageReference(dict):
     def __init__(__self__, *,
                  offer: str,
                  publisher: str,
@@ -5227,7 +5227,7 @@ class OrchestratedVirtualMachineScaleSetSourceImageReference(dict):
 
 
 @pulumi.output_type
-class OrchestratedVirtualMachineScaleSetTerminationNotification(dict):
+calass OrchestratedVirtualMachineScaleSetTerminationNotification(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  timeout: Optional[str] = None):
@@ -5257,7 +5257,7 @@ class OrchestratedVirtualMachineScaleSetTerminationNotification(dict):
 
 
 @pulumi.output_type
-class PacketCaptureFilter(dict):
+calass PacketCaptureFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5346,7 +5346,7 @@ class PacketCaptureFilter(dict):
 
 
 @pulumi.output_type
-class PacketCaptureStorageLocation(dict):
+calass PacketCaptureStorageLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5414,7 +5414,7 @@ class PacketCaptureStorageLocation(dict):
 
 
 @pulumi.output_type
-class ScaleSetBootDiagnostics(dict):
+calass ScaleSetBootDiagnostics(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5461,7 +5461,7 @@ class ScaleSetBootDiagnostics(dict):
 
 
 @pulumi.output_type
-class ScaleSetExtension(dict):
+calass ScaleSetExtension(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5583,7 +5583,7 @@ class ScaleSetExtension(dict):
 
 
 @pulumi.output_type
-class ScaleSetIdentity(dict):
+calass ScaleSetIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5618,15 +5618,15 @@ class ScaleSetIdentity(dict):
                example = azure.compute.ScaleSet("example",
                    resource_group_name=azurerm_resource_group["example"]["name"],
                    location=azurerm_resource_group["example"]["location"],
-                   sku=azure.compute.ScaleSetSkuArgs(
+                   sku=azure.compute.ScaleSetSkuArrgs(
                        name=var["vm_sku"],
                        tier="Standard",
                        capacity=var["instance_count"],
                    ),
-                   identity=azure.compute.ScaleSetIdentityArgs(
+                   identity=azure.compute.ScaleSetIdentityArrgs(
                        type="SystemAssigned",
                    ),
-                   extensions=[azure.compute.ScaleSetExtensionArgs(
+                   extensions=[azure.compute.ScaleSetExtensionArrgs(
                        name="MSILinuxExtension",
                        publisher="Microsoft.ManagedIdentity",
                        type="ManagedIdentityExtensionForLinux",
@@ -5664,15 +5664,15 @@ class ScaleSetIdentity(dict):
         example = azure.compute.ScaleSet("example",
             resource_group_name=azurerm_resource_group["example"]["name"],
             location=azurerm_resource_group["example"]["location"],
-            sku=azure.compute.ScaleSetSkuArgs(
+            sku=azure.compute.ScaleSetSkuArrgs(
                 name=var["vm_sku"],
                 tier="Standard",
                 capacity=var["instance_count"],
             ),
-            identity=azure.compute.ScaleSetIdentityArgs(
+            identity=azure.compute.ScaleSetIdentityArrgs(
                 type="SystemAssigned",
             ),
-            extensions=[azure.compute.ScaleSetExtensionArgs(
+            extensions=[azure.compute.ScaleSetExtensionArrgs(
                 name="MSILinuxExtension",
                 publisher="Microsoft.ManagedIdentity",
                 type="ManagedIdentityExtensionForLinux",
@@ -5692,7 +5692,7 @@ class ScaleSetIdentity(dict):
 
 
 @pulumi.output_type
-class ScaleSetNetworkProfile(dict):
+calass ScaleSetNetworkProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5727,11 +5727,11 @@ class ScaleSetNetworkProfile(dict):
                  ip_forwarding: Optional[bool] = None,
                  network_security_group_id: Optional[str] = None):
         """
-        :param Sequence['ScaleSetNetworkProfileIpConfigurationArgs'] ip_configurations: An ip_configuration block as documented below.
+        :param Sequence['ScaleSetNetworkProfileIpConfigurationArrgs'] ip_configurations: An ip_configuration block as documented below.
         :param str name: Specifies the name of the network interface configuration.
         :param bool primary: Indicates whether network interfaces created from the network interface configuration will be the primary NIC of the VM.
         :param bool accelerated_networking: Specifies whether to enable accelerated networking or not.
-        :param 'ScaleSetNetworkProfileDnsSettingsArgs' dns_settings: A dns_settings block as documented below.
+        :param 'ScaleSetNetworkProfileDnsSettingsArrgs' dns_settings: A dns_settings block as documented below.
         :param bool ip_forwarding: Whether IP forwarding is enabled on this NIC. Defaults to `false`.
         :param str network_security_group_id: Specifies the identifier for the network security group.
         """
@@ -5805,7 +5805,7 @@ class ScaleSetNetworkProfile(dict):
 
 
 @pulumi.output_type
-class ScaleSetNetworkProfileDnsSettings(dict):
+calass ScaleSetNetworkProfileDnsSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5840,7 +5840,7 @@ class ScaleSetNetworkProfileDnsSettings(dict):
 
 
 @pulumi.output_type
-class ScaleSetNetworkProfileIpConfiguration(dict):
+calass ScaleSetNetworkProfileIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5889,7 +5889,7 @@ class ScaleSetNetworkProfileIpConfiguration(dict):
         :param Sequence[str] load_balancer_inbound_nat_rules_ids: Specifies an array of references to inbound NAT pools for load balancers. A scale set can reference inbound NAT pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
                
                > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
-        :param 'ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs' public_ip_address_configuration: Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The public_ip_address_configuration is documented below.
+        :param 'ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArrgs' public_ip_address_configuration: Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The public_ip_address_configuration is documented below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "primary", primary)
@@ -5975,7 +5975,7 @@ class ScaleSetNetworkProfileIpConfiguration(dict):
 
 
 @pulumi.output_type
-class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration(dict):
+calass ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6034,7 +6034,7 @@ class ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfiguration(dict):
 
 
 @pulumi.output_type
-class ScaleSetOsProfile(dict):
+calass ScaleSetOsProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6110,7 +6110,7 @@ class ScaleSetOsProfile(dict):
 
 
 @pulumi.output_type
-class ScaleSetOsProfileLinuxConfig(dict):
+calass ScaleSetOsProfileLinuxConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6135,7 +6135,7 @@ class ScaleSetOsProfileLinuxConfig(dict):
                  ssh_keys: Optional[Sequence['outputs.ScaleSetOsProfileLinuxConfigSshKey']] = None):
         """
         :param bool disable_password_authentication: Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
-        :param Sequence['ScaleSetOsProfileLinuxConfigSshKeyArgs'] ssh_keys: One or more `ssh_keys` blocks as defined below.
+        :param Sequence['ScaleSetOsProfileLinuxConfigSshKeyArrgs'] ssh_keys: One or more `ssh_keys` blocks as defined below.
                
                > **Note:** Please note that the only allowed `path` is `/home/<username>/.ssh/authorized_keys` due to a limitation of Azure.
                
@@ -6168,7 +6168,7 @@ class ScaleSetOsProfileLinuxConfig(dict):
 
 
 @pulumi.output_type
-class ScaleSetOsProfileLinuxConfigSshKey(dict):
+calass ScaleSetOsProfileLinuxConfigSshKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6227,7 +6227,7 @@ class ScaleSetOsProfileLinuxConfigSshKey(dict):
 
 
 @pulumi.output_type
-class ScaleSetOsProfileSecret(dict):
+calass ScaleSetOsProfileSecret(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6252,7 +6252,7 @@ class ScaleSetOsProfileSecret(dict):
                  vault_certificates: Optional[Sequence['outputs.ScaleSetOsProfileSecretVaultCertificate']] = None):
         """
         :param str source_vault_id: Specifies the key vault to use.
-        :param Sequence['ScaleSetOsProfileSecretVaultCertificateArgs'] vault_certificates: (Required, on Windows machines) One or more `vault_certificates` blocks as defined below.
+        :param Sequence['ScaleSetOsProfileSecretVaultCertificateArrgs'] vault_certificates: (Required, on Windows machines) One or more `vault_certificates` blocks as defined below.
         """
         pulumi.set(__self__, "source_vault_id", source_vault_id)
         if vault_certificates is not None:
@@ -6276,7 +6276,7 @@ class ScaleSetOsProfileSecret(dict):
 
 
 @pulumi.output_type
-class ScaleSetOsProfileSecretVaultCertificate(dict):
+calass ScaleSetOsProfileSecretVaultCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6325,7 +6325,7 @@ class ScaleSetOsProfileSecretVaultCertificate(dict):
 
 
 @pulumi.output_type
-class ScaleSetOsProfileWindowsConfig(dict):
+calass ScaleSetOsProfileWindowsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6353,10 +6353,10 @@ class ScaleSetOsProfileWindowsConfig(dict):
                  provision_vm_agent: Optional[bool] = None,
                  winrms: Optional[Sequence['outputs.ScaleSetOsProfileWindowsConfigWinrm']] = None):
         """
-        :param Sequence['ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs'] additional_unattend_configs: An Additional Unattended Config block as documented below.
+        :param Sequence['ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArrgs'] additional_unattend_configs: An Additional Unattended Config block as documented below.
         :param bool enable_automatic_upgrades: Indicates whether virtual machines in the scale set are enabled for automatic updates.
         :param bool provision_vm_agent: Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
-        :param Sequence['ScaleSetOsProfileWindowsConfigWinrmArgs'] winrms: A collection of WinRM configuration blocks as documented below.
+        :param Sequence['ScaleSetOsProfileWindowsConfigWinrmArrgs'] winrms: A collection of WinRM configuration blocks as documented below.
         """
         if additional_unattend_configs is not None:
             pulumi.set(__self__, "additional_unattend_configs", additional_unattend_configs)
@@ -6401,7 +6401,7 @@ class ScaleSetOsProfileWindowsConfig(dict):
 
 
 @pulumi.output_type
-class ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig(dict):
+calass ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6471,7 +6471,7 @@ class ScaleSetOsProfileWindowsConfigAdditionalUnattendConfig(dict):
 
 
 @pulumi.output_type
-class ScaleSetOsProfileWindowsConfigWinrm(dict):
+calass ScaleSetOsProfileWindowsConfigWinrm(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6518,7 +6518,7 @@ class ScaleSetOsProfileWindowsConfigWinrm(dict):
 
 
 @pulumi.output_type
-class ScaleSetPacketCaptureFilter(dict):
+calass ScaleSetPacketCaptureFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6607,7 +6607,7 @@ class ScaleSetPacketCaptureFilter(dict):
 
 
 @pulumi.output_type
-class ScaleSetPacketCaptureMachineScope(dict):
+calass ScaleSetPacketCaptureMachineScope(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6657,7 +6657,7 @@ class ScaleSetPacketCaptureMachineScope(dict):
 
 
 @pulumi.output_type
-class ScaleSetPacketCaptureStorageLocation(dict):
+calass ScaleSetPacketCaptureStorageLocation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6725,7 +6725,7 @@ class ScaleSetPacketCaptureStorageLocation(dict):
 
 
 @pulumi.output_type
-class ScaleSetPlan(dict):
+calass ScaleSetPlan(dict):
     def __init__(__self__, *,
                  name: str,
                  product: str,
@@ -6765,7 +6765,7 @@ class ScaleSetPlan(dict):
 
 
 @pulumi.output_type
-class ScaleSetRollingUpgradePolicy(dict):
+calass ScaleSetRollingUpgradePolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6843,7 +6843,7 @@ class ScaleSetRollingUpgradePolicy(dict):
 
 
 @pulumi.output_type
-class ScaleSetSku(dict):
+calass ScaleSetSku(dict):
     def __init__(__self__, *,
                  capacity: int,
                  name: str,
@@ -6884,7 +6884,7 @@ class ScaleSetSku(dict):
 
 
 @pulumi.output_type
-class ScaleSetStorageProfileDataDisk(dict):
+calass ScaleSetStorageProfileDataDisk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -6970,7 +6970,7 @@ class ScaleSetStorageProfileDataDisk(dict):
 
 
 @pulumi.output_type
-class ScaleSetStorageProfileImageReference(dict):
+calass ScaleSetStorageProfileImageReference(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  offer: Optional[str] = None,
@@ -7037,7 +7037,7 @@ class ScaleSetStorageProfileImageReference(dict):
 
 
 @pulumi.output_type
-class ScaleSetStorageProfileOsDisk(dict):
+calass ScaleSetStorageProfileOsDisk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7154,7 +7154,7 @@ class ScaleSetStorageProfileOsDisk(dict):
 
 
 @pulumi.output_type
-class SharedImageGallerySharing(dict):
+calass SharedImageGallerySharing(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7179,7 +7179,7 @@ class SharedImageGallerySharing(dict):
         :param str permission: The permission of the Shared Image Gallery when sharing. Possible values are `Community`, `Groups` and `Private`. Changing this forces a new resource to be created.
                
                > **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
-        :param 'SharedImageGallerySharingCommunityGalleryArgs' community_gallery: A `community_gallery` block as defined below. Changing this forces a new resource to be created.
+        :param 'SharedImageGallerySharingCommunityGalleryArrgs' community_gallery: A `community_gallery` block as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** `community_gallery` must be set when `permission` is set to `Community`.
         """
@@ -7209,7 +7209,7 @@ class SharedImageGallerySharing(dict):
 
 
 @pulumi.output_type
-class SharedImageGallerySharingCommunityGallery(dict):
+calass SharedImageGallerySharingCommunityGallery(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7291,7 +7291,7 @@ class SharedImageGallerySharingCommunityGallery(dict):
 
 
 @pulumi.output_type
-class SharedImageIdentifier(dict):
+calass SharedImageIdentifier(dict):
     def __init__(__self__, *,
                  offer: str,
                  publisher: str,
@@ -7331,7 +7331,7 @@ class SharedImageIdentifier(dict):
 
 
 @pulumi.output_type
-class SharedImagePurchasePlan(dict):
+calass SharedImagePurchasePlan(dict):
     def __init__(__self__, *,
                  name: str,
                  product: Optional[str] = None,
@@ -7373,7 +7373,7 @@ class SharedImagePurchasePlan(dict):
 
 
 @pulumi.output_type
-class SharedImageVersionTargetRegion(dict):
+calass SharedImageVersionTargetRegion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7461,7 +7461,7 @@ class SharedImageVersionTargetRegion(dict):
 
 
 @pulumi.output_type
-class SnapshotEncryptionSettings(dict):
+calass SnapshotEncryptionSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7486,8 +7486,8 @@ class SnapshotEncryptionSettings(dict):
                  enabled: Optional[bool] = None,
                  key_encryption_key: Optional['outputs.SnapshotEncryptionSettingsKeyEncryptionKey'] = None):
         """
-        :param 'SnapshotEncryptionSettingsDiskEncryptionKeyArgs' disk_encryption_key: A `disk_encryption_key` block as defined below.
-        :param 'SnapshotEncryptionSettingsKeyEncryptionKeyArgs' key_encryption_key: A `key_encryption_key` block as defined below.
+        :param 'SnapshotEncryptionSettingsDiskEncryptionKeyArrgs' disk_encryption_key: A `disk_encryption_key` block as defined below.
+        :param 'SnapshotEncryptionSettingsKeyEncryptionKeyArrgs' key_encryption_key: A `key_encryption_key` block as defined below.
         """
         if disk_encryption_key is not None:
             pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
@@ -7522,7 +7522,7 @@ class SnapshotEncryptionSettings(dict):
 
 
 @pulumi.output_type
-class SnapshotEncryptionSettingsDiskEncryptionKey(dict):
+calass SnapshotEncryptionSettingsDiskEncryptionKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7570,7 +7570,7 @@ class SnapshotEncryptionSettingsDiskEncryptionKey(dict):
 
 
 @pulumi.output_type
-class SnapshotEncryptionSettingsKeyEncryptionKey(dict):
+calass SnapshotEncryptionSettingsKeyEncryptionKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7618,7 +7618,7 @@ class SnapshotEncryptionSettingsKeyEncryptionKey(dict):
 
 
 @pulumi.output_type
-class VirtualMachineAdditionalCapabilities(dict):
+calass VirtualMachineAdditionalCapabilities(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7657,7 +7657,7 @@ class VirtualMachineAdditionalCapabilities(dict):
 
 
 @pulumi.output_type
-class VirtualMachineBootDiagnostics(dict):
+calass VirtualMachineBootDiagnostics(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7707,7 +7707,7 @@ class VirtualMachineBootDiagnostics(dict):
 
 
 @pulumi.output_type
-class VirtualMachineIdentity(dict):
+calass VirtualMachineIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7780,7 +7780,7 @@ class VirtualMachineIdentity(dict):
 
 
 @pulumi.output_type
-class VirtualMachineOsProfile(dict):
+calass VirtualMachineOsProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7860,7 +7860,7 @@ class VirtualMachineOsProfile(dict):
 
 
 @pulumi.output_type
-class VirtualMachineOsProfileLinuxConfig(dict):
+calass VirtualMachineOsProfileLinuxConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7885,7 +7885,7 @@ class VirtualMachineOsProfileLinuxConfig(dict):
                  ssh_keys: Optional[Sequence['outputs.VirtualMachineOsProfileLinuxConfigSshKey']] = None):
         """
         :param bool disable_password_authentication: Specifies whether password authentication should be disabled. If set to `false`, an `admin_password` must be specified.
-        :param Sequence['VirtualMachineOsProfileLinuxConfigSshKeyArgs'] ssh_keys: One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
+        :param Sequence['VirtualMachineOsProfileLinuxConfigSshKeyArrgs'] ssh_keys: One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
         """
         pulumi.set(__self__, "disable_password_authentication", disable_password_authentication)
         if ssh_keys is not None:
@@ -7909,7 +7909,7 @@ class VirtualMachineOsProfileLinuxConfig(dict):
 
 
 @pulumi.output_type
-class VirtualMachineOsProfileLinuxConfigSshKey(dict):
+calass VirtualMachineOsProfileLinuxConfigSshKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7963,7 +7963,7 @@ class VirtualMachineOsProfileLinuxConfigSshKey(dict):
 
 
 @pulumi.output_type
-class VirtualMachineOsProfileSecret(dict):
+calass VirtualMachineOsProfileSecret(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -7988,7 +7988,7 @@ class VirtualMachineOsProfileSecret(dict):
                  vault_certificates: Optional[Sequence['outputs.VirtualMachineOsProfileSecretVaultCertificate']] = None):
         """
         :param str source_vault_id: Specifies the ID of the Key Vault to use.
-        :param Sequence['VirtualMachineOsProfileSecretVaultCertificateArgs'] vault_certificates: One or more `vault_certificates` blocks as defined below.
+        :param Sequence['VirtualMachineOsProfileSecretVaultCertificateArrgs'] vault_certificates: One or more `vault_certificates` blocks as defined below.
         """
         pulumi.set(__self__, "source_vault_id", source_vault_id)
         if vault_certificates is not None:
@@ -8012,7 +8012,7 @@ class VirtualMachineOsProfileSecret(dict):
 
 
 @pulumi.output_type
-class VirtualMachineOsProfileSecretVaultCertificate(dict):
+calass VirtualMachineOsProfileSecretVaultCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8067,7 +8067,7 @@ class VirtualMachineOsProfileSecretVaultCertificate(dict):
 
 
 @pulumi.output_type
-class VirtualMachineOsProfileWindowsConfig(dict):
+calass VirtualMachineOsProfileWindowsConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8096,13 +8096,13 @@ class VirtualMachineOsProfileWindowsConfig(dict):
                  timezone: Optional[str] = None,
                  winrms: Optional[Sequence['outputs.VirtualMachineOsProfileWindowsConfigWinrm']] = None):
         """
-        :param Sequence['VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs'] additional_unattend_configs: An `additional_unattend_config` block as defined below.
+        :param Sequence['VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArrgs'] additional_unattend_configs: An `additional_unattend_config` block as defined below.
         :param bool enable_automatic_upgrades: Are automatic updates enabled on this Virtual Machine? Defaults to `false.`
         :param bool provision_vm_agent: Should the Azure Virtual Machine Guest Agent be installed on this Virtual Machine? Defaults to `false`.
                
                > **NOTE:** This is different from the Default value used for this field within Azure.
         :param str timezone: Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
-        :param Sequence['VirtualMachineOsProfileWindowsConfigWinrmArgs'] winrms: One or more `winrm` blocks as defined below.
+        :param Sequence['VirtualMachineOsProfileWindowsConfigWinrmArrgs'] winrms: One or more `winrm` blocks as defined below.
         """
         if additional_unattend_configs is not None:
             pulumi.set(__self__, "additional_unattend_configs", additional_unattend_configs)
@@ -8159,7 +8159,7 @@ class VirtualMachineOsProfileWindowsConfig(dict):
 
 
 @pulumi.output_type
-class VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig(dict):
+calass VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8229,7 +8229,7 @@ class VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfig(dict):
 
 
 @pulumi.output_type
-class VirtualMachineOsProfileWindowsConfigWinrm(dict):
+calass VirtualMachineOsProfileWindowsConfigWinrm(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8280,7 +8280,7 @@ class VirtualMachineOsProfileWindowsConfigWinrm(dict):
 
 
 @pulumi.output_type
-class VirtualMachinePlan(dict):
+calass VirtualMachinePlan(dict):
     def __init__(__self__, *,
                  name: str,
                  product: str,
@@ -8320,7 +8320,7 @@ class VirtualMachinePlan(dict):
 
 
 @pulumi.output_type
-class VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault(dict):
+calass VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8368,7 +8368,7 @@ class VirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault(dict):
 
 
 @pulumi.output_type
-class VirtualMachineStorageDataDisk(dict):
+calass VirtualMachineStorageDataDisk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8523,7 +8523,7 @@ class VirtualMachineStorageDataDisk(dict):
 
 
 @pulumi.output_type
-class VirtualMachineStorageImageReference(dict):
+calass VirtualMachineStorageImageReference(dict):
     def __init__(__self__, *,
                  id: Optional[str] = None,
                  offer: Optional[str] = None,
@@ -8594,7 +8594,7 @@ class VirtualMachineStorageImageReference(dict):
 
 
 @pulumi.output_type
-class VirtualMachineStorageOsDisk(dict):
+calass VirtualMachineStorageOsDisk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8758,7 +8758,7 @@ class VirtualMachineStorageOsDisk(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineAdditionalCapabilities(dict):
+calass WindowsVirtualMachineAdditionalCapabilities(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8794,7 +8794,7 @@ class WindowsVirtualMachineAdditionalCapabilities(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineAdditionalUnattendContent(dict):
+calass WindowsVirtualMachineAdditionalUnattendContent(dict):
     def __init__(__self__, *,
                  content: str,
                  setting: str):
@@ -8823,7 +8823,7 @@ class WindowsVirtualMachineAdditionalUnattendContent(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineBootDiagnostics(dict):
+calass WindowsVirtualMachineBootDiagnostics(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8863,7 +8863,7 @@ class WindowsVirtualMachineBootDiagnostics(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineGalleryApplication(dict):
+calass WindowsVirtualMachineGalleryApplication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -8936,7 +8936,7 @@ class WindowsVirtualMachineGalleryApplication(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineIdentity(dict):
+calass WindowsVirtualMachineIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9015,7 +9015,7 @@ class WindowsVirtualMachineIdentity(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineOsDisk(dict):
+calass WindowsVirtualMachineOsDisk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9058,7 +9058,7 @@ class WindowsVirtualMachineOsDisk(dict):
         """
         :param str caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param str storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `Premium_LRS`, `StandardSSD_ZRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        :param 'WindowsVirtualMachineOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+        :param 'WindowsVirtualMachineOsDiskDiffDiskSettingsArrgs' diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
                
                > **NOTE:** `diff_disk_settings` can only be set when `caching` is set to `ReadOnly`. More information can be found [here](https://docs.microsoft.com/azure/virtual-machines/ephemeral-os-disks-deploy#vm-template-deployment)
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to Encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`.
@@ -9185,7 +9185,7 @@ class WindowsVirtualMachineOsDisk(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineOsDiskDiffDiskSettings(dict):
+calass WindowsVirtualMachineOsDiskDiffDiskSettings(dict):
     def __init__(__self__, *,
                  option: str,
                  placement: Optional[str] = None):
@@ -9215,7 +9215,7 @@ class WindowsVirtualMachineOsDiskDiffDiskSettings(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachinePlan(dict):
+calass WindowsVirtualMachinePlan(dict):
     def __init__(__self__, *,
                  name: str,
                  product: str,
@@ -9259,7 +9259,7 @@ class WindowsVirtualMachinePlan(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetAdditionalCapabilities(dict):
+calass WindowsVirtualMachineScaleSetAdditionalCapabilities(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9295,7 +9295,7 @@ class WindowsVirtualMachineScaleSetAdditionalCapabilities(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetAdditionalUnattendContent(dict):
+calass WindowsVirtualMachineScaleSetAdditionalUnattendContent(dict):
     def __init__(__self__, *,
                  content: str,
                  setting: str):
@@ -9324,7 +9324,7 @@ class WindowsVirtualMachineScaleSetAdditionalUnattendContent(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetAutomaticInstanceRepair(dict):
+calass WindowsVirtualMachineScaleSetAutomaticInstanceRepair(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9371,7 +9371,7 @@ class WindowsVirtualMachineScaleSetAutomaticInstanceRepair(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy(dict):
+calass WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9419,7 +9419,7 @@ class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetBootDiagnostics(dict):
+calass WindowsVirtualMachineScaleSetBootDiagnostics(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9459,7 +9459,7 @@ class WindowsVirtualMachineScaleSetBootDiagnostics(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetDataDisk(dict):
+calass WindowsVirtualMachineScaleSetDataDisk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9627,7 +9627,7 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetExtension(dict):
+calass WindowsVirtualMachineScaleSetExtension(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9795,7 +9795,7 @@ class WindowsVirtualMachineScaleSetExtension(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault(dict):
+calass WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9843,7 +9843,7 @@ class WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetGalleryApplication(dict):
+calass WindowsVirtualMachineScaleSetGalleryApplication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9914,7 +9914,7 @@ class WindowsVirtualMachineScaleSetGalleryApplication(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetIdentity(dict):
+calass WindowsVirtualMachineScaleSetIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -9993,7 +9993,7 @@ class WindowsVirtualMachineScaleSetIdentity(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetNetworkInterface(dict):
+calass WindowsVirtualMachineScaleSetNetworkInterface(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10028,7 +10028,7 @@ class WindowsVirtualMachineScaleSetNetworkInterface(dict):
                  network_security_group_id: Optional[str] = None,
                  primary: Optional[bool] = None):
         """
-        :param Sequence['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs'] ip_configurations: One or more `ip_configuration` blocks as defined above.
+        :param Sequence['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs'] ip_configurations: One or more `ip_configuration` blocks as defined above.
         :param str name: The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
         :param Sequence[str] dns_servers: A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
         :param bool enable_accelerated_networking: Does this Network Interface support Accelerated Networking? Defaults to `false`.
@@ -10111,7 +10111,7 @@ class WindowsVirtualMachineScaleSetNetworkInterface(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
+calass WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10164,7 +10164,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
         :param bool primary: Is this the Primary IP Configuration for this Network Interface? Defaults to `false`.
                
                > **NOTE:** One `ip_configuration` block must be marked as Primary for each Network Interface.
-        :param Sequence['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs'] public_ip_addresses: A `public_ip_address` block as defined below.
+        :param Sequence['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs'] public_ip_addresses: A `public_ip_address` block as defined below.
         :param str subnet_id: The ID of the Subnet which this IP Configuration should be connected to.
                
                > `subnet_id` is required if `version` is set to `IPv4`.
@@ -10272,7 +10272,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfiguration(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(dict):
+calass WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10307,7 +10307,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
         :param str name: The Name of the Public IP Address Configuration.
         :param str domain_name_label: The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine.
         :param int idle_timeout_in_minutes: The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
-        :param Sequence['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs'] ip_tags: One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
+        :param Sequence['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs'] ip_tags: One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
         :param str public_ip_prefix_id: The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
                
                > **NOTE:** This functionality is in Preview and must be opted into via `az feature register --namespace Microsoft.Network --name AllowBringYourOwnPublicIpAddress` and then `az provider register -n Microsoft.Network`.
@@ -10377,7 +10377,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag(dict):
+calass WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTag(dict):
     def __init__(__self__, *,
                  tag: str,
                  type: str):
@@ -10406,7 +10406,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetOsDisk(dict):
+calass WindowsVirtualMachineScaleSetOsDisk(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10448,7 +10448,7 @@ class WindowsVirtualMachineScaleSetOsDisk(dict):
         """
         :param str caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
         :param str storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
-        :param 'WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs' diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
+        :param 'WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArrgs' diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         :param str disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Conflicts with `secure_vm_disk_encryption_set_id`. Changing this forces a new resource to be created.
                
                > **NOTE:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
@@ -10564,7 +10564,7 @@ class WindowsVirtualMachineScaleSetOsDisk(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
+calass WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
     def __init__(__self__, *,
                  option: str,
                  placement: Optional[str] = None):
@@ -10594,7 +10594,7 @@ class WindowsVirtualMachineScaleSetOsDiskDiffDiskSettings(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetPlan(dict):
+calass WindowsVirtualMachineScaleSetPlan(dict):
     def __init__(__self__, *,
                  name: str,
                  product: str,
@@ -10634,7 +10634,7 @@ class WindowsVirtualMachineScaleSetPlan(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetRollingUpgradePolicy(dict):
+calass WindowsVirtualMachineScaleSetRollingUpgradePolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10736,7 +10736,7 @@ class WindowsVirtualMachineScaleSetRollingUpgradePolicy(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetScaleIn(dict):
+calass WindowsVirtualMachineScaleSetScaleIn(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10784,7 +10784,7 @@ class WindowsVirtualMachineScaleSetScaleIn(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetSecret(dict):
+calass WindowsVirtualMachineScaleSetSecret(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -10806,7 +10806,7 @@ class WindowsVirtualMachineScaleSetSecret(dict):
                  certificates: Sequence['outputs.WindowsVirtualMachineScaleSetSecretCertificate'],
                  key_vault_id: str):
         """
-        :param Sequence['WindowsVirtualMachineScaleSetSecretCertificateArgs'] certificates: One or more `certificate` blocks as defined above.
+        :param Sequence['WindowsVirtualMachineScaleSetSecretCertificateArrgs'] certificates: One or more `certificate` blocks as defined above.
         :param str key_vault_id: The ID of the Key Vault from which all Secrets should be sourced.
         """
         pulumi.set(__self__, "certificates", certificates)
@@ -10830,7 +10830,7 @@ class WindowsVirtualMachineScaleSetSecret(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetSecretCertificate(dict):
+calass WindowsVirtualMachineScaleSetSecretCertificate(dict):
     def __init__(__self__, *,
                  store: str,
                  url: str):
@@ -10863,7 +10863,7 @@ class WindowsVirtualMachineScaleSetSecretCertificate(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetSourceImageReference(dict):
+calass WindowsVirtualMachineScaleSetSourceImageReference(dict):
     def __init__(__self__, *,
                  offer: str,
                  publisher: str,
@@ -10914,7 +10914,7 @@ class WindowsVirtualMachineScaleSetSourceImageReference(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetSpotRestore(dict):
+calass WindowsVirtualMachineScaleSetSpotRestore(dict):
     def __init__(__self__, *,
                  enabled: Optional[bool] = None,
                  timeout: Optional[str] = None):
@@ -10945,7 +10945,7 @@ class WindowsVirtualMachineScaleSetSpotRestore(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetTerminateNotification(dict):
+calass WindowsVirtualMachineScaleSetTerminateNotification(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  timeout: Optional[str] = None):
@@ -10979,7 +10979,7 @@ class WindowsVirtualMachineScaleSetTerminateNotification(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetTerminationNotification(dict):
+calass WindowsVirtualMachineScaleSetTerminationNotification(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  timeout: Optional[str] = None):
@@ -11013,7 +11013,7 @@ class WindowsVirtualMachineScaleSetTerminationNotification(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineScaleSetWinrmListener(dict):
+calass WindowsVirtualMachineScaleSetWinrmListener(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11064,7 +11064,7 @@ class WindowsVirtualMachineScaleSetWinrmListener(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineSecret(dict):
+calass WindowsVirtualMachineSecret(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11086,7 +11086,7 @@ class WindowsVirtualMachineSecret(dict):
                  certificates: Sequence['outputs.WindowsVirtualMachineSecretCertificate'],
                  key_vault_id: str):
         """
-        :param Sequence['WindowsVirtualMachineSecretCertificateArgs'] certificates: One or more `certificate` blocks as defined above.
+        :param Sequence['WindowsVirtualMachineSecretCertificateArrgs'] certificates: One or more `certificate` blocks as defined above.
         :param str key_vault_id: The ID of the Key Vault from which all Secrets should be sourced.
         """
         pulumi.set(__self__, "certificates", certificates)
@@ -11110,7 +11110,7 @@ class WindowsVirtualMachineSecret(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineSecretCertificate(dict):
+calass WindowsVirtualMachineSecretCertificate(dict):
     def __init__(__self__, *,
                  store: str,
                  url: str):
@@ -11143,7 +11143,7 @@ class WindowsVirtualMachineSecretCertificate(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineSourceImageReference(dict):
+calass WindowsVirtualMachineSourceImageReference(dict):
     def __init__(__self__, *,
                  offer: str,
                  publisher: str,
@@ -11194,7 +11194,7 @@ class WindowsVirtualMachineSourceImageReference(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineTerminationNotification(dict):
+calass WindowsVirtualMachineTerminationNotification(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  timeout: Optional[str] = None):
@@ -11228,7 +11228,7 @@ class WindowsVirtualMachineTerminationNotification(dict):
 
 
 @pulumi.output_type
-class WindowsVirtualMachineWinrmListener(dict):
+calass WindowsVirtualMachineWinrmListener(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -11275,7 +11275,7 @@ class WindowsVirtualMachineWinrmListener(dict):
 
 
 @pulumi.output_type
-class GetBastionHostIpConfigurationResult(dict):
+calass GetBastionHostIpConfigurationResult(dict):
     def __init__(__self__, *,
                  name: str,
                  public_ip_address_id: str,
@@ -11315,7 +11315,7 @@ class GetBastionHostIpConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetConfidentialLedgerAzureadBasedServicePrincipalResult(dict):
+calass GetConfidentialLedgerAzureadBasedServicePrincipalResult(dict):
     def __init__(__self__, *,
                  ledger_role_name: str,
                  principal_id: str,
@@ -11355,7 +11355,7 @@ class GetConfidentialLedgerAzureadBasedServicePrincipalResult(dict):
 
 
 @pulumi.output_type
-class GetConfidentialLedgerCertificateBasedSecurityPrincipalResult(dict):
+calass GetConfidentialLedgerCertificateBasedSecurityPrincipalResult(dict):
     def __init__(__self__, *,
                  ledger_role_name: str,
                  pem_public_key: str):
@@ -11384,7 +11384,7 @@ class GetConfidentialLedgerCertificateBasedSecurityPrincipalResult(dict):
 
 
 @pulumi.output_type
-class GetDiskEncryptionSetIdentityResult(dict):
+calass GetDiskEncryptionSetIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -11435,7 +11435,7 @@ class GetDiskEncryptionSetIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetImageDataDiskResult(dict):
+calass GetImageDataDiskResult(dict):
     def __init__(__self__, *,
                  blob_uri: str,
                  caching: str,
@@ -11497,7 +11497,7 @@ class GetImageDataDiskResult(dict):
 
 
 @pulumi.output_type
-class GetImageOsDiskResult(dict):
+calass GetImageOsDiskResult(dict):
     def __init__(__self__, *,
                  blob_uri: str,
                  caching: str,
@@ -11570,7 +11570,7 @@ class GetImageOsDiskResult(dict):
 
 
 @pulumi.output_type
-class GetImagesImageResult(dict):
+calass GetImagesImageResult(dict):
     def __init__(__self__, *,
                  data_disks: Sequence['outputs.GetImagesImageDataDiskResult'],
                  location: str,
@@ -11579,10 +11579,10 @@ class GetImagesImageResult(dict):
                  tags: Mapping[str, str],
                  zone_resilient: bool):
         """
-        :param Sequence['GetImagesImageDataDiskArgs'] data_disks: One or more `data_disk` blocks as defined below.
+        :param Sequence['GetImagesImageDataDiskArrgs'] data_disks: One or more `data_disk` blocks as defined below.
         :param str location: The supported Azure location where the Image exists.
         :param str name: The name of the Image.
-        :param Sequence['GetImagesImageOsDiskArgs'] os_disks: An `os_disk` block as defined below.
+        :param Sequence['GetImagesImageOsDiskArrgs'] os_disks: An `os_disk` block as defined below.
         :param Mapping[str, str] tags: A mapping of tags assigned to the Image.
         :param bool zone_resilient: Is zone resiliency enabled?
         """
@@ -11643,7 +11643,7 @@ class GetImagesImageResult(dict):
 
 
 @pulumi.output_type
-class GetImagesImageDataDiskResult(dict):
+calass GetImagesImageDataDiskResult(dict):
     def __init__(__self__, *,
                  blob_uri: str,
                  caching: str,
@@ -11705,7 +11705,7 @@ class GetImagesImageDataDiskResult(dict):
 
 
 @pulumi.output_type
-class GetImagesImageOsDiskResult(dict):
+calass GetImagesImageOsDiskResult(dict):
     def __init__(__self__, *,
                  blob_uri: str,
                  caching: str,
@@ -11789,14 +11789,14 @@ class GetImagesImageOsDiskResult(dict):
 
 
 @pulumi.output_type
-class GetManagedDiskEncryptionSettingResult(dict):
+calass GetManagedDiskEncryptionSettingResult(dict):
     def __init__(__self__, *,
                  disk_encryption_keys: Sequence['outputs.GetManagedDiskEncryptionSettingDiskEncryptionKeyResult'],
                  enabled: bool,
                  key_encryption_keys: Sequence['outputs.GetManagedDiskEncryptionSettingKeyEncryptionKeyResult']):
         """
-        :param Sequence['GetManagedDiskEncryptionSettingDiskEncryptionKeyArgs'] disk_encryption_keys: A `disk_encryption_key` block as defined above.
-        :param Sequence['GetManagedDiskEncryptionSettingKeyEncryptionKeyArgs'] key_encryption_keys: A `key_encryption_key` block as defined below.
+        :param Sequence['GetManagedDiskEncryptionSettingDiskEncryptionKeyArrgs'] disk_encryption_keys: A `disk_encryption_key` block as defined above.
+        :param Sequence['GetManagedDiskEncryptionSettingKeyEncryptionKeyArrgs'] key_encryption_keys: A `key_encryption_key` block as defined below.
         """
         pulumi.set(__self__, "disk_encryption_keys", disk_encryption_keys)
         pulumi.set(__self__, "enabled", enabled)
@@ -11825,7 +11825,7 @@ class GetManagedDiskEncryptionSettingResult(dict):
 
 
 @pulumi.output_type
-class GetManagedDiskEncryptionSettingDiskEncryptionKeyResult(dict):
+calass GetManagedDiskEncryptionSettingDiskEncryptionKeyResult(dict):
     def __init__(__self__, *,
                  secret_url: str,
                  source_vault_id: str):
@@ -11854,7 +11854,7 @@ class GetManagedDiskEncryptionSettingDiskEncryptionKeyResult(dict):
 
 
 @pulumi.output_type
-class GetManagedDiskEncryptionSettingKeyEncryptionKeyResult(dict):
+calass GetManagedDiskEncryptionSettingKeyEncryptionKeyResult(dict):
     def __init__(__self__, *,
                  key_url: str,
                  source_vault_id: str):
@@ -11883,7 +11883,7 @@ class GetManagedDiskEncryptionSettingKeyEncryptionKeyResult(dict):
 
 
 @pulumi.output_type
-class GetOrchestratedVirtualMachineScaleSetIdentityResult(dict):
+calass GetOrchestratedVirtualMachineScaleSetIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  type: str):
@@ -11912,7 +11912,7 @@ class GetOrchestratedVirtualMachineScaleSetIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceResult(dict):
+calass GetOrchestratedVirtualMachineScaleSetNetworkInterfaceResult(dict):
     def __init__(__self__, *,
                  accelerated_networking_enabled: bool,
                  dns_servers: Sequence[str],
@@ -11924,7 +11924,7 @@ class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceResult(dict):
         """
         :param bool accelerated_networking_enabled: Is accelerated networking enabled?
         :param Sequence[str] dns_servers: An array of the DNS servers in use.
-        :param Sequence['GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs'] ip_configurations: An `ip_configuration` block as documented below.
+        :param Sequence['GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs'] ip_configurations: An `ip_configuration` block as documented below.
         :param bool ip_forwarding_enabled: Is IP forwarding enabled?
         :param str name: The name of this Orchestrated Virtual Machine Scale Set.
         :param str network_security_group_id: The identifier for the network security group.
@@ -11996,7 +11996,7 @@ class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceResult(dict):
 
 
 @pulumi.output_type
-class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult(dict):
+calass GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult(dict):
     def __init__(__self__, *,
                  application_gateway_backend_address_pool_ids: Sequence[str],
                  application_security_group_ids: Sequence[str],
@@ -12014,7 +12014,7 @@ class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult
         :param Sequence[str] load_balancer_inbound_nat_rules_ids: An array of references to inbound NAT pools for load balancers.
         :param str name: The name of this Orchestrated Virtual Machine Scale Set.
         :param bool primary: If this ip_configuration is the primary one.
-        :param Sequence['GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs'] public_ip_addresses: The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address` is documented below.
+        :param Sequence['GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs'] public_ip_addresses: The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address` is documented below.
         :param str subnet_id: The the identifier of the subnet.
         :param str version: The Internet Protocol Version of the public IP address.
         """
@@ -12102,7 +12102,7 @@ class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult
 
 
 @pulumi.output_type
-class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult(dict):
+calass GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult(dict):
     def __init__(__self__, *,
                  domain_name_label: str,
                  idle_timeout_in_minutes: int,
@@ -12113,7 +12113,7 @@ class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublic
         """
         :param str domain_name_label: The domain name label for the DNS settings.
         :param int idle_timeout_in_minutes: The idle timeout in minutes.
-        :param Sequence['GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs'] ip_tags: A list of `ip_tag` blocks as defined below.
+        :param Sequence['GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs'] ip_tags: A list of `ip_tag` blocks as defined below.
         :param str name: The name of this Orchestrated Virtual Machine Scale Set.
         :param str public_ip_prefix_id: The ID of the public IP prefix.
         :param str version: The Internet Protocol Version of the public IP address.
@@ -12175,7 +12175,7 @@ class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublic
 
 
 @pulumi.output_type
-class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagResult(dict):
+calass GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagResult(dict):
     def __init__(__self__, *,
                  tag: str,
                  type: str):
@@ -12204,7 +12204,7 @@ class GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublic
 
 
 @pulumi.output_type
-class GetSharedImageIdentifierResult(dict):
+calass GetSharedImageIdentifierResult(dict):
     def __init__(__self__, *,
                  offer: str,
                  publisher: str,
@@ -12244,7 +12244,7 @@ class GetSharedImageIdentifierResult(dict):
 
 
 @pulumi.output_type
-class GetSharedImagePurchasePlanResult(dict):
+calass GetSharedImagePurchasePlanResult(dict):
     def __init__(__self__, *,
                  name: str,
                  product: str,
@@ -12284,7 +12284,7 @@ class GetSharedImagePurchasePlanResult(dict):
 
 
 @pulumi.output_type
-class GetSharedImageVersionTargetRegionResult(dict):
+calass GetSharedImageVersionTargetRegionResult(dict):
     def __init__(__self__, *,
                  name: str,
                  regional_replica_count: int,
@@ -12332,7 +12332,7 @@ class GetSharedImageVersionTargetRegionResult(dict):
 
 
 @pulumi.output_type
-class GetSharedImageVersionsImageResult(dict):
+calass GetSharedImageVersionsImageResult(dict):
     def __init__(__self__, *,
                  exclude_from_latest: bool,
                  id: str,
@@ -12348,7 +12348,7 @@ class GetSharedImageVersionsImageResult(dict):
         :param str managed_image_id: The ID of the Managed Image which was the source of this Shared Image Version.
         :param str name: The Azure Region in which this Image Version exists.
         :param Mapping[str, str] tags: A mapping of tags assigned to the Shared Image.
-        :param Sequence['GetSharedImageVersionsImageTargetRegionArgs'] target_regions: One or more `target_region` blocks as documented below.
+        :param Sequence['GetSharedImageVersionsImageTargetRegionArrgs'] target_regions: One or more `target_region` blocks as documented below.
         """
         pulumi.set(__self__, "exclude_from_latest", exclude_from_latest)
         pulumi.set(__self__, "id", id)
@@ -12416,7 +12416,7 @@ class GetSharedImageVersionsImageResult(dict):
 
 
 @pulumi.output_type
-class GetSharedImageVersionsImageTargetRegionResult(dict):
+calass GetSharedImageVersionsImageTargetRegionResult(dict):
     def __init__(__self__, *,
                  name: str,
                  regional_replica_count: int,
@@ -12456,7 +12456,7 @@ class GetSharedImageVersionsImageTargetRegionResult(dict):
 
 
 @pulumi.output_type
-class GetSnapshotEncryptionSettingResult(dict):
+calass GetSnapshotEncryptionSettingResult(dict):
     def __init__(__self__, *,
                  disk_encryption_keys: Sequence['outputs.GetSnapshotEncryptionSettingDiskEncryptionKeyResult'],
                  enabled: bool,
@@ -12482,7 +12482,7 @@ class GetSnapshotEncryptionSettingResult(dict):
 
 
 @pulumi.output_type
-class GetSnapshotEncryptionSettingDiskEncryptionKeyResult(dict):
+calass GetSnapshotEncryptionSettingDiskEncryptionKeyResult(dict):
     def __init__(__self__, *,
                  secret_url: str,
                  source_vault_id: str):
@@ -12501,7 +12501,7 @@ class GetSnapshotEncryptionSettingDiskEncryptionKeyResult(dict):
 
 
 @pulumi.output_type
-class GetSnapshotEncryptionSettingKeyEncryptionKeyResult(dict):
+calass GetSnapshotEncryptionSettingKeyEncryptionKeyResult(dict):
     def __init__(__self__, *,
                  key_url: str,
                  source_vault_id: str):
@@ -12520,7 +12520,7 @@ class GetSnapshotEncryptionSettingKeyEncryptionKeyResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualMachineIdentityResult(dict):
+calass GetVirtualMachineIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -12571,7 +12571,7 @@ class GetVirtualMachineIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualMachineScaleSetIdentityResult(dict):
+calass GetVirtualMachineScaleSetIdentityResult(dict):
     def __init__(__self__, *,
                  identity_ids: Sequence[str],
                  principal_id: str,
@@ -12622,7 +12622,7 @@ class GetVirtualMachineScaleSetIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualMachineScaleSetInstanceResult(dict):
+calass GetVirtualMachineScaleSetInstanceResult(dict):
     def __init__(__self__, *,
                  computer_name: str,
                  instance_id: str,
@@ -12750,7 +12750,7 @@ class GetVirtualMachineScaleSetInstanceResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualMachineScaleSetNetworkInterfaceResult(dict):
+calass GetVirtualMachineScaleSetNetworkInterfaceResult(dict):
     def __init__(__self__, *,
                  dns_servers: Sequence[str],
                  enable_accelerated_networking: bool,
@@ -12763,7 +12763,7 @@ class GetVirtualMachineScaleSetNetworkInterfaceResult(dict):
         :param Sequence[str] dns_servers: An array of the DNS servers in use.
         :param bool enable_accelerated_networking: Whether to enable accelerated networking or not.
         :param bool enable_ip_forwarding: Whether IP forwarding is enabled on this NIC.
-        :param Sequence['GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs'] ip_configurations: An `ip_configuration` block as documented below.
+        :param Sequence['GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrgs'] ip_configurations: An `ip_configuration` block as documented below.
         :param str name: The name of this Virtual Machine Scale Set.
         :param str network_security_group_id: The identifier for the network security group.
         :param bool primary: If this ip_configuration is the primary one.
@@ -12834,7 +12834,7 @@ class GetVirtualMachineScaleSetNetworkInterfaceResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult(dict):
+calass GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult(dict):
     def __init__(__self__, *,
                  application_gateway_backend_address_pool_ids: Sequence[str],
                  application_security_group_ids: Sequence[str],
@@ -12852,7 +12852,7 @@ class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult(dict):
         :param Sequence[str] load_balancer_inbound_nat_rules_ids: An array of references to inbound NAT pools for load balancers.
         :param str name: The name of this Virtual Machine Scale Set.
         :param bool primary: If this ip_configuration is the primary one.
-        :param Sequence['GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs'] public_ip_addresses: The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address` is documented below.
+        :param Sequence['GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrgs'] public_ip_addresses: The virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address` is documented below.
         :param str subnet_id: The the identifier of the subnet.
         :param str version: The Internet Protocol Version of the public IP address.
         """
@@ -12940,7 +12940,7 @@ class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult(dict):
+calass GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressResult(dict):
     def __init__(__self__, *,
                  domain_name_label: str,
                  idle_timeout_in_minutes: int,
@@ -12951,7 +12951,7 @@ class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressRes
         """
         :param str domain_name_label: The domain name label for the DNS settings.
         :param int idle_timeout_in_minutes: The idle timeout in minutes.
-        :param Sequence['GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs'] ip_tags: A list of `ip_tag` blocks as defined below.
+        :param Sequence['GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrgs'] ip_tags: A list of `ip_tag` blocks as defined below.
         :param str name: The name of this Virtual Machine Scale Set.
         :param str public_ip_prefix_id: The ID of the public IP prefix.
         :param str version: The Internet Protocol Version of the public IP address.
@@ -13013,7 +13013,7 @@ class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressRes
 
 
 @pulumi.output_type
-class GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagResult(dict):
+calass GetVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagResult(dict):
     def __init__(__self__, *,
                  tag: str,
                  type: str):

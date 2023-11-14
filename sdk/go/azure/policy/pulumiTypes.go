@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -63,12 +62,6 @@ func (i PolicySetDefinitionPolicyDefinitionGroupArgs) ToPolicySetDefinitionPolic
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySetDefinitionPolicyDefinitionGroupOutput)
 }
 
-func (i PolicySetDefinitionPolicyDefinitionGroupArgs) ToOutput(ctx context.Context) pulumix.Output[PolicySetDefinitionPolicyDefinitionGroup] {
-	return pulumix.Output[PolicySetDefinitionPolicyDefinitionGroup]{
-		OutputState: i.ToPolicySetDefinitionPolicyDefinitionGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PolicySetDefinitionPolicyDefinitionGroupArrayInput is an input type that accepts PolicySetDefinitionPolicyDefinitionGroupArray and PolicySetDefinitionPolicyDefinitionGroupArrayOutput values.
 // You can construct a concrete instance of `PolicySetDefinitionPolicyDefinitionGroupArrayInput` via:
 //
@@ -94,12 +87,6 @@ func (i PolicySetDefinitionPolicyDefinitionGroupArray) ToPolicySetDefinitionPoli
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySetDefinitionPolicyDefinitionGroupArrayOutput)
 }
 
-func (i PolicySetDefinitionPolicyDefinitionGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicySetDefinitionPolicyDefinitionGroup] {
-	return pulumix.Output[[]PolicySetDefinitionPolicyDefinitionGroup]{
-		OutputState: i.ToPolicySetDefinitionPolicyDefinitionGroupArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicySetDefinitionPolicyDefinitionGroupOutput struct{ *pulumi.OutputState }
 
 func (PolicySetDefinitionPolicyDefinitionGroupOutput) ElementType() reflect.Type {
@@ -112,12 +99,6 @@ func (o PolicySetDefinitionPolicyDefinitionGroupOutput) ToPolicySetDefinitionPol
 
 func (o PolicySetDefinitionPolicyDefinitionGroupOutput) ToPolicySetDefinitionPolicyDefinitionGroupOutputWithContext(ctx context.Context) PolicySetDefinitionPolicyDefinitionGroupOutput {
 	return o
-}
-
-func (o PolicySetDefinitionPolicyDefinitionGroupOutput) ToOutput(ctx context.Context) pulumix.Output[PolicySetDefinitionPolicyDefinitionGroup] {
-	return pulumix.Output[PolicySetDefinitionPolicyDefinitionGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of a resource that contains additional metadata about this policy definition group.
@@ -157,12 +138,6 @@ func (o PolicySetDefinitionPolicyDefinitionGroupArrayOutput) ToPolicySetDefiniti
 
 func (o PolicySetDefinitionPolicyDefinitionGroupArrayOutput) ToPolicySetDefinitionPolicyDefinitionGroupArrayOutputWithContext(ctx context.Context) PolicySetDefinitionPolicyDefinitionGroupArrayOutput {
 	return o
-}
-
-func (o PolicySetDefinitionPolicyDefinitionGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicySetDefinitionPolicyDefinitionGroup] {
-	return pulumix.Output[[]PolicySetDefinitionPolicyDefinitionGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicySetDefinitionPolicyDefinitionGroupArrayOutput) Index(i pulumi.IntInput) PolicySetDefinitionPolicyDefinitionGroupOutput {
@@ -216,12 +191,6 @@ func (i PolicySetDefinitionPolicyDefinitionReferenceArgs) ToPolicySetDefinitionP
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySetDefinitionPolicyDefinitionReferenceOutput)
 }
 
-func (i PolicySetDefinitionPolicyDefinitionReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[PolicySetDefinitionPolicyDefinitionReference] {
-	return pulumix.Output[PolicySetDefinitionPolicyDefinitionReference]{
-		OutputState: i.ToPolicySetDefinitionPolicyDefinitionReferenceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PolicySetDefinitionPolicyDefinitionReferenceArrayInput is an input type that accepts PolicySetDefinitionPolicyDefinitionReferenceArray and PolicySetDefinitionPolicyDefinitionReferenceArrayOutput values.
 // You can construct a concrete instance of `PolicySetDefinitionPolicyDefinitionReferenceArrayInput` via:
 //
@@ -247,12 +216,6 @@ func (i PolicySetDefinitionPolicyDefinitionReferenceArray) ToPolicySetDefinition
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySetDefinitionPolicyDefinitionReferenceArrayOutput)
 }
 
-func (i PolicySetDefinitionPolicyDefinitionReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]PolicySetDefinitionPolicyDefinitionReference] {
-	return pulumix.Output[[]PolicySetDefinitionPolicyDefinitionReference]{
-		OutputState: i.ToPolicySetDefinitionPolicyDefinitionReferenceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PolicySetDefinitionPolicyDefinitionReferenceOutput struct{ *pulumi.OutputState }
 
 func (PolicySetDefinitionPolicyDefinitionReferenceOutput) ElementType() reflect.Type {
@@ -265,12 +228,6 @@ func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) ToPolicySetDefinitio
 
 func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) ToPolicySetDefinitionPolicyDefinitionReferenceOutputWithContext(ctx context.Context) PolicySetDefinitionPolicyDefinitionReferenceOutput {
 	return o
-}
-
-func (o PolicySetDefinitionPolicyDefinitionReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[PolicySetDefinitionPolicyDefinitionReference] {
-	return pulumix.Output[PolicySetDefinitionPolicyDefinitionReference]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Parameter values for the referenced policy rule. This field is a JSON string that allows you to assign parameters to this policy rule.
@@ -305,12 +262,6 @@ func (o PolicySetDefinitionPolicyDefinitionReferenceArrayOutput) ToPolicySetDefi
 
 func (o PolicySetDefinitionPolicyDefinitionReferenceArrayOutput) ToPolicySetDefinitionPolicyDefinitionReferenceArrayOutputWithContext(ctx context.Context) PolicySetDefinitionPolicyDefinitionReferenceArrayOutput {
 	return o
-}
-
-func (o PolicySetDefinitionPolicyDefinitionReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PolicySetDefinitionPolicyDefinitionReference] {
-	return pulumix.Output[[]PolicySetDefinitionPolicyDefinitionReference]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PolicySetDefinitionPolicyDefinitionReferenceArrayOutput) Index(i pulumi.IntInput) PolicySetDefinitionPolicyDefinitionReferenceOutput {
@@ -372,12 +323,6 @@ func (i VirtualMachineConfigurationAssignmentConfigurationArgs) ToVirtualMachine
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineConfigurationAssignmentConfigurationOutput)
 }
 
-func (i VirtualMachineConfigurationAssignmentConfigurationArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineConfigurationAssignmentConfiguration] {
-	return pulumix.Output[VirtualMachineConfigurationAssignmentConfiguration]{
-		OutputState: i.ToVirtualMachineConfigurationAssignmentConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VirtualMachineConfigurationAssignmentConfigurationArgs) ToVirtualMachineConfigurationAssignmentConfigurationPtrOutput() VirtualMachineConfigurationAssignmentConfigurationPtrOutput {
 	return i.ToVirtualMachineConfigurationAssignmentConfigurationPtrOutputWithContext(context.Background())
 }
@@ -419,12 +364,6 @@ func (i *virtualMachineConfigurationAssignmentConfigurationPtrType) ToVirtualMac
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineConfigurationAssignmentConfigurationPtrOutput)
 }
 
-func (i *virtualMachineConfigurationAssignmentConfigurationPtrType) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineConfigurationAssignmentConfiguration] {
-	return pulumix.Output[*VirtualMachineConfigurationAssignmentConfiguration]{
-		OutputState: i.ToVirtualMachineConfigurationAssignmentConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualMachineConfigurationAssignmentConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineConfigurationAssignmentConfigurationOutput) ElementType() reflect.Type {
@@ -447,12 +386,6 @@ func (o VirtualMachineConfigurationAssignmentConfigurationOutput) ToVirtualMachi
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualMachineConfigurationAssignmentConfiguration) *VirtualMachineConfigurationAssignmentConfiguration {
 		return &v
 	}).(VirtualMachineConfigurationAssignmentConfigurationPtrOutput)
-}
-
-func (o VirtualMachineConfigurationAssignmentConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineConfigurationAssignmentConfiguration] {
-	return pulumix.Output[VirtualMachineConfigurationAssignmentConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The assignment type for the Guest Configuration Assignment. Possible values are `Audit`, `ApplyAndAutoCorrect`, `ApplyAndMonitor` and `DeployAndAutoCorrect`.
@@ -496,12 +429,6 @@ func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) ToVirtualMa
 
 func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) ToVirtualMachineConfigurationAssignmentConfigurationPtrOutputWithContext(ctx context.Context) VirtualMachineConfigurationAssignmentConfigurationPtrOutput {
 	return o
-}
-
-func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineConfigurationAssignmentConfiguration] {
-	return pulumix.Output[*VirtualMachineConfigurationAssignmentConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualMachineConfigurationAssignmentConfigurationPtrOutput) Elem() VirtualMachineConfigurationAssignmentConfigurationOutput {
@@ -603,12 +530,6 @@ func (i VirtualMachineConfigurationAssignmentConfigurationParameterArgs) ToVirtu
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineConfigurationAssignmentConfigurationParameterOutput)
 }
 
-func (i VirtualMachineConfigurationAssignmentConfigurationParameterArgs) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineConfigurationAssignmentConfigurationParameter] {
-	return pulumix.Output[VirtualMachineConfigurationAssignmentConfigurationParameter]{
-		OutputState: i.ToVirtualMachineConfigurationAssignmentConfigurationParameterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualMachineConfigurationAssignmentConfigurationParameterArrayInput is an input type that accepts VirtualMachineConfigurationAssignmentConfigurationParameterArray and VirtualMachineConfigurationAssignmentConfigurationParameterArrayOutput values.
 // You can construct a concrete instance of `VirtualMachineConfigurationAssignmentConfigurationParameterArrayInput` via:
 //
@@ -634,12 +555,6 @@ func (i VirtualMachineConfigurationAssignmentConfigurationParameterArray) ToVirt
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineConfigurationAssignmentConfigurationParameterArrayOutput)
 }
 
-func (i VirtualMachineConfigurationAssignmentConfigurationParameterArray) ToOutput(ctx context.Context) pulumix.Output[[]VirtualMachineConfigurationAssignmentConfigurationParameter] {
-	return pulumix.Output[[]VirtualMachineConfigurationAssignmentConfigurationParameter]{
-		OutputState: i.ToVirtualMachineConfigurationAssignmentConfigurationParameterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualMachineConfigurationAssignmentConfigurationParameterOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineConfigurationAssignmentConfigurationParameterOutput) ElementType() reflect.Type {
@@ -652,12 +567,6 @@ func (o VirtualMachineConfigurationAssignmentConfigurationParameterOutput) ToVir
 
 func (o VirtualMachineConfigurationAssignmentConfigurationParameterOutput) ToVirtualMachineConfigurationAssignmentConfigurationParameterOutputWithContext(ctx context.Context) VirtualMachineConfigurationAssignmentConfigurationParameterOutput {
 	return o
-}
-
-func (o VirtualMachineConfigurationAssignmentConfigurationParameterOutput) ToOutput(ctx context.Context) pulumix.Output[VirtualMachineConfigurationAssignmentConfigurationParameter] {
-	return pulumix.Output[VirtualMachineConfigurationAssignmentConfigurationParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the configuration parameter to check.
@@ -682,12 +591,6 @@ func (o VirtualMachineConfigurationAssignmentConfigurationParameterArrayOutput) 
 
 func (o VirtualMachineConfigurationAssignmentConfigurationParameterArrayOutput) ToVirtualMachineConfigurationAssignmentConfigurationParameterArrayOutputWithContext(ctx context.Context) VirtualMachineConfigurationAssignmentConfigurationParameterArrayOutput {
 	return o
-}
-
-func (o VirtualMachineConfigurationAssignmentConfigurationParameterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VirtualMachineConfigurationAssignmentConfigurationParameter] {
-	return pulumix.Output[[]VirtualMachineConfigurationAssignmentConfigurationParameter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualMachineConfigurationAssignmentConfigurationParameterArrayOutput) Index(i pulumi.IntInput) VirtualMachineConfigurationAssignmentConfigurationParameterOutput {
@@ -741,12 +644,6 @@ func (i GetPolicyAssignmentIdentityArgs) ToGetPolicyAssignmentIdentityOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyAssignmentIdentityOutput)
 }
 
-func (i GetPolicyAssignmentIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[GetPolicyAssignmentIdentity] {
-	return pulumix.Output[GetPolicyAssignmentIdentity]{
-		OutputState: i.ToGetPolicyAssignmentIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPolicyAssignmentIdentityArrayInput is an input type that accepts GetPolicyAssignmentIdentityArray and GetPolicyAssignmentIdentityArrayOutput values.
 // You can construct a concrete instance of `GetPolicyAssignmentIdentityArrayInput` via:
 //
@@ -772,12 +669,6 @@ func (i GetPolicyAssignmentIdentityArray) ToGetPolicyAssignmentIdentityArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyAssignmentIdentityArrayOutput)
 }
 
-func (i GetPolicyAssignmentIdentityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyAssignmentIdentity] {
-	return pulumix.Output[[]GetPolicyAssignmentIdentity]{
-		OutputState: i.ToGetPolicyAssignmentIdentityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPolicyAssignmentIdentityOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyAssignmentIdentityOutput) ElementType() reflect.Type {
@@ -790,12 +681,6 @@ func (o GetPolicyAssignmentIdentityOutput) ToGetPolicyAssignmentIdentityOutput()
 
 func (o GetPolicyAssignmentIdentityOutput) ToGetPolicyAssignmentIdentityOutputWithContext(ctx context.Context) GetPolicyAssignmentIdentityOutput {
 	return o
-}
-
-func (o GetPolicyAssignmentIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[GetPolicyAssignmentIdentity] {
-	return pulumix.Output[GetPolicyAssignmentIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `identityIds` block as defined below.
@@ -830,12 +715,6 @@ func (o GetPolicyAssignmentIdentityArrayOutput) ToGetPolicyAssignmentIdentityArr
 
 func (o GetPolicyAssignmentIdentityArrayOutput) ToGetPolicyAssignmentIdentityArrayOutputWithContext(ctx context.Context) GetPolicyAssignmentIdentityArrayOutput {
 	return o
-}
-
-func (o GetPolicyAssignmentIdentityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyAssignmentIdentity] {
-	return pulumix.Output[[]GetPolicyAssignmentIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPolicyAssignmentIdentityArrayOutput) Index(i pulumi.IntInput) GetPolicyAssignmentIdentityOutput {
@@ -881,12 +760,6 @@ func (i GetPolicyAssignmentNonComplianceMessageArgs) ToGetPolicyAssignmentNonCom
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyAssignmentNonComplianceMessageOutput)
 }
 
-func (i GetPolicyAssignmentNonComplianceMessageArgs) ToOutput(ctx context.Context) pulumix.Output[GetPolicyAssignmentNonComplianceMessage] {
-	return pulumix.Output[GetPolicyAssignmentNonComplianceMessage]{
-		OutputState: i.ToGetPolicyAssignmentNonComplianceMessageOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPolicyAssignmentNonComplianceMessageArrayInput is an input type that accepts GetPolicyAssignmentNonComplianceMessageArray and GetPolicyAssignmentNonComplianceMessageArrayOutput values.
 // You can construct a concrete instance of `GetPolicyAssignmentNonComplianceMessageArrayInput` via:
 //
@@ -912,12 +785,6 @@ func (i GetPolicyAssignmentNonComplianceMessageArray) ToGetPolicyAssignmentNonCo
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicyAssignmentNonComplianceMessageArrayOutput)
 }
 
-func (i GetPolicyAssignmentNonComplianceMessageArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyAssignmentNonComplianceMessage] {
-	return pulumix.Output[[]GetPolicyAssignmentNonComplianceMessage]{
-		OutputState: i.ToGetPolicyAssignmentNonComplianceMessageArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPolicyAssignmentNonComplianceMessageOutput struct{ *pulumi.OutputState }
 
 func (GetPolicyAssignmentNonComplianceMessageOutput) ElementType() reflect.Type {
@@ -930,12 +797,6 @@ func (o GetPolicyAssignmentNonComplianceMessageOutput) ToGetPolicyAssignmentNonC
 
 func (o GetPolicyAssignmentNonComplianceMessageOutput) ToGetPolicyAssignmentNonComplianceMessageOutputWithContext(ctx context.Context) GetPolicyAssignmentNonComplianceMessageOutput {
 	return o
-}
-
-func (o GetPolicyAssignmentNonComplianceMessageOutput) ToOutput(ctx context.Context) pulumix.Output[GetPolicyAssignmentNonComplianceMessage] {
-	return pulumix.Output[GetPolicyAssignmentNonComplianceMessage]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The non-compliance message text.
@@ -960,12 +821,6 @@ func (o GetPolicyAssignmentNonComplianceMessageArrayOutput) ToGetPolicyAssignmen
 
 func (o GetPolicyAssignmentNonComplianceMessageArrayOutput) ToGetPolicyAssignmentNonComplianceMessageArrayOutputWithContext(ctx context.Context) GetPolicyAssignmentNonComplianceMessageArrayOutput {
 	return o
-}
-
-func (o GetPolicyAssignmentNonComplianceMessageArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicyAssignmentNonComplianceMessage] {
-	return pulumix.Output[[]GetPolicyAssignmentNonComplianceMessage]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPolicyAssignmentNonComplianceMessageArrayOutput) Index(i pulumi.IntInput) GetPolicyAssignmentNonComplianceMessageOutput {
@@ -1027,12 +882,6 @@ func (i GetPolicySetDefinitionPolicyDefinitionGroupArgs) ToGetPolicySetDefinitio
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicySetDefinitionPolicyDefinitionGroupOutput)
 }
 
-func (i GetPolicySetDefinitionPolicyDefinitionGroupArgs) ToOutput(ctx context.Context) pulumix.Output[GetPolicySetDefinitionPolicyDefinitionGroup] {
-	return pulumix.Output[GetPolicySetDefinitionPolicyDefinitionGroup]{
-		OutputState: i.ToGetPolicySetDefinitionPolicyDefinitionGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPolicySetDefinitionPolicyDefinitionGroupArrayInput is an input type that accepts GetPolicySetDefinitionPolicyDefinitionGroupArray and GetPolicySetDefinitionPolicyDefinitionGroupArrayOutput values.
 // You can construct a concrete instance of `GetPolicySetDefinitionPolicyDefinitionGroupArrayInput` via:
 //
@@ -1058,12 +907,6 @@ func (i GetPolicySetDefinitionPolicyDefinitionGroupArray) ToGetPolicySetDefiniti
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicySetDefinitionPolicyDefinitionGroupArrayOutput)
 }
 
-func (i GetPolicySetDefinitionPolicyDefinitionGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicySetDefinitionPolicyDefinitionGroup] {
-	return pulumix.Output[[]GetPolicySetDefinitionPolicyDefinitionGroup]{
-		OutputState: i.ToGetPolicySetDefinitionPolicyDefinitionGroupArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPolicySetDefinitionPolicyDefinitionGroupOutput struct{ *pulumi.OutputState }
 
 func (GetPolicySetDefinitionPolicyDefinitionGroupOutput) ElementType() reflect.Type {
@@ -1076,12 +919,6 @@ func (o GetPolicySetDefinitionPolicyDefinitionGroupOutput) ToGetPolicySetDefinit
 
 func (o GetPolicySetDefinitionPolicyDefinitionGroupOutput) ToGetPolicySetDefinitionPolicyDefinitionGroupOutputWithContext(ctx context.Context) GetPolicySetDefinitionPolicyDefinitionGroupOutput {
 	return o
-}
-
-func (o GetPolicySetDefinitionPolicyDefinitionGroupOutput) ToOutput(ctx context.Context) pulumix.Output[GetPolicySetDefinitionPolicyDefinitionGroup] {
-	return pulumix.Output[GetPolicySetDefinitionPolicyDefinitionGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of a resource that contains additional metadata about this policy definition group.
@@ -1123,12 +960,6 @@ func (o GetPolicySetDefinitionPolicyDefinitionGroupArrayOutput) ToGetPolicySetDe
 
 func (o GetPolicySetDefinitionPolicyDefinitionGroupArrayOutput) ToGetPolicySetDefinitionPolicyDefinitionGroupArrayOutputWithContext(ctx context.Context) GetPolicySetDefinitionPolicyDefinitionGroupArrayOutput {
 	return o
-}
-
-func (o GetPolicySetDefinitionPolicyDefinitionGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicySetDefinitionPolicyDefinitionGroup] {
-	return pulumix.Output[[]GetPolicySetDefinitionPolicyDefinitionGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPolicySetDefinitionPolicyDefinitionGroupArrayOutput) Index(i pulumi.IntInput) GetPolicySetDefinitionPolicyDefinitionGroupOutput {
@@ -1186,12 +1017,6 @@ func (i GetPolicySetDefinitionPolicyDefinitionReferenceArgs) ToGetPolicySetDefin
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicySetDefinitionPolicyDefinitionReferenceOutput)
 }
 
-func (i GetPolicySetDefinitionPolicyDefinitionReferenceArgs) ToOutput(ctx context.Context) pulumix.Output[GetPolicySetDefinitionPolicyDefinitionReference] {
-	return pulumix.Output[GetPolicySetDefinitionPolicyDefinitionReference]{
-		OutputState: i.ToGetPolicySetDefinitionPolicyDefinitionReferenceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPolicySetDefinitionPolicyDefinitionReferenceArrayInput is an input type that accepts GetPolicySetDefinitionPolicyDefinitionReferenceArray and GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput values.
 // You can construct a concrete instance of `GetPolicySetDefinitionPolicyDefinitionReferenceArrayInput` via:
 //
@@ -1217,12 +1042,6 @@ func (i GetPolicySetDefinitionPolicyDefinitionReferenceArray) ToGetPolicySetDefi
 	return pulumi.ToOutputWithContext(ctx, i).(GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput)
 }
 
-func (i GetPolicySetDefinitionPolicyDefinitionReferenceArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicySetDefinitionPolicyDefinitionReference] {
-	return pulumix.Output[[]GetPolicySetDefinitionPolicyDefinitionReference]{
-		OutputState: i.ToGetPolicySetDefinitionPolicyDefinitionReferenceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPolicySetDefinitionPolicyDefinitionReferenceOutput struct{ *pulumi.OutputState }
 
 func (GetPolicySetDefinitionPolicyDefinitionReferenceOutput) ElementType() reflect.Type {
@@ -1235,12 +1054,6 @@ func (o GetPolicySetDefinitionPolicyDefinitionReferenceOutput) ToGetPolicySetDef
 
 func (o GetPolicySetDefinitionPolicyDefinitionReferenceOutput) ToGetPolicySetDefinitionPolicyDefinitionReferenceOutputWithContext(ctx context.Context) GetPolicySetDefinitionPolicyDefinitionReferenceOutput {
 	return o
-}
-
-func (o GetPolicySetDefinitionPolicyDefinitionReferenceOutput) ToOutput(ctx context.Context) pulumix.Output[GetPolicySetDefinitionPolicyDefinitionReference] {
-	return pulumix.Output[GetPolicySetDefinitionPolicyDefinitionReference]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The parameter values for the referenced policy rule. This field is a JSON object.
@@ -1280,12 +1093,6 @@ func (o GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput) ToGetPolicyS
 
 func (o GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput) ToGetPolicySetDefinitionPolicyDefinitionReferenceArrayOutputWithContext(ctx context.Context) GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput {
 	return o
-}
-
-func (o GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPolicySetDefinitionPolicyDefinitionReference] {
-	return pulumix.Output[[]GetPolicySetDefinitionPolicyDefinitionReference]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPolicySetDefinitionPolicyDefinitionReferenceArrayOutput) Index(i pulumi.IntInput) GetPolicySetDefinitionPolicyDefinitionReferenceOutput {

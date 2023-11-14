@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['MoverJobDefinitionArgs', 'MoverJobDefinition']
+__all__ = ['MoverJobDefinitionArrgs', 'MoverJobDefinition']
 
 @pulumi.input_type
-class MoverJobDefinitionArgs:
+calass MoverJobDefinitionArrgs:
     def __init__(__self__, *,
                  copy_mode: pulumi.Input[str],
                  source_name: pulumi.Input[str],
@@ -160,7 +160,7 @@ class MoverJobDefinitionArgs:
 
 
 @pulumi.input_type
-class _MoverJobDefinitionState:
+calass _MoverJobDefinitionState:
     def __init__(__self__, *,
                  agent_name: Optional[pulumi.Input[str]] = None,
                  copy_mode: Optional[pulumi.Input[str]] = None,
@@ -311,7 +311,7 @@ class _MoverJobDefinitionState:
         pulumi.set(self, "target_sub_path", value)
 
 
-class MoverJobDefinition(pulumi.CustomResource):
+calass MoverJobDefinition(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -395,7 +395,7 @@ class MoverJobDefinition(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MoverJobDefinitionArgs,
+                 args: MoverJobDefinitionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Storage Mover Job Definition.
@@ -451,12 +451,12 @@ class MoverJobDefinition(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MoverJobDefinitionArgs args: The arguments to use to populate this resource's properties.
+        :param MoverJobDefinitionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MoverJobDefinitionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MoverJobDefinitionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -481,7 +481,7 @@ class MoverJobDefinition(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MoverJobDefinitionArgs.__new__(MoverJobDefinitionArgs)
+            __props__ = MoverJobDefinitionArrgs.__new__(MoverJobDefinitionArrgs)
 
             __props__.__dict__["agent_name"] = agent_name
             if copy_mode is None and not opts.urn:

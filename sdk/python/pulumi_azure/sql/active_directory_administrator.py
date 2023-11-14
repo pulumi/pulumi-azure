@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ActiveDirectoryAdministratorArgs', 'ActiveDirectoryAdministrator']
+__all__ = ['ActiveDirectoryAdministratorArrgs', 'ActiveDirectoryAdministrator']
 
 @pulumi.input_type
-class ActiveDirectoryAdministratorArgs:
+calass ActiveDirectoryAdministratorArrgs:
     def __init__(__self__, *,
                  login: pulumi.Input[str],
                  object_id: pulumi.Input[str],
@@ -111,7 +111,7 @@ class ActiveDirectoryAdministratorArgs:
 
 
 @pulumi.input_type
-class _ActiveDirectoryAdministratorState:
+calass _ActiveDirectoryAdministratorState:
     def __init__(__self__, *,
                  azuread_authentication_only: Optional[pulumi.Input[bool]] = None,
                  login: Optional[pulumi.Input[str]] = None,
@@ -214,7 +214,7 @@ class _ActiveDirectoryAdministratorState:
         pulumi.set(self, "tenant_id", value)
 
 
-class ActiveDirectoryAdministrator(pulumi.CustomResource):
+calass ActiveDirectoryAdministrator(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -274,7 +274,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ActiveDirectoryAdministratorArgs,
+                 args: ActiveDirectoryAdministratorArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allows you to set a user or group as the AD administrator for an Azure SQL server.
@@ -312,12 +312,12 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ActiveDirectoryAdministratorArgs args: The arguments to use to populate this resource's properties.
+        :param ActiveDirectoryAdministratorArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ActiveDirectoryAdministratorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ActiveDirectoryAdministratorArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -339,7 +339,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ActiveDirectoryAdministratorArgs.__new__(ActiveDirectoryAdministratorArgs)
+            __props__ = ActiveDirectoryAdministratorArrgs.__new__(ActiveDirectoryAdministratorArrgs)
 
             __props__.__dict__["azuread_authentication_only"] = azuread_authentication_only
             if login is None and not opts.urn:

@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['BackendAddressPoolArgs', 'BackendAddressPool']
+__all__ = ['BackendAddressPoolArrgs', 'BackendAddressPool']
 
 @pulumi.input_type
-class BackendAddressPoolArgs:
+calass BackendAddressPoolArrgs:
     def __init__(__self__, *,
                  loadbalancer_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
-                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]] = None,
+                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArrgs']]]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BackendAddressPool resource.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]] tunnel_interfaces: One or more `tunnel_interface` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArrgs']]] tunnel_interfaces: One or more `tunnel_interface` blocks as defined below.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network within which the Backend Address Pool should exist.
         """
         pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
@@ -61,14 +61,14 @@ class BackendAddressPoolArgs:
 
     @property
     @pulumi.getter(name="tunnelInterfaces")
-    def tunnel_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]]:
+    def tunnel_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArrgs']]]]:
         """
         One or more `tunnel_interface` blocks as defined below.
         """
         return pulumi.get(self, "tunnel_interfaces")
 
     @tunnel_interfaces.setter
-    def tunnel_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]]):
+    def tunnel_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArrgs']]]]):
         pulumi.set(self, "tunnel_interfaces", value)
 
     @property
@@ -85,7 +85,7 @@ class BackendAddressPoolArgs:
 
 
 @pulumi.input_type
-class _BackendAddressPoolState:
+calass _BackendAddressPoolState:
     def __init__(__self__, *,
                  backend_ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -93,7 +93,7 @@ class _BackendAddressPoolState:
                  loadbalancer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  outbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]] = None,
+                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArrgs']]]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BackendAddressPool resources.
@@ -103,7 +103,7 @@ class _BackendAddressPoolState:
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_rules: An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
-        :param pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]] tunnel_interfaces: One or more `tunnel_interface` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArrgs']]] tunnel_interfaces: One or more `tunnel_interface` blocks as defined below.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network within which the Backend Address Pool should exist.
         """
         if backend_ip_configurations is not None:
@@ -197,14 +197,14 @@ class _BackendAddressPoolState:
 
     @property
     @pulumi.getter(name="tunnelInterfaces")
-    def tunnel_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]]:
+    def tunnel_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArrgs']]]]:
         """
         One or more `tunnel_interface` blocks as defined below.
         """
         return pulumi.get(self, "tunnel_interfaces")
 
     @tunnel_interfaces.setter
-    def tunnel_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArgs']]]]):
+    def tunnel_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolTunnelInterfaceArrgs']]]]):
         pulumi.set(self, "tunnel_interfaces", value)
 
     @property
@@ -220,14 +220,14 @@ class _BackendAddressPoolState:
         pulumi.set(self, "virtual_network_id", value)
 
 
-class BackendAddressPool(pulumi.CustomResource):
+calass BackendAddressPool(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  loadbalancer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolTunnelInterfaceArgs']]]]] = None,
+                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolTunnelInterfaceArrgs']]]]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -249,7 +249,7 @@ class BackendAddressPool(pulumi.CustomResource):
         example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArrgs(
                 name="PublicIPAddress",
                 public_ip_address_id=example_public_ip.id,
             )])
@@ -268,14 +268,14 @@ class BackendAddressPool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolTunnelInterfaceArgs']]]] tunnel_interfaces: One or more `tunnel_interface` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolTunnelInterfaceArrgs']]]] tunnel_interfaces: One or more `tunnel_interface` blocks as defined below.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network within which the Backend Address Pool should exist.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BackendAddressPoolArgs,
+                 args: BackendAddressPoolArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Load Balancer Backend Address Pool.
@@ -296,7 +296,7 @@ class BackendAddressPool(pulumi.CustomResource):
         example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
+            frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArrgs(
                 name="PublicIPAddress",
                 public_ip_address_id=example_public_ip.id,
             )])
@@ -312,12 +312,12 @@ class BackendAddressPool(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param BackendAddressPoolArgs args: The arguments to use to populate this resource's properties.
+        :param BackendAddressPoolArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BackendAddressPoolArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BackendAddressPoolArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -328,7 +328,7 @@ class BackendAddressPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  loadbalancer_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolTunnelInterfaceArgs']]]]] = None,
+                 tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolTunnelInterfaceArrgs']]]]] = None,
                  virtual_network_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -337,7 +337,7 @@ class BackendAddressPool(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BackendAddressPoolArgs.__new__(BackendAddressPoolArgs)
+            __props__ = BackendAddressPoolArrgs.__new__(BackendAddressPoolArrgs)
 
             if loadbalancer_id is None and not opts.urn:
                 raise TypeError("Missing required property 'loadbalancer_id'")
@@ -365,7 +365,7 @@ class BackendAddressPool(pulumi.CustomResource):
             loadbalancer_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             outbound_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolTunnelInterfaceArgs']]]]] = None,
+            tunnel_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolTunnelInterfaceArrgs']]]]] = None,
             virtual_network_id: Optional[pulumi.Input[str]] = None) -> 'BackendAddressPool':
         """
         Get an existing BackendAddressPool resource's state with the given name, id, and optional extra
@@ -380,7 +380,7 @@ class BackendAddressPool(pulumi.CustomResource):
         :param pulumi.Input[str] loadbalancer_id: The ID of the Load Balancer in which to create the Backend Address Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Backend Address Pool. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_rules: An array of the Load Balancing Outbound Rules associated with this Backend Address Pool.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolTunnelInterfaceArgs']]]] tunnel_interfaces: One or more `tunnel_interface` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BackendAddressPoolTunnelInterfaceArrgs']]]] tunnel_interfaces: One or more `tunnel_interface` blocks as defined below.
         :param pulumi.Input[str] virtual_network_id: The ID of the Virtual Network within which the Backend Address Pool should exist.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

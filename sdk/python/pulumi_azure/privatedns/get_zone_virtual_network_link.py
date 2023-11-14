@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetZoneVirtualNetworkLinkResult:
+calass GetZoneVirtualNetworkLinkResult:
     """
     A collection of values returned by getZoneVirtualNetworkLink.
     """
@@ -92,7 +92,7 @@ class GetZoneVirtualNetworkLinkResult:
         return pulumi.get(self, "virtual_network_id")
 
 
-class AwaitableGetZoneVirtualNetworkLinkResult(GetZoneVirtualNetworkLinkResult):
+calass AwaitableGetZoneVirtualNetworkLinkResult(GetZoneVirtualNetworkLinkResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

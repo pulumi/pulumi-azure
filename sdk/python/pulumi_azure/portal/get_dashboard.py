@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDashboardResult:
+calass GetDashboardResult:
     """
     A collection of values returned by getDashboard.
     """
@@ -92,7 +92,7 @@ class GetDashboardResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetDashboardResult(GetDashboardResult):
+calass AwaitableGetDashboardResult(GetDashboardResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

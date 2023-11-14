@@ -11,42 +11,42 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SpringCloudServiceArgs', 'SpringCloudService']
+__all__ = ['SpringCloudServiceArrgs', 'SpringCloudService']
 
 @pulumi.input_type
-class SpringCloudServiceArgs:
+calass SpringCloudServiceArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  build_agent_pool_size: Optional[pulumi.Input[str]] = None,
-                 config_server_git_setting: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingArgs']] = None,
-                 container_registries: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceContainerRegistryArgs']]]] = None,
-                 default_build_service: Optional[pulumi.Input['SpringCloudServiceDefaultBuildServiceArgs']] = None,
+                 config_server_git_setting: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingArrgs']] = None,
+                 container_registries: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceContainerRegistryArrgs']]]] = None,
+                 default_build_service: Optional[pulumi.Input['SpringCloudServiceDefaultBuildServiceArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_stream_public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
-                 marketplace: Optional[pulumi.Input['SpringCloudServiceMarketplaceArgs']] = None,
+                 marketplace: Optional[pulumi.Input['SpringCloudServiceMarketplaceArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network: Optional[pulumi.Input['SpringCloudServiceNetworkArgs']] = None,
+                 network: Optional[pulumi.Input['SpringCloudServiceNetworkArrgs']] = None,
                  service_registry_enabled: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 trace: Optional[pulumi.Input['SpringCloudServiceTraceArgs']] = None,
+                 trace: Optional[pulumi.Input['SpringCloudServiceTraceArrgs']] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a SpringCloudService resource.
         :param pulumi.Input[str] resource_group_name: Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] build_agent_pool_size: Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
-        :param pulumi.Input['SpringCloudServiceConfigServerGitSettingArgs'] config_server_git_setting: A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
-        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceContainerRegistryArgs']]] container_registries: One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
-        :param pulumi.Input['SpringCloudServiceDefaultBuildServiceArgs'] default_build_service: A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+        :param pulumi.Input['SpringCloudServiceConfigServerGitSettingArrgs'] config_server_git_setting: A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
+        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceContainerRegistryArrgs']]] container_registries: One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+        :param pulumi.Input['SpringCloudServiceDefaultBuildServiceArrgs'] default_build_service: A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] log_stream_public_endpoint_enabled: Should the log stream in vnet injection instance could be accessed from Internet?
-        :param pulumi.Input['SpringCloudServiceMarketplaceArgs'] marketplace: A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+        :param pulumi.Input['SpringCloudServiceMarketplaceArrgs'] marketplace: A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
-        :param pulumi.Input['SpringCloudServiceNetworkArgs'] network: A `network` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['SpringCloudServiceNetworkArrgs'] network: A `network` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] service_registry_enabled: Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input['SpringCloudServiceTraceArgs'] trace: A `trace` block as defined below.
+        :param pulumi.Input['SpringCloudServiceTraceArrgs'] trace: A `trace` block as defined below.
         :param pulumi.Input[bool] zone_redundant: Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -105,38 +105,38 @@ class SpringCloudServiceArgs:
 
     @property
     @pulumi.getter(name="configServerGitSetting")
-    def config_server_git_setting(self) -> Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingArgs']]:
+    def config_server_git_setting(self) -> Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingArrgs']]:
         """
         A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
         """
         return pulumi.get(self, "config_server_git_setting")
 
     @config_server_git_setting.setter
-    def config_server_git_setting(self, value: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingArgs']]):
+    def config_server_git_setting(self, value: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingArrgs']]):
         pulumi.set(self, "config_server_git_setting", value)
 
     @property
     @pulumi.getter(name="containerRegistries")
-    def container_registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceContainerRegistryArgs']]]]:
+    def container_registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceContainerRegistryArrgs']]]]:
         """
         One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
         """
         return pulumi.get(self, "container_registries")
 
     @container_registries.setter
-    def container_registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceContainerRegistryArgs']]]]):
+    def container_registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceContainerRegistryArrgs']]]]):
         pulumi.set(self, "container_registries", value)
 
     @property
     @pulumi.getter(name="defaultBuildService")
-    def default_build_service(self) -> Optional[pulumi.Input['SpringCloudServiceDefaultBuildServiceArgs']]:
+    def default_build_service(self) -> Optional[pulumi.Input['SpringCloudServiceDefaultBuildServiceArrgs']]:
         """
         A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
         """
         return pulumi.get(self, "default_build_service")
 
     @default_build_service.setter
-    def default_build_service(self, value: Optional[pulumi.Input['SpringCloudServiceDefaultBuildServiceArgs']]):
+    def default_build_service(self, value: Optional[pulumi.Input['SpringCloudServiceDefaultBuildServiceArrgs']]):
         pulumi.set(self, "default_build_service", value)
 
     @property
@@ -165,14 +165,14 @@ class SpringCloudServiceArgs:
 
     @property
     @pulumi.getter
-    def marketplace(self) -> Optional[pulumi.Input['SpringCloudServiceMarketplaceArgs']]:
+    def marketplace(self) -> Optional[pulumi.Input['SpringCloudServiceMarketplaceArrgs']]:
         """
         A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
         """
         return pulumi.get(self, "marketplace")
 
     @marketplace.setter
-    def marketplace(self, value: Optional[pulumi.Input['SpringCloudServiceMarketplaceArgs']]):
+    def marketplace(self, value: Optional[pulumi.Input['SpringCloudServiceMarketplaceArrgs']]):
         pulumi.set(self, "marketplace", value)
 
     @property
@@ -189,14 +189,14 @@ class SpringCloudServiceArgs:
 
     @property
     @pulumi.getter
-    def network(self) -> Optional[pulumi.Input['SpringCloudServiceNetworkArgs']]:
+    def network(self) -> Optional[pulumi.Input['SpringCloudServiceNetworkArrgs']]:
         """
         A `network` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network")
 
     @network.setter
-    def network(self, value: Optional[pulumi.Input['SpringCloudServiceNetworkArgs']]):
+    def network(self, value: Optional[pulumi.Input['SpringCloudServiceNetworkArrgs']]):
         pulumi.set(self, "network", value)
 
     @property
@@ -237,14 +237,14 @@ class SpringCloudServiceArgs:
 
     @property
     @pulumi.getter
-    def trace(self) -> Optional[pulumi.Input['SpringCloudServiceTraceArgs']]:
+    def trace(self) -> Optional[pulumi.Input['SpringCloudServiceTraceArrgs']]:
         """
         A `trace` block as defined below.
         """
         return pulumi.get(self, "trace")
 
     @trace.setter
-    def trace(self, value: Optional[pulumi.Input['SpringCloudServiceTraceArgs']]):
+    def trace(self, value: Optional[pulumi.Input['SpringCloudServiceTraceArrgs']]):
         pulumi.set(self, "trace", value)
 
     @property
@@ -261,45 +261,45 @@ class SpringCloudServiceArgs:
 
 
 @pulumi.input_type
-class _SpringCloudServiceState:
+calass _SpringCloudServiceState:
     def __init__(__self__, *,
                  build_agent_pool_size: Optional[pulumi.Input[str]] = None,
-                 config_server_git_setting: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingArgs']] = None,
-                 container_registries: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceContainerRegistryArgs']]]] = None,
-                 default_build_service: Optional[pulumi.Input['SpringCloudServiceDefaultBuildServiceArgs']] = None,
+                 config_server_git_setting: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingArrgs']] = None,
+                 container_registries: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceContainerRegistryArrgs']]]] = None,
+                 default_build_service: Optional[pulumi.Input['SpringCloudServiceDefaultBuildServiceArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_stream_public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
-                 marketplace: Optional[pulumi.Input['SpringCloudServiceMarketplaceArgs']] = None,
+                 marketplace: Optional[pulumi.Input['SpringCloudServiceMarketplaceArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network: Optional[pulumi.Input['SpringCloudServiceNetworkArgs']] = None,
+                 network: Optional[pulumi.Input['SpringCloudServiceNetworkArrgs']] = None,
                  outbound_public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 required_network_traffic_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceRequiredNetworkTrafficRuleArgs']]]] = None,
+                 required_network_traffic_rules: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceRequiredNetworkTrafficRuleArrgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_registry_enabled: Optional[pulumi.Input[bool]] = None,
                  service_registry_id: Optional[pulumi.Input[str]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 trace: Optional[pulumi.Input['SpringCloudServiceTraceArgs']] = None,
+                 trace: Optional[pulumi.Input['SpringCloudServiceTraceArrgs']] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering SpringCloudService resources.
         :param pulumi.Input[str] build_agent_pool_size: Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
-        :param pulumi.Input['SpringCloudServiceConfigServerGitSettingArgs'] config_server_git_setting: A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
-        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceContainerRegistryArgs']]] container_registries: One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
-        :param pulumi.Input['SpringCloudServiceDefaultBuildServiceArgs'] default_build_service: A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+        :param pulumi.Input['SpringCloudServiceConfigServerGitSettingArrgs'] config_server_git_setting: A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
+        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceContainerRegistryArrgs']]] container_registries: One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+        :param pulumi.Input['SpringCloudServiceDefaultBuildServiceArrgs'] default_build_service: A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] log_stream_public_endpoint_enabled: Should the log stream in vnet injection instance could be accessed from Internet?
-        :param pulumi.Input['SpringCloudServiceMarketplaceArgs'] marketplace: A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+        :param pulumi.Input['SpringCloudServiceMarketplaceArrgs'] marketplace: A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
-        :param pulumi.Input['SpringCloudServiceNetworkArgs'] network: A `network` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['SpringCloudServiceNetworkArrgs'] network: A `network` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_public_ip_addresses: A list of the outbound Public IP Addresses used by this Spring Cloud Service.
-        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceRequiredNetworkTrafficRuleArgs']]] required_network_traffic_rules: A list of `required_network_traffic_rules` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceRequiredNetworkTrafficRuleArrgs']]] required_network_traffic_rules: A list of `required_network_traffic_rules` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] service_registry_enabled: Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input[str] service_registry_id: The ID of the Spring Cloud Service Registry.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input['SpringCloudServiceTraceArgs'] trace: A `trace` block as defined below.
+        :param pulumi.Input['SpringCloudServiceTraceArrgs'] trace: A `trace` block as defined below.
         :param pulumi.Input[bool] zone_redundant: Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
         """
         if build_agent_pool_size is not None:
@@ -353,38 +353,38 @@ class _SpringCloudServiceState:
 
     @property
     @pulumi.getter(name="configServerGitSetting")
-    def config_server_git_setting(self) -> Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingArgs']]:
+    def config_server_git_setting(self) -> Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingArrgs']]:
         """
         A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
         """
         return pulumi.get(self, "config_server_git_setting")
 
     @config_server_git_setting.setter
-    def config_server_git_setting(self, value: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingArgs']]):
+    def config_server_git_setting(self, value: Optional[pulumi.Input['SpringCloudServiceConfigServerGitSettingArrgs']]):
         pulumi.set(self, "config_server_git_setting", value)
 
     @property
     @pulumi.getter(name="containerRegistries")
-    def container_registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceContainerRegistryArgs']]]]:
+    def container_registries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceContainerRegistryArrgs']]]]:
         """
         One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
         """
         return pulumi.get(self, "container_registries")
 
     @container_registries.setter
-    def container_registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceContainerRegistryArgs']]]]):
+    def container_registries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceContainerRegistryArrgs']]]]):
         pulumi.set(self, "container_registries", value)
 
     @property
     @pulumi.getter(name="defaultBuildService")
-    def default_build_service(self) -> Optional[pulumi.Input['SpringCloudServiceDefaultBuildServiceArgs']]:
+    def default_build_service(self) -> Optional[pulumi.Input['SpringCloudServiceDefaultBuildServiceArrgs']]:
         """
         A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
         """
         return pulumi.get(self, "default_build_service")
 
     @default_build_service.setter
-    def default_build_service(self, value: Optional[pulumi.Input['SpringCloudServiceDefaultBuildServiceArgs']]):
+    def default_build_service(self, value: Optional[pulumi.Input['SpringCloudServiceDefaultBuildServiceArrgs']]):
         pulumi.set(self, "default_build_service", value)
 
     @property
@@ -413,14 +413,14 @@ class _SpringCloudServiceState:
 
     @property
     @pulumi.getter
-    def marketplace(self) -> Optional[pulumi.Input['SpringCloudServiceMarketplaceArgs']]:
+    def marketplace(self) -> Optional[pulumi.Input['SpringCloudServiceMarketplaceArrgs']]:
         """
         A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
         """
         return pulumi.get(self, "marketplace")
 
     @marketplace.setter
-    def marketplace(self, value: Optional[pulumi.Input['SpringCloudServiceMarketplaceArgs']]):
+    def marketplace(self, value: Optional[pulumi.Input['SpringCloudServiceMarketplaceArrgs']]):
         pulumi.set(self, "marketplace", value)
 
     @property
@@ -437,14 +437,14 @@ class _SpringCloudServiceState:
 
     @property
     @pulumi.getter
-    def network(self) -> Optional[pulumi.Input['SpringCloudServiceNetworkArgs']]:
+    def network(self) -> Optional[pulumi.Input['SpringCloudServiceNetworkArrgs']]:
         """
         A `network` block as defined below. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "network")
 
     @network.setter
-    def network(self, value: Optional[pulumi.Input['SpringCloudServiceNetworkArgs']]):
+    def network(self, value: Optional[pulumi.Input['SpringCloudServiceNetworkArrgs']]):
         pulumi.set(self, "network", value)
 
     @property
@@ -461,14 +461,14 @@ class _SpringCloudServiceState:
 
     @property
     @pulumi.getter(name="requiredNetworkTrafficRules")
-    def required_network_traffic_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceRequiredNetworkTrafficRuleArgs']]]]:
+    def required_network_traffic_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceRequiredNetworkTrafficRuleArrgs']]]]:
         """
         A list of `required_network_traffic_rules` blocks as defined below.
         """
         return pulumi.get(self, "required_network_traffic_rules")
 
     @required_network_traffic_rules.setter
-    def required_network_traffic_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceRequiredNetworkTrafficRuleArgs']]]]):
+    def required_network_traffic_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpringCloudServiceRequiredNetworkTrafficRuleArrgs']]]]):
         pulumi.set(self, "required_network_traffic_rules", value)
 
     @property
@@ -533,14 +533,14 @@ class _SpringCloudServiceState:
 
     @property
     @pulumi.getter
-    def trace(self) -> Optional[pulumi.Input['SpringCloudServiceTraceArgs']]:
+    def trace(self) -> Optional[pulumi.Input['SpringCloudServiceTraceArrgs']]:
         """
         A `trace` block as defined below.
         """
         return pulumi.get(self, "trace")
 
     @trace.setter
-    def trace(self, value: Optional[pulumi.Input['SpringCloudServiceTraceArgs']]):
+    def trace(self, value: Optional[pulumi.Input['SpringCloudServiceTraceArrgs']]):
         pulumi.set(self, "trace", value)
 
     @property
@@ -556,25 +556,25 @@ class _SpringCloudServiceState:
         pulumi.set(self, "zone_redundant", value)
 
 
-class SpringCloudService(pulumi.CustomResource):
+calass SpringCloudService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  build_agent_pool_size: Optional[pulumi.Input[str]] = None,
-                 config_server_git_setting: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArgs']]] = None,
-                 container_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudServiceContainerRegistryArgs']]]]] = None,
-                 default_build_service: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceDefaultBuildServiceArgs']]] = None,
+                 config_server_git_setting: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArrgs']]] = None,
+                 container_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudServiceContainerRegistryArrgs']]]]] = None,
+                 default_build_service: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceDefaultBuildServiceArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_stream_public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
-                 marketplace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceMarketplaceArgs']]] = None,
+                 marketplace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceMarketplaceArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']]] = None,
+                 network: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArrgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_registry_enabled: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 trace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArgs']]] = None,
+                 trace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArrgs']]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
@@ -595,7 +595,7 @@ class SpringCloudService(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             sku_name="S0",
-            config_server_git_setting=azure.appplatform.SpringCloudServiceConfigServerGitSettingArgs(
+            config_server_git_setting=azure.appplatform.SpringCloudServiceConfigServerGitSettingArrgs(
                 uri="https://github.com/Azure-Samples/piggymetrics",
                 label="config",
                 search_paths=[
@@ -603,7 +603,7 @@ class SpringCloudService(pulumi.CustomResource):
                     "dir2",
                 ],
             ),
-            trace=azure.appplatform.SpringCloudServiceTraceArgs(
+            trace=azure.appplatform.SpringCloudServiceTraceArrgs(
                 connection_string=example_insights.connection_string,
                 sample_rate=10,
             ),
@@ -623,26 +623,26 @@ class SpringCloudService(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] build_agent_pool_size: Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
-        :param pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArgs']] config_server_git_setting: A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudServiceContainerRegistryArgs']]]] container_registries: One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
-        :param pulumi.Input[pulumi.InputType['SpringCloudServiceDefaultBuildServiceArgs']] default_build_service: A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+        :param pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArrgs']] config_server_git_setting: A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudServiceContainerRegistryArrgs']]]] container_registries: One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+        :param pulumi.Input[pulumi.InputType['SpringCloudServiceDefaultBuildServiceArrgs']] default_build_service: A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] log_stream_public_endpoint_enabled: Should the log stream in vnet injection instance could be accessed from Internet?
-        :param pulumi.Input[pulumi.InputType['SpringCloudServiceMarketplaceArgs']] marketplace: A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+        :param pulumi.Input[pulumi.InputType['SpringCloudServiceMarketplaceArrgs']] marketplace: A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']] network: A `network` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArrgs']] network: A `network` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] service_registry_enabled: Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArgs']] trace: A `trace` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArrgs']] trace: A `trace` block as defined below.
         :param pulumi.Input[bool] zone_redundant: Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SpringCloudServiceArgs,
+                 args: SpringCloudServiceArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Spring Cloud Service.
@@ -662,7 +662,7 @@ class SpringCloudService(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             sku_name="S0",
-            config_server_git_setting=azure.appplatform.SpringCloudServiceConfigServerGitSettingArgs(
+            config_server_git_setting=azure.appplatform.SpringCloudServiceConfigServerGitSettingArrgs(
                 uri="https://github.com/Azure-Samples/piggymetrics",
                 label="config",
                 search_paths=[
@@ -670,7 +670,7 @@ class SpringCloudService(pulumi.CustomResource):
                     "dir2",
                 ],
             ),
-            trace=azure.appplatform.SpringCloudServiceTraceArgs(
+            trace=azure.appplatform.SpringCloudServiceTraceArrgs(
                 connection_string=example_insights.connection_string,
                 sample_rate=10,
             ),
@@ -688,12 +688,12 @@ class SpringCloudService(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SpringCloudServiceArgs args: The arguments to use to populate this resource's properties.
+        :param SpringCloudServiceArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudServiceArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -703,19 +703,19 @@ class SpringCloudService(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  build_agent_pool_size: Optional[pulumi.Input[str]] = None,
-                 config_server_git_setting: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArgs']]] = None,
-                 container_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudServiceContainerRegistryArgs']]]]] = None,
-                 default_build_service: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceDefaultBuildServiceArgs']]] = None,
+                 config_server_git_setting: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArrgs']]] = None,
+                 container_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudServiceContainerRegistryArrgs']]]]] = None,
+                 default_build_service: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceDefaultBuildServiceArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log_stream_public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
-                 marketplace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceMarketplaceArgs']]] = None,
+                 marketplace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceMarketplaceArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']]] = None,
+                 network: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArrgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_registry_enabled: Optional[pulumi.Input[bool]] = None,
                  sku_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 trace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArgs']]] = None,
+                 trace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArrgs']]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -724,7 +724,7 @@ class SpringCloudService(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SpringCloudServiceArgs.__new__(SpringCloudServiceArgs)
+            __props__ = SpringCloudServiceArrgs.__new__(SpringCloudServiceArrgs)
 
             __props__.__dict__["build_agent_pool_size"] = build_agent_pool_size
             __props__.__dict__["config_server_git_setting"] = config_server_git_setting
@@ -757,22 +757,22 @@ class SpringCloudService(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             build_agent_pool_size: Optional[pulumi.Input[str]] = None,
-            config_server_git_setting: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArgs']]] = None,
-            container_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudServiceContainerRegistryArgs']]]]] = None,
-            default_build_service: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceDefaultBuildServiceArgs']]] = None,
+            config_server_git_setting: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArrgs']]] = None,
+            container_registries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudServiceContainerRegistryArrgs']]]]] = None,
+            default_build_service: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceDefaultBuildServiceArrgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             log_stream_public_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
-            marketplace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceMarketplaceArgs']]] = None,
+            marketplace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceMarketplaceArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']]] = None,
+            network: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArrgs']]] = None,
             outbound_public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            required_network_traffic_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudServiceRequiredNetworkTrafficRuleArgs']]]]] = None,
+            required_network_traffic_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudServiceRequiredNetworkTrafficRuleArrgs']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             service_registry_enabled: Optional[pulumi.Input[bool]] = None,
             service_registry_id: Optional[pulumi.Input[str]] = None,
             sku_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            trace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArgs']]] = None,
+            trace: Optional[pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArrgs']]] = None,
             zone_redundant: Optional[pulumi.Input[bool]] = None) -> 'SpringCloudService':
         """
         Get an existing SpringCloudService resource's state with the given name, id, and optional extra
@@ -782,22 +782,22 @@ class SpringCloudService(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] build_agent_pool_size: Specifies the size for this Spring Cloud Service's default build agent pool. Possible values are `S1`, `S2`, `S3`, `S4` and `S5`. This field is applicable only for Spring Cloud Service with enterprise tier.
-        :param pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArgs']] config_server_git_setting: A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudServiceContainerRegistryArgs']]]] container_registries: One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
-        :param pulumi.Input[pulumi.InputType['SpringCloudServiceDefaultBuildServiceArgs']] default_build_service: A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+        :param pulumi.Input[pulumi.InputType['SpringCloudServiceConfigServerGitSettingArrgs']] config_server_git_setting: A `config_server_git_setting` block as defined below. This field is applicable only for Spring Cloud Service with basic and standard tier.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudServiceContainerRegistryArrgs']]]] container_registries: One or more `container_registry` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
+        :param pulumi.Input[pulumi.InputType['SpringCloudServiceDefaultBuildServiceArrgs']] default_build_service: A `default_build_service` block as defined below. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] log_stream_public_endpoint_enabled: Should the log stream in vnet injection instance could be accessed from Internet?
-        :param pulumi.Input[pulumi.InputType['SpringCloudServiceMarketplaceArgs']] marketplace: A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
+        :param pulumi.Input[pulumi.InputType['SpringCloudServiceMarketplaceArrgs']] marketplace: A `marketplace` block as defined below. Can only be specified when `sku` is set to `E0`.
         :param pulumi.Input[str] name: Specifies the name of the Spring Cloud Service resource. Changing this forces a new resource to be created.
-        :param pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArgs']] network: A `network` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['SpringCloudServiceNetworkArrgs']] network: A `network` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] outbound_public_ip_addresses: A list of the outbound Public IP Addresses used by this Spring Cloud Service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudServiceRequiredNetworkTrafficRuleArgs']]]] required_network_traffic_rules: A list of `required_network_traffic_rules` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpringCloudServiceRequiredNetworkTrafficRuleArrgs']]]] required_network_traffic_rules: A list of `required_network_traffic_rules` blocks as defined below.
         :param pulumi.Input[str] resource_group_name: Specifies The name of the resource group in which to create the Spring Cloud Service. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] service_registry_enabled: Whether enable the default Service Registry. This field is applicable only for Spring Cloud Service with enterprise tier.
         :param pulumi.Input[str] service_registry_id: The ID of the Spring Cloud Service Registry.
         :param pulumi.Input[str] sku_name: Specifies the SKU Name for this Spring Cloud Service. Possible values are `B0`, `S0` and `E0`. Defaults to `S0`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArgs']] trace: A `trace` block as defined below.
+        :param pulumi.Input[pulumi.InputType['SpringCloudServiceTraceArrgs']] trace: A `trace` block as defined below.
         :param pulumi.Input[bool] zone_redundant: Whether zone redundancy is enabled for this Spring Cloud Service. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

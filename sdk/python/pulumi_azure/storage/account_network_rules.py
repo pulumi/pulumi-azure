@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AccountNetworkRulesInitArgs', 'AccountNetworkRules']
+__all__ = ['AccountNetworkRulesInitArrgs', 'AccountNetworkRules']
 
 @pulumi.input_type
-class AccountNetworkRulesInitArgs:
+calass AccountNetworkRulesInitArrgs:
     def __init__(__self__, *,
                  default_action: pulumi.Input[str],
                  storage_account_id: pulumi.Input[str],
                  bypasses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]] = None,
+                 private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArrgs']]]] = None,
                  virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a AccountNetworkRules resource.
@@ -36,7 +36,7 @@ class AccountNetworkRulesInitArgs:
                > **NOTE** IP network rules have no effect on requests originating from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests. Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
                
                > **NOTE** User has to explicitly set `ip_rules` to empty slice (`[]`) to remove it.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]] private_link_access_rules: One or More `private_link_access` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArrgs']]] private_link_access_rules: One or More `private_link_access` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to secure the storage account.
                
                > **NOTE** User has to explicitly set `virtual_network_subnet_ids` to empty slice (`[]`) to remove it.
@@ -110,14 +110,14 @@ class AccountNetworkRulesInitArgs:
 
     @property
     @pulumi.getter(name="privateLinkAccessRules")
-    def private_link_access_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]]:
+    def private_link_access_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArrgs']]]]:
         """
         One or More `private_link_access` block as defined below.
         """
         return pulumi.get(self, "private_link_access_rules")
 
     @private_link_access_rules.setter
-    def private_link_access_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]]):
+    def private_link_access_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArrgs']]]]):
         pulumi.set(self, "private_link_access_rules", value)
 
     @property
@@ -136,12 +136,12 @@ class AccountNetworkRulesInitArgs:
 
 
 @pulumi.input_type
-class _AccountNetworkRulesState:
+calass _AccountNetworkRulesState:
     def __init__(__self__, *,
                  bypasses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_action: Optional[pulumi.Input[str]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]] = None,
+                 private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArrgs']]]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -157,7 +157,7 @@ class _AccountNetworkRulesState:
                > **NOTE** IP network rules have no effect on requests originating from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests. Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
                
                > **NOTE** User has to explicitly set `ip_rules` to empty slice (`[]`) to remove it.
-        :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]] private_link_access_rules: One or More `private_link_access` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArrgs']]] private_link_access_rules: One or More `private_link_access` block as defined below.
         :param pulumi.Input[str] storage_account_id: Specifies the ID of the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to secure the storage account.
                
@@ -222,14 +222,14 @@ class _AccountNetworkRulesState:
 
     @property
     @pulumi.getter(name="privateLinkAccessRules")
-    def private_link_access_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]]:
+    def private_link_access_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArrgs']]]]:
         """
         One or More `private_link_access` block as defined below.
         """
         return pulumi.get(self, "private_link_access_rules")
 
     @private_link_access_rules.setter
-    def private_link_access_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]]):
+    def private_link_access_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessRuleArrgs']]]]):
         pulumi.set(self, "private_link_access_rules", value)
 
     @property
@@ -259,7 +259,7 @@ class _AccountNetworkRulesState:
         pulumi.set(self, "virtual_network_subnet_ids", value)
 
 
-class AccountNetworkRules(pulumi.CustomResource):
+calass AccountNetworkRules(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -267,7 +267,7 @@ class AccountNetworkRules(pulumi.CustomResource):
                  bypasses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_action: Optional[pulumi.Input[str]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]]] = None,
+                 private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountNetworkRulesPrivateLinkAccessRuleArrgs']]]]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -333,7 +333,7 @@ class AccountNetworkRules(pulumi.CustomResource):
                > **NOTE** IP network rules have no effect on requests originating from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests. Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
                
                > **NOTE** User has to explicitly set `ip_rules` to empty slice (`[]`) to remove it.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]] private_link_access_rules: One or More `private_link_access` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountNetworkRulesPrivateLinkAccessRuleArrgs']]]] private_link_access_rules: One or More `private_link_access` block as defined below.
         :param pulumi.Input[str] storage_account_id: Specifies the ID of the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to secure the storage account.
                
@@ -343,7 +343,7 @@ class AccountNetworkRules(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AccountNetworkRulesInitArgs,
+                 args: AccountNetworkRulesInitArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages network rules inside of a Azure Storage Account.
@@ -395,12 +395,12 @@ class AccountNetworkRules(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AccountNetworkRulesInitArgs args: The arguments to use to populate this resource's properties.
+        :param AccountNetworkRulesInitArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AccountNetworkRulesInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AccountNetworkRulesInitArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -412,7 +412,7 @@ class AccountNetworkRules(pulumi.CustomResource):
                  bypasses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_action: Optional[pulumi.Input[str]] = None,
                  ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]]] = None,
+                 private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountNetworkRulesPrivateLinkAccessRuleArrgs']]]]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -422,7 +422,7 @@ class AccountNetworkRules(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AccountNetworkRulesInitArgs.__new__(AccountNetworkRulesInitArgs)
+            __props__ = AccountNetworkRulesInitArrgs.__new__(AccountNetworkRulesInitArrgs)
 
             __props__.__dict__["bypasses"] = bypasses
             if default_action is None and not opts.urn:
@@ -447,7 +447,7 @@ class AccountNetworkRules(pulumi.CustomResource):
             bypasses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             default_action: Optional[pulumi.Input[str]] = None,
             ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]]] = None,
+            private_link_access_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountNetworkRulesPrivateLinkAccessRuleArrgs']]]]] = None,
             storage_account_id: Optional[pulumi.Input[str]] = None,
             virtual_network_subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'AccountNetworkRules':
         """
@@ -468,7 +468,7 @@ class AccountNetworkRules(pulumi.CustomResource):
                > **NOTE** IP network rules have no effect on requests originating from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests. Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range.
                
                > **NOTE** User has to explicitly set `ip_rules` to empty slice (`[]`) to remove it.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountNetworkRulesPrivateLinkAccessRuleArgs']]]] private_link_access_rules: One or More `private_link_access` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AccountNetworkRulesPrivateLinkAccessRuleArrgs']]]] private_link_access_rules: One or More `private_link_access` block as defined below.
         :param pulumi.Input[str] storage_account_id: Specifies the ID of the storage account. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_network_subnet_ids: A list of virtual network subnet ids to secure the storage account.
                

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SpringCloudCustomDomainArgs', 'SpringCloudCustomDomain']
+__all__ = ['SpringCloudCustomDomainArrgs', 'SpringCloudCustomDomain']
 
 @pulumi.input_type
-class SpringCloudCustomDomainArgs:
+calass SpringCloudCustomDomainArrgs:
     def __init__(__self__, *,
                  spring_cloud_app_id: pulumi.Input[str],
                  certificate_name: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,7 @@ class SpringCloudCustomDomainArgs:
 
 
 @pulumi.input_type
-class _SpringCloudCustomDomainState:
+calass _SpringCloudCustomDomainState:
     def __init__(__self__, *,
                  certificate_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -154,7 +154,7 @@ class _SpringCloudCustomDomainState:
         pulumi.set(self, "thumbprint", value)
 
 
-class SpringCloudCustomDomain(pulumi.CustomResource):
+calass SpringCloudCustomDomain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -186,7 +186,7 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SpringCloudCustomDomainArgs,
+                 args: SpringCloudCustomDomainArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Spring Cloud Custom Domain.
@@ -200,12 +200,12 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SpringCloudCustomDomainArgs args: The arguments to use to populate this resource's properties.
+        :param SpringCloudCustomDomainArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudCustomDomainArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SpringCloudCustomDomainArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -225,7 +225,7 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SpringCloudCustomDomainArgs.__new__(SpringCloudCustomDomainArgs)
+            __props__ = SpringCloudCustomDomainArrgs.__new__(SpringCloudCustomDomainArrgs)
 
             __props__.__dict__["certificate_name"] = certificate_name
             __props__.__dict__["name"] = name

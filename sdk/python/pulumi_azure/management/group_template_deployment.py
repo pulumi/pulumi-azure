@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['GroupTemplateDeploymentArgs', 'GroupTemplateDeployment']
+__all__ = ['GroupTemplateDeploymentArrgs', 'GroupTemplateDeployment']
 
 @pulumi.input_type
-class GroupTemplateDeploymentArgs:
+calass GroupTemplateDeploymentArrgs:
     def __init__(__self__, *,
                  management_group_id: pulumi.Input[str],
                  debug_level: Optional[pulumi.Input[str]] = None,
@@ -147,7 +147,7 @@ class GroupTemplateDeploymentArgs:
 
 
 @pulumi.input_type
-class _GroupTemplateDeploymentState:
+calass _GroupTemplateDeploymentState:
     def __init__(__self__, *,
                  debug_level: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -298,7 +298,7 @@ class _GroupTemplateDeploymentState:
         pulumi.set(self, "template_spec_version_id", value)
 
 
-class GroupTemplateDeployment(pulumi.CustomResource):
+calass GroupTemplateDeployment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -421,7 +421,7 @@ class GroupTemplateDeployment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GroupTemplateDeploymentArgs,
+                 args: GroupTemplateDeploymentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Template Deployment at a Management Group Scope.
@@ -518,12 +518,12 @@ class GroupTemplateDeployment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param GroupTemplateDeploymentArgs args: The arguments to use to populate this resource's properties.
+        :param GroupTemplateDeploymentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GroupTemplateDeploymentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(GroupTemplateDeploymentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -547,7 +547,7 @@ class GroupTemplateDeployment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GroupTemplateDeploymentArgs.__new__(GroupTemplateDeploymentArgs)
+            __props__ = GroupTemplateDeploymentArrgs.__new__(GroupTemplateDeploymentArrgs)
 
             __props__.__dict__["debug_level"] = debug_level
             __props__.__dict__["location"] = location

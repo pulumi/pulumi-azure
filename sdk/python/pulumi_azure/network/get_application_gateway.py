@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetApplicationGatewayResult:
+calass GetApplicationGatewayResult:
     """
     A collection of values returned by getApplicationGateway.
     """
@@ -404,7 +404,7 @@ class GetApplicationGatewayResult:
         return pulumi.get(self, "zones")
 
 
-class AwaitableGetApplicationGatewayResult(GetApplicationGatewayResult):
+calass AwaitableGetApplicationGatewayResult(GetApplicationGatewayResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

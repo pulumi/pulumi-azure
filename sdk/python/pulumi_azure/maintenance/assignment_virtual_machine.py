@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['AssignmentVirtualMachineArgs', 'AssignmentVirtualMachine']
+__all__ = ['AssignmentVirtualMachineArrgs', 'AssignmentVirtualMachine']
 
 @pulumi.input_type
-class AssignmentVirtualMachineArgs:
+calass AssignmentVirtualMachineArrgs:
     def __init__(__self__, *,
                  maintenance_configuration_id: pulumi.Input[str],
                  virtual_machine_id: pulumi.Input[str],
@@ -66,7 +66,7 @@ class AssignmentVirtualMachineArgs:
 
 
 @pulumi.input_type
-class _AssignmentVirtualMachineState:
+calass _AssignmentVirtualMachineState:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
@@ -121,7 +121,7 @@ class _AssignmentVirtualMachineState:
         pulumi.set(self, "virtual_machine_id", value)
 
 
-class AssignmentVirtualMachine(pulumi.CustomResource):
+calass AssignmentVirtualMachine(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -151,7 +151,7 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
         example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArrgs(
                 name="internal",
                 subnet_id=example_subnet.id,
                 private_ip_address_allocation="Dynamic",
@@ -162,15 +162,15 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
             size="Standard_F2",
             admin_username="adminuser",
             network_interface_ids=[example_network_interface.id],
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
+            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArrgs(
                 username="adminuser",
                 public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
             )],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
+            os_disk=azure.compute.LinuxVirtualMachineOsDiskArrgs(
                 caching="ReadWrite",
                 storage_account_type="Standard_LRS",
             ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
+            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArrgs(
                 publisher="Canonical",
                 offer="0001-com-ubuntu-server-jammy",
                 sku="22_04-lts",
@@ -204,7 +204,7 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AssignmentVirtualMachineArgs,
+                 args: AssignmentVirtualMachineArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a maintenance assignment to virtual machine.
@@ -227,7 +227,7 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
         example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
+            ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArrgs(
                 name="internal",
                 subnet_id=example_subnet.id,
                 private_ip_address_allocation="Dynamic",
@@ -238,15 +238,15 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
             size="Standard_F2",
             admin_username="adminuser",
             network_interface_ids=[example_network_interface.id],
-            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
+            admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArrgs(
                 username="adminuser",
                 public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
             )],
-            os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
+            os_disk=azure.compute.LinuxVirtualMachineOsDiskArrgs(
                 caching="ReadWrite",
                 storage_account_type="Standard_LRS",
             ),
-            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArgs(
+            source_image_reference=azure.compute.LinuxVirtualMachineSourceImageReferenceArrgs(
                 publisher="Canonical",
                 offer="0001-com-ubuntu-server-jammy",
                 sku="22_04-lts",
@@ -271,12 +271,12 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AssignmentVirtualMachineArgs args: The arguments to use to populate this resource's properties.
+        :param AssignmentVirtualMachineArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AssignmentVirtualMachineArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AssignmentVirtualMachineArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -295,7 +295,7 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AssignmentVirtualMachineArgs.__new__(AssignmentVirtualMachineArgs)
+            __props__ = AssignmentVirtualMachineArrgs.__new__(AssignmentVirtualMachineArrgs)
 
             __props__.__dict__["location"] = location
             if maintenance_configuration_id is None and not opts.urn:

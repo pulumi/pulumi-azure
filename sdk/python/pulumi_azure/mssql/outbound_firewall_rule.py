@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['OutboundFirewallRuleArgs', 'OutboundFirewallRule']
+__all__ = ['OutboundFirewallRuleArrgs', 'OutboundFirewallRule']
 
 @pulumi.input_type
-class OutboundFirewallRuleArgs:
+calass OutboundFirewallRuleArrgs:
     def __init__(__self__, *,
                  server_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None):
@@ -51,7 +51,7 @@ class OutboundFirewallRuleArgs:
 
 
 @pulumi.input_type
-class _OutboundFirewallRuleState:
+calass _OutboundFirewallRuleState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  server_id: Optional[pulumi.Input[str]] = None):
@@ -90,7 +90,7 @@ class _OutboundFirewallRuleState:
         pulumi.set(self, "server_id", value)
 
 
-class OutboundFirewallRule(pulumi.CustomResource):
+calass OutboundFirewallRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -135,7 +135,7 @@ class OutboundFirewallRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: OutboundFirewallRuleArgs,
+                 args: OutboundFirewallRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Allows you to manage an Azure SQL Outbound Firewall Rule.
@@ -166,12 +166,12 @@ class OutboundFirewallRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param OutboundFirewallRuleArgs args: The arguments to use to populate this resource's properties.
+        :param OutboundFirewallRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(OutboundFirewallRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(OutboundFirewallRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -189,7 +189,7 @@ class OutboundFirewallRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = OutboundFirewallRuleArgs.__new__(OutboundFirewallRuleArgs)
+            __props__ = OutboundFirewallRuleArrgs.__new__(OutboundFirewallRuleArrgs)
 
             __props__.__dict__["name"] = name
             if server_id is None and not opts.urn:

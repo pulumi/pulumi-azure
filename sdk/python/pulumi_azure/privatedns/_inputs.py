@@ -10,17 +10,17 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'LinkServiceNatIpConfigurationArgs',
-    'MxRecordRecordArgs',
-    'ResolverForwardingRuleTargetDnsServerArgs',
-    'ResolverInboundEndpointIpConfigurationArgs',
-    'SRVRecordRecordArgs',
-    'TxtRecordRecordArgs',
-    'ZoneSoaRecordArgs',
+    'LinkServiceNatIpConfigurationArrgs',
+    'MxRecordRecordArrgs',
+    'ResolverForwardingRuleTargetDnsServerArrgs',
+    'ResolverInboundEndpointIpConfigurationArrgs',
+    'SRVRecordRecordArrgs',
+    'TxtRecordRecordArrgs',
+    'ZoneSoaRecordArrgs',
 ]
 
 @pulumi.input_type
-class LinkServiceNatIpConfigurationArgs:
+calass LinkServiceNatIpConfigurationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  primary: pulumi.Input[bool],
@@ -108,7 +108,7 @@ class LinkServiceNatIpConfigurationArgs:
 
 
 @pulumi.input_type
-class MxRecordRecordArgs:
+calass MxRecordRecordArrgs:
     def __init__(__self__, *,
                  exchange: pulumi.Input[str],
                  preference: pulumi.Input[int]):
@@ -145,7 +145,7 @@ class MxRecordRecordArgs:
 
 
 @pulumi.input_type
-class ResolverForwardingRuleTargetDnsServerArgs:
+calass ResolverForwardingRuleTargetDnsServerArrgs:
     def __init__(__self__, *,
                  ip_address: pulumi.Input[str],
                  port: Optional[pulumi.Input[int]] = None):
@@ -183,7 +183,7 @@ class ResolverForwardingRuleTargetDnsServerArgs:
 
 
 @pulumi.input_type
-class ResolverInboundEndpointIpConfigurationArgs:
+calass ResolverInboundEndpointIpConfigurationArrgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[str],
                  private_ip_address: Optional[pulumi.Input[str]] = None,
@@ -237,7 +237,7 @@ class ResolverInboundEndpointIpConfigurationArgs:
 
 
 @pulumi.input_type
-class SRVRecordRecordArgs:
+calass SRVRecordRecordArrgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
                  priority: pulumi.Input[int],
@@ -304,7 +304,7 @@ class SRVRecordRecordArgs:
 
 
 @pulumi.input_type
-class TxtRecordRecordArgs:
+calass TxtRecordRecordArrgs:
     def __init__(__self__, *,
                  value: pulumi.Input[str]):
         """
@@ -326,7 +326,7 @@ class TxtRecordRecordArgs:
 
 
 @pulumi.input_type
-class ZoneSoaRecordArgs:
+calass ZoneSoaRecordArrgs:
     def __init__(__self__, *,
                  email: pulumi.Input[str],
                  expire_time: Optional[pulumi.Input[int]] = None,

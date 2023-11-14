@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetVirtualHubRouteTableResult:
+calass GetVirtualHubRouteTableResult:
     """
     A collection of values returned by getVirtualHubRouteTable.
     """
@@ -96,7 +96,7 @@ class GetVirtualHubRouteTableResult:
         return pulumi.get(self, "virtual_hub_name")
 
 
-class AwaitableGetVirtualHubRouteTableResult(GetVirtualHubRouteTableResult):
+calass AwaitableGetVirtualHubRouteTableResult(GetVirtualHubRouteTableResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

@@ -11,19 +11,19 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['MetricAlertArgs', 'MetricAlert']
+__all__ = ['MetricAlertArrgs', 'MetricAlert']
 
 @pulumi.input_type
-class MetricAlertArgs:
+calass MetricAlertArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  scopes: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]] = None,
-                 application_insights_web_test_location_availability_criteria: Optional[pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArrgs']]]] = None,
+                 application_insights_web_test_location_availability_criteria: Optional[pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArrgs']] = None,
                  auto_mitigate: Optional[pulumi.Input[bool]] = None,
-                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArgs']]]] = None,
+                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArrgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 dynamic_criteria: Optional[pulumi.Input['MetricAlertDynamicCriteriaArgs']] = None,
+                 dynamic_criteria: Optional[pulumi.Input['MetricAlertDynamicCriteriaArrgs']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  frequency: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -36,16 +36,16 @@ class MetricAlertArgs:
         The set of arguments for constructing a MetricAlert resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which to create the Metric Alert instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: A set of strings of resource IDs at which the metric criteria should be applied.
-        :param pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]] actions: One or more `action` blocks as defined below.
-        :param pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs'] application_insights_web_test_location_availability_criteria: A `application_insights_web_test_location_availability_criteria` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArrgs']]] actions: One or more `action` blocks as defined below.
+        :param pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArrgs'] application_insights_web_test_location_availability_criteria: A `application_insights_web_test_location_availability_criteria` block as defined below.
                
                > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[bool] auto_mitigate: Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArgs']]] criterias: One or more (static) `criteria` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArrgs']]] criterias: One or more (static) `criteria` blocks as defined below.
                
                > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[str] description: The description of this Metric Alert.
-        :param pulumi.Input['MetricAlertDynamicCriteriaArgs'] dynamic_criteria: A `dynamic_criteria` block as defined below.
+        :param pulumi.Input['MetricAlertDynamicCriteriaArrgs'] dynamic_criteria: A `dynamic_criteria` block as defined below.
                
                > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[bool] enabled: Should this Metric Alert be enabled? Defaults to `true`.
@@ -118,19 +118,19 @@ class MetricAlertArgs:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]]:
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArrgs']]]]:
         """
         One or more `action` blocks as defined below.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]]):
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArrgs']]]]):
         pulumi.set(self, "actions", value)
 
     @property
     @pulumi.getter(name="applicationInsightsWebTestLocationAvailabilityCriteria")
-    def application_insights_web_test_location_availability_criteria(self) -> Optional[pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']]:
+    def application_insights_web_test_location_availability_criteria(self) -> Optional[pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArrgs']]:
         """
         A `application_insights_web_test_location_availability_criteria` block as defined below.
 
@@ -139,7 +139,7 @@ class MetricAlertArgs:
         return pulumi.get(self, "application_insights_web_test_location_availability_criteria")
 
     @application_insights_web_test_location_availability_criteria.setter
-    def application_insights_web_test_location_availability_criteria(self, value: Optional[pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']]):
+    def application_insights_web_test_location_availability_criteria(self, value: Optional[pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArrgs']]):
         pulumi.set(self, "application_insights_web_test_location_availability_criteria", value)
 
     @property
@@ -156,7 +156,7 @@ class MetricAlertArgs:
 
     @property
     @pulumi.getter
-    def criterias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArgs']]]]:
+    def criterias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArrgs']]]]:
         """
         One or more (static) `criteria` blocks as defined below.
 
@@ -165,7 +165,7 @@ class MetricAlertArgs:
         return pulumi.get(self, "criterias")
 
     @criterias.setter
-    def criterias(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArgs']]]]):
+    def criterias(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArrgs']]]]):
         pulumi.set(self, "criterias", value)
 
     @property
@@ -182,7 +182,7 @@ class MetricAlertArgs:
 
     @property
     @pulumi.getter(name="dynamicCriteria")
-    def dynamic_criteria(self) -> Optional[pulumi.Input['MetricAlertDynamicCriteriaArgs']]:
+    def dynamic_criteria(self) -> Optional[pulumi.Input['MetricAlertDynamicCriteriaArrgs']]:
         """
         A `dynamic_criteria` block as defined below.
 
@@ -191,7 +191,7 @@ class MetricAlertArgs:
         return pulumi.get(self, "dynamic_criteria")
 
     @dynamic_criteria.setter
-    def dynamic_criteria(self, value: Optional[pulumi.Input['MetricAlertDynamicCriteriaArgs']]):
+    def dynamic_criteria(self, value: Optional[pulumi.Input['MetricAlertDynamicCriteriaArrgs']]):
         pulumi.set(self, "dynamic_criteria", value)
 
     @property
@@ -296,14 +296,14 @@ class MetricAlertArgs:
 
 
 @pulumi.input_type
-class _MetricAlertState:
+calass _MetricAlertState:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]] = None,
-                 application_insights_web_test_location_availability_criteria: Optional[pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArrgs']]]] = None,
+                 application_insights_web_test_location_availability_criteria: Optional[pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArrgs']] = None,
                  auto_mitigate: Optional[pulumi.Input[bool]] = None,
-                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArgs']]]] = None,
+                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArrgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 dynamic_criteria: Optional[pulumi.Input['MetricAlertDynamicCriteriaArgs']] = None,
+                 dynamic_criteria: Optional[pulumi.Input['MetricAlertDynamicCriteriaArrgs']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  frequency: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -316,16 +316,16 @@ class _MetricAlertState:
                  window_size: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering MetricAlert resources.
-        :param pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]] actions: One or more `action` blocks as defined below.
-        :param pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs'] application_insights_web_test_location_availability_criteria: A `application_insights_web_test_location_availability_criteria` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArrgs']]] actions: One or more `action` blocks as defined below.
+        :param pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArrgs'] application_insights_web_test_location_availability_criteria: A `application_insights_web_test_location_availability_criteria` block as defined below.
                
                > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[bool] auto_mitigate: Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArgs']]] criterias: One or more (static) `criteria` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArrgs']]] criterias: One or more (static) `criteria` blocks as defined below.
                
                > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[str] description: The description of this Metric Alert.
-        :param pulumi.Input['MetricAlertDynamicCriteriaArgs'] dynamic_criteria: A `dynamic_criteria` block as defined below.
+        :param pulumi.Input['MetricAlertDynamicCriteriaArrgs'] dynamic_criteria: A `dynamic_criteria` block as defined below.
                
                > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[bool] enabled: Should this Metric Alert be enabled? Defaults to `true`.
@@ -378,19 +378,19 @@ class _MetricAlertState:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]]:
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArrgs']]]]:
         """
         One or more `action` blocks as defined below.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArgs']]]]):
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertActionArrgs']]]]):
         pulumi.set(self, "actions", value)
 
     @property
     @pulumi.getter(name="applicationInsightsWebTestLocationAvailabilityCriteria")
-    def application_insights_web_test_location_availability_criteria(self) -> Optional[pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']]:
+    def application_insights_web_test_location_availability_criteria(self) -> Optional[pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArrgs']]:
         """
         A `application_insights_web_test_location_availability_criteria` block as defined below.
 
@@ -399,7 +399,7 @@ class _MetricAlertState:
         return pulumi.get(self, "application_insights_web_test_location_availability_criteria")
 
     @application_insights_web_test_location_availability_criteria.setter
-    def application_insights_web_test_location_availability_criteria(self, value: Optional[pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']]):
+    def application_insights_web_test_location_availability_criteria(self, value: Optional[pulumi.Input['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArrgs']]):
         pulumi.set(self, "application_insights_web_test_location_availability_criteria", value)
 
     @property
@@ -416,7 +416,7 @@ class _MetricAlertState:
 
     @property
     @pulumi.getter
-    def criterias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArgs']]]]:
+    def criterias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArrgs']]]]:
         """
         One or more (static) `criteria` blocks as defined below.
 
@@ -425,7 +425,7 @@ class _MetricAlertState:
         return pulumi.get(self, "criterias")
 
     @criterias.setter
-    def criterias(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArgs']]]]):
+    def criterias(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetricAlertCriteriaArrgs']]]]):
         pulumi.set(self, "criterias", value)
 
     @property
@@ -442,7 +442,7 @@ class _MetricAlertState:
 
     @property
     @pulumi.getter(name="dynamicCriteria")
-    def dynamic_criteria(self) -> Optional[pulumi.Input['MetricAlertDynamicCriteriaArgs']]:
+    def dynamic_criteria(self) -> Optional[pulumi.Input['MetricAlertDynamicCriteriaArrgs']]:
         """
         A `dynamic_criteria` block as defined below.
 
@@ -451,7 +451,7 @@ class _MetricAlertState:
         return pulumi.get(self, "dynamic_criteria")
 
     @dynamic_criteria.setter
-    def dynamic_criteria(self, value: Optional[pulumi.Input['MetricAlertDynamicCriteriaArgs']]):
+    def dynamic_criteria(self, value: Optional[pulumi.Input['MetricAlertDynamicCriteriaArrgs']]):
         pulumi.set(self, "dynamic_criteria", value)
 
     @property
@@ -579,17 +579,17 @@ class _MetricAlertState:
         pulumi.set(self, "window_size", value)
 
 
-class MetricAlert(pulumi.CustomResource):
+calass MetricAlert(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]]] = None,
-                 application_insights_web_test_location_availability_criteria: Optional[pulumi.Input[pulumi.InputType['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertActionArrgs']]]]] = None,
+                 application_insights_web_test_location_availability_criteria: Optional[pulumi.Input[pulumi.InputType['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArrgs']]] = None,
                  auto_mitigate: Optional[pulumi.Input[bool]] = None,
-                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertCriteriaArgs']]]]] = None,
+                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertCriteriaArrgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 dynamic_criteria: Optional[pulumi.Input[pulumi.InputType['MetricAlertDynamicCriteriaArgs']]] = None,
+                 dynamic_criteria: Optional[pulumi.Input[pulumi.InputType['MetricAlertDynamicCriteriaArrgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  frequency: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -619,7 +619,7 @@ class MetricAlert(pulumi.CustomResource):
         main = azure.monitoring.ActionGroup("main",
             resource_group_name=example_resource_group.name,
             short_name="exampleact",
-            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
+            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArrgs(
                 name="callmyapi",
                 service_uri="http://example.com/alert",
             )])
@@ -627,19 +627,19 @@ class MetricAlert(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             scopes=[to_monitor.id],
             description="Action will be triggered when Transactions count is greater than 50.",
-            criterias=[azure.monitoring.MetricAlertCriteriaArgs(
+            criterias=[azure.monitoring.MetricAlertCriteriaArrgs(
                 metric_namespace="Microsoft.Storage/storageAccounts",
                 metric_name="Transactions",
                 aggregation="Total",
                 operator="GreaterThan",
                 threshold=50,
-                dimensions=[azure.monitoring.MetricAlertCriteriaDimensionArgs(
+                dimensions=[azure.monitoring.MetricAlertCriteriaDimensionArrgs(
                     name="ApiName",
                     operator="Include",
                     values=["*"],
                 )],
             )],
-            actions=[azure.monitoring.MetricAlertActionArgs(
+            actions=[azure.monitoring.MetricAlertActionArrgs(
                 action_group_id=main.id,
             )])
         ```
@@ -654,16 +654,16 @@ class MetricAlert(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]] actions: One or more `action` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']] application_insights_web_test_location_availability_criteria: A `application_insights_web_test_location_availability_criteria` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertActionArrgs']]]] actions: One or more `action` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArrgs']] application_insights_web_test_location_availability_criteria: A `application_insights_web_test_location_availability_criteria` block as defined below.
                
                > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[bool] auto_mitigate: Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertCriteriaArgs']]]] criterias: One or more (static) `criteria` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertCriteriaArrgs']]]] criterias: One or more (static) `criteria` blocks as defined below.
                
                > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[str] description: The description of this Metric Alert.
-        :param pulumi.Input[pulumi.InputType['MetricAlertDynamicCriteriaArgs']] dynamic_criteria: A `dynamic_criteria` block as defined below.
+        :param pulumi.Input[pulumi.InputType['MetricAlertDynamicCriteriaArrgs']] dynamic_criteria: A `dynamic_criteria` block as defined below.
                
                > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[bool] enabled: Should this Metric Alert be enabled? Defaults to `true`.
@@ -685,7 +685,7 @@ class MetricAlert(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MetricAlertArgs,
+                 args: MetricAlertArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Metric Alert within Azure Monitor.
@@ -705,7 +705,7 @@ class MetricAlert(pulumi.CustomResource):
         main = azure.monitoring.ActionGroup("main",
             resource_group_name=example_resource_group.name,
             short_name="exampleact",
-            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
+            webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArrgs(
                 name="callmyapi",
                 service_uri="http://example.com/alert",
             )])
@@ -713,19 +713,19 @@ class MetricAlert(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             scopes=[to_monitor.id],
             description="Action will be triggered when Transactions count is greater than 50.",
-            criterias=[azure.monitoring.MetricAlertCriteriaArgs(
+            criterias=[azure.monitoring.MetricAlertCriteriaArrgs(
                 metric_namespace="Microsoft.Storage/storageAccounts",
                 metric_name="Transactions",
                 aggregation="Total",
                 operator="GreaterThan",
                 threshold=50,
-                dimensions=[azure.monitoring.MetricAlertCriteriaDimensionArgs(
+                dimensions=[azure.monitoring.MetricAlertCriteriaDimensionArrgs(
                     name="ApiName",
                     operator="Include",
                     values=["*"],
                 )],
             )],
-            actions=[azure.monitoring.MetricAlertActionArgs(
+            actions=[azure.monitoring.MetricAlertActionArrgs(
                 action_group_id=main.id,
             )])
         ```
@@ -739,12 +739,12 @@ class MetricAlert(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MetricAlertArgs args: The arguments to use to populate this resource's properties.
+        :param MetricAlertArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MetricAlertArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MetricAlertArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -753,12 +753,12 @@ class MetricAlert(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]]] = None,
-                 application_insights_web_test_location_availability_criteria: Optional[pulumi.Input[pulumi.InputType['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertActionArrgs']]]]] = None,
+                 application_insights_web_test_location_availability_criteria: Optional[pulumi.Input[pulumi.InputType['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArrgs']]] = None,
                  auto_mitigate: Optional[pulumi.Input[bool]] = None,
-                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertCriteriaArgs']]]]] = None,
+                 criterias: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertCriteriaArrgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 dynamic_criteria: Optional[pulumi.Input[pulumi.InputType['MetricAlertDynamicCriteriaArgs']]] = None,
+                 dynamic_criteria: Optional[pulumi.Input[pulumi.InputType['MetricAlertDynamicCriteriaArrgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  frequency: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -776,7 +776,7 @@ class MetricAlert(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MetricAlertArgs.__new__(MetricAlertArgs)
+            __props__ = MetricAlertArrgs.__new__(MetricAlertArrgs)
 
             __props__.__dict__["actions"] = actions
             __props__.__dict__["application_insights_web_test_location_availability_criteria"] = application_insights_web_test_location_availability_criteria
@@ -808,12 +808,12 @@ class MetricAlert(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]]] = None,
-            application_insights_web_test_location_availability_criteria: Optional[pulumi.Input[pulumi.InputType['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']]] = None,
+            actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertActionArrgs']]]]] = None,
+            application_insights_web_test_location_availability_criteria: Optional[pulumi.Input[pulumi.InputType['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArrgs']]] = None,
             auto_mitigate: Optional[pulumi.Input[bool]] = None,
-            criterias: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertCriteriaArgs']]]]] = None,
+            criterias: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertCriteriaArrgs']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            dynamic_criteria: Optional[pulumi.Input[pulumi.InputType['MetricAlertDynamicCriteriaArgs']]] = None,
+            dynamic_criteria: Optional[pulumi.Input[pulumi.InputType['MetricAlertDynamicCriteriaArrgs']]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             frequency: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -831,16 +831,16 @@ class MetricAlert(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]] actions: One or more `action` blocks as defined below.
-        :param pulumi.Input[pulumi.InputType['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArgs']] application_insights_web_test_location_availability_criteria: A `application_insights_web_test_location_availability_criteria` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertActionArrgs']]]] actions: One or more `action` blocks as defined below.
+        :param pulumi.Input[pulumi.InputType['MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteriaArrgs']] application_insights_web_test_location_availability_criteria: A `application_insights_web_test_location_availability_criteria` block as defined below.
                
                > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[bool] auto_mitigate: Should the alerts in this Metric Alert be auto resolved? Defaults to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertCriteriaArgs']]]] criterias: One or more (static) `criteria` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertCriteriaArrgs']]]] criterias: One or more (static) `criteria` blocks as defined below.
                
                > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[str] description: The description of this Metric Alert.
-        :param pulumi.Input[pulumi.InputType['MetricAlertDynamicCriteriaArgs']] dynamic_criteria: A `dynamic_criteria` block as defined below.
+        :param pulumi.Input[pulumi.InputType['MetricAlertDynamicCriteriaArrgs']] dynamic_criteria: A `dynamic_criteria` block as defined below.
                
                > **NOTE** One of either `criteria`, `dynamic_criteria` or `application_insights_web_test_location_availability_criteria` must be specified.
         :param pulumi.Input[bool] enabled: Should this Metric Alert be enabled? Defaults to `true`.

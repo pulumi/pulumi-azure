@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetComputeMachineResult:
+calass GetComputeMachineResult:
     """
     A collection of values returned by getComputeMachine.
     """
@@ -363,7 +363,7 @@ class GetComputeMachineResult:
         return pulumi.get(self, "vm_uuid")
 
 
-class AwaitableGetComputeMachineResult(GetComputeMachineResult):
+calass AwaitableGetComputeMachineResult(GetComputeMachineResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

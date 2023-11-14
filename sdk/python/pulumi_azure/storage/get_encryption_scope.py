@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetEncryptionScopeResult:
+calass GetEncryptionScopeResult:
     """
     A collection of values returned by getEncryptionScope.
     """
@@ -73,7 +73,7 @@ class GetEncryptionScopeResult:
         return pulumi.get(self, "storage_account_id")
 
 
-class AwaitableGetEncryptionScopeResult(GetEncryptionScopeResult):
+calass AwaitableGetEncryptionScopeResult(GetEncryptionScopeResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

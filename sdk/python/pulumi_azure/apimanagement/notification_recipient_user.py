@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NotificationRecipientUserArgs', 'NotificationRecipientUser']
+__all__ = ['NotificationRecipientUserArrgs', 'NotificationRecipientUser']
 
 @pulumi.input_type
-class NotificationRecipientUserArgs:
+calass NotificationRecipientUserArrgs:
     def __init__(__self__, *,
                  api_management_id: pulumi.Input[str],
                  notification_type: pulumi.Input[str],
@@ -65,7 +65,7 @@ class NotificationRecipientUserArgs:
 
 
 @pulumi.input_type
-class _NotificationRecipientUserState:
+calass _NotificationRecipientUserState:
     def __init__(__self__, *,
                  api_management_id: Optional[pulumi.Input[str]] = None,
                  notification_type: Optional[pulumi.Input[str]] = None,
@@ -120,7 +120,7 @@ class _NotificationRecipientUserState:
         pulumi.set(self, "user_id", value)
 
 
-class NotificationRecipientUser(pulumi.CustomResource):
+calass NotificationRecipientUser(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -177,7 +177,7 @@ class NotificationRecipientUser(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NotificationRecipientUserArgs,
+                 args: NotificationRecipientUserArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a API Management Notification Recipient User.
@@ -218,12 +218,12 @@ class NotificationRecipientUser(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NotificationRecipientUserArgs args: The arguments to use to populate this resource's properties.
+        :param NotificationRecipientUserArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NotificationRecipientUserArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NotificationRecipientUserArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -242,7 +242,7 @@ class NotificationRecipientUser(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NotificationRecipientUserArgs.__new__(NotificationRecipientUserArgs)
+            __props__ = NotificationRecipientUserArrgs.__new__(NotificationRecipientUserArrgs)
 
             if api_management_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_management_id'")

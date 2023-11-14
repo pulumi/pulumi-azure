@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ResolverArgs', 'Resolver']
+__all__ = ['ResolverArrgs', 'Resolver']
 
 @pulumi.input_type
-class ResolverArgs:
+calass ResolverArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  virtual_network_id: pulumi.Input[str],
@@ -98,7 +98,7 @@ class ResolverArgs:
 
 
 @pulumi.input_type
-class _ResolverState:
+calass _ResolverState:
     def __init__(__self__, *,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -185,7 +185,7 @@ class _ResolverState:
         pulumi.set(self, "virtual_network_id", value)
 
 
-class Resolver(pulumi.CustomResource):
+calass Resolver(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -236,7 +236,7 @@ class Resolver(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ResolverArgs,
+                 args: ResolverArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Private DNS Resolver.
@@ -267,12 +267,12 @@ class Resolver(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ResolverArgs args: The arguments to use to populate this resource's properties.
+        :param ResolverArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ResolverArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ResolverArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -293,7 +293,7 @@ class Resolver(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ResolverArgs.__new__(ResolverArgs)
+            __props__ = ResolverArrgs.__new__(ResolverArrgs)
 
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

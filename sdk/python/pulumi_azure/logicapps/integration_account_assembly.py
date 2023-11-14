@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['IntegrationAccountAssemblyArgs', 'IntegrationAccountAssembly']
+__all__ = ['IntegrationAccountAssemblyArrgs', 'IntegrationAccountAssembly']
 
 @pulumi.input_type
-class IntegrationAccountAssemblyArgs:
+calass IntegrationAccountAssemblyArrgs:
     def __init__(__self__, *,
                  assembly_name: pulumi.Input[str],
                  integration_account_name: pulumi.Input[str],
@@ -145,7 +145,7 @@ class IntegrationAccountAssemblyArgs:
 
 
 @pulumi.input_type
-class _IntegrationAccountAssemblyState:
+calass _IntegrationAccountAssemblyState:
     def __init__(__self__, *,
                  assembly_name: Optional[pulumi.Input[str]] = None,
                  assembly_version: Optional[pulumi.Input[str]] = None,
@@ -280,7 +280,7 @@ class _IntegrationAccountAssemblyState:
         pulumi.set(self, "resource_group_name", value)
 
 
-class IntegrationAccountAssembly(pulumi.CustomResource):
+calass IntegrationAccountAssembly(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -339,7 +339,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: IntegrationAccountAssemblyArgs,
+                 args: IntegrationAccountAssemblyArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Logic App Integration Account Assembly.
@@ -372,12 +372,12 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param IntegrationAccountAssemblyArgs args: The arguments to use to populate this resource's properties.
+        :param IntegrationAccountAssemblyArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(IntegrationAccountAssemblyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(IntegrationAccountAssemblyArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -401,7 +401,7 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = IntegrationAccountAssemblyArgs.__new__(IntegrationAccountAssemblyArgs)
+            __props__ = IntegrationAccountAssemblyArrgs.__new__(IntegrationAccountAssemblyArrgs)
 
             if assembly_name is None and not opts.urn:
                 raise TypeError("Missing required property 'assembly_name'")

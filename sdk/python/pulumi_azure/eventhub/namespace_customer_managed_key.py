@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['NamespaceCustomerManagedKeyInitArgs', 'NamespaceCustomerManagedKey']
+__all__ = ['NamespaceCustomerManagedKeyInitArrgs', 'NamespaceCustomerManagedKey']
 
 @pulumi.input_type
-class NamespaceCustomerManagedKeyInitArgs:
+calass NamespaceCustomerManagedKeyInitArrgs:
     def __init__(__self__, *,
                  eventhub_namespace_id: pulumi.Input[str],
                  key_vault_key_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -90,7 +90,7 @@ class NamespaceCustomerManagedKeyInitArgs:
 
 
 @pulumi.input_type
-class _NamespaceCustomerManagedKeyState:
+calass _NamespaceCustomerManagedKeyState:
     def __init__(__self__, *,
                  eventhub_namespace_id: Optional[pulumi.Input[str]] = None,
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
@@ -169,7 +169,7 @@ class _NamespaceCustomerManagedKeyState:
         pulumi.set(self, "user_assigned_identity_id", value)
 
 
-class NamespaceCustomerManagedKey(pulumi.CustomResource):
+calass NamespaceCustomerManagedKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -201,7 +201,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku="Standard",
             dedicated_cluster_id=example_cluster.id,
-            identity=azure.eventhub.EventHubNamespaceIdentityArgs(
+            identity=azure.eventhub.EventHubNamespaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         current = azure.core.get_client_config()
@@ -272,7 +272,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku="Standard",
             dedicated_cluster_id=example_cluster.id,
-            identity=azure.eventhub.EventHubNamespaceIdentityArgs(
+            identity=azure.eventhub.EventHubNamespaceIdentityArrgs(
                 type="UserAssigned",
                 identity_ids=[example_user_assigned_identity.id],
             ))
@@ -350,7 +350,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NamespaceCustomerManagedKeyInitArgs,
+                 args: NamespaceCustomerManagedKeyInitArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Customer Managed Key for a EventHub Namespace.
@@ -374,7 +374,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku="Standard",
             dedicated_cluster_id=example_cluster.id,
-            identity=azure.eventhub.EventHubNamespaceIdentityArgs(
+            identity=azure.eventhub.EventHubNamespaceIdentityArrgs(
                 type="SystemAssigned",
             ))
         current = azure.core.get_client_config()
@@ -445,7 +445,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku="Standard",
             dedicated_cluster_id=example_cluster.id,
-            identity=azure.eventhub.EventHubNamespaceIdentityArgs(
+            identity=azure.eventhub.EventHubNamespaceIdentityArrgs(
                 type="UserAssigned",
                 identity_ids=[example_user_assigned_identity.id],
             ))
@@ -509,12 +509,12 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param NamespaceCustomerManagedKeyInitArgs args: The arguments to use to populate this resource's properties.
+        :param NamespaceCustomerManagedKeyInitArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NamespaceCustomerManagedKeyInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NamespaceCustomerManagedKeyInitArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -534,7 +534,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NamespaceCustomerManagedKeyInitArgs.__new__(NamespaceCustomerManagedKeyInitArgs)
+            __props__ = NamespaceCustomerManagedKeyInitArrgs.__new__(NamespaceCustomerManagedKeyInitArrgs)
 
             if eventhub_namespace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'eventhub_namespace_id'")

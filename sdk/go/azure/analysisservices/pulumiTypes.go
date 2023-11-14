@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i ServerIpv4FirewallRuleArgs) ToServerIpv4FirewallRuleOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ServerIpv4FirewallRuleOutput)
 }
 
-func (i ServerIpv4FirewallRuleArgs) ToOutput(ctx context.Context) pulumix.Output[ServerIpv4FirewallRule] {
-	return pulumix.Output[ServerIpv4FirewallRule]{
-		OutputState: i.ToServerIpv4FirewallRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServerIpv4FirewallRuleArrayInput is an input type that accepts ServerIpv4FirewallRuleArray and ServerIpv4FirewallRuleArrayOutput values.
 // You can construct a concrete instance of `ServerIpv4FirewallRuleArrayInput` via:
 //
@@ -86,12 +79,6 @@ func (i ServerIpv4FirewallRuleArray) ToServerIpv4FirewallRuleArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ServerIpv4FirewallRuleArrayOutput)
 }
 
-func (i ServerIpv4FirewallRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]ServerIpv4FirewallRule] {
-	return pulumix.Output[[]ServerIpv4FirewallRule]{
-		OutputState: i.ToServerIpv4FirewallRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServerIpv4FirewallRuleOutput struct{ *pulumi.OutputState }
 
 func (ServerIpv4FirewallRuleOutput) ElementType() reflect.Type {
@@ -104,12 +91,6 @@ func (o ServerIpv4FirewallRuleOutput) ToServerIpv4FirewallRuleOutput() ServerIpv
 
 func (o ServerIpv4FirewallRuleOutput) ToServerIpv4FirewallRuleOutputWithContext(ctx context.Context) ServerIpv4FirewallRuleOutput {
 	return o
-}
-
-func (o ServerIpv4FirewallRuleOutput) ToOutput(ctx context.Context) pulumix.Output[ServerIpv4FirewallRule] {
-	return pulumix.Output[ServerIpv4FirewallRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the name of the firewall rule.
@@ -139,12 +120,6 @@ func (o ServerIpv4FirewallRuleArrayOutput) ToServerIpv4FirewallRuleArrayOutput()
 
 func (o ServerIpv4FirewallRuleArrayOutput) ToServerIpv4FirewallRuleArrayOutputWithContext(ctx context.Context) ServerIpv4FirewallRuleArrayOutput {
 	return o
-}
-
-func (o ServerIpv4FirewallRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ServerIpv4FirewallRule] {
-	return pulumix.Output[[]ServerIpv4FirewallRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServerIpv4FirewallRuleArrayOutput) Index(i pulumi.IntInput) ServerIpv4FirewallRuleOutput {

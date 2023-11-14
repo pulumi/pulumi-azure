@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SubscriptionArgs', 'Subscription']
+__all__ = ['SubscriptionArrgs', 'Subscription']
 
 @pulumi.input_type
-class SubscriptionArgs:
+calass SubscriptionArrgs:
     def __init__(__self__, *,
                  api_management_name: pulumi.Input[str],
                  display_name: pulumi.Input[str],
@@ -201,7 +201,7 @@ class SubscriptionArgs:
 
 
 @pulumi.input_type
-class _SubscriptionState:
+calass _SubscriptionState:
     def __init__(__self__, *,
                  allow_tracing: Optional[pulumi.Input[bool]] = None,
                  api_id: Optional[pulumi.Input[str]] = None,
@@ -392,7 +392,7 @@ class _SubscriptionState:
         pulumi.set(self, "user_id", value)
 
 
-class Subscription(pulumi.CustomResource):
+calass Subscription(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -464,7 +464,7 @@ class Subscription(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SubscriptionArgs,
+                 args: SubscriptionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Subscription within a API Management Service.
@@ -500,12 +500,12 @@ class Subscription(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SubscriptionArgs args: The arguments to use to populate this resource's properties.
+        :param SubscriptionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SubscriptionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SubscriptionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -532,7 +532,7 @@ class Subscription(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SubscriptionArgs.__new__(SubscriptionArgs)
+            __props__ = SubscriptionArrgs.__new__(SubscriptionArrgs)
 
             __props__.__dict__["allow_tracing"] = allow_tracing
             __props__.__dict__["api_id"] = api_id

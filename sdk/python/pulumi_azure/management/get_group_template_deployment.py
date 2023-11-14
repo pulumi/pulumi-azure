@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetGroupTemplateDeploymentResult:
+calass GetGroupTemplateDeploymentResult:
     """
     A collection of values returned by getGroupTemplateDeployment.
     """
@@ -62,7 +62,7 @@ class GetGroupTemplateDeploymentResult:
         return pulumi.get(self, "output_content")
 
 
-class AwaitableGetGroupTemplateDeploymentResult(GetGroupTemplateDeploymentResult):
+calass AwaitableGetGroupTemplateDeploymentResult(GetGroupTemplateDeploymentResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

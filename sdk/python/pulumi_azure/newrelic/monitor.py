@@ -11,14 +11,14 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['MonitorArgs', 'Monitor']
+__all__ = ['MonitorArrgs', 'Monitor']
 
 @pulumi.input_type
-class MonitorArgs:
+calass MonitorArrgs:
     def __init__(__self__, *,
-                 plan: pulumi.Input['MonitorPlanArgs'],
+                 plan: pulumi.Input['MonitorPlanArrgs'],
                  resource_group_name: pulumi.Input[str],
-                 user: pulumi.Input['MonitorUserArgs'],
+                 user: pulumi.Input['MonitorUserArrgs'],
                  account_creation_source: Optional[pulumi.Input[str]] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  ingestion_key: Optional[pulumi.Input[str]] = None,
@@ -29,9 +29,9 @@ class MonitorArgs:
                  user_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Monitor resource.
-        :param pulumi.Input['MonitorPlanArgs'] plan: A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        :param pulumi.Input['MonitorPlanArrgs'] plan: A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
-        :param pulumi.Input['MonitorUserArgs'] user: A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        :param pulumi.Input['MonitorUserArrgs'] user: A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] account_creation_source: Specifies the source of account creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] account_id: Specifies the account id. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] ingestion_key: Specifies the ingestion key of account. Changing this forces a new Azure Native New Relic Monitor to be created.
@@ -63,14 +63,14 @@ class MonitorArgs:
 
     @property
     @pulumi.getter
-    def plan(self) -> pulumi.Input['MonitorPlanArgs']:
+    def plan(self) -> pulumi.Input['MonitorPlanArrgs']:
         """
         A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: pulumi.Input['MonitorPlanArgs']):
+    def plan(self, value: pulumi.Input['MonitorPlanArrgs']):
         pulumi.set(self, "plan", value)
 
     @property
@@ -87,14 +87,14 @@ class MonitorArgs:
 
     @property
     @pulumi.getter
-    def user(self) -> pulumi.Input['MonitorUserArgs']:
+    def user(self) -> pulumi.Input['MonitorUserArrgs']:
         """
         A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         return pulumi.get(self, "user")
 
     @user.setter
-    def user(self, value: pulumi.Input['MonitorUserArgs']):
+    def user(self, value: pulumi.Input['MonitorUserArrgs']):
         pulumi.set(self, "user", value)
 
     @property
@@ -195,7 +195,7 @@ class MonitorArgs:
 
 
 @pulumi.input_type
-class _MonitorState:
+calass _MonitorState:
     def __init__(__self__, *,
                  account_creation_source: Optional[pulumi.Input[str]] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
@@ -204,9 +204,9 @@ class _MonitorState:
                  name: Optional[pulumi.Input[str]] = None,
                  org_creation_source: Optional[pulumi.Input[str]] = None,
                  organization_id: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input['MonitorPlanArgs']] = None,
+                 plan: Optional[pulumi.Input['MonitorPlanArrgs']] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 user: Optional[pulumi.Input['MonitorUserArgs']] = None,
+                 user: Optional[pulumi.Input['MonitorUserArrgs']] = None,
                  user_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
@@ -217,9 +217,9 @@ class _MonitorState:
         :param pulumi.Input[str] name: Specifies the name which should be used for this Azure Native New Relic Monitor. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] org_creation_source: Specifies the source of org creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] organization_id: Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
-        :param pulumi.Input['MonitorPlanArgs'] plan: A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        :param pulumi.Input['MonitorPlanArrgs'] plan: A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
-        :param pulumi.Input['MonitorUserArgs'] user: A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        :param pulumi.Input['MonitorUserArrgs'] user: A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] user_id: Specifies the user id. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         if account_creation_source is not None:
@@ -331,14 +331,14 @@ class _MonitorState:
 
     @property
     @pulumi.getter
-    def plan(self) -> Optional[pulumi.Input['MonitorPlanArgs']]:
+    def plan(self) -> Optional[pulumi.Input['MonitorPlanArrgs']]:
         """
         A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: Optional[pulumi.Input['MonitorPlanArgs']]):
+    def plan(self, value: Optional[pulumi.Input['MonitorPlanArrgs']]):
         pulumi.set(self, "plan", value)
 
     @property
@@ -355,14 +355,14 @@ class _MonitorState:
 
     @property
     @pulumi.getter
-    def user(self) -> Optional[pulumi.Input['MonitorUserArgs']]:
+    def user(self) -> Optional[pulumi.Input['MonitorUserArrgs']]:
         """
         A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         return pulumi.get(self, "user")
 
     @user.setter
-    def user(self, value: Optional[pulumi.Input['MonitorUserArgs']]):
+    def user(self, value: Optional[pulumi.Input['MonitorUserArrgs']]):
         pulumi.set(self, "user", value)
 
     @property
@@ -378,7 +378,7 @@ class _MonitorState:
         pulumi.set(self, "user_id", value)
 
 
-class Monitor(pulumi.CustomResource):
+calass Monitor(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -390,9 +390,9 @@ class Monitor(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  org_creation_source: Optional[pulumi.Input[str]] = None,
                  organization_id: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['MonitorPlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['MonitorPlanArrgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 user: Optional[pulumi.Input[pulumi.InputType['MonitorUserArgs']]] = None,
+                 user: Optional[pulumi.Input[pulumi.InputType['MonitorUserArrgs']]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -408,10 +408,10 @@ class Monitor(pulumi.CustomResource):
         example_monitor = azure.newrelic.Monitor("exampleMonitor",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            plan=azure.newrelic.MonitorPlanArgs(
+            plan=azure.newrelic.MonitorPlanArrgs(
                 effective_date="2023-06-06T00:00:00Z",
             ),
-            user=azure.newrelic.MonitorUserArgs(
+            user=azure.newrelic.MonitorUserArrgs(
                 email="user@example.com",
                 first_name="Example",
                 last_name="User",
@@ -436,16 +436,16 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name which should be used for this Azure Native New Relic Monitor. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] org_creation_source: Specifies the source of org creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] organization_id: Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
-        :param pulumi.Input[pulumi.InputType['MonitorPlanArgs']] plan: A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        :param pulumi.Input[pulumi.InputType['MonitorPlanArrgs']] plan: A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
-        :param pulumi.Input[pulumi.InputType['MonitorUserArgs']] user: A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        :param pulumi.Input[pulumi.InputType['MonitorUserArrgs']] user: A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] user_id: Specifies the user id. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: MonitorArgs,
+                 args: MonitorArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Native New Relic Monitor.
@@ -460,10 +460,10 @@ class Monitor(pulumi.CustomResource):
         example_monitor = azure.newrelic.Monitor("exampleMonitor",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            plan=azure.newrelic.MonitorPlanArgs(
+            plan=azure.newrelic.MonitorPlanArrgs(
                 effective_date="2023-06-06T00:00:00Z",
             ),
-            user=azure.newrelic.MonitorUserArgs(
+            user=azure.newrelic.MonitorUserArrgs(
                 email="user@example.com",
                 first_name="Example",
                 last_name="User",
@@ -480,12 +480,12 @@ class Monitor(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param MonitorArgs args: The arguments to use to populate this resource's properties.
+        :param MonitorArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(MonitorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(MonitorArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -501,9 +501,9 @@ class Monitor(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  org_creation_source: Optional[pulumi.Input[str]] = None,
                  organization_id: Optional[pulumi.Input[str]] = None,
-                 plan: Optional[pulumi.Input[pulumi.InputType['MonitorPlanArgs']]] = None,
+                 plan: Optional[pulumi.Input[pulumi.InputType['MonitorPlanArrgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 user: Optional[pulumi.Input[pulumi.InputType['MonitorUserArgs']]] = None,
+                 user: Optional[pulumi.Input[pulumi.InputType['MonitorUserArrgs']]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -512,7 +512,7 @@ class Monitor(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = MonitorArgs.__new__(MonitorArgs)
+            __props__ = MonitorArrgs.__new__(MonitorArrgs)
 
             __props__.__dict__["account_creation_source"] = account_creation_source
             __props__.__dict__["account_id"] = account_id
@@ -550,9 +550,9 @@ class Monitor(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             org_creation_source: Optional[pulumi.Input[str]] = None,
             organization_id: Optional[pulumi.Input[str]] = None,
-            plan: Optional[pulumi.Input[pulumi.InputType['MonitorPlanArgs']]] = None,
+            plan: Optional[pulumi.Input[pulumi.InputType['MonitorPlanArrgs']]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
-            user: Optional[pulumi.Input[pulumi.InputType['MonitorUserArgs']]] = None,
+            user: Optional[pulumi.Input[pulumi.InputType['MonitorUserArrgs']]] = None,
             user_id: Optional[pulumi.Input[str]] = None) -> 'Monitor':
         """
         Get an existing Monitor resource's state with the given name, id, and optional extra
@@ -568,9 +568,9 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name which should be used for this Azure Native New Relic Monitor. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] org_creation_source: Specifies the source of org creation. Possible values are `LIFTR` and `NEWRELIC`. Defaults to `LIFTR`. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] organization_id: Specifies the organization id. Changing this forces a new Azure Native New Relic Monitor to be created.
-        :param pulumi.Input[pulumi.InputType['MonitorPlanArgs']] plan: A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        :param pulumi.Input[pulumi.InputType['MonitorPlanArrgs']] plan: A `plan` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] resource_group_name: Specifies the name of the Resource Group where the Azure Native New Relic Monitor should exist. Changing this forces a new Azure Native New Relic Monitor to be created.
-        :param pulumi.Input[pulumi.InputType['MonitorUserArgs']] user: A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
+        :param pulumi.Input[pulumi.InputType['MonitorUserArrgs']] user: A `user` block as defined below. Changing this forces a new Azure Native New Relic Monitor to be created.
         :param pulumi.Input[str] user_id: Specifies the user id. Changing this forces a new Azure Native New Relic Monitor to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

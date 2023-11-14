@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CertifiateArgs', 'Certifiate']
+__all__ = ['CertifiateArrgs', 'Certifiate']
 
 @pulumi.input_type
-class CertifiateArgs:
+calass CertifiateArrgs:
     def __init__(__self__, *,
                  key_vault_id: pulumi.Input[str],
-                 certificate: Optional[pulumi.Input['CertifiateCertificateArgs']] = None,
-                 certificate_policy: Optional[pulumi.Input['CertifiateCertificatePolicyArgs']] = None,
+                 certificate: Optional[pulumi.Input['CertifiateCertificateArrgs']] = None,
+                 certificate_policy: Optional[pulumi.Input['CertifiateCertificatePolicyArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Certifiate resource.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
-        :param pulumi.Input['CertifiateCertificateArgs'] certificate: A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
-        :param pulumi.Input['CertifiateCertificatePolicyArgs'] certificate_policy: A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
+        :param pulumi.Input['CertifiateCertificateArrgs'] certificate: A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
+        :param pulumi.Input['CertifiateCertificatePolicyArrgs'] certificate_policy: A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
                
                > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         :param pulumi.Input[str] name: Specifies the name of the Key Vault Certificate. Changing this forces a new resource to be created.
@@ -55,19 +55,19 @@ class CertifiateArgs:
 
     @property
     @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input['CertifiateCertificateArgs']]:
+    def certificate(self) -> Optional[pulumi.Input['CertifiateCertificateArrgs']]:
         """
         A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
         """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input['CertifiateCertificateArgs']]):
+    def certificate(self, value: Optional[pulumi.Input['CertifiateCertificateArrgs']]):
         pulumi.set(self, "certificate", value)
 
     @property
     @pulumi.getter(name="certificatePolicy")
-    def certificate_policy(self) -> Optional[pulumi.Input['CertifiateCertificatePolicyArgs']]:
+    def certificate_policy(self) -> Optional[pulumi.Input['CertifiateCertificatePolicyArrgs']]:
         """
         A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
 
@@ -76,7 +76,7 @@ class CertifiateArgs:
         return pulumi.get(self, "certificate_policy")
 
     @certificate_policy.setter
-    def certificate_policy(self, value: Optional[pulumi.Input['CertifiateCertificatePolicyArgs']]):
+    def certificate_policy(self, value: Optional[pulumi.Input['CertifiateCertificatePolicyArrgs']]):
         pulumi.set(self, "certificate_policy", value)
 
     @property
@@ -105,13 +105,13 @@ class CertifiateArgs:
 
 
 @pulumi.input_type
-class _CertifiateState:
+calass _CertifiateState:
     def __init__(__self__, *,
-                 certificate: Optional[pulumi.Input['CertifiateCertificateArgs']] = None,
-                 certificate_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificateAttributeArgs']]]] = None,
+                 certificate: Optional[pulumi.Input['CertifiateCertificateArrgs']] = None,
+                 certificate_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificateAttributeArrgs']]]] = None,
                  certificate_data: Optional[pulumi.Input[str]] = None,
                  certificate_data_base64: Optional[pulumi.Input[str]] = None,
-                 certificate_policy: Optional[pulumi.Input['CertifiateCertificatePolicyArgs']] = None,
+                 certificate_policy: Optional[pulumi.Input['CertifiateCertificatePolicyArrgs']] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_manager_id: Optional[pulumi.Input[str]] = None,
@@ -124,11 +124,11 @@ class _CertifiateState:
                  versionless_secret_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Certifiate resources.
-        :param pulumi.Input['CertifiateCertificateArgs'] certificate: A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
-        :param pulumi.Input[Sequence[pulumi.Input['CertifiateCertificateAttributeArgs']]] certificate_attributes: A `certificate_attribute` block as defined below.
+        :param pulumi.Input['CertifiateCertificateArrgs'] certificate: A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
+        :param pulumi.Input[Sequence[pulumi.Input['CertifiateCertificateAttributeArrgs']]] certificate_attributes: A `certificate_attribute` block as defined below.
         :param pulumi.Input[str] certificate_data: The raw Key Vault Certificate data represented as a hexadecimal string.
         :param pulumi.Input[str] certificate_data_base64: The Base64 encoded Key Vault Certificate data.
-        :param pulumi.Input['CertifiateCertificatePolicyArgs'] certificate_policy: A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
+        :param pulumi.Input['CertifiateCertificatePolicyArrgs'] certificate_policy: A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
                
                > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
@@ -175,26 +175,26 @@ class _CertifiateState:
 
     @property
     @pulumi.getter
-    def certificate(self) -> Optional[pulumi.Input['CertifiateCertificateArgs']]:
+    def certificate(self) -> Optional[pulumi.Input['CertifiateCertificateArrgs']]:
         """
         A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
         """
         return pulumi.get(self, "certificate")
 
     @certificate.setter
-    def certificate(self, value: Optional[pulumi.Input['CertifiateCertificateArgs']]):
+    def certificate(self, value: Optional[pulumi.Input['CertifiateCertificateArrgs']]):
         pulumi.set(self, "certificate", value)
 
     @property
     @pulumi.getter(name="certificateAttributes")
-    def certificate_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificateAttributeArgs']]]]:
+    def certificate_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificateAttributeArrgs']]]]:
         """
         A `certificate_attribute` block as defined below.
         """
         return pulumi.get(self, "certificate_attributes")
 
     @certificate_attributes.setter
-    def certificate_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificateAttributeArgs']]]]):
+    def certificate_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertifiateCertificateAttributeArrgs']]]]):
         pulumi.set(self, "certificate_attributes", value)
 
     @property
@@ -223,7 +223,7 @@ class _CertifiateState:
 
     @property
     @pulumi.getter(name="certificatePolicy")
-    def certificate_policy(self) -> Optional[pulumi.Input['CertifiateCertificatePolicyArgs']]:
+    def certificate_policy(self) -> Optional[pulumi.Input['CertifiateCertificatePolicyArrgs']]:
         """
         A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
 
@@ -232,7 +232,7 @@ class _CertifiateState:
         return pulumi.get(self, "certificate_policy")
 
     @certificate_policy.setter
-    def certificate_policy(self, value: Optional[pulumi.Input['CertifiateCertificatePolicyArgs']]):
+    def certificate_policy(self, value: Optional[pulumi.Input['CertifiateCertificatePolicyArrgs']]):
         pulumi.set(self, "certificate_policy", value)
 
     @property
@@ -359,15 +359,15 @@ class _CertifiateState:
 warnings.warn("""azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate""", DeprecationWarning)
 
 
-class Certifiate(pulumi.CustomResource):
+calass Certifiate(pulumi.CustomResource):
     warnings.warn("""azure.keyvault.Certifiate has been deprecated in favor of azure.keyvault.Certificate""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate: Optional[pulumi.Input[pulumi.InputType['CertifiateCertificateArgs']]] = None,
-                 certificate_policy: Optional[pulumi.Input[pulumi.InputType['CertifiateCertificatePolicyArgs']]] = None,
+                 certificate: Optional[pulumi.Input[pulumi.InputType['CertifiateCertificateArrgs']]] = None,
+                 certificate_policy: Optional[pulumi.Input[pulumi.InputType['CertifiateCertificatePolicyArrgs']]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -397,7 +397,7 @@ class Certifiate(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             tenant_id=current.tenant_id,
             sku_name="premium",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArrgs(
                 tenant_id=current.tenant_id,
                 object_id=current.object_id,
                 certificate_permissions=[
@@ -445,7 +445,7 @@ class Certifiate(pulumi.CustomResource):
             )])
         example_certificate = azure.keyvault.Certificate("exampleCertificate",
             key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
+            certificate=azure.keyvault.CertificateCertificateArrgs(
                 contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
                 password="",
             ))
@@ -464,7 +464,7 @@ class Certifiate(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="standard",
             soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArrgs(
                 tenant_id=current.tenant_id,
                 object_id=current.object_id,
                 certificate_permissions=[
@@ -513,28 +513,28 @@ class Certifiate(pulumi.CustomResource):
             )])
         example_certificate = azure.keyvault.Certificate("exampleCertificate",
             key_vault_id=example_key_vault.id,
-            certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
-                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
+            certificate_policy=azure.keyvault.CertificateCertificatePolicyArrgs(
+                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArrgs(
                     name="Self",
                 ),
-                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
+                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArrgs(
                     exportable=True,
                     key_size=2048,
                     key_type="RSA",
                     reuse_key=True,
                 ),
-                lifetime_actions=[azure.keyvault.CertificateCertificatePolicyLifetimeActionArgs(
-                    action=azure.keyvault.CertificateCertificatePolicyLifetimeActionActionArgs(
+                lifetime_actions=[azure.keyvault.CertificateCertificatePolicyLifetimeActionArrgs(
+                    action=azure.keyvault.CertificateCertificatePolicyLifetimeActionActionArrgs(
                         action_type="AutoRenew",
                     ),
-                    trigger=azure.keyvault.CertificateCertificatePolicyLifetimeActionTriggerArgs(
+                    trigger=azure.keyvault.CertificateCertificatePolicyLifetimeActionTriggerArrgs(
                         days_before_expiry=30,
                     ),
                 )],
-                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArgs(
+                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArrgs(
                     content_type="application/x-pkcs12",
                 ),
-                x509_certificate_properties=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs(
+                x509_certificate_properties=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesArrgs(
                     extended_key_usages=["1.3.6.1.5.5.7.3.1"],
                     key_usages=[
                         "cRLSign",
@@ -544,7 +544,7 @@ class Certifiate(pulumi.CustomResource):
                         "keyCertSign",
                         "keyEncipherment",
                     ],
-                    subject_alternative_names=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs(
+                    subject_alternative_names=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArrgs(
                         dns_names=[
                             "internal.contoso.com",
                             "domain.hello.world",
@@ -566,8 +566,8 @@ class Certifiate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CertifiateCertificateArgs']] certificate: A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
-        :param pulumi.Input[pulumi.InputType['CertifiateCertificatePolicyArgs']] certificate_policy: A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
+        :param pulumi.Input[pulumi.InputType['CertifiateCertificateArrgs']] certificate: A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
+        :param pulumi.Input[pulumi.InputType['CertifiateCertificatePolicyArrgs']] certificate_policy: A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
                
                > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.
@@ -578,7 +578,7 @@ class Certifiate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CertifiateArgs,
+                 args: CertifiateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Key Vault Certificate.
@@ -605,7 +605,7 @@ class Certifiate(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             tenant_id=current.tenant_id,
             sku_name="premium",
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArrgs(
                 tenant_id=current.tenant_id,
                 object_id=current.object_id,
                 certificate_permissions=[
@@ -653,7 +653,7 @@ class Certifiate(pulumi.CustomResource):
             )])
         example_certificate = azure.keyvault.Certificate("exampleCertificate",
             key_vault_id=example_key_vault.id,
-            certificate=azure.keyvault.CertificateCertificateArgs(
+            certificate=azure.keyvault.CertificateCertificateArrgs(
                 contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
                 password="",
             ))
@@ -672,7 +672,7 @@ class Certifiate(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             sku_name="standard",
             soft_delete_retention_days=7,
-            access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
+            access_policies=[azure.keyvault.KeyVaultAccessPolicyArrgs(
                 tenant_id=current.tenant_id,
                 object_id=current.object_id,
                 certificate_permissions=[
@@ -721,28 +721,28 @@ class Certifiate(pulumi.CustomResource):
             )])
         example_certificate = azure.keyvault.Certificate("exampleCertificate",
             key_vault_id=example_key_vault.id,
-            certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
-                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
+            certificate_policy=azure.keyvault.CertificateCertificatePolicyArrgs(
+                issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArrgs(
                     name="Self",
                 ),
-                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArgs(
+                key_properties=azure.keyvault.CertificateCertificatePolicyKeyPropertiesArrgs(
                     exportable=True,
                     key_size=2048,
                     key_type="RSA",
                     reuse_key=True,
                 ),
-                lifetime_actions=[azure.keyvault.CertificateCertificatePolicyLifetimeActionArgs(
-                    action=azure.keyvault.CertificateCertificatePolicyLifetimeActionActionArgs(
+                lifetime_actions=[azure.keyvault.CertificateCertificatePolicyLifetimeActionArrgs(
+                    action=azure.keyvault.CertificateCertificatePolicyLifetimeActionActionArrgs(
                         action_type="AutoRenew",
                     ),
-                    trigger=azure.keyvault.CertificateCertificatePolicyLifetimeActionTriggerArgs(
+                    trigger=azure.keyvault.CertificateCertificatePolicyLifetimeActionTriggerArrgs(
                         days_before_expiry=30,
                     ),
                 )],
-                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArgs(
+                secret_properties=azure.keyvault.CertificateCertificatePolicySecretPropertiesArrgs(
                     content_type="application/x-pkcs12",
                 ),
-                x509_certificate_properties=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesArgs(
+                x509_certificate_properties=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesArrgs(
                     extended_key_usages=["1.3.6.1.5.5.7.3.1"],
                     key_usages=[
                         "cRLSign",
@@ -752,7 +752,7 @@ class Certifiate(pulumi.CustomResource):
                         "keyCertSign",
                         "keyEncipherment",
                     ],
-                    subject_alternative_names=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs(
+                    subject_alternative_names=azure.keyvault.CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArrgs(
                         dns_names=[
                             "internal.contoso.com",
                             "domain.hello.world",
@@ -773,12 +773,12 @@ class Certifiate(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CertifiateArgs args: The arguments to use to populate this resource's properties.
+        :param CertifiateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CertifiateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CertifiateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -787,8 +787,8 @@ class Certifiate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate: Optional[pulumi.Input[pulumi.InputType['CertifiateCertificateArgs']]] = None,
-                 certificate_policy: Optional[pulumi.Input[pulumi.InputType['CertifiateCertificatePolicyArgs']]] = None,
+                 certificate: Optional[pulumi.Input[pulumi.InputType['CertifiateCertificateArrgs']]] = None,
+                 certificate_policy: Optional[pulumi.Input[pulumi.InputType['CertifiateCertificatePolicyArrgs']]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -800,7 +800,7 @@ class Certifiate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CertifiateArgs.__new__(CertifiateArgs)
+            __props__ = CertifiateArrgs.__new__(CertifiateArrgs)
 
             __props__.__dict__["certificate"] = certificate
             __props__.__dict__["certificate_policy"] = certificate_policy
@@ -829,11 +829,11 @@ class Certifiate(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            certificate: Optional[pulumi.Input[pulumi.InputType['CertifiateCertificateArgs']]] = None,
-            certificate_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertifiateCertificateAttributeArgs']]]]] = None,
+            certificate: Optional[pulumi.Input[pulumi.InputType['CertifiateCertificateArrgs']]] = None,
+            certificate_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertifiateCertificateAttributeArrgs']]]]] = None,
             certificate_data: Optional[pulumi.Input[str]] = None,
             certificate_data_base64: Optional[pulumi.Input[str]] = None,
-            certificate_policy: Optional[pulumi.Input[pulumi.InputType['CertifiateCertificatePolicyArgs']]] = None,
+            certificate_policy: Optional[pulumi.Input[pulumi.InputType['CertifiateCertificatePolicyArrgs']]] = None,
             key_vault_id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             resource_manager_id: Optional[pulumi.Input[str]] = None,
@@ -851,11 +851,11 @@ class Certifiate(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['CertifiateCertificateArgs']] certificate: A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertifiateCertificateAttributeArgs']]]] certificate_attributes: A `certificate_attribute` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CertifiateCertificateArrgs']] certificate: A `certificate` block as defined below, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertifiateCertificateAttributeArrgs']]]] certificate_attributes: A `certificate_attribute` block as defined below.
         :param pulumi.Input[str] certificate_data: The raw Key Vault Certificate data represented as a hexadecimal string.
         :param pulumi.Input[str] certificate_data_base64: The Base64 encoded Key Vault Certificate data.
-        :param pulumi.Input[pulumi.InputType['CertifiateCertificatePolicyArgs']] certificate_policy: A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
+        :param pulumi.Input[pulumi.InputType['CertifiateCertificatePolicyArrgs']] certificate_policy: A `certificate_policy` block as defined below. Changing this will create a new version of the Key Vault Certificate.
                
                > **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate.
         :param pulumi.Input[str] key_vault_id: The ID of the Key Vault where the Certificate should be created. Changing this forces a new resource to be created.

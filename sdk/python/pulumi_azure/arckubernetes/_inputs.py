@@ -10,17 +10,17 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ClusterExtensionIdentityArgs',
-    'ClusterIdentityArgs',
-    'FluxConfigurationBlobStorageArgs',
-    'FluxConfigurationBlobStorageServicePrincipalArgs',
-    'FluxConfigurationBucketArgs',
-    'FluxConfigurationGitRepositoryArgs',
-    'FluxConfigurationKustomizationArgs',
+    'ClusterExtensionIdentityArrgs',
+    'ClusterIdentityArrgs',
+    'FluxConfigurationBlobStorageArrgs',
+    'FluxConfigurationBlobStorageServicePrincipalArrgs',
+    'FluxConfigurationBucketArrgs',
+    'FluxConfigurationGitRepositoryArrgs',
+    'FluxConfigurationKustomizationArrgs',
 ]
 
 @pulumi.input_type
-class ClusterExtensionIdentityArgs:
+calass ClusterExtensionIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  principal_id: Optional[pulumi.Input[str]] = None,
@@ -74,7 +74,7 @@ class ClusterExtensionIdentityArgs:
 
 
 @pulumi.input_type
-class ClusterIdentityArgs:
+calass ClusterIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  principal_id: Optional[pulumi.Input[str]] = None,
@@ -128,13 +128,13 @@ class ClusterIdentityArgs:
 
 
 @pulumi.input_type
-class FluxConfigurationBlobStorageArgs:
+calass FluxConfigurationBlobStorageArrgs:
     def __init__(__self__, *,
                  container_id: pulumi.Input[str],
                  account_key: Optional[pulumi.Input[str]] = None,
                  local_auth_reference: Optional[pulumi.Input[str]] = None,
                  sas_token: Optional[pulumi.Input[str]] = None,
-                 service_principal: Optional[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArgs']] = None,
+                 service_principal: Optional[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArrgs']] = None,
                  sync_interval_in_seconds: Optional[pulumi.Input[int]] = None,
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None):
         """
@@ -142,7 +142,7 @@ class FluxConfigurationBlobStorageArgs:
         :param pulumi.Input[str] account_key: Specifies the account key (shared key) to access the storage account.
         :param pulumi.Input[str] local_auth_reference: Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
         :param pulumi.Input[str] sas_token: Specifies the shared access token to access the storage container.
-        :param pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArgs'] service_principal: A `service_principal` block as defined below.
+        :param pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArrgs'] service_principal: A `service_principal` block as defined below.
         :param pulumi.Input[int] sync_interval_in_seconds: Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote.
         :param pulumi.Input[int] timeout_in_seconds: Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
         """
@@ -210,14 +210,14 @@ class FluxConfigurationBlobStorageArgs:
 
     @property
     @pulumi.getter(name="servicePrincipal")
-    def service_principal(self) -> Optional[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArgs']]:
+    def service_principal(self) -> Optional[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArrgs']]:
         """
         A `service_principal` block as defined below.
         """
         return pulumi.get(self, "service_principal")
 
     @service_principal.setter
-    def service_principal(self, value: Optional[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArgs']]):
+    def service_principal(self, value: Optional[pulumi.Input['FluxConfigurationBlobStorageServicePrincipalArrgs']]):
         pulumi.set(self, "service_principal", value)
 
     @property
@@ -246,7 +246,7 @@ class FluxConfigurationBlobStorageArgs:
 
 
 @pulumi.input_type
-class FluxConfigurationBlobStorageServicePrincipalArgs:
+calass FluxConfigurationBlobStorageServicePrincipalArrgs:
     def __init__(__self__, *,
                  client_id: pulumi.Input[str],
                  tenant_id: pulumi.Input[str],
@@ -347,7 +347,7 @@ class FluxConfigurationBlobStorageServicePrincipalArgs:
 
 
 @pulumi.input_type
-class FluxConfigurationBucketArgs:
+calass FluxConfigurationBucketArrgs:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str],
                  url: pulumi.Input[str],
@@ -480,7 +480,7 @@ class FluxConfigurationBucketArgs:
 
 
 @pulumi.input_type
-class FluxConfigurationGitRepositoryArgs:
+calass FluxConfigurationGitRepositoryArrgs:
     def __init__(__self__, *,
                  reference_type: pulumi.Input[str],
                  reference_value: pulumi.Input[str],
@@ -660,7 +660,7 @@ class FluxConfigurationGitRepositoryArgs:
 
 
 @pulumi.input_type
-class FluxConfigurationKustomizationArgs:
+calass FluxConfigurationKustomizationArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  depends_ons: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

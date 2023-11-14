@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['SqlRoleAssignmentArgs', 'SqlRoleAssignment']
+__all__ = ['SqlRoleAssignmentArrgs', 'SqlRoleAssignment']
 
 @pulumi.input_type
-class SqlRoleAssignmentArgs:
+calass SqlRoleAssignmentArrgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  principal_id: pulumi.Input[str],
@@ -111,7 +111,7 @@ class SqlRoleAssignmentArgs:
 
 
 @pulumi.input_type
-class _SqlRoleAssignmentState:
+calass _SqlRoleAssignmentState:
     def __init__(__self__, *,
                  account_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -214,7 +214,7 @@ class _SqlRoleAssignmentState:
         pulumi.set(self, "scope", value)
 
 
-class SqlRoleAssignment(pulumi.CustomResource):
+calass SqlRoleAssignment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -242,10 +242,10 @@ class SqlRoleAssignment(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="Strong",
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -254,7 +254,7 @@ class SqlRoleAssignment(pulumi.CustomResource):
             account_name=example_account.name,
             type="CustomRole",
             assignable_scopes=[example_account.id],
-            permissions=[azure.cosmosdb.SqlRoleDefinitionPermissionArgs(
+            permissions=[azure.cosmosdb.SqlRoleDefinitionPermissionArrgs(
                 data_actions=["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
             )])
         example_sql_role_assignment = azure.cosmosdb.SqlRoleAssignment("exampleSqlRoleAssignment",
@@ -286,7 +286,7 @@ class SqlRoleAssignment(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SqlRoleAssignmentArgs,
+                 args: SqlRoleAssignmentArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Cosmos DB SQL Role Assignment.
@@ -304,10 +304,10 @@ class SqlRoleAssignment(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
-            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArrgs(
                 consistency_level="Strong",
             ),
-            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArrgs(
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
@@ -316,7 +316,7 @@ class SqlRoleAssignment(pulumi.CustomResource):
             account_name=example_account.name,
             type="CustomRole",
             assignable_scopes=[example_account.id],
-            permissions=[azure.cosmosdb.SqlRoleDefinitionPermissionArgs(
+            permissions=[azure.cosmosdb.SqlRoleDefinitionPermissionArrgs(
                 data_actions=["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
             )])
         example_sql_role_assignment = azure.cosmosdb.SqlRoleAssignment("exampleSqlRoleAssignment",
@@ -336,12 +336,12 @@ class SqlRoleAssignment(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SqlRoleAssignmentArgs args: The arguments to use to populate this resource's properties.
+        :param SqlRoleAssignmentArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SqlRoleAssignmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SqlRoleAssignmentArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -363,7 +363,7 @@ class SqlRoleAssignment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SqlRoleAssignmentArgs.__new__(SqlRoleAssignmentArgs)
+            __props__ = SqlRoleAssignmentArrgs.__new__(SqlRoleAssignmentArrgs)
 
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")

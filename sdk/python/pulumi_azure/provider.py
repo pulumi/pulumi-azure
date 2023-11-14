@@ -10,10 +10,10 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from ._inputs import *
 
-__all__ = ['ProviderArgs', 'Provider']
+__all__ = ['ProviderArrgs', 'Provider']
 
 @pulumi.input_type
-class ProviderArgs:
+calass ProviderArrgs:
     def __init__(__self__, *,
                  auxiliary_tenant_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_certificate: Optional[pulumi.Input[str]] = None,
@@ -26,7 +26,7 @@ class ProviderArgs:
                  disable_correlation_request_id: Optional[pulumi.Input[bool]] = None,
                  disable_terraform_partner_id: Optional[pulumi.Input[bool]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
-                 features: Optional[pulumi.Input['ProviderFeaturesArgs']] = None,
+                 features: Optional[pulumi.Input['ProviderFeaturesArrgs']] = None,
                  metadata_host: Optional[pulumi.Input[str]] = None,
                  msi_endpoint: Optional[pulumi.Input[str]] = None,
                  oidc_request_token: Optional[pulumi.Input[str]] = None,
@@ -272,11 +272,11 @@ class ProviderArgs:
 
     @property
     @pulumi.getter
-    def features(self) -> Optional[pulumi.Input['ProviderFeaturesArgs']]:
+    def features(self) -> Optional[pulumi.Input['ProviderFeaturesArrgs']]:
         return pulumi.get(self, "features")
 
     @features.setter
-    def features(self, value: Optional[pulumi.Input['ProviderFeaturesArgs']]):
+    def features(self, value: Optional[pulumi.Input['ProviderFeaturesArrgs']]):
         pulumi.set(self, "features", value)
 
     @property
@@ -452,7 +452,7 @@ class ProviderArgs:
         pulumi.set(self, "use_oidc", value)
 
 
-class Provider(pulumi.ProviderResource):
+calass Provider(pulumi.ProviderResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -468,7 +468,7 @@ class Provider(pulumi.ProviderResource):
                  disable_correlation_request_id: Optional[pulumi.Input[bool]] = None,
                  disable_terraform_partner_id: Optional[pulumi.Input[bool]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
-                 features: Optional[pulumi.Input[pulumi.InputType['ProviderFeaturesArgs']]] = None,
+                 features: Optional[pulumi.Input[pulumi.InputType['ProviderFeaturesArrgs']]] = None,
                  metadata_host: Optional[pulumi.Input[str]] = None,
                  msi_endpoint: Optional[pulumi.Input[str]] = None,
                  oidc_request_token: Optional[pulumi.Input[str]] = None,
@@ -528,7 +528,7 @@ class Provider(pulumi.ProviderResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ProviderArgs] = None,
+                 args: Optional[ProviderArrgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The provider type for the azurerm package. By default, resources use package-wide configuration
@@ -537,12 +537,12 @@ class Provider(pulumi.ProviderResource):
         [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
 
         :param str resource_name: The name of the resource.
-        :param ProviderArgs args: The arguments to use to populate this resource's properties.
+        :param ProviderArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ProviderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ProviderArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -562,7 +562,7 @@ class Provider(pulumi.ProviderResource):
                  disable_correlation_request_id: Optional[pulumi.Input[bool]] = None,
                  disable_terraform_partner_id: Optional[pulumi.Input[bool]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
-                 features: Optional[pulumi.Input[pulumi.InputType['ProviderFeaturesArgs']]] = None,
+                 features: Optional[pulumi.Input[pulumi.InputType['ProviderFeaturesArrgs']]] = None,
                  metadata_host: Optional[pulumi.Input[str]] = None,
                  msi_endpoint: Optional[pulumi.Input[str]] = None,
                  oidc_request_token: Optional[pulumi.Input[str]] = None,
@@ -584,7 +584,7 @@ class Provider(pulumi.ProviderResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ProviderArgs.__new__(ProviderArgs)
+            __props__ = ProviderArrgs.__new__(ProviderArrgs)
 
             __props__.__dict__["auxiliary_tenant_ids"] = pulumi.Output.from_input(auxiliary_tenant_ids).apply(pulumi.runtime.to_json) if auxiliary_tenant_ids is not None else None
             __props__.__dict__["client_certificate"] = client_certificate

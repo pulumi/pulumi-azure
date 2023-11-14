@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LinkedServiceCosmosDbMongoApiArgs', 'LinkedServiceCosmosDbMongoApi']
+__all__ = ['LinkedServiceCosmosDbMongoApiArrgs', 'LinkedServiceCosmosDbMongoApi']
 
 @pulumi.input_type
-class LinkedServiceCosmosDbMongoApiArgs:
+calass LinkedServiceCosmosDbMongoApiArrgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[str],
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -183,7 +183,7 @@ class LinkedServiceCosmosDbMongoApiArgs:
 
 
 @pulumi.input_type
-class _LinkedServiceCosmosDbMongoApiState:
+calass _LinkedServiceCosmosDbMongoApiState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -354,7 +354,7 @@ class _LinkedServiceCosmosDbMongoApiState:
         pulumi.set(self, "server_version_is32_or_higher", value)
 
 
-class LinkedServiceCosmosDbMongoApi(pulumi.CustomResource):
+calass LinkedServiceCosmosDbMongoApi(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -418,7 +418,7 @@ class LinkedServiceCosmosDbMongoApi(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LinkedServiceCosmosDbMongoApiArgs,
+                 args: LinkedServiceCosmosDbMongoApiArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Linked Service (connection) between a CosmosDB and Azure Data Factory using Mongo API.
@@ -450,12 +450,12 @@ class LinkedServiceCosmosDbMongoApi(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LinkedServiceCosmosDbMongoApiArgs args: The arguments to use to populate this resource's properties.
+        :param LinkedServiceCosmosDbMongoApiArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceCosmosDbMongoApiArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LinkedServiceCosmosDbMongoApiArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -481,7 +481,7 @@ class LinkedServiceCosmosDbMongoApi(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LinkedServiceCosmosDbMongoApiArgs.__new__(LinkedServiceCosmosDbMongoApiArgs)
+            __props__ = LinkedServiceCosmosDbMongoApiArrgs.__new__(LinkedServiceCosmosDbMongoApiArrgs)
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations

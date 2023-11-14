@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['PrivateLinkScopeArgs', 'PrivateLinkScope']
+__all__ = ['PrivateLinkScopeArrgs', 'PrivateLinkScope']
 
 @pulumi.input_type
-class PrivateLinkScopeArgs:
+calass PrivateLinkScopeArrgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
@@ -67,7 +67,7 @@ class PrivateLinkScopeArgs:
 
 
 @pulumi.input_type
-class _PrivateLinkScopeState:
+calass _PrivateLinkScopeState:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -122,7 +122,7 @@ class _PrivateLinkScopeState:
         pulumi.set(self, "tags", value)
 
 
-class PrivateLinkScope(pulumi.CustomResource):
+calass PrivateLinkScope(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -162,7 +162,7 @@ class PrivateLinkScope(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PrivateLinkScopeArgs,
+                 args: PrivateLinkScopeArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure Monitor Private Link Scope.
@@ -186,12 +186,12 @@ class PrivateLinkScope(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param PrivateLinkScopeArgs args: The arguments to use to populate this resource's properties.
+        :param PrivateLinkScopeArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PrivateLinkScopeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PrivateLinkScopeArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -210,7 +210,7 @@ class PrivateLinkScope(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PrivateLinkScopeArgs.__new__(PrivateLinkScopeArgs)
+            __props__ = PrivateLinkScopeArrgs.__new__(PrivateLinkScopeArrgs)
 
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:

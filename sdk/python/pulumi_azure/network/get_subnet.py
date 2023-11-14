@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSubnetResult:
+calass GetSubnetResult:
     """
     A collection of values returned by getSubnet.
     """
@@ -149,7 +149,7 @@ class GetSubnetResult:
         return pulumi.get(self, "virtual_network_name")
 
 
-class AwaitableGetSubnetResult(GetSubnetResult):
+calass AwaitableGetSubnetResult(GetSubnetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

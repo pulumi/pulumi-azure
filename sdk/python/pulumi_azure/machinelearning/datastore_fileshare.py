@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['DatastoreFileshareArgs', 'DatastoreFileshare']
+__all__ = ['DatastoreFileshareArrgs', 'DatastoreFileshare']
 
 @pulumi.input_type
-class DatastoreFileshareArgs:
+calass DatastoreFileshareArrgs:
     def __init__(__self__, *,
                  storage_fileshare_id: pulumi.Input[str],
                  workspace_id: pulumi.Input[str],
@@ -146,7 +146,7 @@ class DatastoreFileshareArgs:
 
 
 @pulumi.input_type
-class _DatastoreFileshareState:
+calass _DatastoreFileshareState:
     def __init__(__self__, *,
                  account_key: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -297,7 +297,7 @@ class _DatastoreFileshareState:
         pulumi.set(self, "workspace_id", value)
 
 
-class DatastoreFileshare(pulumi.CustomResource):
+calass DatastoreFileshare(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -339,7 +339,7 @@ class DatastoreFileshare(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DatastoreFileshareArgs,
+                 args: DatastoreFileshareArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Machine Learning File Share DataStore.
@@ -355,12 +355,12 @@ class DatastoreFileshare(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DatastoreFileshareArgs args: The arguments to use to populate this resource's properties.
+        :param DatastoreFileshareArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DatastoreFileshareArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DatastoreFileshareArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -384,7 +384,7 @@ class DatastoreFileshare(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DatastoreFileshareArgs.__new__(DatastoreFileshareArgs)
+            __props__ = DatastoreFileshareArrgs.__new__(DatastoreFileshareArrgs)
 
             __props__.__dict__["account_key"] = None if account_key is None else pulumi.Output.secret(account_key)
             __props__.__dict__["description"] = description

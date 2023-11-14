@@ -11,15 +11,15 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['SharedImageVersionArgs', 'SharedImageVersion']
+__all__ = ['SharedImageVersionArrgs', 'SharedImageVersion']
 
 @pulumi.input_type
-class SharedImageVersionArgs:
+calass SharedImageVersionArrgs:
     def __init__(__self__, *,
                  gallery_name: pulumi.Input[str],
                  image_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 target_regions: pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]],
+                 target_regions: pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArrgs']]],
                  blob_uri: Optional[pulumi.Input[str]] = None,
                  deletion_of_replicated_locations_enabled: Optional[pulumi.Input[bool]] = None,
                  end_of_life_date: Optional[pulumi.Input[str]] = None,
@@ -36,7 +36,7 @@ class SharedImageVersionArgs:
         :param pulumi.Input[str] gallery_name: The name of the Shared Image Gallery in which the Shared Image exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] image_name: The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]] target_regions: One or more `target_region` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArrgs']]] target_regions: One or more `target_region` blocks as documented below.
         :param pulumi.Input[str] blob_uri: URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
                
                > **NOTE:** You must specify exact one of `blob_uri`, `managed_image_id` and `os_disk_snapshot_id`.
@@ -126,14 +126,14 @@ class SharedImageVersionArgs:
 
     @property
     @pulumi.getter(name="targetRegions")
-    def target_regions(self) -> pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]]:
+    def target_regions(self) -> pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArrgs']]]:
         """
         One or more `target_region` blocks as documented below.
         """
         return pulumi.get(self, "target_regions")
 
     @target_regions.setter
-    def target_regions(self, value: pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]]):
+    def target_regions(self, value: pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArrgs']]]):
         pulumi.set(self, "target_regions", value)
 
     @property
@@ -282,7 +282,7 @@ class SharedImageVersionArgs:
 
 
 @pulumi.input_type
-class _SharedImageVersionState:
+calass _SharedImageVersionState:
     def __init__(__self__, *,
                  blob_uri: Optional[pulumi.Input[str]] = None,
                  deletion_of_replicated_locations_enabled: Optional[pulumi.Input[bool]] = None,
@@ -298,7 +298,7 @@ class _SharedImageVersionState:
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]]] = None):
+                 target_regions: Optional[pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArrgs']]]] = None):
         """
         Input properties used for looking up and filtering SharedImageVersion resources.
         :param pulumi.Input[str] blob_uri: URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created.
@@ -327,7 +327,7 @@ class _SharedImageVersionState:
                
                > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A collection of tags which should be applied to this resource.
-        :param pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]] target_regions: One or more `target_region` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArrgs']]] target_regions: One or more `target_region` blocks as documented below.
         """
         if blob_uri is not None:
             pulumi.set(__self__, "blob_uri", blob_uri)
@@ -542,18 +542,18 @@ class _SharedImageVersionState:
 
     @property
     @pulumi.getter(name="targetRegions")
-    def target_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]]]:
+    def target_regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArrgs']]]]:
         """
         One or more `target_region` blocks as documented below.
         """
         return pulumi.get(self, "target_regions")
 
     @target_regions.setter
-    def target_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArgs']]]]):
+    def target_regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SharedImageVersionTargetRegionArrgs']]]]):
         pulumi.set(self, "target_regions", value)
 
 
-class SharedImageVersion(pulumi.CustomResource):
+calass SharedImageVersion(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -572,7 +572,7 @@ class SharedImageVersion(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedImageVersionTargetRegionArgs']]]]] = None,
+                 target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedImageVersionTargetRegionArrgs']]]]] = None,
                  __props__=None):
         """
         Manages a Version of a Shared Image within a Shared Image Gallery.
@@ -594,7 +594,7 @@ class SharedImageVersion(pulumi.CustomResource):
             resource_group_name=existing_shared_image.resource_group_name,
             location=existing_shared_image.location,
             managed_image_id=existing_image.id,
-            target_regions=[azure.compute.SharedImageVersionTargetRegionArgs(
+            target_regions=[azure.compute.SharedImageVersionTargetRegionArrgs(
                 name=existing_shared_image.location,
                 regional_replica_count=5,
                 storage_account_type="Standard_LRS",
@@ -637,13 +637,13 @@ class SharedImageVersion(pulumi.CustomResource):
                
                > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A collection of tags which should be applied to this resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedImageVersionTargetRegionArgs']]]] target_regions: One or more `target_region` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedImageVersionTargetRegionArrgs']]]] target_regions: One or more `target_region` blocks as documented below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SharedImageVersionArgs,
+                 args: SharedImageVersionArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Version of a Shared Image within a Shared Image Gallery.
@@ -665,7 +665,7 @@ class SharedImageVersion(pulumi.CustomResource):
             resource_group_name=existing_shared_image.resource_group_name,
             location=existing_shared_image.location,
             managed_image_id=existing_image.id,
-            target_regions=[azure.compute.SharedImageVersionTargetRegionArgs(
+            target_regions=[azure.compute.SharedImageVersionTargetRegionArrgs(
                 name=existing_shared_image.location,
                 regional_replica_count=5,
                 storage_account_type="Standard_LRS",
@@ -681,12 +681,12 @@ class SharedImageVersion(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param SharedImageVersionArgs args: The arguments to use to populate this resource's properties.
+        :param SharedImageVersionArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(SharedImageVersionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(SharedImageVersionArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -709,7 +709,7 @@ class SharedImageVersion(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedImageVersionTargetRegionArgs']]]]] = None,
+                 target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedImageVersionTargetRegionArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -717,7 +717,7 @@ class SharedImageVersion(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = SharedImageVersionArgs.__new__(SharedImageVersionArgs)
+            __props__ = SharedImageVersionArrgs.__new__(SharedImageVersionArrgs)
 
             __props__.__dict__["blob_uri"] = blob_uri
             __props__.__dict__["deletion_of_replicated_locations_enabled"] = deletion_of_replicated_locations_enabled
@@ -766,7 +766,7 @@ class SharedImageVersion(pulumi.CustomResource):
             resource_group_name: Optional[pulumi.Input[str]] = None,
             storage_account_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedImageVersionTargetRegionArgs']]]]] = None) -> 'SharedImageVersion':
+            target_regions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedImageVersionTargetRegionArrgs']]]]] = None) -> 'SharedImageVersion':
         """
         Get an existing SharedImageVersion resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -800,7 +800,7 @@ class SharedImageVersion(pulumi.CustomResource):
                
                > **NOTE:** `blob_uri` and `storage_account_id` must be specified together
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A collection of tags which should be applied to this resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedImageVersionTargetRegionArgs']]]] target_regions: One or more `target_region` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SharedImageVersionTargetRegionArrgs']]]] target_regions: One or more `target_region` blocks as documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

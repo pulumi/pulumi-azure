@@ -11,20 +11,20 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['AlertRuleAnomalyDuplicateArgs', 'AlertRuleAnomalyDuplicate']
+__all__ = ['AlertRuleAnomalyDuplicateArrgs', 'AlertRuleAnomalyDuplicate']
 
 @pulumi.input_type
-class AlertRuleAnomalyDuplicateArgs:
+calass AlertRuleAnomalyDuplicateArrgs:
     def __init__(__self__, *,
                  built_in_rule_id: pulumi.Input[str],
                  display_name: pulumi.Input[str],
                  enabled: pulumi.Input[bool],
                  log_analytics_workspace_id: pulumi.Input[str],
                  mode: pulumi.Input[str],
-                 multi_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateMultiSelectObservationArgs']]]] = None,
-                 prioritized_exclude_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs']]]] = None,
-                 single_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateSingleSelectObservationArgs']]]] = None,
-                 threshold_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArgs']]]] = None):
+                 multi_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateMultiSelectObservationArrgs']]]] = None,
+                 prioritized_exclude_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrgs']]]] = None,
+                 single_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateSingleSelectObservationArrgs']]]] = None,
+                 threshold_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArrgs']]]] = None):
         """
         The set of arguments for constructing a AlertRuleAnomalyDuplicate resource.
         :param pulumi.Input[str] built_in_rule_id: The ID of the built-in Anomaly Alert Rule. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
@@ -32,10 +32,10 @@ class AlertRuleAnomalyDuplicateArgs:
         :param pulumi.Input[bool] enabled: Should the Duplicated Anomaly Alert Rule be enabled?
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
         :param pulumi.Input[str] mode: mode of the Duplicated Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
-        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateMultiSelectObservationArgs']]] multi_select_observations: A list of `multi_select_observation` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs']]] prioritized_exclude_observations: A list of `prioritized_exclude_observation` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateSingleSelectObservationArgs']]] single_select_observations: A list of `single_select_observation` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArgs']]] threshold_observations: A list of `threshold_observation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateMultiSelectObservationArrgs']]] multi_select_observations: A list of `multi_select_observation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrgs']]] prioritized_exclude_observations: A list of `prioritized_exclude_observation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateSingleSelectObservationArrgs']]] single_select_observations: A list of `single_select_observation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArrgs']]] threshold_observations: A list of `threshold_observation` blocks as defined below.
                
                > **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
         """
@@ -115,43 +115,43 @@ class AlertRuleAnomalyDuplicateArgs:
 
     @property
     @pulumi.getter(name="multiSelectObservations")
-    def multi_select_observations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateMultiSelectObservationArgs']]]]:
+    def multi_select_observations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateMultiSelectObservationArrgs']]]]:
         """
         A list of `multi_select_observation` blocks as defined below.
         """
         return pulumi.get(self, "multi_select_observations")
 
     @multi_select_observations.setter
-    def multi_select_observations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateMultiSelectObservationArgs']]]]):
+    def multi_select_observations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateMultiSelectObservationArrgs']]]]):
         pulumi.set(self, "multi_select_observations", value)
 
     @property
     @pulumi.getter(name="prioritizedExcludeObservations")
-    def prioritized_exclude_observations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs']]]]:
+    def prioritized_exclude_observations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrgs']]]]:
         """
         A list of `prioritized_exclude_observation` blocks as defined below.
         """
         return pulumi.get(self, "prioritized_exclude_observations")
 
     @prioritized_exclude_observations.setter
-    def prioritized_exclude_observations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs']]]]):
+    def prioritized_exclude_observations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrgs']]]]):
         pulumi.set(self, "prioritized_exclude_observations", value)
 
     @property
     @pulumi.getter(name="singleSelectObservations")
-    def single_select_observations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateSingleSelectObservationArgs']]]]:
+    def single_select_observations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateSingleSelectObservationArrgs']]]]:
         """
         A list of `single_select_observation` blocks as defined below.
         """
         return pulumi.get(self, "single_select_observations")
 
     @single_select_observations.setter
-    def single_select_observations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateSingleSelectObservationArgs']]]]):
+    def single_select_observations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateSingleSelectObservationArrgs']]]]):
         pulumi.set(self, "single_select_observations", value)
 
     @property
     @pulumi.getter(name="thresholdObservations")
-    def threshold_observations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArgs']]]]:
+    def threshold_observations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArrgs']]]]:
         """
         A list of `threshold_observation` blocks as defined below.
 
@@ -160,12 +160,12 @@ class AlertRuleAnomalyDuplicateArgs:
         return pulumi.get(self, "threshold_observations")
 
     @threshold_observations.setter
-    def threshold_observations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArgs']]]]):
+    def threshold_observations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArrgs']]]]):
         pulumi.set(self, "threshold_observations", value)
 
 
 @pulumi.input_type
-class _AlertRuleAnomalyDuplicateState:
+calass _AlertRuleAnomalyDuplicateState:
     def __init__(__self__, *,
                  anomaly_settings_version: Optional[pulumi.Input[int]] = None,
                  anomaly_version: Optional[pulumi.Input[str]] = None,
@@ -177,15 +177,15 @@ class _AlertRuleAnomalyDuplicateState:
                  is_default_settings: Optional[pulumi.Input[bool]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
-                 multi_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateMultiSelectObservationArgs']]]] = None,
+                 multi_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateMultiSelectObservationArrgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 prioritized_exclude_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs']]]] = None,
-                 required_data_connectors: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateRequiredDataConnectorArgs']]]] = None,
+                 prioritized_exclude_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrgs']]]] = None,
+                 required_data_connectors: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateRequiredDataConnectorArrgs']]]] = None,
                  settings_definition_id: Optional[pulumi.Input[str]] = None,
-                 single_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateSingleSelectObservationArgs']]]] = None,
+                 single_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateSingleSelectObservationArrgs']]]] = None,
                  tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 threshold_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArgs']]]] = None):
+                 threshold_observations: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArrgs']]]] = None):
         """
         Input properties used for looking up and filtering AlertRuleAnomalyDuplicate resources.
         :param pulumi.Input[int] anomaly_settings_version: The version of the Anomaly Security ML Analytics Settings.
@@ -198,15 +198,15 @@ class _AlertRuleAnomalyDuplicateState:
         :param pulumi.Input[bool] is_default_settings: Whether the current settings of the Anomaly Alert Rule equals default settings.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
         :param pulumi.Input[str] mode: mode of the Duplicated Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
-        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateMultiSelectObservationArgs']]] multi_select_observations: A list of `multi_select_observation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateMultiSelectObservationArrgs']]] multi_select_observations: A list of `multi_select_observation` blocks as defined below.
         :param pulumi.Input[str] name: The name of the multi select observation.
-        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs']]] prioritized_exclude_observations: A list of `prioritized_exclude_observation` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateRequiredDataConnectorArgs']]] required_data_connectors: A `required_data_connector` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrgs']]] prioritized_exclude_observations: A list of `prioritized_exclude_observation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateRequiredDataConnectorArrgs']]] required_data_connectors: A `required_data_connector` block as defined below.
         :param pulumi.Input[str] settings_definition_id: The ID of the anomaly settings definition Id.
-        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateSingleSelectObservationArgs']]] single_select_observations: A list of `single_select_observation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateSingleSelectObservationArrgs']]] single_select_observations: A list of `single_select_observation` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tactics: A list of categories of attacks by which to classify the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] techniques: A list of techniques of attacks by which to classify the rule.
-        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArgs']]] threshold_observations: A list of `threshold_observation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArrgs']]] threshold_observations: A list of `threshold_observation` blocks as defined below.
                
                > **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
         """
@@ -371,14 +371,14 @@ class _AlertRuleAnomalyDuplicateState:
 
     @property
     @pulumi.getter(name="multiSelectObservations")
-    def multi_select_observations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateMultiSelectObservationArgs']]]]:
+    def multi_select_observations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateMultiSelectObservationArrgs']]]]:
         """
         A list of `multi_select_observation` blocks as defined below.
         """
         return pulumi.get(self, "multi_select_observations")
 
     @multi_select_observations.setter
-    def multi_select_observations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateMultiSelectObservationArgs']]]]):
+    def multi_select_observations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateMultiSelectObservationArrgs']]]]):
         pulumi.set(self, "multi_select_observations", value)
 
     @property
@@ -395,26 +395,26 @@ class _AlertRuleAnomalyDuplicateState:
 
     @property
     @pulumi.getter(name="prioritizedExcludeObservations")
-    def prioritized_exclude_observations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs']]]]:
+    def prioritized_exclude_observations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrgs']]]]:
         """
         A list of `prioritized_exclude_observation` blocks as defined below.
         """
         return pulumi.get(self, "prioritized_exclude_observations")
 
     @prioritized_exclude_observations.setter
-    def prioritized_exclude_observations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs']]]]):
+    def prioritized_exclude_observations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrgs']]]]):
         pulumi.set(self, "prioritized_exclude_observations", value)
 
     @property
     @pulumi.getter(name="requiredDataConnectors")
-    def required_data_connectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateRequiredDataConnectorArgs']]]]:
+    def required_data_connectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateRequiredDataConnectorArrgs']]]]:
         """
         A `required_data_connector` block as defined below.
         """
         return pulumi.get(self, "required_data_connectors")
 
     @required_data_connectors.setter
-    def required_data_connectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateRequiredDataConnectorArgs']]]]):
+    def required_data_connectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateRequiredDataConnectorArrgs']]]]):
         pulumi.set(self, "required_data_connectors", value)
 
     @property
@@ -431,14 +431,14 @@ class _AlertRuleAnomalyDuplicateState:
 
     @property
     @pulumi.getter(name="singleSelectObservations")
-    def single_select_observations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateSingleSelectObservationArgs']]]]:
+    def single_select_observations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateSingleSelectObservationArrgs']]]]:
         """
         A list of `single_select_observation` blocks as defined below.
         """
         return pulumi.get(self, "single_select_observations")
 
     @single_select_observations.setter
-    def single_select_observations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateSingleSelectObservationArgs']]]]):
+    def single_select_observations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateSingleSelectObservationArrgs']]]]):
         pulumi.set(self, "single_select_observations", value)
 
     @property
@@ -467,7 +467,7 @@ class _AlertRuleAnomalyDuplicateState:
 
     @property
     @pulumi.getter(name="thresholdObservations")
-    def threshold_observations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArgs']]]]:
+    def threshold_observations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArrgs']]]]:
         """
         A list of `threshold_observation` blocks as defined below.
 
@@ -476,11 +476,11 @@ class _AlertRuleAnomalyDuplicateState:
         return pulumi.get(self, "threshold_observations")
 
     @threshold_observations.setter
-    def threshold_observations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArgs']]]]):
+    def threshold_observations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AlertRuleAnomalyDuplicateThresholdObservationArrgs']]]]):
         pulumi.set(self, "threshold_observations", value)
 
 
-class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
+calass AlertRuleAnomalyDuplicate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -490,10 +490,10 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
-                 multi_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateMultiSelectObservationArgs']]]]] = None,
-                 prioritized_exclude_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs']]]]] = None,
-                 single_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateSingleSelectObservationArgs']]]]] = None,
-                 threshold_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateThresholdObservationArgs']]]]] = None,
+                 multi_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateMultiSelectObservationArrgs']]]]] = None,
+                 prioritized_exclude_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrgs']]]]] = None,
+                 single_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateSingleSelectObservationArrgs']]]]] = None,
+                 threshold_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateThresholdObservationArrgs']]]]] = None,
                  __props__=None):
         """
         Manages a Duplicated Anomaly Alert Rule.
@@ -520,7 +520,7 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
             built_in_rule_id=example_alert_rule_anomaly.id,
             enabled=True,
             mode="Flighting",
-            threshold_observations=[azure.sentinel.AlertRuleAnomalyDuplicateThresholdObservationArgs(
+            threshold_observations=[azure.sentinel.AlertRuleAnomalyDuplicateThresholdObservationArrgs(
                 name="Anomaly score threshold",
                 value="0.6",
             )])
@@ -541,10 +541,10 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
         :param pulumi.Input[bool] enabled: Should the Duplicated Anomaly Alert Rule be enabled?
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
         :param pulumi.Input[str] mode: mode of the Duplicated Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateMultiSelectObservationArgs']]]] multi_select_observations: A list of `multi_select_observation` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs']]]] prioritized_exclude_observations: A list of `prioritized_exclude_observation` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateSingleSelectObservationArgs']]]] single_select_observations: A list of `single_select_observation` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateThresholdObservationArgs']]]] threshold_observations: A list of `threshold_observation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateMultiSelectObservationArrgs']]]] multi_select_observations: A list of `multi_select_observation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrgs']]]] prioritized_exclude_observations: A list of `prioritized_exclude_observation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateSingleSelectObservationArrgs']]]] single_select_observations: A list of `single_select_observation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateThresholdObservationArrgs']]]] threshold_observations: A list of `threshold_observation` blocks as defined below.
                
                > **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
         """
@@ -552,7 +552,7 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AlertRuleAnomalyDuplicateArgs,
+                 args: AlertRuleAnomalyDuplicateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Duplicated Anomaly Alert Rule.
@@ -579,7 +579,7 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
             built_in_rule_id=example_alert_rule_anomaly.id,
             enabled=True,
             mode="Flighting",
-            threshold_observations=[azure.sentinel.AlertRuleAnomalyDuplicateThresholdObservationArgs(
+            threshold_observations=[azure.sentinel.AlertRuleAnomalyDuplicateThresholdObservationArrgs(
                 name="Anomaly score threshold",
                 value="0.6",
             )])
@@ -594,12 +594,12 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param AlertRuleAnomalyDuplicateArgs args: The arguments to use to populate this resource's properties.
+        :param AlertRuleAnomalyDuplicateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(AlertRuleAnomalyDuplicateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(AlertRuleAnomalyDuplicateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -613,10 +613,10 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
                  enabled: Optional[pulumi.Input[bool]] = None,
                  log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
-                 multi_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateMultiSelectObservationArgs']]]]] = None,
-                 prioritized_exclude_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs']]]]] = None,
-                 single_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateSingleSelectObservationArgs']]]]] = None,
-                 threshold_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateThresholdObservationArgs']]]]] = None,
+                 multi_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateMultiSelectObservationArrgs']]]]] = None,
+                 prioritized_exclude_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrgs']]]]] = None,
+                 single_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateSingleSelectObservationArrgs']]]]] = None,
+                 threshold_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateThresholdObservationArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -624,7 +624,7 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = AlertRuleAnomalyDuplicateArgs.__new__(AlertRuleAnomalyDuplicateArgs)
+            __props__ = AlertRuleAnomalyDuplicateArrgs.__new__(AlertRuleAnomalyDuplicateArrgs)
 
             if built_in_rule_id is None and not opts.urn:
                 raise TypeError("Missing required property 'built_in_rule_id'")
@@ -675,15 +675,15 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
             is_default_settings: Optional[pulumi.Input[bool]] = None,
             log_analytics_workspace_id: Optional[pulumi.Input[str]] = None,
             mode: Optional[pulumi.Input[str]] = None,
-            multi_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateMultiSelectObservationArgs']]]]] = None,
+            multi_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateMultiSelectObservationArrgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            prioritized_exclude_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs']]]]] = None,
-            required_data_connectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateRequiredDataConnectorArgs']]]]] = None,
+            prioritized_exclude_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrgs']]]]] = None,
+            required_data_connectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateRequiredDataConnectorArrgs']]]]] = None,
             settings_definition_id: Optional[pulumi.Input[str]] = None,
-            single_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateSingleSelectObservationArgs']]]]] = None,
+            single_select_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateSingleSelectObservationArrgs']]]]] = None,
             tactics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             techniques: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            threshold_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateThresholdObservationArgs']]]]] = None) -> 'AlertRuleAnomalyDuplicate':
+            threshold_observations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateThresholdObservationArrgs']]]]] = None) -> 'AlertRuleAnomalyDuplicate':
         """
         Get an existing AlertRuleAnomalyDuplicate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -701,15 +701,15 @@ class AlertRuleAnomalyDuplicate(pulumi.CustomResource):
         :param pulumi.Input[bool] is_default_settings: Whether the current settings of the Anomaly Alert Rule equals default settings.
         :param pulumi.Input[str] log_analytics_workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Duplicated Anomaly Alert Rule to be created.
         :param pulumi.Input[str] mode: mode of the Duplicated Anomaly Alert Rule. Possible Values are `Production` and `Flighting`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateMultiSelectObservationArgs']]]] multi_select_observations: A list of `multi_select_observation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateMultiSelectObservationArrgs']]]] multi_select_observations: A list of `multi_select_observation` blocks as defined below.
         :param pulumi.Input[str] name: The name of the multi select observation.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArgs']]]] prioritized_exclude_observations: A list of `prioritized_exclude_observation` blocks as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateRequiredDataConnectorArgs']]]] required_data_connectors: A `required_data_connector` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicatePrioritizedExcludeObservationArrgs']]]] prioritized_exclude_observations: A list of `prioritized_exclude_observation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateRequiredDataConnectorArrgs']]]] required_data_connectors: A `required_data_connector` block as defined below.
         :param pulumi.Input[str] settings_definition_id: The ID of the anomaly settings definition Id.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateSingleSelectObservationArgs']]]] single_select_observations: A list of `single_select_observation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateSingleSelectObservationArrgs']]]] single_select_observations: A list of `single_select_observation` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tactics: A list of categories of attacks by which to classify the rule.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] techniques: A list of techniques of attacks by which to classify the rule.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateThresholdObservationArgs']]]] threshold_observations: A list of `threshold_observation` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AlertRuleAnomalyDuplicateThresholdObservationArrgs']]]] threshold_observations: A list of `threshold_observation` blocks as defined below.
                
                > **NOTE:** un-specified `multi_select_observation`, `single_select_observation`, `prioritized_exclude_observation` and `threshold_observation` will be inherited from the built-in Anomaly Alert Rule.
         """

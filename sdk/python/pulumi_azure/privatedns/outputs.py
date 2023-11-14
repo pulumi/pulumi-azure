@@ -25,7 +25,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class LinkServiceNatIpConfiguration(dict):
+calass LinkServiceNatIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -114,7 +114,7 @@ class LinkServiceNatIpConfiguration(dict):
 
 
 @pulumi.output_type
-class MxRecordRecord(dict):
+calass MxRecordRecord(dict):
     def __init__(__self__, *,
                  exchange: str,
                  preference: int):
@@ -143,7 +143,7 @@ class MxRecordRecord(dict):
 
 
 @pulumi.output_type
-class ResolverForwardingRuleTargetDnsServer(dict):
+calass ResolverForwardingRuleTargetDnsServer(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -190,7 +190,7 @@ class ResolverForwardingRuleTargetDnsServer(dict):
 
 
 @pulumi.output_type
-class ResolverInboundEndpointIpConfiguration(dict):
+calass ResolverInboundEndpointIpConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -253,7 +253,7 @@ class ResolverInboundEndpointIpConfiguration(dict):
 
 
 @pulumi.output_type
-class SRVRecordRecord(dict):
+calass SRVRecordRecord(dict):
     def __init__(__self__, *,
                  port: int,
                  priority: int,
@@ -304,7 +304,7 @@ class SRVRecordRecord(dict):
 
 
 @pulumi.output_type
-class TxtRecordRecord(dict):
+calass TxtRecordRecord(dict):
     def __init__(__self__, *,
                  value: str):
         """
@@ -322,7 +322,7 @@ class TxtRecordRecord(dict):
 
 
 @pulumi.output_type
-class ZoneSoaRecord(dict):
+calass ZoneSoaRecord(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -475,7 +475,7 @@ class ZoneSoaRecord(dict):
 
 
 @pulumi.output_type
-class GetMxRecordRecordResult(dict):
+calass GetMxRecordRecordResult(dict):
     def __init__(__self__, *,
                  exchange: str,
                  preference: int):
@@ -504,7 +504,7 @@ class GetMxRecordRecordResult(dict):
 
 
 @pulumi.output_type
-class GetResolverForwardingRuleTargetDnsServerResult(dict):
+calass GetResolverForwardingRuleTargetDnsServerResult(dict):
     def __init__(__self__, *,
                  ip_address: str,
                  port: int):
@@ -533,7 +533,7 @@ class GetResolverForwardingRuleTargetDnsServerResult(dict):
 
 
 @pulumi.output_type
-class GetResolverInboundEndpointIpConfigurationResult(dict):
+calass GetResolverInboundEndpointIpConfigurationResult(dict):
     def __init__(__self__, *,
                  private_ip_address: str,
                  private_ip_allocation_method: str,
@@ -573,7 +573,7 @@ class GetResolverInboundEndpointIpConfigurationResult(dict):
 
 
 @pulumi.output_type
-class GetSrvRecordRecordResult(dict):
+calass GetSrvRecordRecordResult(dict):
     def __init__(__self__, *,
                  port: int,
                  priority: int,
@@ -624,7 +624,7 @@ class GetSrvRecordRecordResult(dict):
 
 
 @pulumi.output_type
-class GetTxtRecordRecordResult(dict):
+calass GetTxtRecordRecordResult(dict):
     def __init__(__self__, *,
                  value: str):
         """

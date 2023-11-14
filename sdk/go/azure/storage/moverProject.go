@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Storage Mover Project.
@@ -172,12 +171,6 @@ func (i *MoverProject) ToMoverProjectOutputWithContext(ctx context.Context) Move
 	return pulumi.ToOutputWithContext(ctx, i).(MoverProjectOutput)
 }
 
-func (i *MoverProject) ToOutput(ctx context.Context) pulumix.Output[*MoverProject] {
-	return pulumix.Output[*MoverProject]{
-		OutputState: i.ToMoverProjectOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MoverProjectArrayInput is an input type that accepts MoverProjectArray and MoverProjectArrayOutput values.
 // You can construct a concrete instance of `MoverProjectArrayInput` via:
 //
@@ -201,12 +194,6 @@ func (i MoverProjectArray) ToMoverProjectArrayOutput() MoverProjectArrayOutput {
 
 func (i MoverProjectArray) ToMoverProjectArrayOutputWithContext(ctx context.Context) MoverProjectArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MoverProjectArrayOutput)
-}
-
-func (i MoverProjectArray) ToOutput(ctx context.Context) pulumix.Output[[]*MoverProject] {
-	return pulumix.Output[[]*MoverProject]{
-		OutputState: i.ToMoverProjectArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MoverProjectMapInput is an input type that accepts MoverProjectMap and MoverProjectMapOutput values.
@@ -234,12 +221,6 @@ func (i MoverProjectMap) ToMoverProjectMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(MoverProjectMapOutput)
 }
 
-func (i MoverProjectMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MoverProject] {
-	return pulumix.Output[map[string]*MoverProject]{
-		OutputState: i.ToMoverProjectMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MoverProjectOutput struct{ *pulumi.OutputState }
 
 func (MoverProjectOutput) ElementType() reflect.Type {
@@ -252,12 +233,6 @@ func (o MoverProjectOutput) ToMoverProjectOutput() MoverProjectOutput {
 
 func (o MoverProjectOutput) ToMoverProjectOutputWithContext(ctx context.Context) MoverProjectOutput {
 	return o
-}
-
-func (o MoverProjectOutput) ToOutput(ctx context.Context) pulumix.Output[*MoverProject] {
-	return pulumix.Output[*MoverProject]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a description for this Storage Mover Project.
@@ -289,12 +264,6 @@ func (o MoverProjectArrayOutput) ToMoverProjectArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o MoverProjectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MoverProject] {
-	return pulumix.Output[[]*MoverProject]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MoverProjectArrayOutput) Index(i pulumi.IntInput) MoverProjectOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MoverProject {
 		return vs[0].([]*MoverProject)[vs[1].(int)]
@@ -313,12 +282,6 @@ func (o MoverProjectMapOutput) ToMoverProjectMapOutput() MoverProjectMapOutput {
 
 func (o MoverProjectMapOutput) ToMoverProjectMapOutputWithContext(ctx context.Context) MoverProjectMapOutput {
 	return o
-}
-
-func (o MoverProjectMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MoverProject] {
-	return pulumix.Output[map[string]*MoverProject]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MoverProjectMapOutput) MapIndex(k pulumi.StringInput) MoverProjectOutput {

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['LocalRulestackCertificateArgs', 'LocalRulestackCertificate']
+__all__ = ['LocalRulestackCertificateArrgs', 'LocalRulestackCertificate']
 
 @pulumi.input_type
-class LocalRulestackCertificateArgs:
+calass LocalRulestackCertificateArrgs:
     def __init__(__self__, *,
                  rulestack_id: pulumi.Input[str],
                  audit_comment: Optional[pulumi.Input[str]] = None,
@@ -119,7 +119,7 @@ class LocalRulestackCertificateArgs:
 
 
 @pulumi.input_type
-class _LocalRulestackCertificateState:
+calass _LocalRulestackCertificateState:
     def __init__(__self__, *,
                  audit_comment: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -226,7 +226,7 @@ class _LocalRulestackCertificateState:
         pulumi.set(self, "self_signed", value)
 
 
-class LocalRulestackCertificate(pulumi.CustomResource):
+calass LocalRulestackCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -279,7 +279,7 @@ class LocalRulestackCertificate(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LocalRulestackCertificateArgs,
+                 args: LocalRulestackCertificateArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Palo Alto Networks Rulestack Certificate.
@@ -308,12 +308,12 @@ class LocalRulestackCertificate(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param LocalRulestackCertificateArgs args: The arguments to use to populate this resource's properties.
+        :param LocalRulestackCertificateArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LocalRulestackCertificateArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LocalRulestackCertificateArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -335,7 +335,7 @@ class LocalRulestackCertificate(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LocalRulestackCertificateArgs.__new__(LocalRulestackCertificateArgs)
+            __props__ = LocalRulestackCertificateArrgs.__new__(LocalRulestackCertificateArrgs)
 
             __props__.__dict__["audit_comment"] = audit_comment
             __props__.__dict__["description"] = description

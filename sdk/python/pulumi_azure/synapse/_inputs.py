@@ -10,25 +10,25 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'LinkedServiceIntegrationRuntimeArgs',
-    'SparkPoolAutoPauseArgs',
-    'SparkPoolAutoScaleArgs',
-    'SparkPoolLibraryRequirementArgs',
-    'SparkPoolSparkConfigArgs',
-    'SqlPoolRestoreArgs',
-    'SqlPoolVulnerabilityAssessmentBaselineBaselineArgs',
-    'SqlPoolVulnerabilityAssessmentRecurringScansArgs',
-    'WorkspaceAadAdminArgs',
-    'WorkspaceAzureDevopsRepoArgs',
-    'WorkspaceCustomerManagedKeyArgs',
-    'WorkspaceGithubRepoArgs',
-    'WorkspaceIdentityArgs',
-    'WorkspaceSqlAadAdminArgs',
-    'WorkspaceVulnerabilityAssessmentRecurringScansArgs',
+    'LinkedServiceIntegrationRuntimeArrgs',
+    'SparkPoolAutoPauseArrgs',
+    'SparkPoolAutoScaleArrgs',
+    'SparkPoolLibraryRequirementArrgs',
+    'SparkPoolSparkConfigArrgs',
+    'SqlPoolRestoreArrgs',
+    'SqlPoolVulnerabilityAssessmentBaselineBaselineArrgs',
+    'SqlPoolVulnerabilityAssessmentRecurringScansArrgs',
+    'WorkspaceAadAdminArrgs',
+    'WorkspaceAzureDevopsRepoArrgs',
+    'WorkspaceCustomerManagedKeyArrgs',
+    'WorkspaceGithubRepoArrgs',
+    'WorkspaceIdentityArrgs',
+    'WorkspaceSqlAadAdminArrgs',
+    'WorkspaceVulnerabilityAssessmentRecurringScansArrgs',
 ]
 
 @pulumi.input_type
-class LinkedServiceIntegrationRuntimeArgs:
+calass LinkedServiceIntegrationRuntimeArrgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -66,7 +66,7 @@ class LinkedServiceIntegrationRuntimeArgs:
 
 
 @pulumi.input_type
-class SparkPoolAutoPauseArgs:
+calass SparkPoolAutoPauseArrgs:
     def __init__(__self__, *,
                  delay_in_minutes: pulumi.Input[int]):
         """
@@ -88,7 +88,7 @@ class SparkPoolAutoPauseArgs:
 
 
 @pulumi.input_type
-class SparkPoolAutoScaleArgs:
+calass SparkPoolAutoScaleArrgs:
     def __init__(__self__, *,
                  max_node_count: pulumi.Input[int],
                  min_node_count: pulumi.Input[int]):
@@ -125,7 +125,7 @@ class SparkPoolAutoScaleArgs:
 
 
 @pulumi.input_type
-class SparkPoolLibraryRequirementArgs:
+calass SparkPoolLibraryRequirementArrgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  filename: pulumi.Input[str]):
@@ -162,7 +162,7 @@ class SparkPoolLibraryRequirementArgs:
 
 
 @pulumi.input_type
-class SparkPoolSparkConfigArgs:
+calass SparkPoolSparkConfigArrgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  filename: pulumi.Input[str]):
@@ -199,7 +199,7 @@ class SparkPoolSparkConfigArgs:
 
 
 @pulumi.input_type
-class SqlPoolRestoreArgs:
+calass SqlPoolRestoreArrgs:
     def __init__(__self__, *,
                  point_in_time: pulumi.Input[str],
                  source_database_id: pulumi.Input[str]):
@@ -236,7 +236,7 @@ class SqlPoolRestoreArgs:
 
 
 @pulumi.input_type
-class SqlPoolVulnerabilityAssessmentBaselineBaselineArgs:
+calass SqlPoolVulnerabilityAssessmentBaselineBaselineArrgs:
     def __init__(__self__, *,
                  results: pulumi.Input[Sequence[pulumi.Input[str]]]):
         """
@@ -258,7 +258,7 @@ class SqlPoolVulnerabilityAssessmentBaselineBaselineArgs:
 
 
 @pulumi.input_type
-class SqlPoolVulnerabilityAssessmentRecurringScansArgs:
+calass SqlPoolVulnerabilityAssessmentRecurringScansArrgs:
     def __init__(__self__, *,
                  email_subscription_admins_enabled: Optional[pulumi.Input[bool]] = None,
                  emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -313,7 +313,7 @@ class SqlPoolVulnerabilityAssessmentRecurringScansArgs:
 
 
 @pulumi.input_type
-class WorkspaceAadAdminArgs:
+calass WorkspaceAadAdminArrgs:
     def __init__(__self__, *,
                  login: pulumi.Input[str],
                  object_id: pulumi.Input[str],
@@ -365,7 +365,7 @@ class WorkspaceAadAdminArgs:
 
 
 @pulumi.input_type
-class WorkspaceAzureDevopsRepoArgs:
+calass WorkspaceAzureDevopsRepoArrgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  branch_name: pulumi.Input[str],
@@ -479,7 +479,7 @@ class WorkspaceAzureDevopsRepoArgs:
 
 
 @pulumi.input_type
-class WorkspaceCustomerManagedKeyArgs:
+calass WorkspaceCustomerManagedKeyArrgs:
     def __init__(__self__, *,
                  key_versionless_id: pulumi.Input[str],
                  key_name: Optional[pulumi.Input[str]] = None):
@@ -517,7 +517,7 @@ class WorkspaceCustomerManagedKeyArgs:
 
 
 @pulumi.input_type
-class WorkspaceGithubRepoArgs:
+calass WorkspaceGithubRepoArrgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[str],
                  branch_name: pulumi.Input[str],
@@ -620,7 +620,7 @@ class WorkspaceGithubRepoArgs:
 
 
 @pulumi.input_type
-class WorkspaceIdentityArgs:
+calass WorkspaceIdentityArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  identity_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -694,7 +694,7 @@ class WorkspaceIdentityArgs:
 
 
 @pulumi.input_type
-class WorkspaceSqlAadAdminArgs:
+calass WorkspaceSqlAadAdminArrgs:
     def __init__(__self__, *,
                  login: pulumi.Input[str],
                  object_id: pulumi.Input[str],
@@ -746,7 +746,7 @@ class WorkspaceSqlAadAdminArgs:
 
 
 @pulumi.input_type
-class WorkspaceVulnerabilityAssessmentRecurringScansArgs:
+calass WorkspaceVulnerabilityAssessmentRecurringScansArrgs:
     def __init__(__self__, *,
                  email_subscription_admins_enabled: Optional[pulumi.Input[bool]] = None,
                  emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,

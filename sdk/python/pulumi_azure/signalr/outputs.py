@@ -20,7 +20,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ServiceCor(dict):
+calass ServiceCor(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -55,7 +55,7 @@ class ServiceCor(dict):
 
 
 @pulumi.output_type
-class ServiceIdentity(dict):
+calass ServiceIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -126,7 +126,7 @@ class ServiceIdentity(dict):
 
 
 @pulumi.output_type
-class ServiceLiveTrace(dict):
+calass ServiceLiveTrace(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -202,7 +202,7 @@ class ServiceLiveTrace(dict):
 
 
 @pulumi.output_type
-class ServiceNetworkAclPrivateEndpoint(dict):
+calass ServiceNetworkAclPrivateEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -275,7 +275,7 @@ class ServiceNetworkAclPrivateEndpoint(dict):
 
 
 @pulumi.output_type
-class ServiceNetworkAclPublicNetwork(dict):
+calass ServiceNetworkAclPublicNetwork(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -337,7 +337,7 @@ class ServiceNetworkAclPublicNetwork(dict):
 
 
 @pulumi.output_type
-class ServiceSku(dict):
+calass ServiceSku(dict):
     def __init__(__self__, *,
                  capacity: int,
                  name: str):
@@ -366,7 +366,7 @@ class ServiceSku(dict):
 
 
 @pulumi.output_type
-class ServiceUpstreamEndpoint(dict):
+calass ServiceUpstreamEndpoint(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

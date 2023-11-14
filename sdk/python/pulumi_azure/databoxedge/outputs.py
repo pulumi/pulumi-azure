@@ -21,7 +21,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class DeviceDeviceProperty(dict):
+calass DeviceDeviceProperty(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -187,7 +187,7 @@ class DeviceDeviceProperty(dict):
 
 
 @pulumi.output_type
-class OrderContact(dict):
+calass OrderContact(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -257,7 +257,7 @@ class OrderContact(dict):
 
 
 @pulumi.output_type
-class OrderReturnTracking(dict):
+calass OrderReturnTracking(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -335,7 +335,7 @@ class OrderReturnTracking(dict):
 
 
 @pulumi.output_type
-class OrderShipmentAddress(dict):
+calass OrderShipmentAddress(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -414,7 +414,7 @@ class OrderShipmentAddress(dict):
 
 
 @pulumi.output_type
-class OrderShipmentHistory(dict):
+calass OrderShipmentHistory(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -476,7 +476,7 @@ class OrderShipmentHistory(dict):
 
 
 @pulumi.output_type
-class OrderShipmentTracking(dict):
+calass OrderShipmentTracking(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -554,7 +554,7 @@ class OrderShipmentTracking(dict):
 
 
 @pulumi.output_type
-class OrderStatus(dict):
+calass OrderStatus(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -628,7 +628,7 @@ class OrderStatus(dict):
 
 
 @pulumi.output_type
-class GetDeviceDevicePropertyResult(dict):
+calass GetDeviceDevicePropertyResult(dict):
     def __init__(__self__, *,
                  capacity: int,
                  configured_role_types: Sequence[str],

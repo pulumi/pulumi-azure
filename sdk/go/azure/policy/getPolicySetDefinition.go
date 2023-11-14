@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Policy Set Definition.
@@ -129,12 +128,6 @@ func (o LookupPolicySetDefinitionResultOutput) ToLookupPolicySetDefinitionResult
 
 func (o LookupPolicySetDefinitionResultOutput) ToLookupPolicySetDefinitionResultOutputWithContext(ctx context.Context) LookupPolicySetDefinitionResultOutput {
 	return o
-}
-
-func (o LookupPolicySetDefinitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPolicySetDefinitionResult] {
-	return pulumix.Output[LookupPolicySetDefinitionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The description of this policy definition group.

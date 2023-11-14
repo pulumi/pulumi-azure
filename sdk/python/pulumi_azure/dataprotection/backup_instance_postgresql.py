@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['BackupInstancePostgresqlArgs', 'BackupInstancePostgresql']
+__all__ = ['BackupInstancePostgresqlArrgs', 'BackupInstancePostgresql']
 
 @pulumi.input_type
-class BackupInstancePostgresqlArgs:
+calass BackupInstancePostgresqlArrgs:
     def __init__(__self__, *,
                  backup_policy_id: pulumi.Input[str],
                  database_id: pulumi.Input[str],
@@ -113,7 +113,7 @@ class BackupInstancePostgresqlArgs:
 
 
 @pulumi.input_type
-class _BackupInstancePostgresqlState:
+calass _BackupInstancePostgresqlState:
     def __init__(__self__, *,
                  backup_policy_id: Optional[pulumi.Input[str]] = None,
                  database_credential_key_vault_secret_id: Optional[pulumi.Input[str]] = None,
@@ -216,7 +216,7 @@ class _BackupInstancePostgresqlState:
         pulumi.set(self, "vault_id", value)
 
 
-class BackupInstancePostgresql(pulumi.CustomResource):
+calass BackupInstancePostgresql(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -268,7 +268,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             location=example_resource_group.location,
             datastore_type="VaultStore",
             redundancy="LocallyRedundant",
-            identity=azure.dataprotection.BackupVaultIdentityArgs(
+            identity=azure.dataprotection.BackupVaultIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
@@ -278,7 +278,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             sku_name="premium",
             soft_delete_retention_days=7,
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=current.object_id,
                     key_permissions=[
@@ -293,7 +293,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
                         "Recover",
                     ],
                 ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=example_backup_vault.identity.tenant_id,
                     object_id=example_backup_vault.identity.principal_id,
                     key_permissions=[
@@ -350,7 +350,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BackupInstancePostgresqlArgs,
+                 args: BackupInstancePostgresqlArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Backup Instance to back up PostgreSQL.
@@ -392,7 +392,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             location=example_resource_group.location,
             datastore_type="VaultStore",
             redundancy="LocallyRedundant",
-            identity=azure.dataprotection.BackupVaultIdentityArgs(
+            identity=azure.dataprotection.BackupVaultIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
@@ -402,7 +402,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             sku_name="premium",
             soft_delete_retention_days=7,
             access_policies=[
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=current.tenant_id,
                     object_id=current.object_id,
                     key_permissions=[
@@ -417,7 +417,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
                         "Recover",
                     ],
                 ),
-                azure.keyvault.KeyVaultAccessPolicyArgs(
+                azure.keyvault.KeyVaultAccessPolicyArrgs(
                     tenant_id=example_backup_vault.identity.tenant_id,
                     object_id=example_backup_vault.identity.principal_id,
                     key_permissions=[
@@ -462,12 +462,12 @@ class BackupInstancePostgresql(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param BackupInstancePostgresqlArgs args: The arguments to use to populate this resource's properties.
+        :param BackupInstancePostgresqlArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(BackupInstancePostgresqlArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(BackupInstancePostgresqlArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -489,7 +489,7 @@ class BackupInstancePostgresql(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = BackupInstancePostgresqlArgs.__new__(BackupInstancePostgresqlArgs)
+            __props__ = BackupInstancePostgresqlArrgs.__new__(BackupInstancePostgresqlArrgs)
 
             if backup_policy_id is None and not opts.urn:
                 raise TypeError("Missing required property 'backup_policy_id'")

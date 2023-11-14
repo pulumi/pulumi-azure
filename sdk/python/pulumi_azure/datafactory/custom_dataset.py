@@ -11,13 +11,13 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['CustomDatasetArgs', 'CustomDataset']
+__all__ = ['CustomDatasetArrgs', 'CustomDataset']
 
 @pulumi.input_type
-class CustomDatasetArgs:
+calass CustomDatasetArrgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[str],
-                 linked_service: pulumi.Input['CustomDatasetLinkedServiceArgs'],
+                 linked_service: pulumi.Input['CustomDatasetLinkedServiceArrgs'],
                  type: pulumi.Input[str],
                  type_properties_json: pulumi.Input[str],
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -30,7 +30,7 @@ class CustomDatasetArgs:
         """
         The set of arguments for constructing a CustomDataset resource.
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
-        :param pulumi.Input['CustomDatasetLinkedServiceArgs'] linked_service: A `linked_service` block as defined below.
+        :param pulumi.Input['CustomDatasetLinkedServiceArrgs'] linked_service: A `linked_service` block as defined below.
         :param pulumi.Input[str] type: The type of dataset that will be associated with Data Factory. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type_properties_json: A JSON object that contains the properties of the Data Factory Dataset.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_properties: A map of additional properties to associate with the Data Factory Dataset.
@@ -74,14 +74,14 @@ class CustomDatasetArgs:
 
     @property
     @pulumi.getter(name="linkedService")
-    def linked_service(self) -> pulumi.Input['CustomDatasetLinkedServiceArgs']:
+    def linked_service(self) -> pulumi.Input['CustomDatasetLinkedServiceArrgs']:
         """
         A `linked_service` block as defined below.
         """
         return pulumi.get(self, "linked_service")
 
     @linked_service.setter
-    def linked_service(self, value: pulumi.Input['CustomDatasetLinkedServiceArgs']):
+    def linked_service(self, value: pulumi.Input['CustomDatasetLinkedServiceArrgs']):
         pulumi.set(self, "linked_service", value)
 
     @property
@@ -194,14 +194,14 @@ class CustomDatasetArgs:
 
 
 @pulumi.input_type
-class _CustomDatasetState:
+calass _CustomDatasetState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
-                 linked_service: Optional[pulumi.Input['CustomDatasetLinkedServiceArgs']] = None,
+                 linked_service: Optional[pulumi.Input['CustomDatasetLinkedServiceArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  schema_json: Optional[pulumi.Input[str]] = None,
@@ -214,7 +214,7 @@ class _CustomDatasetState:
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
-        :param pulumi.Input['CustomDatasetLinkedServiceArgs'] linked_service: A `linked_service` block as defined below.
+        :param pulumi.Input['CustomDatasetLinkedServiceArrgs'] linked_service: A `linked_service` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[str] schema_json: A JSON object that contains the schema of the Data Factory Dataset.
@@ -306,14 +306,14 @@ class _CustomDatasetState:
 
     @property
     @pulumi.getter(name="linkedService")
-    def linked_service(self) -> Optional[pulumi.Input['CustomDatasetLinkedServiceArgs']]:
+    def linked_service(self) -> Optional[pulumi.Input['CustomDatasetLinkedServiceArrgs']]:
         """
         A `linked_service` block as defined below.
         """
         return pulumi.get(self, "linked_service")
 
     @linked_service.setter
-    def linked_service(self, value: Optional[pulumi.Input['CustomDatasetLinkedServiceArgs']]):
+    def linked_service(self, value: Optional[pulumi.Input['CustomDatasetLinkedServiceArrgs']]):
         pulumi.set(self, "linked_service", value)
 
     @property
@@ -377,7 +377,7 @@ class _CustomDatasetState:
         pulumi.set(self, "type_properties_json", value)
 
 
-class CustomDataset(pulumi.CustomResource):
+calass CustomDataset(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -387,7 +387,7 @@ class CustomDataset(pulumi.CustomResource):
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
-                 linked_service: Optional[pulumi.Input[pulumi.InputType['CustomDatasetLinkedServiceArgs']]] = None,
+                 linked_service: Optional[pulumi.Input[pulumi.InputType['CustomDatasetLinkedServiceArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  schema_json: Optional[pulumi.Input[str]] = None,
@@ -407,7 +407,7 @@ class CustomDataset(pulumi.CustomResource):
         example_factory = azure.datafactory.Factory("exampleFactory",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            identity=azure.datafactory.FactoryIdentityArgs(
+            identity=azure.datafactory.FactoryIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_account = azure.storage.Account("exampleAccount",
@@ -429,7 +429,7 @@ class CustomDataset(pulumi.CustomResource):
         example_custom_dataset = azure.datafactory.CustomDataset("exampleCustomDataset",
             data_factory_id=example_factory.id,
             type="Json",
-            linked_service=azure.datafactory.CustomDatasetLinkedServiceArgs(
+            linked_service=azure.datafactory.CustomDatasetLinkedServiceArrgs(
                 name=example_linked_custom_service.name,
                 parameters={
                     "key1": "value1",
@@ -497,7 +497,7 @@ class CustomDataset(pulumi.CustomResource):
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
-        :param pulumi.Input[pulumi.InputType['CustomDatasetLinkedServiceArgs']] linked_service: A `linked_service` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CustomDatasetLinkedServiceArrgs']] linked_service: A `linked_service` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[str] schema_json: A JSON object that contains the schema of the Data Factory Dataset.
@@ -508,7 +508,7 @@ class CustomDataset(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CustomDatasetArgs,
+                 args: CustomDatasetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Dataset inside an Azure Data Factory. This is a generic resource that supports all different Dataset Types.
@@ -523,7 +523,7 @@ class CustomDataset(pulumi.CustomResource):
         example_factory = azure.datafactory.Factory("exampleFactory",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            identity=azure.datafactory.FactoryIdentityArgs(
+            identity=azure.datafactory.FactoryIdentityArrgs(
                 type="SystemAssigned",
             ))
         example_account = azure.storage.Account("exampleAccount",
@@ -545,7 +545,7 @@ class CustomDataset(pulumi.CustomResource):
         example_custom_dataset = azure.datafactory.CustomDataset("exampleCustomDataset",
             data_factory_id=example_factory.id,
             type="Json",
-            linked_service=azure.datafactory.CustomDatasetLinkedServiceArgs(
+            linked_service=azure.datafactory.CustomDatasetLinkedServiceArrgs(
                 name=example_linked_custom_service.name,
                 parameters={
                     "key1": "value1",
@@ -607,12 +607,12 @@ class CustomDataset(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param CustomDatasetArgs args: The arguments to use to populate this resource's properties.
+        :param CustomDatasetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CustomDatasetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CustomDatasetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -626,7 +626,7 @@ class CustomDataset(pulumi.CustomResource):
                  data_factory_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  folder: Optional[pulumi.Input[str]] = None,
-                 linked_service: Optional[pulumi.Input[pulumi.InputType['CustomDatasetLinkedServiceArgs']]] = None,
+                 linked_service: Optional[pulumi.Input[pulumi.InputType['CustomDatasetLinkedServiceArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  schema_json: Optional[pulumi.Input[str]] = None,
@@ -639,7 +639,7 @@ class CustomDataset(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CustomDatasetArgs.__new__(CustomDatasetArgs)
+            __props__ = CustomDatasetArrgs.__new__(CustomDatasetArrgs)
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
@@ -675,7 +675,7 @@ class CustomDataset(pulumi.CustomResource):
             data_factory_id: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             folder: Optional[pulumi.Input[str]] = None,
-            linked_service: Optional[pulumi.Input[pulumi.InputType['CustomDatasetLinkedServiceArgs']]] = None,
+            linked_service: Optional[pulumi.Input[pulumi.InputType['CustomDatasetLinkedServiceArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             schema_json: Optional[pulumi.Input[str]] = None,
@@ -693,7 +693,7 @@ class CustomDataset(pulumi.CustomResource):
         :param pulumi.Input[str] data_factory_id: The Data Factory ID in which to associate the Dataset with. Changing this forces a new resource.
         :param pulumi.Input[str] description: The description for the Data Factory Dataset.
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
-        :param pulumi.Input[pulumi.InputType['CustomDatasetLinkedServiceArgs']] linked_service: A `linked_service` block as defined below.
+        :param pulumi.Input[pulumi.InputType['CustomDatasetLinkedServiceArrgs']] linked_service: A `linked_service` block as defined below.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset.
         :param pulumi.Input[str] schema_json: A JSON object that contains the schema of the Data Factory Dataset.

@@ -96,7 +96,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class EndpointCustomDomainCdnManagedHttps(dict):
+calass EndpointCustomDomainCdnManagedHttps(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -158,7 +158,7 @@ class EndpointCustomDomainCdnManagedHttps(dict):
 
 
 @pulumi.output_type
-class EndpointCustomDomainUserManagedHttps(dict):
+calass EndpointCustomDomainUserManagedHttps(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -229,7 +229,7 @@ class EndpointCustomDomainUserManagedHttps(dict):
 
 
 @pulumi.output_type
-class EndpointDeliveryRule(dict):
+calass EndpointDeliveryRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -311,26 +311,26 @@ class EndpointDeliveryRule(dict):
         """
         :param str name: The Name which should be used for this Delivery Rule.
         :param int order: The order used for this rule. The order values should be sequential and begin at `1`.
-        :param 'EndpointDeliveryRuleCacheExpirationActionArgs' cache_expiration_action: A `cache_expiration_action` block as defined above.
-        :param 'EndpointDeliveryRuleCacheKeyQueryStringActionArgs' cache_key_query_string_action: A `cache_key_query_string_action` block as defined above.
-        :param Sequence['EndpointDeliveryRuleCookiesConditionArgs'] cookies_conditions: A `cookies_condition` block as defined above.
-        :param 'EndpointDeliveryRuleDeviceConditionArgs' device_condition: A `device_condition` block as defined below.
-        :param Sequence['EndpointDeliveryRuleHttpVersionConditionArgs'] http_version_conditions: A `http_version_condition` block as defined below.
-        :param Sequence['EndpointDeliveryRuleModifyRequestHeaderActionArgs'] modify_request_header_actions: A `modify_request_header_action` block as defined below.
-        :param Sequence['EndpointDeliveryRuleModifyResponseHeaderActionArgs'] modify_response_header_actions: A `modify_response_header_action` block as defined below.
-        :param Sequence['EndpointDeliveryRulePostArgConditionArgs'] post_arg_conditions: A `post_arg_condition` block as defined below.
-        :param Sequence['EndpointDeliveryRuleQueryStringConditionArgs'] query_string_conditions: A `query_string_condition` block as defined below.
-        :param Sequence['EndpointDeliveryRuleRemoteAddressConditionArgs'] remote_address_conditions: A `remote_address_condition` block as defined below.
-        :param Sequence['EndpointDeliveryRuleRequestBodyConditionArgs'] request_body_conditions: A `request_body_condition` block as defined below.
-        :param Sequence['EndpointDeliveryRuleRequestHeaderConditionArgs'] request_header_conditions: A `request_header_condition` block as defined below.
-        :param 'EndpointDeliveryRuleRequestMethodConditionArgs' request_method_condition: A `request_method_condition` block as defined below.
-        :param 'EndpointDeliveryRuleRequestSchemeConditionArgs' request_scheme_condition: A `request_scheme_condition` block as defined below.
-        :param Sequence['EndpointDeliveryRuleRequestUriConditionArgs'] request_uri_conditions: A `request_uri_condition` block as defined below.
-        :param Sequence['EndpointDeliveryRuleUrlFileExtensionConditionArgs'] url_file_extension_conditions: A `url_file_extension_condition` block as defined below.
-        :param Sequence['EndpointDeliveryRuleUrlFileNameConditionArgs'] url_file_name_conditions: A `url_file_name_condition` block as defined below.
-        :param Sequence['EndpointDeliveryRuleUrlPathConditionArgs'] url_path_conditions: A `url_path_condition` block as defined below.
-        :param 'EndpointDeliveryRuleUrlRedirectActionArgs' url_redirect_action: A `url_redirect_action` block as defined below.
-        :param 'EndpointDeliveryRuleUrlRewriteActionArgs' url_rewrite_action: A `url_rewrite_action` block as defined below.
+        :param 'EndpointDeliveryRuleCacheExpirationActionArrgs' cache_expiration_action: A `cache_expiration_action` block as defined above.
+        :param 'EndpointDeliveryRuleCacheKeyQueryStringActionArrgs' cache_key_query_string_action: A `cache_key_query_string_action` block as defined above.
+        :param Sequence['EndpointDeliveryRuleCookiesConditionArrgs'] cookies_conditions: A `cookies_condition` block as defined above.
+        :param 'EndpointDeliveryRuleDeviceConditionArrgs' device_condition: A `device_condition` block as defined below.
+        :param Sequence['EndpointDeliveryRuleHttpVersionConditionArrgs'] http_version_conditions: A `http_version_condition` block as defined below.
+        :param Sequence['EndpointDeliveryRuleModifyRequestHeaderActionArrgs'] modify_request_header_actions: A `modify_request_header_action` block as defined below.
+        :param Sequence['EndpointDeliveryRuleModifyResponseHeaderActionArrgs'] modify_response_header_actions: A `modify_response_header_action` block as defined below.
+        :param Sequence['EndpointDeliveryRulePostArgConditionArrgs'] post_arg_conditions: A `post_arg_condition` block as defined below.
+        :param Sequence['EndpointDeliveryRuleQueryStringConditionArrgs'] query_string_conditions: A `query_string_condition` block as defined below.
+        :param Sequence['EndpointDeliveryRuleRemoteAddressConditionArrgs'] remote_address_conditions: A `remote_address_condition` block as defined below.
+        :param Sequence['EndpointDeliveryRuleRequestBodyConditionArrgs'] request_body_conditions: A `request_body_condition` block as defined below.
+        :param Sequence['EndpointDeliveryRuleRequestHeaderConditionArrgs'] request_header_conditions: A `request_header_condition` block as defined below.
+        :param 'EndpointDeliveryRuleRequestMethodConditionArrgs' request_method_condition: A `request_method_condition` block as defined below.
+        :param 'EndpointDeliveryRuleRequestSchemeConditionArrgs' request_scheme_condition: A `request_scheme_condition` block as defined below.
+        :param Sequence['EndpointDeliveryRuleRequestUriConditionArrgs'] request_uri_conditions: A `request_uri_condition` block as defined below.
+        :param Sequence['EndpointDeliveryRuleUrlFileExtensionConditionArrgs'] url_file_extension_conditions: A `url_file_extension_condition` block as defined below.
+        :param Sequence['EndpointDeliveryRuleUrlFileNameConditionArrgs'] url_file_name_conditions: A `url_file_name_condition` block as defined below.
+        :param Sequence['EndpointDeliveryRuleUrlPathConditionArrgs'] url_path_conditions: A `url_path_condition` block as defined below.
+        :param 'EndpointDeliveryRuleUrlRedirectActionArrgs' url_redirect_action: A `url_redirect_action` block as defined below.
+        :param 'EndpointDeliveryRuleUrlRewriteActionArrgs' url_rewrite_action: A `url_rewrite_action` block as defined below.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "order", order)
@@ -553,7 +553,7 @@ class EndpointDeliveryRule(dict):
 
 
 @pulumi.output_type
-class EndpointDeliveryRuleCacheExpirationAction(dict):
+calass EndpointDeliveryRuleCacheExpirationAction(dict):
     def __init__(__self__, *,
                  behavior: str,
                  duration: Optional[str] = None):
@@ -583,7 +583,7 @@ class EndpointDeliveryRuleCacheExpirationAction(dict):
 
 
 @pulumi.output_type
-class EndpointDeliveryRuleCacheKeyQueryStringAction(dict):
+calass EndpointDeliveryRuleCacheKeyQueryStringAction(dict):
     def __init__(__self__, *,
                  behavior: str,
                  parameters: Optional[str] = None):
@@ -613,7 +613,7 @@ class EndpointDeliveryRuleCacheKeyQueryStringAction(dict):
 
 
 @pulumi.output_type
-class EndpointDeliveryRuleCookiesCondition(dict):
+calass EndpointDeliveryRuleCookiesCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -697,7 +697,7 @@ class EndpointDeliveryRuleCookiesCondition(dict):
 
 
 @pulumi.output_type
-class EndpointDeliveryRuleDeviceCondition(dict):
+calass EndpointDeliveryRuleDeviceCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -758,7 +758,7 @@ class EndpointDeliveryRuleDeviceCondition(dict):
 
 
 @pulumi.output_type
-class EndpointDeliveryRuleHttpVersionCondition(dict):
+calass EndpointDeliveryRuleHttpVersionCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -819,7 +819,7 @@ class EndpointDeliveryRuleHttpVersionCondition(dict):
 
 
 @pulumi.output_type
-class EndpointDeliveryRuleModifyRequestHeaderAction(dict):
+calass EndpointDeliveryRuleModifyRequestHeaderAction(dict):
     def __init__(__self__, *,
                  action: str,
                  name: str,
@@ -860,7 +860,7 @@ class EndpointDeliveryRuleModifyRequestHeaderAction(dict):
 
 
 @pulumi.output_type
-class EndpointDeliveryRuleModifyResponseHeaderAction(dict):
+calass EndpointDeliveryRuleModifyResponseHeaderAction(dict):
     def __init__(__self__, *,
                  action: str,
                  name: str,
@@ -901,7 +901,7 @@ class EndpointDeliveryRuleModifyResponseHeaderAction(dict):
 
 
 @pulumi.output_type
-class EndpointDeliveryRulePostArgCondition(dict):
+calass EndpointDeliveryRulePostArgCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -985,7 +985,7 @@ class EndpointDeliveryRulePostArgCondition(dict):
 
 
 @pulumi.output_type
-class EndpointDeliveryRuleQueryStringCondition(dict):
+calass EndpointDeliveryRuleQueryStringCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1058,7 +1058,7 @@ class EndpointDeliveryRuleQueryStringCondition(dict):
 
 
 @pulumi.output_type
-class EndpointDeliveryRuleRemoteAddressCondition(dict):
+calass EndpointDeliveryRuleRemoteAddressCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1119,7 +1119,7 @@ class EndpointDeliveryRuleRemoteAddressCondition(dict):
 
 
 @pulumi.output_type
-class EndpointDeliveryRuleRequestBodyCondition(dict):
+calass EndpointDeliveryRuleRequestBodyCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1192,7 +1192,7 @@ class EndpointDeliveryRuleRequestBodyCondition(dict):
 
 
 @pulumi.output_type
-class EndpointDeliveryRuleRequestHeaderCondition(dict):
+calass EndpointDeliveryRuleRequestHeaderCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1276,7 +1276,7 @@ class EndpointDeliveryRuleRequestHeaderCondition(dict):
 
 
 @pulumi.output_type
-class EndpointDeliveryRuleRequestMethodCondition(dict):
+calass EndpointDeliveryRuleRequestMethodCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1337,7 +1337,7 @@ class EndpointDeliveryRuleRequestMethodCondition(dict):
 
 
 @pulumi.output_type
-class EndpointDeliveryRuleRequestSchemeCondition(dict):
+calass EndpointDeliveryRuleRequestSchemeCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1398,7 +1398,7 @@ class EndpointDeliveryRuleRequestSchemeCondition(dict):
 
 
 @pulumi.output_type
-class EndpointDeliveryRuleRequestUriCondition(dict):
+calass EndpointDeliveryRuleRequestUriCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1471,7 +1471,7 @@ class EndpointDeliveryRuleRequestUriCondition(dict):
 
 
 @pulumi.output_type
-class EndpointDeliveryRuleUrlFileExtensionCondition(dict):
+calass EndpointDeliveryRuleUrlFileExtensionCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1544,7 +1544,7 @@ class EndpointDeliveryRuleUrlFileExtensionCondition(dict):
 
 
 @pulumi.output_type
-class EndpointDeliveryRuleUrlFileNameCondition(dict):
+calass EndpointDeliveryRuleUrlFileNameCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1617,7 +1617,7 @@ class EndpointDeliveryRuleUrlFileNameCondition(dict):
 
 
 @pulumi.output_type
-class EndpointDeliveryRuleUrlPathCondition(dict):
+calass EndpointDeliveryRuleUrlPathCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1690,7 +1690,7 @@ class EndpointDeliveryRuleUrlPathCondition(dict):
 
 
 @pulumi.output_type
-class EndpointDeliveryRuleUrlRedirectAction(dict):
+calass EndpointDeliveryRuleUrlRedirectAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1787,7 +1787,7 @@ class EndpointDeliveryRuleUrlRedirectAction(dict):
 
 
 @pulumi.output_type
-class EndpointDeliveryRuleUrlRewriteAction(dict):
+calass EndpointDeliveryRuleUrlRewriteAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1847,7 +1847,7 @@ class EndpointDeliveryRuleUrlRewriteAction(dict):
 
 
 @pulumi.output_type
-class EndpointGeoFilter(dict):
+calass EndpointGeoFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1906,7 +1906,7 @@ class EndpointGeoFilter(dict):
 
 
 @pulumi.output_type
-class EndpointGlobalDeliveryRule(dict):
+calass EndpointGlobalDeliveryRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1942,12 +1942,12 @@ class EndpointGlobalDeliveryRule(dict):
                  url_redirect_action: Optional['outputs.EndpointGlobalDeliveryRuleUrlRedirectAction'] = None,
                  url_rewrite_action: Optional['outputs.EndpointGlobalDeliveryRuleUrlRewriteAction'] = None):
         """
-        :param 'EndpointGlobalDeliveryRuleCacheExpirationActionArgs' cache_expiration_action: A `cache_expiration_action` block as defined above.
-        :param 'EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs' cache_key_query_string_action: A `cache_key_query_string_action` block as defined above.
-        :param Sequence['EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs'] modify_request_header_actions: A `modify_request_header_action` block as defined below.
-        :param Sequence['EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs'] modify_response_header_actions: A `modify_response_header_action` block as defined below.
-        :param 'EndpointGlobalDeliveryRuleUrlRedirectActionArgs' url_redirect_action: A `url_redirect_action` block as defined below.
-        :param 'EndpointGlobalDeliveryRuleUrlRewriteActionArgs' url_rewrite_action: A `url_rewrite_action` block as defined below.
+        :param 'EndpointGlobalDeliveryRuleCacheExpirationActionArrgs' cache_expiration_action: A `cache_expiration_action` block as defined above.
+        :param 'EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArrgs' cache_key_query_string_action: A `cache_key_query_string_action` block as defined above.
+        :param Sequence['EndpointGlobalDeliveryRuleModifyRequestHeaderActionArrgs'] modify_request_header_actions: A `modify_request_header_action` block as defined below.
+        :param Sequence['EndpointGlobalDeliveryRuleModifyResponseHeaderActionArrgs'] modify_response_header_actions: A `modify_response_header_action` block as defined below.
+        :param 'EndpointGlobalDeliveryRuleUrlRedirectActionArrgs' url_redirect_action: A `url_redirect_action` block as defined below.
+        :param 'EndpointGlobalDeliveryRuleUrlRewriteActionArrgs' url_rewrite_action: A `url_rewrite_action` block as defined below.
         """
         if cache_expiration_action is not None:
             pulumi.set(__self__, "cache_expiration_action", cache_expiration_action)
@@ -2012,7 +2012,7 @@ class EndpointGlobalDeliveryRule(dict):
 
 
 @pulumi.output_type
-class EndpointGlobalDeliveryRuleCacheExpirationAction(dict):
+calass EndpointGlobalDeliveryRuleCacheExpirationAction(dict):
     def __init__(__self__, *,
                  behavior: str,
                  duration: Optional[str] = None):
@@ -2042,7 +2042,7 @@ class EndpointGlobalDeliveryRuleCacheExpirationAction(dict):
 
 
 @pulumi.output_type
-class EndpointGlobalDeliveryRuleCacheKeyQueryStringAction(dict):
+calass EndpointGlobalDeliveryRuleCacheKeyQueryStringAction(dict):
     def __init__(__self__, *,
                  behavior: str,
                  parameters: Optional[str] = None):
@@ -2072,7 +2072,7 @@ class EndpointGlobalDeliveryRuleCacheKeyQueryStringAction(dict):
 
 
 @pulumi.output_type
-class EndpointGlobalDeliveryRuleModifyRequestHeaderAction(dict):
+calass EndpointGlobalDeliveryRuleModifyRequestHeaderAction(dict):
     def __init__(__self__, *,
                  action: str,
                  name: str,
@@ -2113,7 +2113,7 @@ class EndpointGlobalDeliveryRuleModifyRequestHeaderAction(dict):
 
 
 @pulumi.output_type
-class EndpointGlobalDeliveryRuleModifyResponseHeaderAction(dict):
+calass EndpointGlobalDeliveryRuleModifyResponseHeaderAction(dict):
     def __init__(__self__, *,
                  action: str,
                  name: str,
@@ -2154,7 +2154,7 @@ class EndpointGlobalDeliveryRuleModifyResponseHeaderAction(dict):
 
 
 @pulumi.output_type
-class EndpointGlobalDeliveryRuleUrlRedirectAction(dict):
+calass EndpointGlobalDeliveryRuleUrlRedirectAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2251,7 +2251,7 @@ class EndpointGlobalDeliveryRuleUrlRedirectAction(dict):
 
 
 @pulumi.output_type
-class EndpointGlobalDeliveryRuleUrlRewriteAction(dict):
+calass EndpointGlobalDeliveryRuleUrlRewriteAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2311,7 +2311,7 @@ class EndpointGlobalDeliveryRuleUrlRewriteAction(dict):
 
 
 @pulumi.output_type
-class EndpointOrigin(dict):
+calass EndpointOrigin(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2385,7 +2385,7 @@ class EndpointOrigin(dict):
 
 
 @pulumi.output_type
-class FrontdoorCustomDomainTls(dict):
+calass FrontdoorCustomDomainTls(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2453,7 +2453,7 @@ class FrontdoorCustomDomainTls(dict):
 
 
 @pulumi.output_type
-class FrontdoorFirewallPolicyCustomRule(dict):
+calass FrontdoorFirewallPolicyCustomRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2489,7 +2489,7 @@ class FrontdoorFirewallPolicyCustomRule(dict):
         :param str name: Gets name of the resource that is unique within a policy. This name can be used to access the resource.
         :param str type: The type of rule. Possible values are `MatchRule` or `RateLimitRule`.
         :param bool enabled: Is the rule is enabled or disabled? Defaults to `true`.
-        :param Sequence['FrontdoorFirewallPolicyCustomRuleMatchConditionArgs'] match_conditions: One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
+        :param Sequence['FrontdoorFirewallPolicyCustomRuleMatchConditionArrgs'] match_conditions: One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
         :param int priority: The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to `1`.
         :param int rate_limit_duration_in_minutes: The rate limit duration in minutes. Defaults to `1`.
         :param int rate_limit_threshold: The rate limit threshold. Defaults to `10`.
@@ -2574,7 +2574,7 @@ class FrontdoorFirewallPolicyCustomRule(dict):
 
 
 @pulumi.output_type
-class FrontdoorFirewallPolicyCustomRuleMatchCondition(dict):
+calass FrontdoorFirewallPolicyCustomRuleMatchCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2671,7 +2671,7 @@ class FrontdoorFirewallPolicyCustomRuleMatchCondition(dict):
 
 
 @pulumi.output_type
-class FrontdoorFirewallPolicyManagedRule(dict):
+calass FrontdoorFirewallPolicyManagedRule(dict):
     def __init__(__self__, *,
                  action: str,
                  type: str,
@@ -2682,8 +2682,8 @@ class FrontdoorFirewallPolicyManagedRule(dict):
         :param str action: The action to perform for all DRS rules when the managed rule is matched or when the anomaly score is 5 or greater depending on which version of the DRS you are using. Possible values include `Allow`, `Log`, `Block`, and `Redirect`.
         :param str type: The name of the managed rule to use with this resource. Possible values include `DefaultRuleSet`, `Microsoft_DefaultRuleSet`, `BotProtection` or `Microsoft_BotManagerRuleSet`.
         :param str version: The version of the managed rule to use with this resource. Possible values depends on which DRS type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0` or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the value must be `1.0`.
-        :param Sequence['FrontdoorFirewallPolicyManagedRuleExclusionArgs'] exclusions: One or more `exclusion` blocks as defined below.
-        :param Sequence['FrontdoorFirewallPolicyManagedRuleOverrideArgs'] overrides: One or more `override` blocks as defined below.
+        :param Sequence['FrontdoorFirewallPolicyManagedRuleExclusionArrgs'] exclusions: One or more `exclusion` blocks as defined below.
+        :param Sequence['FrontdoorFirewallPolicyManagedRuleOverrideArrgs'] overrides: One or more `override` blocks as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "type", type)
@@ -2735,7 +2735,7 @@ class FrontdoorFirewallPolicyManagedRule(dict):
 
 
 @pulumi.output_type
-class FrontdoorFirewallPolicyManagedRuleExclusion(dict):
+calass FrontdoorFirewallPolicyManagedRuleExclusion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2800,7 +2800,7 @@ class FrontdoorFirewallPolicyManagedRuleExclusion(dict):
 
 
 @pulumi.output_type
-class FrontdoorFirewallPolicyManagedRuleOverride(dict):
+calass FrontdoorFirewallPolicyManagedRuleOverride(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2824,8 +2824,8 @@ class FrontdoorFirewallPolicyManagedRuleOverride(dict):
                  rules: Optional[Sequence['outputs.FrontdoorFirewallPolicyManagedRuleOverrideRule']] = None):
         """
         :param str rule_group_name: The managed rule group to override.
-        :param Sequence['FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs'] exclusions: One or more `exclusion` blocks as defined below.
-        :param Sequence['FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs'] rules: One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
+        :param Sequence['FrontdoorFirewallPolicyManagedRuleOverrideExclusionArrgs'] exclusions: One or more `exclusion` blocks as defined below.
+        :param Sequence['FrontdoorFirewallPolicyManagedRuleOverrideRuleArrgs'] rules: One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
         if exclusions is not None:
@@ -2859,7 +2859,7 @@ class FrontdoorFirewallPolicyManagedRuleOverride(dict):
 
 
 @pulumi.output_type
-class FrontdoorFirewallPolicyManagedRuleOverrideExclusion(dict):
+calass FrontdoorFirewallPolicyManagedRuleOverrideExclusion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2924,7 +2924,7 @@ class FrontdoorFirewallPolicyManagedRuleOverrideExclusion(dict):
 
 
 @pulumi.output_type
-class FrontdoorFirewallPolicyManagedRuleOverrideRule(dict):
+calass FrontdoorFirewallPolicyManagedRuleOverrideRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2953,7 +2953,7 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRule(dict):
                ->**NOTE:** Please see the DRS [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) for more information.
         :param str rule_id: Identifier for the managed rule.
         :param bool enabled: Is the managed rule override enabled or disabled. Defaults to `false`
-        :param Sequence['FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs'] exclusions: One or more `exclusion` blocks as defined below.
+        :param Sequence['FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArrgs'] exclusions: One or more `exclusion` blocks as defined below.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "rule_id", rule_id)
@@ -2998,7 +2998,7 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRule(dict):
 
 
 @pulumi.output_type
-class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion(dict):
+calass FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3063,7 +3063,7 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusion(dict):
 
 
 @pulumi.output_type
-class FrontdoorOriginGroupHealthProbe(dict):
+calass FrontdoorOriginGroupHealthProbe(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3139,7 +3139,7 @@ class FrontdoorOriginGroupHealthProbe(dict):
 
 
 @pulumi.output_type
-class FrontdoorOriginGroupLoadBalancing(dict):
+calass FrontdoorOriginGroupLoadBalancing(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3203,7 +3203,7 @@ class FrontdoorOriginGroupLoadBalancing(dict):
 
 
 @pulumi.output_type
-class FrontdoorOriginPrivateLink(dict):
+calass FrontdoorOriginPrivateLink(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3285,7 +3285,7 @@ class FrontdoorOriginPrivateLink(dict):
 
 
 @pulumi.output_type
-class FrontdoorRouteCache(dict):
+calass FrontdoorRouteCache(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3371,7 +3371,7 @@ class FrontdoorRouteCache(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleActions(dict):
+calass FrontdoorRuleActions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3404,11 +3404,11 @@ class FrontdoorRuleActions(dict):
                  url_redirect_action: Optional['outputs.FrontdoorRuleActionsUrlRedirectAction'] = None,
                  url_rewrite_action: Optional['outputs.FrontdoorRuleActionsUrlRewriteAction'] = None):
         """
-        :param Sequence['FrontdoorRuleActionsRequestHeaderActionArgs'] request_header_actions: A `request_header_action` block as defined below.
-        :param Sequence['FrontdoorRuleActionsResponseHeaderActionArgs'] response_header_actions: A `response_header_action` block as defined below.
-        :param 'FrontdoorRuleActionsRouteConfigurationOverrideActionArgs' route_configuration_override_action: A `route_configuration_override_action` block as defined below.
-        :param 'FrontdoorRuleActionsUrlRedirectActionArgs' url_redirect_action: A `url_redirect_action` block as defined below. You may **not** have a `url_redirect_action` **and** a `url_rewrite_action` defined in the same `actions` block.
-        :param 'FrontdoorRuleActionsUrlRewriteActionArgs' url_rewrite_action: A `url_rewrite_action` block as defined below. You may **not** have a `url_rewrite_action` **and** a `url_redirect_action` defined in the same `actions` block.
+        :param Sequence['FrontdoorRuleActionsRequestHeaderActionArrgs'] request_header_actions: A `request_header_action` block as defined below.
+        :param Sequence['FrontdoorRuleActionsResponseHeaderActionArrgs'] response_header_actions: A `response_header_action` block as defined below.
+        :param 'FrontdoorRuleActionsRouteConfigurationOverrideActionArrgs' route_configuration_override_action: A `route_configuration_override_action` block as defined below.
+        :param 'FrontdoorRuleActionsUrlRedirectActionArrgs' url_redirect_action: A `url_redirect_action` block as defined below. You may **not** have a `url_redirect_action` **and** a `url_rewrite_action` defined in the same `actions` block.
+        :param 'FrontdoorRuleActionsUrlRewriteActionArrgs' url_rewrite_action: A `url_rewrite_action` block as defined below. You may **not** have a `url_rewrite_action` **and** a `url_redirect_action` defined in the same `actions` block.
         """
         if request_header_actions is not None:
             pulumi.set(__self__, "request_header_actions", request_header_actions)
@@ -3463,7 +3463,7 @@ class FrontdoorRuleActions(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleActionsRequestHeaderAction(dict):
+calass FrontdoorRuleActionsRequestHeaderAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3531,7 +3531,7 @@ class FrontdoorRuleActionsRequestHeaderAction(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleActionsResponseHeaderAction(dict):
+calass FrontdoorRuleActionsResponseHeaderAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3599,7 +3599,7 @@ class FrontdoorRuleActionsResponseHeaderAction(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleActionsRouteConfigurationOverrideAction(dict):
+calass FrontdoorRuleActionsRouteConfigurationOverrideAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3731,7 +3731,7 @@ class FrontdoorRuleActionsRouteConfigurationOverrideAction(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleActionsUrlRedirectAction(dict):
+calass FrontdoorRuleActionsUrlRedirectAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3835,7 +3835,7 @@ class FrontdoorRuleActionsUrlRedirectAction(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleActionsUrlRewriteAction(dict):
+calass FrontdoorRuleActionsUrlRewriteAction(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3895,7 +3895,7 @@ class FrontdoorRuleActionsUrlRewriteAction(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleConditions(dict):
+calass FrontdoorRuleConditions(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -3970,25 +3970,25 @@ class FrontdoorRuleConditions(dict):
                  url_filename_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsUrlFilenameCondition']] = None,
                  url_path_conditions: Optional[Sequence['outputs.FrontdoorRuleConditionsUrlPathCondition']] = None):
         """
-        :param Sequence['FrontdoorRuleConditionsClientPortConditionArgs'] client_port_conditions: A `client_port_condition` block as defined below.
-        :param Sequence['FrontdoorRuleConditionsCookiesConditionArgs'] cookies_conditions: A `cookies_condition` block as defined below.
-        :param Sequence['FrontdoorRuleConditionsHostNameConditionArgs'] host_name_conditions: A `host_name_condition` block as defined below.
-        :param Sequence['FrontdoorRuleConditionsHttpVersionConditionArgs'] http_version_conditions: A `http_version_condition` block as defined below.
-        :param Sequence['FrontdoorRuleConditionsIsDeviceConditionArgs'] is_device_conditions: A `is_device_condition` block as defined below.
-        :param Sequence['FrontdoorRuleConditionsPostArgsConditionArgs'] post_args_conditions: A `post_args_condition` block as defined below.
-        :param Sequence['FrontdoorRuleConditionsQueryStringConditionArgs'] query_string_conditions: A `query_string_condition` block as defined below.
-        :param Sequence['FrontdoorRuleConditionsRemoteAddressConditionArgs'] remote_address_conditions: A `remote_address_condition` block as defined below.
-        :param Sequence['FrontdoorRuleConditionsRequestBodyConditionArgs'] request_body_conditions: A `request_body_condition` block as defined below.
-        :param Sequence['FrontdoorRuleConditionsRequestHeaderConditionArgs'] request_header_conditions: A `request_header_condition` block as defined below.
-        :param Sequence['FrontdoorRuleConditionsRequestMethodConditionArgs'] request_method_conditions: A `request_method_condition` block as defined below.
-        :param Sequence['FrontdoorRuleConditionsRequestSchemeConditionArgs'] request_scheme_conditions: A `request_scheme_condition` block as defined below.
-        :param Sequence['FrontdoorRuleConditionsRequestUriConditionArgs'] request_uri_conditions: A `request_uri_condition` block as defined below.
-        :param Sequence['FrontdoorRuleConditionsServerPortConditionArgs'] server_port_conditions: A `server_port_condition` block as defined below.
-        :param Sequence['FrontdoorRuleConditionsSocketAddressConditionArgs'] socket_address_conditions: A `socket_address_condition` block as defined below.
-        :param Sequence['FrontdoorRuleConditionsSslProtocolConditionArgs'] ssl_protocol_conditions: A `ssl_protocol_condition` block as defined below.
-        :param Sequence['FrontdoorRuleConditionsUrlFileExtensionConditionArgs'] url_file_extension_conditions: A `url_file_extension_condition` block as defined below.
-        :param Sequence['FrontdoorRuleConditionsUrlFilenameConditionArgs'] url_filename_conditions: A `url_filename_condition` block as defined below.
-        :param Sequence['FrontdoorRuleConditionsUrlPathConditionArgs'] url_path_conditions: A `url_path_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsClientPortConditionArrgs'] client_port_conditions: A `client_port_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsCookiesConditionArrgs'] cookies_conditions: A `cookies_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsHostNameConditionArrgs'] host_name_conditions: A `host_name_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsHttpVersionConditionArrgs'] http_version_conditions: A `http_version_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsIsDeviceConditionArrgs'] is_device_conditions: A `is_device_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsPostArgsConditionArrgs'] post_args_conditions: A `post_args_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsQueryStringConditionArrgs'] query_string_conditions: A `query_string_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsRemoteAddressConditionArrgs'] remote_address_conditions: A `remote_address_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsRequestBodyConditionArrgs'] request_body_conditions: A `request_body_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsRequestHeaderConditionArrgs'] request_header_conditions: A `request_header_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsRequestMethodConditionArrgs'] request_method_conditions: A `request_method_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsRequestSchemeConditionArrgs'] request_scheme_conditions: A `request_scheme_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsRequestUriConditionArrgs'] request_uri_conditions: A `request_uri_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsServerPortConditionArrgs'] server_port_conditions: A `server_port_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsSocketAddressConditionArrgs'] socket_address_conditions: A `socket_address_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsSslProtocolConditionArrgs'] ssl_protocol_conditions: A `ssl_protocol_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsUrlFileExtensionConditionArrgs'] url_file_extension_conditions: A `url_file_extension_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsUrlFilenameConditionArrgs'] url_filename_conditions: A `url_filename_condition` block as defined below.
+        :param Sequence['FrontdoorRuleConditionsUrlPathConditionArrgs'] url_path_conditions: A `url_path_condition` block as defined below.
         """
         if client_port_conditions is not None:
             pulumi.set(__self__, "client_port_conditions", client_port_conditions)
@@ -4183,7 +4183,7 @@ class FrontdoorRuleConditions(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleConditionsClientPortCondition(dict):
+calass FrontdoorRuleConditionsClientPortCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4244,7 +4244,7 @@ class FrontdoorRuleConditionsClientPortCondition(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleConditionsCookiesCondition(dict):
+calass FrontdoorRuleConditionsCookiesCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4330,7 +4330,7 @@ class FrontdoorRuleConditionsCookiesCondition(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleConditionsHostNameCondition(dict):
+calass FrontdoorRuleConditionsHostNameCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4403,7 +4403,7 @@ class FrontdoorRuleConditionsHostNameCondition(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleConditionsHttpVersionCondition(dict):
+calass FrontdoorRuleConditionsHttpVersionCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4464,7 +4464,7 @@ class FrontdoorRuleConditionsHttpVersionCondition(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleConditionsIsDeviceCondition(dict):
+calass FrontdoorRuleConditionsIsDeviceCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4526,7 +4526,7 @@ class FrontdoorRuleConditionsIsDeviceCondition(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleConditionsPostArgsCondition(dict):
+calass FrontdoorRuleConditionsPostArgsCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4612,7 +4612,7 @@ class FrontdoorRuleConditionsPostArgsCondition(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleConditionsQueryStringCondition(dict):
+calass FrontdoorRuleConditionsQueryStringCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4685,7 +4685,7 @@ class FrontdoorRuleConditionsQueryStringCondition(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleConditionsRemoteAddressCondition(dict):
+calass FrontdoorRuleConditionsRemoteAddressCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4751,7 +4751,7 @@ class FrontdoorRuleConditionsRemoteAddressCondition(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleConditionsRequestBodyCondition(dict):
+calass FrontdoorRuleConditionsRequestBodyCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4823,7 +4823,7 @@ class FrontdoorRuleConditionsRequestBodyCondition(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleConditionsRequestHeaderCondition(dict):
+calass FrontdoorRuleConditionsRequestHeaderCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4909,7 +4909,7 @@ class FrontdoorRuleConditionsRequestHeaderCondition(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleConditionsRequestMethodCondition(dict):
+calass FrontdoorRuleConditionsRequestMethodCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -4970,7 +4970,7 @@ class FrontdoorRuleConditionsRequestMethodCondition(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleConditionsRequestSchemeCondition(dict):
+calass FrontdoorRuleConditionsRequestSchemeCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5032,7 +5032,7 @@ class FrontdoorRuleConditionsRequestSchemeCondition(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleConditionsRequestUriCondition(dict):
+calass FrontdoorRuleConditionsRequestUriCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5105,7 +5105,7 @@ class FrontdoorRuleConditionsRequestUriCondition(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleConditionsServerPortCondition(dict):
+calass FrontdoorRuleConditionsServerPortCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5165,7 +5165,7 @@ class FrontdoorRuleConditionsServerPortCondition(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleConditionsSocketAddressCondition(dict):
+calass FrontdoorRuleConditionsSocketAddressCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5235,7 +5235,7 @@ class FrontdoorRuleConditionsSocketAddressCondition(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleConditionsSslProtocolCondition(dict):
+calass FrontdoorRuleConditionsSslProtocolCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5296,7 +5296,7 @@ class FrontdoorRuleConditionsSslProtocolCondition(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleConditionsUrlFileExtensionCondition(dict):
+calass FrontdoorRuleConditionsUrlFileExtensionCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5368,7 +5368,7 @@ class FrontdoorRuleConditionsUrlFileExtensionCondition(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleConditionsUrlFilenameCondition(dict):
+calass FrontdoorRuleConditionsUrlFilenameCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5445,7 +5445,7 @@ class FrontdoorRuleConditionsUrlFilenameCondition(dict):
 
 
 @pulumi.output_type
-class FrontdoorRuleConditionsUrlPathCondition(dict):
+calass FrontdoorRuleConditionsUrlPathCondition(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5518,7 +5518,7 @@ class FrontdoorRuleConditionsUrlPathCondition(dict):
 
 
 @pulumi.output_type
-class FrontdoorSecretSecret(dict):
+calass FrontdoorSecretSecret(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5539,7 +5539,7 @@ class FrontdoorSecretSecret(dict):
     def __init__(__self__, *,
                  customer_certificates: Sequence['outputs.FrontdoorSecretSecretCustomerCertificate']):
         """
-        :param Sequence['FrontdoorSecretSecretCustomerCertificateArgs'] customer_certificates: A `customer_certificate` block as defined below. Changing this forces a new Front Door Secret to be created.
+        :param Sequence['FrontdoorSecretSecretCustomerCertificateArrgs'] customer_certificates: A `customer_certificate` block as defined below. Changing this forces a new Front Door Secret to be created.
         """
         pulumi.set(__self__, "customer_certificates", customer_certificates)
 
@@ -5553,7 +5553,7 @@ class FrontdoorSecretSecret(dict):
 
 
 @pulumi.output_type
-class FrontdoorSecretSecretCustomerCertificate(dict):
+calass FrontdoorSecretSecretCustomerCertificate(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5606,11 +5606,11 @@ class FrontdoorSecretSecretCustomerCertificate(dict):
 
 
 @pulumi.output_type
-class FrontdoorSecurityPolicySecurityPolicies(dict):
+calass FrontdoorSecurityPolicySecurityPolicies(dict):
     def __init__(__self__, *,
                  firewall: 'outputs.FrontdoorSecurityPolicySecurityPoliciesFirewall'):
         """
-        :param 'FrontdoorSecurityPolicySecurityPoliciesFirewallArgs' firewall: An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+        :param 'FrontdoorSecurityPolicySecurityPoliciesFirewallArrgs' firewall: An `firewall` block as defined below. Changing this forces a new Front Door Security Policy to be created.
         """
         pulumi.set(__self__, "firewall", firewall)
 
@@ -5624,7 +5624,7 @@ class FrontdoorSecurityPolicySecurityPolicies(dict):
 
 
 @pulumi.output_type
-class FrontdoorSecurityPolicySecurityPoliciesFirewall(dict):
+calass FrontdoorSecurityPolicySecurityPoliciesFirewall(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5646,7 +5646,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewall(dict):
                  association: 'outputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation',
                  cdn_frontdoor_firewall_policy_id: str):
         """
-        :param 'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs' association: An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
+        :param 'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArrgs' association: An `association` block as defined below. Changing this forces a new Front Door Security Policy to be created.
         :param str cdn_frontdoor_firewall_policy_id: The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
         """
         pulumi.set(__self__, "association", association)
@@ -5670,7 +5670,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewall(dict):
 
 
 @pulumi.output_type
-class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation(dict):
+calass FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5692,7 +5692,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation(dict):
                  domains: Sequence['outputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain'],
                  patterns_to_match: str):
         """
-        :param Sequence['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs'] domains: One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
+        :param Sequence['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrgs'] domains: One or more `domain` blocks as defined below. Changing this forces a new Front Door Security Policy to be created.
         :param str patterns_to_match: The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
         """
         pulumi.set(__self__, "domains", domains)
@@ -5716,7 +5716,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation(dict):
 
 
 @pulumi.output_type
-class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain(dict):
+calass FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -5763,7 +5763,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain(dict):
 
 
 @pulumi.output_type
-class GetFrontdoorCustomDomainTlResult(dict):
+calass GetFrontdoorCustomDomainTlResult(dict):
     def __init__(__self__, *,
                  cdn_frontdoor_secret_id: str,
                  certificate_type: str,
@@ -5803,7 +5803,7 @@ class GetFrontdoorCustomDomainTlResult(dict):
 
 
 @pulumi.output_type
-class GetFrontdoorOriginGroupHealthProbeResult(dict):
+calass GetFrontdoorOriginGroupHealthProbeResult(dict):
     def __init__(__self__, *,
                  interval_in_seconds: int,
                  path: str,
@@ -5854,7 +5854,7 @@ class GetFrontdoorOriginGroupHealthProbeResult(dict):
 
 
 @pulumi.output_type
-class GetFrontdoorOriginGroupLoadBalancingResult(dict):
+calass GetFrontdoorOriginGroupLoadBalancingResult(dict):
     def __init__(__self__, *,
                  additional_latency_in_milliseconds: int,
                  sample_size: int,
@@ -5894,11 +5894,11 @@ class GetFrontdoorOriginGroupLoadBalancingResult(dict):
 
 
 @pulumi.output_type
-class GetFrontdoorSecretSecretResult(dict):
+calass GetFrontdoorSecretSecretResult(dict):
     def __init__(__self__, *,
                  customer_certificates: Sequence['outputs.GetFrontdoorSecretSecretCustomerCertificateResult']):
         """
-        :param Sequence['GetFrontdoorSecretSecretCustomerCertificateArgs'] customer_certificates: A `customer_certificate` block as defined below.
+        :param Sequence['GetFrontdoorSecretSecretCustomerCertificateArrgs'] customer_certificates: A `customer_certificate` block as defined below.
         """
         pulumi.set(__self__, "customer_certificates", customer_certificates)
 
@@ -5912,7 +5912,7 @@ class GetFrontdoorSecretSecretResult(dict):
 
 
 @pulumi.output_type
-class GetFrontdoorSecretSecretCustomerCertificateResult(dict):
+calass GetFrontdoorSecretSecretCustomerCertificateResult(dict):
     def __init__(__self__, *,
                  expiration_date: str,
                  key_vault_certificate_id: str,

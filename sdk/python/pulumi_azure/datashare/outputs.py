@@ -19,7 +19,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class AccountIdentity(dict):
+calass AccountIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -84,7 +84,7 @@ class AccountIdentity(dict):
 
 
 @pulumi.output_type
-class DatasetBlobStorageStorageAccount(dict):
+calass DatasetBlobStorageStorageAccount(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -143,7 +143,7 @@ class DatasetBlobStorageStorageAccount(dict):
 
 
 @pulumi.output_type
-class ShareSnapshotSchedule(dict):
+calass ShareSnapshotSchedule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -200,7 +200,7 @@ class ShareSnapshotSchedule(dict):
 
 
 @pulumi.output_type
-class GetAccountIdentityResult(dict):
+calass GetAccountIdentityResult(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
@@ -240,7 +240,7 @@ class GetAccountIdentityResult(dict):
 
 
 @pulumi.output_type
-class GetDatasetBlobStorageStorageAccountResult(dict):
+calass GetDatasetBlobStorageStorageAccountResult(dict):
     def __init__(__self__, *,
                  name: str,
                  resource_group_name: str,
@@ -280,7 +280,7 @@ class GetDatasetBlobStorageStorageAccountResult(dict):
 
 
 @pulumi.output_type
-class GetShareSnapshotScheduleResult(dict):
+calass GetShareSnapshotScheduleResult(dict):
     def __init__(__self__, *,
                  name: str,
                  recurrence: str,

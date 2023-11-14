@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetPolicyVMResult:
+calass GetPolicyVMResult:
     """
     A collection of values returned by getPolicyVM.
     """
@@ -59,7 +59,7 @@ class GetPolicyVMResult:
         return pulumi.get(self, "resource_group_name")
 
 
-class AwaitableGetPolicyVMResult(GetPolicyVMResult):
+calass AwaitableGetPolicyVMResult(GetPolicyVMResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

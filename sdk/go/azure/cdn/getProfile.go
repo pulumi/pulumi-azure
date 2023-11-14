@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing CDN Profile.
@@ -111,12 +110,6 @@ func (o LookupProfileResultOutput) ToLookupProfileResultOutput() LookupProfileRe
 
 func (o LookupProfileResultOutput) ToLookupProfileResultOutputWithContext(ctx context.Context) LookupProfileResultOutput {
 	return o
-}
-
-func (o LookupProfileResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupProfileResult] {
-	return pulumix.Output[LookupProfileResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

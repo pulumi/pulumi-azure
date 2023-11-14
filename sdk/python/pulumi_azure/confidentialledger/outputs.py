@@ -15,7 +15,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class LedgerAzureadBasedServicePrincipal(dict):
+calass LedgerAzureadBasedServicePrincipal(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -76,7 +76,7 @@ class LedgerAzureadBasedServicePrincipal(dict):
 
 
 @pulumi.output_type
-class LedgerCertificateBasedSecurityPrincipal(dict):
+calass LedgerCertificateBasedSecurityPrincipal(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

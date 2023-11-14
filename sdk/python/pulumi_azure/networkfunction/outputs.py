@@ -15,7 +15,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class CollectorPolicyIpfxEmission(dict):
+calass CollectorPolicyIpfxEmission(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -50,7 +50,7 @@ class CollectorPolicyIpfxEmission(dict):
 
 
 @pulumi.output_type
-class CollectorPolicyIpfxIngestion(dict):
+calass CollectorPolicyIpfxIngestion(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

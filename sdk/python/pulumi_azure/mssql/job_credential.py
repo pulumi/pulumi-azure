@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['JobCredentialArgs', 'JobCredential']
+__all__ = ['JobCredentialArrgs', 'JobCredential']
 
 @pulumi.input_type
-class JobCredentialArgs:
+calass JobCredentialArrgs:
     def __init__(__self__, *,
                  job_agent_id: pulumi.Input[str],
                  password: pulumi.Input[str],
@@ -81,7 +81,7 @@ class JobCredentialArgs:
 
 
 @pulumi.input_type
-class _JobCredentialState:
+calass _JobCredentialState:
     def __init__(__self__, *,
                  job_agent_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -152,7 +152,7 @@ class _JobCredentialState:
         pulumi.set(self, "username", value)
 
 
-class JobCredential(pulumi.CustomResource):
+calass JobCredential(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -210,7 +210,7 @@ class JobCredential(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: JobCredentialArgs,
+                 args: JobCredentialArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Elastic Job Credential.
@@ -250,12 +250,12 @@ class JobCredential(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param JobCredentialArgs args: The arguments to use to populate this resource's properties.
+        :param JobCredentialArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(JobCredentialArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(JobCredentialArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -275,7 +275,7 @@ class JobCredential(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = JobCredentialArgs.__new__(JobCredentialArgs)
+            __props__ = JobCredentialArrgs.__new__(JobCredentialArrgs)
 
             if job_agent_id is None and not opts.urn:
                 raise TypeError("Missing required property 'job_agent_id'")

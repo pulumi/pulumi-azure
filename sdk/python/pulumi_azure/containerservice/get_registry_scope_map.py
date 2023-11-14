@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetRegistryScopeMapResult:
+calass GetRegistryScopeMapResult:
     """
     A collection of values returned by getRegistryScopeMap.
     """
@@ -78,7 +78,7 @@ class GetRegistryScopeMapResult:
         return pulumi.get(self, "resource_group_name")
 
 
-class AwaitableGetRegistryScopeMapResult(GetRegistryScopeMapResult):
+calass AwaitableGetRegistryScopeMapResult(GetRegistryScopeMapResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

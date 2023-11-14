@@ -11,10 +11,10 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['DatasetSnowflakeArgs', 'DatasetSnowflake']
+__all__ = ['DatasetSnowflakeArrgs', 'DatasetSnowflake']
 
 @pulumi.input_type
-class DatasetSnowflakeArgs:
+calass DatasetSnowflakeArrgs:
     def __init__(__self__, *,
                  data_factory_id: pulumi.Input[str],
                  linked_service_name: pulumi.Input[str],
@@ -24,7 +24,7 @@ class DatasetSnowflakeArgs:
                  folder: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArgs']]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArrgs']]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None):
         """
@@ -37,7 +37,7 @@ class DatasetSnowflakeArgs:
         :param pulumi.Input[str] folder: The folder that this Dataset is in. If not specified, the Dataset will appear at the root level.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset Snowflake.
-        :param pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArrgs']]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] schema_name: The schema name of the Data Factory Dataset Snowflake.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset Snowflake.
         """
@@ -160,14 +160,14 @@ class DatasetSnowflakeArgs:
 
     @property
     @pulumi.getter(name="schemaColumns")
-    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArgs']]]]:
+    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArrgs']]]]:
         """
         A `schema_column` block as defined below.
         """
         return pulumi.get(self, "schema_columns")
 
     @schema_columns.setter
-    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArgs']]]]):
+    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArrgs']]]]):
         pulumi.set(self, "schema_columns", value)
 
     @property
@@ -196,7 +196,7 @@ class DatasetSnowflakeArgs:
 
 
 @pulumi.input_type
-class _DatasetSnowflakeState:
+calass _DatasetSnowflakeState:
     def __init__(__self__, *,
                  additional_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  annotations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -206,7 +206,7 @@ class _DatasetSnowflakeState:
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArgs']]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArrgs']]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None):
         """
@@ -219,7 +219,7 @@ class _DatasetSnowflakeState:
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset Snowflake.
-        :param pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArgs']]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArrgs']]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] schema_name: The schema name of the Data Factory Dataset Snowflake.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset Snowflake.
         """
@@ -344,14 +344,14 @@ class _DatasetSnowflakeState:
 
     @property
     @pulumi.getter(name="schemaColumns")
-    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArgs']]]]:
+    def schema_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArrgs']]]]:
         """
         A `schema_column` block as defined below.
         """
         return pulumi.get(self, "schema_columns")
 
     @schema_columns.setter
-    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArgs']]]]):
+    def schema_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatasetSnowflakeSchemaColumnArrgs']]]]):
         pulumi.set(self, "schema_columns", value)
 
     @property
@@ -379,7 +379,7 @@ class _DatasetSnowflakeState:
         pulumi.set(self, "table_name", value)
 
 
-class DatasetSnowflake(pulumi.CustomResource):
+calass DatasetSnowflake(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -392,7 +392,7 @@ class DatasetSnowflake(pulumi.CustomResource):
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeSchemaColumnArrgs']]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -439,7 +439,7 @@ class DatasetSnowflake(pulumi.CustomResource):
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset Snowflake.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeSchemaColumnArrgs']]]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] schema_name: The schema name of the Data Factory Dataset Snowflake.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset Snowflake.
         """
@@ -447,7 +447,7 @@ class DatasetSnowflake(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DatasetSnowflakeArgs,
+                 args: DatasetSnowflakeArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Snowflake Dataset inside an Azure Data Factory.
@@ -483,12 +483,12 @@ class DatasetSnowflake(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param DatasetSnowflakeArgs args: The arguments to use to populate this resource's properties.
+        :param DatasetSnowflakeArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(DatasetSnowflakeArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(DatasetSnowflakeArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -505,7 +505,7 @@ class DatasetSnowflake(pulumi.CustomResource):
                  linked_service_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeSchemaColumnArgs']]]]] = None,
+                 schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeSchemaColumnArrgs']]]]] = None,
                  schema_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -515,7 +515,7 @@ class DatasetSnowflake(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = DatasetSnowflakeArgs.__new__(DatasetSnowflakeArgs)
+            __props__ = DatasetSnowflakeArrgs.__new__(DatasetSnowflakeArrgs)
 
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["annotations"] = annotations
@@ -550,7 +550,7 @@ class DatasetSnowflake(pulumi.CustomResource):
             linked_service_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeSchemaColumnArgs']]]]] = None,
+            schema_columns: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeSchemaColumnArrgs']]]]] = None,
             schema_name: Optional[pulumi.Input[str]] = None,
             table_name: Optional[pulumi.Input[str]] = None) -> 'DatasetSnowflake':
         """
@@ -568,7 +568,7 @@ class DatasetSnowflake(pulumi.CustomResource):
         :param pulumi.Input[str] linked_service_name: The Data Factory Linked Service name in which to associate the Dataset with.
         :param pulumi.Input[str] name: Specifies the name of the Data Factory Dataset Snowflake. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: A map of parameters to associate with the Data Factory Dataset Snowflake.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeSchemaColumnArgs']]]] schema_columns: A `schema_column` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatasetSnowflakeSchemaColumnArrgs']]]] schema_columns: A `schema_column` block as defined below.
         :param pulumi.Input[str] schema_name: The schema name of the Data Factory Dataset Snowflake.
         :param pulumi.Input[str] table_name: The table name of the Data Factory Dataset Snowflake.
         """

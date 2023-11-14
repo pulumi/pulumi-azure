@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a resources Advanced Threat Protection setting.
@@ -171,12 +170,6 @@ func (i *AdvancedThreatProtection) ToAdvancedThreatProtectionOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(AdvancedThreatProtectionOutput)
 }
 
-func (i *AdvancedThreatProtection) ToOutput(ctx context.Context) pulumix.Output[*AdvancedThreatProtection] {
-	return pulumix.Output[*AdvancedThreatProtection]{
-		OutputState: i.ToAdvancedThreatProtectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AdvancedThreatProtectionArrayInput is an input type that accepts AdvancedThreatProtectionArray and AdvancedThreatProtectionArrayOutput values.
 // You can construct a concrete instance of `AdvancedThreatProtectionArrayInput` via:
 //
@@ -200,12 +193,6 @@ func (i AdvancedThreatProtectionArray) ToAdvancedThreatProtectionArrayOutput() A
 
 func (i AdvancedThreatProtectionArray) ToAdvancedThreatProtectionArrayOutputWithContext(ctx context.Context) AdvancedThreatProtectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AdvancedThreatProtectionArrayOutput)
-}
-
-func (i AdvancedThreatProtectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*AdvancedThreatProtection] {
-	return pulumix.Output[[]*AdvancedThreatProtection]{
-		OutputState: i.ToAdvancedThreatProtectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AdvancedThreatProtectionMapInput is an input type that accepts AdvancedThreatProtectionMap and AdvancedThreatProtectionMapOutput values.
@@ -233,12 +220,6 @@ func (i AdvancedThreatProtectionMap) ToAdvancedThreatProtectionMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(AdvancedThreatProtectionMapOutput)
 }
 
-func (i AdvancedThreatProtectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AdvancedThreatProtection] {
-	return pulumix.Output[map[string]*AdvancedThreatProtection]{
-		OutputState: i.ToAdvancedThreatProtectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AdvancedThreatProtectionOutput struct{ *pulumi.OutputState }
 
 func (AdvancedThreatProtectionOutput) ElementType() reflect.Type {
@@ -251,12 +232,6 @@ func (o AdvancedThreatProtectionOutput) ToAdvancedThreatProtectionOutput() Advan
 
 func (o AdvancedThreatProtectionOutput) ToAdvancedThreatProtectionOutputWithContext(ctx context.Context) AdvancedThreatProtectionOutput {
 	return o
-}
-
-func (o AdvancedThreatProtectionOutput) ToOutput(ctx context.Context) pulumix.Output[*AdvancedThreatProtection] {
-	return pulumix.Output[*AdvancedThreatProtection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Should Advanced Threat Protection be enabled on this resource?
@@ -283,12 +258,6 @@ func (o AdvancedThreatProtectionArrayOutput) ToAdvancedThreatProtectionArrayOutp
 	return o
 }
 
-func (o AdvancedThreatProtectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AdvancedThreatProtection] {
-	return pulumix.Output[[]*AdvancedThreatProtection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AdvancedThreatProtectionArrayOutput) Index(i pulumi.IntInput) AdvancedThreatProtectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AdvancedThreatProtection {
 		return vs[0].([]*AdvancedThreatProtection)[vs[1].(int)]
@@ -307,12 +276,6 @@ func (o AdvancedThreatProtectionMapOutput) ToAdvancedThreatProtectionMapOutput()
 
 func (o AdvancedThreatProtectionMapOutput) ToAdvancedThreatProtectionMapOutputWithContext(ctx context.Context) AdvancedThreatProtectionMapOutput {
 	return o
-}
-
-func (o AdvancedThreatProtectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AdvancedThreatProtection] {
-	return pulumix.Output[map[string]*AdvancedThreatProtection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AdvancedThreatProtectionMapOutput) MapIndex(k pulumi.StringInput) AdvancedThreatProtectionOutput {

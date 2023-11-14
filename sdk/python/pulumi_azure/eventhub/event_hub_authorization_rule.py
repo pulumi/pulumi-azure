@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['EventHubAuthorizationRuleArgs', 'EventHubAuthorizationRule']
+__all__ = ['EventHubAuthorizationRuleArrgs', 'EventHubAuthorizationRule']
 
 @pulumi.input_type
-class EventHubAuthorizationRuleArgs:
+calass EventHubAuthorizationRuleArrgs:
     def __init__(__self__, *,
                  eventhub_name: pulumi.Input[str],
                  namespace_name: pulumi.Input[str],
@@ -133,7 +133,7 @@ class EventHubAuthorizationRuleArgs:
 
 
 @pulumi.input_type
-class _EventHubAuthorizationRuleState:
+calass _EventHubAuthorizationRuleState:
     def __init__(__self__, *,
                  eventhub_name: Optional[pulumi.Input[str]] = None,
                  listen: Optional[pulumi.Input[bool]] = None,
@@ -355,7 +355,7 @@ class _EventHubAuthorizationRuleState:
 warnings.warn("""azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule""", DeprecationWarning)
 
 
-class EventHubAuthorizationRule(pulumi.CustomResource):
+calass EventHubAuthorizationRule(pulumi.CustomResource):
     warnings.warn("""azure.eventhub.EventHubAuthorizationRule has been deprecated in favor of azure.eventhub.AuthorizationRule""", DeprecationWarning)
 
     @overload
@@ -426,7 +426,7 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: EventHubAuthorizationRuleArgs,
+                 args: EventHubAuthorizationRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Event Hubs authorization Rule within an Event Hub.
@@ -469,12 +469,12 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param EventHubAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.
+        :param EventHubAuthorizationRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(EventHubAuthorizationRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(EventHubAuthorizationRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -498,7 +498,7 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = EventHubAuthorizationRuleArgs.__new__(EventHubAuthorizationRuleArgs)
+            __props__ = EventHubAuthorizationRuleArrgs.__new__(EventHubAuthorizationRuleArrgs)
 
             if eventhub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'eventhub_name'")

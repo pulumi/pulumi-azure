@@ -10,14 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ServiceInitialReplicaSetArgs',
-    'ServiceNotificationsArgs',
-    'ServiceSecureLdapArgs',
-    'ServiceSecurityArgs',
+    'ServiceInitialReplicaSetArrgs',
+    'ServiceNotificationsArrgs',
+    'ServiceSecureLdapArrgs',
+    'ServiceSecurityArrgs',
 ]
 
 @pulumi.input_type
-class ServiceInitialReplicaSetArgs:
+calass ServiceInitialReplicaSetArrgs:
     def __init__(__self__, *,
                  subnet_id: pulumi.Input[str],
                  domain_controller_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -119,7 +119,7 @@ class ServiceInitialReplicaSetArgs:
 
 
 @pulumi.input_type
-class ServiceNotificationsArgs:
+calass ServiceNotificationsArrgs:
     def __init__(__self__, *,
                  additional_recipients: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  notify_dc_admins: Optional[pulumi.Input[bool]] = None,
@@ -174,7 +174,7 @@ class ServiceNotificationsArgs:
 
 
 @pulumi.input_type
-class ServiceSecureLdapArgs:
+calass ServiceSecureLdapArrgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool],
                  pfx_certificate: pulumi.Input[str],
@@ -290,7 +290,7 @@ class ServiceSecureLdapArgs:
 
 
 @pulumi.input_type
-class ServiceSecurityArgs:
+calass ServiceSecurityArrgs:
     def __init__(__self__, *,
                  kerberos_armoring_enabled: Optional[pulumi.Input[bool]] = None,
                  kerberos_rc4_encryption_enabled: Optional[pulumi.Input[bool]] = None,

@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['TimeSeriesInsightsEventSourceEventhubArgs', 'TimeSeriesInsightsEventSourceEventhub']
+__all__ = ['TimeSeriesInsightsEventSourceEventhubArrgs', 'TimeSeriesInsightsEventSourceEventhub']
 
 @pulumi.input_type
-class TimeSeriesInsightsEventSourceEventhubArgs:
+calass TimeSeriesInsightsEventSourceEventhubArrgs:
     def __init__(__self__, *,
                  consumer_group_name: pulumi.Input[str],
                  environment_id: pulumi.Input[str],
@@ -189,7 +189,7 @@ class TimeSeriesInsightsEventSourceEventhubArgs:
 
 
 @pulumi.input_type
-class _TimeSeriesInsightsEventSourceEventhubState:
+calass _TimeSeriesInsightsEventSourceEventhubState:
     def __init__(__self__, *,
                  consumer_group_name: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
@@ -372,7 +372,7 @@ class _TimeSeriesInsightsEventSourceEventhubState:
         pulumi.set(self, "timestamp_property_name", value)
 
 
-class TimeSeriesInsightsEventSourceEventhub(pulumi.CustomResource):
+calass TimeSeriesInsightsEventSourceEventhub(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -429,7 +429,7 @@ class TimeSeriesInsightsEventSourceEventhub(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku_name="L1",
             id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
+            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArrgs(
                 name=example_account.name,
                 key=example_account.primary_access_key,
             ))
@@ -470,7 +470,7 @@ class TimeSeriesInsightsEventSourceEventhub(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TimeSeriesInsightsEventSourceEventhubArgs,
+                 args: TimeSeriesInsightsEventSourceEventhubArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure IoT Time Series Insights EventHub Event Source.
@@ -512,7 +512,7 @@ class TimeSeriesInsightsEventSourceEventhub(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             sku_name="L1",
             id_properties=["id"],
-            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArgs(
+            storage=azure.iot.TimeSeriesInsightsGen2EnvironmentStorageArrgs(
                 name=example_account.name,
                 key=example_account.primary_access_key,
             ))
@@ -536,12 +536,12 @@ class TimeSeriesInsightsEventSourceEventhub(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param TimeSeriesInsightsEventSourceEventhubArgs args: The arguments to use to populate this resource's properties.
+        :param TimeSeriesInsightsEventSourceEventhubArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(TimeSeriesInsightsEventSourceEventhubArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(TimeSeriesInsightsEventSourceEventhubArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -568,7 +568,7 @@ class TimeSeriesInsightsEventSourceEventhub(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = TimeSeriesInsightsEventSourceEventhubArgs.__new__(TimeSeriesInsightsEventSourceEventhubArgs)
+            __props__ = TimeSeriesInsightsEventSourceEventhubArrgs.__new__(TimeSeriesInsightsEventSourceEventhubArrgs)
 
             if consumer_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'consumer_group_name'")

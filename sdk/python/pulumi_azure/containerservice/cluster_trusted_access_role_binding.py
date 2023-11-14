@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['ClusterTrustedAccessRoleBindingArgs', 'ClusterTrustedAccessRoleBinding']
+__all__ = ['ClusterTrustedAccessRoleBindingArrgs', 'ClusterTrustedAccessRoleBinding']
 
 @pulumi.input_type
-class ClusterTrustedAccessRoleBindingArgs:
+calass ClusterTrustedAccessRoleBindingArrgs:
     def __init__(__self__, *,
                  kubernetes_cluster_id: pulumi.Input[str],
                  roles: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -81,7 +81,7 @@ class ClusterTrustedAccessRoleBindingArgs:
 
 
 @pulumi.input_type
-class _ClusterTrustedAccessRoleBindingState:
+calass _ClusterTrustedAccessRoleBindingState:
     def __init__(__self__, *,
                  kubernetes_cluster_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -152,7 +152,7 @@ class _ClusterTrustedAccessRoleBindingState:
         pulumi.set(self, "source_resource_id", value)
 
 
-class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
+calass ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -196,12 +196,12 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             dns_prefix="acctestaksexample",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
+            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArrgs(
                 name="example-value",
                 node_count="example-value",
                 vm_size="example-value",
             ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
+            identity=azure.containerservice.KubernetesClusterIdentityArrgs(
                 type="example-value",
             ))
         example_account = azure.storage.Account("exampleAccount",
@@ -215,7 +215,7 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
             key_vault_id=example_key_vault.id,
             storage_account_id=example_account.id,
             application_insights_id=example_insights.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
+            identity=azure.machinelearning.WorkspaceIdentityArrgs(
                 type="example-value",
             ))
         example_cluster_trusted_access_role_binding = azure.containerservice.ClusterTrustedAccessRoleBinding("exampleClusterTrustedAccessRoleBinding",
@@ -245,7 +245,7 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ClusterTrustedAccessRoleBindingArgs,
+                 args: ClusterTrustedAccessRoleBindingArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
@@ -281,12 +281,12 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             dns_prefix="acctestaksexample",
-            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
+            default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArrgs(
                 name="example-value",
                 node_count="example-value",
                 vm_size="example-value",
             ),
-            identity=azure.containerservice.KubernetesClusterIdentityArgs(
+            identity=azure.containerservice.KubernetesClusterIdentityArrgs(
                 type="example-value",
             ))
         example_account = azure.storage.Account("exampleAccount",
@@ -300,7 +300,7 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
             key_vault_id=example_key_vault.id,
             storage_account_id=example_account.id,
             application_insights_id=example_insights.id,
-            identity=azure.machinelearning.WorkspaceIdentityArgs(
+            identity=azure.machinelearning.WorkspaceIdentityArrgs(
                 type="example-value",
             ))
         example_cluster_trusted_access_role_binding = azure.containerservice.ClusterTrustedAccessRoleBinding("exampleClusterTrustedAccessRoleBinding",
@@ -320,12 +320,12 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
          * Where `{subscriptionId}` is the ID of the Azure Subscription where the Kubernetes Cluster Trusted Access Role Binding exists. For example `12345678-1234-9876-4563-123456789012`. * Where `{resourceGroupName}` is the name of Resource Group where this Kubernetes Cluster Trusted Access Role Binding exists. For example `example-resource-group`. * Where `{managedClusterName}` is the name of the Managed Cluster. For example `managedClusterValue`. * Where `{trustedAccessRoleBindingName}` is the name of the Trusted Access Role Binding. For example `trustedAccessRoleBindingValue`.
 
         :param str resource_name: The name of the resource.
-        :param ClusterTrustedAccessRoleBindingArgs args: The arguments to use to populate this resource's properties.
+        :param ClusterTrustedAccessRoleBindingArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ClusterTrustedAccessRoleBindingArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ClusterTrustedAccessRoleBindingArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -345,7 +345,7 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ClusterTrustedAccessRoleBindingArgs.__new__(ClusterTrustedAccessRoleBindingArgs)
+            __props__ = ClusterTrustedAccessRoleBindingArrgs.__new__(ClusterTrustedAccessRoleBindingArrgs)
 
             if kubernetes_cluster_id is None and not opts.urn:
                 raise TypeError("Missing required property 'kubernetes_cluster_id'")

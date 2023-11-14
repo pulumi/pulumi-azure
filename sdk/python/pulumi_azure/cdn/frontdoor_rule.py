@@ -11,26 +11,26 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FrontdoorRuleArgs', 'FrontdoorRule']
+__all__ = ['FrontdoorRuleArrgs', 'FrontdoorRule']
 
 @pulumi.input_type
-class FrontdoorRuleArgs:
+calass FrontdoorRuleArrgs:
     def __init__(__self__, *,
-                 actions: pulumi.Input['FrontdoorRuleActionsArgs'],
+                 actions: pulumi.Input['FrontdoorRuleActionsArrgs'],
                  cdn_frontdoor_rule_set_id: pulumi.Input[str],
                  order: pulumi.Input[int],
                  behavior_on_match: Optional[pulumi.Input[str]] = None,
-                 conditions: Optional[pulumi.Input['FrontdoorRuleConditionsArgs']] = None,
+                 conditions: Optional[pulumi.Input['FrontdoorRuleConditionsArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a FrontdoorRule resource.
-        :param pulumi.Input['FrontdoorRuleActionsArgs'] actions: An `actions` block as defined below.
+        :param pulumi.Input['FrontdoorRuleActionsArrgs'] actions: An `actions` block as defined below.
         :param pulumi.Input[str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
         :param pulumi.Input[int] order: The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
                
                ->**NOTE:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
         :param pulumi.Input[str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
-        :param pulumi.Input['FrontdoorRuleConditionsArgs'] conditions: A `conditions` block as defined below.
+        :param pulumi.Input['FrontdoorRuleConditionsArrgs'] conditions: A `conditions` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
         """
         pulumi.set(__self__, "actions", actions)
@@ -45,14 +45,14 @@ class FrontdoorRuleArgs:
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Input['FrontdoorRuleActionsArgs']:
+    def actions(self) -> pulumi.Input['FrontdoorRuleActionsArrgs']:
         """
         An `actions` block as defined below.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: pulumi.Input['FrontdoorRuleActionsArgs']):
+    def actions(self, value: pulumi.Input['FrontdoorRuleActionsArrgs']):
         pulumi.set(self, "actions", value)
 
     @property
@@ -95,14 +95,14 @@ class FrontdoorRuleArgs:
 
     @property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input['FrontdoorRuleConditionsArgs']]:
+    def conditions(self) -> Optional[pulumi.Input['FrontdoorRuleConditionsArrgs']]:
         """
         A `conditions` block as defined below.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input['FrontdoorRuleConditionsArgs']]):
+    def conditions(self, value: Optional[pulumi.Input['FrontdoorRuleConditionsArrgs']]):
         pulumi.set(self, "conditions", value)
 
     @property
@@ -119,22 +119,22 @@ class FrontdoorRuleArgs:
 
 
 @pulumi.input_type
-class _FrontdoorRuleState:
+calass _FrontdoorRuleState:
     def __init__(__self__, *,
-                 actions: Optional[pulumi.Input['FrontdoorRuleActionsArgs']] = None,
+                 actions: Optional[pulumi.Input['FrontdoorRuleActionsArrgs']] = None,
                  behavior_on_match: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_rule_set_id: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_rule_set_name: Optional[pulumi.Input[str]] = None,
-                 conditions: Optional[pulumi.Input['FrontdoorRuleConditionsArgs']] = None,
+                 conditions: Optional[pulumi.Input['FrontdoorRuleConditionsArrgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering FrontdoorRule resources.
-        :param pulumi.Input['FrontdoorRuleActionsArgs'] actions: An `actions` block as defined below.
+        :param pulumi.Input['FrontdoorRuleActionsArrgs'] actions: An `actions` block as defined below.
         :param pulumi.Input[str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         :param pulumi.Input[str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
         :param pulumi.Input[str] cdn_frontdoor_rule_set_name: The name of the Front Door Rule Set containing this Front Door Rule.
-        :param pulumi.Input['FrontdoorRuleConditionsArgs'] conditions: A `conditions` block as defined below.
+        :param pulumi.Input['FrontdoorRuleConditionsArrgs'] conditions: A `conditions` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
         :param pulumi.Input[int] order: The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
                
@@ -157,14 +157,14 @@ class _FrontdoorRuleState:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input['FrontdoorRuleActionsArgs']]:
+    def actions(self) -> Optional[pulumi.Input['FrontdoorRuleActionsArrgs']]:
         """
         An `actions` block as defined below.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input['FrontdoorRuleActionsArgs']]):
+    def actions(self, value: Optional[pulumi.Input['FrontdoorRuleActionsArrgs']]):
         pulumi.set(self, "actions", value)
 
     @property
@@ -205,14 +205,14 @@ class _FrontdoorRuleState:
 
     @property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input['FrontdoorRuleConditionsArgs']]:
+    def conditions(self) -> Optional[pulumi.Input['FrontdoorRuleConditionsArrgs']]:
         """
         A `conditions` block as defined below.
         """
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input['FrontdoorRuleConditionsArgs']]):
+    def conditions(self, value: Optional[pulumi.Input['FrontdoorRuleConditionsArrgs']]):
         pulumi.set(self, "conditions", value)
 
     @property
@@ -242,15 +242,15 @@ class _FrontdoorRuleState:
         pulumi.set(self, "order", value)
 
 
-class FrontdoorRule(pulumi.CustomResource):
+calass FrontdoorRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[pulumi.InputType['FrontdoorRuleActionsArgs']]] = None,
+                 actions: Optional[pulumi.Input[pulumi.InputType['FrontdoorRuleActionsArrgs']]] = None,
                  behavior_on_match: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_rule_set_id: Optional[pulumi.Input[str]] = None,
-                 conditions: Optional[pulumi.Input[pulumi.InputType['FrontdoorRuleConditionsArgs']]] = None,
+                 conditions: Optional[pulumi.Input[pulumi.InputType['FrontdoorRuleConditionsArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -390,10 +390,10 @@ class FrontdoorRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['FrontdoorRuleActionsArgs']] actions: An `actions` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FrontdoorRuleActionsArrgs']] actions: An `actions` block as defined below.
         :param pulumi.Input[str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         :param pulumi.Input[str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
-        :param pulumi.Input[pulumi.InputType['FrontdoorRuleConditionsArgs']] conditions: A `conditions` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FrontdoorRuleConditionsArrgs']] conditions: A `conditions` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
         :param pulumi.Input[int] order: The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
                
@@ -403,7 +403,7 @@ class FrontdoorRule(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FrontdoorRuleArgs,
+                 args: FrontdoorRuleArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Front Door (standard/premium) Rule.
@@ -540,12 +540,12 @@ class FrontdoorRule(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FrontdoorRuleArgs args: The arguments to use to populate this resource's properties.
+        :param FrontdoorRuleArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FrontdoorRuleArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FrontdoorRuleArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -554,10 +554,10 @@ class FrontdoorRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: Optional[pulumi.Input[pulumi.InputType['FrontdoorRuleActionsArgs']]] = None,
+                 actions: Optional[pulumi.Input[pulumi.InputType['FrontdoorRuleActionsArrgs']]] = None,
                  behavior_on_match: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_rule_set_id: Optional[pulumi.Input[str]] = None,
-                 conditions: Optional[pulumi.Input[pulumi.InputType['FrontdoorRuleConditionsArgs']]] = None,
+                 conditions: Optional[pulumi.Input[pulumi.InputType['FrontdoorRuleConditionsArrgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  order: Optional[pulumi.Input[int]] = None,
                  __props__=None):
@@ -567,7 +567,7 @@ class FrontdoorRule(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FrontdoorRuleArgs.__new__(FrontdoorRuleArgs)
+            __props__ = FrontdoorRuleArrgs.__new__(FrontdoorRuleArrgs)
 
             if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")
@@ -592,11 +592,11 @@ class FrontdoorRule(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            actions: Optional[pulumi.Input[pulumi.InputType['FrontdoorRuleActionsArgs']]] = None,
+            actions: Optional[pulumi.Input[pulumi.InputType['FrontdoorRuleActionsArrgs']]] = None,
             behavior_on_match: Optional[pulumi.Input[str]] = None,
             cdn_frontdoor_rule_set_id: Optional[pulumi.Input[str]] = None,
             cdn_frontdoor_rule_set_name: Optional[pulumi.Input[str]] = None,
-            conditions: Optional[pulumi.Input[pulumi.InputType['FrontdoorRuleConditionsArgs']]] = None,
+            conditions: Optional[pulumi.Input[pulumi.InputType['FrontdoorRuleConditionsArrgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             order: Optional[pulumi.Input[int]] = None) -> 'FrontdoorRule':
         """
@@ -606,11 +606,11 @@ class FrontdoorRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['FrontdoorRuleActionsArgs']] actions: An `actions` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FrontdoorRuleActionsArrgs']] actions: An `actions` block as defined below.
         :param pulumi.Input[str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         :param pulumi.Input[str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
         :param pulumi.Input[str] cdn_frontdoor_rule_set_name: The name of the Front Door Rule Set containing this Front Door Rule.
-        :param pulumi.Input[pulumi.InputType['FrontdoorRuleConditionsArgs']] conditions: A `conditions` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FrontdoorRuleConditionsArrgs']] conditions: A `conditions` block as defined below.
         :param pulumi.Input[str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
         :param pulumi.Input[int] order: The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
                

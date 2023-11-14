@@ -11,17 +11,17 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['FrontdoorRouteArgs', 'FrontdoorRoute']
+__all__ = ['FrontdoorRouteArrgs', 'FrontdoorRoute']
 
 @pulumi.input_type
-class FrontdoorRouteArgs:
+calass FrontdoorRouteArrgs:
     def __init__(__self__, *,
                  cdn_frontdoor_endpoint_id: pulumi.Input[str],
                  cdn_frontdoor_origin_group_id: pulumi.Input[str],
                  cdn_frontdoor_origin_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  patterns_to_matches: pulumi.Input[Sequence[pulumi.Input[str]]],
                  supported_protocols: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 cache: Optional[pulumi.Input['FrontdoorRouteCacheArgs']] = None,
+                 cache: Optional[pulumi.Input['FrontdoorRouteCacheArrgs']] = None,
                  cdn_frontdoor_custom_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cdn_frontdoor_origin_path: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_rule_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -39,7 +39,7 @@ class FrontdoorRouteArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_protocols: One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`.
                
                > **NOTE:** If `https_redirect_enabled` is set to `true` the `supported_protocols` field must contain both `Http` and `Https` values.
-        :param pulumi.Input['FrontdoorRouteCacheArgs'] cache: A `cache` block as defined below.
+        :param pulumi.Input['FrontdoorRouteCacheArrgs'] cache: A `cache` block as defined below.
                
                > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_custom_domain_ids: The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
@@ -141,7 +141,7 @@ class FrontdoorRouteArgs:
 
     @property
     @pulumi.getter
-    def cache(self) -> Optional[pulumi.Input['FrontdoorRouteCacheArgs']]:
+    def cache(self) -> Optional[pulumi.Input['FrontdoorRouteCacheArrgs']]:
         """
         A `cache` block as defined below.
 
@@ -150,7 +150,7 @@ class FrontdoorRouteArgs:
         return pulumi.get(self, "cache")
 
     @cache.setter
-    def cache(self, value: Optional[pulumi.Input['FrontdoorRouteCacheArgs']]):
+    def cache(self, value: Optional[pulumi.Input['FrontdoorRouteCacheArrgs']]):
         pulumi.set(self, "cache", value)
 
     @property
@@ -253,9 +253,9 @@ class FrontdoorRouteArgs:
 
 
 @pulumi.input_type
-class _FrontdoorRouteState:
+calass _FrontdoorRouteState:
     def __init__(__self__, *,
-                 cache: Optional[pulumi.Input['FrontdoorRouteCacheArgs']] = None,
+                 cache: Optional[pulumi.Input['FrontdoorRouteCacheArrgs']] = None,
                  cdn_frontdoor_custom_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cdn_frontdoor_endpoint_id: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
@@ -271,7 +271,7 @@ class _FrontdoorRouteState:
                  supported_protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering FrontdoorRoute resources.
-        :param pulumi.Input['FrontdoorRouteCacheArgs'] cache: A `cache` block as defined below.
+        :param pulumi.Input['FrontdoorRouteCacheArrgs'] cache: A `cache` block as defined below.
                
                > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_custom_domain_ids: The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
@@ -323,7 +323,7 @@ class _FrontdoorRouteState:
 
     @property
     @pulumi.getter
-    def cache(self) -> Optional[pulumi.Input['FrontdoorRouteCacheArgs']]:
+    def cache(self) -> Optional[pulumi.Input['FrontdoorRouteCacheArrgs']]:
         """
         A `cache` block as defined below.
 
@@ -332,7 +332,7 @@ class _FrontdoorRouteState:
         return pulumi.get(self, "cache")
 
     @cache.setter
-    def cache(self, value: Optional[pulumi.Input['FrontdoorRouteCacheArgs']]):
+    def cache(self, value: Optional[pulumi.Input['FrontdoorRouteCacheArrgs']]):
         pulumi.set(self, "cache", value)
 
     @property
@@ -496,12 +496,12 @@ class _FrontdoorRouteState:
         pulumi.set(self, "supported_protocols", value)
 
 
-class FrontdoorRoute(pulumi.CustomResource):
+calass FrontdoorRoute(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache: Optional[pulumi.Input[pulumi.InputType['FrontdoorRouteCacheArgs']]] = None,
+                 cache: Optional[pulumi.Input[pulumi.InputType['FrontdoorRouteCacheArrgs']]] = None,
                  cdn_frontdoor_custom_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cdn_frontdoor_endpoint_id: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
@@ -529,7 +529,7 @@ class FrontdoorRoute(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['FrontdoorRouteCacheArgs']] cache: A `cache` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FrontdoorRouteCacheArrgs']] cache: A `cache` block as defined below.
                
                > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_custom_domain_ids: The IDs of the Front Door Custom Domains which are associated with this Front Door Route.
@@ -554,7 +554,7 @@ class FrontdoorRoute(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: FrontdoorRouteArgs,
+                 args: FrontdoorRouteArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Front Door (standard/premium) Route.
@@ -568,12 +568,12 @@ class FrontdoorRoute(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param FrontdoorRouteArgs args: The arguments to use to populate this resource's properties.
+        :param FrontdoorRouteArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(FrontdoorRouteArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(FrontdoorRouteArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -582,7 +582,7 @@ class FrontdoorRoute(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache: Optional[pulumi.Input[pulumi.InputType['FrontdoorRouteCacheArgs']]] = None,
+                 cache: Optional[pulumi.Input[pulumi.InputType['FrontdoorRouteCacheArrgs']]] = None,
                  cdn_frontdoor_custom_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cdn_frontdoor_endpoint_id: Optional[pulumi.Input[str]] = None,
                  cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
@@ -603,7 +603,7 @@ class FrontdoorRoute(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = FrontdoorRouteArgs.__new__(FrontdoorRouteArgs)
+            __props__ = FrontdoorRouteArrgs.__new__(FrontdoorRouteArrgs)
 
             __props__.__dict__["cache"] = cache
             __props__.__dict__["cdn_frontdoor_custom_domain_ids"] = cdn_frontdoor_custom_domain_ids
@@ -639,7 +639,7 @@ class FrontdoorRoute(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cache: Optional[pulumi.Input[pulumi.InputType['FrontdoorRouteCacheArgs']]] = None,
+            cache: Optional[pulumi.Input[pulumi.InputType['FrontdoorRouteCacheArrgs']]] = None,
             cdn_frontdoor_custom_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             cdn_frontdoor_endpoint_id: Optional[pulumi.Input[str]] = None,
             cdn_frontdoor_origin_group_id: Optional[pulumi.Input[str]] = None,
@@ -660,7 +660,7 @@ class FrontdoorRoute(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['FrontdoorRouteCacheArgs']] cache: A `cache` block as defined below.
+        :param pulumi.Input[pulumi.InputType['FrontdoorRouteCacheArrgs']] cache: A `cache` block as defined below.
                
                > **NOTE:** To disable caching, do not provide the `cache` block in the configuration file.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cdn_frontdoor_custom_domain_ids: The IDs of the Front Door Custom Domains which are associated with this Front Door Route.

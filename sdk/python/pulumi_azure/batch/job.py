@@ -9,10 +9,10 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = ['JobArgs', 'Job']
+__all__ = ['JobArrgs', 'Job']
 
 @pulumi.input_type
-class JobArgs:
+calass JobArrgs:
     def __init__(__self__, *,
                  batch_pool_id: pulumi.Input[str],
                  common_environment_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -115,7 +115,7 @@ class JobArgs:
 
 
 @pulumi.input_type
-class _JobState:
+calass _JobState:
     def __init__(__self__, *,
                  batch_pool_id: Optional[pulumi.Input[str]] = None,
                  common_environment_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -218,7 +218,7 @@ class _JobState:
         pulumi.set(self, "task_retry_maximum", value)
 
 
-class Job(pulumi.CustomResource):
+calass Job(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -248,10 +248,10 @@ class Job(pulumi.CustomResource):
             account_name=example_account.name,
             node_agent_sku_id="batch.node.ubuntu 16.04",
             vm_size="Standard_A1",
-            fixed_scale=azure.batch.PoolFixedScaleArgs(
+            fixed_scale=azure.batch.PoolFixedScaleArrgs(
                 target_dedicated_nodes=1,
             ),
-            storage_image_reference=azure.batch.PoolStorageImageReferenceArgs(
+            storage_image_reference=azure.batch.PoolStorageImageReferenceArrgs(
                 publisher="Canonical",
                 offer="0001-com-ubuntu-server-jammy",
                 sku="22_04-lts",
@@ -281,7 +281,7 @@ class Job(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: JobArgs,
+                 args: JobArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Batch Job.
@@ -301,10 +301,10 @@ class Job(pulumi.CustomResource):
             account_name=example_account.name,
             node_agent_sku_id="batch.node.ubuntu 16.04",
             vm_size="Standard_A1",
-            fixed_scale=azure.batch.PoolFixedScaleArgs(
+            fixed_scale=azure.batch.PoolFixedScaleArrgs(
                 target_dedicated_nodes=1,
             ),
-            storage_image_reference=azure.batch.PoolStorageImageReferenceArgs(
+            storage_image_reference=azure.batch.PoolStorageImageReferenceArrgs(
                 publisher="Canonical",
                 offer="0001-com-ubuntu-server-jammy",
                 sku="22_04-lts",
@@ -322,12 +322,12 @@ class Job(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param JobArgs args: The arguments to use to populate this resource's properties.
+        :param JobArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(JobArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(JobArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -349,7 +349,7 @@ class Job(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = JobArgs.__new__(JobArgs)
+            __props__ = JobArrgs.__new__(JobArrgs)
 
             if batch_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'batch_pool_id'")

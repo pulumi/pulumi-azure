@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetSourceControlTokenResult:
+calass GetSourceControlTokenResult:
     """
     A collection of values returned by getSourceControlToken.
     """
@@ -62,7 +62,7 @@ class GetSourceControlTokenResult:
         return pulumi.get(self, "type")
 
 
-class AwaitableGetSourceControlTokenResult(GetSourceControlTokenResult):
+calass AwaitableGetSourceControlTokenResult(GetSourceControlTokenResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

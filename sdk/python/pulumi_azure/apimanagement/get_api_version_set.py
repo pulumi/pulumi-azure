@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetApiVersionSetResult:
+calass GetApiVersionSetResult:
     """
     A collection of values returned by getApiVersionSet.
     """
@@ -111,7 +111,7 @@ class GetApiVersionSetResult:
         return pulumi.get(self, "versioning_scheme")
 
 
-class AwaitableGetApiVersionSetResult(GetApiVersionSetResult):
+calass AwaitableGetApiVersionSetResult(GetApiVersionSetResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

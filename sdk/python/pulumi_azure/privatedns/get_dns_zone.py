@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetDnsZoneResult:
+calass GetDnsZoneResult:
     """
     A collection of values returned by getDnsZone.
     """
@@ -106,7 +106,7 @@ class GetDnsZoneResult:
         return pulumi.get(self, "tags")
 
 
-class AwaitableGetDnsZoneResult(GetDnsZoneResult):
+calass AwaitableGetDnsZoneResult(GetDnsZoneResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

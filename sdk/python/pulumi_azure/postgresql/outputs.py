@@ -21,7 +21,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class FlexibleServerAuthentication(dict):
+calass FlexibleServerAuthentication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -93,7 +93,7 @@ class FlexibleServerAuthentication(dict):
 
 
 @pulumi.output_type
-class FlexibleServerCustomerManagedKey(dict):
+calass FlexibleServerCustomerManagedKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -175,7 +175,7 @@ class FlexibleServerCustomerManagedKey(dict):
 
 
 @pulumi.output_type
-class FlexibleServerHighAvailability(dict):
+calass FlexibleServerHighAvailability(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -218,7 +218,7 @@ class FlexibleServerHighAvailability(dict):
 
 
 @pulumi.output_type
-class FlexibleServerIdentity(dict):
+calass FlexibleServerIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -264,7 +264,7 @@ class FlexibleServerIdentity(dict):
 
 
 @pulumi.output_type
-class FlexibleServerMaintenanceWindow(dict):
+calass FlexibleServerMaintenanceWindow(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -328,7 +328,7 @@ class FlexibleServerMaintenanceWindow(dict):
 
 
 @pulumi.output_type
-class ServerIdentity(dict):
+calass ServerIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -389,7 +389,7 @@ class ServerIdentity(dict):
 
 
 @pulumi.output_type
-class ServerThreatDetectionPolicy(dict):
+calass ServerThreatDetectionPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -507,7 +507,7 @@ class ServerThreatDetectionPolicy(dict):
 
 
 @pulumi.output_type
-class GetServerIdentityResult(dict):
+calass GetServerIdentityResult(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,

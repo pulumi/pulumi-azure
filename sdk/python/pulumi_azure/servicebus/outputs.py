@@ -20,7 +20,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class NamespaceCustomerManagedKey(dict):
+calass NamespaceCustomerManagedKey(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -82,7 +82,7 @@ class NamespaceCustomerManagedKey(dict):
 
 
 @pulumi.output_type
-class NamespaceIdentity(dict):
+calass NamespaceIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -161,7 +161,7 @@ class NamespaceIdentity(dict):
 
 
 @pulumi.output_type
-class NamespaceNetworkRuleSet(dict):
+calass NamespaceNetworkRuleSet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -196,7 +196,7 @@ class NamespaceNetworkRuleSet(dict):
         """
         :param str default_action: Specifies the default action for the Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
         :param Sequence[str] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace.
-        :param Sequence['NamespaceNetworkRuleSetNetworkRuleArgs'] network_rules: One or more `network_rules` blocks as defined below.
+        :param Sequence['NamespaceNetworkRuleSetNetworkRuleArrgs'] network_rules: One or more `network_rules` blocks as defined below.
         :param bool public_network_access_enabled: Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`.
         :param bool trusted_services_allowed: Are Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration? See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md)
         """
@@ -253,7 +253,7 @@ class NamespaceNetworkRuleSet(dict):
 
 
 @pulumi.output_type
-class NamespaceNetworkRuleSetNetworkRule(dict):
+calass NamespaceNetworkRuleSetNetworkRule(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -302,7 +302,7 @@ class NamespaceNetworkRuleSetNetworkRule(dict):
 
 
 @pulumi.output_type
-class SubscriptionClientScopedSubscription(dict):
+calass SubscriptionClientScopedSubscription(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -370,7 +370,7 @@ class SubscriptionClientScopedSubscription(dict):
 
 
 @pulumi.output_type
-class SubscriptionRuleCorrelationFilter(dict):
+calass SubscriptionRuleCorrelationFilter(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

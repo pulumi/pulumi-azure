@@ -18,7 +18,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetLogProfileResult:
+calass GetLogProfileResult:
     """
     A collection of values returned by getLogProfile.
     """
@@ -99,7 +99,7 @@ class GetLogProfileResult:
         return pulumi.get(self, "storage_account_id")
 
 
-class AwaitableGetLogProfileResult(GetLogProfileResult):
+calass AwaitableGetLogProfileResult(GetLogProfileResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:

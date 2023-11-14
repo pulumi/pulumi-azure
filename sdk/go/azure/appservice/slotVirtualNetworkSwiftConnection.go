@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an App Service Slot's Virtual Network Association (this is for the [Regional VNet Integration](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#regional-vnet-integration) which is still in preview).
@@ -232,12 +231,6 @@ func (i *SlotVirtualNetworkSwiftConnection) ToSlotVirtualNetworkSwiftConnectionO
 	return pulumi.ToOutputWithContext(ctx, i).(SlotVirtualNetworkSwiftConnectionOutput)
 }
 
-func (i *SlotVirtualNetworkSwiftConnection) ToOutput(ctx context.Context) pulumix.Output[*SlotVirtualNetworkSwiftConnection] {
-	return pulumix.Output[*SlotVirtualNetworkSwiftConnection]{
-		OutputState: i.ToSlotVirtualNetworkSwiftConnectionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SlotVirtualNetworkSwiftConnectionArrayInput is an input type that accepts SlotVirtualNetworkSwiftConnectionArray and SlotVirtualNetworkSwiftConnectionArrayOutput values.
 // You can construct a concrete instance of `SlotVirtualNetworkSwiftConnectionArrayInput` via:
 //
@@ -261,12 +254,6 @@ func (i SlotVirtualNetworkSwiftConnectionArray) ToSlotVirtualNetworkSwiftConnect
 
 func (i SlotVirtualNetworkSwiftConnectionArray) ToSlotVirtualNetworkSwiftConnectionArrayOutputWithContext(ctx context.Context) SlotVirtualNetworkSwiftConnectionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SlotVirtualNetworkSwiftConnectionArrayOutput)
-}
-
-func (i SlotVirtualNetworkSwiftConnectionArray) ToOutput(ctx context.Context) pulumix.Output[[]*SlotVirtualNetworkSwiftConnection] {
-	return pulumix.Output[[]*SlotVirtualNetworkSwiftConnection]{
-		OutputState: i.ToSlotVirtualNetworkSwiftConnectionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SlotVirtualNetworkSwiftConnectionMapInput is an input type that accepts SlotVirtualNetworkSwiftConnectionMap and SlotVirtualNetworkSwiftConnectionMapOutput values.
@@ -294,12 +281,6 @@ func (i SlotVirtualNetworkSwiftConnectionMap) ToSlotVirtualNetworkSwiftConnectio
 	return pulumi.ToOutputWithContext(ctx, i).(SlotVirtualNetworkSwiftConnectionMapOutput)
 }
 
-func (i SlotVirtualNetworkSwiftConnectionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SlotVirtualNetworkSwiftConnection] {
-	return pulumix.Output[map[string]*SlotVirtualNetworkSwiftConnection]{
-		OutputState: i.ToSlotVirtualNetworkSwiftConnectionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SlotVirtualNetworkSwiftConnectionOutput struct{ *pulumi.OutputState }
 
 func (SlotVirtualNetworkSwiftConnectionOutput) ElementType() reflect.Type {
@@ -312,12 +293,6 @@ func (o SlotVirtualNetworkSwiftConnectionOutput) ToSlotVirtualNetworkSwiftConnec
 
 func (o SlotVirtualNetworkSwiftConnectionOutput) ToSlotVirtualNetworkSwiftConnectionOutputWithContext(ctx context.Context) SlotVirtualNetworkSwiftConnectionOutput {
 	return o
-}
-
-func (o SlotVirtualNetworkSwiftConnectionOutput) ToOutput(ctx context.Context) pulumix.Output[*SlotVirtualNetworkSwiftConnection] {
-	return pulumix.Output[*SlotVirtualNetworkSwiftConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the App Service or Function App to associate to the VNet. Changing this forces a new resource to be created.
@@ -349,12 +324,6 @@ func (o SlotVirtualNetworkSwiftConnectionArrayOutput) ToSlotVirtualNetworkSwiftC
 	return o
 }
 
-func (o SlotVirtualNetworkSwiftConnectionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SlotVirtualNetworkSwiftConnection] {
-	return pulumix.Output[[]*SlotVirtualNetworkSwiftConnection]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SlotVirtualNetworkSwiftConnectionArrayOutput) Index(i pulumi.IntInput) SlotVirtualNetworkSwiftConnectionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SlotVirtualNetworkSwiftConnection {
 		return vs[0].([]*SlotVirtualNetworkSwiftConnection)[vs[1].(int)]
@@ -373,12 +342,6 @@ func (o SlotVirtualNetworkSwiftConnectionMapOutput) ToSlotVirtualNetworkSwiftCon
 
 func (o SlotVirtualNetworkSwiftConnectionMapOutput) ToSlotVirtualNetworkSwiftConnectionMapOutputWithContext(ctx context.Context) SlotVirtualNetworkSwiftConnectionMapOutput {
 	return o
-}
-
-func (o SlotVirtualNetworkSwiftConnectionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SlotVirtualNetworkSwiftConnection] {
-	return pulumix.Output[map[string]*SlotVirtualNetworkSwiftConnection]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SlotVirtualNetworkSwiftConnectionMapOutput) MapIndex(k pulumi.StringInput) SlotVirtualNetworkSwiftConnectionOutput {

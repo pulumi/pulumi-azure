@@ -10,30 +10,30 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
-    'ProtectionContainerMappingAutomaticUpdateArgs',
-    'ReplicatedVMManagedDiskArgs',
-    'ReplicatedVMManagedDiskTargetDiskEncryptionArgs',
-    'ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs',
-    'ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs',
-    'ReplicatedVMNetworkInterfaceArgs',
-    'ReplicatedVMUnmanagedDiskArgs',
-    'ReplicationRecoveryPlanAzureToAzureSettingsArgs',
-    'ReplicationRecoveryPlanBootRecoveryGroupArgs',
-    'ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs',
-    'ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs',
-    'ReplicationRecoveryPlanFailoverRecoveryGroupArgs',
-    'ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs',
-    'ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs',
-    'ReplicationRecoveryPlanRecoveryGroupArgs',
-    'ReplicationRecoveryPlanRecoveryGroupPostActionArgs',
-    'ReplicationRecoveryPlanRecoveryGroupPreActionArgs',
-    'ReplicationRecoveryPlanShutdownRecoveryGroupArgs',
-    'ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs',
-    'ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs',
+    'ProtectionContainerMappingAutomaticUpdateArrgs',
+    'ReplicatedVMManagedDiskArrgs',
+    'ReplicatedVMManagedDiskTargetDiskEncryptionArrgs',
+    'ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArrgs',
+    'ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArrgs',
+    'ReplicatedVMNetworkInterfaceArrgs',
+    'ReplicatedVMUnmanagedDiskArrgs',
+    'ReplicationRecoveryPlanAzureToAzureSettingsArrgs',
+    'ReplicationRecoveryPlanBootRecoveryGroupArrgs',
+    'ReplicationRecoveryPlanBootRecoveryGroupPostActionArrgs',
+    'ReplicationRecoveryPlanBootRecoveryGroupPreActionArrgs',
+    'ReplicationRecoveryPlanFailoverRecoveryGroupArrgs',
+    'ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArrgs',
+    'ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArrgs',
+    'ReplicationRecoveryPlanRecoveryGroupArrgs',
+    'ReplicationRecoveryPlanRecoveryGroupPostActionArrgs',
+    'ReplicationRecoveryPlanRecoveryGroupPreActionArrgs',
+    'ReplicationRecoveryPlanShutdownRecoveryGroupArrgs',
+    'ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArrgs',
+    'ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArrgs',
 ]
 
 @pulumi.input_type
-class ProtectionContainerMappingAutomaticUpdateArgs:
+calass ProtectionContainerMappingAutomaticUpdateArrgs:
     def __init__(__self__, *,
                  authentication_type: Optional[pulumi.Input[str]] = None,
                  automation_account_id: Optional[pulumi.Input[str]] = None,
@@ -104,14 +104,14 @@ class ProtectionContainerMappingAutomaticUpdateArgs:
 
 
 @pulumi.input_type
-class ReplicatedVMManagedDiskArgs:
+calass ReplicatedVMManagedDiskArrgs:
     def __init__(__self__, *,
                  disk_id: pulumi.Input[str],
                  staging_storage_account_id: pulumi.Input[str],
                  target_disk_type: pulumi.Input[str],
                  target_replica_disk_type: pulumi.Input[str],
                  target_resource_group_id: pulumi.Input[str],
-                 target_disk_encryption: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArgs']] = None,
+                 target_disk_encryption: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArrgs']] = None,
                  target_disk_encryption_set_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] disk_id: Id of disk that should be replicated. Changing this forces a new resource to be created.
@@ -119,7 +119,7 @@ class ReplicatedVMManagedDiskArgs:
         :param pulumi.Input[str] target_disk_type: What type should the disk be when a failover is done. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_replica_disk_type: What type should the disk be that holds the replication data. Possible values are `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS` and `UltraSSD_LRS`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_group_id: Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
-        :param pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArgs'] target_disk_encryption: A `target_disk_encryption` block as defined below.
+        :param pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArrgs'] target_disk_encryption: A `target_disk_encryption` block as defined below.
         :param pulumi.Input[str] target_disk_encryption_set_id: The Disk Encryption Set that the Managed Disk will be associated with. Changing this forces a new resource to be created.
                
                > **NOTE:** Creating replicated vm with `target_disk_encryption_set_id` wil take more time (up to 5 hours), please extend the `timeout` for `create`.
@@ -196,14 +196,14 @@ class ReplicatedVMManagedDiskArgs:
 
     @property
     @pulumi.getter(name="targetDiskEncryption")
-    def target_disk_encryption(self) -> Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArgs']]:
+    def target_disk_encryption(self) -> Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArrgs']]:
         """
         A `target_disk_encryption` block as defined below.
         """
         return pulumi.get(self, "target_disk_encryption")
 
     @target_disk_encryption.setter
-    def target_disk_encryption(self, value: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArgs']]):
+    def target_disk_encryption(self, value: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionArrgs']]):
         pulumi.set(self, "target_disk_encryption", value)
 
     @property
@@ -222,13 +222,13 @@ class ReplicatedVMManagedDiskArgs:
 
 
 @pulumi.input_type
-class ReplicatedVMManagedDiskTargetDiskEncryptionArgs:
+calass ReplicatedVMManagedDiskTargetDiskEncryptionArrgs:
     def __init__(__self__, *,
-                 disk_encryption_key: pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs'],
-                 key_encryption_key: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs']] = None):
+                 disk_encryption_key: pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArrgs'],
+                 key_encryption_key: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArrgs']] = None):
         """
-        :param pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs'] disk_encryption_key: A `disk_encryption_key` block as defined below.
-        :param pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs'] key_encryption_key: A `key_encryption_key` block as defined below.
+        :param pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArrgs'] disk_encryption_key: A `disk_encryption_key` block as defined below.
+        :param pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArrgs'] key_encryption_key: A `key_encryption_key` block as defined below.
         """
         pulumi.set(__self__, "disk_encryption_key", disk_encryption_key)
         if key_encryption_key is not None:
@@ -236,31 +236,31 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionArgs:
 
     @property
     @pulumi.getter(name="diskEncryptionKey")
-    def disk_encryption_key(self) -> pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs']:
+    def disk_encryption_key(self) -> pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArrgs']:
         """
         A `disk_encryption_key` block as defined below.
         """
         return pulumi.get(self, "disk_encryption_key")
 
     @disk_encryption_key.setter
-    def disk_encryption_key(self, value: pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs']):
+    def disk_encryption_key(self, value: pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArrgs']):
         pulumi.set(self, "disk_encryption_key", value)
 
     @property
     @pulumi.getter(name="keyEncryptionKey")
-    def key_encryption_key(self) -> Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs']]:
+    def key_encryption_key(self) -> Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArrgs']]:
         """
         A `key_encryption_key` block as defined below.
         """
         return pulumi.get(self, "key_encryption_key")
 
     @key_encryption_key.setter
-    def key_encryption_key(self, value: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs']]):
+    def key_encryption_key(self, value: Optional[pulumi.Input['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArrgs']]):
         pulumi.set(self, "key_encryption_key", value)
 
 
 @pulumi.input_type
-class ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs:
+calass ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArrgs:
     def __init__(__self__, *,
                  secret_url: pulumi.Input[str],
                  vault_id: pulumi.Input[str]):
@@ -297,7 +297,7 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs:
 
 
 @pulumi.input_type
-class ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs:
+calass ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArrgs:
     def __init__(__self__, *,
                  key_url: pulumi.Input[str],
                  vault_id: pulumi.Input[str]):
@@ -334,7 +334,7 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs:
 
 
 @pulumi.input_type
-class ReplicatedVMNetworkInterfaceArgs:
+calass ReplicatedVMNetworkInterfaceArrgs:
     def __init__(__self__, *,
                  failover_test_public_ip_address_id: Optional[pulumi.Input[str]] = None,
                  failover_test_static_ip: Optional[pulumi.Input[str]] = None,
@@ -471,7 +471,7 @@ class ReplicatedVMNetworkInterfaceArgs:
 
 
 @pulumi.input_type
-class ReplicatedVMUnmanagedDiskArgs:
+calass ReplicatedVMUnmanagedDiskArrgs:
     def __init__(__self__, *,
                  disk_uri: pulumi.Input[str],
                  staging_storage_account_id: pulumi.Input[str],
@@ -523,7 +523,7 @@ class ReplicatedVMUnmanagedDiskArgs:
 
 
 @pulumi.input_type
-class ReplicationRecoveryPlanAzureToAzureSettingsArgs:
+calass ReplicationRecoveryPlanAzureToAzureSettingsArrgs:
     def __init__(__self__, *,
                  primary_edge_zone: Optional[pulumi.Input[str]] = None,
                  primary_zone: Optional[pulumi.Input[str]] = None,
@@ -602,14 +602,14 @@ class ReplicationRecoveryPlanAzureToAzureSettingsArgs:
 
 
 @pulumi.input_type
-class ReplicationRecoveryPlanBootRecoveryGroupArgs:
+calass ReplicationRecoveryPlanBootRecoveryGroupArrgs:
     def __init__(__self__, *,
-                 post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs']]]] = None,
-                 pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs']]]] = None,
+                 post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArrgs']]]] = None,
+                 pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArrgs']]]] = None,
                  replicated_protected_items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs']]] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs']]] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArrgs']]] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArrgs']]] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replicated_protected_items: One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
         """
         if post_actions is not None:
@@ -621,26 +621,26 @@ class ReplicationRecoveryPlanBootRecoveryGroupArgs:
 
     @property
     @pulumi.getter(name="postActions")
-    def post_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs']]]]:
+    def post_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArrgs']]]]:
         """
         one or more `action` block as defined below. which will be executed after the group recovery.
         """
         return pulumi.get(self, "post_actions")
 
     @post_actions.setter
-    def post_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs']]]]):
+    def post_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArrgs']]]]):
         pulumi.set(self, "post_actions", value)
 
     @property
     @pulumi.getter(name="preActions")
-    def pre_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs']]]]:
+    def pre_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArrgs']]]]:
         """
         one or more `action` block as defined below. which will be executed before the group recovery.
         """
         return pulumi.get(self, "pre_actions")
 
     @pre_actions.setter
-    def pre_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs']]]]):
+    def pre_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArrgs']]]]):
         pulumi.set(self, "pre_actions", value)
 
     @property
@@ -657,7 +657,7 @@ class ReplicationRecoveryPlanBootRecoveryGroupArgs:
 
 
 @pulumi.input_type
-class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs:
+calass ReplicationRecoveryPlanBootRecoveryGroupPostActionArrgs:
     def __init__(__self__, *,
                  fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -804,7 +804,7 @@ class ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs:
 
 
 @pulumi.input_type
-class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs:
+calass ReplicationRecoveryPlanBootRecoveryGroupPreActionArrgs:
     def __init__(__self__, *,
                  fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -951,13 +951,13 @@ class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs:
 
 
 @pulumi.input_type
-class ReplicationRecoveryPlanFailoverRecoveryGroupArgs:
+calass ReplicationRecoveryPlanFailoverRecoveryGroupArrgs:
     def __init__(__self__, *,
-                 post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs']]]] = None,
-                 pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs']]]] = None):
+                 post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArrgs']]]] = None,
+                 pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs']]] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs']]] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArrgs']]] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArrgs']]] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
         """
         if post_actions is not None:
             pulumi.set(__self__, "post_actions", post_actions)
@@ -966,31 +966,31 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupArgs:
 
     @property
     @pulumi.getter(name="postActions")
-    def post_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs']]]]:
+    def post_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArrgs']]]]:
         """
         one or more `action` block as defined below. which will be executed after the group recovery.
         """
         return pulumi.get(self, "post_actions")
 
     @post_actions.setter
-    def post_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs']]]]):
+    def post_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArrgs']]]]):
         pulumi.set(self, "post_actions", value)
 
     @property
     @pulumi.getter(name="preActions")
-    def pre_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs']]]]:
+    def pre_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArrgs']]]]:
         """
         one or more `action` block as defined below. which will be executed before the group recovery.
         """
         return pulumi.get(self, "pre_actions")
 
     @pre_actions.setter
-    def pre_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs']]]]):
+    def pre_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArrgs']]]]):
         pulumi.set(self, "pre_actions", value)
 
 
 @pulumi.input_type
-class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs:
+calass ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArrgs:
     def __init__(__self__, *,
                  fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -1137,7 +1137,7 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs:
 
 
 @pulumi.input_type
-class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs:
+calass ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArrgs:
     def __init__(__self__, *,
                  fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -1284,16 +1284,16 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs:
 
 
 @pulumi.input_type
-class ReplicationRecoveryPlanRecoveryGroupArgs:
+calass ReplicationRecoveryPlanRecoveryGroupArrgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPostActionArgs']]]] = None,
-                 pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPreActionArgs']]]] = None,
+                 post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPostActionArrgs']]]] = None,
+                 pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPreActionArrgs']]]] = None,
                  replicated_protected_items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] type: The Recovery Plan Group Type. Possible values are `Boot`, `Failover` and `Shutdown`.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPostActionArgs']]] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPreActionArgs']]] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPostActionArrgs']]] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPreActionArrgs']]] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replicated_protected_items: One or more protected VM IDs. It must not be specified when `type` is `Shutdown`.
         """
         pulumi.set(__self__, "type", type)
@@ -1318,26 +1318,26 @@ class ReplicationRecoveryPlanRecoveryGroupArgs:
 
     @property
     @pulumi.getter(name="postActions")
-    def post_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPostActionArgs']]]]:
+    def post_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPostActionArrgs']]]]:
         """
         one or more `action` block as defined below. which will be executed after the group recovery.
         """
         return pulumi.get(self, "post_actions")
 
     @post_actions.setter
-    def post_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPostActionArgs']]]]):
+    def post_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPostActionArrgs']]]]):
         pulumi.set(self, "post_actions", value)
 
     @property
     @pulumi.getter(name="preActions")
-    def pre_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPreActionArgs']]]]:
+    def pre_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPreActionArrgs']]]]:
         """
         one or more `action` block as defined below. which will be executed before the group recovery.
         """
         return pulumi.get(self, "pre_actions")
 
     @pre_actions.setter
-    def pre_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPreActionArgs']]]]):
+    def pre_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanRecoveryGroupPreActionArrgs']]]]):
         pulumi.set(self, "pre_actions", value)
 
     @property
@@ -1354,7 +1354,7 @@ class ReplicationRecoveryPlanRecoveryGroupArgs:
 
 
 @pulumi.input_type
-class ReplicationRecoveryPlanRecoveryGroupPostActionArgs:
+calass ReplicationRecoveryPlanRecoveryGroupPostActionArrgs:
     def __init__(__self__, *,
                  fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -1501,7 +1501,7 @@ class ReplicationRecoveryPlanRecoveryGroupPostActionArgs:
 
 
 @pulumi.input_type
-class ReplicationRecoveryPlanRecoveryGroupPreActionArgs:
+calass ReplicationRecoveryPlanRecoveryGroupPreActionArrgs:
     def __init__(__self__, *,
                  fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -1648,13 +1648,13 @@ class ReplicationRecoveryPlanRecoveryGroupPreActionArgs:
 
 
 @pulumi.input_type
-class ReplicationRecoveryPlanShutdownRecoveryGroupArgs:
+calass ReplicationRecoveryPlanShutdownRecoveryGroupArrgs:
     def __init__(__self__, *,
-                 post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs']]]] = None,
-                 pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs']]]] = None):
+                 post_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArrgs']]]] = None,
+                 pre_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArrgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs']]] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
-        :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs']]] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArrgs']]] post_actions: one or more `action` block as defined below. which will be executed after the group recovery.
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArrgs']]] pre_actions: one or more `action` block as defined below. which will be executed before the group recovery.
         """
         if post_actions is not None:
             pulumi.set(__self__, "post_actions", post_actions)
@@ -1663,31 +1663,31 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupArgs:
 
     @property
     @pulumi.getter(name="postActions")
-    def post_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs']]]]:
+    def post_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArrgs']]]]:
         """
         one or more `action` block as defined below. which will be executed after the group recovery.
         """
         return pulumi.get(self, "post_actions")
 
     @post_actions.setter
-    def post_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs']]]]):
+    def post_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArrgs']]]]):
         pulumi.set(self, "post_actions", value)
 
     @property
     @pulumi.getter(name="preActions")
-    def pre_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs']]]]:
+    def pre_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArrgs']]]]:
         """
         one or more `action` block as defined below. which will be executed before the group recovery.
         """
         return pulumi.get(self, "pre_actions")
 
     @pre_actions.setter
-    def pre_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs']]]]):
+    def pre_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArrgs']]]]):
         pulumi.set(self, "pre_actions", value)
 
 
 @pulumi.input_type
-class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs:
+calass ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArrgs:
     def __init__(__self__, *,
                  fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -1834,7 +1834,7 @@ class ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs:
 
 
 @pulumi.input_type
-class ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs:
+calass ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArrgs:
     def __init__(__self__, *,
                  fail_over_directions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  fail_over_types: pulumi.Input[Sequence[pulumi.Input[str]]],

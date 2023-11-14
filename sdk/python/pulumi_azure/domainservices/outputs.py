@@ -21,7 +21,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ServiceInitialReplicaSet(dict):
+calass ServiceInitialReplicaSet(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -122,7 +122,7 @@ class ServiceInitialReplicaSet(dict):
 
 
 @pulumi.output_type
-class ServiceNotifications(dict):
+calass ServiceNotifications(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -186,7 +186,7 @@ class ServiceNotifications(dict):
 
 
 @pulumi.output_type
-class ServiceSecureLdap(dict):
+calass ServiceSecureLdap(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -301,7 +301,7 @@ class ServiceSecureLdap(dict):
 
 
 @pulumi.output_type
-class ServiceSecurity(dict):
+calass ServiceSecurity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -421,7 +421,7 @@ class ServiceSecurity(dict):
 
 
 @pulumi.output_type
-class GetServiceNotificationResult(dict):
+calass GetServiceNotificationResult(dict):
     def __init__(__self__, *,
                  additional_recipients: Sequence[str],
                  notify_dc_admins: bool,
@@ -461,7 +461,7 @@ class GetServiceNotificationResult(dict):
 
 
 @pulumi.output_type
-class GetServiceReplicaSetResult(dict):
+calass GetServiceReplicaSetResult(dict):
     def __init__(__self__, *,
                  domain_controller_ip_addresses: Sequence[str],
                  external_access_ip_address: str,
@@ -534,7 +534,7 @@ class GetServiceReplicaSetResult(dict):
 
 
 @pulumi.output_type
-class GetServiceSecureLdapResult(dict):
+calass GetServiceSecureLdapResult(dict):
     def __init__(__self__, *,
                  certificate_expiry: str,
                  certificate_thumbprint: str,
@@ -584,7 +584,7 @@ class GetServiceSecureLdapResult(dict):
 
 
 @pulumi.output_type
-class GetServiceSecurityResult(dict):
+calass GetServiceSecurityResult(dict):
     def __init__(__self__, *,
                  kerberos_armoring_enabled: bool,
                  kerberos_rc4_encryption_enabled: bool,

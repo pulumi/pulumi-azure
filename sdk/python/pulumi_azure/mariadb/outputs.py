@@ -14,7 +14,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetMariaDbServerStorageProfileResult(dict):
+calass GetMariaDbServerStorageProfileResult(dict):
     def __init__(__self__, *,
                  auto_grow: str,
                  backup_retention_days: int,

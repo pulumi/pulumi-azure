@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ServiceNetworkAclArgs', 'ServiceNetworkAcl']
+__all__ = ['ServiceNetworkAclArrgs', 'ServiceNetworkAcl']
 
 @pulumi.input_type
-class ServiceNetworkAclArgs:
+calass ServiceNetworkAclArrgs:
     def __init__(__self__, *,
                  default_action: pulumi.Input[str],
-                 public_network: pulumi.Input['ServiceNetworkAclPublicNetworkArgs'],
+                 public_network: pulumi.Input['ServiceNetworkAclPublicNetworkArrgs'],
                  signalr_service_id: pulumi.Input[str],
-                 private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArgs']]]] = None):
+                 private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArrgs']]]] = None):
         """
         The set of arguments for constructing a ServiceNetworkAcl resource.
         :param pulumi.Input[str] default_action: The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`.
-        :param pulumi.Input['ServiceNetworkAclPublicNetworkArgs'] public_network: A `public_network` block as defined below.
+        :param pulumi.Input['ServiceNetworkAclPublicNetworkArrgs'] public_network: A `public_network` block as defined below.
         :param pulumi.Input[str] signalr_service_id: The ID of the SignalR service. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArgs']]] private_endpoints: A `private_endpoint` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArrgs']]] private_endpoints: A `private_endpoint` block as defined below.
         """
         pulumi.set(__self__, "default_action", default_action)
         pulumi.set(__self__, "public_network", public_network)
@@ -47,14 +47,14 @@ class ServiceNetworkAclArgs:
 
     @property
     @pulumi.getter(name="publicNetwork")
-    def public_network(self) -> pulumi.Input['ServiceNetworkAclPublicNetworkArgs']:
+    def public_network(self) -> pulumi.Input['ServiceNetworkAclPublicNetworkArrgs']:
         """
         A `public_network` block as defined below.
         """
         return pulumi.get(self, "public_network")
 
     @public_network.setter
-    def public_network(self, value: pulumi.Input['ServiceNetworkAclPublicNetworkArgs']):
+    def public_network(self, value: pulumi.Input['ServiceNetworkAclPublicNetworkArrgs']):
         pulumi.set(self, "public_network", value)
 
     @property
@@ -71,29 +71,29 @@ class ServiceNetworkAclArgs:
 
     @property
     @pulumi.getter(name="privateEndpoints")
-    def private_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArgs']]]]:
+    def private_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArrgs']]]]:
         """
         A `private_endpoint` block as defined below.
         """
         return pulumi.get(self, "private_endpoints")
 
     @private_endpoints.setter
-    def private_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArgs']]]]):
+    def private_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArrgs']]]]):
         pulumi.set(self, "private_endpoints", value)
 
 
 @pulumi.input_type
-class _ServiceNetworkAclState:
+calass _ServiceNetworkAclState:
     def __init__(__self__, *,
                  default_action: Optional[pulumi.Input[str]] = None,
-                 private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArgs']]]] = None,
-                 public_network: Optional[pulumi.Input['ServiceNetworkAclPublicNetworkArgs']] = None,
+                 private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArrgs']]]] = None,
+                 public_network: Optional[pulumi.Input['ServiceNetworkAclPublicNetworkArrgs']] = None,
                  signalr_service_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceNetworkAcl resources.
         :param pulumi.Input[str] default_action: The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`.
-        :param pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArgs']]] private_endpoints: A `private_endpoint` block as defined below.
-        :param pulumi.Input['ServiceNetworkAclPublicNetworkArgs'] public_network: A `public_network` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArrgs']]] private_endpoints: A `private_endpoint` block as defined below.
+        :param pulumi.Input['ServiceNetworkAclPublicNetworkArrgs'] public_network: A `public_network` block as defined below.
         :param pulumi.Input[str] signalr_service_id: The ID of the SignalR service. Changing this forces a new resource to be created.
         """
         if default_action is not None:
@@ -119,26 +119,26 @@ class _ServiceNetworkAclState:
 
     @property
     @pulumi.getter(name="privateEndpoints")
-    def private_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArgs']]]]:
+    def private_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArrgs']]]]:
         """
         A `private_endpoint` block as defined below.
         """
         return pulumi.get(self, "private_endpoints")
 
     @private_endpoints.setter
-    def private_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArgs']]]]):
+    def private_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceNetworkAclPrivateEndpointArrgs']]]]):
         pulumi.set(self, "private_endpoints", value)
 
     @property
     @pulumi.getter(name="publicNetwork")
-    def public_network(self) -> Optional[pulumi.Input['ServiceNetworkAclPublicNetworkArgs']]:
+    def public_network(self) -> Optional[pulumi.Input['ServiceNetworkAclPublicNetworkArrgs']]:
         """
         A `public_network` block as defined below.
         """
         return pulumi.get(self, "public_network")
 
     @public_network.setter
-    def public_network(self, value: Optional[pulumi.Input['ServiceNetworkAclPublicNetworkArgs']]):
+    def public_network(self, value: Optional[pulumi.Input['ServiceNetworkAclPublicNetworkArrgs']]):
         pulumi.set(self, "public_network", value)
 
     @property
@@ -154,14 +154,14 @@ class _ServiceNetworkAclState:
         pulumi.set(self, "signalr_service_id", value)
 
 
-class ServiceNetworkAcl(pulumi.CustomResource):
+calass ServiceNetworkAcl(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_action: Optional[pulumi.Input[str]] = None,
-                 private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceNetworkAclPrivateEndpointArgs']]]]] = None,
-                 public_network: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkAclPublicNetworkArgs']]] = None,
+                 private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceNetworkAclPrivateEndpointArrgs']]]]] = None,
+                 public_network: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkAclPublicNetworkArrgs']]] = None,
                  signalr_service_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -177,7 +177,7 @@ class ServiceNetworkAcl(pulumi.CustomResource):
         example_service = azure.signalr.Service("exampleService",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.signalr.ServiceSkuArgs(
+            sku=azure.signalr.ServiceSkuArrgs(
                 name="Standard_S1",
                 capacity=1,
             ))
@@ -194,7 +194,7 @@ class ServiceNetworkAcl(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             subnet_id=example_subnet.id,
-            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
+            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArrgs(
                 name="psc-sig-test",
                 is_manual_connection=False,
                 private_connection_resource_id=example_service.id,
@@ -203,10 +203,10 @@ class ServiceNetworkAcl(pulumi.CustomResource):
         example_service_network_acl = azure.signalr.ServiceNetworkAcl("exampleServiceNetworkAcl",
             signalr_service_id=example_service.id,
             default_action="Deny",
-            public_network=azure.signalr.ServiceNetworkAclPublicNetworkArgs(
+            public_network=azure.signalr.ServiceNetworkAclPublicNetworkArrgs(
                 allowed_request_types=["ClientConnection"],
             ),
-            private_endpoints=[azure.signalr.ServiceNetworkAclPrivateEndpointArgs(
+            private_endpoints=[azure.signalr.ServiceNetworkAclPrivateEndpointArrgs(
                 id=example_endpoint.id,
                 allowed_request_types=["ServerConnection"],
             )])
@@ -223,15 +223,15 @@ class ServiceNetworkAcl(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_action: The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceNetworkAclPrivateEndpointArgs']]]] private_endpoints: A `private_endpoint` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ServiceNetworkAclPublicNetworkArgs']] public_network: A `public_network` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceNetworkAclPrivateEndpointArrgs']]]] private_endpoints: A `private_endpoint` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServiceNetworkAclPublicNetworkArrgs']] public_network: A `public_network` block as defined below.
         :param pulumi.Input[str] signalr_service_id: The ID of the SignalR service. Changing this forces a new resource to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ServiceNetworkAclArgs,
+                 args: ServiceNetworkAclArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages the Network ACL for a SignalR service.
@@ -246,7 +246,7 @@ class ServiceNetworkAcl(pulumi.CustomResource):
         example_service = azure.signalr.Service("exampleService",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            sku=azure.signalr.ServiceSkuArgs(
+            sku=azure.signalr.ServiceSkuArrgs(
                 name="Standard_S1",
                 capacity=1,
             ))
@@ -263,7 +263,7 @@ class ServiceNetworkAcl(pulumi.CustomResource):
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             subnet_id=example_subnet.id,
-            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
+            private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArrgs(
                 name="psc-sig-test",
                 is_manual_connection=False,
                 private_connection_resource_id=example_service.id,
@@ -272,10 +272,10 @@ class ServiceNetworkAcl(pulumi.CustomResource):
         example_service_network_acl = azure.signalr.ServiceNetworkAcl("exampleServiceNetworkAcl",
             signalr_service_id=example_service.id,
             default_action="Deny",
-            public_network=azure.signalr.ServiceNetworkAclPublicNetworkArgs(
+            public_network=azure.signalr.ServiceNetworkAclPublicNetworkArrgs(
                 allowed_request_types=["ClientConnection"],
             ),
-            private_endpoints=[azure.signalr.ServiceNetworkAclPrivateEndpointArgs(
+            private_endpoints=[azure.signalr.ServiceNetworkAclPrivateEndpointArrgs(
                 id=example_endpoint.id,
                 allowed_request_types=["ServerConnection"],
             )])
@@ -290,12 +290,12 @@ class ServiceNetworkAcl(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ServiceNetworkAclArgs args: The arguments to use to populate this resource's properties.
+        :param ServiceNetworkAclArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ServiceNetworkAclArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceNetworkAclArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -305,8 +305,8 @@ class ServiceNetworkAcl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  default_action: Optional[pulumi.Input[str]] = None,
-                 private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceNetworkAclPrivateEndpointArgs']]]]] = None,
-                 public_network: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkAclPublicNetworkArgs']]] = None,
+                 private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceNetworkAclPrivateEndpointArrgs']]]]] = None,
+                 public_network: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkAclPublicNetworkArrgs']]] = None,
                  signalr_service_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -315,7 +315,7 @@ class ServiceNetworkAcl(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ServiceNetworkAclArgs.__new__(ServiceNetworkAclArgs)
+            __props__ = ServiceNetworkAclArrgs.__new__(ServiceNetworkAclArrgs)
 
             if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
@@ -338,8 +338,8 @@ class ServiceNetworkAcl(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             default_action: Optional[pulumi.Input[str]] = None,
-            private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceNetworkAclPrivateEndpointArgs']]]]] = None,
-            public_network: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkAclPublicNetworkArgs']]] = None,
+            private_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceNetworkAclPrivateEndpointArrgs']]]]] = None,
+            public_network: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkAclPublicNetworkArrgs']]] = None,
             signalr_service_id: Optional[pulumi.Input[str]] = None) -> 'ServiceNetworkAcl':
         """
         Get an existing ServiceNetworkAcl resource's state with the given name, id, and optional extra
@@ -349,8 +349,8 @@ class ServiceNetworkAcl(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_action: The default action to control the network access when no other rule matches. Possible values are `Allow` and `Deny`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceNetworkAclPrivateEndpointArgs']]]] private_endpoints: A `private_endpoint` block as defined below.
-        :param pulumi.Input[pulumi.InputType['ServiceNetworkAclPublicNetworkArgs']] public_network: A `public_network` block as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceNetworkAclPrivateEndpointArrgs']]]] private_endpoints: A `private_endpoint` block as defined below.
+        :param pulumi.Input[pulumi.InputType['ServiceNetworkAclPublicNetworkArrgs']] public_network: A `public_network` block as defined below.
         :param pulumi.Input[str] signalr_service_id: The ID of the SignalR service. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

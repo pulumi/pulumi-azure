@@ -11,21 +11,21 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ApplicationNetworkRuleSetArgs', 'ApplicationNetworkRuleSet']
+__all__ = ['ApplicationNetworkRuleSetArrgs', 'ApplicationNetworkRuleSet']
 
 @pulumi.input_type
-class ApplicationNetworkRuleSetArgs:
+calass ApplicationNetworkRuleSetArrgs:
     def __init__(__self__, *,
                  iotcentral_application_id: pulumi.Input[str],
                  apply_to_device: Optional[pulumi.Input[bool]] = None,
                  default_action: Optional[pulumi.Input[str]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArgs']]]] = None):
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArrgs']]]] = None):
         """
         The set of arguments for constructing a ApplicationNetworkRuleSet resource.
         :param pulumi.Input[str] iotcentral_application_id: The ID of the IoT Central Application. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] apply_to_device: Whether these IP Rules apply for device connectivity to IoT Hub and Device Provisioning Service associated with this IoT Central Application. Possible values are `true`, `false`. Defaults to `true`
         :param pulumi.Input[str] default_action: Specifies the default action for the IoT Central Application Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArrgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
         """
         pulumi.set(__self__, "iotcentral_application_id", iotcentral_application_id)
         if apply_to_device is not None:
@@ -73,30 +73,30 @@ class ApplicationNetworkRuleSetArgs:
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArgs']]]]:
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArrgs']]]]:
         """
         One or more `ip_rule` blocks as defined below.
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArgs']]]]):
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArrgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
 
 @pulumi.input_type
-class _ApplicationNetworkRuleSetState:
+calass _ApplicationNetworkRuleSetState:
     def __init__(__self__, *,
                  apply_to_device: Optional[pulumi.Input[bool]] = None,
                  default_action: Optional[pulumi.Input[str]] = None,
                  iotcentral_application_id: Optional[pulumi.Input[str]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArgs']]]] = None):
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArrgs']]]] = None):
         """
         Input properties used for looking up and filtering ApplicationNetworkRuleSet resources.
         :param pulumi.Input[bool] apply_to_device: Whether these IP Rules apply for device connectivity to IoT Hub and Device Provisioning Service associated with this IoT Central Application. Possible values are `true`, `false`. Defaults to `true`
         :param pulumi.Input[str] default_action: Specifies the default action for the IoT Central Application Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
         :param pulumi.Input[str] iotcentral_application_id: The ID of the IoT Central Application. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArrgs']]] ip_rules: One or more `ip_rule` blocks as defined below.
         """
         if apply_to_device is not None:
             pulumi.set(__self__, "apply_to_device", apply_to_device)
@@ -145,18 +145,18 @@ class _ApplicationNetworkRuleSetState:
 
     @property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArgs']]]]:
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArrgs']]]]:
         """
         One or more `ip_rule` blocks as defined below.
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArgs']]]]):
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationNetworkRuleSetIpRuleArrgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
 
-class ApplicationNetworkRuleSet(pulumi.CustomResource):
+calass ApplicationNetworkRuleSet(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -164,7 +164,7 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
                  apply_to_device: Optional[pulumi.Input[bool]] = None,
                  default_action: Optional[pulumi.Input[str]] = None,
                  iotcentral_application_id: Optional[pulumi.Input[str]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationNetworkRuleSetIpRuleArgs']]]]] = None,
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationNetworkRuleSetIpRuleArrgs']]]]] = None,
                  __props__=None):
         """
         Manages an IoT Central Application Network Rule Set.
@@ -188,11 +188,11 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
         example_application_network_rule_set = azure.iotcentral.ApplicationNetworkRuleSet("exampleApplicationNetworkRuleSet",
             iotcentral_application_id=example_application.id,
             ip_rules=[
-                azure.iotcentral.ApplicationNetworkRuleSetIpRuleArgs(
+                azure.iotcentral.ApplicationNetworkRuleSetIpRuleArrgs(
                     name="rule1",
                     ip_mask="10.0.1.0/24",
                 ),
-                azure.iotcentral.ApplicationNetworkRuleSetIpRuleArgs(
+                azure.iotcentral.ApplicationNetworkRuleSetIpRuleArrgs(
                     name="rule2",
                     ip_mask="10.1.1.0/24",
                 ),
@@ -212,13 +212,13 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
         :param pulumi.Input[bool] apply_to_device: Whether these IP Rules apply for device connectivity to IoT Hub and Device Provisioning Service associated with this IoT Central Application. Possible values are `true`, `false`. Defaults to `true`
         :param pulumi.Input[str] default_action: Specifies the default action for the IoT Central Application Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
         :param pulumi.Input[str] iotcentral_application_id: The ID of the IoT Central Application. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationNetworkRuleSetIpRuleArgs']]]] ip_rules: One or more `ip_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationNetworkRuleSetIpRuleArrgs']]]] ip_rules: One or more `ip_rule` blocks as defined below.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ApplicationNetworkRuleSetArgs,
+                 args: ApplicationNetworkRuleSetArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an IoT Central Application Network Rule Set.
@@ -242,11 +242,11 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
         example_application_network_rule_set = azure.iotcentral.ApplicationNetworkRuleSet("exampleApplicationNetworkRuleSet",
             iotcentral_application_id=example_application.id,
             ip_rules=[
-                azure.iotcentral.ApplicationNetworkRuleSetIpRuleArgs(
+                azure.iotcentral.ApplicationNetworkRuleSetIpRuleArrgs(
                     name="rule1",
                     ip_mask="10.0.1.0/24",
                 ),
-                azure.iotcentral.ApplicationNetworkRuleSetIpRuleArgs(
+                azure.iotcentral.ApplicationNetworkRuleSetIpRuleArrgs(
                     name="rule2",
                     ip_mask="10.1.1.0/24",
                 ),
@@ -262,12 +262,12 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
         ```
 
         :param str resource_name: The name of the resource.
-        :param ApplicationNetworkRuleSetArgs args: The arguments to use to populate this resource's properties.
+        :param ApplicationNetworkRuleSetArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(ApplicationNetworkRuleSetArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(ApplicationNetworkRuleSetArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -279,7 +279,7 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
                  apply_to_device: Optional[pulumi.Input[bool]] = None,
                  default_action: Optional[pulumi.Input[str]] = None,
                  iotcentral_application_id: Optional[pulumi.Input[str]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationNetworkRuleSetIpRuleArgs']]]]] = None,
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationNetworkRuleSetIpRuleArrgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -287,7 +287,7 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = ApplicationNetworkRuleSetArgs.__new__(ApplicationNetworkRuleSetArgs)
+            __props__ = ApplicationNetworkRuleSetArrgs.__new__(ApplicationNetworkRuleSetArrgs)
 
             __props__.__dict__["apply_to_device"] = apply_to_device
             __props__.__dict__["default_action"] = default_action
@@ -308,7 +308,7 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
             apply_to_device: Optional[pulumi.Input[bool]] = None,
             default_action: Optional[pulumi.Input[str]] = None,
             iotcentral_application_id: Optional[pulumi.Input[str]] = None,
-            ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationNetworkRuleSetIpRuleArgs']]]]] = None) -> 'ApplicationNetworkRuleSet':
+            ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationNetworkRuleSetIpRuleArrgs']]]]] = None) -> 'ApplicationNetworkRuleSet':
         """
         Get an existing ApplicationNetworkRuleSet resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -319,7 +319,7 @@ class ApplicationNetworkRuleSet(pulumi.CustomResource):
         :param pulumi.Input[bool] apply_to_device: Whether these IP Rules apply for device connectivity to IoT Hub and Device Provisioning Service associated with this IoT Central Application. Possible values are `true`, `false`. Defaults to `true`
         :param pulumi.Input[str] default_action: Specifies the default action for the IoT Central Application Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
         :param pulumi.Input[str] iotcentral_application_id: The ID of the IoT Central Application. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationNetworkRuleSetIpRuleArgs']]]] ip_rules: One or more `ip_rule` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationNetworkRuleSetIpRuleArrgs']]]] ip_rules: One or more `ip_rule` blocks as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

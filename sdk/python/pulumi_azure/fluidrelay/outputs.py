@@ -14,7 +14,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class ServerIdentity(dict):
+calass ServerIdentity(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None

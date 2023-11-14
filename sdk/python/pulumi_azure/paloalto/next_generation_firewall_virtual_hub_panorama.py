@@ -11,16 +11,16 @@ from .. import _utilities
 from . import outputs
 from ._inputs import *
 
-__all__ = ['NextGenerationFirewallVirtualHubPanoramaArgs', 'NextGenerationFirewallVirtualHubPanorama']
+__all__ = ['NextGenerationFirewallVirtualHubPanoramaArrgs', 'NextGenerationFirewallVirtualHubPanorama']
 
 @pulumi.input_type
-class NextGenerationFirewallVirtualHubPanoramaArgs:
+calass NextGenerationFirewallVirtualHubPanoramaArrgs:
     def __init__(__self__, *,
-                 network_profile: pulumi.Input['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs'],
+                 network_profile: pulumi.Input['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArrgs'],
                  panorama_base64_config: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs']]]] = None,
-                 dns_settings: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs']] = None,
+                 destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatArrgs']]]] = None,
+                 dns_settings: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -43,11 +43,11 @@ class NextGenerationFirewallVirtualHubPanoramaArgs:
 
     @property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> pulumi.Input['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs']:
+    def network_profile(self) -> pulumi.Input['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArrgs']:
         return pulumi.get(self, "network_profile")
 
     @network_profile.setter
-    def network_profile(self, value: pulumi.Input['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs']):
+    def network_profile(self, value: pulumi.Input['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArrgs']):
         pulumi.set(self, "network_profile", value)
 
     @property
@@ -70,20 +70,20 @@ class NextGenerationFirewallVirtualHubPanoramaArgs:
 
     @property
     @pulumi.getter(name="destinationNats")
-    def destination_nats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs']]]]:
+    def destination_nats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatArrgs']]]]:
         return pulumi.get(self, "destination_nats")
 
     @destination_nats.setter
-    def destination_nats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs']]]]):
+    def destination_nats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatArrgs']]]]):
         pulumi.set(self, "destination_nats", value)
 
     @property
     @pulumi.getter(name="dnsSettings")
-    def dns_settings(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs']]:
+    def dns_settings(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArrgs']]:
         return pulumi.get(self, "dns_settings")
 
     @dns_settings.setter
-    def dns_settings(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs']]):
+    def dns_settings(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArrgs']]):
         pulumi.set(self, "dns_settings", value)
 
     @property
@@ -115,15 +115,15 @@ class NextGenerationFirewallVirtualHubPanoramaArgs:
 
 
 @pulumi.input_type
-class _NextGenerationFirewallVirtualHubPanoramaState:
+calass _NextGenerationFirewallVirtualHubPanoramaState:
     def __init__(__self__, *,
-                 destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs']]]] = None,
-                 dns_settings: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs']] = None,
+                 destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatArrgs']]]] = None,
+                 dns_settings: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArrgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs']] = None,
+                 network_profile: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArrgs']] = None,
                  panorama_base64_config: Optional[pulumi.Input[str]] = None,
-                 panoramas: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaPanoramaArgs']]]] = None,
+                 panoramas: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaPanoramaArrgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -150,20 +150,20 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
 
     @property
     @pulumi.getter(name="destinationNats")
-    def destination_nats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs']]]]:
+    def destination_nats(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatArrgs']]]]:
         return pulumi.get(self, "destination_nats")
 
     @destination_nats.setter
-    def destination_nats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs']]]]):
+    def destination_nats(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDestinationNatArrgs']]]]):
         pulumi.set(self, "destination_nats", value)
 
     @property
     @pulumi.getter(name="dnsSettings")
-    def dns_settings(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs']]:
+    def dns_settings(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArrgs']]:
         return pulumi.get(self, "dns_settings")
 
     @dns_settings.setter
-    def dns_settings(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs']]):
+    def dns_settings(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArrgs']]):
         pulumi.set(self, "dns_settings", value)
 
     @property
@@ -186,11 +186,11 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
 
     @property
     @pulumi.getter(name="networkProfile")
-    def network_profile(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs']]:
+    def network_profile(self) -> Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArrgs']]:
         return pulumi.get(self, "network_profile")
 
     @network_profile.setter
-    def network_profile(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs']]):
+    def network_profile(self, value: Optional[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArrgs']]):
         pulumi.set(self, "network_profile", value)
 
     @property
@@ -204,11 +204,11 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
 
     @property
     @pulumi.getter
-    def panoramas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaPanoramaArgs']]]]:
+    def panoramas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaPanoramaArrgs']]]]:
         return pulumi.get(self, "panoramas")
 
     @panoramas.setter
-    def panoramas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaPanoramaArgs']]]]):
+    def panoramas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NextGenerationFirewallVirtualHubPanoramaPanoramaArrgs']]]]):
         pulumi.set(self, "panoramas", value)
 
     @property
@@ -230,16 +230,16 @@ class _NextGenerationFirewallVirtualHubPanoramaState:
         pulumi.set(self, "tags", value)
 
 
-class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
+calass NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs']]]]] = None,
-                 dns_settings: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs']]] = None,
+                 destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualHubPanoramaDestinationNatArrgs']]]]] = None,
+                 dns_settings: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArrgs']]] = None,
                  panorama_base64_config: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -253,17 +253,17 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: NextGenerationFirewallVirtualHubPanoramaArgs,
+                 args: NextGenerationFirewallVirtualHubPanoramaArrgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create a NextGenerationFirewallVirtualHubPanorama resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
-        :param NextGenerationFirewallVirtualHubPanoramaArgs args: The arguments to use to populate this resource's properties.
+        :param NextGenerationFirewallVirtualHubPanoramaArrgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(NextGenerationFirewallVirtualHubPanoramaArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(NextGenerationFirewallVirtualHubPanoramaArrgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -272,11 +272,11 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs']]]]] = None,
-                 dns_settings: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs']]] = None,
+                 destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualHubPanoramaDestinationNatArrgs']]]]] = None,
+                 dns_settings: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArrgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 network_profile: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs']]] = None,
+                 network_profile: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArrgs']]] = None,
                  panorama_base64_config: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -287,7 +287,7 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = NextGenerationFirewallVirtualHubPanoramaArgs.__new__(NextGenerationFirewallVirtualHubPanoramaArgs)
+            __props__ = NextGenerationFirewallVirtualHubPanoramaArrgs.__new__(NextGenerationFirewallVirtualHubPanoramaArrgs)
 
             __props__.__dict__["destination_nats"] = destination_nats
             __props__.__dict__["dns_settings"] = dns_settings
@@ -314,13 +314,13 @@ class NextGenerationFirewallVirtualHubPanorama(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualHubPanoramaDestinationNatArgs']]]]] = None,
-            dns_settings: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArgs']]] = None,
+            destination_nats: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualHubPanoramaDestinationNatArrgs']]]]] = None,
+            dns_settings: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualHubPanoramaDnsSettingsArrgs']]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            network_profile: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArgs']]] = None,
+            network_profile: Optional[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualHubPanoramaNetworkProfileArrgs']]] = None,
             panorama_base64_config: Optional[pulumi.Input[str]] = None,
-            panoramas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualHubPanoramaPanoramaArgs']]]]] = None,
+            panoramas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NextGenerationFirewallVirtualHubPanoramaPanoramaArrgs']]]]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'NextGenerationFirewallVirtualHubPanorama':
         """

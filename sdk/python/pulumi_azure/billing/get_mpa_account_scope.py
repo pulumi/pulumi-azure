@@ -17,7 +17,7 @@ __all__ = [
 ]
 
 @pulumi.output_type
-class GetMpaAccountScopeResult:
+calass GetMpaAccountScopeResult:
     """
     A collection of values returned by getMpaAccountScope.
     """
@@ -51,7 +51,7 @@ class GetMpaAccountScopeResult:
         return pulumi.get(self, "id")
 
 
-class AwaitableGetMpaAccountScopeResult(GetMpaAccountScopeResult):
+calass AwaitableGetMpaAccountScopeResult(GetMpaAccountScopeResult):
     # pylint: disable=using-constant-test
     def __await__(self):
         if False:
