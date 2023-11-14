@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Application Insights Workbook Template.
@@ -300,12 +299,6 @@ func (i *WorkbookTemplate) ToWorkbookTemplateOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateOutput)
 }
 
-func (i *WorkbookTemplate) ToOutput(ctx context.Context) pulumix.Output[*WorkbookTemplate] {
-	return pulumix.Output[*WorkbookTemplate]{
-		OutputState: i.ToWorkbookTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WorkbookTemplateArrayInput is an input type that accepts WorkbookTemplateArray and WorkbookTemplateArrayOutput values.
 // You can construct a concrete instance of `WorkbookTemplateArrayInput` via:
 //
@@ -329,12 +322,6 @@ func (i WorkbookTemplateArray) ToWorkbookTemplateArrayOutput() WorkbookTemplateA
 
 func (i WorkbookTemplateArray) ToWorkbookTemplateArrayOutputWithContext(ctx context.Context) WorkbookTemplateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateArrayOutput)
-}
-
-func (i WorkbookTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]*WorkbookTemplate] {
-	return pulumix.Output[[]*WorkbookTemplate]{
-		OutputState: i.ToWorkbookTemplateArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // WorkbookTemplateMapInput is an input type that accepts WorkbookTemplateMap and WorkbookTemplateMapOutput values.
@@ -362,12 +349,6 @@ func (i WorkbookTemplateMap) ToWorkbookTemplateMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(WorkbookTemplateMapOutput)
 }
 
-func (i WorkbookTemplateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkbookTemplate] {
-	return pulumix.Output[map[string]*WorkbookTemplate]{
-		OutputState: i.ToWorkbookTemplateMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkbookTemplateOutput struct{ *pulumi.OutputState }
 
 func (WorkbookTemplateOutput) ElementType() reflect.Type {
@@ -380,12 +361,6 @@ func (o WorkbookTemplateOutput) ToWorkbookTemplateOutput() WorkbookTemplateOutpu
 
 func (o WorkbookTemplateOutput) ToWorkbookTemplateOutputWithContext(ctx context.Context) WorkbookTemplateOutput {
 	return o
-}
-
-func (o WorkbookTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkbookTemplate] {
-	return pulumix.Output[*WorkbookTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Information about the author of the workbook template.
@@ -447,12 +422,6 @@ func (o WorkbookTemplateArrayOutput) ToWorkbookTemplateArrayOutputWithContext(ct
 	return o
 }
 
-func (o WorkbookTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WorkbookTemplate] {
-	return pulumix.Output[[]*WorkbookTemplate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkbookTemplateArrayOutput) Index(i pulumi.IntInput) WorkbookTemplateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WorkbookTemplate {
 		return vs[0].([]*WorkbookTemplate)[vs[1].(int)]
@@ -471,12 +440,6 @@ func (o WorkbookTemplateMapOutput) ToWorkbookTemplateMapOutput() WorkbookTemplat
 
 func (o WorkbookTemplateMapOutput) ToWorkbookTemplateMapOutputWithContext(ctx context.Context) WorkbookTemplateMapOutput {
 	return o
-}
-
-func (o WorkbookTemplateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkbookTemplate] {
-	return pulumix.Output[map[string]*WorkbookTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkbookTemplateMapOutput) MapIndex(k pulumi.StringInput) WorkbookTemplateOutput {

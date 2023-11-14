@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a maintenance assignment to Dedicated Host.
@@ -195,12 +194,6 @@ func (i *AssignmentDedicatedHost) ToAssignmentDedicatedHostOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentDedicatedHostOutput)
 }
 
-func (i *AssignmentDedicatedHost) ToOutput(ctx context.Context) pulumix.Output[*AssignmentDedicatedHost] {
-	return pulumix.Output[*AssignmentDedicatedHost]{
-		OutputState: i.ToAssignmentDedicatedHostOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AssignmentDedicatedHostArrayInput is an input type that accepts AssignmentDedicatedHostArray and AssignmentDedicatedHostArrayOutput values.
 // You can construct a concrete instance of `AssignmentDedicatedHostArrayInput` via:
 //
@@ -224,12 +217,6 @@ func (i AssignmentDedicatedHostArray) ToAssignmentDedicatedHostArrayOutput() Ass
 
 func (i AssignmentDedicatedHostArray) ToAssignmentDedicatedHostArrayOutputWithContext(ctx context.Context) AssignmentDedicatedHostArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentDedicatedHostArrayOutput)
-}
-
-func (i AssignmentDedicatedHostArray) ToOutput(ctx context.Context) pulumix.Output[[]*AssignmentDedicatedHost] {
-	return pulumix.Output[[]*AssignmentDedicatedHost]{
-		OutputState: i.ToAssignmentDedicatedHostArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AssignmentDedicatedHostMapInput is an input type that accepts AssignmentDedicatedHostMap and AssignmentDedicatedHostMapOutput values.
@@ -257,12 +244,6 @@ func (i AssignmentDedicatedHostMap) ToAssignmentDedicatedHostMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentDedicatedHostMapOutput)
 }
 
-func (i AssignmentDedicatedHostMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AssignmentDedicatedHost] {
-	return pulumix.Output[map[string]*AssignmentDedicatedHost]{
-		OutputState: i.ToAssignmentDedicatedHostMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssignmentDedicatedHostOutput struct{ *pulumi.OutputState }
 
 func (AssignmentDedicatedHostOutput) ElementType() reflect.Type {
@@ -275,12 +256,6 @@ func (o AssignmentDedicatedHostOutput) ToAssignmentDedicatedHostOutput() Assignm
 
 func (o AssignmentDedicatedHostOutput) ToAssignmentDedicatedHostOutputWithContext(ctx context.Context) AssignmentDedicatedHostOutput {
 	return o
-}
-
-func (o AssignmentDedicatedHostOutput) ToOutput(ctx context.Context) pulumix.Output[*AssignmentDedicatedHost] {
-	return pulumix.Output[*AssignmentDedicatedHost]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Dedicated Host ID to which the Maintenance Configuration will be assigned. Changing this forces a new resource to be created.
@@ -312,12 +287,6 @@ func (o AssignmentDedicatedHostArrayOutput) ToAssignmentDedicatedHostArrayOutput
 	return o
 }
 
-func (o AssignmentDedicatedHostArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AssignmentDedicatedHost] {
-	return pulumix.Output[[]*AssignmentDedicatedHost]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AssignmentDedicatedHostArrayOutput) Index(i pulumi.IntInput) AssignmentDedicatedHostOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AssignmentDedicatedHost {
 		return vs[0].([]*AssignmentDedicatedHost)[vs[1].(int)]
@@ -336,12 +305,6 @@ func (o AssignmentDedicatedHostMapOutput) ToAssignmentDedicatedHostMapOutput() A
 
 func (o AssignmentDedicatedHostMapOutput) ToAssignmentDedicatedHostMapOutputWithContext(ctx context.Context) AssignmentDedicatedHostMapOutput {
 	return o
-}
-
-func (o AssignmentDedicatedHostMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AssignmentDedicatedHost] {
-	return pulumix.Output[map[string]*AssignmentDedicatedHost]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssignmentDedicatedHostMapOutput) MapIndex(k pulumi.StringInput) AssignmentDedicatedHostOutput {

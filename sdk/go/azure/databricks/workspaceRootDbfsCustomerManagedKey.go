@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -122,12 +121,6 @@ func (i *WorkspaceRootDbfsCustomerManagedKey) ToWorkspaceRootDbfsCustomerManaged
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceRootDbfsCustomerManagedKeyOutput)
 }
 
-func (i *WorkspaceRootDbfsCustomerManagedKey) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceRootDbfsCustomerManagedKey] {
-	return pulumix.Output[*WorkspaceRootDbfsCustomerManagedKey]{
-		OutputState: i.ToWorkspaceRootDbfsCustomerManagedKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WorkspaceRootDbfsCustomerManagedKeyArrayInput is an input type that accepts WorkspaceRootDbfsCustomerManagedKeyArray and WorkspaceRootDbfsCustomerManagedKeyArrayOutput values.
 // You can construct a concrete instance of `WorkspaceRootDbfsCustomerManagedKeyArrayInput` via:
 //
@@ -151,12 +144,6 @@ func (i WorkspaceRootDbfsCustomerManagedKeyArray) ToWorkspaceRootDbfsCustomerMan
 
 func (i WorkspaceRootDbfsCustomerManagedKeyArray) ToWorkspaceRootDbfsCustomerManagedKeyArrayOutputWithContext(ctx context.Context) WorkspaceRootDbfsCustomerManagedKeyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceRootDbfsCustomerManagedKeyArrayOutput)
-}
-
-func (i WorkspaceRootDbfsCustomerManagedKeyArray) ToOutput(ctx context.Context) pulumix.Output[[]*WorkspaceRootDbfsCustomerManagedKey] {
-	return pulumix.Output[[]*WorkspaceRootDbfsCustomerManagedKey]{
-		OutputState: i.ToWorkspaceRootDbfsCustomerManagedKeyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // WorkspaceRootDbfsCustomerManagedKeyMapInput is an input type that accepts WorkspaceRootDbfsCustomerManagedKeyMap and WorkspaceRootDbfsCustomerManagedKeyMapOutput values.
@@ -184,12 +171,6 @@ func (i WorkspaceRootDbfsCustomerManagedKeyMap) ToWorkspaceRootDbfsCustomerManag
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceRootDbfsCustomerManagedKeyMapOutput)
 }
 
-func (i WorkspaceRootDbfsCustomerManagedKeyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkspaceRootDbfsCustomerManagedKey] {
-	return pulumix.Output[map[string]*WorkspaceRootDbfsCustomerManagedKey]{
-		OutputState: i.ToWorkspaceRootDbfsCustomerManagedKeyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WorkspaceRootDbfsCustomerManagedKeyOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceRootDbfsCustomerManagedKeyOutput) ElementType() reflect.Type {
@@ -202,12 +183,6 @@ func (o WorkspaceRootDbfsCustomerManagedKeyOutput) ToWorkspaceRootDbfsCustomerMa
 
 func (o WorkspaceRootDbfsCustomerManagedKeyOutput) ToWorkspaceRootDbfsCustomerManagedKeyOutputWithContext(ctx context.Context) WorkspaceRootDbfsCustomerManagedKeyOutput {
 	return o
-}
-
-func (o WorkspaceRootDbfsCustomerManagedKeyOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkspaceRootDbfsCustomerManagedKey] {
-	return pulumix.Output[*WorkspaceRootDbfsCustomerManagedKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The resource ID of the Key Vault Key to be used.
@@ -234,12 +209,6 @@ func (o WorkspaceRootDbfsCustomerManagedKeyArrayOutput) ToWorkspaceRootDbfsCusto
 	return o
 }
 
-func (o WorkspaceRootDbfsCustomerManagedKeyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WorkspaceRootDbfsCustomerManagedKey] {
-	return pulumix.Output[[]*WorkspaceRootDbfsCustomerManagedKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WorkspaceRootDbfsCustomerManagedKeyArrayOutput) Index(i pulumi.IntInput) WorkspaceRootDbfsCustomerManagedKeyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WorkspaceRootDbfsCustomerManagedKey {
 		return vs[0].([]*WorkspaceRootDbfsCustomerManagedKey)[vs[1].(int)]
@@ -258,12 +227,6 @@ func (o WorkspaceRootDbfsCustomerManagedKeyMapOutput) ToWorkspaceRootDbfsCustome
 
 func (o WorkspaceRootDbfsCustomerManagedKeyMapOutput) ToWorkspaceRootDbfsCustomerManagedKeyMapOutputWithContext(ctx context.Context) WorkspaceRootDbfsCustomerManagedKeyMapOutput {
 	return o
-}
-
-func (o WorkspaceRootDbfsCustomerManagedKeyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkspaceRootDbfsCustomerManagedKey] {
-	return pulumix.Output[map[string]*WorkspaceRootDbfsCustomerManagedKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WorkspaceRootDbfsCustomerManagedKeyMapOutput) MapIndex(k pulumi.StringInput) WorkspaceRootDbfsCustomerManagedKeyOutput {

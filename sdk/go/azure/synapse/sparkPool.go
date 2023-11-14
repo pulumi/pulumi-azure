@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Synapse Spark Pool.
@@ -297,12 +296,6 @@ func (i *SparkPool) ToSparkPoolOutputWithContext(ctx context.Context) SparkPoolO
 	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolOutput)
 }
 
-func (i *SparkPool) ToOutput(ctx context.Context) pulumix.Output[*SparkPool] {
-	return pulumix.Output[*SparkPool]{
-		OutputState: i.ToSparkPoolOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SparkPoolArrayInput is an input type that accepts SparkPoolArray and SparkPoolArrayOutput values.
 // You can construct a concrete instance of `SparkPoolArrayInput` via:
 //
@@ -326,12 +319,6 @@ func (i SparkPoolArray) ToSparkPoolArrayOutput() SparkPoolArrayOutput {
 
 func (i SparkPoolArray) ToSparkPoolArrayOutputWithContext(ctx context.Context) SparkPoolArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolArrayOutput)
-}
-
-func (i SparkPoolArray) ToOutput(ctx context.Context) pulumix.Output[[]*SparkPool] {
-	return pulumix.Output[[]*SparkPool]{
-		OutputState: i.ToSparkPoolArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SparkPoolMapInput is an input type that accepts SparkPoolMap and SparkPoolMapOutput values.
@@ -359,12 +346,6 @@ func (i SparkPoolMap) ToSparkPoolMapOutputWithContext(ctx context.Context) Spark
 	return pulumi.ToOutputWithContext(ctx, i).(SparkPoolMapOutput)
 }
 
-func (i SparkPoolMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SparkPool] {
-	return pulumix.Output[map[string]*SparkPool]{
-		OutputState: i.ToSparkPoolMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SparkPoolOutput struct{ *pulumi.OutputState }
 
 func (SparkPoolOutput) ElementType() reflect.Type {
@@ -377,12 +358,6 @@ func (o SparkPoolOutput) ToSparkPoolOutput() SparkPoolOutput {
 
 func (o SparkPoolOutput) ToSparkPoolOutputWithContext(ctx context.Context) SparkPoolOutput {
 	return o
-}
-
-func (o SparkPoolOutput) ToOutput(ctx context.Context) pulumix.Output[*SparkPool] {
-	return pulumix.Output[*SparkPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `autoPause` block as defined below.
@@ -494,12 +469,6 @@ func (o SparkPoolArrayOutput) ToSparkPoolArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o SparkPoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SparkPool] {
-	return pulumix.Output[[]*SparkPool]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SparkPoolArrayOutput) Index(i pulumi.IntInput) SparkPoolOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SparkPool {
 		return vs[0].([]*SparkPool)[vs[1].(int)]
@@ -518,12 +487,6 @@ func (o SparkPoolMapOutput) ToSparkPoolMapOutput() SparkPoolMapOutput {
 
 func (o SparkPoolMapOutput) ToSparkPoolMapOutputWithContext(ctx context.Context) SparkPoolMapOutput {
 	return o
-}
-
-func (o SparkPoolMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SparkPool] {
-	return pulumix.Output[map[string]*SparkPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SparkPoolMapOutput) MapIndex(k pulumi.StringInput) SparkPoolOutput {

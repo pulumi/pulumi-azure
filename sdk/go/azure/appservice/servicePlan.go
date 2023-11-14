@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an App Service: Service Plan.
@@ -305,12 +304,6 @@ func (i *ServicePlan) ToServicePlanOutputWithContext(ctx context.Context) Servic
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePlanOutput)
 }
 
-func (i *ServicePlan) ToOutput(ctx context.Context) pulumix.Output[*ServicePlan] {
-	return pulumix.Output[*ServicePlan]{
-		OutputState: i.ToServicePlanOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServicePlanArrayInput is an input type that accepts ServicePlanArray and ServicePlanArrayOutput values.
 // You can construct a concrete instance of `ServicePlanArrayInput` via:
 //
@@ -334,12 +327,6 @@ func (i ServicePlanArray) ToServicePlanArrayOutput() ServicePlanArrayOutput {
 
 func (i ServicePlanArray) ToServicePlanArrayOutputWithContext(ctx context.Context) ServicePlanArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePlanArrayOutput)
-}
-
-func (i ServicePlanArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServicePlan] {
-	return pulumix.Output[[]*ServicePlan]{
-		OutputState: i.ToServicePlanArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServicePlanMapInput is an input type that accepts ServicePlanMap and ServicePlanMapOutput values.
@@ -367,12 +354,6 @@ func (i ServicePlanMap) ToServicePlanMapOutputWithContext(ctx context.Context) S
 	return pulumi.ToOutputWithContext(ctx, i).(ServicePlanMapOutput)
 }
 
-func (i ServicePlanMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServicePlan] {
-	return pulumix.Output[map[string]*ServicePlan]{
-		OutputState: i.ToServicePlanMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServicePlanOutput struct{ *pulumi.OutputState }
 
 func (ServicePlanOutput) ElementType() reflect.Type {
@@ -385,12 +366,6 @@ func (o ServicePlanOutput) ToServicePlanOutput() ServicePlanOutput {
 
 func (o ServicePlanOutput) ToServicePlanOutputWithContext(ctx context.Context) ServicePlanOutput {
 	return o
-}
-
-func (o ServicePlanOutput) ToOutput(ctx context.Context) pulumix.Output[*ServicePlan] {
-	return pulumix.Output[*ServicePlan]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the App Service Environment to create this Service Plan in.
@@ -480,12 +455,6 @@ func (o ServicePlanArrayOutput) ToServicePlanArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o ServicePlanArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServicePlan] {
-	return pulumix.Output[[]*ServicePlan]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServicePlanArrayOutput) Index(i pulumi.IntInput) ServicePlanOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServicePlan {
 		return vs[0].([]*ServicePlan)[vs[1].(int)]
@@ -504,12 +473,6 @@ func (o ServicePlanMapOutput) ToServicePlanMapOutput() ServicePlanMapOutput {
 
 func (o ServicePlanMapOutput) ToServicePlanMapOutputWithContext(ctx context.Context) ServicePlanMapOutput {
 	return o
-}
-
-func (o ServicePlanMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServicePlan] {
-	return pulumix.Output[map[string]*ServicePlan]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServicePlanMapOutput) MapIndex(k pulumi.StringInput) ServicePlanOutput {

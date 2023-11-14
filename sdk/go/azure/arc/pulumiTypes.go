@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i ResourceBridgeApplianceIdentityArgs) ToResourceBridgeApplianceIdentityOu
 
 func (i ResourceBridgeApplianceIdentityArgs) ToResourceBridgeApplianceIdentityOutputWithContext(ctx context.Context) ResourceBridgeApplianceIdentityOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceBridgeApplianceIdentityOutput)
-}
-
-func (i ResourceBridgeApplianceIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ResourceBridgeApplianceIdentity] {
-	return pulumix.Output[ResourceBridgeApplianceIdentity]{
-		OutputState: i.ToResourceBridgeApplianceIdentityOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i ResourceBridgeApplianceIdentityArgs) ToResourceBridgeApplianceIdentityPtrOutput() ResourceBridgeApplianceIdentityPtrOutput {
@@ -98,12 +91,6 @@ func (i *resourceBridgeApplianceIdentityPtrType) ToResourceBridgeApplianceIdenti
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceBridgeApplianceIdentityPtrOutput)
 }
 
-func (i *resourceBridgeApplianceIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ResourceBridgeApplianceIdentity] {
-	return pulumix.Output[*ResourceBridgeApplianceIdentity]{
-		OutputState: i.ToResourceBridgeApplianceIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceBridgeApplianceIdentityOutput struct{ *pulumi.OutputState }
 
 func (ResourceBridgeApplianceIdentityOutput) ElementType() reflect.Type {
@@ -126,12 +113,6 @@ func (o ResourceBridgeApplianceIdentityOutput) ToResourceBridgeApplianceIdentity
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceBridgeApplianceIdentity) *ResourceBridgeApplianceIdentity {
 		return &v
 	}).(ResourceBridgeApplianceIdentityPtrOutput)
-}
-
-func (o ResourceBridgeApplianceIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ResourceBridgeApplianceIdentity] {
-	return pulumix.Output[ResourceBridgeApplianceIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceBridgeApplianceIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
@@ -159,12 +140,6 @@ func (o ResourceBridgeApplianceIdentityPtrOutput) ToResourceBridgeApplianceIdent
 
 func (o ResourceBridgeApplianceIdentityPtrOutput) ToResourceBridgeApplianceIdentityPtrOutputWithContext(ctx context.Context) ResourceBridgeApplianceIdentityPtrOutput {
 	return o
-}
-
-func (o ResourceBridgeApplianceIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceBridgeApplianceIdentity] {
-	return pulumix.Output[*ResourceBridgeApplianceIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceBridgeApplianceIdentityPtrOutput) Elem() ResourceBridgeApplianceIdentityOutput {

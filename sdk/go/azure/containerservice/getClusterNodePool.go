@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Kubernetes Cluster Node Pool.
@@ -157,12 +156,6 @@ func (o GetClusterNodePoolResultOutput) ToGetClusterNodePoolResultOutput() GetCl
 
 func (o GetClusterNodePoolResultOutput) ToGetClusterNodePoolResultOutputWithContext(ctx context.Context) GetClusterNodePoolResultOutput {
 	return o
-}
-
-func (o GetClusterNodePoolResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetClusterNodePoolResult] {
-	return pulumix.Output[GetClusterNodePoolResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Does this Node Pool have Auto-Scaling enabled?

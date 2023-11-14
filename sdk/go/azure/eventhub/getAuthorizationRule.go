@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Event Hubs Authorization Rule within an Event Hub.
@@ -137,12 +136,6 @@ func (o LookupAuthorizationRuleResultOutput) ToLookupAuthorizationRuleResultOutp
 
 func (o LookupAuthorizationRuleResultOutput) ToLookupAuthorizationRuleResultOutputWithContext(ctx context.Context) LookupAuthorizationRuleResultOutput {
 	return o
-}
-
-func (o LookupAuthorizationRuleResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupAuthorizationRuleResult] {
-	return pulumix.Output[LookupAuthorizationRuleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupAuthorizationRuleResultOutput) EventhubName() pulumi.StringOutput {

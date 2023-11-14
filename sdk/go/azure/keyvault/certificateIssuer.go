@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Key Vault Certificate Issuer.
@@ -231,12 +230,6 @@ func (i *CertificateIssuer) ToCertificateIssuerOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateIssuerOutput)
 }
 
-func (i *CertificateIssuer) ToOutput(ctx context.Context) pulumix.Output[*CertificateIssuer] {
-	return pulumix.Output[*CertificateIssuer]{
-		OutputState: i.ToCertificateIssuerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CertificateIssuerArrayInput is an input type that accepts CertificateIssuerArray and CertificateIssuerArrayOutput values.
 // You can construct a concrete instance of `CertificateIssuerArrayInput` via:
 //
@@ -260,12 +253,6 @@ func (i CertificateIssuerArray) ToCertificateIssuerArrayOutput() CertificateIssu
 
 func (i CertificateIssuerArray) ToCertificateIssuerArrayOutputWithContext(ctx context.Context) CertificateIssuerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateIssuerArrayOutput)
-}
-
-func (i CertificateIssuerArray) ToOutput(ctx context.Context) pulumix.Output[[]*CertificateIssuer] {
-	return pulumix.Output[[]*CertificateIssuer]{
-		OutputState: i.ToCertificateIssuerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CertificateIssuerMapInput is an input type that accepts CertificateIssuerMap and CertificateIssuerMapOutput values.
@@ -293,12 +280,6 @@ func (i CertificateIssuerMap) ToCertificateIssuerMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(CertificateIssuerMapOutput)
 }
 
-func (i CertificateIssuerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CertificateIssuer] {
-	return pulumix.Output[map[string]*CertificateIssuer]{
-		OutputState: i.ToCertificateIssuerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CertificateIssuerOutput struct{ *pulumi.OutputState }
 
 func (CertificateIssuerOutput) ElementType() reflect.Type {
@@ -311,12 +292,6 @@ func (o CertificateIssuerOutput) ToCertificateIssuerOutput() CertificateIssuerOu
 
 func (o CertificateIssuerOutput) ToCertificateIssuerOutputWithContext(ctx context.Context) CertificateIssuerOutput {
 	return o
-}
-
-func (o CertificateIssuerOutput) ToOutput(ctx context.Context) pulumix.Output[*CertificateIssuer] {
-	return pulumix.Output[*CertificateIssuer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The account number with the third-party Certificate Issuer.
@@ -368,12 +343,6 @@ func (o CertificateIssuerArrayOutput) ToCertificateIssuerArrayOutputWithContext(
 	return o
 }
 
-func (o CertificateIssuerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CertificateIssuer] {
-	return pulumix.Output[[]*CertificateIssuer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CertificateIssuerArrayOutput) Index(i pulumi.IntInput) CertificateIssuerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CertificateIssuer {
 		return vs[0].([]*CertificateIssuer)[vs[1].(int)]
@@ -392,12 +361,6 @@ func (o CertificateIssuerMapOutput) ToCertificateIssuerMapOutput() CertificateIs
 
 func (o CertificateIssuerMapOutput) ToCertificateIssuerMapOutputWithContext(ctx context.Context) CertificateIssuerMapOutput {
 	return o
-}
-
-func (o CertificateIssuerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CertificateIssuer] {
-	return pulumix.Output[map[string]*CertificateIssuer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CertificateIssuerMapOutput) MapIndex(k pulumi.StringInput) CertificateIssuerOutput {

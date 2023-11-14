@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -59,12 +58,6 @@ func (i GetMariaDbServerStorageProfileArgs) ToGetMariaDbServerStorageProfileOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetMariaDbServerStorageProfileOutput)
 }
 
-func (i GetMariaDbServerStorageProfileArgs) ToOutput(ctx context.Context) pulumix.Output[GetMariaDbServerStorageProfile] {
-	return pulumix.Output[GetMariaDbServerStorageProfile]{
-		OutputState: i.ToGetMariaDbServerStorageProfileOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetMariaDbServerStorageProfileArrayInput is an input type that accepts GetMariaDbServerStorageProfileArray and GetMariaDbServerStorageProfileArrayOutput values.
 // You can construct a concrete instance of `GetMariaDbServerStorageProfileArrayInput` via:
 //
@@ -90,12 +83,6 @@ func (i GetMariaDbServerStorageProfileArray) ToGetMariaDbServerStorageProfileArr
 	return pulumi.ToOutputWithContext(ctx, i).(GetMariaDbServerStorageProfileArrayOutput)
 }
 
-func (i GetMariaDbServerStorageProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]GetMariaDbServerStorageProfile] {
-	return pulumix.Output[[]GetMariaDbServerStorageProfile]{
-		OutputState: i.ToGetMariaDbServerStorageProfileArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetMariaDbServerStorageProfileOutput struct{ *pulumi.OutputState }
 
 func (GetMariaDbServerStorageProfileOutput) ElementType() reflect.Type {
@@ -108,12 +95,6 @@ func (o GetMariaDbServerStorageProfileOutput) ToGetMariaDbServerStorageProfileOu
 
 func (o GetMariaDbServerStorageProfileOutput) ToGetMariaDbServerStorageProfileOutputWithContext(ctx context.Context) GetMariaDbServerStorageProfileOutput {
 	return o
-}
-
-func (o GetMariaDbServerStorageProfileOutput) ToOutput(ctx context.Context) pulumix.Output[GetMariaDbServerStorageProfile] {
-	return pulumix.Output[GetMariaDbServerStorageProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether autogrow is enabled or disabled for the storage.
@@ -148,12 +129,6 @@ func (o GetMariaDbServerStorageProfileArrayOutput) ToGetMariaDbServerStorageProf
 
 func (o GetMariaDbServerStorageProfileArrayOutput) ToGetMariaDbServerStorageProfileArrayOutputWithContext(ctx context.Context) GetMariaDbServerStorageProfileArrayOutput {
 	return o
-}
-
-func (o GetMariaDbServerStorageProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetMariaDbServerStorageProfile] {
-	return pulumix.Output[[]GetMariaDbServerStorageProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetMariaDbServerStorageProfileArrayOutput) Index(i pulumi.IntInput) GetMariaDbServerStorageProfileOutput {

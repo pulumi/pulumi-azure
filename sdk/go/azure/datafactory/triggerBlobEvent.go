@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Blob Event Trigger inside an Azure Data Factory.
@@ -322,12 +321,6 @@ func (i *TriggerBlobEvent) ToTriggerBlobEventOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerBlobEventOutput)
 }
 
-func (i *TriggerBlobEvent) ToOutput(ctx context.Context) pulumix.Output[*TriggerBlobEvent] {
-	return pulumix.Output[*TriggerBlobEvent]{
-		OutputState: i.ToTriggerBlobEventOutputWithContext(ctx).OutputState,
-	}
-}
-
 // TriggerBlobEventArrayInput is an input type that accepts TriggerBlobEventArray and TriggerBlobEventArrayOutput values.
 // You can construct a concrete instance of `TriggerBlobEventArrayInput` via:
 //
@@ -351,12 +344,6 @@ func (i TriggerBlobEventArray) ToTriggerBlobEventArrayOutput() TriggerBlobEventA
 
 func (i TriggerBlobEventArray) ToTriggerBlobEventArrayOutputWithContext(ctx context.Context) TriggerBlobEventArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerBlobEventArrayOutput)
-}
-
-func (i TriggerBlobEventArray) ToOutput(ctx context.Context) pulumix.Output[[]*TriggerBlobEvent] {
-	return pulumix.Output[[]*TriggerBlobEvent]{
-		OutputState: i.ToTriggerBlobEventArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TriggerBlobEventMapInput is an input type that accepts TriggerBlobEventMap and TriggerBlobEventMapOutput values.
@@ -384,12 +371,6 @@ func (i TriggerBlobEventMap) ToTriggerBlobEventMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerBlobEventMapOutput)
 }
 
-func (i TriggerBlobEventMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TriggerBlobEvent] {
-	return pulumix.Output[map[string]*TriggerBlobEvent]{
-		OutputState: i.ToTriggerBlobEventMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type TriggerBlobEventOutput struct{ *pulumi.OutputState }
 
 func (TriggerBlobEventOutput) ElementType() reflect.Type {
@@ -402,12 +383,6 @@ func (o TriggerBlobEventOutput) ToTriggerBlobEventOutput() TriggerBlobEventOutpu
 
 func (o TriggerBlobEventOutput) ToTriggerBlobEventOutputWithContext(ctx context.Context) TriggerBlobEventOutput {
 	return o
-}
-
-func (o TriggerBlobEventOutput) ToOutput(ctx context.Context) pulumix.Output[*TriggerBlobEvent] {
-	return pulumix.Output[*TriggerBlobEvent]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies if the Data Factory Blob Event Trigger is activated. Defaults to `true`.
@@ -486,12 +461,6 @@ func (o TriggerBlobEventArrayOutput) ToTriggerBlobEventArrayOutputWithContext(ct
 	return o
 }
 
-func (o TriggerBlobEventArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TriggerBlobEvent] {
-	return pulumix.Output[[]*TriggerBlobEvent]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o TriggerBlobEventArrayOutput) Index(i pulumi.IntInput) TriggerBlobEventOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TriggerBlobEvent {
 		return vs[0].([]*TriggerBlobEvent)[vs[1].(int)]
@@ -510,12 +479,6 @@ func (o TriggerBlobEventMapOutput) ToTriggerBlobEventMapOutput() TriggerBlobEven
 
 func (o TriggerBlobEventMapOutput) ToTriggerBlobEventMapOutputWithContext(ctx context.Context) TriggerBlobEventMapOutput {
 	return o
-}
-
-func (o TriggerBlobEventMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TriggerBlobEvent] {
-	return pulumix.Output[map[string]*TriggerBlobEvent]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o TriggerBlobEventMapOutput) MapIndex(k pulumi.StringInput) TriggerBlobEventOutput {

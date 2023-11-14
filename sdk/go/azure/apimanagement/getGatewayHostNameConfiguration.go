@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing API Management Gateway Host Configuration.
@@ -139,12 +138,6 @@ func (o LookupGatewayHostNameConfigurationResultOutput) ToLookupGatewayHostNameC
 
 func (o LookupGatewayHostNameConfigurationResultOutput) ToLookupGatewayHostNameConfigurationResultOutputWithContext(ctx context.Context) LookupGatewayHostNameConfigurationResultOutput {
 	return o
-}
-
-func (o LookupGatewayHostNameConfigurationResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupGatewayHostNameConfigurationResult] {
-	return pulumix.Output[LookupGatewayHostNameConfigurationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupGatewayHostNameConfigurationResultOutput) ApiManagementId() pulumi.StringOutput {

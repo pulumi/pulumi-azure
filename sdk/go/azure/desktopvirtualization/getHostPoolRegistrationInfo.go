@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the Registration Info for a Virtual Desktop Host Pool.
@@ -178,12 +177,6 @@ func (i *GetHostPoolRegistrationInfo) ToGetHostPoolRegistrationInfoOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(GetHostPoolRegistrationInfoOutput)
 }
 
-func (i *GetHostPoolRegistrationInfo) ToOutput(ctx context.Context) pulumix.Output[*GetHostPoolRegistrationInfo] {
-	return pulumix.Output[*GetHostPoolRegistrationInfo]{
-		OutputState: i.ToGetHostPoolRegistrationInfoOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetHostPoolRegistrationInfoArrayInput is an input type that accepts GetHostPoolRegistrationInfoArray and GetHostPoolRegistrationInfoArrayOutput values.
 // You can construct a concrete instance of `GetHostPoolRegistrationInfoArrayInput` via:
 //
@@ -207,12 +200,6 @@ func (i GetHostPoolRegistrationInfoArray) ToGetHostPoolRegistrationInfoArrayOutp
 
 func (i GetHostPoolRegistrationInfoArray) ToGetHostPoolRegistrationInfoArrayOutputWithContext(ctx context.Context) GetHostPoolRegistrationInfoArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetHostPoolRegistrationInfoArrayOutput)
-}
-
-func (i GetHostPoolRegistrationInfoArray) ToOutput(ctx context.Context) pulumix.Output[[]*GetHostPoolRegistrationInfo] {
-	return pulumix.Output[[]*GetHostPoolRegistrationInfo]{
-		OutputState: i.ToGetHostPoolRegistrationInfoArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GetHostPoolRegistrationInfoMapInput is an input type that accepts GetHostPoolRegistrationInfoMap and GetHostPoolRegistrationInfoMapOutput values.
@@ -240,12 +227,6 @@ func (i GetHostPoolRegistrationInfoMap) ToGetHostPoolRegistrationInfoMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetHostPoolRegistrationInfoMapOutput)
 }
 
-func (i GetHostPoolRegistrationInfoMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GetHostPoolRegistrationInfo] {
-	return pulumix.Output[map[string]*GetHostPoolRegistrationInfo]{
-		OutputState: i.ToGetHostPoolRegistrationInfoMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetHostPoolRegistrationInfoOutput struct{ *pulumi.OutputState }
 
 func (GetHostPoolRegistrationInfoOutput) ElementType() reflect.Type {
@@ -258,12 +239,6 @@ func (o GetHostPoolRegistrationInfoOutput) ToGetHostPoolRegistrationInfoOutput()
 
 func (o GetHostPoolRegistrationInfoOutput) ToGetHostPoolRegistrationInfoOutputWithContext(ctx context.Context) GetHostPoolRegistrationInfoOutput {
 	return o
-}
-
-func (o GetHostPoolRegistrationInfoOutput) ToOutput(ctx context.Context) pulumix.Output[*GetHostPoolRegistrationInfo] {
-	return pulumix.Output[*GetHostPoolRegistrationInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A valid `RFC3339Time` for the expiration of the token..
@@ -295,12 +270,6 @@ func (o GetHostPoolRegistrationInfoArrayOutput) ToGetHostPoolRegistrationInfoArr
 	return o
 }
 
-func (o GetHostPoolRegistrationInfoArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GetHostPoolRegistrationInfo] {
-	return pulumix.Output[[]*GetHostPoolRegistrationInfo]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetHostPoolRegistrationInfoArrayOutput) Index(i pulumi.IntInput) GetHostPoolRegistrationInfoOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GetHostPoolRegistrationInfo {
 		return vs[0].([]*GetHostPoolRegistrationInfo)[vs[1].(int)]
@@ -319,12 +288,6 @@ func (o GetHostPoolRegistrationInfoMapOutput) ToGetHostPoolRegistrationInfoMapOu
 
 func (o GetHostPoolRegistrationInfoMapOutput) ToGetHostPoolRegistrationInfoMapOutputWithContext(ctx context.Context) GetHostPoolRegistrationInfoMapOutput {
 	return o
-}
-
-func (o GetHostPoolRegistrationInfoMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GetHostPoolRegistrationInfo] {
-	return pulumix.Output[map[string]*GetHostPoolRegistrationInfo]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetHostPoolRegistrationInfoMapOutput) MapIndex(k pulumi.StringInput) GetHostPoolRegistrationInfoOutput {

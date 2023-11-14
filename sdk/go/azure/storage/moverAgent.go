@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Storage Mover Agent.
@@ -203,12 +202,6 @@ func (i *MoverAgent) ToMoverAgentOutputWithContext(ctx context.Context) MoverAge
 	return pulumi.ToOutputWithContext(ctx, i).(MoverAgentOutput)
 }
 
-func (i *MoverAgent) ToOutput(ctx context.Context) pulumix.Output[*MoverAgent] {
-	return pulumix.Output[*MoverAgent]{
-		OutputState: i.ToMoverAgentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // MoverAgentArrayInput is an input type that accepts MoverAgentArray and MoverAgentArrayOutput values.
 // You can construct a concrete instance of `MoverAgentArrayInput` via:
 //
@@ -232,12 +225,6 @@ func (i MoverAgentArray) ToMoverAgentArrayOutput() MoverAgentArrayOutput {
 
 func (i MoverAgentArray) ToMoverAgentArrayOutputWithContext(ctx context.Context) MoverAgentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MoverAgentArrayOutput)
-}
-
-func (i MoverAgentArray) ToOutput(ctx context.Context) pulumix.Output[[]*MoverAgent] {
-	return pulumix.Output[[]*MoverAgent]{
-		OutputState: i.ToMoverAgentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // MoverAgentMapInput is an input type that accepts MoverAgentMap and MoverAgentMapOutput values.
@@ -265,12 +252,6 @@ func (i MoverAgentMap) ToMoverAgentMapOutputWithContext(ctx context.Context) Mov
 	return pulumi.ToOutputWithContext(ctx, i).(MoverAgentMapOutput)
 }
 
-func (i MoverAgentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*MoverAgent] {
-	return pulumix.Output[map[string]*MoverAgent]{
-		OutputState: i.ToMoverAgentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type MoverAgentOutput struct{ *pulumi.OutputState }
 
 func (MoverAgentOutput) ElementType() reflect.Type {
@@ -283,12 +264,6 @@ func (o MoverAgentOutput) ToMoverAgentOutput() MoverAgentOutput {
 
 func (o MoverAgentOutput) ToMoverAgentOutputWithContext(ctx context.Context) MoverAgentOutput {
 	return o
-}
-
-func (o MoverAgentOutput) ToOutput(ctx context.Context) pulumix.Output[*MoverAgent] {
-	return pulumix.Output[*MoverAgent]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the fully qualified ID of the Hybrid Compute resource for the Storage Mover Agent. Changing this forces a new resource to be created.
@@ -330,12 +305,6 @@ func (o MoverAgentArrayOutput) ToMoverAgentArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o MoverAgentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*MoverAgent] {
-	return pulumix.Output[[]*MoverAgent]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o MoverAgentArrayOutput) Index(i pulumi.IntInput) MoverAgentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MoverAgent {
 		return vs[0].([]*MoverAgent)[vs[1].(int)]
@@ -354,12 +323,6 @@ func (o MoverAgentMapOutput) ToMoverAgentMapOutput() MoverAgentMapOutput {
 
 func (o MoverAgentMapOutput) ToMoverAgentMapOutputWithContext(ctx context.Context) MoverAgentMapOutput {
 	return o
-}
-
-func (o MoverAgentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*MoverAgent] {
-	return pulumix.Output[map[string]*MoverAgent]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o MoverAgentMapOutput) MapIndex(k pulumi.StringInput) MoverAgentOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Web Application Firewall Policy.
@@ -109,12 +108,6 @@ func (o GetFirewallPolicyResultOutput) ToGetFirewallPolicyResultOutput() GetFire
 
 func (o GetFirewallPolicyResultOutput) ToGetFirewallPolicyResultOutputWithContext(ctx context.Context) GetFirewallPolicyResultOutput {
 	return o
-}
-
-func (o GetFirewallPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetFirewallPolicyResult] {
-	return pulumix.Output[GetFirewallPolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

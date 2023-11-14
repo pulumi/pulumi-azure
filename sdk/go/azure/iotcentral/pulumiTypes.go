@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i ApplicationIdentityArgs) ToApplicationIdentityOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationIdentityOutput)
 }
 
-func (i ApplicationIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationIdentity] {
-	return pulumix.Output[ApplicationIdentity]{
-		OutputState: i.ToApplicationIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ApplicationIdentityArgs) ToApplicationIdentityPtrOutput() ApplicationIdentityPtrOutput {
 	return i.ToApplicationIdentityPtrOutputWithContext(context.Background())
 }
@@ -102,12 +95,6 @@ func (i *applicationIdentityPtrType) ToApplicationIdentityPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationIdentityPtrOutput)
 }
 
-func (i *applicationIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ApplicationIdentity] {
-	return pulumix.Output[*ApplicationIdentity]{
-		OutputState: i.ToApplicationIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApplicationIdentityOutput struct{ *pulumi.OutputState }
 
 func (ApplicationIdentityOutput) ElementType() reflect.Type {
@@ -130,12 +117,6 @@ func (o ApplicationIdentityOutput) ToApplicationIdentityPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationIdentity) *ApplicationIdentity {
 		return &v
 	}).(ApplicationIdentityPtrOutput)
-}
-
-func (o ApplicationIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationIdentity] {
-	return pulumix.Output[ApplicationIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Principal ID associated with this Managed Service Identity.
@@ -165,12 +146,6 @@ func (o ApplicationIdentityPtrOutput) ToApplicationIdentityPtrOutput() Applicati
 
 func (o ApplicationIdentityPtrOutput) ToApplicationIdentityPtrOutputWithContext(ctx context.Context) ApplicationIdentityPtrOutput {
 	return o
-}
-
-func (o ApplicationIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ApplicationIdentity] {
-	return pulumix.Output[*ApplicationIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationIdentityPtrOutput) Elem() ApplicationIdentityOutput {
@@ -250,12 +225,6 @@ func (i ApplicationNetworkRuleSetIpRuleArgs) ToApplicationNetworkRuleSetIpRuleOu
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNetworkRuleSetIpRuleOutput)
 }
 
-func (i ApplicationNetworkRuleSetIpRuleArgs) ToOutput(ctx context.Context) pulumix.Output[ApplicationNetworkRuleSetIpRule] {
-	return pulumix.Output[ApplicationNetworkRuleSetIpRule]{
-		OutputState: i.ToApplicationNetworkRuleSetIpRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ApplicationNetworkRuleSetIpRuleArrayInput is an input type that accepts ApplicationNetworkRuleSetIpRuleArray and ApplicationNetworkRuleSetIpRuleArrayOutput values.
 // You can construct a concrete instance of `ApplicationNetworkRuleSetIpRuleArrayInput` via:
 //
@@ -281,12 +250,6 @@ func (i ApplicationNetworkRuleSetIpRuleArray) ToApplicationNetworkRuleSetIpRuleA
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationNetworkRuleSetIpRuleArrayOutput)
 }
 
-func (i ApplicationNetworkRuleSetIpRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationNetworkRuleSetIpRule] {
-	return pulumix.Output[[]ApplicationNetworkRuleSetIpRule]{
-		OutputState: i.ToApplicationNetworkRuleSetIpRuleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ApplicationNetworkRuleSetIpRuleOutput struct{ *pulumi.OutputState }
 
 func (ApplicationNetworkRuleSetIpRuleOutput) ElementType() reflect.Type {
@@ -299,12 +262,6 @@ func (o ApplicationNetworkRuleSetIpRuleOutput) ToApplicationNetworkRuleSetIpRule
 
 func (o ApplicationNetworkRuleSetIpRuleOutput) ToApplicationNetworkRuleSetIpRuleOutputWithContext(ctx context.Context) ApplicationNetworkRuleSetIpRuleOutput {
 	return o
-}
-
-func (o ApplicationNetworkRuleSetIpRuleOutput) ToOutput(ctx context.Context) pulumix.Output[ApplicationNetworkRuleSetIpRule] {
-	return pulumix.Output[ApplicationNetworkRuleSetIpRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The IP address range in CIDR notation for the IP Rule.
@@ -329,12 +286,6 @@ func (o ApplicationNetworkRuleSetIpRuleArrayOutput) ToApplicationNetworkRuleSetI
 
 func (o ApplicationNetworkRuleSetIpRuleArrayOutput) ToApplicationNetworkRuleSetIpRuleArrayOutputWithContext(ctx context.Context) ApplicationNetworkRuleSetIpRuleArrayOutput {
 	return o
-}
-
-func (o ApplicationNetworkRuleSetIpRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ApplicationNetworkRuleSetIpRule] {
-	return pulumix.Output[[]ApplicationNetworkRuleSetIpRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ApplicationNetworkRuleSetIpRuleArrayOutput) Index(i pulumi.IntInput) ApplicationNetworkRuleSetIpRuleOutput {

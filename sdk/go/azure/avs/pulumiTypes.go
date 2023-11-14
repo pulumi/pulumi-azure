@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -59,12 +58,6 @@ func (i PrivateCloudCircuitArgs) ToPrivateCloudCircuitOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateCloudCircuitOutput)
 }
 
-func (i PrivateCloudCircuitArgs) ToOutput(ctx context.Context) pulumix.Output[PrivateCloudCircuit] {
-	return pulumix.Output[PrivateCloudCircuit]{
-		OutputState: i.ToPrivateCloudCircuitOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PrivateCloudCircuitArrayInput is an input type that accepts PrivateCloudCircuitArray and PrivateCloudCircuitArrayOutput values.
 // You can construct a concrete instance of `PrivateCloudCircuitArrayInput` via:
 //
@@ -90,12 +83,6 @@ func (i PrivateCloudCircuitArray) ToPrivateCloudCircuitArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateCloudCircuitArrayOutput)
 }
 
-func (i PrivateCloudCircuitArray) ToOutput(ctx context.Context) pulumix.Output[[]PrivateCloudCircuit] {
-	return pulumix.Output[[]PrivateCloudCircuit]{
-		OutputState: i.ToPrivateCloudCircuitArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrivateCloudCircuitOutput struct{ *pulumi.OutputState }
 
 func (PrivateCloudCircuitOutput) ElementType() reflect.Type {
@@ -108,12 +95,6 @@ func (o PrivateCloudCircuitOutput) ToPrivateCloudCircuitOutput() PrivateCloudCir
 
 func (o PrivateCloudCircuitOutput) ToPrivateCloudCircuitOutputWithContext(ctx context.Context) PrivateCloudCircuitOutput {
 	return o
-}
-
-func (o PrivateCloudCircuitOutput) ToOutput(ctx context.Context) pulumix.Output[PrivateCloudCircuit] {
-	return pulumix.Output[PrivateCloudCircuit]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the ExpressRoute Circuit.
@@ -148,12 +129,6 @@ func (o PrivateCloudCircuitArrayOutput) ToPrivateCloudCircuitArrayOutput() Priva
 
 func (o PrivateCloudCircuitArrayOutput) ToPrivateCloudCircuitArrayOutputWithContext(ctx context.Context) PrivateCloudCircuitArrayOutput {
 	return o
-}
-
-func (o PrivateCloudCircuitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]PrivateCloudCircuit] {
-	return pulumix.Output[[]PrivateCloudCircuit]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrivateCloudCircuitArrayOutput) Index(i pulumi.IntInput) PrivateCloudCircuitOutput {
@@ -203,12 +178,6 @@ func (i PrivateCloudManagementClusterArgs) ToPrivateCloudManagementClusterOutput
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateCloudManagementClusterOutput)
 }
 
-func (i PrivateCloudManagementClusterArgs) ToOutput(ctx context.Context) pulumix.Output[PrivateCloudManagementCluster] {
-	return pulumix.Output[PrivateCloudManagementCluster]{
-		OutputState: i.ToPrivateCloudManagementClusterOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i PrivateCloudManagementClusterArgs) ToPrivateCloudManagementClusterPtrOutput() PrivateCloudManagementClusterPtrOutput {
 	return i.ToPrivateCloudManagementClusterPtrOutputWithContext(context.Background())
 }
@@ -250,12 +219,6 @@ func (i *privateCloudManagementClusterPtrType) ToPrivateCloudManagementClusterPt
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateCloudManagementClusterPtrOutput)
 }
 
-func (i *privateCloudManagementClusterPtrType) ToOutput(ctx context.Context) pulumix.Output[*PrivateCloudManagementCluster] {
-	return pulumix.Output[*PrivateCloudManagementCluster]{
-		OutputState: i.ToPrivateCloudManagementClusterPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrivateCloudManagementClusterOutput struct{ *pulumi.OutputState }
 
 func (PrivateCloudManagementClusterOutput) ElementType() reflect.Type {
@@ -278,12 +241,6 @@ func (o PrivateCloudManagementClusterOutput) ToPrivateCloudManagementClusterPtrO
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v PrivateCloudManagementCluster) *PrivateCloudManagementCluster {
 		return &v
 	}).(PrivateCloudManagementClusterPtrOutput)
-}
-
-func (o PrivateCloudManagementClusterOutput) ToOutput(ctx context.Context) pulumix.Output[PrivateCloudManagementCluster] {
-	return pulumix.Output[PrivateCloudManagementCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of hosts in the management cluster.
@@ -313,12 +270,6 @@ func (o PrivateCloudManagementClusterPtrOutput) ToPrivateCloudManagementClusterP
 
 func (o PrivateCloudManagementClusterPtrOutput) ToPrivateCloudManagementClusterPtrOutputWithContext(ctx context.Context) PrivateCloudManagementClusterPtrOutput {
 	return o
-}
-
-func (o PrivateCloudManagementClusterPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateCloudManagementCluster] {
-	return pulumix.Output[*PrivateCloudManagementCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrivateCloudManagementClusterPtrOutput) Elem() PrivateCloudManagementClusterOutput {
@@ -406,12 +357,6 @@ func (i GetPrivateCloudCircuitArgs) ToGetPrivateCloudCircuitOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateCloudCircuitOutput)
 }
 
-func (i GetPrivateCloudCircuitArgs) ToOutput(ctx context.Context) pulumix.Output[GetPrivateCloudCircuit] {
-	return pulumix.Output[GetPrivateCloudCircuit]{
-		OutputState: i.ToGetPrivateCloudCircuitOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPrivateCloudCircuitArrayInput is an input type that accepts GetPrivateCloudCircuitArray and GetPrivateCloudCircuitArrayOutput values.
 // You can construct a concrete instance of `GetPrivateCloudCircuitArrayInput` via:
 //
@@ -437,12 +382,6 @@ func (i GetPrivateCloudCircuitArray) ToGetPrivateCloudCircuitArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateCloudCircuitArrayOutput)
 }
 
-func (i GetPrivateCloudCircuitArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateCloudCircuit] {
-	return pulumix.Output[[]GetPrivateCloudCircuit]{
-		OutputState: i.ToGetPrivateCloudCircuitArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPrivateCloudCircuitOutput struct{ *pulumi.OutputState }
 
 func (GetPrivateCloudCircuitOutput) ElementType() reflect.Type {
@@ -455,12 +394,6 @@ func (o GetPrivateCloudCircuitOutput) ToGetPrivateCloudCircuitOutput() GetPrivat
 
 func (o GetPrivateCloudCircuitOutput) ToGetPrivateCloudCircuitOutputWithContext(ctx context.Context) GetPrivateCloudCircuitOutput {
 	return o
-}
-
-func (o GetPrivateCloudCircuitOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrivateCloudCircuit] {
-	return pulumix.Output[GetPrivateCloudCircuit]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the ExpressRoute Circuit.
@@ -495,12 +428,6 @@ func (o GetPrivateCloudCircuitArrayOutput) ToGetPrivateCloudCircuitArrayOutput()
 
 func (o GetPrivateCloudCircuitArrayOutput) ToGetPrivateCloudCircuitArrayOutputWithContext(ctx context.Context) GetPrivateCloudCircuitArrayOutput {
 	return o
-}
-
-func (o GetPrivateCloudCircuitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateCloudCircuit] {
-	return pulumix.Output[[]GetPrivateCloudCircuit]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPrivateCloudCircuitArrayOutput) Index(i pulumi.IntInput) GetPrivateCloudCircuitOutput {
@@ -550,12 +477,6 @@ func (i GetPrivateCloudManagementClusterArgs) ToGetPrivateCloudManagementCluster
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateCloudManagementClusterOutput)
 }
 
-func (i GetPrivateCloudManagementClusterArgs) ToOutput(ctx context.Context) pulumix.Output[GetPrivateCloudManagementCluster] {
-	return pulumix.Output[GetPrivateCloudManagementCluster]{
-		OutputState: i.ToGetPrivateCloudManagementClusterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetPrivateCloudManagementClusterArrayInput is an input type that accepts GetPrivateCloudManagementClusterArray and GetPrivateCloudManagementClusterArrayOutput values.
 // You can construct a concrete instance of `GetPrivateCloudManagementClusterArrayInput` via:
 //
@@ -581,12 +502,6 @@ func (i GetPrivateCloudManagementClusterArray) ToGetPrivateCloudManagementCluste
 	return pulumi.ToOutputWithContext(ctx, i).(GetPrivateCloudManagementClusterArrayOutput)
 }
 
-func (i GetPrivateCloudManagementClusterArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateCloudManagementCluster] {
-	return pulumix.Output[[]GetPrivateCloudManagementCluster]{
-		OutputState: i.ToGetPrivateCloudManagementClusterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetPrivateCloudManagementClusterOutput struct{ *pulumi.OutputState }
 
 func (GetPrivateCloudManagementClusterOutput) ElementType() reflect.Type {
@@ -599,12 +514,6 @@ func (o GetPrivateCloudManagementClusterOutput) ToGetPrivateCloudManagementClust
 
 func (o GetPrivateCloudManagementClusterOutput) ToGetPrivateCloudManagementClusterOutputWithContext(ctx context.Context) GetPrivateCloudManagementClusterOutput {
 	return o
-}
-
-func (o GetPrivateCloudManagementClusterOutput) ToOutput(ctx context.Context) pulumix.Output[GetPrivateCloudManagementCluster] {
-	return pulumix.Output[GetPrivateCloudManagementCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The list of the hosts in the management cluster.
@@ -634,12 +543,6 @@ func (o GetPrivateCloudManagementClusterArrayOutput) ToGetPrivateCloudManagement
 
 func (o GetPrivateCloudManagementClusterArrayOutput) ToGetPrivateCloudManagementClusterArrayOutputWithContext(ctx context.Context) GetPrivateCloudManagementClusterArrayOutput {
 	return o
-}
-
-func (o GetPrivateCloudManagementClusterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPrivateCloudManagementCluster] {
-	return pulumix.Output[[]GetPrivateCloudManagementCluster]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetPrivateCloudManagementClusterArrayOutput) Index(i pulumi.IntInput) GetPrivateCloudManagementClusterOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Microsoft SQL Azure Database Server.
@@ -273,12 +272,6 @@ func (i *SqlServer) ToSqlServerOutputWithContext(ctx context.Context) SqlServerO
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerOutput)
 }
 
-func (i *SqlServer) ToOutput(ctx context.Context) pulumix.Output[*SqlServer] {
-	return pulumix.Output[*SqlServer]{
-		OutputState: i.ToSqlServerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SqlServerArrayInput is an input type that accepts SqlServerArray and SqlServerArrayOutput values.
 // You can construct a concrete instance of `SqlServerArrayInput` via:
 //
@@ -302,12 +295,6 @@ func (i SqlServerArray) ToSqlServerArrayOutput() SqlServerArrayOutput {
 
 func (i SqlServerArray) ToSqlServerArrayOutputWithContext(ctx context.Context) SqlServerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerArrayOutput)
-}
-
-func (i SqlServerArray) ToOutput(ctx context.Context) pulumix.Output[[]*SqlServer] {
-	return pulumix.Output[[]*SqlServer]{
-		OutputState: i.ToSqlServerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SqlServerMapInput is an input type that accepts SqlServerMap and SqlServerMapOutput values.
@@ -335,12 +322,6 @@ func (i SqlServerMap) ToSqlServerMapOutputWithContext(ctx context.Context) SqlSe
 	return pulumi.ToOutputWithContext(ctx, i).(SqlServerMapOutput)
 }
 
-func (i SqlServerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlServer] {
-	return pulumix.Output[map[string]*SqlServer]{
-		OutputState: i.ToSqlServerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SqlServerOutput struct{ *pulumi.OutputState }
 
 func (SqlServerOutput) ElementType() reflect.Type {
@@ -353,12 +334,6 @@ func (o SqlServerOutput) ToSqlServerOutput() SqlServerOutput {
 
 func (o SqlServerOutput) ToSqlServerOutputWithContext(ctx context.Context) SqlServerOutput {
 	return o
-}
-
-func (o SqlServerOutput) ToOutput(ctx context.Context) pulumix.Output[*SqlServer] {
-	return pulumix.Output[*SqlServer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The administrator login name for the new server. Changing this forces a new resource to be created.
@@ -430,12 +405,6 @@ func (o SqlServerArrayOutput) ToSqlServerArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o SqlServerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SqlServer] {
-	return pulumix.Output[[]*SqlServer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SqlServerArrayOutput) Index(i pulumi.IntInput) SqlServerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SqlServer {
 		return vs[0].([]*SqlServer)[vs[1].(int)]
@@ -454,12 +423,6 @@ func (o SqlServerMapOutput) ToSqlServerMapOutput() SqlServerMapOutput {
 
 func (o SqlServerMapOutput) ToSqlServerMapOutputWithContext(ctx context.Context) SqlServerMapOutput {
 	return o
-}
-
-func (o SqlServerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlServer] {
-	return pulumix.Output[map[string]*SqlServer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SqlServerMapOutput) MapIndex(k pulumi.StringInput) SqlServerOutput {

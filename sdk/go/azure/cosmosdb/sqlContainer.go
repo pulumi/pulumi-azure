@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a SQL Container within a Cosmos DB Account.
@@ -319,12 +318,6 @@ func (i *SqlContainer) ToSqlContainerOutputWithContext(ctx context.Context) SqlC
 	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerOutput)
 }
 
-func (i *SqlContainer) ToOutput(ctx context.Context) pulumix.Output[*SqlContainer] {
-	return pulumix.Output[*SqlContainer]{
-		OutputState: i.ToSqlContainerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SqlContainerArrayInput is an input type that accepts SqlContainerArray and SqlContainerArrayOutput values.
 // You can construct a concrete instance of `SqlContainerArrayInput` via:
 //
@@ -348,12 +341,6 @@ func (i SqlContainerArray) ToSqlContainerArrayOutput() SqlContainerArrayOutput {
 
 func (i SqlContainerArray) ToSqlContainerArrayOutputWithContext(ctx context.Context) SqlContainerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerArrayOutput)
-}
-
-func (i SqlContainerArray) ToOutput(ctx context.Context) pulumix.Output[[]*SqlContainer] {
-	return pulumix.Output[[]*SqlContainer]{
-		OutputState: i.ToSqlContainerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SqlContainerMapInput is an input type that accepts SqlContainerMap and SqlContainerMapOutput values.
@@ -381,12 +368,6 @@ func (i SqlContainerMap) ToSqlContainerMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SqlContainerMapOutput)
 }
 
-func (i SqlContainerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlContainer] {
-	return pulumix.Output[map[string]*SqlContainer]{
-		OutputState: i.ToSqlContainerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SqlContainerOutput struct{ *pulumi.OutputState }
 
 func (SqlContainerOutput) ElementType() reflect.Type {
@@ -399,12 +380,6 @@ func (o SqlContainerOutput) ToSqlContainerOutput() SqlContainerOutput {
 
 func (o SqlContainerOutput) ToSqlContainerOutputWithContext(ctx context.Context) SqlContainerOutput {
 	return o
-}
-
-func (o SqlContainerOutput) ToOutput(ctx context.Context) pulumix.Output[*SqlContainer] {
-	return pulumix.Output[*SqlContainer]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Cosmos DB Account to create the container within. Changing this forces a new resource to be created.
@@ -488,12 +463,6 @@ func (o SqlContainerArrayOutput) ToSqlContainerArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o SqlContainerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SqlContainer] {
-	return pulumix.Output[[]*SqlContainer]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SqlContainerArrayOutput) Index(i pulumi.IntInput) SqlContainerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SqlContainer {
 		return vs[0].([]*SqlContainer)[vs[1].(int)]
@@ -512,12 +481,6 @@ func (o SqlContainerMapOutput) ToSqlContainerMapOutput() SqlContainerMapOutput {
 
 func (o SqlContainerMapOutput) ToSqlContainerMapOutputWithContext(ctx context.Context) SqlContainerMapOutput {
 	return o
-}
-
-func (o SqlContainerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlContainer] {
-	return pulumix.Output[map[string]*SqlContainer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SqlContainerMapOutput) MapIndex(k pulumi.StringInput) SqlContainerOutput {
