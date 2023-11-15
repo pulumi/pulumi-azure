@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an API Management Gateway Host Name Configuration.
@@ -282,12 +281,6 @@ func (i *GatewayHostNameConfiguration) ToGatewayHostNameConfigurationOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayHostNameConfigurationOutput)
 }
 
-func (i *GatewayHostNameConfiguration) ToOutput(ctx context.Context) pulumix.Output[*GatewayHostNameConfiguration] {
-	return pulumix.Output[*GatewayHostNameConfiguration]{
-		OutputState: i.ToGatewayHostNameConfigurationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GatewayHostNameConfigurationArrayInput is an input type that accepts GatewayHostNameConfigurationArray and GatewayHostNameConfigurationArrayOutput values.
 // You can construct a concrete instance of `GatewayHostNameConfigurationArrayInput` via:
 //
@@ -311,12 +304,6 @@ func (i GatewayHostNameConfigurationArray) ToGatewayHostNameConfigurationArrayOu
 
 func (i GatewayHostNameConfigurationArray) ToGatewayHostNameConfigurationArrayOutputWithContext(ctx context.Context) GatewayHostNameConfigurationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayHostNameConfigurationArrayOutput)
-}
-
-func (i GatewayHostNameConfigurationArray) ToOutput(ctx context.Context) pulumix.Output[[]*GatewayHostNameConfiguration] {
-	return pulumix.Output[[]*GatewayHostNameConfiguration]{
-		OutputState: i.ToGatewayHostNameConfigurationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GatewayHostNameConfigurationMapInput is an input type that accepts GatewayHostNameConfigurationMap and GatewayHostNameConfigurationMapOutput values.
@@ -344,12 +331,6 @@ func (i GatewayHostNameConfigurationMap) ToGatewayHostNameConfigurationMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GatewayHostNameConfigurationMapOutput)
 }
 
-func (i GatewayHostNameConfigurationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GatewayHostNameConfiguration] {
-	return pulumix.Output[map[string]*GatewayHostNameConfiguration]{
-		OutputState: i.ToGatewayHostNameConfigurationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GatewayHostNameConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GatewayHostNameConfigurationOutput) ElementType() reflect.Type {
@@ -362,12 +343,6 @@ func (o GatewayHostNameConfigurationOutput) ToGatewayHostNameConfigurationOutput
 
 func (o GatewayHostNameConfigurationOutput) ToGatewayHostNameConfigurationOutputWithContext(ctx context.Context) GatewayHostNameConfigurationOutput {
 	return o
-}
-
-func (o GatewayHostNameConfigurationOutput) ToOutput(ctx context.Context) pulumix.Output[*GatewayHostNameConfiguration] {
-	return pulumix.Output[*GatewayHostNameConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the API Management Service. Changing this forces a new resource to be created.
@@ -429,12 +404,6 @@ func (o GatewayHostNameConfigurationArrayOutput) ToGatewayHostNameConfigurationA
 	return o
 }
 
-func (o GatewayHostNameConfigurationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GatewayHostNameConfiguration] {
-	return pulumix.Output[[]*GatewayHostNameConfiguration]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GatewayHostNameConfigurationArrayOutput) Index(i pulumi.IntInput) GatewayHostNameConfigurationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GatewayHostNameConfiguration {
 		return vs[0].([]*GatewayHostNameConfiguration)[vs[1].(int)]
@@ -453,12 +422,6 @@ func (o GatewayHostNameConfigurationMapOutput) ToGatewayHostNameConfigurationMap
 
 func (o GatewayHostNameConfigurationMapOutput) ToGatewayHostNameConfigurationMapOutputWithContext(ctx context.Context) GatewayHostNameConfigurationMapOutput {
 	return o
-}
-
-func (o GatewayHostNameConfigurationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GatewayHostNameConfiguration] {
-	return pulumix.Output[map[string]*GatewayHostNameConfiguration]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GatewayHostNameConfigurationMapOutput) MapIndex(k pulumi.StringInput) GatewayHostNameConfigurationOutput {

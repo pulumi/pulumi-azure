@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -59,12 +58,6 @@ func (i DefinitionPermissionArgs) ToDefinitionPermissionOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DefinitionPermissionOutput)
 }
 
-func (i DefinitionPermissionArgs) ToOutput(ctx context.Context) pulumix.Output[DefinitionPermission] {
-	return pulumix.Output[DefinitionPermission]{
-		OutputState: i.ToDefinitionPermissionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DefinitionPermissionArrayInput is an input type that accepts DefinitionPermissionArray and DefinitionPermissionArrayOutput values.
 // You can construct a concrete instance of `DefinitionPermissionArrayInput` via:
 //
@@ -90,12 +83,6 @@ func (i DefinitionPermissionArray) ToDefinitionPermissionArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DefinitionPermissionArrayOutput)
 }
 
-func (i DefinitionPermissionArray) ToOutput(ctx context.Context) pulumix.Output[[]DefinitionPermission] {
-	return pulumix.Output[[]DefinitionPermission]{
-		OutputState: i.ToDefinitionPermissionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DefinitionPermissionOutput struct{ *pulumi.OutputState }
 
 func (DefinitionPermissionOutput) ElementType() reflect.Type {
@@ -108,12 +95,6 @@ func (o DefinitionPermissionOutput) ToDefinitionPermissionOutput() DefinitionPer
 
 func (o DefinitionPermissionOutput) ToDefinitionPermissionOutputWithContext(ctx context.Context) DefinitionPermissionOutput {
 	return o
-}
-
-func (o DefinitionPermissionOutput) ToOutput(ctx context.Context) pulumix.Output[DefinitionPermission] {
-	return pulumix.Output[DefinitionPermission]{
-		OutputState: o.OutputState,
-	}
 }
 
 // One or more Allowed Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details.
@@ -148,12 +129,6 @@ func (o DefinitionPermissionArrayOutput) ToDefinitionPermissionArrayOutput() Def
 
 func (o DefinitionPermissionArrayOutput) ToDefinitionPermissionArrayOutputWithContext(ctx context.Context) DefinitionPermissionArrayOutput {
 	return o
-}
-
-func (o DefinitionPermissionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DefinitionPermission] {
-	return pulumix.Output[[]DefinitionPermission]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DefinitionPermissionArrayOutput) Index(i pulumi.IntInput) DefinitionPermissionOutput {
@@ -203,12 +178,6 @@ func (i GetRoleDefinitionPermissionArgs) ToGetRoleDefinitionPermissionOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(GetRoleDefinitionPermissionOutput)
 }
 
-func (i GetRoleDefinitionPermissionArgs) ToOutput(ctx context.Context) pulumix.Output[GetRoleDefinitionPermission] {
-	return pulumix.Output[GetRoleDefinitionPermission]{
-		OutputState: i.ToGetRoleDefinitionPermissionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetRoleDefinitionPermissionArrayInput is an input type that accepts GetRoleDefinitionPermissionArray and GetRoleDefinitionPermissionArrayOutput values.
 // You can construct a concrete instance of `GetRoleDefinitionPermissionArrayInput` via:
 //
@@ -234,12 +203,6 @@ func (i GetRoleDefinitionPermissionArray) ToGetRoleDefinitionPermissionArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(GetRoleDefinitionPermissionArrayOutput)
 }
 
-func (i GetRoleDefinitionPermissionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRoleDefinitionPermission] {
-	return pulumix.Output[[]GetRoleDefinitionPermission]{
-		OutputState: i.ToGetRoleDefinitionPermissionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetRoleDefinitionPermissionOutput struct{ *pulumi.OutputState }
 
 func (GetRoleDefinitionPermissionOutput) ElementType() reflect.Type {
@@ -252,12 +215,6 @@ func (o GetRoleDefinitionPermissionOutput) ToGetRoleDefinitionPermissionOutput()
 
 func (o GetRoleDefinitionPermissionOutput) ToGetRoleDefinitionPermissionOutputWithContext(ctx context.Context) GetRoleDefinitionPermissionOutput {
 	return o
-}
-
-func (o GetRoleDefinitionPermissionOutput) ToOutput(ctx context.Context) pulumix.Output[GetRoleDefinitionPermission] {
-	return pulumix.Output[GetRoleDefinitionPermission]{
-		OutputState: o.OutputState,
-	}
 }
 
 // a list of actions supported by this role
@@ -290,12 +247,6 @@ func (o GetRoleDefinitionPermissionArrayOutput) ToGetRoleDefinitionPermissionArr
 
 func (o GetRoleDefinitionPermissionArrayOutput) ToGetRoleDefinitionPermissionArrayOutputWithContext(ctx context.Context) GetRoleDefinitionPermissionArrayOutput {
 	return o
-}
-
-func (o GetRoleDefinitionPermissionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRoleDefinitionPermission] {
-	return pulumix.Output[[]GetRoleDefinitionPermission]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetRoleDefinitionPermissionArrayOutput) Index(i pulumi.IntInput) GetRoleDefinitionPermissionOutput {

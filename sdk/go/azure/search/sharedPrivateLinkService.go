@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages the Shared Private Link Service for an Azure Search Service.
@@ -227,12 +226,6 @@ func (i *SharedPrivateLinkService) ToSharedPrivateLinkServiceOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkServiceOutput)
 }
 
-func (i *SharedPrivateLinkService) ToOutput(ctx context.Context) pulumix.Output[*SharedPrivateLinkService] {
-	return pulumix.Output[*SharedPrivateLinkService]{
-		OutputState: i.ToSharedPrivateLinkServiceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SharedPrivateLinkServiceArrayInput is an input type that accepts SharedPrivateLinkServiceArray and SharedPrivateLinkServiceArrayOutput values.
 // You can construct a concrete instance of `SharedPrivateLinkServiceArrayInput` via:
 //
@@ -256,12 +249,6 @@ func (i SharedPrivateLinkServiceArray) ToSharedPrivateLinkServiceArrayOutput() S
 
 func (i SharedPrivateLinkServiceArray) ToSharedPrivateLinkServiceArrayOutputWithContext(ctx context.Context) SharedPrivateLinkServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkServiceArrayOutput)
-}
-
-func (i SharedPrivateLinkServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*SharedPrivateLinkService] {
-	return pulumix.Output[[]*SharedPrivateLinkService]{
-		OutputState: i.ToSharedPrivateLinkServiceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SharedPrivateLinkServiceMapInput is an input type that accepts SharedPrivateLinkServiceMap and SharedPrivateLinkServiceMapOutput values.
@@ -289,12 +276,6 @@ func (i SharedPrivateLinkServiceMap) ToSharedPrivateLinkServiceMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(SharedPrivateLinkServiceMapOutput)
 }
 
-func (i SharedPrivateLinkServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SharedPrivateLinkService] {
-	return pulumix.Output[map[string]*SharedPrivateLinkService]{
-		OutputState: i.ToSharedPrivateLinkServiceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SharedPrivateLinkServiceOutput struct{ *pulumi.OutputState }
 
 func (SharedPrivateLinkServiceOutput) ElementType() reflect.Type {
@@ -307,12 +288,6 @@ func (o SharedPrivateLinkServiceOutput) ToSharedPrivateLinkServiceOutput() Share
 
 func (o SharedPrivateLinkServiceOutput) ToSharedPrivateLinkServiceOutputWithContext(ctx context.Context) SharedPrivateLinkServiceOutput {
 	return o
-}
-
-func (o SharedPrivateLinkServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*SharedPrivateLinkService] {
-	return pulumix.Output[*SharedPrivateLinkService]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specify the name of the Azure Search Shared Private Link Resource. Changing this forces a new resource to be created.
@@ -361,12 +336,6 @@ func (o SharedPrivateLinkServiceArrayOutput) ToSharedPrivateLinkServiceArrayOutp
 	return o
 }
 
-func (o SharedPrivateLinkServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SharedPrivateLinkService] {
-	return pulumix.Output[[]*SharedPrivateLinkService]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SharedPrivateLinkServiceArrayOutput) Index(i pulumi.IntInput) SharedPrivateLinkServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SharedPrivateLinkService {
 		return vs[0].([]*SharedPrivateLinkService)[vs[1].(int)]
@@ -385,12 +354,6 @@ func (o SharedPrivateLinkServiceMapOutput) ToSharedPrivateLinkServiceMapOutput()
 
 func (o SharedPrivateLinkServiceMapOutput) ToSharedPrivateLinkServiceMapOutputWithContext(ctx context.Context) SharedPrivateLinkServiceMapOutput {
 	return o
-}
-
-func (o SharedPrivateLinkServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SharedPrivateLinkService] {
-	return pulumix.Output[map[string]*SharedPrivateLinkService]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SharedPrivateLinkServiceMapOutput) MapIndex(k pulumi.StringInput) SharedPrivateLinkServiceOutput {

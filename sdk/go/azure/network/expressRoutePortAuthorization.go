@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an ExpressRoute Port Authorization.
@@ -194,12 +193,6 @@ func (i *ExpressRoutePortAuthorization) ToExpressRoutePortAuthorizationOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRoutePortAuthorizationOutput)
 }
 
-func (i *ExpressRoutePortAuthorization) ToOutput(ctx context.Context) pulumix.Output[*ExpressRoutePortAuthorization] {
-	return pulumix.Output[*ExpressRoutePortAuthorization]{
-		OutputState: i.ToExpressRoutePortAuthorizationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ExpressRoutePortAuthorizationArrayInput is an input type that accepts ExpressRoutePortAuthorizationArray and ExpressRoutePortAuthorizationArrayOutput values.
 // You can construct a concrete instance of `ExpressRoutePortAuthorizationArrayInput` via:
 //
@@ -223,12 +216,6 @@ func (i ExpressRoutePortAuthorizationArray) ToExpressRoutePortAuthorizationArray
 
 func (i ExpressRoutePortAuthorizationArray) ToExpressRoutePortAuthorizationArrayOutputWithContext(ctx context.Context) ExpressRoutePortAuthorizationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRoutePortAuthorizationArrayOutput)
-}
-
-func (i ExpressRoutePortAuthorizationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ExpressRoutePortAuthorization] {
-	return pulumix.Output[[]*ExpressRoutePortAuthorization]{
-		OutputState: i.ToExpressRoutePortAuthorizationArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ExpressRoutePortAuthorizationMapInput is an input type that accepts ExpressRoutePortAuthorizationMap and ExpressRoutePortAuthorizationMapOutput values.
@@ -256,12 +243,6 @@ func (i ExpressRoutePortAuthorizationMap) ToExpressRoutePortAuthorizationMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ExpressRoutePortAuthorizationMapOutput)
 }
 
-func (i ExpressRoutePortAuthorizationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExpressRoutePortAuthorization] {
-	return pulumix.Output[map[string]*ExpressRoutePortAuthorization]{
-		OutputState: i.ToExpressRoutePortAuthorizationMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ExpressRoutePortAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (ExpressRoutePortAuthorizationOutput) ElementType() reflect.Type {
@@ -274,12 +255,6 @@ func (o ExpressRoutePortAuthorizationOutput) ToExpressRoutePortAuthorizationOutp
 
 func (o ExpressRoutePortAuthorizationOutput) ToExpressRoutePortAuthorizationOutputWithContext(ctx context.Context) ExpressRoutePortAuthorizationOutput {
 	return o
-}
-
-func (o ExpressRoutePortAuthorizationOutput) ToOutput(ctx context.Context) pulumix.Output[*ExpressRoutePortAuthorization] {
-	return pulumix.Output[*ExpressRoutePortAuthorization]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Authorization Key.
@@ -321,12 +296,6 @@ func (o ExpressRoutePortAuthorizationArrayOutput) ToExpressRoutePortAuthorizatio
 	return o
 }
 
-func (o ExpressRoutePortAuthorizationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ExpressRoutePortAuthorization] {
-	return pulumix.Output[[]*ExpressRoutePortAuthorization]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ExpressRoutePortAuthorizationArrayOutput) Index(i pulumi.IntInput) ExpressRoutePortAuthorizationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ExpressRoutePortAuthorization {
 		return vs[0].([]*ExpressRoutePortAuthorization)[vs[1].(int)]
@@ -345,12 +314,6 @@ func (o ExpressRoutePortAuthorizationMapOutput) ToExpressRoutePortAuthorizationM
 
 func (o ExpressRoutePortAuthorizationMapOutput) ToExpressRoutePortAuthorizationMapOutputWithContext(ctx context.Context) ExpressRoutePortAuthorizationMapOutput {
 	return o
-}
-
-func (o ExpressRoutePortAuthorizationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ExpressRoutePortAuthorization] {
-	return pulumix.Output[map[string]*ExpressRoutePortAuthorization]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ExpressRoutePortAuthorizationMapOutput) MapIndex(k pulumi.StringInput) ExpressRoutePortAuthorizationOutput {

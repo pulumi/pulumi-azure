@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Storage Sync Cloud Endpoint.
@@ -233,12 +232,6 @@ func (i *SyncCloudEndpoint) ToSyncCloudEndpointOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(SyncCloudEndpointOutput)
 }
 
-func (i *SyncCloudEndpoint) ToOutput(ctx context.Context) pulumix.Output[*SyncCloudEndpoint] {
-	return pulumix.Output[*SyncCloudEndpoint]{
-		OutputState: i.ToSyncCloudEndpointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SyncCloudEndpointArrayInput is an input type that accepts SyncCloudEndpointArray and SyncCloudEndpointArrayOutput values.
 // You can construct a concrete instance of `SyncCloudEndpointArrayInput` via:
 //
@@ -262,12 +255,6 @@ func (i SyncCloudEndpointArray) ToSyncCloudEndpointArrayOutput() SyncCloudEndpoi
 
 func (i SyncCloudEndpointArray) ToSyncCloudEndpointArrayOutputWithContext(ctx context.Context) SyncCloudEndpointArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SyncCloudEndpointArrayOutput)
-}
-
-func (i SyncCloudEndpointArray) ToOutput(ctx context.Context) pulumix.Output[[]*SyncCloudEndpoint] {
-	return pulumix.Output[[]*SyncCloudEndpoint]{
-		OutputState: i.ToSyncCloudEndpointArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SyncCloudEndpointMapInput is an input type that accepts SyncCloudEndpointMap and SyncCloudEndpointMapOutput values.
@@ -295,12 +282,6 @@ func (i SyncCloudEndpointMap) ToSyncCloudEndpointMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(SyncCloudEndpointMapOutput)
 }
 
-func (i SyncCloudEndpointMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SyncCloudEndpoint] {
-	return pulumix.Output[map[string]*SyncCloudEndpoint]{
-		OutputState: i.ToSyncCloudEndpointMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SyncCloudEndpointOutput struct{ *pulumi.OutputState }
 
 func (SyncCloudEndpointOutput) ElementType() reflect.Type {
@@ -313,12 +294,6 @@ func (o SyncCloudEndpointOutput) ToSyncCloudEndpointOutput() SyncCloudEndpointOu
 
 func (o SyncCloudEndpointOutput) ToSyncCloudEndpointOutputWithContext(ctx context.Context) SyncCloudEndpointOutput {
 	return o
-}
-
-func (o SyncCloudEndpointOutput) ToOutput(ctx context.Context) pulumix.Output[*SyncCloudEndpoint] {
-	return pulumix.Output[*SyncCloudEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Storage Share name to be synchronized in this Storage Sync Cloud Endpoint. Changing this forces a new Storage Sync Cloud Endpoint to be created.
@@ -360,12 +335,6 @@ func (o SyncCloudEndpointArrayOutput) ToSyncCloudEndpointArrayOutputWithContext(
 	return o
 }
 
-func (o SyncCloudEndpointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SyncCloudEndpoint] {
-	return pulumix.Output[[]*SyncCloudEndpoint]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SyncCloudEndpointArrayOutput) Index(i pulumi.IntInput) SyncCloudEndpointOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SyncCloudEndpoint {
 		return vs[0].([]*SyncCloudEndpoint)[vs[1].(int)]
@@ -384,12 +353,6 @@ func (o SyncCloudEndpointMapOutput) ToSyncCloudEndpointMapOutput() SyncCloudEndp
 
 func (o SyncCloudEndpointMapOutput) ToSyncCloudEndpointMapOutputWithContext(ctx context.Context) SyncCloudEndpointMapOutput {
 	return o
-}
-
-func (o SyncCloudEndpointMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SyncCloudEndpoint] {
-	return pulumix.Output[map[string]*SyncCloudEndpoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SyncCloudEndpointMapOutput) MapIndex(k pulumi.StringInput) SyncCloudEndpointOutput {

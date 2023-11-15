@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Synapse SQL Pool Workload Classifier.
@@ -273,12 +272,6 @@ func (i *SqlPoolWorkloadClassifier) ToSqlPoolWorkloadClassifierOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolWorkloadClassifierOutput)
 }
 
-func (i *SqlPoolWorkloadClassifier) ToOutput(ctx context.Context) pulumix.Output[*SqlPoolWorkloadClassifier] {
-	return pulumix.Output[*SqlPoolWorkloadClassifier]{
-		OutputState: i.ToSqlPoolWorkloadClassifierOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SqlPoolWorkloadClassifierArrayInput is an input type that accepts SqlPoolWorkloadClassifierArray and SqlPoolWorkloadClassifierArrayOutput values.
 // You can construct a concrete instance of `SqlPoolWorkloadClassifierArrayInput` via:
 //
@@ -302,12 +295,6 @@ func (i SqlPoolWorkloadClassifierArray) ToSqlPoolWorkloadClassifierArrayOutput()
 
 func (i SqlPoolWorkloadClassifierArray) ToSqlPoolWorkloadClassifierArrayOutputWithContext(ctx context.Context) SqlPoolWorkloadClassifierArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolWorkloadClassifierArrayOutput)
-}
-
-func (i SqlPoolWorkloadClassifierArray) ToOutput(ctx context.Context) pulumix.Output[[]*SqlPoolWorkloadClassifier] {
-	return pulumix.Output[[]*SqlPoolWorkloadClassifier]{
-		OutputState: i.ToSqlPoolWorkloadClassifierArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SqlPoolWorkloadClassifierMapInput is an input type that accepts SqlPoolWorkloadClassifierMap and SqlPoolWorkloadClassifierMapOutput values.
@@ -335,12 +322,6 @@ func (i SqlPoolWorkloadClassifierMap) ToSqlPoolWorkloadClassifierMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(SqlPoolWorkloadClassifierMapOutput)
 }
 
-func (i SqlPoolWorkloadClassifierMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlPoolWorkloadClassifier] {
-	return pulumix.Output[map[string]*SqlPoolWorkloadClassifier]{
-		OutputState: i.ToSqlPoolWorkloadClassifierMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SqlPoolWorkloadClassifierOutput struct{ *pulumi.OutputState }
 
 func (SqlPoolWorkloadClassifierOutput) ElementType() reflect.Type {
@@ -353,12 +334,6 @@ func (o SqlPoolWorkloadClassifierOutput) ToSqlPoolWorkloadClassifierOutput() Sql
 
 func (o SqlPoolWorkloadClassifierOutput) ToSqlPoolWorkloadClassifierOutputWithContext(ctx context.Context) SqlPoolWorkloadClassifierOutput {
 	return o
-}
-
-func (o SqlPoolWorkloadClassifierOutput) ToOutput(ctx context.Context) pulumix.Output[*SqlPoolWorkloadClassifier] {
-	return pulumix.Output[*SqlPoolWorkloadClassifier]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the session context value that a request can be classified against.
@@ -415,12 +390,6 @@ func (o SqlPoolWorkloadClassifierArrayOutput) ToSqlPoolWorkloadClassifierArrayOu
 	return o
 }
 
-func (o SqlPoolWorkloadClassifierArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SqlPoolWorkloadClassifier] {
-	return pulumix.Output[[]*SqlPoolWorkloadClassifier]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SqlPoolWorkloadClassifierArrayOutput) Index(i pulumi.IntInput) SqlPoolWorkloadClassifierOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SqlPoolWorkloadClassifier {
 		return vs[0].([]*SqlPoolWorkloadClassifier)[vs[1].(int)]
@@ -439,12 +408,6 @@ func (o SqlPoolWorkloadClassifierMapOutput) ToSqlPoolWorkloadClassifierMapOutput
 
 func (o SqlPoolWorkloadClassifierMapOutput) ToSqlPoolWorkloadClassifierMapOutputWithContext(ctx context.Context) SqlPoolWorkloadClassifierMapOutput {
 	return o
-}
-
-func (o SqlPoolWorkloadClassifierMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SqlPoolWorkloadClassifier] {
-	return pulumix.Output[map[string]*SqlPoolWorkloadClassifier]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SqlPoolWorkloadClassifierMapOutput) MapIndex(k pulumi.StringInput) SqlPoolWorkloadClassifierOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an IoT Hub Device Update Instance.
@@ -234,12 +233,6 @@ func (i *IotHubDeviceUpdateInstance) ToIotHubDeviceUpdateInstanceOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDeviceUpdateInstanceOutput)
 }
 
-func (i *IotHubDeviceUpdateInstance) ToOutput(ctx context.Context) pulumix.Output[*IotHubDeviceUpdateInstance] {
-	return pulumix.Output[*IotHubDeviceUpdateInstance]{
-		OutputState: i.ToIotHubDeviceUpdateInstanceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // IotHubDeviceUpdateInstanceArrayInput is an input type that accepts IotHubDeviceUpdateInstanceArray and IotHubDeviceUpdateInstanceArrayOutput values.
 // You can construct a concrete instance of `IotHubDeviceUpdateInstanceArrayInput` via:
 //
@@ -263,12 +256,6 @@ func (i IotHubDeviceUpdateInstanceArray) ToIotHubDeviceUpdateInstanceArrayOutput
 
 func (i IotHubDeviceUpdateInstanceArray) ToIotHubDeviceUpdateInstanceArrayOutputWithContext(ctx context.Context) IotHubDeviceUpdateInstanceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDeviceUpdateInstanceArrayOutput)
-}
-
-func (i IotHubDeviceUpdateInstanceArray) ToOutput(ctx context.Context) pulumix.Output[[]*IotHubDeviceUpdateInstance] {
-	return pulumix.Output[[]*IotHubDeviceUpdateInstance]{
-		OutputState: i.ToIotHubDeviceUpdateInstanceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IotHubDeviceUpdateInstanceMapInput is an input type that accepts IotHubDeviceUpdateInstanceMap and IotHubDeviceUpdateInstanceMapOutput values.
@@ -296,12 +283,6 @@ func (i IotHubDeviceUpdateInstanceMap) ToIotHubDeviceUpdateInstanceMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(IotHubDeviceUpdateInstanceMapOutput)
 }
 
-func (i IotHubDeviceUpdateInstanceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IotHubDeviceUpdateInstance] {
-	return pulumix.Output[map[string]*IotHubDeviceUpdateInstance]{
-		OutputState: i.ToIotHubDeviceUpdateInstanceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type IotHubDeviceUpdateInstanceOutput struct{ *pulumi.OutputState }
 
 func (IotHubDeviceUpdateInstanceOutput) ElementType() reflect.Type {
@@ -314,12 +295,6 @@ func (o IotHubDeviceUpdateInstanceOutput) ToIotHubDeviceUpdateInstanceOutput() I
 
 func (o IotHubDeviceUpdateInstanceOutput) ToIotHubDeviceUpdateInstanceOutputWithContext(ctx context.Context) IotHubDeviceUpdateInstanceOutput {
 	return o
-}
-
-func (o IotHubDeviceUpdateInstanceOutput) ToOutput(ctx context.Context) pulumix.Output[*IotHubDeviceUpdateInstance] {
-	return pulumix.Output[*IotHubDeviceUpdateInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device Update Instance exists. Changing this forces a new resource to be created.
@@ -368,12 +343,6 @@ func (o IotHubDeviceUpdateInstanceArrayOutput) ToIotHubDeviceUpdateInstanceArray
 	return o
 }
 
-func (o IotHubDeviceUpdateInstanceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IotHubDeviceUpdateInstance] {
-	return pulumix.Output[[]*IotHubDeviceUpdateInstance]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o IotHubDeviceUpdateInstanceArrayOutput) Index(i pulumi.IntInput) IotHubDeviceUpdateInstanceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IotHubDeviceUpdateInstance {
 		return vs[0].([]*IotHubDeviceUpdateInstance)[vs[1].(int)]
@@ -392,12 +361,6 @@ func (o IotHubDeviceUpdateInstanceMapOutput) ToIotHubDeviceUpdateInstanceMapOutp
 
 func (o IotHubDeviceUpdateInstanceMapOutput) ToIotHubDeviceUpdateInstanceMapOutputWithContext(ctx context.Context) IotHubDeviceUpdateInstanceMapOutput {
 	return o
-}
-
-func (o IotHubDeviceUpdateInstanceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IotHubDeviceUpdateInstance] {
-	return pulumix.Output[map[string]*IotHubDeviceUpdateInstance]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o IotHubDeviceUpdateInstanceMapOutput) MapIndex(k pulumi.StringInput) IotHubDeviceUpdateInstanceOutput {

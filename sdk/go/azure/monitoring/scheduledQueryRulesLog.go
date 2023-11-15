@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a LogToMetricAction Scheduled Query Rules resource within Azure Monitor.
@@ -298,12 +297,6 @@ func (i *ScheduledQueryRulesLog) ToScheduledQueryRulesLogOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesLogOutput)
 }
 
-func (i *ScheduledQueryRulesLog) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryRulesLog] {
-	return pulumix.Output[*ScheduledQueryRulesLog]{
-		OutputState: i.ToScheduledQueryRulesLogOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ScheduledQueryRulesLogArrayInput is an input type that accepts ScheduledQueryRulesLogArray and ScheduledQueryRulesLogArrayOutput values.
 // You can construct a concrete instance of `ScheduledQueryRulesLogArrayInput` via:
 //
@@ -327,12 +320,6 @@ func (i ScheduledQueryRulesLogArray) ToScheduledQueryRulesLogArrayOutput() Sched
 
 func (i ScheduledQueryRulesLogArray) ToScheduledQueryRulesLogArrayOutputWithContext(ctx context.Context) ScheduledQueryRulesLogArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesLogArrayOutput)
-}
-
-func (i ScheduledQueryRulesLogArray) ToOutput(ctx context.Context) pulumix.Output[[]*ScheduledQueryRulesLog] {
-	return pulumix.Output[[]*ScheduledQueryRulesLog]{
-		OutputState: i.ToScheduledQueryRulesLogArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ScheduledQueryRulesLogMapInput is an input type that accepts ScheduledQueryRulesLogMap and ScheduledQueryRulesLogMapOutput values.
@@ -360,12 +347,6 @@ func (i ScheduledQueryRulesLogMap) ToScheduledQueryRulesLogMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledQueryRulesLogMapOutput)
 }
 
-func (i ScheduledQueryRulesLogMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScheduledQueryRulesLog] {
-	return pulumix.Output[map[string]*ScheduledQueryRulesLog]{
-		OutputState: i.ToScheduledQueryRulesLogMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ScheduledQueryRulesLogOutput struct{ *pulumi.OutputState }
 
 func (ScheduledQueryRulesLogOutput) ElementType() reflect.Type {
@@ -378,12 +359,6 @@ func (o ScheduledQueryRulesLogOutput) ToScheduledQueryRulesLogOutput() Scheduled
 
 func (o ScheduledQueryRulesLogOutput) ToScheduledQueryRulesLogOutputWithContext(ctx context.Context) ScheduledQueryRulesLogOutput {
 	return o
-}
-
-func (o ScheduledQueryRulesLogOutput) ToOutput(ctx context.Context) pulumix.Output[*ScheduledQueryRulesLog] {
-	return pulumix.Output[*ScheduledQueryRulesLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of IDs of Resources referred into query.
@@ -445,12 +420,6 @@ func (o ScheduledQueryRulesLogArrayOutput) ToScheduledQueryRulesLogArrayOutputWi
 	return o
 }
 
-func (o ScheduledQueryRulesLogArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ScheduledQueryRulesLog] {
-	return pulumix.Output[[]*ScheduledQueryRulesLog]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ScheduledQueryRulesLogArrayOutput) Index(i pulumi.IntInput) ScheduledQueryRulesLogOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ScheduledQueryRulesLog {
 		return vs[0].([]*ScheduledQueryRulesLog)[vs[1].(int)]
@@ -469,12 +438,6 @@ func (o ScheduledQueryRulesLogMapOutput) ToScheduledQueryRulesLogMapOutput() Sch
 
 func (o ScheduledQueryRulesLogMapOutput) ToScheduledQueryRulesLogMapOutputWithContext(ctx context.Context) ScheduledQueryRulesLogMapOutput {
 	return o
-}
-
-func (o ScheduledQueryRulesLogMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ScheduledQueryRulesLog] {
-	return pulumix.Output[map[string]*ScheduledQueryRulesLog]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ScheduledQueryRulesLogMapOutput) MapIndex(k pulumi.StringInput) ScheduledQueryRulesLogOutput {

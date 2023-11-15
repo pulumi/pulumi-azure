@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Monitor Private Link Scoped Service.
@@ -197,12 +196,6 @@ func (i *PrivateLinkScopedService) ToPrivateLinkScopedServiceOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedServiceOutput)
 }
 
-func (i *PrivateLinkScopedService) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkScopedService] {
-	return pulumix.Output[*PrivateLinkScopedService]{
-		OutputState: i.ToPrivateLinkScopedServiceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PrivateLinkScopedServiceArrayInput is an input type that accepts PrivateLinkScopedServiceArray and PrivateLinkScopedServiceArrayOutput values.
 // You can construct a concrete instance of `PrivateLinkScopedServiceArrayInput` via:
 //
@@ -226,12 +219,6 @@ func (i PrivateLinkScopedServiceArray) ToPrivateLinkScopedServiceArrayOutput() P
 
 func (i PrivateLinkScopedServiceArray) ToPrivateLinkScopedServiceArrayOutputWithContext(ctx context.Context) PrivateLinkScopedServiceArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedServiceArrayOutput)
-}
-
-func (i PrivateLinkScopedServiceArray) ToOutput(ctx context.Context) pulumix.Output[[]*PrivateLinkScopedService] {
-	return pulumix.Output[[]*PrivateLinkScopedService]{
-		OutputState: i.ToPrivateLinkScopedServiceArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PrivateLinkScopedServiceMapInput is an input type that accepts PrivateLinkScopedServiceMap and PrivateLinkScopedServiceMapOutput values.
@@ -259,12 +246,6 @@ func (i PrivateLinkScopedServiceMap) ToPrivateLinkScopedServiceMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopedServiceMapOutput)
 }
 
-func (i PrivateLinkScopedServiceMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrivateLinkScopedService] {
-	return pulumix.Output[map[string]*PrivateLinkScopedService]{
-		OutputState: i.ToPrivateLinkScopedServiceMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrivateLinkScopedServiceOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkScopedServiceOutput) ElementType() reflect.Type {
@@ -277,12 +258,6 @@ func (o PrivateLinkScopedServiceOutput) ToPrivateLinkScopedServiceOutput() Priva
 
 func (o PrivateLinkScopedServiceOutput) ToPrivateLinkScopedServiceOutputWithContext(ctx context.Context) PrivateLinkScopedServiceOutput {
 	return o
-}
-
-func (o PrivateLinkScopedServiceOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkScopedService] {
-	return pulumix.Output[*PrivateLinkScopedService]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the linked resource. It must be the Log Analytics workspace or the Application Insights component or the Data Collection endpoint. Changing this forces a new resource to be created.
@@ -319,12 +294,6 @@ func (o PrivateLinkScopedServiceArrayOutput) ToPrivateLinkScopedServiceArrayOutp
 	return o
 }
 
-func (o PrivateLinkScopedServiceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PrivateLinkScopedService] {
-	return pulumix.Output[[]*PrivateLinkScopedService]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PrivateLinkScopedServiceArrayOutput) Index(i pulumi.IntInput) PrivateLinkScopedServiceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PrivateLinkScopedService {
 		return vs[0].([]*PrivateLinkScopedService)[vs[1].(int)]
@@ -343,12 +312,6 @@ func (o PrivateLinkScopedServiceMapOutput) ToPrivateLinkScopedServiceMapOutput()
 
 func (o PrivateLinkScopedServiceMapOutput) ToPrivateLinkScopedServiceMapOutputWithContext(ctx context.Context) PrivateLinkScopedServiceMapOutput {
 	return o
-}
-
-func (o PrivateLinkScopedServiceMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrivateLinkScopedService] {
-	return pulumix.Output[map[string]*PrivateLinkScopedService]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrivateLinkScopedServiceMapOutput) MapIndex(k pulumi.StringInput) PrivateLinkScopedServiceOutput {

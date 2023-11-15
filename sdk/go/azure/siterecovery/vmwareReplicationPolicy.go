@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a VMWare Replication Policy.
@@ -193,12 +192,6 @@ func (i *VMWareReplicationPolicy) ToVMWareReplicationPolicyOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(VMWareReplicationPolicyOutput)
 }
 
-func (i *VMWareReplicationPolicy) ToOutput(ctx context.Context) pulumix.Output[*VMWareReplicationPolicy] {
-	return pulumix.Output[*VMWareReplicationPolicy]{
-		OutputState: i.ToVMWareReplicationPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VMWareReplicationPolicyArrayInput is an input type that accepts VMWareReplicationPolicyArray and VMWareReplicationPolicyArrayOutput values.
 // You can construct a concrete instance of `VMWareReplicationPolicyArrayInput` via:
 //
@@ -222,12 +215,6 @@ func (i VMWareReplicationPolicyArray) ToVMWareReplicationPolicyArrayOutput() VMW
 
 func (i VMWareReplicationPolicyArray) ToVMWareReplicationPolicyArrayOutputWithContext(ctx context.Context) VMWareReplicationPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VMWareReplicationPolicyArrayOutput)
-}
-
-func (i VMWareReplicationPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*VMWareReplicationPolicy] {
-	return pulumix.Output[[]*VMWareReplicationPolicy]{
-		OutputState: i.ToVMWareReplicationPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VMWareReplicationPolicyMapInput is an input type that accepts VMWareReplicationPolicyMap and VMWareReplicationPolicyMapOutput values.
@@ -255,12 +242,6 @@ func (i VMWareReplicationPolicyMap) ToVMWareReplicationPolicyMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VMWareReplicationPolicyMapOutput)
 }
 
-func (i VMWareReplicationPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VMWareReplicationPolicy] {
-	return pulumix.Output[map[string]*VMWareReplicationPolicy]{
-		OutputState: i.ToVMWareReplicationPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VMWareReplicationPolicyOutput struct{ *pulumi.OutputState }
 
 func (VMWareReplicationPolicyOutput) ElementType() reflect.Type {
@@ -273,12 +254,6 @@ func (o VMWareReplicationPolicyOutput) ToVMWareReplicationPolicyOutput() VMWareR
 
 func (o VMWareReplicationPolicyOutput) ToVMWareReplicationPolicyOutputWithContext(ctx context.Context) VMWareReplicationPolicyOutput {
 	return o
-}
-
-func (o VMWareReplicationPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*VMWareReplicationPolicy] {
-	return pulumix.Output[*VMWareReplicationPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the frequency at which to create application consistent recovery points. Must between `0` to `720`.
@@ -317,12 +292,6 @@ func (o VMWareReplicationPolicyArrayOutput) ToVMWareReplicationPolicyArrayOutput
 	return o
 }
 
-func (o VMWareReplicationPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VMWareReplicationPolicy] {
-	return pulumix.Output[[]*VMWareReplicationPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VMWareReplicationPolicyArrayOutput) Index(i pulumi.IntInput) VMWareReplicationPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VMWareReplicationPolicy {
 		return vs[0].([]*VMWareReplicationPolicy)[vs[1].(int)]
@@ -341,12 +310,6 @@ func (o VMWareReplicationPolicyMapOutput) ToVMWareReplicationPolicyMapOutput() V
 
 func (o VMWareReplicationPolicyMapOutput) ToVMWareReplicationPolicyMapOutputWithContext(ctx context.Context) VMWareReplicationPolicyMapOutput {
 	return o
-}
-
-func (o VMWareReplicationPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VMWareReplicationPolicy] {
-	return pulumix.Output[map[string]*VMWareReplicationPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VMWareReplicationPolicyMapOutput) MapIndex(k pulumi.StringInput) VMWareReplicationPolicyOutput {

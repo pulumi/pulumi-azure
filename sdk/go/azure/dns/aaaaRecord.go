@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -286,12 +285,6 @@ func (i *AaaaRecord) ToAaaaRecordOutputWithContext(ctx context.Context) AaaaReco
 	return pulumi.ToOutputWithContext(ctx, i).(AaaaRecordOutput)
 }
 
-func (i *AaaaRecord) ToOutput(ctx context.Context) pulumix.Output[*AaaaRecord] {
-	return pulumix.Output[*AaaaRecord]{
-		OutputState: i.ToAaaaRecordOutputWithContext(ctx).OutputState,
-	}
-}
-
 // AaaaRecordArrayInput is an input type that accepts AaaaRecordArray and AaaaRecordArrayOutput values.
 // You can construct a concrete instance of `AaaaRecordArrayInput` via:
 //
@@ -315,12 +308,6 @@ func (i AaaaRecordArray) ToAaaaRecordArrayOutput() AaaaRecordArrayOutput {
 
 func (i AaaaRecordArray) ToAaaaRecordArrayOutputWithContext(ctx context.Context) AaaaRecordArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AaaaRecordArrayOutput)
-}
-
-func (i AaaaRecordArray) ToOutput(ctx context.Context) pulumix.Output[[]*AaaaRecord] {
-	return pulumix.Output[[]*AaaaRecord]{
-		OutputState: i.ToAaaaRecordArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // AaaaRecordMapInput is an input type that accepts AaaaRecordMap and AaaaRecordMapOutput values.
@@ -348,12 +335,6 @@ func (i AaaaRecordMap) ToAaaaRecordMapOutputWithContext(ctx context.Context) Aaa
 	return pulumi.ToOutputWithContext(ctx, i).(AaaaRecordMapOutput)
 }
 
-func (i AaaaRecordMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*AaaaRecord] {
-	return pulumix.Output[map[string]*AaaaRecord]{
-		OutputState: i.ToAaaaRecordMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AaaaRecordOutput struct{ *pulumi.OutputState }
 
 func (AaaaRecordOutput) ElementType() reflect.Type {
@@ -366,12 +347,6 @@ func (o AaaaRecordOutput) ToAaaaRecordOutput() AaaaRecordOutput {
 
 func (o AaaaRecordOutput) ToAaaaRecordOutputWithContext(ctx context.Context) AaaaRecordOutput {
 	return o
-}
-
-func (o AaaaRecordOutput) ToOutput(ctx context.Context) pulumix.Output[*AaaaRecord] {
-	return pulumix.Output[*AaaaRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The FQDN of the DNS AAAA Record.
@@ -430,12 +405,6 @@ func (o AaaaRecordArrayOutput) ToAaaaRecordArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o AaaaRecordArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*AaaaRecord] {
-	return pulumix.Output[[]*AaaaRecord]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o AaaaRecordArrayOutput) Index(i pulumi.IntInput) AaaaRecordOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AaaaRecord {
 		return vs[0].([]*AaaaRecord)[vs[1].(int)]
@@ -454,12 +423,6 @@ func (o AaaaRecordMapOutput) ToAaaaRecordMapOutput() AaaaRecordMapOutput {
 
 func (o AaaaRecordMapOutput) ToAaaaRecordMapOutputWithContext(ctx context.Context) AaaaRecordMapOutput {
 	return o
-}
-
-func (o AaaaRecordMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*AaaaRecord] {
-	return pulumix.Output[map[string]*AaaaRecord]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AaaaRecordMapOutput) MapIndex(k pulumi.StringInput) AaaaRecordOutput {

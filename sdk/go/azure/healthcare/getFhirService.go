@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Healthcare FHIR Service(Fast Healthcare Interoperability Resources).
@@ -99,12 +98,6 @@ func (o LookupFhirServiceResultOutput) ToLookupFhirServiceResultOutput() LookupF
 
 func (o LookupFhirServiceResultOutput) ToLookupFhirServiceResultOutputWithContext(ctx context.Context) LookupFhirServiceResultOutput {
 	return o
-}
-
-func (o LookupFhirServiceResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupFhirServiceResult] {
-	return pulumix.Output[LookupFhirServiceResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The list of the access policies of the service instance.

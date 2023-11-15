@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Storage Container.
@@ -118,12 +117,6 @@ func (o GetStorageContainerResultOutput) ToGetStorageContainerResultOutput() Get
 
 func (o GetStorageContainerResultOutput) ToGetStorageContainerResultOutputWithContext(ctx context.Context) GetStorageContainerResultOutput {
 	return o
-}
-
-func (o GetStorageContainerResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetStorageContainerResult] {
-	return pulumix.Output[GetStorageContainerResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Access Level configured for this Container.

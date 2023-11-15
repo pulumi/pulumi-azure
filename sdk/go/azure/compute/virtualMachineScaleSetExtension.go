@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Extension for a Virtual Machine Scale Set.
@@ -455,12 +454,6 @@ func (i *VirtualMachineScaleSetExtension) ToVirtualMachineScaleSetExtensionOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetExtensionOutput)
 }
 
-func (i *VirtualMachineScaleSetExtension) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineScaleSetExtension] {
-	return pulumix.Output[*VirtualMachineScaleSetExtension]{
-		OutputState: i.ToVirtualMachineScaleSetExtensionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualMachineScaleSetExtensionArrayInput is an input type that accepts VirtualMachineScaleSetExtensionArray and VirtualMachineScaleSetExtensionArrayOutput values.
 // You can construct a concrete instance of `VirtualMachineScaleSetExtensionArrayInput` via:
 //
@@ -484,12 +477,6 @@ func (i VirtualMachineScaleSetExtensionArray) ToVirtualMachineScaleSetExtensionA
 
 func (i VirtualMachineScaleSetExtensionArray) ToVirtualMachineScaleSetExtensionArrayOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetExtensionArrayOutput)
-}
-
-func (i VirtualMachineScaleSetExtensionArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualMachineScaleSetExtension] {
-	return pulumix.Output[[]*VirtualMachineScaleSetExtension]{
-		OutputState: i.ToVirtualMachineScaleSetExtensionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualMachineScaleSetExtensionMapInput is an input type that accepts VirtualMachineScaleSetExtensionMap and VirtualMachineScaleSetExtensionMapOutput values.
@@ -517,12 +504,6 @@ func (i VirtualMachineScaleSetExtensionMap) ToVirtualMachineScaleSetExtensionMap
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineScaleSetExtensionMapOutput)
 }
 
-func (i VirtualMachineScaleSetExtensionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualMachineScaleSetExtension] {
-	return pulumix.Output[map[string]*VirtualMachineScaleSetExtension]{
-		OutputState: i.ToVirtualMachineScaleSetExtensionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualMachineScaleSetExtensionOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineScaleSetExtensionOutput) ElementType() reflect.Type {
@@ -535,12 +516,6 @@ func (o VirtualMachineScaleSetExtensionOutput) ToVirtualMachineScaleSetExtension
 
 func (o VirtualMachineScaleSetExtensionOutput) ToVirtualMachineScaleSetExtensionOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionOutput {
 	return o
-}
-
-func (o VirtualMachineScaleSetExtensionOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineScaleSetExtension] {
-	return pulumix.Output[*VirtualMachineScaleSetExtension]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Should the latest version of the Extension be used at Deployment Time, if one is available? This won't auto-update the extension on existing installation. Defaults to `true`.
@@ -653,12 +628,6 @@ func (o VirtualMachineScaleSetExtensionArrayOutput) ToVirtualMachineScaleSetExte
 	return o
 }
 
-func (o VirtualMachineScaleSetExtensionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualMachineScaleSetExtension] {
-	return pulumix.Output[[]*VirtualMachineScaleSetExtension]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualMachineScaleSetExtensionArrayOutput) Index(i pulumi.IntInput) VirtualMachineScaleSetExtensionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualMachineScaleSetExtension {
 		return vs[0].([]*VirtualMachineScaleSetExtension)[vs[1].(int)]
@@ -677,12 +646,6 @@ func (o VirtualMachineScaleSetExtensionMapOutput) ToVirtualMachineScaleSetExtens
 
 func (o VirtualMachineScaleSetExtensionMapOutput) ToVirtualMachineScaleSetExtensionMapOutputWithContext(ctx context.Context) VirtualMachineScaleSetExtensionMapOutput {
 	return o
-}
-
-func (o VirtualMachineScaleSetExtensionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualMachineScaleSetExtension] {
-	return pulumix.Output[map[string]*VirtualMachineScaleSetExtension]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualMachineScaleSetExtensionMapOutput) MapIndex(k pulumi.StringInput) VirtualMachineScaleSetExtensionOutput {

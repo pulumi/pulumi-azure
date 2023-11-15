@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i AssignmentIdentityArgs) ToAssignmentIdentityOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentIdentityOutput)
 }
 
-func (i AssignmentIdentityArgs) ToOutput(ctx context.Context) pulumix.Output[AssignmentIdentity] {
-	return pulumix.Output[AssignmentIdentity]{
-		OutputState: i.ToAssignmentIdentityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AssignmentIdentityArgs) ToAssignmentIdentityPtrOutput() AssignmentIdentityPtrOutput {
 	return i.ToAssignmentIdentityPtrOutputWithContext(context.Background())
 }
@@ -102,12 +95,6 @@ func (i *assignmentIdentityPtrType) ToAssignmentIdentityPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AssignmentIdentityPtrOutput)
 }
 
-func (i *assignmentIdentityPtrType) ToOutput(ctx context.Context) pulumix.Output[*AssignmentIdentity] {
-	return pulumix.Output[*AssignmentIdentity]{
-		OutputState: i.ToAssignmentIdentityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AssignmentIdentityOutput struct{ *pulumi.OutputState }
 
 func (AssignmentIdentityOutput) ElementType() reflect.Type {
@@ -130,12 +117,6 @@ func (o AssignmentIdentityOutput) ToAssignmentIdentityPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssignmentIdentity) *AssignmentIdentity {
 		return &v
 	}).(AssignmentIdentityPtrOutput)
-}
-
-func (o AssignmentIdentityOutput) ToOutput(ctx context.Context) pulumix.Output[AssignmentIdentity] {
-	return pulumix.Output[AssignmentIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of User Assigned Managed Identity IDs to be assigned to this Blueprint.
@@ -168,12 +149,6 @@ func (o AssignmentIdentityPtrOutput) ToAssignmentIdentityPtrOutput() AssignmentI
 
 func (o AssignmentIdentityPtrOutput) ToAssignmentIdentityPtrOutputWithContext(ctx context.Context) AssignmentIdentityPtrOutput {
 	return o
-}
-
-func (o AssignmentIdentityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AssignmentIdentity] {
-	return pulumix.Output[*AssignmentIdentity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AssignmentIdentityPtrOutput) Elem() AssignmentIdentityOutput {

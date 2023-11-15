@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing 3rd Generation (v3) App Service Environment.
@@ -137,12 +136,6 @@ func (o LookupEnvironmentV3ResultOutput) ToLookupEnvironmentV3ResultOutput() Loo
 
 func (o LookupEnvironmentV3ResultOutput) ToLookupEnvironmentV3ResultOutputWithContext(ctx context.Context) LookupEnvironmentV3ResultOutput {
 	return o
-}
-
-func (o LookupEnvironmentV3ResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupEnvironmentV3Result] {
-	return pulumix.Output[LookupEnvironmentV3Result]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Are new Private Endpoint Connections allowed.

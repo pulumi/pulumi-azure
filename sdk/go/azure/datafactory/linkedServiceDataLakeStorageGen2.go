@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Linked Service (connection) between Data Lake Storage Gen2 and Azure Data Factory.
@@ -312,12 +311,6 @@ func (i *LinkedServiceDataLakeStorageGen2) ToLinkedServiceDataLakeStorageGen2Out
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceDataLakeStorageGen2Output)
 }
 
-func (i *LinkedServiceDataLakeStorageGen2) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceDataLakeStorageGen2] {
-	return pulumix.Output[*LinkedServiceDataLakeStorageGen2]{
-		OutputState: i.ToLinkedServiceDataLakeStorageGen2OutputWithContext(ctx).OutputState,
-	}
-}
-
 // LinkedServiceDataLakeStorageGen2ArrayInput is an input type that accepts LinkedServiceDataLakeStorageGen2Array and LinkedServiceDataLakeStorageGen2ArrayOutput values.
 // You can construct a concrete instance of `LinkedServiceDataLakeStorageGen2ArrayInput` via:
 //
@@ -341,12 +334,6 @@ func (i LinkedServiceDataLakeStorageGen2Array) ToLinkedServiceDataLakeStorageGen
 
 func (i LinkedServiceDataLakeStorageGen2Array) ToLinkedServiceDataLakeStorageGen2ArrayOutputWithContext(ctx context.Context) LinkedServiceDataLakeStorageGen2ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceDataLakeStorageGen2ArrayOutput)
-}
-
-func (i LinkedServiceDataLakeStorageGen2Array) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceDataLakeStorageGen2] {
-	return pulumix.Output[[]*LinkedServiceDataLakeStorageGen2]{
-		OutputState: i.ToLinkedServiceDataLakeStorageGen2ArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LinkedServiceDataLakeStorageGen2MapInput is an input type that accepts LinkedServiceDataLakeStorageGen2Map and LinkedServiceDataLakeStorageGen2MapOutput values.
@@ -374,12 +361,6 @@ func (i LinkedServiceDataLakeStorageGen2Map) ToLinkedServiceDataLakeStorageGen2M
 	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceDataLakeStorageGen2MapOutput)
 }
 
-func (i LinkedServiceDataLakeStorageGen2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceDataLakeStorageGen2] {
-	return pulumix.Output[map[string]*LinkedServiceDataLakeStorageGen2]{
-		OutputState: i.ToLinkedServiceDataLakeStorageGen2MapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LinkedServiceDataLakeStorageGen2Output struct{ *pulumi.OutputState }
 
 func (LinkedServiceDataLakeStorageGen2Output) ElementType() reflect.Type {
@@ -392,12 +373,6 @@ func (o LinkedServiceDataLakeStorageGen2Output) ToLinkedServiceDataLakeStorageGe
 
 func (o LinkedServiceDataLakeStorageGen2Output) ToLinkedServiceDataLakeStorageGen2OutputWithContext(ctx context.Context) LinkedServiceDataLakeStorageGen2Output {
 	return o
-}
-
-func (o LinkedServiceDataLakeStorageGen2Output) ToOutput(ctx context.Context) pulumix.Output[*LinkedServiceDataLakeStorageGen2] {
-	return pulumix.Output[*LinkedServiceDataLakeStorageGen2]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of additional properties to associate with the Data Factory Linked Service.
@@ -485,12 +460,6 @@ func (o LinkedServiceDataLakeStorageGen2ArrayOutput) ToLinkedServiceDataLakeStor
 	return o
 }
 
-func (o LinkedServiceDataLakeStorageGen2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LinkedServiceDataLakeStorageGen2] {
-	return pulumix.Output[[]*LinkedServiceDataLakeStorageGen2]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LinkedServiceDataLakeStorageGen2ArrayOutput) Index(i pulumi.IntInput) LinkedServiceDataLakeStorageGen2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LinkedServiceDataLakeStorageGen2 {
 		return vs[0].([]*LinkedServiceDataLakeStorageGen2)[vs[1].(int)]
@@ -509,12 +478,6 @@ func (o LinkedServiceDataLakeStorageGen2MapOutput) ToLinkedServiceDataLakeStorag
 
 func (o LinkedServiceDataLakeStorageGen2MapOutput) ToLinkedServiceDataLakeStorageGen2MapOutputWithContext(ctx context.Context) LinkedServiceDataLakeStorageGen2MapOutput {
 	return o
-}
-
-func (o LinkedServiceDataLakeStorageGen2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LinkedServiceDataLakeStorageGen2] {
-	return pulumix.Output[map[string]*LinkedServiceDataLakeStorageGen2]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LinkedServiceDataLakeStorageGen2MapOutput) MapIndex(k pulumi.StringInput) LinkedServiceDataLakeStorageGen2Output {

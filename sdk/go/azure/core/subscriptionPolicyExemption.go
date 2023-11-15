@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Subscription Policy Exemption.
@@ -247,12 +246,6 @@ func (i *SubscriptionPolicyExemption) ToSubscriptionPolicyExemptionOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyExemptionOutput)
 }
 
-func (i *SubscriptionPolicyExemption) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionPolicyExemption] {
-	return pulumix.Output[*SubscriptionPolicyExemption]{
-		OutputState: i.ToSubscriptionPolicyExemptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SubscriptionPolicyExemptionArrayInput is an input type that accepts SubscriptionPolicyExemptionArray and SubscriptionPolicyExemptionArrayOutput values.
 // You can construct a concrete instance of `SubscriptionPolicyExemptionArrayInput` via:
 //
@@ -276,12 +269,6 @@ func (i SubscriptionPolicyExemptionArray) ToSubscriptionPolicyExemptionArrayOutp
 
 func (i SubscriptionPolicyExemptionArray) ToSubscriptionPolicyExemptionArrayOutputWithContext(ctx context.Context) SubscriptionPolicyExemptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyExemptionArrayOutput)
-}
-
-func (i SubscriptionPolicyExemptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*SubscriptionPolicyExemption] {
-	return pulumix.Output[[]*SubscriptionPolicyExemption]{
-		OutputState: i.ToSubscriptionPolicyExemptionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SubscriptionPolicyExemptionMapInput is an input type that accepts SubscriptionPolicyExemptionMap and SubscriptionPolicyExemptionMapOutput values.
@@ -309,12 +296,6 @@ func (i SubscriptionPolicyExemptionMap) ToSubscriptionPolicyExemptionMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(SubscriptionPolicyExemptionMapOutput)
 }
 
-func (i SubscriptionPolicyExemptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubscriptionPolicyExemption] {
-	return pulumix.Output[map[string]*SubscriptionPolicyExemption]{
-		OutputState: i.ToSubscriptionPolicyExemptionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SubscriptionPolicyExemptionOutput struct{ *pulumi.OutputState }
 
 func (SubscriptionPolicyExemptionOutput) ElementType() reflect.Type {
@@ -327,12 +308,6 @@ func (o SubscriptionPolicyExemptionOutput) ToSubscriptionPolicyExemptionOutput()
 
 func (o SubscriptionPolicyExemptionOutput) ToSubscriptionPolicyExemptionOutputWithContext(ctx context.Context) SubscriptionPolicyExemptionOutput {
 	return o
-}
-
-func (o SubscriptionPolicyExemptionOutput) ToOutput(ctx context.Context) pulumix.Output[*SubscriptionPolicyExemption] {
-	return pulumix.Output[*SubscriptionPolicyExemption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description to use for this Policy Exemption.
@@ -394,12 +369,6 @@ func (o SubscriptionPolicyExemptionArrayOutput) ToSubscriptionPolicyExemptionArr
 	return o
 }
 
-func (o SubscriptionPolicyExemptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SubscriptionPolicyExemption] {
-	return pulumix.Output[[]*SubscriptionPolicyExemption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SubscriptionPolicyExemptionArrayOutput) Index(i pulumi.IntInput) SubscriptionPolicyExemptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SubscriptionPolicyExemption {
 		return vs[0].([]*SubscriptionPolicyExemption)[vs[1].(int)]
@@ -418,12 +387,6 @@ func (o SubscriptionPolicyExemptionMapOutput) ToSubscriptionPolicyExemptionMapOu
 
 func (o SubscriptionPolicyExemptionMapOutput) ToSubscriptionPolicyExemptionMapOutputWithContext(ctx context.Context) SubscriptionPolicyExemptionMapOutput {
 	return o
-}
-
-func (o SubscriptionPolicyExemptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SubscriptionPolicyExemption] {
-	return pulumix.Output[map[string]*SubscriptionPolicyExemption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SubscriptionPolicyExemptionMapOutput) MapIndex(k pulumi.StringInput) SubscriptionPolicyExemptionOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i AccountCostManagementExportExportDataOptionsArgs) ToAccountCostManagemen
 
 func (i AccountCostManagementExportExportDataOptionsArgs) ToAccountCostManagementExportExportDataOptionsOutputWithContext(ctx context.Context) AccountCostManagementExportExportDataOptionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AccountCostManagementExportExportDataOptionsOutput)
-}
-
-func (i AccountCostManagementExportExportDataOptionsArgs) ToOutput(ctx context.Context) pulumix.Output[AccountCostManagementExportExportDataOptions] {
-	return pulumix.Output[AccountCostManagementExportExportDataOptions]{
-		OutputState: i.ToAccountCostManagementExportExportDataOptionsOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i AccountCostManagementExportExportDataOptionsArgs) ToAccountCostManagementExportExportDataOptionsPtrOutput() AccountCostManagementExportExportDataOptionsPtrOutput {
@@ -98,12 +91,6 @@ func (i *accountCostManagementExportExportDataOptionsPtrType) ToAccountCostManag
 	return pulumi.ToOutputWithContext(ctx, i).(AccountCostManagementExportExportDataOptionsPtrOutput)
 }
 
-func (i *accountCostManagementExportExportDataOptionsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountCostManagementExportExportDataOptions] {
-	return pulumix.Output[*AccountCostManagementExportExportDataOptions]{
-		OutputState: i.ToAccountCostManagementExportExportDataOptionsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountCostManagementExportExportDataOptionsOutput struct{ *pulumi.OutputState }
 
 func (AccountCostManagementExportExportDataOptionsOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o AccountCostManagementExportExportDataOptionsOutput) ToAccountCostManagem
 	}).(AccountCostManagementExportExportDataOptionsPtrOutput)
 }
 
-func (o AccountCostManagementExportExportDataOptionsOutput) ToOutput(ctx context.Context) pulumix.Output[AccountCostManagementExportExportDataOptions] {
-	return pulumix.Output[AccountCostManagementExportExportDataOptions]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The time frame for pulling data for the query. If custom, then a specific time period must be provided. Possible values include: `WeekToDate`, `MonthToDate`, `BillingMonthToDate`, `TheLast7Days`, `TheLastMonth`, `TheLastBillingMonth`, `Custom`.
 func (o AccountCostManagementExportExportDataOptionsOutput) TimeFrame() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountCostManagementExportExportDataOptions) string { return v.TimeFrame }).(pulumi.StringOutput)
@@ -156,12 +137,6 @@ func (o AccountCostManagementExportExportDataOptionsPtrOutput) ToAccountCostMana
 
 func (o AccountCostManagementExportExportDataOptionsPtrOutput) ToAccountCostManagementExportExportDataOptionsPtrOutputWithContext(ctx context.Context) AccountCostManagementExportExportDataOptionsPtrOutput {
 	return o
-}
-
-func (o AccountCostManagementExportExportDataOptionsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountCostManagementExportExportDataOptions] {
-	return pulumix.Output[*AccountCostManagementExportExportDataOptions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountCostManagementExportExportDataOptionsPtrOutput) Elem() AccountCostManagementExportExportDataOptionsOutput {
@@ -235,12 +210,6 @@ func (i AccountCostManagementExportExportDataStorageLocationArgs) ToAccountCostM
 	return pulumi.ToOutputWithContext(ctx, i).(AccountCostManagementExportExportDataStorageLocationOutput)
 }
 
-func (i AccountCostManagementExportExportDataStorageLocationArgs) ToOutput(ctx context.Context) pulumix.Output[AccountCostManagementExportExportDataStorageLocation] {
-	return pulumix.Output[AccountCostManagementExportExportDataStorageLocation]{
-		OutputState: i.ToAccountCostManagementExportExportDataStorageLocationOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i AccountCostManagementExportExportDataStorageLocationArgs) ToAccountCostManagementExportExportDataStorageLocationPtrOutput() AccountCostManagementExportExportDataStorageLocationPtrOutput {
 	return i.ToAccountCostManagementExportExportDataStorageLocationPtrOutputWithContext(context.Background())
 }
@@ -282,12 +251,6 @@ func (i *accountCostManagementExportExportDataStorageLocationPtrType) ToAccountC
 	return pulumi.ToOutputWithContext(ctx, i).(AccountCostManagementExportExportDataStorageLocationPtrOutput)
 }
 
-func (i *accountCostManagementExportExportDataStorageLocationPtrType) ToOutput(ctx context.Context) pulumix.Output[*AccountCostManagementExportExportDataStorageLocation] {
-	return pulumix.Output[*AccountCostManagementExportExportDataStorageLocation]{
-		OutputState: i.ToAccountCostManagementExportExportDataStorageLocationPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type AccountCostManagementExportExportDataStorageLocationOutput struct{ *pulumi.OutputState }
 
 func (AccountCostManagementExportExportDataStorageLocationOutput) ElementType() reflect.Type {
@@ -310,12 +273,6 @@ func (o AccountCostManagementExportExportDataStorageLocationOutput) ToAccountCos
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountCostManagementExportExportDataStorageLocation) *AccountCostManagementExportExportDataStorageLocation {
 		return &v
 	}).(AccountCostManagementExportExportDataStorageLocationPtrOutput)
-}
-
-func (o AccountCostManagementExportExportDataStorageLocationOutput) ToOutput(ctx context.Context) pulumix.Output[AccountCostManagementExportExportDataStorageLocation] {
-	return pulumix.Output[AccountCostManagementExportExportDataStorageLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Resource Manager ID of the container where exports will be uploaded. Changing this forces a new resource to be created.
@@ -342,12 +299,6 @@ func (o AccountCostManagementExportExportDataStorageLocationPtrOutput) ToAccount
 
 func (o AccountCostManagementExportExportDataStorageLocationPtrOutput) ToAccountCostManagementExportExportDataStorageLocationPtrOutputWithContext(ctx context.Context) AccountCostManagementExportExportDataStorageLocationPtrOutput {
 	return o
-}
-
-func (o AccountCostManagementExportExportDataStorageLocationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AccountCostManagementExportExportDataStorageLocation] {
-	return pulumix.Output[*AccountCostManagementExportExportDataStorageLocation]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o AccountCostManagementExportExportDataStorageLocationPtrOutput) Elem() AccountCostManagementExportExportDataStorageLocationOutput {
