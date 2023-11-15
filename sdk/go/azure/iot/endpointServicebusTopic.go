@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an IotHub ServiceBus Topic Endpoint
@@ -276,12 +275,6 @@ func (i *EndpointServicebusTopic) ToEndpointServicebusTopicOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointServicebusTopicOutput)
 }
 
-func (i *EndpointServicebusTopic) ToOutput(ctx context.Context) pulumix.Output[*EndpointServicebusTopic] {
-	return pulumix.Output[*EndpointServicebusTopic]{
-		OutputState: i.ToEndpointServicebusTopicOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EndpointServicebusTopicArrayInput is an input type that accepts EndpointServicebusTopicArray and EndpointServicebusTopicArrayOutput values.
 // You can construct a concrete instance of `EndpointServicebusTopicArrayInput` via:
 //
@@ -305,12 +298,6 @@ func (i EndpointServicebusTopicArray) ToEndpointServicebusTopicArrayOutput() End
 
 func (i EndpointServicebusTopicArray) ToEndpointServicebusTopicArrayOutputWithContext(ctx context.Context) EndpointServicebusTopicArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointServicebusTopicArrayOutput)
-}
-
-func (i EndpointServicebusTopicArray) ToOutput(ctx context.Context) pulumix.Output[[]*EndpointServicebusTopic] {
-	return pulumix.Output[[]*EndpointServicebusTopic]{
-		OutputState: i.ToEndpointServicebusTopicArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // EndpointServicebusTopicMapInput is an input type that accepts EndpointServicebusTopicMap and EndpointServicebusTopicMapOutput values.
@@ -338,12 +325,6 @@ func (i EndpointServicebusTopicMap) ToEndpointServicebusTopicMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointServicebusTopicMapOutput)
 }
 
-func (i EndpointServicebusTopicMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EndpointServicebusTopic] {
-	return pulumix.Output[map[string]*EndpointServicebusTopic]{
-		OutputState: i.ToEndpointServicebusTopicMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EndpointServicebusTopicOutput struct{ *pulumi.OutputState }
 
 func (EndpointServicebusTopicOutput) ElementType() reflect.Type {
@@ -356,12 +337,6 @@ func (o EndpointServicebusTopicOutput) ToEndpointServicebusTopicOutput() Endpoin
 
 func (o EndpointServicebusTopicOutput) ToEndpointServicebusTopicOutputWithContext(ctx context.Context) EndpointServicebusTopicOutput {
 	return o
-}
-
-func (o EndpointServicebusTopicOutput) ToOutput(ctx context.Context) pulumix.Output[*EndpointServicebusTopic] {
-	return pulumix.Output[*EndpointServicebusTopic]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Type used to authenticate against the Service Bus Topic endpoint. Possible values are `keyBased` and `identityBased`. Defaults to `keyBased`.
@@ -420,12 +395,6 @@ func (o EndpointServicebusTopicArrayOutput) ToEndpointServicebusTopicArrayOutput
 	return o
 }
 
-func (o EndpointServicebusTopicArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EndpointServicebusTopic] {
-	return pulumix.Output[[]*EndpointServicebusTopic]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o EndpointServicebusTopicArrayOutput) Index(i pulumi.IntInput) EndpointServicebusTopicOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EndpointServicebusTopic {
 		return vs[0].([]*EndpointServicebusTopic)[vs[1].(int)]
@@ -444,12 +413,6 @@ func (o EndpointServicebusTopicMapOutput) ToEndpointServicebusTopicMapOutput() E
 
 func (o EndpointServicebusTopicMapOutput) ToEndpointServicebusTopicMapOutputWithContext(ctx context.Context) EndpointServicebusTopicMapOutput {
 	return o
-}
-
-func (o EndpointServicebusTopicMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EndpointServicebusTopic] {
-	return pulumix.Output[map[string]*EndpointServicebusTopic]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EndpointServicebusTopicMapOutput) MapIndex(k pulumi.StringInput) EndpointServicebusTopicOutput {

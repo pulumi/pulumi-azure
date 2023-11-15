@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -59,12 +58,6 @@ func (i ContactProfileLinkArgs) ToContactProfileLinkOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ContactProfileLinkOutput)
 }
 
-func (i ContactProfileLinkArgs) ToOutput(ctx context.Context) pulumix.Output[ContactProfileLink] {
-	return pulumix.Output[ContactProfileLink]{
-		OutputState: i.ToContactProfileLinkOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContactProfileLinkArrayInput is an input type that accepts ContactProfileLinkArray and ContactProfileLinkArrayOutput values.
 // You can construct a concrete instance of `ContactProfileLinkArrayInput` via:
 //
@@ -90,12 +83,6 @@ func (i ContactProfileLinkArray) ToContactProfileLinkArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ContactProfileLinkArrayOutput)
 }
 
-func (i ContactProfileLinkArray) ToOutput(ctx context.Context) pulumix.Output[[]ContactProfileLink] {
-	return pulumix.Output[[]ContactProfileLink]{
-		OutputState: i.ToContactProfileLinkArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContactProfileLinkOutput struct{ *pulumi.OutputState }
 
 func (ContactProfileLinkOutput) ElementType() reflect.Type {
@@ -108,12 +95,6 @@ func (o ContactProfileLinkOutput) ToContactProfileLinkOutput() ContactProfileLin
 
 func (o ContactProfileLinkOutput) ToContactProfileLinkOutputWithContext(ctx context.Context) ContactProfileLinkOutput {
 	return o
-}
-
-func (o ContactProfileLinkOutput) ToOutput(ctx context.Context) pulumix.Output[ContactProfileLink] {
-	return pulumix.Output[ContactProfileLink]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of contact profile link channels. A `channels` block as defined below. Changing this forces a new resource to be created.
@@ -148,12 +129,6 @@ func (o ContactProfileLinkArrayOutput) ToContactProfileLinkArrayOutput() Contact
 
 func (o ContactProfileLinkArrayOutput) ToContactProfileLinkArrayOutputWithContext(ctx context.Context) ContactProfileLinkArrayOutput {
 	return o
-}
-
-func (o ContactProfileLinkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContactProfileLink] {
-	return pulumix.Output[[]ContactProfileLink]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContactProfileLinkArrayOutput) Index(i pulumi.IntInput) ContactProfileLinkOutput {
@@ -215,12 +190,6 @@ func (i ContactProfileLinkChannelArgs) ToContactProfileLinkChannelOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ContactProfileLinkChannelOutput)
 }
 
-func (i ContactProfileLinkChannelArgs) ToOutput(ctx context.Context) pulumix.Output[ContactProfileLinkChannel] {
-	return pulumix.Output[ContactProfileLinkChannel]{
-		OutputState: i.ToContactProfileLinkChannelOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContactProfileLinkChannelArrayInput is an input type that accepts ContactProfileLinkChannelArray and ContactProfileLinkChannelArrayOutput values.
 // You can construct a concrete instance of `ContactProfileLinkChannelArrayInput` via:
 //
@@ -246,12 +215,6 @@ func (i ContactProfileLinkChannelArray) ToContactProfileLinkChannelArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ContactProfileLinkChannelArrayOutput)
 }
 
-func (i ContactProfileLinkChannelArray) ToOutput(ctx context.Context) pulumix.Output[[]ContactProfileLinkChannel] {
-	return pulumix.Output[[]ContactProfileLinkChannel]{
-		OutputState: i.ToContactProfileLinkChannelArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContactProfileLinkChannelOutput struct{ *pulumi.OutputState }
 
 func (ContactProfileLinkChannelOutput) ElementType() reflect.Type {
@@ -264,12 +227,6 @@ func (o ContactProfileLinkChannelOutput) ToContactProfileLinkChannelOutput() Con
 
 func (o ContactProfileLinkChannelOutput) ToContactProfileLinkChannelOutputWithContext(ctx context.Context) ContactProfileLinkChannelOutput {
 	return o
-}
-
-func (o ContactProfileLinkChannelOutput) ToOutput(ctx context.Context) pulumix.Output[ContactProfileLinkChannel] {
-	return pulumix.Output[ContactProfileLinkChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Bandwidth in MHz.
@@ -314,12 +271,6 @@ func (o ContactProfileLinkChannelArrayOutput) ToContactProfileLinkChannelArrayOu
 
 func (o ContactProfileLinkChannelArrayOutput) ToContactProfileLinkChannelArrayOutputWithContext(ctx context.Context) ContactProfileLinkChannelArrayOutput {
 	return o
-}
-
-func (o ContactProfileLinkChannelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContactProfileLinkChannel] {
-	return pulumix.Output[[]ContactProfileLinkChannel]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContactProfileLinkChannelArrayOutput) Index(i pulumi.IntInput) ContactProfileLinkChannelOutput {
@@ -373,12 +324,6 @@ func (i ContactProfileLinkChannelEndPointArgs) ToContactProfileLinkChannelEndPoi
 	return pulumi.ToOutputWithContext(ctx, i).(ContactProfileLinkChannelEndPointOutput)
 }
 
-func (i ContactProfileLinkChannelEndPointArgs) ToOutput(ctx context.Context) pulumix.Output[ContactProfileLinkChannelEndPoint] {
-	return pulumix.Output[ContactProfileLinkChannelEndPoint]{
-		OutputState: i.ToContactProfileLinkChannelEndPointOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ContactProfileLinkChannelEndPointArrayInput is an input type that accepts ContactProfileLinkChannelEndPointArray and ContactProfileLinkChannelEndPointArrayOutput values.
 // You can construct a concrete instance of `ContactProfileLinkChannelEndPointArrayInput` via:
 //
@@ -404,12 +349,6 @@ func (i ContactProfileLinkChannelEndPointArray) ToContactProfileLinkChannelEndPo
 	return pulumi.ToOutputWithContext(ctx, i).(ContactProfileLinkChannelEndPointArrayOutput)
 }
 
-func (i ContactProfileLinkChannelEndPointArray) ToOutput(ctx context.Context) pulumix.Output[[]ContactProfileLinkChannelEndPoint] {
-	return pulumix.Output[[]ContactProfileLinkChannelEndPoint]{
-		OutputState: i.ToContactProfileLinkChannelEndPointArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ContactProfileLinkChannelEndPointOutput struct{ *pulumi.OutputState }
 
 func (ContactProfileLinkChannelEndPointOutput) ElementType() reflect.Type {
@@ -422,12 +361,6 @@ func (o ContactProfileLinkChannelEndPointOutput) ToContactProfileLinkChannelEndP
 
 func (o ContactProfileLinkChannelEndPointOutput) ToContactProfileLinkChannelEndPointOutputWithContext(ctx context.Context) ContactProfileLinkChannelEndPointOutput {
 	return o
-}
-
-func (o ContactProfileLinkChannelEndPointOutput) ToOutput(ctx context.Context) pulumix.Output[ContactProfileLinkChannelEndPoint] {
-	return pulumix.Output[ContactProfileLinkChannelEndPoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of an end point.
@@ -462,12 +395,6 @@ func (o ContactProfileLinkChannelEndPointArrayOutput) ToContactProfileLinkChanne
 
 func (o ContactProfileLinkChannelEndPointArrayOutput) ToContactProfileLinkChannelEndPointArrayOutputWithContext(ctx context.Context) ContactProfileLinkChannelEndPointArrayOutput {
 	return o
-}
-
-func (o ContactProfileLinkChannelEndPointArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ContactProfileLinkChannelEndPoint] {
-	return pulumix.Output[[]ContactProfileLinkChannelEndPoint]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ContactProfileLinkChannelEndPointArrayOutput) Index(i pulumi.IntInput) ContactProfileLinkChannelEndPointOutput {
@@ -525,12 +452,6 @@ func (i SpacecraftLinkArgs) ToSpacecraftLinkOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(SpacecraftLinkOutput)
 }
 
-func (i SpacecraftLinkArgs) ToOutput(ctx context.Context) pulumix.Output[SpacecraftLink] {
-	return pulumix.Output[SpacecraftLink]{
-		OutputState: i.ToSpacecraftLinkOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SpacecraftLinkArrayInput is an input type that accepts SpacecraftLinkArray and SpacecraftLinkArrayOutput values.
 // You can construct a concrete instance of `SpacecraftLinkArrayInput` via:
 //
@@ -556,12 +477,6 @@ func (i SpacecraftLinkArray) ToSpacecraftLinkArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SpacecraftLinkArrayOutput)
 }
 
-func (i SpacecraftLinkArray) ToOutput(ctx context.Context) pulumix.Output[[]SpacecraftLink] {
-	return pulumix.Output[[]SpacecraftLink]{
-		OutputState: i.ToSpacecraftLinkArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SpacecraftLinkOutput struct{ *pulumi.OutputState }
 
 func (SpacecraftLinkOutput) ElementType() reflect.Type {
@@ -574,12 +489,6 @@ func (o SpacecraftLinkOutput) ToSpacecraftLinkOutput() SpacecraftLinkOutput {
 
 func (o SpacecraftLinkOutput) ToSpacecraftLinkOutputWithContext(ctx context.Context) SpacecraftLinkOutput {
 	return o
-}
-
-func (o SpacecraftLinkOutput) ToOutput(ctx context.Context) pulumix.Output[SpacecraftLink] {
-	return pulumix.Output[SpacecraftLink]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Bandwidth in Mhz.
@@ -619,12 +528,6 @@ func (o SpacecraftLinkArrayOutput) ToSpacecraftLinkArrayOutput() SpacecraftLinkA
 
 func (o SpacecraftLinkArrayOutput) ToSpacecraftLinkArrayOutputWithContext(ctx context.Context) SpacecraftLinkArrayOutput {
 	return o
-}
-
-func (o SpacecraftLinkArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]SpacecraftLink] {
-	return pulumix.Output[[]SpacecraftLink]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SpacecraftLinkArrayOutput) Index(i pulumi.IntInput) SpacecraftLinkOutput {

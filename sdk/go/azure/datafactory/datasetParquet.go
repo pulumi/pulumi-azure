@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Parquet Dataset inside an Azure Data Factory.
@@ -318,12 +317,6 @@ func (i *DatasetParquet) ToDatasetParquetOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetParquetOutput)
 }
 
-func (i *DatasetParquet) ToOutput(ctx context.Context) pulumix.Output[*DatasetParquet] {
-	return pulumix.Output[*DatasetParquet]{
-		OutputState: i.ToDatasetParquetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DatasetParquetArrayInput is an input type that accepts DatasetParquetArray and DatasetParquetArrayOutput values.
 // You can construct a concrete instance of `DatasetParquetArrayInput` via:
 //
@@ -347,12 +340,6 @@ func (i DatasetParquetArray) ToDatasetParquetArrayOutput() DatasetParquetArrayOu
 
 func (i DatasetParquetArray) ToDatasetParquetArrayOutputWithContext(ctx context.Context) DatasetParquetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetParquetArrayOutput)
-}
-
-func (i DatasetParquetArray) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetParquet] {
-	return pulumix.Output[[]*DatasetParquet]{
-		OutputState: i.ToDatasetParquetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DatasetParquetMapInput is an input type that accepts DatasetParquetMap and DatasetParquetMapOutput values.
@@ -380,12 +367,6 @@ func (i DatasetParquetMap) ToDatasetParquetMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(DatasetParquetMapOutput)
 }
 
-func (i DatasetParquetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetParquet] {
-	return pulumix.Output[map[string]*DatasetParquet]{
-		OutputState: i.ToDatasetParquetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DatasetParquetOutput struct{ *pulumi.OutputState }
 
 func (DatasetParquetOutput) ElementType() reflect.Type {
@@ -398,12 +379,6 @@ func (o DatasetParquetOutput) ToDatasetParquetOutput() DatasetParquetOutput {
 
 func (o DatasetParquetOutput) ToDatasetParquetOutputWithContext(ctx context.Context) DatasetParquetOutput {
 	return o
-}
-
-func (o DatasetParquetOutput) ToOutput(ctx context.Context) pulumix.Output[*DatasetParquet] {
-	return pulumix.Output[*DatasetParquet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A map of additional properties to associate with the Data Factory Dataset.
@@ -496,12 +471,6 @@ func (o DatasetParquetArrayOutput) ToDatasetParquetArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o DatasetParquetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DatasetParquet] {
-	return pulumix.Output[[]*DatasetParquet]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DatasetParquetArrayOutput) Index(i pulumi.IntInput) DatasetParquetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DatasetParquet {
 		return vs[0].([]*DatasetParquet)[vs[1].(int)]
@@ -520,12 +489,6 @@ func (o DatasetParquetMapOutput) ToDatasetParquetMapOutput() DatasetParquetMapOu
 
 func (o DatasetParquetMapOutput) ToDatasetParquetMapOutputWithContext(ctx context.Context) DatasetParquetMapOutput {
 	return o
-}
-
-func (o DatasetParquetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DatasetParquet] {
-	return pulumix.Output[map[string]*DatasetParquet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DatasetParquetMapOutput) MapIndex(k pulumi.StringInput) DatasetParquetOutput {

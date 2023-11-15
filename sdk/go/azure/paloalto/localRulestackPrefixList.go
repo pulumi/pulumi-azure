@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Palo Alto Local Rulestack Prefix List.
@@ -197,12 +196,6 @@ func (i *LocalRulestackPrefixList) ToLocalRulestackPrefixListOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackPrefixListOutput)
 }
 
-func (i *LocalRulestackPrefixList) ToOutput(ctx context.Context) pulumix.Output[*LocalRulestackPrefixList] {
-	return pulumix.Output[*LocalRulestackPrefixList]{
-		OutputState: i.ToLocalRulestackPrefixListOutputWithContext(ctx).OutputState,
-	}
-}
-
 // LocalRulestackPrefixListArrayInput is an input type that accepts LocalRulestackPrefixListArray and LocalRulestackPrefixListArrayOutput values.
 // You can construct a concrete instance of `LocalRulestackPrefixListArrayInput` via:
 //
@@ -226,12 +219,6 @@ func (i LocalRulestackPrefixListArray) ToLocalRulestackPrefixListArrayOutput() L
 
 func (i LocalRulestackPrefixListArray) ToLocalRulestackPrefixListArrayOutputWithContext(ctx context.Context) LocalRulestackPrefixListArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackPrefixListArrayOutput)
-}
-
-func (i LocalRulestackPrefixListArray) ToOutput(ctx context.Context) pulumix.Output[[]*LocalRulestackPrefixList] {
-	return pulumix.Output[[]*LocalRulestackPrefixList]{
-		OutputState: i.ToLocalRulestackPrefixListArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LocalRulestackPrefixListMapInput is an input type that accepts LocalRulestackPrefixListMap and LocalRulestackPrefixListMapOutput values.
@@ -259,12 +246,6 @@ func (i LocalRulestackPrefixListMap) ToLocalRulestackPrefixListMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(LocalRulestackPrefixListMapOutput)
 }
 
-func (i LocalRulestackPrefixListMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalRulestackPrefixList] {
-	return pulumix.Output[map[string]*LocalRulestackPrefixList]{
-		OutputState: i.ToLocalRulestackPrefixListMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type LocalRulestackPrefixListOutput struct{ *pulumi.OutputState }
 
 func (LocalRulestackPrefixListOutput) ElementType() reflect.Type {
@@ -277,12 +258,6 @@ func (o LocalRulestackPrefixListOutput) ToLocalRulestackPrefixListOutput() Local
 
 func (o LocalRulestackPrefixListOutput) ToLocalRulestackPrefixListOutputWithContext(ctx context.Context) LocalRulestackPrefixListOutput {
 	return o
-}
-
-func (o LocalRulestackPrefixListOutput) ToOutput(ctx context.Context) pulumix.Output[*LocalRulestackPrefixList] {
-	return pulumix.Output[*LocalRulestackPrefixList]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The comment for Audit purposes.
@@ -324,12 +299,6 @@ func (o LocalRulestackPrefixListArrayOutput) ToLocalRulestackPrefixListArrayOutp
 	return o
 }
 
-func (o LocalRulestackPrefixListArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*LocalRulestackPrefixList] {
-	return pulumix.Output[[]*LocalRulestackPrefixList]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o LocalRulestackPrefixListArrayOutput) Index(i pulumi.IntInput) LocalRulestackPrefixListOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LocalRulestackPrefixList {
 		return vs[0].([]*LocalRulestackPrefixList)[vs[1].(int)]
@@ -348,12 +317,6 @@ func (o LocalRulestackPrefixListMapOutput) ToLocalRulestackPrefixListMapOutput()
 
 func (o LocalRulestackPrefixListMapOutput) ToLocalRulestackPrefixListMapOutputWithContext(ctx context.Context) LocalRulestackPrefixListMapOutput {
 	return o
-}
-
-func (o LocalRulestackPrefixListMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*LocalRulestackPrefixList] {
-	return pulumix.Output[map[string]*LocalRulestackPrefixList]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LocalRulestackPrefixListMapOutput) MapIndex(k pulumi.StringInput) LocalRulestackPrefixListOutput {

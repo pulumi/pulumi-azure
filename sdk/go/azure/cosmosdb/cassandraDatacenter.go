@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Cassandra Datacenter.
@@ -340,12 +339,6 @@ func (i *CassandraDatacenter) ToCassandraDatacenterOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraDatacenterOutput)
 }
 
-func (i *CassandraDatacenter) ToOutput(ctx context.Context) pulumix.Output[*CassandraDatacenter] {
-	return pulumix.Output[*CassandraDatacenter]{
-		OutputState: i.ToCassandraDatacenterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CassandraDatacenterArrayInput is an input type that accepts CassandraDatacenterArray and CassandraDatacenterArrayOutput values.
 // You can construct a concrete instance of `CassandraDatacenterArrayInput` via:
 //
@@ -369,12 +362,6 @@ func (i CassandraDatacenterArray) ToCassandraDatacenterArrayOutput() CassandraDa
 
 func (i CassandraDatacenterArray) ToCassandraDatacenterArrayOutputWithContext(ctx context.Context) CassandraDatacenterArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraDatacenterArrayOutput)
-}
-
-func (i CassandraDatacenterArray) ToOutput(ctx context.Context) pulumix.Output[[]*CassandraDatacenter] {
-	return pulumix.Output[[]*CassandraDatacenter]{
-		OutputState: i.ToCassandraDatacenterArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CassandraDatacenterMapInput is an input type that accepts CassandraDatacenterMap and CassandraDatacenterMapOutput values.
@@ -402,12 +389,6 @@ func (i CassandraDatacenterMap) ToCassandraDatacenterMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CassandraDatacenterMapOutput)
 }
 
-func (i CassandraDatacenterMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CassandraDatacenter] {
-	return pulumix.Output[map[string]*CassandraDatacenter]{
-		OutputState: i.ToCassandraDatacenterMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CassandraDatacenterOutput struct{ *pulumi.OutputState }
 
 func (CassandraDatacenterOutput) ElementType() reflect.Type {
@@ -420,12 +401,6 @@ func (o CassandraDatacenterOutput) ToCassandraDatacenterOutput() CassandraDatace
 
 func (o CassandraDatacenterOutput) ToCassandraDatacenterOutputWithContext(ctx context.Context) CassandraDatacenterOutput {
 	return o
-}
-
-func (o CassandraDatacenterOutput) ToOutput(ctx context.Context) pulumix.Output[*CassandraDatacenter] {
-	return pulumix.Output[*CassandraDatacenter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Determines whether availability zones are enabled. Defaults to `true`.
@@ -504,12 +479,6 @@ func (o CassandraDatacenterArrayOutput) ToCassandraDatacenterArrayOutputWithCont
 	return o
 }
 
-func (o CassandraDatacenterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CassandraDatacenter] {
-	return pulumix.Output[[]*CassandraDatacenter]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CassandraDatacenterArrayOutput) Index(i pulumi.IntInput) CassandraDatacenterOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CassandraDatacenter {
 		return vs[0].([]*CassandraDatacenter)[vs[1].(int)]
@@ -528,12 +497,6 @@ func (o CassandraDatacenterMapOutput) ToCassandraDatacenterMapOutput() Cassandra
 
 func (o CassandraDatacenterMapOutput) ToCassandraDatacenterMapOutputWithContext(ctx context.Context) CassandraDatacenterMapOutput {
 	return o
-}
-
-func (o CassandraDatacenterMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CassandraDatacenter] {
-	return pulumix.Output[map[string]*CassandraDatacenter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CassandraDatacenterMapOutput) MapIndex(k pulumi.StringInput) CassandraDatacenterOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Data Collection Rule.
@@ -525,12 +524,6 @@ func (i *DataCollectionRule) ToDataCollectionRuleOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleOutput)
 }
 
-func (i *DataCollectionRule) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionRule] {
-	return pulumix.Output[*DataCollectionRule]{
-		OutputState: i.ToDataCollectionRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DataCollectionRuleArrayInput is an input type that accepts DataCollectionRuleArray and DataCollectionRuleArrayOutput values.
 // You can construct a concrete instance of `DataCollectionRuleArrayInput` via:
 //
@@ -554,12 +547,6 @@ func (i DataCollectionRuleArray) ToDataCollectionRuleArrayOutput() DataCollectio
 
 func (i DataCollectionRuleArray) ToDataCollectionRuleArrayOutputWithContext(ctx context.Context) DataCollectionRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleArrayOutput)
-}
-
-func (i DataCollectionRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataCollectionRule] {
-	return pulumix.Output[[]*DataCollectionRule]{
-		OutputState: i.ToDataCollectionRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataCollectionRuleMapInput is an input type that accepts DataCollectionRuleMap and DataCollectionRuleMapOutput values.
@@ -587,12 +574,6 @@ func (i DataCollectionRuleMap) ToDataCollectionRuleMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(DataCollectionRuleMapOutput)
 }
 
-func (i DataCollectionRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataCollectionRule] {
-	return pulumix.Output[map[string]*DataCollectionRule]{
-		OutputState: i.ToDataCollectionRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DataCollectionRuleOutput struct{ *pulumi.OutputState }
 
 func (DataCollectionRuleOutput) ElementType() reflect.Type {
@@ -605,12 +586,6 @@ func (o DataCollectionRuleOutput) ToDataCollectionRuleOutput() DataCollectionRul
 
 func (o DataCollectionRuleOutput) ToDataCollectionRuleOutputWithContext(ctx context.Context) DataCollectionRuleOutput {
 	return o
-}
-
-func (o DataCollectionRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*DataCollectionRule] {
-	return pulumix.Output[*DataCollectionRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The resource ID of the Data Collection Endpoint that this rule can be used with.
@@ -696,12 +671,6 @@ func (o DataCollectionRuleArrayOutput) ToDataCollectionRuleArrayOutputWithContex
 	return o
 }
 
-func (o DataCollectionRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataCollectionRule] {
-	return pulumix.Output[[]*DataCollectionRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DataCollectionRuleArrayOutput) Index(i pulumi.IntInput) DataCollectionRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataCollectionRule {
 		return vs[0].([]*DataCollectionRule)[vs[1].(int)]
@@ -720,12 +689,6 @@ func (o DataCollectionRuleMapOutput) ToDataCollectionRuleMapOutput() DataCollect
 
 func (o DataCollectionRuleMapOutput) ToDataCollectionRuleMapOutputWithContext(ctx context.Context) DataCollectionRuleMapOutput {
 	return o
-}
-
-func (o DataCollectionRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataCollectionRule] {
-	return pulumix.Output[map[string]*DataCollectionRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DataCollectionRuleMapOutput) MapIndex(k pulumi.StringInput) DataCollectionRuleOutput {

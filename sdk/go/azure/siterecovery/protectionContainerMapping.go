@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Azure recovery vault protection container mapping. A protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
@@ -290,12 +289,6 @@ func (i *ProtectionContainerMapping) ToProtectionContainerMappingOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerMappingOutput)
 }
 
-func (i *ProtectionContainerMapping) ToOutput(ctx context.Context) pulumix.Output[*ProtectionContainerMapping] {
-	return pulumix.Output[*ProtectionContainerMapping]{
-		OutputState: i.ToProtectionContainerMappingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProtectionContainerMappingArrayInput is an input type that accepts ProtectionContainerMappingArray and ProtectionContainerMappingArrayOutput values.
 // You can construct a concrete instance of `ProtectionContainerMappingArrayInput` via:
 //
@@ -319,12 +312,6 @@ func (i ProtectionContainerMappingArray) ToProtectionContainerMappingArrayOutput
 
 func (i ProtectionContainerMappingArray) ToProtectionContainerMappingArrayOutputWithContext(ctx context.Context) ProtectionContainerMappingArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerMappingArrayOutput)
-}
-
-func (i ProtectionContainerMappingArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProtectionContainerMapping] {
-	return pulumix.Output[[]*ProtectionContainerMapping]{
-		OutputState: i.ToProtectionContainerMappingArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ProtectionContainerMappingMapInput is an input type that accepts ProtectionContainerMappingMap and ProtectionContainerMappingMapOutput values.
@@ -352,12 +339,6 @@ func (i ProtectionContainerMappingMap) ToProtectionContainerMappingMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerMappingMapOutput)
 }
 
-func (i ProtectionContainerMappingMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProtectionContainerMapping] {
-	return pulumix.Output[map[string]*ProtectionContainerMapping]{
-		OutputState: i.ToProtectionContainerMappingMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProtectionContainerMappingOutput struct{ *pulumi.OutputState }
 
 func (ProtectionContainerMappingOutput) ElementType() reflect.Type {
@@ -370,12 +351,6 @@ func (o ProtectionContainerMappingOutput) ToProtectionContainerMappingOutput() P
 
 func (o ProtectionContainerMappingOutput) ToProtectionContainerMappingOutputWithContext(ctx context.Context) ProtectionContainerMappingOutput {
 	return o
-}
-
-func (o ProtectionContainerMappingOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionContainerMapping] {
-	return pulumix.Output[*ProtectionContainerMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 // a `automaticUpdate` block defined as below.
@@ -436,12 +411,6 @@ func (o ProtectionContainerMappingArrayOutput) ToProtectionContainerMappingArray
 	return o
 }
 
-func (o ProtectionContainerMappingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProtectionContainerMapping] {
-	return pulumix.Output[[]*ProtectionContainerMapping]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProtectionContainerMappingArrayOutput) Index(i pulumi.IntInput) ProtectionContainerMappingOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProtectionContainerMapping {
 		return vs[0].([]*ProtectionContainerMapping)[vs[1].(int)]
@@ -460,12 +429,6 @@ func (o ProtectionContainerMappingMapOutput) ToProtectionContainerMappingMapOutp
 
 func (o ProtectionContainerMappingMapOutput) ToProtectionContainerMappingMapOutputWithContext(ctx context.Context) ProtectionContainerMappingMapOutput {
 	return o
-}
-
-func (o ProtectionContainerMappingMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProtectionContainerMapping] {
-	return pulumix.Output[map[string]*ProtectionContainerMapping]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProtectionContainerMappingMapOutput) MapIndex(k pulumi.StringInput) ProtectionContainerMappingOutput {

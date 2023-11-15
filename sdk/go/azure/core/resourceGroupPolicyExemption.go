@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Resource Group Policy Exemption.
@@ -262,12 +261,6 @@ func (i *ResourceGroupPolicyExemption) ToResourceGroupPolicyExemptionOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyExemptionOutput)
 }
 
-func (i *ResourceGroupPolicyExemption) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroupPolicyExemption] {
-	return pulumix.Output[*ResourceGroupPolicyExemption]{
-		OutputState: i.ToResourceGroupPolicyExemptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResourceGroupPolicyExemptionArrayInput is an input type that accepts ResourceGroupPolicyExemptionArray and ResourceGroupPolicyExemptionArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupPolicyExemptionArrayInput` via:
 //
@@ -291,12 +284,6 @@ func (i ResourceGroupPolicyExemptionArray) ToResourceGroupPolicyExemptionArrayOu
 
 func (i ResourceGroupPolicyExemptionArray) ToResourceGroupPolicyExemptionArrayOutputWithContext(ctx context.Context) ResourceGroupPolicyExemptionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyExemptionArrayOutput)
-}
-
-func (i ResourceGroupPolicyExemptionArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceGroupPolicyExemption] {
-	return pulumix.Output[[]*ResourceGroupPolicyExemption]{
-		OutputState: i.ToResourceGroupPolicyExemptionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ResourceGroupPolicyExemptionMapInput is an input type that accepts ResourceGroupPolicyExemptionMap and ResourceGroupPolicyExemptionMapOutput values.
@@ -324,12 +311,6 @@ func (i ResourceGroupPolicyExemptionMap) ToResourceGroupPolicyExemptionMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyExemptionMapOutput)
 }
 
-func (i ResourceGroupPolicyExemptionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceGroupPolicyExemption] {
-	return pulumix.Output[map[string]*ResourceGroupPolicyExemption]{
-		OutputState: i.ToResourceGroupPolicyExemptionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceGroupPolicyExemptionOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupPolicyExemptionOutput) ElementType() reflect.Type {
@@ -342,12 +323,6 @@ func (o ResourceGroupPolicyExemptionOutput) ToResourceGroupPolicyExemptionOutput
 
 func (o ResourceGroupPolicyExemptionOutput) ToResourceGroupPolicyExemptionOutputWithContext(ctx context.Context) ResourceGroupPolicyExemptionOutput {
 	return o
-}
-
-func (o ResourceGroupPolicyExemptionOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroupPolicyExemption] {
-	return pulumix.Output[*ResourceGroupPolicyExemption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description to use for this Policy Exemption.
@@ -409,12 +384,6 @@ func (o ResourceGroupPolicyExemptionArrayOutput) ToResourceGroupPolicyExemptionA
 	return o
 }
 
-func (o ResourceGroupPolicyExemptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceGroupPolicyExemption] {
-	return pulumix.Output[[]*ResourceGroupPolicyExemption]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceGroupPolicyExemptionArrayOutput) Index(i pulumi.IntInput) ResourceGroupPolicyExemptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceGroupPolicyExemption {
 		return vs[0].([]*ResourceGroupPolicyExemption)[vs[1].(int)]
@@ -433,12 +402,6 @@ func (o ResourceGroupPolicyExemptionMapOutput) ToResourceGroupPolicyExemptionMap
 
 func (o ResourceGroupPolicyExemptionMapOutput) ToResourceGroupPolicyExemptionMapOutputWithContext(ctx context.Context) ResourceGroupPolicyExemptionMapOutput {
 	return o
-}
-
-func (o ResourceGroupPolicyExemptionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceGroupPolicyExemption] {
-	return pulumix.Output[map[string]*ResourceGroupPolicyExemption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceGroupPolicyExemptionMapOutput) MapIndex(k pulumi.StringInput) ResourceGroupPolicyExemptionOutput {

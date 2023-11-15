@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Disaster Recovery Config for a Service Bus Namespace.
@@ -239,12 +238,6 @@ func (i *NamespaceDisasterRecoveryConfig) ToNamespaceDisasterRecoveryConfigOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceDisasterRecoveryConfigOutput)
 }
 
-func (i *NamespaceDisasterRecoveryConfig) ToOutput(ctx context.Context) pulumix.Output[*NamespaceDisasterRecoveryConfig] {
-	return pulumix.Output[*NamespaceDisasterRecoveryConfig]{
-		OutputState: i.ToNamespaceDisasterRecoveryConfigOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NamespaceDisasterRecoveryConfigArrayInput is an input type that accepts NamespaceDisasterRecoveryConfigArray and NamespaceDisasterRecoveryConfigArrayOutput values.
 // You can construct a concrete instance of `NamespaceDisasterRecoveryConfigArrayInput` via:
 //
@@ -268,12 +261,6 @@ func (i NamespaceDisasterRecoveryConfigArray) ToNamespaceDisasterRecoveryConfigA
 
 func (i NamespaceDisasterRecoveryConfigArray) ToNamespaceDisasterRecoveryConfigArrayOutputWithContext(ctx context.Context) NamespaceDisasterRecoveryConfigArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceDisasterRecoveryConfigArrayOutput)
-}
-
-func (i NamespaceDisasterRecoveryConfigArray) ToOutput(ctx context.Context) pulumix.Output[[]*NamespaceDisasterRecoveryConfig] {
-	return pulumix.Output[[]*NamespaceDisasterRecoveryConfig]{
-		OutputState: i.ToNamespaceDisasterRecoveryConfigArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NamespaceDisasterRecoveryConfigMapInput is an input type that accepts NamespaceDisasterRecoveryConfigMap and NamespaceDisasterRecoveryConfigMapOutput values.
@@ -301,12 +288,6 @@ func (i NamespaceDisasterRecoveryConfigMap) ToNamespaceDisasterRecoveryConfigMap
 	return pulumi.ToOutputWithContext(ctx, i).(NamespaceDisasterRecoveryConfigMapOutput)
 }
 
-func (i NamespaceDisasterRecoveryConfigMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NamespaceDisasterRecoveryConfig] {
-	return pulumix.Output[map[string]*NamespaceDisasterRecoveryConfig]{
-		OutputState: i.ToNamespaceDisasterRecoveryConfigMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NamespaceDisasterRecoveryConfigOutput struct{ *pulumi.OutputState }
 
 func (NamespaceDisasterRecoveryConfigOutput) ElementType() reflect.Type {
@@ -319,12 +300,6 @@ func (o NamespaceDisasterRecoveryConfigOutput) ToNamespaceDisasterRecoveryConfig
 
 func (o NamespaceDisasterRecoveryConfigOutput) ToNamespaceDisasterRecoveryConfigOutputWithContext(ctx context.Context) NamespaceDisasterRecoveryConfigOutput {
 	return o
-}
-
-func (o NamespaceDisasterRecoveryConfigOutput) ToOutput(ctx context.Context) pulumix.Output[*NamespaceDisasterRecoveryConfig] {
-	return pulumix.Output[*NamespaceDisasterRecoveryConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Shared access policies used to access the connection string for the alias.
@@ -381,12 +356,6 @@ func (o NamespaceDisasterRecoveryConfigArrayOutput) ToNamespaceDisasterRecoveryC
 	return o
 }
 
-func (o NamespaceDisasterRecoveryConfigArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NamespaceDisasterRecoveryConfig] {
-	return pulumix.Output[[]*NamespaceDisasterRecoveryConfig]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NamespaceDisasterRecoveryConfigArrayOutput) Index(i pulumi.IntInput) NamespaceDisasterRecoveryConfigOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NamespaceDisasterRecoveryConfig {
 		return vs[0].([]*NamespaceDisasterRecoveryConfig)[vs[1].(int)]
@@ -405,12 +374,6 @@ func (o NamespaceDisasterRecoveryConfigMapOutput) ToNamespaceDisasterRecoveryCon
 
 func (o NamespaceDisasterRecoveryConfigMapOutput) ToNamespaceDisasterRecoveryConfigMapOutputWithContext(ctx context.Context) NamespaceDisasterRecoveryConfigMapOutput {
 	return o
-}
-
-func (o NamespaceDisasterRecoveryConfigMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NamespaceDisasterRecoveryConfig] {
-	return pulumix.Output[map[string]*NamespaceDisasterRecoveryConfig]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NamespaceDisasterRecoveryConfigMapOutput) MapIndex(k pulumi.StringInput) NamespaceDisasterRecoveryConfigOutput {

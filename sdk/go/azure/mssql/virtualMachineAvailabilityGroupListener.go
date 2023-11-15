@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Microsoft SQL Virtual Machine Availability Group Listener.
@@ -184,12 +183,6 @@ func (i *VirtualMachineAvailabilityGroupListener) ToVirtualMachineAvailabilityGr
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAvailabilityGroupListenerOutput)
 }
 
-func (i *VirtualMachineAvailabilityGroupListener) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineAvailabilityGroupListener] {
-	return pulumix.Output[*VirtualMachineAvailabilityGroupListener]{
-		OutputState: i.ToVirtualMachineAvailabilityGroupListenerOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VirtualMachineAvailabilityGroupListenerArrayInput is an input type that accepts VirtualMachineAvailabilityGroupListenerArray and VirtualMachineAvailabilityGroupListenerArrayOutput values.
 // You can construct a concrete instance of `VirtualMachineAvailabilityGroupListenerArrayInput` via:
 //
@@ -213,12 +206,6 @@ func (i VirtualMachineAvailabilityGroupListenerArray) ToVirtualMachineAvailabili
 
 func (i VirtualMachineAvailabilityGroupListenerArray) ToVirtualMachineAvailabilityGroupListenerArrayOutputWithContext(ctx context.Context) VirtualMachineAvailabilityGroupListenerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAvailabilityGroupListenerArrayOutput)
-}
-
-func (i VirtualMachineAvailabilityGroupListenerArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualMachineAvailabilityGroupListener] {
-	return pulumix.Output[[]*VirtualMachineAvailabilityGroupListener]{
-		OutputState: i.ToVirtualMachineAvailabilityGroupListenerArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VirtualMachineAvailabilityGroupListenerMapInput is an input type that accepts VirtualMachineAvailabilityGroupListenerMap and VirtualMachineAvailabilityGroupListenerMapOutput values.
@@ -246,12 +233,6 @@ func (i VirtualMachineAvailabilityGroupListenerMap) ToVirtualMachineAvailability
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualMachineAvailabilityGroupListenerMapOutput)
 }
 
-func (i VirtualMachineAvailabilityGroupListenerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualMachineAvailabilityGroupListener] {
-	return pulumix.Output[map[string]*VirtualMachineAvailabilityGroupListener]{
-		OutputState: i.ToVirtualMachineAvailabilityGroupListenerMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VirtualMachineAvailabilityGroupListenerOutput struct{ *pulumi.OutputState }
 
 func (VirtualMachineAvailabilityGroupListenerOutput) ElementType() reflect.Type {
@@ -264,12 +245,6 @@ func (o VirtualMachineAvailabilityGroupListenerOutput) ToVirtualMachineAvailabil
 
 func (o VirtualMachineAvailabilityGroupListenerOutput) ToVirtualMachineAvailabilityGroupListenerOutputWithContext(ctx context.Context) VirtualMachineAvailabilityGroupListenerOutput {
 	return o
-}
-
-func (o VirtualMachineAvailabilityGroupListenerOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachineAvailabilityGroupListener] {
-	return pulumix.Output[*VirtualMachineAvailabilityGroupListener]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Availability Group. Changing this forces a new resource to be created.
@@ -333,12 +308,6 @@ func (o VirtualMachineAvailabilityGroupListenerArrayOutput) ToVirtualMachineAvai
 	return o
 }
 
-func (o VirtualMachineAvailabilityGroupListenerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualMachineAvailabilityGroupListener] {
-	return pulumix.Output[[]*VirtualMachineAvailabilityGroupListener]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o VirtualMachineAvailabilityGroupListenerArrayOutput) Index(i pulumi.IntInput) VirtualMachineAvailabilityGroupListenerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualMachineAvailabilityGroupListener {
 		return vs[0].([]*VirtualMachineAvailabilityGroupListener)[vs[1].(int)]
@@ -357,12 +326,6 @@ func (o VirtualMachineAvailabilityGroupListenerMapOutput) ToVirtualMachineAvaila
 
 func (o VirtualMachineAvailabilityGroupListenerMapOutput) ToVirtualMachineAvailabilityGroupListenerMapOutputWithContext(ctx context.Context) VirtualMachineAvailabilityGroupListenerMapOutput {
 	return o
-}
-
-func (o VirtualMachineAvailabilityGroupListenerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualMachineAvailabilityGroupListener] {
-	return pulumix.Output[map[string]*VirtualMachineAvailabilityGroupListener]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VirtualMachineAvailabilityGroupListenerMapOutput) MapIndex(k pulumi.StringInput) VirtualMachineAvailabilityGroupListenerOutput {

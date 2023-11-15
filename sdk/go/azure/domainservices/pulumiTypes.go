@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -67,12 +66,6 @@ func (i ServiceInitialReplicaSetArgs) ToServiceInitialReplicaSetOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceInitialReplicaSetOutput)
 }
 
-func (i ServiceInitialReplicaSetArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceInitialReplicaSet] {
-	return pulumix.Output[ServiceInitialReplicaSet]{
-		OutputState: i.ToServiceInitialReplicaSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServiceInitialReplicaSetArgs) ToServiceInitialReplicaSetPtrOutput() ServiceInitialReplicaSetPtrOutput {
 	return i.ToServiceInitialReplicaSetPtrOutputWithContext(context.Background())
 }
@@ -114,12 +107,6 @@ func (i *serviceInitialReplicaSetPtrType) ToServiceInitialReplicaSetPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceInitialReplicaSetPtrOutput)
 }
 
-func (i *serviceInitialReplicaSetPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceInitialReplicaSet] {
-	return pulumix.Output[*ServiceInitialReplicaSet]{
-		OutputState: i.ToServiceInitialReplicaSetPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceInitialReplicaSetOutput struct{ *pulumi.OutputState }
 
 func (ServiceInitialReplicaSetOutput) ElementType() reflect.Type {
@@ -142,12 +129,6 @@ func (o ServiceInitialReplicaSetOutput) ToServiceInitialReplicaSetPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceInitialReplicaSet) *ServiceInitialReplicaSet {
 		return &v
 	}).(ServiceInitialReplicaSetPtrOutput)
-}
-
-func (o ServiceInitialReplicaSetOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceInitialReplicaSet] {
-	return pulumix.Output[ServiceInitialReplicaSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of subnet IP addresses for the domain controllers in the initial replica set, typically two.
@@ -192,12 +173,6 @@ func (o ServiceInitialReplicaSetPtrOutput) ToServiceInitialReplicaSetPtrOutput()
 
 func (o ServiceInitialReplicaSetPtrOutput) ToServiceInitialReplicaSetPtrOutputWithContext(ctx context.Context) ServiceInitialReplicaSetPtrOutput {
 	return o
-}
-
-func (o ServiceInitialReplicaSetPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceInitialReplicaSet] {
-	return pulumix.Output[*ServiceInitialReplicaSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceInitialReplicaSetPtrOutput) Elem() ServiceInitialReplicaSetOutput {
@@ -311,12 +286,6 @@ func (i ServiceNotificationsArgs) ToServiceNotificationsOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNotificationsOutput)
 }
 
-func (i ServiceNotificationsArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceNotifications] {
-	return pulumix.Output[ServiceNotifications]{
-		OutputState: i.ToServiceNotificationsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServiceNotificationsArgs) ToServiceNotificationsPtrOutput() ServiceNotificationsPtrOutput {
 	return i.ToServiceNotificationsPtrOutputWithContext(context.Background())
 }
@@ -358,12 +327,6 @@ func (i *serviceNotificationsPtrType) ToServiceNotificationsPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceNotificationsPtrOutput)
 }
 
-func (i *serviceNotificationsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceNotifications] {
-	return pulumix.Output[*ServiceNotifications]{
-		OutputState: i.ToServiceNotificationsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceNotificationsOutput struct{ *pulumi.OutputState }
 
 func (ServiceNotificationsOutput) ElementType() reflect.Type {
@@ -386,12 +349,6 @@ func (o ServiceNotificationsOutput) ToServiceNotificationsPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceNotifications) *ServiceNotifications {
 		return &v
 	}).(ServiceNotificationsPtrOutput)
-}
-
-func (o ServiceNotificationsOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceNotifications] {
-	return pulumix.Output[ServiceNotifications]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of additional email addresses to notify when there are alerts in the managed domain.
@@ -421,12 +378,6 @@ func (o ServiceNotificationsPtrOutput) ToServiceNotificationsPtrOutput() Service
 
 func (o ServiceNotificationsPtrOutput) ToServiceNotificationsPtrOutputWithContext(ctx context.Context) ServiceNotificationsPtrOutput {
 	return o
-}
-
-func (o ServiceNotificationsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceNotifications] {
-	return pulumix.Output[*ServiceNotifications]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceNotificationsPtrOutput) Elem() ServiceNotificationsOutput {
@@ -526,12 +477,6 @@ func (i ServiceSecureLdapArgs) ToServiceSecureLdapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSecureLdapOutput)
 }
 
-func (i ServiceSecureLdapArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceSecureLdap] {
-	return pulumix.Output[ServiceSecureLdap]{
-		OutputState: i.ToServiceSecureLdapOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServiceSecureLdapArgs) ToServiceSecureLdapPtrOutput() ServiceSecureLdapPtrOutput {
 	return i.ToServiceSecureLdapPtrOutputWithContext(context.Background())
 }
@@ -573,12 +518,6 @@ func (i *serviceSecureLdapPtrType) ToServiceSecureLdapPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSecureLdapPtrOutput)
 }
 
-func (i *serviceSecureLdapPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceSecureLdap] {
-	return pulumix.Output[*ServiceSecureLdap]{
-		OutputState: i.ToServiceSecureLdapPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceSecureLdapOutput struct{ *pulumi.OutputState }
 
 func (ServiceSecureLdapOutput) ElementType() reflect.Type {
@@ -601,12 +540,6 @@ func (o ServiceSecureLdapOutput) ToServiceSecureLdapPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSecureLdap) *ServiceSecureLdap {
 		return &v
 	}).(ServiceSecureLdapPtrOutput)
-}
-
-func (o ServiceSecureLdapOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceSecureLdap] {
-	return pulumix.Output[ServiceSecureLdap]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The expiry time of the certificate.
@@ -656,12 +589,6 @@ func (o ServiceSecureLdapPtrOutput) ToServiceSecureLdapPtrOutput() ServiceSecure
 
 func (o ServiceSecureLdapPtrOutput) ToServiceSecureLdapPtrOutputWithContext(ctx context.Context) ServiceSecureLdapPtrOutput {
 	return o
-}
-
-func (o ServiceSecureLdapPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceSecureLdap] {
-	return pulumix.Output[*ServiceSecureLdap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceSecureLdapPtrOutput) Elem() ServiceSecureLdapOutput {
@@ -801,12 +728,6 @@ func (i ServiceSecurityArgs) ToServiceSecurityOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSecurityOutput)
 }
 
-func (i ServiceSecurityArgs) ToOutput(ctx context.Context) pulumix.Output[ServiceSecurity] {
-	return pulumix.Output[ServiceSecurity]{
-		OutputState: i.ToServiceSecurityOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ServiceSecurityArgs) ToServiceSecurityPtrOutput() ServiceSecurityPtrOutput {
 	return i.ToServiceSecurityPtrOutputWithContext(context.Background())
 }
@@ -848,12 +769,6 @@ func (i *serviceSecurityPtrType) ToServiceSecurityPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSecurityPtrOutput)
 }
 
-func (i *serviceSecurityPtrType) ToOutput(ctx context.Context) pulumix.Output[*ServiceSecurity] {
-	return pulumix.Output[*ServiceSecurity]{
-		OutputState: i.ToServiceSecurityPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceSecurityOutput struct{ *pulumi.OutputState }
 
 func (ServiceSecurityOutput) ElementType() reflect.Type {
@@ -876,12 +791,6 @@ func (o ServiceSecurityOutput) ToServiceSecurityPtrOutputWithContext(ctx context
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSecurity) *ServiceSecurity {
 		return &v
 	}).(ServiceSecurityPtrOutput)
-}
-
-func (o ServiceSecurityOutput) ToOutput(ctx context.Context) pulumix.Output[ServiceSecurity] {
-	return pulumix.Output[ServiceSecurity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Whether to enable Kerberos Armoring. Defaults to `false`.
@@ -931,12 +840,6 @@ func (o ServiceSecurityPtrOutput) ToServiceSecurityPtrOutput() ServiceSecurityPt
 
 func (o ServiceSecurityPtrOutput) ToServiceSecurityPtrOutputWithContext(ctx context.Context) ServiceSecurityPtrOutput {
 	return o
-}
-
-func (o ServiceSecurityPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceSecurity] {
-	return pulumix.Output[*ServiceSecurity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceSecurityPtrOutput) Elem() ServiceSecurityOutput {
@@ -1060,12 +963,6 @@ func (i GetServiceNotificationArgs) ToGetServiceNotificationOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceNotificationOutput)
 }
 
-func (i GetServiceNotificationArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceNotification] {
-	return pulumix.Output[GetServiceNotification]{
-		OutputState: i.ToGetServiceNotificationOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetServiceNotificationArrayInput is an input type that accepts GetServiceNotificationArray and GetServiceNotificationArrayOutput values.
 // You can construct a concrete instance of `GetServiceNotificationArrayInput` via:
 //
@@ -1091,12 +988,6 @@ func (i GetServiceNotificationArray) ToGetServiceNotificationArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceNotificationArrayOutput)
 }
 
-func (i GetServiceNotificationArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceNotification] {
-	return pulumix.Output[[]GetServiceNotification]{
-		OutputState: i.ToGetServiceNotificationArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetServiceNotificationOutput struct{ *pulumi.OutputState }
 
 func (GetServiceNotificationOutput) ElementType() reflect.Type {
@@ -1109,12 +1000,6 @@ func (o GetServiceNotificationOutput) ToGetServiceNotificationOutput() GetServic
 
 func (o GetServiceNotificationOutput) ToGetServiceNotificationOutputWithContext(ctx context.Context) GetServiceNotificationOutput {
 	return o
-}
-
-func (o GetServiceNotificationOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceNotification] {
-	return pulumix.Output[GetServiceNotification]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of additional email addresses to notify when there are alerts in the managed domain.
@@ -1144,12 +1029,6 @@ func (o GetServiceNotificationArrayOutput) ToGetServiceNotificationArrayOutput()
 
 func (o GetServiceNotificationArrayOutput) ToGetServiceNotificationArrayOutputWithContext(ctx context.Context) GetServiceNotificationArrayOutput {
 	return o
-}
-
-func (o GetServiceNotificationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceNotification] {
-	return pulumix.Output[[]GetServiceNotification]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetServiceNotificationArrayOutput) Index(i pulumi.IntInput) GetServiceNotificationOutput {
@@ -1211,12 +1090,6 @@ func (i GetServiceReplicaSetArgs) ToGetServiceReplicaSetOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceReplicaSetOutput)
 }
 
-func (i GetServiceReplicaSetArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceReplicaSet] {
-	return pulumix.Output[GetServiceReplicaSet]{
-		OutputState: i.ToGetServiceReplicaSetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetServiceReplicaSetArrayInput is an input type that accepts GetServiceReplicaSetArray and GetServiceReplicaSetArrayOutput values.
 // You can construct a concrete instance of `GetServiceReplicaSetArrayInput` via:
 //
@@ -1242,12 +1115,6 @@ func (i GetServiceReplicaSetArray) ToGetServiceReplicaSetArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceReplicaSetArrayOutput)
 }
 
-func (i GetServiceReplicaSetArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceReplicaSet] {
-	return pulumix.Output[[]GetServiceReplicaSet]{
-		OutputState: i.ToGetServiceReplicaSetArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetServiceReplicaSetOutput struct{ *pulumi.OutputState }
 
 func (GetServiceReplicaSetOutput) ElementType() reflect.Type {
@@ -1260,12 +1127,6 @@ func (o GetServiceReplicaSetOutput) ToGetServiceReplicaSetOutput() GetServiceRep
 
 func (o GetServiceReplicaSetOutput) ToGetServiceReplicaSetOutputWithContext(ctx context.Context) GetServiceReplicaSetOutput {
 	return o
-}
-
-func (o GetServiceReplicaSetOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceReplicaSet] {
-	return pulumix.Output[GetServiceReplicaSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of subnet IP addresses for the domain controllers in the replica set, typically two.
@@ -1310,12 +1171,6 @@ func (o GetServiceReplicaSetArrayOutput) ToGetServiceReplicaSetArrayOutput() Get
 
 func (o GetServiceReplicaSetArrayOutput) ToGetServiceReplicaSetArrayOutputWithContext(ctx context.Context) GetServiceReplicaSetArrayOutput {
 	return o
-}
-
-func (o GetServiceReplicaSetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceReplicaSet] {
-	return pulumix.Output[[]GetServiceReplicaSet]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetServiceReplicaSetArrayOutput) Index(i pulumi.IntInput) GetServiceReplicaSetOutput {
@@ -1367,12 +1222,6 @@ func (i GetServiceSecureLdapArgs) ToGetServiceSecureLdapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceSecureLdapOutput)
 }
 
-func (i GetServiceSecureLdapArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceSecureLdap] {
-	return pulumix.Output[GetServiceSecureLdap]{
-		OutputState: i.ToGetServiceSecureLdapOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetServiceSecureLdapArrayInput is an input type that accepts GetServiceSecureLdapArray and GetServiceSecureLdapArrayOutput values.
 // You can construct a concrete instance of `GetServiceSecureLdapArrayInput` via:
 //
@@ -1398,12 +1247,6 @@ func (i GetServiceSecureLdapArray) ToGetServiceSecureLdapArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceSecureLdapArrayOutput)
 }
 
-func (i GetServiceSecureLdapArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceSecureLdap] {
-	return pulumix.Output[[]GetServiceSecureLdap]{
-		OutputState: i.ToGetServiceSecureLdapArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetServiceSecureLdapOutput struct{ *pulumi.OutputState }
 
 func (GetServiceSecureLdapOutput) ElementType() reflect.Type {
@@ -1416,12 +1259,6 @@ func (o GetServiceSecureLdapOutput) ToGetServiceSecureLdapOutput() GetServiceSec
 
 func (o GetServiceSecureLdapOutput) ToGetServiceSecureLdapOutputWithContext(ctx context.Context) GetServiceSecureLdapOutput {
 	return o
-}
-
-func (o GetServiceSecureLdapOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceSecureLdap] {
-	return pulumix.Output[GetServiceSecureLdap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetServiceSecureLdapOutput) CertificateExpiry() pulumi.StringOutput {
@@ -1458,12 +1295,6 @@ func (o GetServiceSecureLdapArrayOutput) ToGetServiceSecureLdapArrayOutput() Get
 
 func (o GetServiceSecureLdapArrayOutput) ToGetServiceSecureLdapArrayOutputWithContext(ctx context.Context) GetServiceSecureLdapArrayOutput {
 	return o
-}
-
-func (o GetServiceSecureLdapArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceSecureLdap] {
-	return pulumix.Output[[]GetServiceSecureLdap]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetServiceSecureLdapArrayOutput) Index(i pulumi.IntInput) GetServiceSecureLdapOutput {
@@ -1529,12 +1360,6 @@ func (i GetServiceSecurityArgs) ToGetServiceSecurityOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceSecurityOutput)
 }
 
-func (i GetServiceSecurityArgs) ToOutput(ctx context.Context) pulumix.Output[GetServiceSecurity] {
-	return pulumix.Output[GetServiceSecurity]{
-		OutputState: i.ToGetServiceSecurityOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetServiceSecurityArrayInput is an input type that accepts GetServiceSecurityArray and GetServiceSecurityArrayOutput values.
 // You can construct a concrete instance of `GetServiceSecurityArrayInput` via:
 //
@@ -1560,12 +1385,6 @@ func (i GetServiceSecurityArray) ToGetServiceSecurityArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetServiceSecurityArrayOutput)
 }
 
-func (i GetServiceSecurityArray) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceSecurity] {
-	return pulumix.Output[[]GetServiceSecurity]{
-		OutputState: i.ToGetServiceSecurityArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetServiceSecurityOutput struct{ *pulumi.OutputState }
 
 func (GetServiceSecurityOutput) ElementType() reflect.Type {
@@ -1578,12 +1397,6 @@ func (o GetServiceSecurityOutput) ToGetServiceSecurityOutput() GetServiceSecurit
 
 func (o GetServiceSecurityOutput) ToGetServiceSecurityOutputWithContext(ctx context.Context) GetServiceSecurityOutput {
 	return o
-}
-
-func (o GetServiceSecurityOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceSecurity] {
-	return pulumix.Output[GetServiceSecurity]{
-		OutputState: o.OutputState,
-	}
 }
 
 // (Optional) Whether the Kerberos Armoring is enabled.
@@ -1633,12 +1446,6 @@ func (o GetServiceSecurityArrayOutput) ToGetServiceSecurityArrayOutput() GetServ
 
 func (o GetServiceSecurityArrayOutput) ToGetServiceSecurityArrayOutputWithContext(ctx context.Context) GetServiceSecurityArrayOutput {
 	return o
-}
-
-func (o GetServiceSecurityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetServiceSecurity] {
-	return pulumix.Output[[]GetServiceSecurity]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetServiceSecurityArrayOutput) Index(i pulumi.IntInput) GetServiceSecurityOutput {

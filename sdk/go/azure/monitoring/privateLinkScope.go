@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Monitor Private Link Scope.
@@ -164,12 +163,6 @@ func (i *PrivateLinkScope) ToPrivateLinkScopeOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopeOutput)
 }
 
-func (i *PrivateLinkScope) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkScope] {
-	return pulumix.Output[*PrivateLinkScope]{
-		OutputState: i.ToPrivateLinkScopeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PrivateLinkScopeArrayInput is an input type that accepts PrivateLinkScopeArray and PrivateLinkScopeArrayOutput values.
 // You can construct a concrete instance of `PrivateLinkScopeArrayInput` via:
 //
@@ -193,12 +186,6 @@ func (i PrivateLinkScopeArray) ToPrivateLinkScopeArrayOutput() PrivateLinkScopeA
 
 func (i PrivateLinkScopeArray) ToPrivateLinkScopeArrayOutputWithContext(ctx context.Context) PrivateLinkScopeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopeArrayOutput)
-}
-
-func (i PrivateLinkScopeArray) ToOutput(ctx context.Context) pulumix.Output[[]*PrivateLinkScope] {
-	return pulumix.Output[[]*PrivateLinkScope]{
-		OutputState: i.ToPrivateLinkScopeArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PrivateLinkScopeMapInput is an input type that accepts PrivateLinkScopeMap and PrivateLinkScopeMapOutput values.
@@ -226,12 +213,6 @@ func (i PrivateLinkScopeMap) ToPrivateLinkScopeMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkScopeMapOutput)
 }
 
-func (i PrivateLinkScopeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrivateLinkScope] {
-	return pulumix.Output[map[string]*PrivateLinkScope]{
-		OutputState: i.ToPrivateLinkScopeMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PrivateLinkScopeOutput struct{ *pulumi.OutputState }
 
 func (PrivateLinkScopeOutput) ElementType() reflect.Type {
@@ -244,12 +225,6 @@ func (o PrivateLinkScopeOutput) ToPrivateLinkScopeOutput() PrivateLinkScopeOutpu
 
 func (o PrivateLinkScopeOutput) ToPrivateLinkScopeOutputWithContext(ctx context.Context) PrivateLinkScopeOutput {
 	return o
-}
-
-func (o PrivateLinkScopeOutput) ToOutput(ctx context.Context) pulumix.Output[*PrivateLinkScope] {
-	return pulumix.Output[*PrivateLinkScope]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Azure Monitor Private Link Scope. Changing this forces a new resource to be created.
@@ -281,12 +256,6 @@ func (o PrivateLinkScopeArrayOutput) ToPrivateLinkScopeArrayOutputWithContext(ct
 	return o
 }
 
-func (o PrivateLinkScopeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PrivateLinkScope] {
-	return pulumix.Output[[]*PrivateLinkScope]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PrivateLinkScopeArrayOutput) Index(i pulumi.IntInput) PrivateLinkScopeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PrivateLinkScope {
 		return vs[0].([]*PrivateLinkScope)[vs[1].(int)]
@@ -305,12 +274,6 @@ func (o PrivateLinkScopeMapOutput) ToPrivateLinkScopeMapOutput() PrivateLinkScop
 
 func (o PrivateLinkScopeMapOutput) ToPrivateLinkScopeMapOutputWithContext(ctx context.Context) PrivateLinkScopeMapOutput {
 	return o
-}
-
-func (o PrivateLinkScopeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PrivateLinkScope] {
-	return pulumix.Output[map[string]*PrivateLinkScope]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PrivateLinkScopeMapOutput) MapIndex(k pulumi.StringInput) PrivateLinkScopeOutput {

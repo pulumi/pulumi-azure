@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -71,12 +70,6 @@ func (i ProtectionContainerMappingAutomaticUpdateArgs) ToProtectionContainerMapp
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerMappingAutomaticUpdateOutput)
 }
 
-func (i ProtectionContainerMappingAutomaticUpdateArgs) ToOutput(ctx context.Context) pulumix.Output[ProtectionContainerMappingAutomaticUpdate] {
-	return pulumix.Output[ProtectionContainerMappingAutomaticUpdate]{
-		OutputState: i.ToProtectionContainerMappingAutomaticUpdateOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ProtectionContainerMappingAutomaticUpdateArgs) ToProtectionContainerMappingAutomaticUpdatePtrOutput() ProtectionContainerMappingAutomaticUpdatePtrOutput {
 	return i.ToProtectionContainerMappingAutomaticUpdatePtrOutputWithContext(context.Background())
 }
@@ -118,12 +111,6 @@ func (i *protectionContainerMappingAutomaticUpdatePtrType) ToProtectionContainer
 	return pulumi.ToOutputWithContext(ctx, i).(ProtectionContainerMappingAutomaticUpdatePtrOutput)
 }
 
-func (i *protectionContainerMappingAutomaticUpdatePtrType) ToOutput(ctx context.Context) pulumix.Output[*ProtectionContainerMappingAutomaticUpdate] {
-	return pulumix.Output[*ProtectionContainerMappingAutomaticUpdate]{
-		OutputState: i.ToProtectionContainerMappingAutomaticUpdatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProtectionContainerMappingAutomaticUpdateOutput struct{ *pulumi.OutputState }
 
 func (ProtectionContainerMappingAutomaticUpdateOutput) ElementType() reflect.Type {
@@ -146,12 +133,6 @@ func (o ProtectionContainerMappingAutomaticUpdateOutput) ToProtectionContainerMa
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProtectionContainerMappingAutomaticUpdate) *ProtectionContainerMappingAutomaticUpdate {
 		return &v
 	}).(ProtectionContainerMappingAutomaticUpdatePtrOutput)
-}
-
-func (o ProtectionContainerMappingAutomaticUpdateOutput) ToOutput(ctx context.Context) pulumix.Output[ProtectionContainerMappingAutomaticUpdate] {
-	return pulumix.Output[ProtectionContainerMappingAutomaticUpdate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`.
@@ -189,12 +170,6 @@ func (o ProtectionContainerMappingAutomaticUpdatePtrOutput) ToProtectionContaine
 
 func (o ProtectionContainerMappingAutomaticUpdatePtrOutput) ToProtectionContainerMappingAutomaticUpdatePtrOutputWithContext(ctx context.Context) ProtectionContainerMappingAutomaticUpdatePtrOutput {
 	return o
-}
-
-func (o ProtectionContainerMappingAutomaticUpdatePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ProtectionContainerMappingAutomaticUpdate] {
-	return pulumix.Output[*ProtectionContainerMappingAutomaticUpdate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProtectionContainerMappingAutomaticUpdatePtrOutput) Elem() ProtectionContainerMappingAutomaticUpdateOutput {
@@ -306,12 +281,6 @@ func (i ReplicatedVMManagedDiskArgs) ToReplicatedVMManagedDiskOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMManagedDiskOutput)
 }
 
-func (i ReplicatedVMManagedDiskArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicatedVMManagedDisk] {
-	return pulumix.Output[ReplicatedVMManagedDisk]{
-		OutputState: i.ToReplicatedVMManagedDiskOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicatedVMManagedDiskArrayInput is an input type that accepts ReplicatedVMManagedDiskArray and ReplicatedVMManagedDiskArrayOutput values.
 // You can construct a concrete instance of `ReplicatedVMManagedDiskArrayInput` via:
 //
@@ -337,12 +306,6 @@ func (i ReplicatedVMManagedDiskArray) ToReplicatedVMManagedDiskArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMManagedDiskArrayOutput)
 }
 
-func (i ReplicatedVMManagedDiskArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicatedVMManagedDisk] {
-	return pulumix.Output[[]ReplicatedVMManagedDisk]{
-		OutputState: i.ToReplicatedVMManagedDiskArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicatedVMManagedDiskOutput struct{ *pulumi.OutputState }
 
 func (ReplicatedVMManagedDiskOutput) ElementType() reflect.Type {
@@ -355,12 +318,6 @@ func (o ReplicatedVMManagedDiskOutput) ToReplicatedVMManagedDiskOutput() Replica
 
 func (o ReplicatedVMManagedDiskOutput) ToReplicatedVMManagedDiskOutputWithContext(ctx context.Context) ReplicatedVMManagedDiskOutput {
 	return o
-}
-
-func (o ReplicatedVMManagedDiskOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicatedVMManagedDisk] {
-	return pulumix.Output[ReplicatedVMManagedDisk]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Id of disk that should be replicated. Changing this forces a new resource to be created.
@@ -416,12 +373,6 @@ func (o ReplicatedVMManagedDiskArrayOutput) ToReplicatedVMManagedDiskArrayOutput
 	return o
 }
 
-func (o ReplicatedVMManagedDiskArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicatedVMManagedDisk] {
-	return pulumix.Output[[]ReplicatedVMManagedDisk]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicatedVMManagedDiskArrayOutput) Index(i pulumi.IntInput) ReplicatedVMManagedDiskOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicatedVMManagedDisk {
 		return vs[0].([]ReplicatedVMManagedDisk)[vs[1].(int)]
@@ -465,12 +416,6 @@ func (i ReplicatedVMManagedDiskTargetDiskEncryptionArgs) ToReplicatedVMManagedDi
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMManagedDiskTargetDiskEncryptionOutput)
 }
 
-func (i ReplicatedVMManagedDiskTargetDiskEncryptionArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicatedVMManagedDiskTargetDiskEncryption] {
-	return pulumix.Output[ReplicatedVMManagedDiskTargetDiskEncryption]{
-		OutputState: i.ToReplicatedVMManagedDiskTargetDiskEncryptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ReplicatedVMManagedDiskTargetDiskEncryptionArgs) ToReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput() ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput {
 	return i.ToReplicatedVMManagedDiskTargetDiskEncryptionPtrOutputWithContext(context.Background())
 }
@@ -512,12 +457,6 @@ func (i *replicatedVMManagedDiskTargetDiskEncryptionPtrType) ToReplicatedVMManag
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput)
 }
 
-func (i *replicatedVMManagedDiskTargetDiskEncryptionPtrType) ToOutput(ctx context.Context) pulumix.Output[*ReplicatedVMManagedDiskTargetDiskEncryption] {
-	return pulumix.Output[*ReplicatedVMManagedDiskTargetDiskEncryption]{
-		OutputState: i.ToReplicatedVMManagedDiskTargetDiskEncryptionPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicatedVMManagedDiskTargetDiskEncryptionOutput struct{ *pulumi.OutputState }
 
 func (ReplicatedVMManagedDiskTargetDiskEncryptionOutput) ElementType() reflect.Type {
@@ -540,12 +479,6 @@ func (o ReplicatedVMManagedDiskTargetDiskEncryptionOutput) ToReplicatedVMManaged
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatedVMManagedDiskTargetDiskEncryption) *ReplicatedVMManagedDiskTargetDiskEncryption {
 		return &v
 	}).(ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput)
-}
-
-func (o ReplicatedVMManagedDiskTargetDiskEncryptionOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicatedVMManagedDiskTargetDiskEncryption] {
-	return pulumix.Output[ReplicatedVMManagedDiskTargetDiskEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `diskEncryptionKey` block as defined below.
@@ -574,12 +507,6 @@ func (o ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput) ToReplicatedVMMana
 
 func (o ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput) ToReplicatedVMManagedDiskTargetDiskEncryptionPtrOutputWithContext(ctx context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput {
 	return o
-}
-
-func (o ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicatedVMManagedDiskTargetDiskEncryption] {
-	return pulumix.Output[*ReplicatedVMManagedDiskTargetDiskEncryption]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicatedVMManagedDiskTargetDiskEncryptionPtrOutput) Elem() ReplicatedVMManagedDiskTargetDiskEncryptionOutput {
@@ -649,12 +576,6 @@ func (i ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs) ToRepl
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput)
 }
 
-func (i ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey] {
-	return pulumix.Output[ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey]{
-		OutputState: i.ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyArgs) ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput() ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput {
 	return i.ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutputWithContext(context.Background())
 }
@@ -696,12 +617,6 @@ func (i *replicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrType) To
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput)
 }
 
-func (i *replicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey] {
-	return pulumix.Output[*ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey]{
-		OutputState: i.ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput struct{ *pulumi.OutputState }
 
 func (ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput) ElementType() reflect.Type {
@@ -726,12 +641,6 @@ func (o ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput) ToRe
 	}).(ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput)
 }
 
-func (o ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey] {
-	return pulumix.Output[ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The URL to the Key Vault Secret used as the Disk Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Secret` resource. Changing this forces a new resource to be created.
 func (o ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput) SecretUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey) string { return v.SecretUrl }).(pulumi.StringOutput)
@@ -754,12 +663,6 @@ func (o ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput) T
 
 func (o ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput) ToReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutputWithContext(ctx context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput {
 	return o
-}
-
-func (o ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey] {
-	return pulumix.Output[*ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyPtrOutput) Elem() ReplicatedVMManagedDiskTargetDiskEncryptionDiskEncryptionKeyOutput {
@@ -829,12 +732,6 @@ func (i ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs) ToRepli
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput)
 }
 
-func (i ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey] {
-	return pulumix.Output[ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey]{
-		OutputState: i.ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs) ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput() ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput {
 	return i.ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutputWithContext(context.Background())
 }
@@ -876,12 +773,6 @@ func (i *replicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrType) ToR
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput)
 }
 
-func (i *replicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrType) ToOutput(ctx context.Context) pulumix.Output[*ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey] {
-	return pulumix.Output[*ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey]{
-		OutputState: i.ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput struct{ *pulumi.OutputState }
 
 func (ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput) ElementType() reflect.Type {
@@ -906,12 +797,6 @@ func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput) ToRep
 	}).(ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput)
 }
 
-func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey] {
-	return pulumix.Output[ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey]{
-		OutputState: o.OutputState,
-	}
-}
-
 // The URL to the Key Vault Key used as the Key Encryption Key that the Managed Disk will be associated with. This can be found as `id` on the `keyvault.Key` resource. Changing this forces a new resource to be created.
 func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput) KeyUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey) string { return v.KeyUrl }).(pulumi.StringOutput)
@@ -934,12 +819,6 @@ func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput) To
 
 func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput) ToReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutputWithContext(ctx context.Context) ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput {
 	return o
-}
-
-func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey] {
-	return pulumix.Output[*ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKey]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput) Elem() ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyOutput {
@@ -1033,12 +912,6 @@ func (i ReplicatedVMNetworkInterfaceArgs) ToReplicatedVMNetworkInterfaceOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMNetworkInterfaceOutput)
 }
 
-func (i ReplicatedVMNetworkInterfaceArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicatedVMNetworkInterface] {
-	return pulumix.Output[ReplicatedVMNetworkInterface]{
-		OutputState: i.ToReplicatedVMNetworkInterfaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicatedVMNetworkInterfaceArrayInput is an input type that accepts ReplicatedVMNetworkInterfaceArray and ReplicatedVMNetworkInterfaceArrayOutput values.
 // You can construct a concrete instance of `ReplicatedVMNetworkInterfaceArrayInput` via:
 //
@@ -1064,12 +937,6 @@ func (i ReplicatedVMNetworkInterfaceArray) ToReplicatedVMNetworkInterfaceArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMNetworkInterfaceArrayOutput)
 }
 
-func (i ReplicatedVMNetworkInterfaceArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicatedVMNetworkInterface] {
-	return pulumix.Output[[]ReplicatedVMNetworkInterface]{
-		OutputState: i.ToReplicatedVMNetworkInterfaceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicatedVMNetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (ReplicatedVMNetworkInterfaceOutput) ElementType() reflect.Type {
@@ -1082,12 +949,6 @@ func (o ReplicatedVMNetworkInterfaceOutput) ToReplicatedVMNetworkInterfaceOutput
 
 func (o ReplicatedVMNetworkInterfaceOutput) ToReplicatedVMNetworkInterfaceOutputWithContext(ctx context.Context) ReplicatedVMNetworkInterfaceOutput {
 	return o
-}
-
-func (o ReplicatedVMNetworkInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicatedVMNetworkInterface] {
-	return pulumix.Output[ReplicatedVMNetworkInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Id of the public IP object to use when a test failover is done.
@@ -1144,12 +1005,6 @@ func (o ReplicatedVMNetworkInterfaceArrayOutput) ToReplicatedVMNetworkInterfaceA
 	return o
 }
 
-func (o ReplicatedVMNetworkInterfaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicatedVMNetworkInterface] {
-	return pulumix.Output[[]ReplicatedVMNetworkInterface]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicatedVMNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) ReplicatedVMNetworkInterfaceOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicatedVMNetworkInterface {
 		return vs[0].([]ReplicatedVMNetworkInterface)[vs[1].(int)]
@@ -1197,12 +1052,6 @@ func (i ReplicatedVMUnmanagedDiskArgs) ToReplicatedVMUnmanagedDiskOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMUnmanagedDiskOutput)
 }
 
-func (i ReplicatedVMUnmanagedDiskArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicatedVMUnmanagedDisk] {
-	return pulumix.Output[ReplicatedVMUnmanagedDisk]{
-		OutputState: i.ToReplicatedVMUnmanagedDiskOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicatedVMUnmanagedDiskArrayInput is an input type that accepts ReplicatedVMUnmanagedDiskArray and ReplicatedVMUnmanagedDiskArrayOutput values.
 // You can construct a concrete instance of `ReplicatedVMUnmanagedDiskArrayInput` via:
 //
@@ -1228,12 +1077,6 @@ func (i ReplicatedVMUnmanagedDiskArray) ToReplicatedVMUnmanagedDiskArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMUnmanagedDiskArrayOutput)
 }
 
-func (i ReplicatedVMUnmanagedDiskArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicatedVMUnmanagedDisk] {
-	return pulumix.Output[[]ReplicatedVMUnmanagedDisk]{
-		OutputState: i.ToReplicatedVMUnmanagedDiskArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicatedVMUnmanagedDiskOutput struct{ *pulumi.OutputState }
 
 func (ReplicatedVMUnmanagedDiskOutput) ElementType() reflect.Type {
@@ -1246,12 +1089,6 @@ func (o ReplicatedVMUnmanagedDiskOutput) ToReplicatedVMUnmanagedDiskOutput() Rep
 
 func (o ReplicatedVMUnmanagedDiskOutput) ToReplicatedVMUnmanagedDiskOutputWithContext(ctx context.Context) ReplicatedVMUnmanagedDiskOutput {
 	return o
-}
-
-func (o ReplicatedVMUnmanagedDiskOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicatedVMUnmanagedDisk] {
-	return pulumix.Output[ReplicatedVMUnmanagedDisk]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Id of disk that should be replicated.
@@ -1281,12 +1118,6 @@ func (o ReplicatedVMUnmanagedDiskArrayOutput) ToReplicatedVMUnmanagedDiskArrayOu
 
 func (o ReplicatedVMUnmanagedDiskArrayOutput) ToReplicatedVMUnmanagedDiskArrayOutputWithContext(ctx context.Context) ReplicatedVMUnmanagedDiskArrayOutput {
 	return o
-}
-
-func (o ReplicatedVMUnmanagedDiskArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicatedVMUnmanagedDisk] {
-	return pulumix.Output[[]ReplicatedVMUnmanagedDisk]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicatedVMUnmanagedDiskArrayOutput) Index(i pulumi.IntInput) ReplicatedVMUnmanagedDiskOutput {
@@ -1348,12 +1179,6 @@ func (i ReplicationRecoveryPlanAzureToAzureSettingsArgs) ToReplicationRecoveryPl
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanAzureToAzureSettingsOutput)
 }
 
-func (i ReplicationRecoveryPlanAzureToAzureSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanAzureToAzureSettings] {
-	return pulumix.Output[ReplicationRecoveryPlanAzureToAzureSettings]{
-		OutputState: i.ToReplicationRecoveryPlanAzureToAzureSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ReplicationRecoveryPlanAzureToAzureSettingsArgs) ToReplicationRecoveryPlanAzureToAzureSettingsPtrOutput() ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput {
 	return i.ToReplicationRecoveryPlanAzureToAzureSettingsPtrOutputWithContext(context.Background())
 }
@@ -1395,12 +1220,6 @@ func (i *replicationRecoveryPlanAzureToAzureSettingsPtrType) ToReplicationRecove
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput)
 }
 
-func (i *replicationRecoveryPlanAzureToAzureSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*ReplicationRecoveryPlanAzureToAzureSettings] {
-	return pulumix.Output[*ReplicationRecoveryPlanAzureToAzureSettings]{
-		OutputState: i.ToReplicationRecoveryPlanAzureToAzureSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationRecoveryPlanAzureToAzureSettingsOutput struct{ *pulumi.OutputState }
 
 func (ReplicationRecoveryPlanAzureToAzureSettingsOutput) ElementType() reflect.Type {
@@ -1423,12 +1242,6 @@ func (o ReplicationRecoveryPlanAzureToAzureSettingsOutput) ToReplicationRecovery
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationRecoveryPlanAzureToAzureSettings) *ReplicationRecoveryPlanAzureToAzureSettings {
 		return &v
 	}).(ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput)
-}
-
-func (o ReplicationRecoveryPlanAzureToAzureSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanAzureToAzureSettings] {
-	return pulumix.Output[ReplicationRecoveryPlanAzureToAzureSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Edge Zone within the Azure Region where the VM exists. Changing this forces a new Site Recovery Replication Recovery Plan to be created.
@@ -1467,12 +1280,6 @@ func (o ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput) ToReplicationRecov
 
 func (o ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput) ToReplicationRecoveryPlanAzureToAzureSettingsPtrOutputWithContext(ctx context.Context) ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput {
 	return o
-}
-
-func (o ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationRecoveryPlanAzureToAzureSettings] {
-	return pulumix.Output[*ReplicationRecoveryPlanAzureToAzureSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationRecoveryPlanAzureToAzureSettingsPtrOutput) Elem() ReplicationRecoveryPlanAzureToAzureSettingsOutput {
@@ -1570,12 +1377,6 @@ func (i ReplicationRecoveryPlanBootRecoveryGroupArgs) ToReplicationRecoveryPlanB
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanBootRecoveryGroupOutput)
 }
 
-func (i ReplicationRecoveryPlanBootRecoveryGroupArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanBootRecoveryGroup] {
-	return pulumix.Output[ReplicationRecoveryPlanBootRecoveryGroup]{
-		OutputState: i.ToReplicationRecoveryPlanBootRecoveryGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationRecoveryPlanBootRecoveryGroupArrayInput is an input type that accepts ReplicationRecoveryPlanBootRecoveryGroupArray and ReplicationRecoveryPlanBootRecoveryGroupArrayOutput values.
 // You can construct a concrete instance of `ReplicationRecoveryPlanBootRecoveryGroupArrayInput` via:
 //
@@ -1601,12 +1402,6 @@ func (i ReplicationRecoveryPlanBootRecoveryGroupArray) ToReplicationRecoveryPlan
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanBootRecoveryGroupArrayOutput)
 }
 
-func (i ReplicationRecoveryPlanBootRecoveryGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationRecoveryPlanBootRecoveryGroup] {
-	return pulumix.Output[[]ReplicationRecoveryPlanBootRecoveryGroup]{
-		OutputState: i.ToReplicationRecoveryPlanBootRecoveryGroupArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationRecoveryPlanBootRecoveryGroupOutput struct{ *pulumi.OutputState }
 
 func (ReplicationRecoveryPlanBootRecoveryGroupOutput) ElementType() reflect.Type {
@@ -1619,12 +1414,6 @@ func (o ReplicationRecoveryPlanBootRecoveryGroupOutput) ToReplicationRecoveryPla
 
 func (o ReplicationRecoveryPlanBootRecoveryGroupOutput) ToReplicationRecoveryPlanBootRecoveryGroupOutputWithContext(ctx context.Context) ReplicationRecoveryPlanBootRecoveryGroupOutput {
 	return o
-}
-
-func (o ReplicationRecoveryPlanBootRecoveryGroupOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanBootRecoveryGroup] {
-	return pulumix.Output[ReplicationRecoveryPlanBootRecoveryGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // one or more `action` block as defined below. which will be executed after the group recovery.
@@ -1658,12 +1447,6 @@ func (o ReplicationRecoveryPlanBootRecoveryGroupArrayOutput) ToReplicationRecove
 
 func (o ReplicationRecoveryPlanBootRecoveryGroupArrayOutput) ToReplicationRecoveryPlanBootRecoveryGroupArrayOutputWithContext(ctx context.Context) ReplicationRecoveryPlanBootRecoveryGroupArrayOutput {
 	return o
-}
-
-func (o ReplicationRecoveryPlanBootRecoveryGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationRecoveryPlanBootRecoveryGroup] {
-	return pulumix.Output[[]ReplicationRecoveryPlanBootRecoveryGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationRecoveryPlanBootRecoveryGroupArrayOutput) Index(i pulumi.IntInput) ReplicationRecoveryPlanBootRecoveryGroupOutput {
@@ -1749,12 +1532,6 @@ func (i ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs) ToReplicationRec
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanBootRecoveryGroupPostActionOutput)
 }
 
-func (i ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanBootRecoveryGroupPostAction] {
-	return pulumix.Output[ReplicationRecoveryPlanBootRecoveryGroupPostAction]{
-		OutputState: i.ToReplicationRecoveryPlanBootRecoveryGroupPostActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationRecoveryPlanBootRecoveryGroupPostActionArrayInput is an input type that accepts ReplicationRecoveryPlanBootRecoveryGroupPostActionArray and ReplicationRecoveryPlanBootRecoveryGroupPostActionArrayOutput values.
 // You can construct a concrete instance of `ReplicationRecoveryPlanBootRecoveryGroupPostActionArrayInput` via:
 //
@@ -1780,12 +1557,6 @@ func (i ReplicationRecoveryPlanBootRecoveryGroupPostActionArray) ToReplicationRe
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanBootRecoveryGroupPostActionArrayOutput)
 }
 
-func (i ReplicationRecoveryPlanBootRecoveryGroupPostActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationRecoveryPlanBootRecoveryGroupPostAction] {
-	return pulumix.Output[[]ReplicationRecoveryPlanBootRecoveryGroupPostAction]{
-		OutputState: i.ToReplicationRecoveryPlanBootRecoveryGroupPostActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationRecoveryPlanBootRecoveryGroupPostActionOutput struct{ *pulumi.OutputState }
 
 func (ReplicationRecoveryPlanBootRecoveryGroupPostActionOutput) ElementType() reflect.Type {
@@ -1798,12 +1569,6 @@ func (o ReplicationRecoveryPlanBootRecoveryGroupPostActionOutput) ToReplicationR
 
 func (o ReplicationRecoveryPlanBootRecoveryGroupPostActionOutput) ToReplicationRecoveryPlanBootRecoveryGroupPostActionOutputWithContext(ctx context.Context) ReplicationRecoveryPlanBootRecoveryGroupPostActionOutput {
 	return o
-}
-
-func (o ReplicationRecoveryPlanBootRecoveryGroupPostActionOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanBootRecoveryGroupPostAction] {
-	return pulumix.Output[ReplicationRecoveryPlanBootRecoveryGroupPostAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
@@ -1866,12 +1631,6 @@ func (o ReplicationRecoveryPlanBootRecoveryGroupPostActionArrayOutput) ToReplica
 
 func (o ReplicationRecoveryPlanBootRecoveryGroupPostActionArrayOutput) ToReplicationRecoveryPlanBootRecoveryGroupPostActionArrayOutputWithContext(ctx context.Context) ReplicationRecoveryPlanBootRecoveryGroupPostActionArrayOutput {
 	return o
-}
-
-func (o ReplicationRecoveryPlanBootRecoveryGroupPostActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationRecoveryPlanBootRecoveryGroupPostAction] {
-	return pulumix.Output[[]ReplicationRecoveryPlanBootRecoveryGroupPostAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationRecoveryPlanBootRecoveryGroupPostActionArrayOutput) Index(i pulumi.IntInput) ReplicationRecoveryPlanBootRecoveryGroupPostActionOutput {
@@ -1957,12 +1716,6 @@ func (i ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs) ToReplicationReco
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanBootRecoveryGroupPreActionOutput)
 }
 
-func (i ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanBootRecoveryGroupPreAction] {
-	return pulumix.Output[ReplicationRecoveryPlanBootRecoveryGroupPreAction]{
-		OutputState: i.ToReplicationRecoveryPlanBootRecoveryGroupPreActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationRecoveryPlanBootRecoveryGroupPreActionArrayInput is an input type that accepts ReplicationRecoveryPlanBootRecoveryGroupPreActionArray and ReplicationRecoveryPlanBootRecoveryGroupPreActionArrayOutput values.
 // You can construct a concrete instance of `ReplicationRecoveryPlanBootRecoveryGroupPreActionArrayInput` via:
 //
@@ -1988,12 +1741,6 @@ func (i ReplicationRecoveryPlanBootRecoveryGroupPreActionArray) ToReplicationRec
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanBootRecoveryGroupPreActionArrayOutput)
 }
 
-func (i ReplicationRecoveryPlanBootRecoveryGroupPreActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationRecoveryPlanBootRecoveryGroupPreAction] {
-	return pulumix.Output[[]ReplicationRecoveryPlanBootRecoveryGroupPreAction]{
-		OutputState: i.ToReplicationRecoveryPlanBootRecoveryGroupPreActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationRecoveryPlanBootRecoveryGroupPreActionOutput struct{ *pulumi.OutputState }
 
 func (ReplicationRecoveryPlanBootRecoveryGroupPreActionOutput) ElementType() reflect.Type {
@@ -2006,12 +1753,6 @@ func (o ReplicationRecoveryPlanBootRecoveryGroupPreActionOutput) ToReplicationRe
 
 func (o ReplicationRecoveryPlanBootRecoveryGroupPreActionOutput) ToReplicationRecoveryPlanBootRecoveryGroupPreActionOutputWithContext(ctx context.Context) ReplicationRecoveryPlanBootRecoveryGroupPreActionOutput {
 	return o
-}
-
-func (o ReplicationRecoveryPlanBootRecoveryGroupPreActionOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanBootRecoveryGroupPreAction] {
-	return pulumix.Output[ReplicationRecoveryPlanBootRecoveryGroupPreAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
@@ -2076,12 +1817,6 @@ func (o ReplicationRecoveryPlanBootRecoveryGroupPreActionArrayOutput) ToReplicat
 	return o
 }
 
-func (o ReplicationRecoveryPlanBootRecoveryGroupPreActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationRecoveryPlanBootRecoveryGroupPreAction] {
-	return pulumix.Output[[]ReplicationRecoveryPlanBootRecoveryGroupPreAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicationRecoveryPlanBootRecoveryGroupPreActionArrayOutput) Index(i pulumi.IntInput) ReplicationRecoveryPlanBootRecoveryGroupPreActionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationRecoveryPlanBootRecoveryGroupPreAction {
 		return vs[0].([]ReplicationRecoveryPlanBootRecoveryGroupPreAction)[vs[1].(int)]
@@ -2125,12 +1860,6 @@ func (i ReplicationRecoveryPlanFailoverRecoveryGroupArgs) ToReplicationRecoveryP
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanFailoverRecoveryGroupOutput)
 }
 
-func (i ReplicationRecoveryPlanFailoverRecoveryGroupArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanFailoverRecoveryGroup] {
-	return pulumix.Output[ReplicationRecoveryPlanFailoverRecoveryGroup]{
-		OutputState: i.ToReplicationRecoveryPlanFailoverRecoveryGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ReplicationRecoveryPlanFailoverRecoveryGroupArgs) ToReplicationRecoveryPlanFailoverRecoveryGroupPtrOutput() ReplicationRecoveryPlanFailoverRecoveryGroupPtrOutput {
 	return i.ToReplicationRecoveryPlanFailoverRecoveryGroupPtrOutputWithContext(context.Background())
 }
@@ -2172,12 +1901,6 @@ func (i *replicationRecoveryPlanFailoverRecoveryGroupPtrType) ToReplicationRecov
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanFailoverRecoveryGroupPtrOutput)
 }
 
-func (i *replicationRecoveryPlanFailoverRecoveryGroupPtrType) ToOutput(ctx context.Context) pulumix.Output[*ReplicationRecoveryPlanFailoverRecoveryGroup] {
-	return pulumix.Output[*ReplicationRecoveryPlanFailoverRecoveryGroup]{
-		OutputState: i.ToReplicationRecoveryPlanFailoverRecoveryGroupPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationRecoveryPlanFailoverRecoveryGroupOutput struct{ *pulumi.OutputState }
 
 func (ReplicationRecoveryPlanFailoverRecoveryGroupOutput) ElementType() reflect.Type {
@@ -2200,12 +1923,6 @@ func (o ReplicationRecoveryPlanFailoverRecoveryGroupOutput) ToReplicationRecover
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationRecoveryPlanFailoverRecoveryGroup) *ReplicationRecoveryPlanFailoverRecoveryGroup {
 		return &v
 	}).(ReplicationRecoveryPlanFailoverRecoveryGroupPtrOutput)
-}
-
-func (o ReplicationRecoveryPlanFailoverRecoveryGroupOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanFailoverRecoveryGroup] {
-	return pulumix.Output[ReplicationRecoveryPlanFailoverRecoveryGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // one or more `action` block as defined below. which will be executed after the group recovery.
@@ -2234,12 +1951,6 @@ func (o ReplicationRecoveryPlanFailoverRecoveryGroupPtrOutput) ToReplicationReco
 
 func (o ReplicationRecoveryPlanFailoverRecoveryGroupPtrOutput) ToReplicationRecoveryPlanFailoverRecoveryGroupPtrOutputWithContext(ctx context.Context) ReplicationRecoveryPlanFailoverRecoveryGroupPtrOutput {
 	return o
-}
-
-func (o ReplicationRecoveryPlanFailoverRecoveryGroupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationRecoveryPlanFailoverRecoveryGroup] {
-	return pulumix.Output[*ReplicationRecoveryPlanFailoverRecoveryGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationRecoveryPlanFailoverRecoveryGroupPtrOutput) Elem() ReplicationRecoveryPlanFailoverRecoveryGroupOutput {
@@ -2349,12 +2060,6 @@ func (i ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs) ToReplicatio
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanFailoverRecoveryGroupPostActionOutput)
 }
 
-func (i ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanFailoverRecoveryGroupPostAction] {
-	return pulumix.Output[ReplicationRecoveryPlanFailoverRecoveryGroupPostAction]{
-		OutputState: i.ToReplicationRecoveryPlanFailoverRecoveryGroupPostActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArrayInput is an input type that accepts ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArray and ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArrayOutput values.
 // You can construct a concrete instance of `ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArrayInput` via:
 //
@@ -2380,12 +2085,6 @@ func (i ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArray) ToReplicati
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArrayOutput)
 }
 
-func (i ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationRecoveryPlanFailoverRecoveryGroupPostAction] {
-	return pulumix.Output[[]ReplicationRecoveryPlanFailoverRecoveryGroupPostAction]{
-		OutputState: i.ToReplicationRecoveryPlanFailoverRecoveryGroupPostActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationRecoveryPlanFailoverRecoveryGroupPostActionOutput struct{ *pulumi.OutputState }
 
 func (ReplicationRecoveryPlanFailoverRecoveryGroupPostActionOutput) ElementType() reflect.Type {
@@ -2398,12 +2097,6 @@ func (o ReplicationRecoveryPlanFailoverRecoveryGroupPostActionOutput) ToReplicat
 
 func (o ReplicationRecoveryPlanFailoverRecoveryGroupPostActionOutput) ToReplicationRecoveryPlanFailoverRecoveryGroupPostActionOutputWithContext(ctx context.Context) ReplicationRecoveryPlanFailoverRecoveryGroupPostActionOutput {
 	return o
-}
-
-func (o ReplicationRecoveryPlanFailoverRecoveryGroupPostActionOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanFailoverRecoveryGroupPostAction] {
-	return pulumix.Output[ReplicationRecoveryPlanFailoverRecoveryGroupPostAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
@@ -2468,12 +2161,6 @@ func (o ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArrayOutput) ToRep
 
 func (o ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArrayOutput) ToReplicationRecoveryPlanFailoverRecoveryGroupPostActionArrayOutputWithContext(ctx context.Context) ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArrayOutput {
 	return o
-}
-
-func (o ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationRecoveryPlanFailoverRecoveryGroupPostAction] {
-	return pulumix.Output[[]ReplicationRecoveryPlanFailoverRecoveryGroupPostAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArrayOutput) Index(i pulumi.IntInput) ReplicationRecoveryPlanFailoverRecoveryGroupPostActionOutput {
@@ -2559,12 +2246,6 @@ func (i ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs) ToReplication
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanFailoverRecoveryGroupPreActionOutput)
 }
 
-func (i ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanFailoverRecoveryGroupPreAction] {
-	return pulumix.Output[ReplicationRecoveryPlanFailoverRecoveryGroupPreAction]{
-		OutputState: i.ToReplicationRecoveryPlanFailoverRecoveryGroupPreActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArrayInput is an input type that accepts ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArray and ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArrayOutput values.
 // You can construct a concrete instance of `ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArrayInput` via:
 //
@@ -2590,12 +2271,6 @@ func (i ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArray) ToReplicatio
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArrayOutput)
 }
 
-func (i ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationRecoveryPlanFailoverRecoveryGroupPreAction] {
-	return pulumix.Output[[]ReplicationRecoveryPlanFailoverRecoveryGroupPreAction]{
-		OutputState: i.ToReplicationRecoveryPlanFailoverRecoveryGroupPreActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationRecoveryPlanFailoverRecoveryGroupPreActionOutput struct{ *pulumi.OutputState }
 
 func (ReplicationRecoveryPlanFailoverRecoveryGroupPreActionOutput) ElementType() reflect.Type {
@@ -2608,12 +2283,6 @@ func (o ReplicationRecoveryPlanFailoverRecoveryGroupPreActionOutput) ToReplicati
 
 func (o ReplicationRecoveryPlanFailoverRecoveryGroupPreActionOutput) ToReplicationRecoveryPlanFailoverRecoveryGroupPreActionOutputWithContext(ctx context.Context) ReplicationRecoveryPlanFailoverRecoveryGroupPreActionOutput {
 	return o
-}
-
-func (o ReplicationRecoveryPlanFailoverRecoveryGroupPreActionOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanFailoverRecoveryGroupPreAction] {
-	return pulumix.Output[ReplicationRecoveryPlanFailoverRecoveryGroupPreAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
@@ -2680,12 +2349,6 @@ func (o ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArrayOutput) ToRepl
 	return o
 }
 
-func (o ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationRecoveryPlanFailoverRecoveryGroupPreAction] {
-	return pulumix.Output[[]ReplicationRecoveryPlanFailoverRecoveryGroupPreAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArrayOutput) Index(i pulumi.IntInput) ReplicationRecoveryPlanFailoverRecoveryGroupPreActionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationRecoveryPlanFailoverRecoveryGroupPreAction {
 		return vs[0].([]ReplicationRecoveryPlanFailoverRecoveryGroupPreAction)[vs[1].(int)]
@@ -2737,12 +2400,6 @@ func (i ReplicationRecoveryPlanRecoveryGroupArgs) ToReplicationRecoveryPlanRecov
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanRecoveryGroupOutput)
 }
 
-func (i ReplicationRecoveryPlanRecoveryGroupArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanRecoveryGroup] {
-	return pulumix.Output[ReplicationRecoveryPlanRecoveryGroup]{
-		OutputState: i.ToReplicationRecoveryPlanRecoveryGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationRecoveryPlanRecoveryGroupArrayInput is an input type that accepts ReplicationRecoveryPlanRecoveryGroupArray and ReplicationRecoveryPlanRecoveryGroupArrayOutput values.
 // You can construct a concrete instance of `ReplicationRecoveryPlanRecoveryGroupArrayInput` via:
 //
@@ -2768,12 +2425,6 @@ func (i ReplicationRecoveryPlanRecoveryGroupArray) ToReplicationRecoveryPlanReco
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanRecoveryGroupArrayOutput)
 }
 
-func (i ReplicationRecoveryPlanRecoveryGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationRecoveryPlanRecoveryGroup] {
-	return pulumix.Output[[]ReplicationRecoveryPlanRecoveryGroup]{
-		OutputState: i.ToReplicationRecoveryPlanRecoveryGroupArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationRecoveryPlanRecoveryGroupOutput struct{ *pulumi.OutputState }
 
 func (ReplicationRecoveryPlanRecoveryGroupOutput) ElementType() reflect.Type {
@@ -2786,12 +2437,6 @@ func (o ReplicationRecoveryPlanRecoveryGroupOutput) ToReplicationRecoveryPlanRec
 
 func (o ReplicationRecoveryPlanRecoveryGroupOutput) ToReplicationRecoveryPlanRecoveryGroupOutputWithContext(ctx context.Context) ReplicationRecoveryPlanRecoveryGroupOutput {
 	return o
-}
-
-func (o ReplicationRecoveryPlanRecoveryGroupOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanRecoveryGroup] {
-	return pulumix.Output[ReplicationRecoveryPlanRecoveryGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // one or more `action` block as defined below. which will be executed after the group recovery.
@@ -2830,12 +2475,6 @@ func (o ReplicationRecoveryPlanRecoveryGroupArrayOutput) ToReplicationRecoveryPl
 
 func (o ReplicationRecoveryPlanRecoveryGroupArrayOutput) ToReplicationRecoveryPlanRecoveryGroupArrayOutputWithContext(ctx context.Context) ReplicationRecoveryPlanRecoveryGroupArrayOutput {
 	return o
-}
-
-func (o ReplicationRecoveryPlanRecoveryGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationRecoveryPlanRecoveryGroup] {
-	return pulumix.Output[[]ReplicationRecoveryPlanRecoveryGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationRecoveryPlanRecoveryGroupArrayOutput) Index(i pulumi.IntInput) ReplicationRecoveryPlanRecoveryGroupOutput {
@@ -2921,12 +2560,6 @@ func (i ReplicationRecoveryPlanRecoveryGroupPostActionArgs) ToReplicationRecover
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanRecoveryGroupPostActionOutput)
 }
 
-func (i ReplicationRecoveryPlanRecoveryGroupPostActionArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanRecoveryGroupPostAction] {
-	return pulumix.Output[ReplicationRecoveryPlanRecoveryGroupPostAction]{
-		OutputState: i.ToReplicationRecoveryPlanRecoveryGroupPostActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationRecoveryPlanRecoveryGroupPostActionArrayInput is an input type that accepts ReplicationRecoveryPlanRecoveryGroupPostActionArray and ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput values.
 // You can construct a concrete instance of `ReplicationRecoveryPlanRecoveryGroupPostActionArrayInput` via:
 //
@@ -2952,12 +2585,6 @@ func (i ReplicationRecoveryPlanRecoveryGroupPostActionArray) ToReplicationRecove
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput)
 }
 
-func (i ReplicationRecoveryPlanRecoveryGroupPostActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationRecoveryPlanRecoveryGroupPostAction] {
-	return pulumix.Output[[]ReplicationRecoveryPlanRecoveryGroupPostAction]{
-		OutputState: i.ToReplicationRecoveryPlanRecoveryGroupPostActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationRecoveryPlanRecoveryGroupPostActionOutput struct{ *pulumi.OutputState }
 
 func (ReplicationRecoveryPlanRecoveryGroupPostActionOutput) ElementType() reflect.Type {
@@ -2970,12 +2597,6 @@ func (o ReplicationRecoveryPlanRecoveryGroupPostActionOutput) ToReplicationRecov
 
 func (o ReplicationRecoveryPlanRecoveryGroupPostActionOutput) ToReplicationRecoveryPlanRecoveryGroupPostActionOutputWithContext(ctx context.Context) ReplicationRecoveryPlanRecoveryGroupPostActionOutput {
 	return o
-}
-
-func (o ReplicationRecoveryPlanRecoveryGroupPostActionOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanRecoveryGroupPostAction] {
-	return pulumix.Output[ReplicationRecoveryPlanRecoveryGroupPostAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
@@ -3038,12 +2659,6 @@ func (o ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput) ToReplication
 
 func (o ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput) ToReplicationRecoveryPlanRecoveryGroupPostActionArrayOutputWithContext(ctx context.Context) ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput {
 	return o
-}
-
-func (o ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationRecoveryPlanRecoveryGroupPostAction] {
-	return pulumix.Output[[]ReplicationRecoveryPlanRecoveryGroupPostAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput) Index(i pulumi.IntInput) ReplicationRecoveryPlanRecoveryGroupPostActionOutput {
@@ -3129,12 +2744,6 @@ func (i ReplicationRecoveryPlanRecoveryGroupPreActionArgs) ToReplicationRecovery
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanRecoveryGroupPreActionOutput)
 }
 
-func (i ReplicationRecoveryPlanRecoveryGroupPreActionArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanRecoveryGroupPreAction] {
-	return pulumix.Output[ReplicationRecoveryPlanRecoveryGroupPreAction]{
-		OutputState: i.ToReplicationRecoveryPlanRecoveryGroupPreActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationRecoveryPlanRecoveryGroupPreActionArrayInput is an input type that accepts ReplicationRecoveryPlanRecoveryGroupPreActionArray and ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput values.
 // You can construct a concrete instance of `ReplicationRecoveryPlanRecoveryGroupPreActionArrayInput` via:
 //
@@ -3160,12 +2769,6 @@ func (i ReplicationRecoveryPlanRecoveryGroupPreActionArray) ToReplicationRecover
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput)
 }
 
-func (i ReplicationRecoveryPlanRecoveryGroupPreActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationRecoveryPlanRecoveryGroupPreAction] {
-	return pulumix.Output[[]ReplicationRecoveryPlanRecoveryGroupPreAction]{
-		OutputState: i.ToReplicationRecoveryPlanRecoveryGroupPreActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationRecoveryPlanRecoveryGroupPreActionOutput struct{ *pulumi.OutputState }
 
 func (ReplicationRecoveryPlanRecoveryGroupPreActionOutput) ElementType() reflect.Type {
@@ -3178,12 +2781,6 @@ func (o ReplicationRecoveryPlanRecoveryGroupPreActionOutput) ToReplicationRecove
 
 func (o ReplicationRecoveryPlanRecoveryGroupPreActionOutput) ToReplicationRecoveryPlanRecoveryGroupPreActionOutputWithContext(ctx context.Context) ReplicationRecoveryPlanRecoveryGroupPreActionOutput {
 	return o
-}
-
-func (o ReplicationRecoveryPlanRecoveryGroupPreActionOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanRecoveryGroupPreAction] {
-	return pulumix.Output[ReplicationRecoveryPlanRecoveryGroupPreAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
@@ -3248,12 +2845,6 @@ func (o ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput) ToReplicationR
 	return o
 }
 
-func (o ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationRecoveryPlanRecoveryGroupPreAction] {
-	return pulumix.Output[[]ReplicationRecoveryPlanRecoveryGroupPreAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput) Index(i pulumi.IntInput) ReplicationRecoveryPlanRecoveryGroupPreActionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationRecoveryPlanRecoveryGroupPreAction {
 		return vs[0].([]ReplicationRecoveryPlanRecoveryGroupPreAction)[vs[1].(int)]
@@ -3297,12 +2888,6 @@ func (i ReplicationRecoveryPlanShutdownRecoveryGroupArgs) ToReplicationRecoveryP
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanShutdownRecoveryGroupOutput)
 }
 
-func (i ReplicationRecoveryPlanShutdownRecoveryGroupArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanShutdownRecoveryGroup] {
-	return pulumix.Output[ReplicationRecoveryPlanShutdownRecoveryGroup]{
-		OutputState: i.ToReplicationRecoveryPlanShutdownRecoveryGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i ReplicationRecoveryPlanShutdownRecoveryGroupArgs) ToReplicationRecoveryPlanShutdownRecoveryGroupPtrOutput() ReplicationRecoveryPlanShutdownRecoveryGroupPtrOutput {
 	return i.ToReplicationRecoveryPlanShutdownRecoveryGroupPtrOutputWithContext(context.Background())
 }
@@ -3344,12 +2929,6 @@ func (i *replicationRecoveryPlanShutdownRecoveryGroupPtrType) ToReplicationRecov
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanShutdownRecoveryGroupPtrOutput)
 }
 
-func (i *replicationRecoveryPlanShutdownRecoveryGroupPtrType) ToOutput(ctx context.Context) pulumix.Output[*ReplicationRecoveryPlanShutdownRecoveryGroup] {
-	return pulumix.Output[*ReplicationRecoveryPlanShutdownRecoveryGroup]{
-		OutputState: i.ToReplicationRecoveryPlanShutdownRecoveryGroupPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationRecoveryPlanShutdownRecoveryGroupOutput struct{ *pulumi.OutputState }
 
 func (ReplicationRecoveryPlanShutdownRecoveryGroupOutput) ElementType() reflect.Type {
@@ -3372,12 +2951,6 @@ func (o ReplicationRecoveryPlanShutdownRecoveryGroupOutput) ToReplicationRecover
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationRecoveryPlanShutdownRecoveryGroup) *ReplicationRecoveryPlanShutdownRecoveryGroup {
 		return &v
 	}).(ReplicationRecoveryPlanShutdownRecoveryGroupPtrOutput)
-}
-
-func (o ReplicationRecoveryPlanShutdownRecoveryGroupOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanShutdownRecoveryGroup] {
-	return pulumix.Output[ReplicationRecoveryPlanShutdownRecoveryGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // one or more `action` block as defined below. which will be executed after the group recovery.
@@ -3406,12 +2979,6 @@ func (o ReplicationRecoveryPlanShutdownRecoveryGroupPtrOutput) ToReplicationReco
 
 func (o ReplicationRecoveryPlanShutdownRecoveryGroupPtrOutput) ToReplicationRecoveryPlanShutdownRecoveryGroupPtrOutputWithContext(ctx context.Context) ReplicationRecoveryPlanShutdownRecoveryGroupPtrOutput {
 	return o
-}
-
-func (o ReplicationRecoveryPlanShutdownRecoveryGroupPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*ReplicationRecoveryPlanShutdownRecoveryGroup] {
-	return pulumix.Output[*ReplicationRecoveryPlanShutdownRecoveryGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationRecoveryPlanShutdownRecoveryGroupPtrOutput) Elem() ReplicationRecoveryPlanShutdownRecoveryGroupOutput {
@@ -3521,12 +3088,6 @@ func (i ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs) ToReplicatio
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanShutdownRecoveryGroupPostActionOutput)
 }
 
-func (i ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanShutdownRecoveryGroupPostAction] {
-	return pulumix.Output[ReplicationRecoveryPlanShutdownRecoveryGroupPostAction]{
-		OutputState: i.ToReplicationRecoveryPlanShutdownRecoveryGroupPostActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArrayInput is an input type that accepts ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArray and ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArrayOutput values.
 // You can construct a concrete instance of `ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArrayInput` via:
 //
@@ -3552,12 +3113,6 @@ func (i ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArray) ToReplicati
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArrayOutput)
 }
 
-func (i ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationRecoveryPlanShutdownRecoveryGroupPostAction] {
-	return pulumix.Output[[]ReplicationRecoveryPlanShutdownRecoveryGroupPostAction]{
-		OutputState: i.ToReplicationRecoveryPlanShutdownRecoveryGroupPostActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationRecoveryPlanShutdownRecoveryGroupPostActionOutput struct{ *pulumi.OutputState }
 
 func (ReplicationRecoveryPlanShutdownRecoveryGroupPostActionOutput) ElementType() reflect.Type {
@@ -3570,12 +3125,6 @@ func (o ReplicationRecoveryPlanShutdownRecoveryGroupPostActionOutput) ToReplicat
 
 func (o ReplicationRecoveryPlanShutdownRecoveryGroupPostActionOutput) ToReplicationRecoveryPlanShutdownRecoveryGroupPostActionOutputWithContext(ctx context.Context) ReplicationRecoveryPlanShutdownRecoveryGroupPostActionOutput {
 	return o
-}
-
-func (o ReplicationRecoveryPlanShutdownRecoveryGroupPostActionOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanShutdownRecoveryGroupPostAction] {
-	return pulumix.Output[ReplicationRecoveryPlanShutdownRecoveryGroupPostAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
@@ -3640,12 +3189,6 @@ func (o ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArrayOutput) ToRep
 
 func (o ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArrayOutput) ToReplicationRecoveryPlanShutdownRecoveryGroupPostActionArrayOutputWithContext(ctx context.Context) ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArrayOutput {
 	return o
-}
-
-func (o ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationRecoveryPlanShutdownRecoveryGroupPostAction] {
-	return pulumix.Output[[]ReplicationRecoveryPlanShutdownRecoveryGroupPostAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArrayOutput) Index(i pulumi.IntInput) ReplicationRecoveryPlanShutdownRecoveryGroupPostActionOutput {
@@ -3731,12 +3274,6 @@ func (i ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs) ToReplication
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanShutdownRecoveryGroupPreActionOutput)
 }
 
-func (i ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanShutdownRecoveryGroupPreAction] {
-	return pulumix.Output[ReplicationRecoveryPlanShutdownRecoveryGroupPreAction]{
-		OutputState: i.ToReplicationRecoveryPlanShutdownRecoveryGroupPreActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArrayInput is an input type that accepts ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArray and ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArrayOutput values.
 // You can construct a concrete instance of `ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArrayInput` via:
 //
@@ -3762,12 +3299,6 @@ func (i ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArray) ToReplicatio
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArrayOutput)
 }
 
-func (i ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArray) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationRecoveryPlanShutdownRecoveryGroupPreAction] {
-	return pulumix.Output[[]ReplicationRecoveryPlanShutdownRecoveryGroupPreAction]{
-		OutputState: i.ToReplicationRecoveryPlanShutdownRecoveryGroupPreActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ReplicationRecoveryPlanShutdownRecoveryGroupPreActionOutput struct{ *pulumi.OutputState }
 
 func (ReplicationRecoveryPlanShutdownRecoveryGroupPreActionOutput) ElementType() reflect.Type {
@@ -3780,12 +3311,6 @@ func (o ReplicationRecoveryPlanShutdownRecoveryGroupPreActionOutput) ToReplicati
 
 func (o ReplicationRecoveryPlanShutdownRecoveryGroupPreActionOutput) ToReplicationRecoveryPlanShutdownRecoveryGroupPreActionOutputWithContext(ctx context.Context) ReplicationRecoveryPlanShutdownRecoveryGroupPreActionOutput {
 	return o
-}
-
-func (o ReplicationRecoveryPlanShutdownRecoveryGroupPreActionOutput) ToOutput(ctx context.Context) pulumix.Output[ReplicationRecoveryPlanShutdownRecoveryGroupPreAction] {
-	return pulumix.Output[ReplicationRecoveryPlanShutdownRecoveryGroupPreAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The fabric location of runbook or script. Possible values are `Primary` and `Recovery`. It must not be specified when `type` is `ManualActionDetails`.
@@ -3852,12 +3377,6 @@ func (o ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArrayOutput) ToRepl
 	return o
 }
 
-func (o ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ReplicationRecoveryPlanShutdownRecoveryGroupPreAction] {
-	return pulumix.Output[[]ReplicationRecoveryPlanShutdownRecoveryGroupPreAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArrayOutput) Index(i pulumi.IntInput) ReplicationRecoveryPlanShutdownRecoveryGroupPreActionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationRecoveryPlanShutdownRecoveryGroupPreAction {
 		return vs[0].([]ReplicationRecoveryPlanShutdownRecoveryGroupPreAction)[vs[1].(int)]
@@ -3901,12 +3420,6 @@ func (i GetReplicationRecoveryPlanAzureToAzureSettingArgs) ToGetReplicationRecov
 	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationRecoveryPlanAzureToAzureSettingOutput)
 }
 
-func (i GetReplicationRecoveryPlanAzureToAzureSettingArgs) ToOutput(ctx context.Context) pulumix.Output[GetReplicationRecoveryPlanAzureToAzureSetting] {
-	return pulumix.Output[GetReplicationRecoveryPlanAzureToAzureSetting]{
-		OutputState: i.ToGetReplicationRecoveryPlanAzureToAzureSettingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetReplicationRecoveryPlanAzureToAzureSettingArrayInput is an input type that accepts GetReplicationRecoveryPlanAzureToAzureSettingArray and GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput values.
 // You can construct a concrete instance of `GetReplicationRecoveryPlanAzureToAzureSettingArrayInput` via:
 //
@@ -3932,12 +3445,6 @@ func (i GetReplicationRecoveryPlanAzureToAzureSettingArray) ToGetReplicationReco
 	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput)
 }
 
-func (i GetReplicationRecoveryPlanAzureToAzureSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]GetReplicationRecoveryPlanAzureToAzureSetting] {
-	return pulumix.Output[[]GetReplicationRecoveryPlanAzureToAzureSetting]{
-		OutputState: i.ToGetReplicationRecoveryPlanAzureToAzureSettingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetReplicationRecoveryPlanAzureToAzureSettingOutput struct{ *pulumi.OutputState }
 
 func (GetReplicationRecoveryPlanAzureToAzureSettingOutput) ElementType() reflect.Type {
@@ -3950,12 +3457,6 @@ func (o GetReplicationRecoveryPlanAzureToAzureSettingOutput) ToGetReplicationRec
 
 func (o GetReplicationRecoveryPlanAzureToAzureSettingOutput) ToGetReplicationRecoveryPlanAzureToAzureSettingOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanAzureToAzureSettingOutput {
 	return o
-}
-
-func (o GetReplicationRecoveryPlanAzureToAzureSettingOutput) ToOutput(ctx context.Context) pulumix.Output[GetReplicationRecoveryPlanAzureToAzureSetting] {
-	return pulumix.Output[GetReplicationRecoveryPlanAzureToAzureSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetReplicationRecoveryPlanAzureToAzureSettingOutput) PrimaryEdgeZone() pulumi.StringOutput {
@@ -3986,12 +3487,6 @@ func (o GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput) ToGetReplicati
 
 func (o GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput) ToGetReplicationRecoveryPlanAzureToAzureSettingArrayOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput {
 	return o
-}
-
-func (o GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetReplicationRecoveryPlanAzureToAzureSetting] {
-	return pulumix.Output[[]GetReplicationRecoveryPlanAzureToAzureSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetReplicationRecoveryPlanAzureToAzureSettingArrayOutput) Index(i pulumi.IntInput) GetReplicationRecoveryPlanAzureToAzureSettingOutput {
@@ -4045,12 +3540,6 @@ func (i GetReplicationRecoveryPlanRecoveryGroupArgs) ToGetReplicationRecoveryPla
 	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationRecoveryPlanRecoveryGroupOutput)
 }
 
-func (i GetReplicationRecoveryPlanRecoveryGroupArgs) ToOutput(ctx context.Context) pulumix.Output[GetReplicationRecoveryPlanRecoveryGroup] {
-	return pulumix.Output[GetReplicationRecoveryPlanRecoveryGroup]{
-		OutputState: i.ToGetReplicationRecoveryPlanRecoveryGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetReplicationRecoveryPlanRecoveryGroupArrayInput is an input type that accepts GetReplicationRecoveryPlanRecoveryGroupArray and GetReplicationRecoveryPlanRecoveryGroupArrayOutput values.
 // You can construct a concrete instance of `GetReplicationRecoveryPlanRecoveryGroupArrayInput` via:
 //
@@ -4076,12 +3565,6 @@ func (i GetReplicationRecoveryPlanRecoveryGroupArray) ToGetReplicationRecoveryPl
 	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationRecoveryPlanRecoveryGroupArrayOutput)
 }
 
-func (i GetReplicationRecoveryPlanRecoveryGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]GetReplicationRecoveryPlanRecoveryGroup] {
-	return pulumix.Output[[]GetReplicationRecoveryPlanRecoveryGroup]{
-		OutputState: i.ToGetReplicationRecoveryPlanRecoveryGroupArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetReplicationRecoveryPlanRecoveryGroupOutput struct{ *pulumi.OutputState }
 
 func (GetReplicationRecoveryPlanRecoveryGroupOutput) ElementType() reflect.Type {
@@ -4094,12 +3577,6 @@ func (o GetReplicationRecoveryPlanRecoveryGroupOutput) ToGetReplicationRecoveryP
 
 func (o GetReplicationRecoveryPlanRecoveryGroupOutput) ToGetReplicationRecoveryPlanRecoveryGroupOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupOutput {
 	return o
-}
-
-func (o GetReplicationRecoveryPlanRecoveryGroupOutput) ToOutput(ctx context.Context) pulumix.Output[GetReplicationRecoveryPlanRecoveryGroup] {
-	return pulumix.Output[GetReplicationRecoveryPlanRecoveryGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // one or more `action` block. which will be executed after the group recovery.
@@ -4138,12 +3615,6 @@ func (o GetReplicationRecoveryPlanRecoveryGroupArrayOutput) ToGetReplicationReco
 
 func (o GetReplicationRecoveryPlanRecoveryGroupArrayOutput) ToGetReplicationRecoveryPlanRecoveryGroupArrayOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupArrayOutput {
 	return o
-}
-
-func (o GetReplicationRecoveryPlanRecoveryGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetReplicationRecoveryPlanRecoveryGroup] {
-	return pulumix.Output[[]GetReplicationRecoveryPlanRecoveryGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetReplicationRecoveryPlanRecoveryGroupArrayOutput) Index(i pulumi.IntInput) GetReplicationRecoveryPlanRecoveryGroupOutput {
@@ -4213,12 +3684,6 @@ func (i GetReplicationRecoveryPlanRecoveryGroupPostActionArgs) ToGetReplicationR
 	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationRecoveryPlanRecoveryGroupPostActionOutput)
 }
 
-func (i GetReplicationRecoveryPlanRecoveryGroupPostActionArgs) ToOutput(ctx context.Context) pulumix.Output[GetReplicationRecoveryPlanRecoveryGroupPostAction] {
-	return pulumix.Output[GetReplicationRecoveryPlanRecoveryGroupPostAction]{
-		OutputState: i.ToGetReplicationRecoveryPlanRecoveryGroupPostActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetReplicationRecoveryPlanRecoveryGroupPostActionArrayInput is an input type that accepts GetReplicationRecoveryPlanRecoveryGroupPostActionArray and GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput values.
 // You can construct a concrete instance of `GetReplicationRecoveryPlanRecoveryGroupPostActionArrayInput` via:
 //
@@ -4244,12 +3709,6 @@ func (i GetReplicationRecoveryPlanRecoveryGroupPostActionArray) ToGetReplication
 	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput)
 }
 
-func (i GetReplicationRecoveryPlanRecoveryGroupPostActionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetReplicationRecoveryPlanRecoveryGroupPostAction] {
-	return pulumix.Output[[]GetReplicationRecoveryPlanRecoveryGroupPostAction]{
-		OutputState: i.ToGetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetReplicationRecoveryPlanRecoveryGroupPostActionOutput struct{ *pulumi.OutputState }
 
 func (GetReplicationRecoveryPlanRecoveryGroupPostActionOutput) ElementType() reflect.Type {
@@ -4262,12 +3721,6 @@ func (o GetReplicationRecoveryPlanRecoveryGroupPostActionOutput) ToGetReplicatio
 
 func (o GetReplicationRecoveryPlanRecoveryGroupPostActionOutput) ToGetReplicationRecoveryPlanRecoveryGroupPostActionOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupPostActionOutput {
 	return o
-}
-
-func (o GetReplicationRecoveryPlanRecoveryGroupPostActionOutput) ToOutput(ctx context.Context) pulumix.Output[GetReplicationRecoveryPlanRecoveryGroupPostAction] {
-	return pulumix.Output[GetReplicationRecoveryPlanRecoveryGroupPostAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The fabric location of runbook or script.
@@ -4322,12 +3775,6 @@ func (o GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput) ToGetRepli
 
 func (o GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput) ToGetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput {
 	return o
-}
-
-func (o GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetReplicationRecoveryPlanRecoveryGroupPostAction] {
-	return pulumix.Output[[]GetReplicationRecoveryPlanRecoveryGroupPostAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput) Index(i pulumi.IntInput) GetReplicationRecoveryPlanRecoveryGroupPostActionOutput {
@@ -4397,12 +3844,6 @@ func (i GetReplicationRecoveryPlanRecoveryGroupPreActionArgs) ToGetReplicationRe
 	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationRecoveryPlanRecoveryGroupPreActionOutput)
 }
 
-func (i GetReplicationRecoveryPlanRecoveryGroupPreActionArgs) ToOutput(ctx context.Context) pulumix.Output[GetReplicationRecoveryPlanRecoveryGroupPreAction] {
-	return pulumix.Output[GetReplicationRecoveryPlanRecoveryGroupPreAction]{
-		OutputState: i.ToGetReplicationRecoveryPlanRecoveryGroupPreActionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetReplicationRecoveryPlanRecoveryGroupPreActionArrayInput is an input type that accepts GetReplicationRecoveryPlanRecoveryGroupPreActionArray and GetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput values.
 // You can construct a concrete instance of `GetReplicationRecoveryPlanRecoveryGroupPreActionArrayInput` via:
 //
@@ -4428,12 +3869,6 @@ func (i GetReplicationRecoveryPlanRecoveryGroupPreActionArray) ToGetReplicationR
 	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput)
 }
 
-func (i GetReplicationRecoveryPlanRecoveryGroupPreActionArray) ToOutput(ctx context.Context) pulumix.Output[[]GetReplicationRecoveryPlanRecoveryGroupPreAction] {
-	return pulumix.Output[[]GetReplicationRecoveryPlanRecoveryGroupPreAction]{
-		OutputState: i.ToGetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetReplicationRecoveryPlanRecoveryGroupPreActionOutput struct{ *pulumi.OutputState }
 
 func (GetReplicationRecoveryPlanRecoveryGroupPreActionOutput) ElementType() reflect.Type {
@@ -4446,12 +3881,6 @@ func (o GetReplicationRecoveryPlanRecoveryGroupPreActionOutput) ToGetReplication
 
 func (o GetReplicationRecoveryPlanRecoveryGroupPreActionOutput) ToGetReplicationRecoveryPlanRecoveryGroupPreActionOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupPreActionOutput {
 	return o
-}
-
-func (o GetReplicationRecoveryPlanRecoveryGroupPreActionOutput) ToOutput(ctx context.Context) pulumix.Output[GetReplicationRecoveryPlanRecoveryGroupPreAction] {
-	return pulumix.Output[GetReplicationRecoveryPlanRecoveryGroupPreAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The fabric location of runbook or script.
@@ -4508,12 +3937,6 @@ func (o GetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput) ToGetReplic
 	return o
 }
 
-func (o GetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetReplicationRecoveryPlanRecoveryGroupPreAction] {
-	return pulumix.Output[[]GetReplicationRecoveryPlanRecoveryGroupPreAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput) Index(i pulumi.IntInput) GetReplicationRecoveryPlanRecoveryGroupPreActionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetReplicationRecoveryPlanRecoveryGroupPreAction {
 		return vs[0].([]GetReplicationRecoveryPlanRecoveryGroupPreAction)[vs[1].(int)]
@@ -4532,12 +3955,6 @@ func (i GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArray) ToGetReplic
 
 func (i GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArray) ToGetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput)
-}
-
-func (i GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArray) ToOutput(ctx context.Context) pulumix.Output[[][]GetReplicationRecoveryPlanRecoveryGroupPostAction] {
-	return pulumix.Output[[][]GetReplicationRecoveryPlanRecoveryGroupPostAction]{
-		OutputState: i.ToGetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayInput is an input type that accepts GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArray and GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput values.
@@ -4565,12 +3982,6 @@ func (o GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput) ToGet
 	return o
 }
 
-func (o GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[][]GetReplicationRecoveryPlanRecoveryGroupPostAction] {
-	return pulumix.Output[[][]GetReplicationRecoveryPlanRecoveryGroupPostAction]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GetReplicationRecoveryPlanRecoveryGroupPostActionArrayArrayOutput) Index(i pulumi.IntInput) GetReplicationRecoveryPlanRecoveryGroupPostActionArrayOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) []GetReplicationRecoveryPlanRecoveryGroupPostAction {
 		return vs[0].([][]GetReplicationRecoveryPlanRecoveryGroupPostAction)[vs[1].(int)]
@@ -4589,12 +4000,6 @@ func (i GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArray) ToGetReplica
 
 func (i GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArray) ToGetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput)
-}
-
-func (i GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArray) ToOutput(ctx context.Context) pulumix.Output[[][]GetReplicationRecoveryPlanRecoveryGroupPreAction] {
-	return pulumix.Output[[][]GetReplicationRecoveryPlanRecoveryGroupPreAction]{
-		OutputState: i.ToGetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayInput is an input type that accepts GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArray and GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput values.
@@ -4620,12 +4025,6 @@ func (o GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput) ToGetR
 
 func (o GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput) ToGetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutputWithContext(ctx context.Context) GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput {
 	return o
-}
-
-func (o GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[][]GetReplicationRecoveryPlanRecoveryGroupPreAction] {
-	return pulumix.Output[[][]GetReplicationRecoveryPlanRecoveryGroupPreAction]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetReplicationRecoveryPlanRecoveryGroupPreActionArrayArrayOutput) Index(i pulumi.IntInput) GetReplicationRecoveryPlanRecoveryGroupPreActionArrayOutput {

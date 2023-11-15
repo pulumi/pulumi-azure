@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an iot security solution.
@@ -306,12 +305,6 @@ func (i *SecuritySolution) ToSecuritySolutionOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(SecuritySolutionOutput)
 }
 
-func (i *SecuritySolution) ToOutput(ctx context.Context) pulumix.Output[*SecuritySolution] {
-	return pulumix.Output[*SecuritySolution]{
-		OutputState: i.ToSecuritySolutionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SecuritySolutionArrayInput is an input type that accepts SecuritySolutionArray and SecuritySolutionArrayOutput values.
 // You can construct a concrete instance of `SecuritySolutionArrayInput` via:
 //
@@ -335,12 +328,6 @@ func (i SecuritySolutionArray) ToSecuritySolutionArrayOutput() SecuritySolutionA
 
 func (i SecuritySolutionArray) ToSecuritySolutionArrayOutputWithContext(ctx context.Context) SecuritySolutionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecuritySolutionArrayOutput)
-}
-
-func (i SecuritySolutionArray) ToOutput(ctx context.Context) pulumix.Output[[]*SecuritySolution] {
-	return pulumix.Output[[]*SecuritySolution]{
-		OutputState: i.ToSecuritySolutionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SecuritySolutionMapInput is an input type that accepts SecuritySolutionMap and SecuritySolutionMapOutput values.
@@ -368,12 +355,6 @@ func (i SecuritySolutionMap) ToSecuritySolutionMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SecuritySolutionMapOutput)
 }
 
-func (i SecuritySolutionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecuritySolution] {
-	return pulumix.Output[map[string]*SecuritySolution]{
-		OutputState: i.ToSecuritySolutionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SecuritySolutionOutput struct{ *pulumi.OutputState }
 
 func (SecuritySolutionOutput) ElementType() reflect.Type {
@@ -386,12 +367,6 @@ func (o SecuritySolutionOutput) ToSecuritySolutionOutput() SecuritySolutionOutpu
 
 func (o SecuritySolutionOutput) ToSecuritySolutionOutputWithContext(ctx context.Context) SecuritySolutionOutput {
 	return o
-}
-
-func (o SecuritySolutionOutput) ToOutput(ctx context.Context) pulumix.Output[*SecuritySolution] {
-	return pulumix.Output[*SecuritySolution]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `additionalWorkspace` block as defined below.
@@ -487,12 +462,6 @@ func (o SecuritySolutionArrayOutput) ToSecuritySolutionArrayOutputWithContext(ct
 	return o
 }
 
-func (o SecuritySolutionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SecuritySolution] {
-	return pulumix.Output[[]*SecuritySolution]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SecuritySolutionArrayOutput) Index(i pulumi.IntInput) SecuritySolutionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecuritySolution {
 		return vs[0].([]*SecuritySolution)[vs[1].(int)]
@@ -511,12 +480,6 @@ func (o SecuritySolutionMapOutput) ToSecuritySolutionMapOutput() SecuritySolutio
 
 func (o SecuritySolutionMapOutput) ToSecuritySolutionMapOutputWithContext(ctx context.Context) SecuritySolutionMapOutput {
 	return o
-}
-
-func (o SecuritySolutionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SecuritySolution] {
-	return pulumix.Output[map[string]*SecuritySolution]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SecuritySolutionMapOutput) MapIndex(k pulumi.StringInput) SecuritySolutionOutput {

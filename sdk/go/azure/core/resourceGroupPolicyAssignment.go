@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Resource Group Policy Assignment.
@@ -321,12 +320,6 @@ func (i *ResourceGroupPolicyAssignment) ToResourceGroupPolicyAssignmentOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyAssignmentOutput)
 }
 
-func (i *ResourceGroupPolicyAssignment) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroupPolicyAssignment] {
-	return pulumix.Output[*ResourceGroupPolicyAssignment]{
-		OutputState: i.ToResourceGroupPolicyAssignmentOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ResourceGroupPolicyAssignmentArrayInput is an input type that accepts ResourceGroupPolicyAssignmentArray and ResourceGroupPolicyAssignmentArrayOutput values.
 // You can construct a concrete instance of `ResourceGroupPolicyAssignmentArrayInput` via:
 //
@@ -350,12 +343,6 @@ func (i ResourceGroupPolicyAssignmentArray) ToResourceGroupPolicyAssignmentArray
 
 func (i ResourceGroupPolicyAssignmentArray) ToResourceGroupPolicyAssignmentArrayOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyAssignmentArrayOutput)
-}
-
-func (i ResourceGroupPolicyAssignmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceGroupPolicyAssignment] {
-	return pulumix.Output[[]*ResourceGroupPolicyAssignment]{
-		OutputState: i.ToResourceGroupPolicyAssignmentArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ResourceGroupPolicyAssignmentMapInput is an input type that accepts ResourceGroupPolicyAssignmentMap and ResourceGroupPolicyAssignmentMapOutput values.
@@ -383,12 +370,6 @@ func (i ResourceGroupPolicyAssignmentMap) ToResourceGroupPolicyAssignmentMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceGroupPolicyAssignmentMapOutput)
 }
 
-func (i ResourceGroupPolicyAssignmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceGroupPolicyAssignment] {
-	return pulumix.Output[map[string]*ResourceGroupPolicyAssignment]{
-		OutputState: i.ToResourceGroupPolicyAssignmentMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ResourceGroupPolicyAssignmentOutput struct{ *pulumi.OutputState }
 
 func (ResourceGroupPolicyAssignmentOutput) ElementType() reflect.Type {
@@ -401,12 +382,6 @@ func (o ResourceGroupPolicyAssignmentOutput) ToResourceGroupPolicyAssignmentOutp
 
 func (o ResourceGroupPolicyAssignmentOutput) ToResourceGroupPolicyAssignmentOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentOutput {
 	return o
-}
-
-func (o ResourceGroupPolicyAssignmentOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroupPolicyAssignment] {
-	return pulumix.Output[*ResourceGroupPolicyAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A description which should be used for this Policy Assignment.
@@ -503,12 +478,6 @@ func (o ResourceGroupPolicyAssignmentArrayOutput) ToResourceGroupPolicyAssignmen
 	return o
 }
 
-func (o ResourceGroupPolicyAssignmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceGroupPolicyAssignment] {
-	return pulumix.Output[[]*ResourceGroupPolicyAssignment]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ResourceGroupPolicyAssignmentArrayOutput) Index(i pulumi.IntInput) ResourceGroupPolicyAssignmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceGroupPolicyAssignment {
 		return vs[0].([]*ResourceGroupPolicyAssignment)[vs[1].(int)]
@@ -527,12 +496,6 @@ func (o ResourceGroupPolicyAssignmentMapOutput) ToResourceGroupPolicyAssignmentM
 
 func (o ResourceGroupPolicyAssignmentMapOutput) ToResourceGroupPolicyAssignmentMapOutputWithContext(ctx context.Context) ResourceGroupPolicyAssignmentMapOutput {
 	return o
-}
-
-func (o ResourceGroupPolicyAssignmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceGroupPolicyAssignment] {
-	return pulumix.Output[map[string]*ResourceGroupPolicyAssignment]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ResourceGroupPolicyAssignmentMapOutput) MapIndex(k pulumi.StringInput) ResourceGroupPolicyAssignmentOutput {

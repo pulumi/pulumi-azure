@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Network Function Collector Policy.
@@ -167,12 +166,6 @@ func (i *CollectorPolicy) ToCollectorPolicyOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(CollectorPolicyOutput)
 }
 
-func (i *CollectorPolicy) ToOutput(ctx context.Context) pulumix.Output[*CollectorPolicy] {
-	return pulumix.Output[*CollectorPolicy]{
-		OutputState: i.ToCollectorPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CollectorPolicyArrayInput is an input type that accepts CollectorPolicyArray and CollectorPolicyArrayOutput values.
 // You can construct a concrete instance of `CollectorPolicyArrayInput` via:
 //
@@ -196,12 +189,6 @@ func (i CollectorPolicyArray) ToCollectorPolicyArrayOutput() CollectorPolicyArra
 
 func (i CollectorPolicyArray) ToCollectorPolicyArrayOutputWithContext(ctx context.Context) CollectorPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CollectorPolicyArrayOutput)
-}
-
-func (i CollectorPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*CollectorPolicy] {
-	return pulumix.Output[[]*CollectorPolicy]{
-		OutputState: i.ToCollectorPolicyArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CollectorPolicyMapInput is an input type that accepts CollectorPolicyMap and CollectorPolicyMapOutput values.
@@ -229,12 +216,6 @@ func (i CollectorPolicyMap) ToCollectorPolicyMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(CollectorPolicyMapOutput)
 }
 
-func (i CollectorPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CollectorPolicy] {
-	return pulumix.Output[map[string]*CollectorPolicy]{
-		OutputState: i.ToCollectorPolicyMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CollectorPolicyOutput struct{ *pulumi.OutputState }
 
 func (CollectorPolicyOutput) ElementType() reflect.Type {
@@ -247,12 +228,6 @@ func (o CollectorPolicyOutput) ToCollectorPolicyOutput() CollectorPolicyOutput {
 
 func (o CollectorPolicyOutput) ToCollectorPolicyOutputWithContext(ctx context.Context) CollectorPolicyOutput {
 	return o
-}
-
-func (o CollectorPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*CollectorPolicy] {
-	return pulumix.Output[*CollectorPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `ipfxEmission` block as defined below. Changing this forces a new Network Function Collector Policy to be created.
@@ -299,12 +274,6 @@ func (o CollectorPolicyArrayOutput) ToCollectorPolicyArrayOutputWithContext(ctx 
 	return o
 }
 
-func (o CollectorPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CollectorPolicy] {
-	return pulumix.Output[[]*CollectorPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CollectorPolicyArrayOutput) Index(i pulumi.IntInput) CollectorPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CollectorPolicy {
 		return vs[0].([]*CollectorPolicy)[vs[1].(int)]
@@ -323,12 +292,6 @@ func (o CollectorPolicyMapOutput) ToCollectorPolicyMapOutput() CollectorPolicyMa
 
 func (o CollectorPolicyMapOutput) ToCollectorPolicyMapOutputWithContext(ctx context.Context) CollectorPolicyMapOutput {
 	return o
-}
-
-func (o CollectorPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CollectorPolicy] {
-	return pulumix.Output[map[string]*CollectorPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CollectorPolicyMapOutput) MapIndex(k pulumi.StringInput) CollectorPolicyOutput {
